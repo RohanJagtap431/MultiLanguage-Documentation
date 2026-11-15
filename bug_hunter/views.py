@@ -139,6 +139,8 @@ def play_game(request, session_id):
         id=session_id,
         user=request.user
     )
+    
+   
 
     if game.status == "completed":
         return redirect(
