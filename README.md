@@ -1,43 +1,52 @@
 # 🌐 MultiLanguage Documentation
 
-A multilingual documentation platform built with Django to provide structured programming guides, tutorials, and learning resources in multiple languages.
+A multilingual Django-based documentation and developer learning platform designed to help students and developers learn programming through structured documentation, tutorials, and interactive coding challenges.
 
-## 🚀 Live Demo
+## 🚀 Project Overview
 
-**Website:** https://multilanguage-documentation.onrender.com/
-
-**GitHub Repository:** https://github.com/RohanJagtap431/MultiLanguage-Documentation
-
-## 📌 About The Project
-
-MultiLanguage Documentation is a web-based learning platform designed to make programming documentation accessible to learners through a structured and multilingual experience.
-
-The project uses Django for backend development and provides user registration and login functionality.
+MultiLanguage Documentation aims to make programming knowledge easier to understand and accessible through organized learning resources and interactive features.
 
 ## ✨ Features
 
-- User Registration
-- User Login
-- Django-based backend
-- Structured documentation platform
-- Multilingual learning platform
-- Responsive web interface
-- PostgreSQL database integration
-- Secure environment-based configuration
+### 📚 Documentation System
+- Structured programming documentation.
+- Organized learning resources and tutorials.
+- Multilingual learning experience.
+- Easy navigation between topics.
 
-## 🛠️ Tech Stack
+### 👤 User Authentication
+- User registration and login.
+- User-specific access to platform features.
+- Account-based learning experience.
 
-| Technology | Purpose |
-|---|---|
-| Python | Backend Programming |
-| Django | Web Framework |
-| HTML | Page Structure |
-| CSS | Styling |
-| JavaScript | Frontend Interactions |
-| PostgreSQL | Database |
-| Neon | Cloud Database Hosting |
-| Render | Web Application Hosting |
-| Git & GitHub | Version Control |
+### 🕵️ Code Detective
+An interactive coding challenge module where users can test their programming knowledge.
+
+- Bug Hunter challenges.
+- Mixed Challenge mode.
+- Multiple programming languages.
+- Easy, Medium and Hard difficulty levels.
+- 10 questions per challenge.
+- 10-minute game timer.
+- Automatic score calculation.
+- Result and performance summary.
+
+### 🏆 Leaderboard & Ranking
+- Global player leaderboard.
+- Player XP and ranking.
+- Games played and correct answers.
+- Personal rank display.
+- Recent game results.
+
+## 🛠️ Technologies Used
+
+- Python
+- Django
+- HTML5
+- CSS3
+- JavaScript
+- Django Templates
+- Database configured through Django
 
 ## 📂 Project Structure
 
@@ -45,19 +54,27 @@ The project uses Django for backend development and provides user registration a
 MultiLanguage-Documentation/
 │
 ├── accounts/
+│
 ├── config/
+│
 ├── documentation/
-├── static/
+│
+├── bug_hunter/
+│
 ├── templates/
 │
-├── .gitignore
+├── static/
+│
 ├── manage.py
-└── requirements.txt
+│
+├── requirements.txt
+│
+└── .gitignore
 ```
 
 ## ⚙️ Installation & Setup
 
-### 1. Clone Repository
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/RohanJagtap431/MultiLanguage-Documentation.git
@@ -89,22 +106,16 @@ venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 6. Configure Environment Variables
-
-Create a `.env` file in the project root directory.
-
-```env
-SECRET_KEY=your-secret-key
-DEBUG=True
-ALLOWED_HOSTS=127.0.0.1,localhost
-```
-
-For PostgreSQL, configure `DATABASE_URL` with your database connection string.
-
-### 7. Apply Migrations
+### 6. Apply Migrations
 
 ```bash
 python manage.py migrate
+```
+
+### 7. Create Superuser
+
+```bash
+python manage.py createsuperuser
 ```
 
 ### 8. Run Development Server
@@ -115,31 +126,38 @@ python manage.py runserver
 
 Open in your browser:
 
+```text
 http://127.0.0.1:8000/
+```
 
-## 🌍 Deployment
+## 🎯 Project Goals
 
-The application is deployed using:
+- Make programming documentation easier to understand.
+- Provide an interactive coding learning experience.
+- Help users improve their debugging skills.
+- Track coding performance through XP and rankings.
+- Build a useful learning platform for developers.
 
-- **Web Hosting:** Render
-- **Database Hosting:** Neon PostgreSQL
+## 🔮 Future Enhancements
 
-Live URL: https://multilanguage-documentation.onrender.com/
-
-## 🔐 Security
-
-- Environment variables for sensitive configuration
-- Secret keys are not stored in source code
-- Production debug mode disabled
-- HTTPS security settings
-- Environment-based database configuration
+- AI-powered learning assistant.
+- Online code playground.
+- API testing laboratory.
+- Personal learning roadmap.
+- Developer community.
+- Smart learning analytics.
 
 ## 👨‍💻 Developer
 
-**Rohan Jagtap**
+**Rohan Chandrakant Jagtap**
 
-- GitHub: https://github.com/RohanJagtap431
+Python & Django Backend Developer
 
-## 📄 License
+- GitHub: [RohanJagtap431](https://github.com/RohanJagtap431)
+- Repository: [MultiLanguage Documentation](https://github.com/RohanJagtap431/MultiLanguage-Documentation)
 
-This project is currently available for educational and learning purposes. No separate open-source license has been specified.
+---
+
+⭐ If you find this project useful, consider giving it a star!
+
+*Built with Python and Django.*
