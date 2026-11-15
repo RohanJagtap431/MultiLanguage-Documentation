@@ -1,52 +1,79 @@
 # 🌐 MultiLanguage Documentation
 
-A multilingual Django-based documentation and developer learning platform designed to help students and developers learn programming through structured documentation, tutorials, and interactive coding challenges.
+**A Multilingual Documentation & Developer Learning Platform**
 
-## 🚀 Project Overview
+MultiLanguage Documentation is a Django-based web application designed to help students and developers learn programming through structured documentation, tutorials, and interactive coding challenges.
 
-MultiLanguage Documentation aims to make programming knowledge easier to understand and accessible through organized learning resources and interactive features.
+## 🔗 Project Links
+
+🌍 **Live Website:** https://multilanguage-documentation.onrender.com/
+
+💻 **GitHub Repository:** https://github.com/RohanJagtap431/MultiLanguage-Documentation
+
+---
+
+## 🚀 Overview
+
+The platform provides an organized learning environment where users can explore programming documentation, improve their coding knowledge, and practice debugging through interactive challenges.
+
+It combines documentation, user authentication, coding challenges, performance tracking, and player rankings in one platform.
 
 ## ✨ Features
 
-### 📚 Documentation System
+### 📚 1. Documentation System
 - Structured programming documentation.
 - Organized learning resources and tutorials.
 - Multilingual learning experience.
 - Easy navigation between topics.
 
-### 👤 User Authentication
+### 👤 2. User Authentication
 - User registration and login.
-- User-specific access to platform features.
-- Account-based learning experience.
+- Custom user authentication system.
+- User-specific platform access.
 
-### 🕵️ Code Detective
-An interactive coding challenge module where users can test their programming knowledge.
+### 🕵️ 3. Code Detective
 
-- Bug Hunter challenges.
-- Mixed Challenge mode.
+An interactive coding challenge module designed to improve programming and debugging skills.
+
+- Bug Hunter Mode.
+- Mixed Challenge Mode.
 - Multiple programming languages.
 - Easy, Medium and Hard difficulty levels.
 - 10 questions per challenge.
-- 10-minute game timer.
+- 10-minute countdown timer.
 - Automatic score calculation.
 - Result and performance summary.
 
-### 🏆 Leaderboard & Ranking
+### 🏆 4. Leaderboard & Ranking
 - Global player leaderboard.
-- Player XP and ranking.
-- Games played and correct answers.
+- Player XP and ranking system.
+- Games played statistics.
+- Correct answers tracking.
 - Personal rank display.
 - Recent game results.
 
+### 📊 5. Performance Tracking
+- Total XP tracking.
+- Games played.
+- Correct answers.
+- Accuracy calculation.
+- Individual game results.
+
+---
+
 ## 🛠️ Technologies Used
 
-- Python
-- Django
-- HTML5
-- CSS3
-- JavaScript
-- Django Templates
-- Database configured through Django
+| Technology | Purpose |
+|---|---|
+| Python | Backend programming |
+| Django | Web framework |
+| HTML5 | Structure |
+| CSS3 | Styling and responsive UI |
+| JavaScript | Interactive functionality |
+| Django Templates | Dynamic frontend |
+| Database | Data storage through Django ORM |
+| Git & GitHub | Version control |
+| Render | Deployment |
 
 ## 📂 Project Structure
 
@@ -60,19 +87,24 @@ MultiLanguage-Documentation/
 ├── documentation/
 │
 ├── bug_hunter/
+│   ├── models.py
+│   ├── views.py
+│   ├── urls.py
+│   └── admin.py
 │
 ├── templates/
 │
 ├── static/
 │
 ├── manage.py
-│
 ├── requirements.txt
-│
-└── .gitignore
+├── .gitignore
+└── README.md
 ```
 
 ## ⚙️ Installation & Setup
+
+Follow these steps to run the project locally.
 
 ### 1. Clone the Repository
 
@@ -80,7 +112,7 @@ MultiLanguage-Documentation/
 git clone https://github.com/RohanJagtap431/MultiLanguage-Documentation.git
 ```
 
-### 2. Open Project Folder
+### 2. Navigate to Project Folder
 
 ```bash
 cd MultiLanguage-Documentation
@@ -106,7 +138,7 @@ venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 6. Apply Migrations
+### 6. Apply Database Migrations
 
 ```bash
 python manage.py migrate
@@ -118,23 +150,23 @@ python manage.py migrate
 python manage.py createsuperuser
 ```
 
-### 8. Run Development Server
+### 8. Start Development Server
 
 ```bash
 python manage.py runserver
 ```
 
-Open in your browser:
+Open your browser:
 
-```text
 http://127.0.0.1:8000/
-```
 
-## 🎯 Project Goals
+---
+
+## 🎯 Project Objectives
 
 - Make programming documentation easier to understand.
 - Provide an interactive coding learning experience.
-- Help users improve their debugging skills.
+- Improve debugging and problem-solving skills.
 - Track coding performance through XP and rankings.
 - Build a useful learning platform for developers.
 
@@ -146,6 +178,9 @@ http://127.0.0.1:8000/
 - Personal learning roadmap.
 - Developer community.
 - Smart learning analytics.
+- AI-based documentation assistance.
+
+---
 
 ## 👨‍💻 Developer
 
@@ -153,11 +188,12 @@ http://127.0.0.1:8000/
 
 Python & Django Backend Developer
 
-- GitHub: [RohanJagtap431](https://github.com/RohanJagtap431)
-- Repository: [MultiLanguage Documentation](https://github.com/RohanJagtap431/MultiLanguage-Documentation)
+- **GitHub:** https://github.com/RohanJagtap431
+- **Repository:** https://github.com/RohanJagtap431/MultiLanguage-Documentation
+- **Live Website:** https://multilanguage-documentation.onrender.com/
 
 ---
 
-⭐ If you find this project useful, consider giving it a star!
+⭐ If you find this project useful, consider giving the repository a star!
 
-*Built with Python and Django.*
+**Built with Python & Django.**
