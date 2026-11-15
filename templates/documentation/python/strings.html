@@ -1,0 +1,723 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Python Strings | Roman Marathi Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/python/strings.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+    <div class="lesson-header">
+        <span class="lesson-label">PYTHON TUTORIAL</span>
+        <h1>10. Python Strings</h1>
+        <p>
+            Python madhye text data store karne, access karne,
+            slice karne ani strings var operations perform karne shikuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 25-30 Minutes</span>
+        </div>
+    </div>
+
+    <!-- Section 1 -->
+    <section class="lesson-section">
+        <h2>1. What is a String?</h2>
+
+        <p>
+            String mhanje characters cha group kiwa text data.
+            Python madhye string cha use words, sentences, names,
+            emails ani messages store karanyasathi hoto.
+        </p>
+
+        <div class="info-box">
+            <strong>Simple Definition:</strong>
+            A string is a sequence of characters enclosed in quotes.
+        </div>
+
+        <p>String madhye letters, numbers ani symbols asu shaktat.</p>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>name = "Rohan"
+city = "Kolhapur"
+message = "Welcome to Python!"
+mobile = "9876543210"
+
+print(name)
+print(city)
+print(message)
+print(mobile)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Rohan
+Kolhapur
+Welcome to Python!
+9876543210</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Mobile number sarkha data string madhye store karne useful aahe,
+            karan tyavar mathematical calculation karaychi naste.
+        </div>
+    </section>
+
+    <!-- Section 2 -->
+    <section class="lesson-section">
+        <h2>2. Creating Strings</h2>
+
+        <p>
+            Python madhye string create karanyasathi single quotes,
+            double quotes kiwa triple quotes vapartat.
+        </p>
+
+        <h3>1. Single Quotes</h3>
+
+        <div class="code-box">
+            <pre><code>name = 'Rohan'
+
+print(name)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Rohan</pre>
+        </div>
+
+        <h3>2. Double Quotes</h3>
+
+        <div class="code-box">
+            <pre><code>language = "Python"
+
+print(language)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Python</pre>
+        </div>
+
+        <h3>3. Triple Quotes</h3>
+
+        <p>
+            Multiple lines madhye string lihinyasathi triple quotes
+            vapartat.
+        </p>
+
+        <div class="code-box">
+            <pre><code>message = """Welcome to
+Python Programming
+Language"""
+
+print(message)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Welcome to
+Python Programming
+Language</pre>
+        </div>
+    </section>
+
+    <!-- Section 3 -->
+    <section class="lesson-section">
+        <h2>3. String Indexing</h2>
+
+        <p>
+            String madhil pratyek character la ek index number asto.
+            Python madhye indexing 0 pasun suru hote.
+        </p>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>name = "PYTHON"
+
+print(name[0])
+print(name[1])
+print(name[2])
+print(name[5])</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>P
+Y
+T
+N</pre>
+        </div>
+
+        <h3>Understanding Index Positions</h3>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Character</th>
+                        <th>P</th>
+                        <th>Y</th>
+                        <th>T</th>
+                        <th>H</th>
+                        <th>O</th>
+                        <th>N</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>Positive Index</th>
+                        <td>0</td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <th>Negative Index</th>
+                        <td>-6</td>
+                        <td>-5</td>
+                        <td>-4</td>
+                        <td>-3</td>
+                        <td>-2</td>
+                        <td>-1</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Negative Indexing</h3>
+
+        <p>
+            String chya shevatchya character pasun access karanyasathi
+            negative indexing vapartat.
+        </p>
+
+        <div class="code-box">
+            <pre><code>name = "PYTHON"
+
+print(name[-1])
+print(name[-2])
+print(name[-3])</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>N
+O
+H</pre>
+        </div>
+    </section>
+
+    <!-- Section 4 -->
+    <section class="lesson-section">
+        <h2>4. String Slicing</h2>
+
+        <p>
+            String madhun specific part kiwa characters cha group
+            milavnyasathi slicing vapartat.
+        </p>
+
+        <div class="info-box">
+            <strong>Syntax:</strong>
+            <pre>string[start : stop : step]</pre>
+        </div>
+
+        <ul>
+            <li><strong>start:</strong> Kontya index pasun suru karayche.</li>
+            <li><strong>stop:</strong> Kontya index chya aadhi thambayche.</li>
+            <li><strong>step:</strong> Kiti index gap ne characters ghyayche.</li>
+        </ul>
+
+        <h3>Example 1 – Basic Slicing</h3>
+
+        <div class="code-box">
+            <pre><code>text = "PYTHON"
+
+print(text[0:3])
+print(text[2:5])</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>PYT
+THO</pre>
+        </div>
+
+        <h3>Example 2 – Start Index Omit Karne</h3>
+
+        <div class="code-box">
+            <pre><code>text = "PYTHON"
+
+print(text[:3])</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>PYT</pre>
+        </div>
+
+        <h3>Example 3 – Stop Index Omit Karne</h3>
+
+        <div class="code-box">
+            <pre><code>text = "PYTHON"
+
+print(text[2:])</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>THON</pre>
+        </div>
+
+        <h3>Example 4 – Negative Slicing</h3>
+
+        <div class="code-box">
+            <pre><code>text = "PYTHON"
+
+print(text[-4:-1])</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>THO</pre>
+        </div>
+
+        <h3>Example 5 – Step Slicing</h3>
+
+        <div class="code-box">
+            <pre><code>text = "PYTHON"
+
+print(text[::2])</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>PTO</pre>
+        </div>
+
+        <h3>Example 6 – Reverse String</h3>
+
+        <div class="code-box">
+            <pre><code>text = "PYTHON"
+
+print(text[::-1])</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>NOHTYP</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            <code>text[::-1]</code> hi string reverse karanyachi
+            ek simple Python technique aahe.
+        </div>
+    </section>
+
+    <!-- Section 5 -->
+    <section class="lesson-section">
+        <h2>5. String Length – len()</h2>
+
+        <p>
+            String madhye kiti characters aahet he check karanyasathi
+            <code>len()</code> function vapartat.
+        </p>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>name = "Rohan"
+
+print(len(name))</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>5</pre>
+        </div>
+
+        <h3>Length with Spaces</h3>
+
+        <div class="code-box">
+            <pre><code>message = "Hello World"
+
+print(len(message))</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>11</pre>
+        </div>
+
+        <p>
+            Space suddha ek character mhanun count hoto.
+        </p>
+    </section>
+
+    <!-- Section 6 -->
+    <section class="lesson-section">
+        <h2>6. String Concatenation</h2>
+
+        <p>
+            Don kiwa adhik strings ekatra join karanyachya process la
+            String Concatenation mhantat.
+        </p>
+
+        <p>
+            Concatenation sathi <code>+</code> operator vapartat.
+        </p>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>first_name = "Rohan"
+last_name = "Jagtap"
+
+full_name = first_name + " " + last_name
+
+print(full_name)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Rohan Jagtap</pre>
+        </div>
+
+        <div class="warning-box">
+            <strong>Important:</strong>
+            String ani integer direct + operator ne join karta yet nahit.
+            Integer la str() madhye convert kara kiwa f-string vapra.
+        </div>
+    </section>
+
+    <!-- Section 7 -->
+    <section class="lesson-section">
+        <h2>7. String Repetition</h2>
+
+        <p>
+            Ekach string anek vela repeat karanyasathi
+            <code>*</code> operator vapartat.
+        </p>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>text = "Python "
+
+print(text * 3)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Python Python Python </pre>
+        </div>
+    </section>
+
+    <!-- Section 8 -->
+    <section class="lesson-section">
+        <h2>8. Strings are Immutable</h2>
+
+        <p>
+            Python madhye strings immutable astat. Mhanje string
+            create kelyanantar tyatil character directly change
+            karta yet nahi.
+        </p>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>name = "Python"
+
+name[0] = "J"
+
+print(name)</code></pre>
+        </div>
+
+        <div class="error-box">
+            <strong>Error:</strong>
+            TypeError: 'str' object does not support item assignment
+        </div>
+
+        <p>
+            String madhil character change karaycha asel tar navin
+            string create karavi lagte.
+        </p>
+
+        <div class="code-box">
+            <div class="code-title">Correct Way</div>
+            <pre><code>name = "Python"
+
+new_name = "J" + name[1:]
+
+print(new_name)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Jython</pre>
+        </div>
+    </section>
+
+    <!-- Section 9 -->
+    <section class="lesson-section">
+        <h2>9. Checking String Membership</h2>
+
+        <p>
+            String madhye specific word kiwa character present aahe
+            ka check karanyasathi <code>in</code> ani
+            <code>not in</code> operators vapartat.
+        </p>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>message = "Python Programming"
+
+print("Python" in message)
+print("Java" in message)
+print("Java" not in message)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>True
+False
+True</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Remember:</strong>
+            String membership check case-sensitive asto.
+            "Python" ani "python" he vegale aahet.
+        </div>
+    </section>
+
+    <!-- Section 10 -->
+    <section class="lesson-section">
+        <h2>10. Escape Characters</h2>
+
+        <p>
+            String madhye special characters kiwa formatting use
+            karanyasathi Escape Characters vapartat.
+        </p>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Escape Character</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>\n</td>
+                        <td>New line</td>
+                    </tr>
+                    <tr>
+                        <td>\t</td>
+                        <td>Tab space</td>
+                    </tr>
+                    <tr>
+                        <td>\\</td>
+                        <td>Backslash</td>
+                    </tr>
+                    <tr>
+                        <td>\"</td>
+                        <td>Double quote</td>
+                    </tr>
+                    <tr>
+                        <td>\'</td>
+                        <td>Single quote</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Example – New Line</h3>
+
+        <div class="code-box">
+            <pre><code>print("Hello\nPython")</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Hello
+Python</pre>
+        </div>
+
+        <h3>Example – Tab Space</h3>
+
+        <div class="code-box">
+            <pre><code>print("Name:\tRohan")</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Name:   Rohan</pre>
+        </div>
+    </section>
+
+    <!-- Section 11 -->
+    <section class="lesson-section">
+        <h2>11. Common Beginner Mistakes</h2>
+
+        <div class="error-card">
+            <h3>Mistake 1: Wrong Index</h3>
+            <pre><code>name = "Python"
+
+print(name[10])</code></pre>
+            <p>
+                <strong>Error:</strong> IndexError
+            </p>
+            <p>
+                String madhye index 10 available nahi.
+            </p>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 2: String Character Change Karne</h3>
+            <pre><code>name = "Python"
+name[0] = "J"</code></pre>
+            <p>
+                String immutable aslyamule character directly change
+                karta yet nahi.
+            </p>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 3: String and Integer Add Karne</h3>
+            <pre><code>age = 20
+
+print("Age: " + age)</code></pre>
+            <p>
+                String ani integer direct concatenate karta yet nahit.
+                str() kiwa f-string vapra.
+            </p>
+        </div>
+    </section>
+
+    <!-- Section 12 -->
+    <section class="lesson-section">
+        <h2>12. Quick Revision</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Concept</th>
+                        <th>Use</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>String</td>
+                        <td>Text store karne</td>
+                        <td>"Python"</td>
+                    </tr>
+                    <tr>
+                        <td>Indexing</td>
+                        <td>Character access karne</td>
+                        <td>text[0]</td>
+                    </tr>
+                    <tr>
+                        <td>Slicing</td>
+                        <td>String cha part milavane</td>
+                        <td>text[0:3]</td>
+                    </tr>
+                    <tr>
+                        <td>len()</td>
+                        <td>String length check karne</td>
+                        <td>len(text)</td>
+                    </tr>
+                    <tr>
+                        <td>Concatenation</td>
+                        <td>Strings join karne</td>
+                        <td>a + b</td>
+                    </tr>
+                    <tr>
+                        <td>Repetition</td>
+                        <td>String repeat karne</td>
+                        <td>text * 3</td>
+                    </tr>
+                    <tr>
+                        <td>in</td>
+                        <td>Value present aahe ka check karne</td>
+                        <td>"Py" in text</td>
+                    </tr>
+                    <tr>
+                        <td>Immutable</td>
+                        <td>String directly modify karta yet nahi</td>
+                        <td>text[0] = "J"</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Practice -->
+    <section class="practice-section">
+        <h2>13. Practice Questions</h2>
+
+        <p>
+            Khalil questions swatah code lihun solve kara.
+        </p>
+
+        <ol>
+            <li>Swatahche nav string madhye store karun print kara.</li>
+            <li>String madhil pahila ani shevatcha character print kara.</li>
+            <li>Negative indexing vaprun last character access kara.</li>
+            <li>"Python Programming" madhun "Python" slice kara.</li>
+            <li>String chi length len() vaprun find kara.</li>
+            <li>Don strings concatenate karun full name create kara.</li>
+            <li>Ek string 5 vela repeat kara.</li>
+            <li>Slicing vaprun string reverse kara.</li>
+            <li>in operator vaprun string madhye word present aahe ka check kara.</li>
+            <li>\n ani \t escape characters cha use kara.</li>
+        </ol>
+
+        <div class="practice-task">
+            <h3>Practical Task – Personal Introduction</h3>
+
+            <p>
+                User kadun name, city ani favorite programming language
+                input ghya. f-string vaprun introduction display kara.
+                Tyachbarobar name chi length ani reverse string suddha print kara.
+            </p>
+
+            <div class="code-box">
+                <div class="code-title">Expected Output</div>
+                <pre><code>Enter your name: Rohan
+Enter your city: Kolhapur
+Enter your language: Python
+
+My name is Rohan.
+I live in Kolhapur.
+My favorite language is Python.
+Name Length: 5
+Reverse Name: nahoR</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+        <a href="{% url 'python_topic' 'operators' %}" class="nav-button back-button">
+            ← Previous: Operators
+        </a>
+
+        <a href="{% url 'python_topic' 'string-methods' %}" class="nav-button next-button">
+            Next: String Methods →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,327 @@
+
+/* =====================================
+   PYTHON STRINGS PAGE
+===================================== */
+
+.lesson-container {
+    max-width: 1050px;
+    margin: 0 auto;
+    color: #1e293b;
+}
+
+/* Header */
+
+.lesson-header {
+    margin-bottom: 35px;
+}
+
+.lesson-label {
+    color: #2563eb;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+}
+
+.lesson-header h1 {
+    font-size: 36px;
+    margin: 12px 0;
+    color: #172033;
+}
+
+.lesson-header > p {
+    color: #64748b;
+    font-size: 15px;
+    line-height: 1.8;
+    max-width: 850px;
+}
+
+.lesson-meta {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+    color: #64748b;
+    font-size: 13px;
+}
+
+/* Lesson Sections */
+
+.lesson-section {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 28px;
+    margin-bottom: 22px;
+}
+
+.lesson-section h2 {
+    font-size: 22px;
+    color: #172033;
+    margin: 0 0 18px;
+}
+
+.lesson-section h3 {
+    font-size: 16px;
+    color: #334155;
+    margin: 22px 0 12px;
+}
+
+.lesson-section p,
+.lesson-section li {
+    font-size: 15px;
+    line-height: 1.85;
+    color: #475569;
+}
+
+.lesson-section ul,
+.lesson-section ol {
+    padding-left: 22px;
+}
+
+.lesson-section li {
+    margin-bottom: 9px;
+}
+
+/* Information Boxes */
+
+.info-box,
+.important-box,
+.tip-box,
+.warning-box {
+    padding: 18px;
+    border-radius: 9px;
+    margin-top: 20px;
+    border-left: 4px solid;
+}
+
+.info-box {
+    background: #eff6ff;
+    border-color: #2563eb;
+}
+
+.info-box strong {
+    color: #1d4ed8;
+}
+
+.important-box {
+    background: #f5f3ff;
+    border-color: #7c3aed;
+}
+
+.important-box strong {
+    color: #6d28d9;
+}
+
+.tip-box {
+    background: #f0fdf4;
+    border-color: #16a34a;
+}
+
+.tip-box strong {
+    color: #15803d;
+}
+
+.warning-box {
+    background: #fffbeb;
+    border-color: #d97706;
+}
+
+.warning-box strong {
+    color: #b45309;
+}
+
+.info-box p,
+.important-box p,
+.tip-box p,
+.warning-box p {
+    margin-bottom: 0;
+}
+
+/* Code Blocks */
+
+.lesson-section pre {
+    background: #172033;
+    color: #e2e8f0;
+    padding: 20px;
+    border-radius: 10px;
+    overflow-x: auto;
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 15px 0;
+}
+
+.lesson-section pre code {
+    font-family: Consolas, monospace;
+}
+
+/* Output Box */
+
+.lesson-section .output-box {
+    background: #f1f5f9;
+    color: #166534;
+    border: 1px solid #e2e8f0;
+    padding: 18px;
+    border-radius: 10px;
+    margin: 15px 0;
+}
+
+.output-box pre {
+    background: transparent;
+    color: #166534;
+    padding: 0;
+    margin: 10px 0 0;
+}
+
+/* Error Box */
+
+.lesson-section .error-box {
+    background: #fff1f2;
+    color: #be123c;
+    border: 1px solid #fecdd3;
+    padding: 18px;
+    border-radius: 10px;
+    margin: 15px 0;
+}
+
+/* Error Cards */
+
+.error-card {
+    background: #fffafa;
+    border: 1px solid #fee2e2;
+    border-radius: 10px;
+    padding: 18px;
+    margin-top: 18px;
+}
+
+.error-card h3 {
+    margin-top: 0;
+}
+
+/* Tables */
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.lesson-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 450px;
+}
+
+.lesson-table th,
+.lesson-table td {
+    text-align: left;
+    padding: 14px;
+    border: 1px solid #e2e8f0;
+    font-size: 14px;
+}
+
+.lesson-table th {
+    background: #eff6ff;
+    color: #1d4ed8;
+}
+
+.lesson-table td {
+    color: #475569;
+}
+
+/* Practice */
+
+.practice-section {
+    background: #ffffff;
+    border: 1px solid #bfdbfe;
+    border-radius: 14px;
+    padding: 28px;
+    margin-bottom: 22px;
+}
+
+.practice-section h2 {
+    font-size: 22px;
+    color: #172033;
+    margin: 0 0 18px;
+}
+
+.practice-section p,
+.practice-section li {
+    font-size: 15px;
+    line-height: 1.85;
+    color: #475569;
+}
+
+.practice-section ol {
+    padding-left: 22px;
+}
+
+.practice-section li {
+    margin-bottom: 9px;
+}
+
+.practice-task {
+    background: #f8fafc;
+    border: 1px dashed #94a3b8;
+    border-radius: 10px;
+    padding: 18px;
+    margin-top: 20px;
+}
+
+/* Navigation */
+
+.lesson-navigation {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.nav-button {
+    display: inline-block;
+    padding: 13px 20px;
+    border-radius: 9px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.back-button {
+    color: #334155;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+}
+
+.next-button {
+    color: #ffffff;
+    background: #2563eb;
+}
+
+.nav-button:hover {
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+
+@media (max-width: 700px) {
+
+    .lesson-header h1 {
+        font-size: 27px;
+    }
+
+    .lesson-section,
+    .practice-section {
+        padding: 20px;
+    }
+
+    .lesson-section h2,
+    .practice-section h2 {
+        font-size: 19px;
+    }
+
+    .lesson-navigation {
+        flex-direction: column;
+    }
+
+    .nav-button {
+        text-align: center;
+    }
+}

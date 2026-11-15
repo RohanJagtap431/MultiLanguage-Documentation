@@ -1,0 +1,1072 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}
+HTML Links | Roman Marathi
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/html/links.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+
+    <div class="lesson-header">
+
+        <span class="lesson-label">HTML DOCUMENTATION • PAGE 06</span>
+
+        <h1>HTML Links</h1>
+
+        <p>
+            HTML madhye hyperlinks kase create karayche,
+            href attribute, absolute ani relative URLs,
+            email links, telephone links ani bookmark links
+            ya lesson madhye shikuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Beginner Level</span>
+            <span>35–40 Minutes</span>
+        </div>
+
+    </div>
+
+
+    <!-- Section 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What are HTML Links?</h2>
+
+        <p>
+            HTML Links mhanje hyperlinks.
+            Hyperlink cha use eka webpage varun dusrya webpage
+            var navigate karnyasathi hoto.
+        </p>
+
+        <p>
+            Links mule apan external websites, same website madhil
+            pages, email addresses ani webpage madhil specific
+            sections open karu shakto.
+        </p>
+
+        <h3>Examples:</h3>
+
+        <ul>
+            <li>Google website open karne.</li>
+            <li>Website madhil About page open karne.</li>
+            <li>Email application open karne.</li>
+            <li>Page madhil specific section var jane.</li>
+        </ul>
+
+        <div class="info-box">
+            <strong>Simple Definition:</strong>
+            HTML Links he hyperlinks aahet je users la eka
+            webpage kiwa resource varun dusrya resource var
+            navigate karu detat.
+        </div>
+
+    </section>
+
+
+    <!-- Section 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Anchor (&lt;a&gt;) Element</h2>
+
+        <p>
+            HTML madhye link create karnyasathi anchor element
+            vapartat. Anchor element cha tag a aahe.
+        </p>
+
+        <p>
+            Anchor element madhye href attribute vaprun
+            link cha destination define kartat.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>
+&lt;a href="URL"&gt;Link Text&lt;/a&gt;
+        </code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;a href="https://www.google.com"&gt;
+    Visit Google
+&lt;/a&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <a href="https://www.google.com" target="_blank" rel="noopener">
+                Visit Google
+            </a>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>a = Anchor element.</li>
+            <li>href = Link destination define karte.</li>
+            <li>https://www.google.com = Destination URL.</li>
+            <li>Visit Google = User la disnara link text.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            href attribute nasel tar anchor element normal
+            working hyperlink create karat nahi.
+        </div>
+
+    </section>
+
+
+    <!-- Section 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. href Attribute</h2>
+
+        <p>
+            href cha full form Hypertext Reference aahe.
+            Ya attribute cha use hyperlink cha destination
+            specify karnyasathi hoto.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>
+&lt;a href="destination"&gt;Click Here&lt;/a&gt;
+        </code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;a href="https://www.wikipedia.org"&gt;
+    Open Wikipedia
+&lt;/a&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <a href="https://www.wikipedia.org" target="_blank" rel="noopener">
+                Open Wikipedia
+            </a>
+        </div>
+
+        <p>
+            User link var click kelyavar browser specified
+            destination open karto.
+        </p>
+
+    </section>
+
+
+    <!-- Section 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. Absolute URL</h2>
+
+        <p>
+            Absolute URL madhye resource cha complete web address
+            specify kelela asto.
+            Ya URL madhye protocol ani domain name samavisht astat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;a href="https://www.google.com"&gt;
+    Google
+&lt;/a&gt;
+        </code></pre>
+
+        <h3>Another Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;a href="https://www.youtube.com"&gt;
+    YouTube
+&lt;/a&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <p>
+                <a href="https://www.google.com" target="_blank" rel="noopener">
+                    Google
+                </a>
+            </p>
+
+            <p>
+                <a href="https://www.youtube.com" target="_blank" rel="noopener">
+                    YouTube
+                </a>
+            </p>
+        </div>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            External websites la link detana absolute URL
+            commonly vapartat.
+        </div>
+
+    </section>
+
+
+    <!-- Section 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. Relative URL</h2>
+
+        <p>
+            Relative URL madhye current webpage chya location
+            nusar dusrya file cha path specify karto.
+            Ya URL madhye complete domain name denyachi
+            garaj naste.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;a href="about.html"&gt;
+    About Us
+&lt;/a&gt;
+        </code></pre>
+
+        <p>
+            Ithe about.html hi file current directory madhye
+            asel tar browser ti file open karel.
+        </p>
+
+        <h3>Folder madhil Page:</h3>
+
+        <pre class="code-block"><code>
+&lt;a href="pages/contact.html"&gt;
+    Contact Us
+&lt;/a&gt;
+        </code></pre>
+
+        <p>
+            Ithe pages folder madhil contact.html file
+            open karnyacha path dila aahe.
+        </p>
+
+        <h3>Parent Folder madhil Page:</h3>
+
+        <pre class="code-block"><code>
+&lt;a href="../index.html"&gt;
+    Home
+&lt;/a&gt;
+        </code></pre>
+
+        <p>
+            ../ cha use current directory chya parent folder
+            madhye janyasathi hoto.
+        </p>
+
+        <h3>Folder Structure Example:</h3>
+
+        <pre class="code-block"><code>
+my-website/
+│
+├── index.html
+│
+├── about.html
+│
+└── pages/
+    └── contact.html
+        </code></pre>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Relative URL cha path current document chya location
+            nusar resolve hoto. Folder structure samjun gheun
+            path lihine important aahe.
+        </div>
+
+    </section>
+
+
+    <!-- Section 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. Internal Page Links</h2>
+
+        <p>
+            Internal links cha use same website madhil
+            dusrya webpage var navigate karnyasathi hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;!-- Home Page --&gt;
+
+&lt;a href="about.html"&gt;
+    About Us
+&lt;/a&gt;
+
+&lt;a href="contact.html"&gt;
+    Contact Us
+&lt;/a&gt;
+        </code></pre>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>about.html About page open karel.</li>
+            <li>contact.html Contact page open karel.</li>
+        </ul>
+
+        <h3>Practical Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;h1&gt;My Website&lt;/h1&gt;
+
+&lt;a href="about.html"&gt;About&lt;/a&gt;
+
+&lt;a href="services.html"&gt;Services&lt;/a&gt;
+
+&lt;a href="contact.html"&gt;Contact&lt;/a&gt;
+        </code></pre>
+
+        <p>
+            Ya prakare website navigation create karta yete.
+        </p>
+
+    </section>
+
+
+    <!-- Section 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. External Website Links</h2>
+
+        <p>
+            External link cha use aplya website varun
+            dusrya website var navigate karnyasathi hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;a href="https://www.github.com"&gt;
+    Visit GitHub
+&lt;/a&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <a href="https://www.github.com" target="_blank" rel="noopener">
+                Visit GitHub
+            </a>
+        </div>
+
+        <p>
+            User ya link var click kelyavar GitHub website open hoil.
+        </p>
+
+    </section>
+
+
+    <!-- Section 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. target Attribute</h2>
+
+        <p>
+            target attribute cha use link kuthe open karaychi
+            he specify karnyasathi hoto.
+        </p>
+
+        <h3>Common target Values:</h3>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>Value</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>_self</td>
+                    <td>Same browsing context madhye open hote. Ha default aahe.</td>
+                </tr>
+
+                <tr>
+                    <td>_blank</td>
+                    <td>New tab kiwa browsing context madhye open hote.</td>
+                </tr>
+
+                <tr>
+                    <td>_parent</td>
+                    <td>Parent browsing context madhye open hote.</td>
+                </tr>
+
+                <tr>
+                    <td>_top</td>
+                    <td>Top-level browsing context madhye open hote.</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <h3>Example 1: Same Tab</h3>
+
+        <pre class="code-block"><code>
+&lt;a href="https://www.google.com" target="_self"&gt;
+    Open Google
+&lt;/a&gt;
+        </code></pre>
+
+        <h3>Example 2: New Tab</h3>
+
+        <pre class="code-block"><code>
+&lt;a
+    href="https://www.google.com"
+    target="_blank"
+    rel="noopener"
+&gt;
+    Open Google in New Tab
+&lt;/a&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <p>
+                <a href="https://www.google.com" target="_self">
+                    Open Google in Same Tab
+                </a>
+            </p>
+
+            <p>
+                <a href="https://www.google.com"
+                   target="_blank"
+                   rel="noopener">
+                    Open Google in New Tab
+                </a>
+            </p>
+
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            target="_blank" vapratana rel="noopener" include
+            karne hi changli security practice aahe.
+        </div>
+
+    </section>
+
+
+    <!-- Section 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Email Links</h2>
+
+        <p>
+            HTML madhye mailto: scheme vaprun email link create
+            karta yete.
+            User link var click kelyavar default email application
+            open honyasathi request keli jate.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>
+&lt;a href="mailto:email@example.com"&gt;
+    Send Email
+&lt;/a&gt;
+        </code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;a href="mailto:rohan@example.com"&gt;
+    Contact Me
+&lt;/a&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <a href="mailto:rohan@example.com">
+                Contact Me
+            </a>
+        </div>
+
+        <h3>Email with Subject:</h3>
+
+        <pre class="code-block"><code>
+&lt;a href="mailto:rohan@example.com?subject=Project%20Inquiry"&gt;
+    Send Project Inquiry
+&lt;/a&gt;
+        </code></pre>
+
+        <p>
+            Ya example madhye email sobat subject suddha
+            specify kelela aahe.
+        </p>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            mailto link vaparlyane email automatically send hot nahi.
+            Email application open hote ani user la email send
+            karavi lagte.
+        </div>
+
+    </section>
+
+
+    <!-- Section 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Telephone Links</h2>
+
+        <p>
+            HTML madhye tel: scheme vaprun telephone link
+            create karta yete.
+            Mobile device var click kelyavar phone application
+            open honyasathi request keli jate.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>
+&lt;a href="tel:+911234567890"&gt;
+    Call Us
+&lt;/a&gt;
+        </code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;a href="tel:+911234567890"&gt;
+    Call Now
+&lt;/a&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <a href="tel:+911234567890">
+                Call Now
+            </a>
+        </div>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            Telephone link mobile websites ani contact pages
+            madhye useful aahe.
+        </div>
+
+    </section>
+
+
+    <!-- Section 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Bookmark Links</h2>
+
+        <p>
+            Bookmark links cha use same webpage madhil
+            specific section var direct navigate karnyasathi hoto.
+        </p>
+
+        <p>
+            Tyasathi destination element la id attribute detat
+            ani anchor chya href madhye # sobat ti id value lihitat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;a href="#contact"&gt;
+    Go to Contact Section
+&lt;/a&gt;
+
+&lt;h2 id="contact"&gt;
+    Contact Us
+&lt;/h2&gt;
+
+&lt;p&gt;
+    Contact us for more information.
+&lt;/p&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box bookmark-demo">
+
+            <a href="#bookmark-contact-demo">
+                Go to Contact Section
+            </a>
+
+            <div class="bookmark-space">
+                <p>Other webpage content...</p>
+                <p>More information...</p>
+            </div>
+
+            <h2 id="bookmark-contact-demo">Contact Us</h2>
+
+            <p>Contact us for more information.</p>
+
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>href="#contact" destination id specify karte.</li>
+            <li>id="contact" destination element identify karte.</li>
+            <li>Link click kelyavar browser tya section kade navigate karto.</li>
+        </ul>
+
+    </section>
+
+
+    <!-- Section 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Download Attribute</h2>
+
+        <p>
+            download attribute cha use link target file
+            download karnyasathi suggest karnyasathi hoto.
+            Browser download action karu shakto.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>
+&lt;a href="file.pdf" download&gt;
+    Download PDF
+&lt;/a&gt;
+        </code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;a href="notes.pdf" download&gt;
+    Download Notes
+&lt;/a&gt;
+        </code></pre>
+
+        <p>
+            Ya example madhye notes.pdf file download karnyacha
+            option dila aahe.
+        </p>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            download attribute cha behavior browser ani
+            resource origin var depend karu shakto.
+            Cross-origin URLs sathi download force hoilach ase nahi.
+        </div>
+
+    </section>
+
+
+    <!-- Section 13 -->
+
+    <section class="lesson-section">
+
+        <h2>13. Image as a Link</h2>
+
+        <p>
+            Anchor element madhye image element place karun
+            image la clickable link banavta yete.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;a href="https://www.google.com"&gt;
+
+    &lt;img
+        src="google-logo.png"
+        alt="Visit Google"
+        width="150"
+    &gt;
+
+&lt;/a&gt;
+        </code></pre>
+
+        <p>
+            Ata image var click kelyavar Google website open hoil.
+        </p>
+
+        <h3>Output Example:</h3>
+
+        <div class="output-box">
+
+            <a href="https://www.google.com"
+               target="_blank"
+               rel="noopener">
+                <span class="image-link-demo">
+                    Google Website
+                </span>
+            </a>
+
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Image link vapratana alt text madhye link cha
+            purpose describe karne useful aahe.
+        </div>
+
+    </section>
+
+
+    <!-- Section 14 -->
+
+    <section class="lesson-section">
+
+        <h2>14. Links with CSS</h2>
+
+        <p>
+            CSS vaprun links cha color, background,
+            underline ani hover effect change karta yeto.
+        </p>
+
+        <h3>HTML Code:</h3>
+
+        <pre class="code-block"><code>
+&lt;a class="my-link" href="https://www.google.com"&gt;
+    Visit Google
+&lt;/a&gt;
+        </code></pre>
+
+        <h3>CSS Code:</h3>
+
+        <pre class="code-block"><code>
+.my-link {
+    color: blue;
+    text-decoration: none;
+}
+
+.my-link:hover {
+    color: red;
+    text-decoration: underline;
+}
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <a class="my-link-demo"
+               href="https://www.google.com"
+               target="_blank"
+               rel="noopener">
+                Visit Google
+            </a>
+
+        </div>
+
+        <p>
+            Mouse link var gheun gelyavar hover effect apply hoto.
+        </p>
+
+    </section>
+
+
+    <!-- Section 15 -->
+
+    <section class="lesson-section">
+
+        <h2>15. Link States in CSS</h2>
+
+        <p>
+            CSS madhye link chya vegveglya states sathi
+            pseudo-classes vaparta yetat.
+        </p>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>State</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>:link</td>
+                    <td>Unvisited link select karte.</td>
+                </tr>
+
+                <tr>
+                    <td>:visited</td>
+                    <td>Visited link select karte.</td>
+                </tr>
+
+                <tr>
+                    <td>:hover</td>
+                    <td>Mouse pointer link var asatana select karte.</td>
+                </tr>
+
+                <tr>
+                    <td>:active</td>
+                    <td>Link activate hot asatana select karte.</td>
+                </tr>
+
+                <tr>
+                    <td>:focus</td>
+                    <td>Keyboard kiwa dusrya method ne focus milaleli link select karte.</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <h3>CSS Example:</h3>
+
+        <pre class="code-block"><code>
+a:link {
+    color: blue;
+}
+
+a:visited {
+    color: purple;
+}
+
+a:hover {
+    color: red;
+}
+
+a:active {
+    color: green;
+}
+
+a:focus {
+    outline: 2px solid blue;
+}
+        </code></pre>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Keyboard users sathi focus style visible thevne
+            accessibility sathi important aahe.
+        </div>
+
+    </section>
+
+
+    <!-- Section 16 -->
+
+    <section class="lesson-section">
+
+        <h2>16. Common Beginner Mistakes</h2>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 1: href attribute विसरणे</strong>
+
+            <p>
+                Working hyperlink sathi destination specify
+                karnyasathi href vapr.
+            </p>
+
+        </div>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 2: Wrong URL lihine</strong>
+
+            <p>
+                URL kiwa relative file path chukicha asel tar
+                link expected page open karu shakat nahi.
+            </p>
+
+        </div>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 3: Relative ani Absolute URL confuse karne</strong>
+
+            <p>
+                External website sathi complete URL ani
+                same project madhil files sathi appropriate
+                relative path vapr.
+            </p>
+
+        </div>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 4: target="_blank" sobat security ignore karne</strong>
+
+            <p>
+                New tab madhye external link open kartana
+                rel="noopener" include karne changli practice aahe.
+            </p>
+
+        </div>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 5: Empty Link Text vaprane</strong>
+
+            <p>
+                Link text meaningful thev, jenekarun user la
+                link kuthe gheun jail he samjel.
+            </p>
+
+        </div>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 6: Bookmark sathi wrong ID vaprane</strong>
+
+            <p>
+                href madhil # nantar dileli value ani
+                destination element chi id same pahije.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 17 -->
+
+    <section class="lesson-section">
+
+        <h2>17. Quick Revision</h2>
+
+        <div class="revision-box">
+
+            <ul>
+                <li>HTML links create karnyasathi a element vapartat.</li>
+                <li>href destination URL define karte.</li>
+                <li>Absolute URL madhye complete web address asto.</li>
+                <li>Relative URL current document chya location var depend hoto.</li>
+                <li>target="_self" same browsing context madhye open hote.</li>
+                <li>target="_blank" new tab kiwa context madhye open hote.</li>
+                <li>mailto: email link create karte.</li>
+                <li>tel: telephone link create karte.</li>
+                <li>Bookmark link sathi # ani id vapartat.</li>
+                <li>download attribute file download suggest karte.</li>
+                <li>CSS pseudo-classes links che states style kartat.</li>
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 18 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>18. Practice Questions</h2>
+
+        <h3>Basic Questions</h3>
+
+        <ol>
+            <li>HTML Links mhanje kay?</li>
+            <li>Anchor element mhanje kay?</li>
+            <li>href attribute cha use kay aahe?</li>
+            <li>Absolute URL mhanje kay?</li>
+            <li>Relative URL mhanje kay?</li>
+            <li>Absolute ani Relative URL madhil difference lih.</li>
+            <li>target attribute cha use kay aahe?</li>
+            <li>target="_blank" mhanje kay?</li>
+            <li>mailto: cha use kay aahe?</li>
+            <li>tel: cha use kay aahe?</li>
+            <li>Bookmark link mhanje kay?</li>
+            <li>download attribute cha use kay aahe?</li>
+            <li>CSS madhil :hover ani :visited madhil difference lih.</li>
+        </ol>
+
+        <h3>Practical Questions</h3>
+
+        <ol>
+            <li>Google website chi link create kar.</li>
+            <li>about.html sathi internal link create kar.</li>
+            <li>GitHub link new tab madhye open kar.</li>
+            <li>mailto vaprun email link tayar kar.</li>
+            <li>tel vaprun phone link tayar kar.</li>
+            <li>Same webpage madhil Contact section sathi bookmark link create kar.</li>
+            <li>PDF download link create kar.</li>
+            <li>Image la clickable link banav.</li>
+            <li>CSS vaprun link la hover effect de.</li>
+        </ol>
+
+        <div class="task-box">
+
+            <h3>Mini Task: Personal Website Navigation</h3>
+
+            <p>
+                Ek simple personal website navigation tayar kar.
+            </p>
+
+            <ul>
+                <li>Website la Home link de.</li>
+                <li>About page sathi internal link create kar.</li>
+                <li>Projects page sathi link create kar.</li>
+                <li>Contact section sathi bookmark link create kar.</li>
+                <li>GitHub profile sathi external link create kar.</li>
+                <li>Email contact sathi mailto link vapr.</li>
+                <li>CSS vaprun links la hover effect de.</li>
+                <li>External links sathi target ani rel attributes vapr.</li>
+            </ul>
+
+            <p>
+                File Name: <strong>navigation.html</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Lesson Navigation -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'html_topic' 'headings-paragraphs' %}"
+           class="nav-button previous-button">
+            ← Previous: Headings and Paragraphs
+        </a>
+
+        <a href="{% url 'html_topic' 'images' %}"
+           class="nav-button next-button">
+            Next: HTML Images →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,352 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}
+Introduction to Python | Roman Marathi
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/python/introduction.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Page Header -->
+    <div class="lesson-header">
+
+        <span class="lesson-label">PYTHON BASICS · LESSON 01</span>
+
+        <h1>Introduction to Python</h1>
+
+        <p>
+            Python programming language chi olakh karun gheu.
+            Python kay aahe, ti ka vapartat ani ticha upyog kuthe hoto
+            he agdi soprya bhashet samjun gheu.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 10–15 Minutes</span>
+        </div>
+
+    </div>
+
+
+    <!-- 1. What is Python -->
+    <section class="lesson-section">
+
+        <h2>1. What is Python?</h2>
+
+        <p>
+            Python hi ek high-level, general-purpose programming
+            language aahe.
+        </p>
+
+        <p>
+            Soprya shabdat sangayche tar, computer kadun ekhade
+            kaam karun ghenyasathi apan programming language vaparto.
+            Python hi ashi ek language aahe jichya madatine apan
+            computer la instructions deu shakto.
+        </p>
+
+        <div class="info-box">
+            <strong>Simple Example:</strong>
+
+            <p>
+                Samja aplyala computer kadun don numbers chi addition
+                karun ghyaychi aahe. Tar apan Python madhye code lihun
+                computer la te calculation karayla sangu shakto.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- 2. Why Python -->
+    <section class="lesson-section">
+
+        <h2>2. Why Learn Python?</h2>
+
+        <p>
+            Python shiknyachi anek karane aahet. Python chi syntax
+            sopi aahe ani code vachayla tasech lihayla suddha sope aahe.
+        </p>
+
+        <h3>Python che fayde:</h3>
+
+        <ul>
+            <li><strong>Easy to Learn:</strong> Python chi syntax beginner-friendly aahe.</li>
+
+            <li><strong>Readable Code:</strong> Python code vachayla ani samjayla sopa aahe.</li>
+
+            <li><strong>Free and Open Source:</strong> Python free madhye vaparta yete.</li>
+
+            <li><strong>Large Community:</strong> Python shikanaryansathi bharpur tutorials ani documentation available aahet.</li>
+
+            <li><strong>Versatile:</strong> Python cha anek vegveglya fields madhye upyog hoto.</li>
+        </ul>
+
+    </section>
+
+
+    <!-- 3. Real Life Uses -->
+    <section class="lesson-section">
+
+        <h2>3. Where is Python Used?</h2>
+
+        <p>
+            Python fakt ekach prakarchya software sathi nahi.
+            Ticha anek fields madhye upyog hoto.
+        </p>
+
+        <div class="use-grid">
+
+            <div class="use-card">
+                <span>🌐</span>
+                <h3>Web Development</h3>
+                <p>
+                    Websites ani web applications tayar karanyasathi.
+                    Django ani Flask hi Python frameworks aahet.
+                </p>
+            </div>
+
+            <div class="use-card">
+                <span>🤖</span>
+                <h3>Artificial Intelligence</h3>
+                <p>
+                    AI applications ani Machine Learning models
+                    develop karanyasathi.
+                </p>
+            </div>
+
+            <div class="use-card">
+                <span>📊</span>
+                <h3>Data Science</h3>
+                <p>
+                    Data analysis, visualization ani data processing
+                    karanyasathi.
+                </p>
+            </div>
+
+            <div class="use-card">
+                <span>⚙️</span>
+                <h3>Automation</h3>
+                <p>
+                    Repetitive tasks automatic karanyasathi
+                    Python vaparta yete.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- 4. How Python Works -->
+    <section class="lesson-section">
+
+        <h2>4. How Does Python Work?</h2>
+
+        <p>
+            Programmer Python madhye code lihito. Python interpreter
+            code process karun computer la instructions execute
+            karayla madat karto.
+        </p>
+
+        <div class="flow-box">
+
+            <div class="flow-step">Programmer writes Python Code</div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">Python Interpreter</div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">Program Execution</div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">Output</div>
+
+        </div>
+
+        <div class="info-box">
+            <strong> लक्षात theva:</strong>
+
+            <p>
+                Interpreter ha Python program execute karanyasathi
+                mahatvacha software component aahe.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- 5. First Python Program -->
+    <section class="lesson-section">
+
+        <h2>5. Your First Python Program</h2>
+
+        <p>
+            Ata apan Python madhil pahila program baghu.
+            Ya program madhye apan screen var ek message display karanar aahot.
+        </p>
+
+        <h3>Code:</h3>
+
+        <pre><code>print("Hello World!")</code></pre>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li><strong>print()</strong> hi Python madhil built-in function aahe.</li>
+
+            <li>Ti screen var output display karanyasathi vapartat.</li>
+
+            <li><strong>"Hello World!"</strong> ha display honara text aahe.</li>
+        </ul>
+
+        <h3>Output:</h3>
+
+        <pre class="output-box">Hello World!</pre>
+
+        <div class="success-box">
+            <strong>Congratulations!</strong>
+
+            <p>
+                Tu ata tuzha pahila Python program samjun ghetla aahe.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- 6. Important Terms -->
+    <section class="lesson-section">
+
+        <h2>6. Important Terms</h2>
+
+        <div class="table-wrapper">
+
+            <table class="lesson-table">
+
+                <thead>
+                    <tr>
+                        <th>Term</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Programming</td>
+                        <td>Computer la instructions dene.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Programming Language</td>
+                        <td>Computer programs lihinyasathi vaparnari language.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Syntax</td>
+                        <td>Code lihinyache rules.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Interpreter</td>
+                        <td>Python code execute karanara software component.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Output</td>
+                        <td>Program execute zalyanantar milnara result.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Function</td>
+                        <td>Specific kaam karanyasathi lihilela reusable code.</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- 7. Common Mistakes -->
+    <section class="lesson-section">
+
+        <h2>7. Common Beginner Mistakes</h2>
+
+        <ul>
+            <li>print function che spelling chukiche lihine.</li>
+
+            <li>Text lihitana quotation marks visarne.</li>
+
+            <li>Opening ani closing brackets na lavne.</li>
+
+            <li>Code run na karta fakt copy karne.</li>
+        </ul>
+
+    </section>
+
+
+    <!-- 8. Practice -->
+    <section class="lesson-section practice-section">
+
+        <h2>8. Practice Questions</h2>
+
+        <p>
+            Khali dilele questions swatah solve karanyacha prayatna kar.
+        </p>
+
+        <ol>
+            <li>Python mhanje kay?</li>
+
+            <li>Python che konthehi four advantages liha.</li>
+
+            <li>Python cha upyog kontya fields madhye hoto?</li>
+
+            <li>Python Interpreter mhanje kay?</li>
+
+            <li>Hello World display karanyasathi Python code liha.</li>
+        </ol>
+
+        <div class="practice-task">
+            <strong>Practical Task:</strong>
+
+            <p>
+                Python madhye khalil three messages print kar:
+            </p>
+
+            <pre><code>Hello, My Name is Rohan.
+I am learning Python.
+My Goal is Backend Developer.</code></pre>
+        </div>
+
+    </section>
+
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+
+        <a href="{% url 'python_index' %}" class="nav-button back-button">
+            ← All Python Topics
+        </a>
+
+        <a href="{% url 'python_topic' 'installation' %}" class="nav-button next-button">
+            Next: Installation →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

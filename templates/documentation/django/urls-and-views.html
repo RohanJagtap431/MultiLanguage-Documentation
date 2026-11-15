@@ -1,0 +1,629 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Django URLs and Views{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/django/urls-and-views.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- HEADER -->
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO COURSE • TOPIC 05</span>
+        <h1>Django URLs and Views</h1>
+        <p>
+            Learn URL routing, Function-Based Views and dynamic URLs
+            with practical Django examples.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 35–45 Minutes</span>
+        </div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <section class="lesson-section">
+        <h2>1. URL mhanje kay?</h2>
+
+        <p>
+            URL cha full form Uniform Resource Locator aahe.
+            URL ha website madhil specific page kiwa resource cha address asto.
+        </p>
+
+        <div class="example-box">
+            <h3>Example</h3>
+            <pre class="output-code"><code>http://127.0.0.1:8000/students/</code></pre>
+            <ul>
+                <li><strong>http://</strong> – Protocol</li>
+                <li><strong>127.0.0.1</strong> – Local development server</li>
+                <li><strong>8000</strong> – Server port</li>
+                <li><strong>students/</strong> – URL path</li>
+            </ul>
+        </div>
+
+        <p>
+            User browser madhye URL enter karto.
+            Django tya URL nusar yogya View execute karto.
+        </p>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section class="lesson-section">
+        <h2>2. URL Routing mhanje kay?</h2>
+
+        <p>
+            URL Routing mhanje browser madhun yenari request
+            yogya View function kade pathavnyachi process.
+        </p>
+
+        <div class="flow-container">
+            <div class="flow-box">
+                <h3>1. User</h3>
+                <p>/students/ URL open karto.</p>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-box">
+                <h3>2. URL Configuration</h3>
+                <p>URL pattern match karto.</p>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-box">
+                <h3>3. View</h3>
+                <p>Request process karto.</p>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-box flow-success">
+                <h3>4. Response</h3>
+                <p>Browser la response milto.</p>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            URL configuration madhye URL pattern ani View yanchi mapping keli jate.
+        </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section class="lesson-section">
+        <h2>3. Project URLs and App URLs</h2>
+
+        <p>
+            Django project madhye URL configuration don levels var organize karta yete.
+        </p>
+
+        <h3>Project URL – config/urls.py</h3>
+
+        <pre class="code-block"><code>from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    path("", include("students.urls")),
+]</code></pre>
+
+        <h3>App URL – students/urls.py</h3>
+
+        <pre class="code-block"><code>from django.urls import path
+from . import views
+
+urlpatterns = [
+    path("students/", views.student_list, name="student_list"),
+]</code></pre>
+
+        <h3>Important Functions</h3>
+
+        <ul>
+            <li><code>path()</code> – URL pattern define karte.</li>
+            <li><code>include()</code> – App madhil URL patterns project sobat connect karte.</li>
+            <li><code>urlpatterns</code> – URL patterns chi list aste.</li>
+            <li><code>views.student_list</code> – Request handle karnari View function.</li>
+            <li><code>name</code> – URL la unique name dete.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            App madhye urls.py nasel tar manually create karave lagte.
+        </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section class="lesson-section">
+        <h2>4. Function-Based View (FBV)</h2>
+
+        <p>
+            Function-Based View mhanje Python function cha use karun
+            HTTP request handle karne.
+        </p>
+
+        <h3>File: students/views.py</h3>
+
+        <pre class="code-block"><code>from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("Welcome to Django!")</code></pre>
+
+        <h3>URL Configure Kara</h3>
+
+        <p>File: students/urls.py</p>
+
+        <pre class="code-block"><code>from django.urls import path
+from . import views
+
+urlpatterns = [
+    path("", views.home, name="home"),
+]</code></pre>
+
+        <p>File: config/urls.py</p>
+
+        <pre class="code-block"><code>from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    path("", include("students.urls")),
+]</code></pre>
+
+        <h3>Browser Output</h3>
+
+        <pre class="output-code"><code>http://127.0.0.1:8000/</code></pre>
+
+        <div class="browser-preview">
+            <div class="browser-bar">
+                <span></span>
+                <span></span>
+                <span></span>
+                <div class="browser-address">127.0.0.1:8000/</div>
+            </div>
+            <div class="browser-content">
+                <h2>Welcome to Django!</h2>
+            </div>
+        </div>
+
+        <h3>Code Explanation</h3>
+
+        <ul>
+            <li><code>HttpResponse</code> – Browser la HTTP response pathavte.</li>
+            <li><code>home()</code> – View function aahe.</li>
+            <li><code>request</code> – Browser kadun aleli HTTP request.</li>
+            <li><code>return</code> – Response browser kade pathavte.</li>
+        </ul>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section class="lesson-section">
+        <h2>5. HttpResponse() mhanje kay?</h2>
+
+        <p>
+            HttpResponse() cha use browser la direct text kiwa HTML response
+            pathavnyasathi hoto.
+        </p>
+
+        <h3>Example 1: Simple Text</h3>
+
+        <pre class="code-block"><code>from django.http import HttpResponse
+
+def about(request):
+    return HttpResponse("This is About Page")</code></pre>
+
+        <h3>Example 2: HTML Response</h3>
+
+        <pre class="code-block"><code>from django.http import HttpResponse
+
+def contact(request):
+    html = "&lt;h1&gt;Contact Us&lt;/h1&gt;"
+    return HttpResponse(html)</code></pre>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            HttpResponse() simple text kiwa HTML response sathi useful aahe.
+            Full HTML pages sathi render() vaprane adhik convenient aahe.
+        </div>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section class="lesson-section">
+        <h2>6. render() mhanje kay?</h2>
+
+        <p>
+            render() function cha use HTML Template browser la display karnyasathi hoto.
+            View madhun Template la data suddha pathavta yeto.
+        </p>
+
+        <h3>File: students/views.py</h3>
+
+        <pre class="code-block"><code>from django.shortcuts import render
+
+def home(request):
+    return render(request, "home.html")</code></pre>
+
+        <h3>File: templates/home.html</h3>
+
+        <pre class="code-block"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Home Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Welcome to My Website&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+        <h3>render() with Context Data</h3>
+
+        <p>File: students/views.py</p>
+
+        <pre class="code-block"><code>from django.shortcuts import render
+
+def student(request):
+    context = {
+        "name": "Rohan",
+        "course": "BSc Computer Science"
+    }
+
+    return render(request, "student.html", context)</code></pre>
+
+        <p>File: templates/student.html</p>
+
+        <pre class="code-block"><code>{% verbatim %}
+&lt;h1&gt;Student Details&lt;/h1&gt;
+&lt;p&gt;Name: {{ name }}&lt;/p&gt;
+&lt;p&gt;Course: {{ course }}&lt;/p&gt;
+{% endverbatim %}</code></pre>
+
+        <h3>Expected Output</h3>
+
+        <div class="browser-preview">
+            <div class="browser-bar">
+                <span></span>
+                <span></span>
+                <span></span>
+                <div class="browser-address">127.0.0.1:8000/student/</div>
+            </div>
+            <div class="browser-content">
+                <h2>Student Details</h2>
+                <p><strong>Name:</strong> Rohan</p>
+                <p><strong>Course:</strong> BSc Computer Science</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7 -->
+    <section class="lesson-section">
+        <h2>7. Dynamic URLs</h2>
+
+        <p>
+            Dynamic URL madhye URL cha kahi part user request nusar change hoto.
+            Yacha use specific student, product kiwa article display karnyasathi hoto.
+        </p>
+
+        <h3>Example: Student ID</h3>
+
+        <p>File: students/urls.py</p>
+
+        <pre class="code-block"><code>from django.urls import path
+from . import views
+
+urlpatterns = [
+    path("student/&lt;int:id&gt;/", views.student_detail, name="student_detail"),
+]</code></pre>
+
+        <p>File: students/views.py</p>
+
+        <pre class="code-block"><code>from django.http import HttpResponse
+
+def student_detail(request, id):
+    return HttpResponse(f"Student ID: {id}")</code></pre>
+
+        <h3>Browser URLs</h3>
+
+        <pre class="output-code"><code>http://127.0.0.1:8000/student/1/
+http://127.0.0.1:8000/student/2/
+http://127.0.0.1:8000/student/10/</code></pre>
+
+        <h3>Output Example</h3>
+
+        <div class="example-box">
+            <p><strong>URL:</strong> /student/10/</p>
+            <p><strong>Browser Output:</strong> Student ID: 10</p>
+        </div>
+
+        <h3>Common URL Converters</h3>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Converter</th>
+                    <th>Use</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>int</code></td>
+                    <td>Integer number</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td><code>str</code></td>
+                    <td>Non-empty string</td>
+                    <td>rohan</td>
+                </tr>
+                <tr>
+                    <td><code>slug</code></td>
+                    <td>Letters, numbers, hyphens, underscores</td>
+                    <td>django-notes</td>
+                </tr>
+                <tr>
+                    <td><code>uuid</code></td>
+                    <td>UUID value</td>
+                    <td>UUID string</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- SECTION 8 -->
+    <section class="lesson-section">
+        <h2>8. Multiple URL Parameters</h2>
+
+        <p>
+            Ekach URL madhye multiple parameters pass karta yetat.
+        </p>
+
+        <h3>File: students/urls.py</h3>
+
+        <pre class="code-block"><code>path(
+    "student/&lt;str:name&gt;/&lt;int:age&gt;/",
+    views.student_info,
+    name="student_info"
+),</code></pre>
+
+        <h3>File: students/views.py</h3>
+
+        <pre class="code-block"><code>from django.http import HttpResponse
+
+def student_info(request, name, age):
+    return HttpResponse(
+        f"Name: {name}, Age: {age}"
+    )</code></pre>
+
+        <h3>Browser URL</h3>
+
+        <pre class="output-code"><code>http://127.0.0.1:8000/student/Rohan/20/</code></pre>
+
+        <div class="example-box">
+            <h3>Expected Output</h3>
+            <p>Name: Rohan, Age: 20</p>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            URL madhil parameter names ani View function madhil argument names
+            match asne avashyak aahe.
+        </div>
+    </section>
+
+    <!-- SECTION 9 -->
+    <section class="lesson-section">
+        <h2>9. name and reverse URL</h2>
+
+        <p>
+            URL pattern la name dilyamule URL hardcode na karta
+            tyacha name use karun URL generate karta yeto.
+        </p>
+
+        <h3>File: students/urls.py</h3>
+
+        <pre class="code-block"><code>path(
+    "about/",
+    views.about,
+    name="about"
+),</code></pre>
+
+        <h3>Template madhye URL use karne</h3>
+
+        <pre class="code-block"><code>{% verbatim %}
+&lt;a href="{% url 'about' %}"&gt;About Page&lt;/a&gt;
+{% endverbatim %}</code></pre>
+
+        <h3>Dynamic URL reverse karne</h3>
+
+        <pre class="code-block"><code>{% verbatim %}
+&lt;a href="{% url 'student_detail' 10 %}"&gt;
+    View Student
+&lt;/a&gt;
+{% endverbatim %}</code></pre>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            URL name use kelyane URL path change zala tari
+            template madhil link automatically update hou shakto.
+        </div>
+    </section>
+
+    <!-- SECTION 10 -->
+    <section class="lesson-section">
+        <h2>10. Complete Practical – Student Pages</h2>
+
+        <p>
+            Ata multiple pages create karun URL ani View connect karu.
+        </p>
+
+        <h3>Step 1: students/views.py</h3>
+
+        <pre class="code-block"><code>from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("Welcome to Student Website")
+
+def about(request):
+    return HttpResponse("This is About Page")
+
+def student_detail(request, id):
+    return HttpResponse(f"Student ID: {id}")</code></pre>
+
+        <h3>Step 2: students/urls.py</h3>
+
+        <pre class="code-block"><code>from django.urls import path
+from . import views
+
+urlpatterns = [
+    path("", views.home, name="home"),
+    path("about/", views.about, name="about"),
+    path("student/&lt;int:id&gt;/", views.student_detail, name="student_detail"),
+]</code></pre>
+
+        <h3>Step 3: config/urls.py</h3>
+
+        <pre class="code-block"><code>from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    path("", include("students.urls")),
+]</code></pre>
+
+        <h3>Step 4: Server Run Kara</h3>
+
+        <pre class="code-block"><code>python manage.py runserver</code></pre>
+
+        <h3>Step 5: Browser Madhye Test Kara</h3>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>URL</th>
+                    <th>Expected Response</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>/</td>
+                    <td>Welcome to Student Website</td>
+                </tr>
+                <tr>
+                    <td>/about/</td>
+                    <td>This is About Page</td>
+                </tr>
+                <tr>
+                    <td>/student/5/</td>
+                    <td>Student ID: 5</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- SECTION 11 -->
+    <section class="lesson-section">
+        <h2>11. Common Mistakes</h2>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Error / Mistake</th>
+                    <th>Solution</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Page not found (404)</td>
+                    <td>URL pattern check kara.</td>
+                </tr>
+                <tr>
+                    <td>View not found</td>
+                    <td>View function name ani import check kara.</td>
+                </tr>
+                <tr>
+                    <td>No module named students.urls</td>
+                    <td>students app madhye urls.py create kara.</td>
+                </tr>
+                <tr>
+                    <td>unexpected keyword argument</td>
+                    <td>URL parameter ani View argument names match kara.</td>
+                </tr>
+                <tr>
+                    <td>HttpResponse not defined</td>
+                    <td>django.http madhun HttpResponse import kara.</td>
+                </tr>
+                <tr>
+                    <td>TemplateDoesNotExist</td>
+                    <td>Template file path ani settings check kara.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- SECTION 12 -->
+    <section class="lesson-section">
+        <h2>12. Important Revision</h2>
+
+        <ol>
+            <li>URL full form – Uniform Resource Locator.</li>
+            <li>URL Routing request yogya View kade pathavte.</li>
+            <li>path() URL pattern define karte.</li>
+            <li>include() app URLs project sobat connect karte.</li>
+            <li>urlpatterns hi URL patterns chi list aahe.</li>
+            <li>Function-Based View ha Python function asto.</li>
+            <li>HttpResponse() browser la response pathavte.</li>
+            <li>render() HTML template render karte.</li>
+            <li>Dynamic URL madhye parameters vaparta yetat.</li>
+            <li>URL name mule named URL reverse karta yete.</li>
+        </ol>
+    </section>
+
+    <!-- PRACTICE -->
+    <section class="practice-section">
+        <h2>13. Practice Questions</h2>
+
+        <p>He questions swatah solve kar:</p>
+
+        <ol>
+            <li>URL mhanje kay? Example de.</li>
+            <li>URL Routing mhanje kay?</li>
+            <li>path() ani include() madhil difference lih.</li>
+            <li>Simple home View create karun HttpResponse return kar.</li>
+            <li>About page sathi URL configure kar.</li>
+            <li>render() function cha use samjav.</li>
+            <li>Student ID sathi dynamic URL create kar.</li>
+            <li>Multiple URL parameters pass karun output display kar.</li>
+        </ol>
+    </section>
+
+    <!-- COMPLETION -->
+    <div class="completion-message">
+        <h2>Topic 05 Completed!</h2>
+        <p>
+            Ata tumhala Django URL Routing, Views, HttpResponse,
+            render() ani Dynamic URLs samajle astil.
+        </p>
+    </div>
+
+    <!-- NAVIGATION -->
+    <div class="lesson-navigation">
+        <a href="{% url 'django_topic' 'mvt-architecture' %}"
+           class="nav-button previous-button">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'django_topic' 'templates' %}"
+           class="nav-button next-button">
+            Next Topic →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

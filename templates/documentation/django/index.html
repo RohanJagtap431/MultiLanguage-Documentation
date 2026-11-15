@@ -1,0 +1,190 @@
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}
+Django Documentation | Roman Marathi
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/django/index.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<div class="page-heading">
+
+    <span class="section-label">PYTHON BACKEND DEVELOPMENT</span>
+
+    <h1>Django Documentation</h1>
+
+    <p>
+        Django web development basic pasun advanced paryant
+        soprya Roman Marathi madhye shika.
+        Pratyek topic sobat explanation, syntax,
+        code examples ani output dile aahet.
+    </p>
+
+</div>
+
+<div class="topic-list">
+
+    <a href="{% url 'django_topic' 'introduction' %}" class="topic-card">
+        <span class="topic-number">01</span>
+        <span class="topic-name">Introduction to Django</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'django_topic' 'installation' %}" class="topic-card">
+        <span class="topic-number">02</span>
+        <span class="topic-name">Django Installation and Setup</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'django_topic' 'project-structure' %}" class="topic-card">
+        <span class="topic-number">03</span>
+        <span class="topic-name">Django Project and App Structure</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'django_topic' 'mvt-architecture' %}" class="topic-card">
+        <span class="topic-number">04</span>
+        <span class="topic-name">Django MVT Architecture</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'django_topic' 'urls-and-views' %}" class="topic-card">
+        <span class="topic-number">05</span>
+        <span class="topic-name">URLs and Views</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'django_topic' 'templates' %}" class="topic-card">
+        <span class="topic-number">06</span>
+        <span class="topic-name">Django Templates</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'django_topic' 'static-files' %}" class="topic-card">
+        <span class="topic-number">07</span>
+        <span class="topic-name">Static Files (CSS, JS, Images)</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'django_topic' 'models' %}" class="topic-card">
+        <span class="topic-number">08</span>
+        <span class="topic-name">Django Models</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'django_topic' 'django-orm' %}" class="topic-card">
+        <span class="topic-number">09</span>
+        <span class="topic-name">Django ORM</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'django_topic' 'migrations' %}" class="topic-card">
+        <span class="topic-number">10</span>
+        <span class="topic-name">Database Migrations</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'django_topic' 'forms' %}" class="topic-card">
+        <span class="topic-number">11</span>
+        <span class="topic-name">Django Forms</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'django_topic' 'modelforms' %}" class="topic-card">
+        <span class="topic-number">12</span>
+        <span class="topic-name">Django ModelForms</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'django_topic' 'crud-operations' %}" class="topic-card">
+        <span class="topic-number">13</span>
+        <span class="topic-name">CRUD Operations</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'django_topic' 'authentication' %}" class="topic-card">
+        <span class="topic-number">14</span>
+        <span class="topic-name">Django Authentication System</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'django_topic' 'login-logout' %}" class="topic-card">
+        <span class="topic-number">15</span>
+        <span class="topic-name">Login, Logout and Registration</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'django_topic' 'admin-panel' %}" class="topic-card">
+        <span class="topic-number">16</span>
+        <span class="topic-name">Django Admin Panel</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'django_topic' 'sessions-and-cookies' %}" class="topic-card">
+        <span class="topic-number">17</span>
+        <span class="topic-name">Sessions and Cookies</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'django_topic' 'model-relationships' %}" class="topic-card">
+        <span class="topic-number">18</span>
+        <span class="topic-name">Model Relationships</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'django_topic' 'file-image-upload' %}" class="topic-card">
+        <span class="topic-number">19</span>
+        <span class="topic-name">File and Image Upload</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'django_topic' 'class-based-views' %}" class="topic-card">
+        <span class="topic-number">20</span>
+        <span class="topic-name">Class-Based Views (CBV)</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'django_topic' 'middleware' %}" class="topic-card">
+        <span class="topic-number">21</span>
+        <span class="topic-name">Django Middleware</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'django_topic' 'messages-framework' %}" class="topic-card">
+        <span class="topic-number">22</span>
+        <span class="topic-name">Django Messages Framework</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'django_topic' 'pagination-search' %}" class="topic-card">
+        <span class="topic-number">23</span>
+        <span class="topic-name">Pagination and Search</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'django_topic' 'security' %}" class="topic-card">
+        <span class="topic-number">24</span>
+        <span class="topic-name">Django Security</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'django_topic' 'testing' %}" class="topic-card">
+        <span class="topic-number">25</span>
+        <span class="topic-name">Django Testing</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'django_topic' 'deployment' %}" class="topic-card">
+        <span class="topic-number">26</span>
+        <span class="topic-name">Django Deployment</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+</div>
+
+{% endblock %}

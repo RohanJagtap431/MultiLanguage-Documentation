@@ -1,0 +1,1333 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}
+HTML Forms | Roman Marathi
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/html/forms.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+
+    <div class="lesson-header">
+
+        <span class="lesson-label">HTML DOCUMENTATION • PAGE 10</span>
+
+        <h1>HTML Forms</h1>
+
+        <p>
+            HTML Forms vaprun website var user kadun
+            information collect karne ani server kade
+            submit karne ya lesson madhye shikuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Beginner Level</span>
+            <span>40–45 Minutes</span>
+        </div>
+
+    </div>
+
+
+    <!-- Section 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What are HTML Forms?</h2>
+
+        <p>
+            HTML Form cha use website var user kadun
+            information collect karnyasathi hoto.
+        </p>
+
+        <p>
+            User form madhye information enter karto
+            ani Submit button click karun ti information
+            server kade pathavu shakto.
+        </p>
+
+        <h3>Examples:</h3>
+
+        <ul>
+            <li>Registration Form</li>
+            <li>Login Form</li>
+            <li>Contact Form</li>
+            <li>Feedback Form</li>
+            <li>Search Form</li>
+            <li>Job Application Form</li>
+        </ul>
+
+        <div class="info-box">
+            <strong>Simple Definition:</strong>
+            HTML Form mhanje user kadun data collect
+            karnyasathi vaparla janara HTML structure.
+        </div>
+
+    </section>
+
+
+    <!-- Section 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. HTML Form Elements</h2>
+
+        <p>
+            HTML Form create karnyasathi different
+            elements vapartat.
+        </p>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>Element</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>&lt;form&gt;</td>
+                    <td>Form create karto.</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;input&gt;</td>
+                    <td>User kadun input gheto.</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;label&gt;</td>
+                    <td>Input field la label dete.</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;textarea&gt;</td>
+                    <td>Multiple lines text input ghete.</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;button&gt;</td>
+                    <td>Button create karto.</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;select&gt;</td>
+                    <td>Dropdown list create karto.</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;option&gt;</td>
+                    <td>Dropdown madhil option define karto.</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;fieldset&gt;</td>
+                    <td>Related form controls group karto.</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;legend&gt;</td>
+                    <td>Fieldset la title dete.</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+
+    <!-- Section 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. Form Element</h2>
+
+        <p>
+            form element cha use HTML madhye form
+            create karnyasathi hoto.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>
+&lt;form&gt;
+
+    Form Elements
+
+&lt;/form&gt;
+        </code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;form&gt;
+
+    &lt;label&gt;Name:&lt;/label&gt;
+
+    &lt;input type="text"&gt;
+
+    &lt;button type="submit"&gt;
+        Submit
+    &lt;/button&gt;
+
+&lt;/form&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <form>
+                <label>Name:</label>
+                <input type="text" placeholder="Enter your name">
+                <button type="button">Submit</button>
+            </form>
+
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Form element ha form madhil inputs ani
+            controls cha parent container asto.
+        </div>
+
+    </section>
+
+
+    <!-- Section 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. Input Element</h2>
+
+        <p>
+            input element cha use user kadun information
+            receive karnyasathi hoto.
+        </p>
+
+        <p>
+            Input element madhil type attribute nusar
+            input field cha behavior change hoto.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>
+&lt;input type="text"&gt;
+        </code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;form&gt;
+
+    &lt;input type="text" placeholder="Enter Name"&gt;
+
+    &lt;input type="email" placeholder="Enter Email"&gt;
+
+    &lt;input type="password" placeholder="Enter Password"&gt;
+
+&lt;/form&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <form>
+                <input type="text" placeholder="Enter Name">
+                <input type="email" placeholder="Enter Email">
+                <input type="password" placeholder="Enter Password">
+            </form>
+
+        </div>
+
+        <p>
+            Input types cha detailed study pudhil
+            Page 11 – HTML Input Types madhye karu.
+        </p>
+
+    </section>
+
+
+    <!-- Section 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. Label Element</h2>
+
+        <p>
+            label element cha use Input Field la
+            meaningful name kiwa description denyasathi hoto.
+        </p>
+
+        <p>
+            label chya for attribute chi value ani input
+            chya id chi value same asavi.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;label for="username"&gt;
+    Username:
+&lt;/label&gt;
+
+&lt;input type="text" id="username"&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <label for="demo-username">Username:</label>
+            <input type="text" id="demo-username"
+                   placeholder="Enter username">
+
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>label user la field cha purpose samjavte.</li>
+            <li>for attribute input chya id sobat connect hote.</li>
+            <li>Label click kelyavar connected input focus hoto.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Accessibility sathi pratyek important input
+            la proper label dene recommended aahe.
+        </div>
+
+    </section>
+
+
+    <!-- Section 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. Textarea Element</h2>
+
+        <p>
+            textarea element cha use user kadun
+            multiple lines text receive karnyasathi hoto.
+        </p>
+
+        <p>
+            Long messages, comments ani feedback
+            collect karnyasathi textarea useful aahe.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>
+&lt;textarea&gt;&lt;/textarea&gt;
+        </code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;label for="message"&gt;Message:&lt;/label&gt;
+
+&lt;textarea
+    id="message"
+    name="message"
+    rows="5"
+    cols="30"
+    placeholder="Enter your message"&gt;
+&lt;/textarea&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <label for="demo-message">Message:</label>
+
+            <textarea id="demo-message"
+                      rows="5"
+                      placeholder="Enter your message"></textarea>
+
+        </div>
+
+        <h3>Important Attributes:</h3>
+
+        <ul>
+            <li>rows = Textarea madhil visible rows specify karte.</li>
+            <li>cols = Approximate visible character width specify karte.</li>
+            <li>placeholder = Hint text display karte.</li>
+            <li>name = Submitted data cha field name specify karte.</li>
+        </ul>
+
+    </section>
+
+
+    <!-- Section 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. Button Element</h2>
+
+        <p>
+            button element cha use clickable button
+            create karnyasathi hoto.
+        </p>
+
+        <h3>Button Types:</h3>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>submit</td>
+                    <td>Form submit karto.</td>
+                </tr>
+
+                <tr>
+                    <td>reset</td>
+                    <td>Form fields default values var reset karto.</td>
+                </tr>
+
+                <tr>
+                    <td>button</td>
+                    <td>Default action naslela general button create karto.</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;form&gt;
+
+    &lt;input type="text" placeholder="Enter Name"&gt;
+
+    &lt;button type="submit"&gt;
+        Submit
+    &lt;/button&gt;
+
+    &lt;button type="reset"&gt;
+        Reset
+    &lt;/button&gt;
+
+    &lt;button type="button"&gt;
+        Click Me
+    &lt;/button&gt;
+
+&lt;/form&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <form>
+                <input type="text" placeholder="Enter Name">
+
+                <button type="button">Submit</button>
+                <button type="reset">Reset</button>
+                <button type="button">Click Me</button>
+            </form>
+
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Form madhye button cha type specify kar.
+            type="button" general actions sathi vapr.
+            type="submit" form submit karnyasathi vapr.
+        </div>
+
+    </section>
+
+
+    <!-- Section 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. Select and Option Elements</h2>
+
+        <p>
+            select element cha use Dropdown List create
+            karnyasathi hoto.
+        </p>
+
+        <p>
+            option element dropdown madhil individual
+            option define karto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;label for="course"&gt;Select Course:&lt;/label&gt;
+
+&lt;select id="course" name="course"&gt;
+
+    &lt;option value="bsc"&gt;BSc Computer Science&lt;/option&gt;
+
+    &lt;option value="bca"&gt;BCA&lt;/option&gt;
+
+    &lt;option value="bcs"&gt;BCS&lt;/option&gt;
+
+&lt;/select&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <label for="demo-course">Select Course:</label>
+
+            <select id="demo-course">
+                <option value="bsc">BSc Computer Science</option>
+                <option value="bca">BCA</option>
+                <option value="bcs">BCS</option>
+            </select>
+
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            User la fixed options madhun ek option
+            select karaycha asel tar select element vapr.
+        </div>
+
+    </section>
+
+
+    <!-- Section 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Action Attribute</h2>
+
+        <p>
+            action attribute specify karto ki Form submit
+            zalyavar data kontya URL kade pathavaycha aahe.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>
+&lt;form action="/register/"&gt;
+
+    Form Fields
+
+&lt;/form&gt;
+        </code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;form action="/register/" method="post"&gt;
+
+    &lt;input type="text" name="username"&gt;
+
+    &lt;button type="submit"&gt;
+        Register
+    &lt;/button&gt;
+
+&lt;/form&gt;
+        </code></pre>
+
+        <p>
+            Ya example madhye form submit zalyavar
+            data /register/ URL kade pathavla jato.
+        </p>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            HTML madhil action attribute fakt destination
+            specify karto. Actual data processing server-side
+            application karte.
+        </div>
+
+    </section>
+
+
+    <!-- Section 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Method Attribute</h2>
+
+        <p>
+            method attribute specify karto ki Form data
+            server kade kontya HTTP method ne pathavla jail.
+        </p>
+
+        <p>
+            Commonly GET ani POST methods vapartat.
+        </p>
+
+        <h3>GET Method:</h3>
+
+        <p>
+            GET method madhye form data URL chya query
+            parameters madhye pathavla jato.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;form action="/search/" method="get"&gt;
+
+    &lt;input type="text" name="query"&gt;
+
+    &lt;button type="submit"&gt;
+        Search
+    &lt;/button&gt;
+
+&lt;/form&gt;
+        </code></pre>
+
+        <p>
+            Example URL:
+        </p>
+
+        <pre class="code-block"><code>
+/search/?query=python
+        </code></pre>
+
+        <h3>POST Method:</h3>
+
+        <p>
+            POST method madhye form data HTTP request
+            body madhye pathavla jato.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;form action="/register/" method="post"&gt;
+
+    &lt;input type="text" name="username"&gt;
+
+    &lt;button type="submit"&gt;
+        Register
+    &lt;/button&gt;
+
+&lt;/form&gt;
+        </code></pre>
+
+        <h3>GET vs POST:</h3>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>GET</th>
+                    <th>POST</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Data URL query parameters madhye jato.</td>
+                    <td>Data request body madhye jato.</td>
+                </tr>
+
+                <tr>
+                    <td>Search ani data retrieval sathi common.</td>
+                    <td>Data submit ani create karnyasathi common.</td>
+                </tr>
+
+                <tr>
+                    <td>URL madhye data visible asu shakto.</td>
+                    <td>Data URL madhye normally visible nasto.</td>
+                </tr>
+
+                <tr>
+                    <td>URL bookmark kiwa share karta yete.</td>
+                    <td>Normal form submission madhye URL query data nasato.</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+        <div class="important-box">
+            <strong>Security Note:</strong>
+            POST method mhanje data automatically secure hot nahi.
+            Sensitive data sathi HTTPS, server-side validation
+            ani proper security required aahe.
+        </div>
+
+    </section>
+
+
+    <!-- Section 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Name Attribute</h2>
+
+        <p>
+            name attribute form field cha name specify karto.
+            Form submit hotana data identify karnyasathi
+            name attribute important aahe.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;form&gt;
+
+    &lt;input type="text" name="username"&gt;
+
+    &lt;input type="email" name="email"&gt;
+
+&lt;/form&gt;
+        </code></pre>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>username = First input cha field name.</li>
+            <li>email = Second input cha field name.</li>
+            <li>Server form data name nusar access karu shakto.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            name attribute nasel tar normal form submission
+            madhye tya input chi value form data madhye
+            include hot nahi.
+        </div>
+
+    </section>
+
+
+    <!-- Section 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Value Attribute</h2>
+
+        <p>
+            value attribute input field chi default value
+            specify karnyasathi vapartat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;input
+    type="text"
+    name="username"
+    value="Rohan"&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <label>Username:</label>
+
+            <input type="text"
+                   value="Rohan"
+                   readonly>
+
+        </div>
+
+        <p>
+            Ya example madhye input field madhye
+            Rohan hi default value display hote.
+        </p>
+
+    </section>
+
+
+    <!-- Section 13 -->
+
+    <section class="lesson-section">
+
+        <h2>13. Placeholder Attribute</h2>
+
+        <p>
+            placeholder attribute input field madhye
+            short hint kiwa example text display karte.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;input
+    type="text"
+    placeholder="Enter your name"&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <input type="text"
+                   placeholder="Enter your name">
+
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Placeholder ha label cha replacement nahi.
+            Input la proper label suddha de.
+        </div>
+
+    </section>
+
+
+    <!-- Section 14 -->
+
+    <section class="lesson-section">
+
+        <h2>14. Required, Readonly and Disabled</h2>
+
+        <p>
+            Ya attributes cha use Form fields var
+            specific restrictions apply karnyasathi hoto.
+        </p>
+
+        <h3>Required:</h3>
+
+        <p>
+            required attribute mule field fill karne
+            compulsory hote.
+        </p>
+
+        <pre class="code-block"><code>
+&lt;input type="text" required&gt;
+        </code></pre>
+
+        <h3>Readonly:</h3>
+
+        <p>
+            readonly field madhil value user change
+            karu shakat nahi. Pan field form submission
+            madhye include hou shakto.
+        </p>
+
+        <pre class="code-block"><code>
+&lt;input type="text" value="Rohan" readonly&gt;
+        </code></pre>
+
+        <h3>Disabled:</h3>
+
+        <p>
+            disabled field inactive asto ani normal
+            form submission madhye include hot nahi.
+        </p>
+
+        <pre class="code-block"><code>
+&lt;input type="text" value="Rohan" disabled&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <label>Required Field:</label>
+            <input type="text"
+                   placeholder="Required field"
+                   required>
+
+            <label>Readonly Field:</label>
+            <input type="text"
+                   value="Rohan"
+                   readonly>
+
+            <label>Disabled Field:</label>
+            <input type="text"
+                   value="Rohan"
+                   disabled>
+
+        </div>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>Attribute</th>
+                    <th>User Editing</th>
+                    <th>Submitted Normally?</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>required</td>
+                    <td>Allowed</td>
+                    <td>Yes, if valid</td>
+                </tr>
+
+                <tr>
+                    <td>readonly</td>
+                    <td>Not allowed</td>
+                    <td>Yes</td>
+                </tr>
+
+                <tr>
+                    <td>disabled</td>
+                    <td>Not allowed</td>
+                    <td>No</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+    </section>
+
+
+    <!-- Section 15 -->
+
+    <section class="lesson-section">
+
+        <h2>15. Fieldset and Legend</h2>
+
+        <p>
+            fieldset element cha use related form controls
+            group karnyasathi hoto.
+        </p>
+
+        <p>
+            legend element fieldset group la title dete.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;fieldset&gt;
+
+    &lt;legend&gt;Personal Information&lt;/legend&gt;
+
+    &lt;label for="fname"&gt;Name:&lt;/label&gt;
+
+    &lt;input type="text" id="fname" name="name"&gt;
+
+    &lt;label for="femail"&gt;Email:&lt;/label&gt;
+
+    &lt;input type="email" id="femail" name="email"&gt;
+
+&lt;/fieldset&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <fieldset>
+                <legend>Personal Information</legend>
+
+                <label for="demo-fname">Name:</label>
+                <input type="text" id="demo-fname"
+                       placeholder="Enter name">
+
+                <label for="demo-femail">Email:</label>
+                <input type="email" id="demo-femail"
+                       placeholder="Enter email">
+            </fieldset>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 16 -->
+
+    <section class="lesson-section">
+
+        <h2>16. Complete Registration Form</h2>
+
+        <p>
+            Ata apan previously shiklele Form elements
+            vaprun ek simple Registration Form create karu.
+        </p>
+
+        <h3>HTML Code:</h3>
+
+        <pre class="code-block"><code>
+&lt;h1&gt;Student Registration&lt;/h1&gt;
+
+&lt;form action="/register/" method="post"&gt;
+
+    &lt;label for="name"&gt;Full Name:&lt;/label&gt;
+    &lt;input type="text"
+           id="name"
+           name="name"
+           placeholder="Enter your name"
+           required&gt;
+
+    &lt;label for="email"&gt;Email:&lt;/label&gt;
+    &lt;input type="email"
+           id="email"
+           name="email"
+           placeholder="Enter your email"
+           required&gt;
+
+    &lt;label for="password"&gt;Password:&lt;/label&gt;
+    &lt;input type="password"
+           id="password"
+           name="password"
+           required&gt;
+
+    &lt;label for="course"&gt;Course:&lt;/label&gt;
+
+    &lt;select id="course" name="course" required&gt;
+        &lt;option value=""&gt;Select Course&lt;/option&gt;
+        &lt;option value="bsc"&gt;BSc CS&lt;/option&gt;
+        &lt;option value="bca"&gt;BCA&lt;/option&gt;
+    &lt;/select&gt;
+
+    &lt;label for="address"&gt;Address:&lt;/label&gt;
+
+    &lt;textarea id="address"
+              name="address"
+              rows="4"&gt;&lt;/textarea&gt;
+
+    &lt;button type="submit"&gt;
+        Register
+    &lt;/button&gt;
+
+    &lt;button type="reset"&gt;
+        Reset
+    &lt;/button&gt;
+
+&lt;/form&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <h2>Student Registration</h2>
+
+            <form action="#"
+                  method="get"
+                  onsubmit="return false;">
+
+                <label for="reg-name">Full Name:</label>
+                <input type="text"
+                       id="reg-name"
+                       placeholder="Enter your name"
+                       required>
+
+                <label for="reg-email">Email:</label>
+                <input type="email"
+                       id="reg-email"
+                       placeholder="Enter your email"
+                       required>
+
+                <label for="reg-password">Password:</label>
+                <input type="password"
+                       id="reg-password"
+                       placeholder="Enter password"
+                       required>
+
+                <label for="reg-course">Course:</label>
+                <select id="reg-course" required>
+                    <option value="">Select Course</option>
+                    <option value="bsc">BSc CS</option>
+                    <option value="bca">BCA</option>
+                </select>
+
+                <label for="reg-address">Address:</label>
+                <textarea id="reg-address"
+                          rows="4"
+                          placeholder="Enter address"></textarea>
+
+                <button type="button">Register</button>
+                <button type="reset">Reset</button>
+
+            </form>
+
+            <p class="demo-note">
+                Ha demonstration form aahe. Yatil data
+                kontyahi server kade submit hot nahi.
+            </p>
+
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>form element complete registration form create karto.</li>
+            <li>label fields chi information dete.</li>
+            <li>input user kadun name, email ani password gheto.</li>
+            <li>select user la course choose karu deto.</li>
+            <li>textarea address enter karnyasathi aahe.</li>
+            <li>submit button form submit karnyasathi vapartat.</li>
+            <li>reset button form fields reset karto.</li>
+        </ul>
+
+    </section>
+
+
+    <!-- Section 17 -->
+
+    <section class="lesson-section">
+
+        <h2>17. HTML Form and Django Backend</h2>
+
+        <p>
+            HTML Form ha Django Backend Developer sathi
+            important concept aahe.
+        </p>
+
+        <p>
+            User form submit karto. Browser HTTP request
+            Django server kade pathavto. Django view
+            request madhil data process karu shakto.
+        </p>
+
+        <h3>Simple Django Example:</h3>
+
+        <pre class="code-block"><code>
+# views.py
+
+from django.shortcuts import render
+
+def register(request):
+
+    if request.method == "POST":
+
+        username = request.POST.get("username")
+
+        email = request.POST.get("email")
+
+        print(username, email)
+
+    return render(request, "register.html")
+        </code></pre>
+
+        <h3>HTML Form:</h3>
+
+        <pre class="code-block"><code>
+&lt;form method="post"&gt;
+
+    {% csrf_token %}
+
+    &lt;input
+        type="text"
+        name="username"
+        placeholder="Username"&gt;
+
+    &lt;input
+        type="email"
+        name="email"
+        placeholder="Email"&gt;
+
+    &lt;button type="submit"&gt;
+        Register
+    &lt;/button&gt;
+
+&lt;/form&gt;
+        </code></pre>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Django madhye POST form submit kartana
+            {% csrf_token %} vaprane required aahe,
+            jar CSRF protection enabled asel tar.
+            Actual project madhye server-side validation
+            ani secure password handling suddha required aahe.
+        </div>
+
+    </section>
+
+
+    <!-- Section 18 -->
+
+    <section class="lesson-section">
+
+        <h2>18. Common Beginner Mistakes</h2>
+
+        <div class="mistake-card">
+            <strong>Mistake 1: Input la name attribute na dene</strong>
+            <p>
+                Normal form submission madhye name naslela
+                input submit hot nahi.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 2: Label ani input connect na karne</strong>
+            <p>
+                Label cha for ani input cha id same thev.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 3: GET ani POST confuse karne</strong>
+            <p>
+                Data retrieval ani data submission sathi
+                appropriate HTTP method select kar.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 4: Password GET method ne pathavne</strong>
+            <p>
+                Password sarkhya sensitive data sathi GET vapru naye.
+                POST, HTTPS ani proper backend security vapr.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 5: Submit button cha type na dene</strong>
+            <p>
+                Form madhye button cha type explicitly specify kar.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 6: Fakt HTML validation var depend rahane</strong>
+            <p>
+                Browser validation sobat server-side validation
+                suddha karne important aahe.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- Section 19 -->
+
+    <section class="lesson-section">
+
+        <h2>19. Quick Revision</h2>
+
+        <div class="revision-box">
+
+            <ul>
+                <li>form element form create karto.</li>
+                <li>input element user kadun input gheto.</li>
+                <li>label element input la label dete.</li>
+                <li>textarea multiple lines text ghete.</li>
+                <li>button clickable button create karto.</li>
+                <li>select dropdown create karto.</li>
+                <li>option dropdown madhil item define karto.</li>
+                <li>action form data chi destination URL specify karto.</li>
+                <li>method HTTP request method specify karto.</li>
+                <li>GET data URL query parameters madhye pathavto.</li>
+                <li>POST data request body madhye pathavto.</li>
+                <li>name submitted field identify karto.</li>
+                <li>value default input value specify karte.</li>
+                <li>placeholder input hint display karte.</li>
+                <li>required field compulsory karte.</li>
+                <li>readonly field edit hou det nahi.</li>
+                <li>disabled field inactive thevte.</li>
+                <li>fieldset related fields group karto.</li>
+                <li>legend fieldset la title dete.</li>
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 20 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>20. Practice Questions</h2>
+
+        <h3>Basic Questions</h3>
+
+        <ol>
+            <li>HTML Form mhanje kay?</li>
+            <li>form element cha use kay aahe?</li>
+            <li>input element mhanje kay?</li>
+            <li>label element cha use kay aahe?</li>
+            <li>textarea ani input madhil difference lih.</li>
+            <li>button element che types konte?</li>
+            <li>action attribute mhanje kay?</li>
+            <li>method attribute mhanje kay?</li>
+            <li>GET ani POST madhil difference lih.</li>
+            <li>name ani value attributes cha use kay aahe?</li>
+            <li>placeholder attribute mhanje kay?</li>
+            <li>required, readonly ani disabled madhil difference lih.</li>
+            <li>fieldset ani legend cha use kay aahe?</li>
+        </ol>
+
+        <h3>Practical Questions</h3>
+
+        <ol>
+            <li>Simple Login Form create kar.</li>
+            <li>Student Registration Form create kar.</li>
+            <li>Name ani Email fields create kar.</li>
+            <li>Message sathi textarea create kar.</li>
+            <li>Course selection sathi dropdown create kar.</li>
+            <li>required attribute vaprun form create kar.</li>
+            <li>GET method vaprun Search Form create kar.</li>
+            <li>POST method vaprun Registration Form create kar.</li>
+            <li>fieldset ani legend vaprun Personal Details form create kar.</li>
+        </ol>
+
+        <div class="task-box">
+
+            <h3>Mini Task: Student Registration Page</h3>
+
+            <p>
+                HTML ani CSS vaprun complete Student
+                Registration Page create kar.
+            </p>
+
+            <ul>
+                <li>Full Name</li>
+                <li>Email</li>
+                <li>Password</li>
+                <li>Mobile Number</li>
+                <li>Date of Birth</li>
+                <li>Course Dropdown</li>
+                <li>Address Textarea</li>
+                <li>Submit ani Reset Buttons</li>
+                <li>Proper Labels ani Required Fields</li>
+                <li>Responsive CSS Design</li>
+            </ul>
+
+            <p>
+                File Name: <strong>student_registration.html</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Lesson Navigation -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'html_topic' 'tables' %}"
+           class="nav-button previous-button">
+            ← Previous: HTML Tables
+        </a>
+
+        <a href="{% url 'html_topic' 'input-types' %}"
+           class="nav-button next-button">
+            Next: HTML Input Types →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

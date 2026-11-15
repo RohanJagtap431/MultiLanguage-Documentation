@@ -1,0 +1,1117 @@
+
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}Python OOPs | Roman Marathi Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/python/oops.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">PYTHON • LESSON 25</span>
+        <h1>Python OOPs</h1>
+        <p>
+            Object-Oriented Programming madhye Class ani Object cha use karun
+            code organize, reuse ani manage karayla shikhuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Level: Beginner</span>
+            <span>⏱️ Time: 60–75 Minutes</span>
+        </div>
+    </div>
+
+    <!-- 1. Introduction -->
+    <section class="lesson-section">
+        <h2>1. What is OOP?</h2>
+
+        <p>
+            OOP cha full form Object-Oriented Programming aahe.
+            Hi programming approach aahe jyamadhye program Classes
+            ani Objects chya madatine design kela jato.
+        </p>
+
+        <p>
+            OOP madhye data ani tya data var kaam karanarya methods
+            ekach structure madhye organize karta yetat.
+        </p>
+
+        <h3>Real-Life Example</h3>
+
+        <p>
+            Samaj ek Car aahe. Car la kahi properties astat:
+        </p>
+
+        <ul>
+            <li>Color</li>
+            <li>Brand</li>
+            <li>Speed</li>
+        </ul>
+
+        <p>Car kahi actions suddha karu shakte:</p>
+
+        <ul>
+            <li>Start</li>
+            <li>Stop</li>
+            <li>Accelerate</li>
+        </ul>
+
+        <p>
+            Python OOP madhye properties data mhanun ani actions methods
+            mhanun represent karta yetat.
+        </p>
+
+        <div class="info-box">
+            <strong>Samjun ghe:</strong>
+            OOP madhye object ha real entity represent karto.
+            Class ha asha objects create karnyasathi blueprint asto.
+        </div>
+    </section>
+
+    <!-- 2. Advantages -->
+    <section class="lesson-section">
+        <h2>2. Advantages of OOP</h2>
+
+        <ul>
+            <li><strong>Code Reusability:</strong> Existing code punha use karta yeto.</li>
+            <li><strong>Modularity:</strong> Code classes madhye organize karta yeto.</li>
+            <li><strong>Maintainability:</strong> Code update ani maintain karne sope hote.</li>
+            <li><strong>Data Protection:</strong> Data access control karayla madat hote.</li>
+            <li><strong>Scalability:</strong> Large applications organize karne sope hote.</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Backend Connection:</strong>
+            Django madhye Model ha Python class asto.
+            Tyapasun objects create karun database records sobat kaam karta yete.
+        </div>
+    </section>
+
+    <!-- 3. Class -->
+    <section class="lesson-section">
+        <h2>3. Class in Python</h2>
+
+        <p>
+            Class mhanje objects create karnyasathi blueprint kiwa template.
+            Class madhye variables ani methods define karta yetat.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre><code>class ClassName:
+    # Variables
+    # Methods</code></pre>
+
+        <h3>Example</h3>
+
+        <pre><code>class Student:
+    name = "Rohan"
+    course = "Python"
+
+print(Student.name)
+print(Student.course)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Rohan
+Python</pre>
+        </div>
+
+        <p>
+            Yethe Student hi class aahe.
+            name ani course he class attributes aahet.
+        </p>
+    </section>
+
+    <!-- 4. Object -->
+    <section class="lesson-section">
+        <h2>4. Object in Python</h2>
+
+        <p>
+            Object mhanje class cha instance.
+            Class cha use karun objects create karta yetat.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre><code>object_name = ClassName()</code></pre>
+
+        <h3>Example</h3>
+
+        <pre><code>class Student:
+    name = "Rohan"
+    course = "Python"
+
+student1 = Student()
+
+print(student1.name)
+print(student1.course)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Rohan
+Python</pre>
+        </div>
+
+        <h3>Multiple Objects</h3>
+
+        <pre><code>class Student:
+    name = "Rohan"
+
+student1 = Student()
+student2 = Student()
+
+print(student1.name)
+print(student2.name)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Rohan
+Rohan</pre>
+        </div>
+
+        <div class="info-box">
+            <strong>Important:</strong>
+            Ekach class pasun multiple objects create karta yetat.
+            Pratyek object ha class cha separate instance asto.
+        </div>
+    </section>
+
+    <!-- 5. Constructor -->
+    <section class="lesson-section">
+        <h2>5. __init__() Constructor</h2>
+
+        <p>
+            Python madhye <code>__init__()</code> hi special method aahe.
+            Object create kelyanantar ti automatically call hote.
+        </p>
+
+        <p>
+            Object la initial values set karnyasathi
+            <code>__init__()</code> vapartat.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>class Student:
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+student1 = Student("Rohan", 20)
+
+print(student1.name)
+print(student1.age)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Rohan
+20</pre>
+        </div>
+
+        <p>Ya code madhye:</p>
+
+        <ul>
+            <li><code>__init__()</code> object initialize karte.</li>
+            <li><code>name</code> ani <code>age</code> he parameters aahet.</li>
+            <li><code>self.name</code> ani <code>self.age</code> object attributes aahet.</li>
+            <li><code>Student("Rohan", 20)</code> object create karte.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            __init__() la commonly constructor mhantat.
+            Technically Python madhye object creation sathi __new__()
+            ani initialization sathi __init__() vapartat.
+            Beginner level la __init__() la constructor mhanun samju shakto.
+        </div>
+    </section>
+
+    <!-- 6. self -->
+    <section class="lesson-section">
+        <h2>6. self Keyword</h2>
+
+        <p>
+            <code>self</code> ha current object la refer karto.
+            Instance method madhye object che attributes ani methods
+            access karnyasathi self vapartat.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>class Student:
+
+    def __init__(self, name):
+        self.name = name
+
+    def display(self):
+        print("Student Name:", self.name)
+
+student1 = Student("Rohan")
+student1.display()</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Student Name: Rohan</pre>
+        </div>
+
+        <p>
+            student1.display() call kelyavar student1 object method madhye
+            self mhanun pass hoto.
+        </p>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            self he Python madhil reserved keyword nahi.
+            Pan instance method madhye current object sathi self nav vaprane
+            hi standard convention aahe.
+        </div>
+    </section>
+
+    <!-- 7. Instance Variables -->
+    <section class="lesson-section">
+        <h2>7. Instance Variables</h2>
+
+        <p>
+            Instance variables he pratyek object sathi separate astat.
+            Usually te __init__() madhye self cha use karun define kartat.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>class Student:
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+student1 = Student("Rohan", 20)
+student2 = Student("Amit", 21)
+
+print(student1.name, student1.age)
+print(student2.name, student2.age)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Rohan 20
+Amit 21</pre>
+        </div>
+
+        <p>
+            Donhi objects che name ani age vegvegale aahet.
+        </p>
+    </section>
+
+    <!-- 8. Instance Methods -->
+    <section class="lesson-section">
+        <h2>8. Instance Methods</h2>
+
+        <p>
+            Class madhye define kelele ani object var call kele janare
+            normal methods mhanje Instance Methods.
+        </p>
+
+        <p>
+            Instance method cha pahila parameter commonly self asto.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>class Student:
+
+    def __init__(self, name):
+        self.name = name
+
+    def display(self):
+        print("Name:", self.name)
+
+student1 = Student("Rohan")
+student1.display()</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Name: Rohan</pre>
+        </div>
+    </section>
+
+    <!-- 9. Class Variables -->
+    <section class="lesson-section">
+        <h2>9. Class Variables</h2>
+
+        <p>
+            Class variables he class madhye pan methods chya baher define
+            kele jatat. Te class chya objects madhye shared astat,
+            jo paryant object tyachya navane vegli instance attribute create karat nahi.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>class Student:
+
+    college = "ABC College"
+
+    def __init__(self, name):
+        self.name = name
+
+student1 = Student("Rohan")
+student2 = Student("Amit")
+
+print(student1.name)
+print(student2.name)
+
+print(student1.college)
+print(student2.college)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Rohan
+Amit
+ABC College
+ABC College</pre>
+        </div>
+
+        <p>
+            Yethe college ha class variable aahe.
+            Donhi objects madhun tyala access karta yeto.
+        </p>
+    </section>
+
+    <!-- 10. Class Methods -->
+    <section class="lesson-section">
+        <h2>10. Class Methods</h2>
+
+        <p>
+            Class method ha class sobat related method asto.
+            Tyacha pahila parameter commonly <code>cls</code> asto.
+        </p>
+
+        <p>
+            Class method define karnyasathi <code>@classmethod</code>
+            decorator vapartat.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>class Student:
+
+    college = "ABC College"
+
+    @classmethod
+    def display_college(cls):
+        print(cls.college)
+
+Student.display_college()</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>ABC College</pre>
+        </div>
+
+        <p>
+            cls current class la refer karto.
+            Class method class variable access kiwa update karu shakto.
+        </p>
+    </section>
+
+    <!-- 11. Static Methods -->
+    <section class="lesson-section">
+        <h2>11. Static Methods</h2>
+
+        <p>
+            Static method ha class madhye define kela jato,
+            pan tyala automatic self kiwa cls parameter milat nahi.
+        </p>
+
+        <p>
+            Static method define karnyasathi
+            <code>@staticmethod</code> decorator vapartat.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>class Calculator:
+
+    @staticmethod
+    def add(a, b):
+        return a + b
+
+result = Calculator.add(10, 20)
+
+print(result)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>30</pre>
+        </div>
+
+        <p>
+            Ya method la object-specific kiwa class-specific data
+            access karnyachi garaj nahi.
+        </p>
+    </section>
+
+    <!-- 12. Encapsulation -->
+    <section class="lesson-section">
+        <h2>12. Encapsulation</h2>
+
+        <p>
+            Encapsulation mhanje data ani tya data var kaam karanarya
+            methods ekach class madhye organize karne.
+        </p>
+
+        <p>
+            Python madhye naming conventions ani properties vaprun
+            attribute access control karnyas madat hote.
+        </p>
+
+        <h3>Public Variable</h3>
+
+        <pre><code>class Student:
+
+    def __init__(self):
+        self.name = "Rohan"
+
+student = Student()
+
+print(student.name)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Rohan</pre>
+        </div>
+
+        <h3>Protected Convention (_)</h3>
+
+        <pre><code>class Student:
+
+    def __init__(self):
+        self._name = "Rohan"
+
+student = Student()
+
+print(student._name)</code></pre>
+
+        <p>
+            Single underscore mhanje internal use sathi intended
+            aslyachi convention aahe. Python access la strictly block karat nahi.
+        </p>
+
+        <h3>Private Name Mangling (__)</h3>
+
+        <pre><code>class BankAccount:
+
+    def __init__(self, balance):
+        self.__balance = balance
+
+    def show_balance(self):
+        print("Balance:", self.__balance)
+
+account = BankAccount(5000)
+
+account.show_balance()</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Balance: 5000</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Double underscore mule name mangling hote.
+            Hi complete security mechanism nahi.
+            Python madhye private access la Java sarkha strict restriction nahi.
+        </div>
+    </section>
+
+    <!-- 13. Inheritance -->
+    <section class="lesson-section">
+        <h2>13. Inheritance</h2>
+
+        <p>
+            Inheritance mhanje ek class dusrya class che attributes ani methods
+            inherit karu shakto.
+        </p>
+
+        <p>
+            Jya class madhun inherit karto tyala Parent Class kiwa Base Class mhantat.
+            Navin class la Child Class kiwa Derived Class mhantat.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>class Animal:
+
+    def eat(self):
+        print("Animal is eating")
+
+
+class Dog(Animal):
+
+    def bark(self):
+        print("Dog is barking")
+
+
+dog = Dog()
+
+dog.eat()
+dog.bark()</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Animal is eating
+Dog is barking</pre>
+        </div>
+
+        <p>
+            Dog class ne Animal class madhil eat() method inherit keli aahe.
+        </p>
+
+        <h3>Types of Inheritance</h3>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Single</td>
+                        <td>Ek child class ek parent class inherit karto.</td>
+                    </tr>
+                    <tr>
+                        <td>Multiple</td>
+                        <td>Ek child class multiple parent classes inherit karto.</td>
+                    </tr>
+                    <tr>
+                        <td>Multilevel</td>
+                        <td>Inheritance chi chain tayar hote.</td>
+                    </tr>
+                    <tr>
+                        <td>Hierarchical</td>
+                        <td>Multiple child classes ekach parent inherit kartat.</td>
+                    </tr>
+                    <tr>
+                        <td>Hybrid</td>
+                        <td>Multiple inheritance patterns combine hotat.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 14. super -->
+    <section class="lesson-section">
+        <h2>14. super() Function</h2>
+
+        <p>
+            <code>super()</code> cha use child class madhun parent class
+            chya methods kiwa constructor la access karnyasathi hoto.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>class Animal:
+
+    def __init__(self, name):
+        self.name = name
+
+
+class Dog(Animal):
+
+    def __init__(self, name, breed):
+        super().__init__(name)
+        self.breed = breed
+
+
+dog = Dog("Tommy", "Labrador")
+
+print(dog.name)
+print(dog.breed)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Tommy
+Labrador</pre>
+        </div>
+
+        <p>
+            super().__init__(name) mule parent class cha constructor call hoto.
+        </p>
+    </section>
+
+    <!-- 15. Polymorphism -->
+    <section class="lesson-section">
+        <h2>15. Polymorphism</h2>
+
+        <p>
+            Polymorphism cha meaning many forms asa hoto.
+            Vegveglya objects sathi same method name vegveglya paddhatine
+            work karu shakto.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>class Dog:
+
+    def sound(self):
+        print("Dog barks")
+
+
+class Cat:
+
+    def sound(self):
+        print("Cat meows")
+
+
+dog = Dog()
+cat = Cat()
+
+dog.sound()
+cat.sound()</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Dog barks
+Cat meows</pre>
+        </div>
+
+        <p>
+            Donhi classes madhye sound() method aahe.
+            Pan object nusar output vegla milto.
+        </p>
+
+        <h3>Polymorphism with Function</h3>
+
+        <pre><code>class Dog:
+
+    def sound(self):
+        print("Bark")
+
+
+class Cat:
+
+    def sound(self):
+        print("Meow")
+
+
+def make_sound(animal):
+    animal.sound()
+
+
+make_sound(Dog())
+make_sound(Cat())</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Bark
+Meow</pre>
+        </div>
+    </section>
+
+    <!-- 16. Method Overriding -->
+    <section class="lesson-section">
+        <h2>16. Method Overriding</h2>
+
+        <p>
+            Child class madhye parent class madhil method chya same name ne
+            navin implementation define kelyas tyala Method Overriding mhantat.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>class Animal:
+
+    def sound(self):
+        print("Animal makes sound")
+
+
+class Dog(Animal):
+
+    def sound(self):
+        print("Dog barks")
+
+
+dog = Dog()
+dog.sound()</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Dog barks</pre>
+        </div>
+
+        <p>
+            Dog class madhil sound() method ne parent class madhil
+            sound() method override keli aahe.
+        </p>
+    </section>
+
+    <!-- 17. Abstraction -->
+    <section class="lesson-section">
+        <h2>17. Abstraction</h2>
+
+        <p>
+            Abstraction mhanje unnecessary internal details hide karun
+            user la important functionality provide karne.
+        </p>
+
+        <p>
+            Python madhye abstract classes create karnyasathi
+            <code>abc</code> module ani <code>ABC</code> class vapartat.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>from abc import ABC, abstractmethod
+
+
+class Animal(ABC):
+
+    @abstractmethod
+    def sound(self):
+        pass
+
+
+class Dog(Animal):
+
+    def sound(self):
+        print("Dog barks")
+
+
+dog = Dog()
+dog.sound()</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Dog barks</pre>
+        </div>
+
+        <p>
+            Animal hi abstract class aahe.
+            Dog class ne abstract sound() method implement keli aahe.
+        </p>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Abstract class cha direct object create karta yet nahi,
+            jar tyat unimplemented abstract methods astil.
+            Concrete child class ne required abstract methods implement karavya lagtat.
+        </div>
+    </section>
+
+    <!-- 18. Four Pillars -->
+    <section class="lesson-section">
+        <h2>18. Four Pillars of OOP</h2>
+
+        <p>OOP che char main principles:</p>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Pillar</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Encapsulation</td>
+                        <td>Data ani methods ekatra organize karne.</td>
+                    </tr>
+                    <tr>
+                        <td>Inheritance</td>
+                        <td>Existing class cha code reuse karne.</td>
+                    </tr>
+                    <tr>
+                        <td>Polymorphism</td>
+                        <td>Same interface, different behavior.</td>
+                    </tr>
+                    <tr>
+                        <td>Abstraction</td>
+                        <td>Unnecessary implementation details hide karne.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 19. Practical -->
+    <section class="lesson-section">
+        <h2>19. Practical Example – Bank Account System</h2>
+
+        <p>
+            Aata Class, Object, Constructor, Methods ani Encapsulation
+            use karun simple Bank Account System create karuya.
+        </p>
+
+        <h3>Complete Program</h3>
+
+        <pre><code>class BankAccount:
+
+    def __init__(self, name, balance):
+        self.name = name
+        self.__balance = balance
+
+    def deposit(self, amount):
+        if amount > 0:
+            self.__balance += amount
+            print("Amount deposited")
+        else:
+            print("Invalid amount")
+
+    def withdraw(self, amount):
+        if amount <= 0:
+            print("Invalid amount")
+
+        elif amount > self.__balance:
+            print("Insufficient balance")
+
+        else:
+            self.__balance -= amount
+            print("Amount withdrawn")
+
+    def show_balance(self):
+        print("Account Holder:", self.name)
+        print("Balance:", self.__balance)
+
+
+account = BankAccount("Rohan", 5000)
+
+account.deposit(2000)
+account.withdraw(1000)
+account.show_balance()</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Amount deposited
+Amount withdrawn
+Account Holder: Rohan
+Balance: 6000</pre>
+        </div>
+
+        <p>Ya program madhye:</p>
+
+        <ul>
+            <li>BankAccount hi class aahe.</li>
+            <li>account ha object aahe.</li>
+            <li>__init__() initial values set karto.</li>
+            <li>deposit() paise add karto.</li>
+            <li>withdraw() paise withdraw karto.</li>
+            <li>show_balance() current balance display karto.</li>
+            <li>__balance he double underscore attribute aahe.</li>
+        </ul>
+    </section>
+
+    <!-- 20. Common Mistakes -->
+    <section class="lesson-section">
+        <h2>20. Common Beginner Mistakes</h2>
+
+        <div class="error-card">
+            <h3>Mistake 1: Missing self</h3>
+
+            <pre><code>class Student:
+
+    def display():
+        print("Hello")
+
+student = Student()
+student.display()</code></pre>
+
+            <p>
+                Instance method madhye pahila parameter self asava.
+            </p>
+
+            <pre><code>class Student:
+
+    def display(self):
+        print("Hello")</code></pre>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 2: Wrong Constructor Name</h3>
+
+            <pre><code>class Student:
+
+    def init(self, name):
+        self.name = name</code></pre>
+
+            <p>
+                Special method che exact name __init__ aahe.
+            </p>
+
+            <pre><code>def __init__(self, name):
+    self.name = name</code></pre>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 3: Forgetting Object Creation</h3>
+
+            <pre><code>class Student:
+
+    def display(self):
+        print("Hello")
+
+Student.display()</code></pre>
+
+            <p>
+                Ha instance method aahe. To object var call kar.
+            </p>
+
+            <pre><code>student = Student()
+student.display()</code></pre>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 4: Wrong Parent Class Name</h3>
+
+            <pre><code>class Animal:
+    pass
+
+class Dog(Animals):
+    pass</code></pre>
+
+            <p>
+                Parent class che name Animal aahe, Animals nahi.
+                Class name exact match pahije.
+            </p>
+
+            <pre><code>class Dog(Animal):
+    pass</code></pre>
+        </div>
+    </section>
+
+    <!-- 21. Revision -->
+    <section class="lesson-section">
+        <h2>21. Quick Revision</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Concept</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>OOP</td><td>Object-Oriented Programming.</td></tr>
+                    <tr><td>Class</td><td>Object create karnyasathi blueprint.</td></tr>
+                    <tr><td>Object</td><td>Class cha instance.</td></tr>
+                    <tr><td>__init__()</td><td>Object initialize karte.</td></tr>
+                    <tr><td>self</td><td>Current object la refer karto.</td></tr>
+                    <tr><td>Instance Variable</td><td>Pratyek object cha separate data.</td></tr>
+                    <tr><td>Class Variable</td><td>Class sobat shared variable.</td></tr>
+                    <tr><td>Instance Method</td><td>Object var kaam karanari method.</td></tr>
+                    <tr><td>Class Method</td><td>Class sobat related method.</td></tr>
+                    <tr><td>Static Method</td><td>Self kiwa cls automatic nasnari method.</td></tr>
+                    <tr><td>Encapsulation</td><td>Data ani methods organize karne.</td></tr>
+                    <tr><td>Inheritance</td><td>Parent class cha code reuse karne.</td></tr>
+                    <tr><td>Polymorphism</td><td>Same interface, different behavior.</td></tr>
+                    <tr><td>Abstraction</td><td>Internal details hide karne.</td></tr>
+                    <tr><td>super()</td><td>Parent class functionality access karne.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 22. Practice -->
+    <section class="practice-section">
+        <h2>22. Practice Questions</h2>
+
+        <p>
+            Khalil questions swatah solve kar.
+            Pratyek program VS Code madhye run karun output check kar.
+        </p>
+
+        <div class="practice-task">
+            <h3>Question 1</h3>
+            <p>Student navachi class create kar ani name ani course attributes define kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 2</h3>
+            <p>Student class cha object create kar ani tyache attributes display kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 3</h3>
+            <p>__init__() vaprun student name, age ani marks initialize kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 4</h3>
+            <p>self vaprun display() instance method create kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 5</h3>
+            <p>Class variable college create kar ani don objects madhun access kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 6</h3>
+            <p>@classmethod vaprun college name display kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 7</h3>
+            <p>@staticmethod vaprun don numbers chi addition kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 8</h3>
+            <p>BankAccount class create kar ani balance attribute encapsulate kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 9</h3>
+            <p>Animal parent class ani Dog child class create kar. Inheritance test kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 10</h3>
+            <p>Dog ani Cat classes madhye same sound() method define karun polymorphism demonstrate kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 11</h3>
+            <p>Parent class madhil method child class madhye override kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 12</h3>
+            <p>ABC module vaprun abstract class ani concrete child class create kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 13</h3>
+            <p>super() vaprun parent class cha constructor call kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 14</h3>
+            <p>Student Management System create kar. Student details, marks ani result methods madhye organize kar.</p>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+        <a href="{% url 'python_topic' 'file-handling' %}" class="nav-button back-button">
+            ← Previous: File Handling
+        </a>
+
+        <a href="{% url 'python_topic' 'inheritance' %}" class="nav-button next-button">
+            Next: Inheritance →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

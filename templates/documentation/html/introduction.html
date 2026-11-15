@@ -1,0 +1,701 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}
+Introduction to HTML | Roman Marathi
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/html/introduction.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+
+    <div class="lesson-header">
+
+        <span class="lesson-label">HTML DOCUMENTATION • PAGE 01</span>
+
+        <h1>Introduction to HTML</h1>
+
+        <p>
+            HTML mhanje kay, HTML cha use kasa hoto ani
+            website tayar karnyasathi HTML ka important aahe
+            he ya lesson madhye shikuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Beginner Level</span>
+            <span>25–30 Minutes</span>
+        </div>
+
+    </div>
+
+
+    <!-- Section 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What is HTML?</h2>
+
+        <p>
+            HTML cha full form <strong>HyperText Markup Language</strong>
+            asa aahe.
+        </p>
+
+        <p>
+            HTML hi ek Markup Language aahe. Ticha use website
+            madhil content structure tayar karnyasathi hoto.
+            Udaharanarth, webpage var heading, paragraph,
+            image, link, table ani form dakhavnyasathi HTML
+            vapartat.
+        </p>
+
+        <p>
+            HTML browser la sangte ki webpage madhil konta
+            content heading aahe, konta paragraph aahe,
+            kuthe image dakhvaychi ani kuthe link dyaychi.
+        </p>
+
+        <div class="info-box">
+            <strong>Simple Definition:</strong>
+            HTML hi markup language aahe ji webpage cha
+            structure ani content define karte.
+        </div>
+
+    </section>
+
+
+    <!-- Section 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Full Form of HTML</h2>
+
+        <div class="definition-list">
+
+            <div class="definition-item">
+                <strong>H</strong>
+                <span>Hyper</span>
+            </div>
+
+            <div class="definition-item">
+                <strong>T</strong>
+                <span>Text</span>
+            </div>
+
+            <div class="definition-item">
+                <strong>M</strong>
+                <span>Markup</span>
+            </div>
+
+            <div class="definition-item">
+                <strong>L</strong>
+                <span>Language</span>
+            </div>
+
+        </div>
+
+        <h3>Meaning samjun gheu:</h3>
+
+        <ul>
+            <li>
+                <strong>Hyper:</strong>
+                Eka webpage la dusrya webpage sobat link karne.
+            </li>
+
+            <li>
+                <strong>Text:</strong>
+                Webpage var dakhavla janara text kiwa content.
+            </li>
+
+            <li>
+                <strong>Markup:</strong>
+                Tags vaprun content la structure dene.
+            </li>
+
+            <li>
+                <strong>Language:</strong>
+                Content define karnyasathi vaparla janara markup system.
+            </li>
+        </ul>
+
+    </section>
+
+
+    <!-- Section 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. Why is HTML Used?</h2>
+
+        <p>
+            HTML cha main purpose website cha structure tayar karne
+            ha aahe. Website madhil content browser la samjun
+            denyasathi HTML tags vapartat.
+        </p>
+
+        <h3>HTML cha use khalil goshtinsathi hoto:</h3>
+
+        <ul>
+            <li>Website madhye headings ani paragraphs tayar karne.</li>
+            <li>Images webpage var display karne.</li>
+            <li>Dusrya webpages sobat links tayar karne.</li>
+            <li>Tables madhye data display karne.</li>
+            <li>User kadun information ghenyasathi forms tayar karne.</li>
+            <li>Audio ani video content add karne.</li>
+            <li>Webpage la meaningful structure dene.</li>
+        </ul>
+
+        <div class="example-box">
+            <strong>Example:</strong>
+            Jar aplyala Student Registration Website banvaychi asel,
+            tar student name, email, password ani submit button
+            dakhavnyasathi HTML form elements vaparta yetat.
+        </div>
+
+    </section>
+
+
+    <!-- Section 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. HTML is Not a Programming Language</h2>
+
+        <p>
+            HTML hi programming language nahi. HTML hi
+            Markup Language aahe.
+        </p>
+
+        <p>
+            Programming languages madhye conditions, loops,
+            calculations ani logical operations perform karta yetat.
+            HTML cha main purpose webpage madhil content la
+            structure dene ha aahe.
+        </p>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            HTML swatah programming logic execute karat nahi.
+            Tyamule HTML la Programming Language mhanat nahit.
+        </div>
+
+        <h3>HTML vs Programming Language</h3>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>HTML</th>
+                    <th>Programming Language</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Markup Language aahe.</td>
+                    <td>Programming Language aste.</td>
+                </tr>
+
+                <tr>
+                    <td>Content structure tayar karte.</td>
+                    <td>Logic ani instructions execute karte.</td>
+                </tr>
+
+                <tr>
+                    <td>HTML tags vaparte.</td>
+                    <td>Variables, conditions, loops vaparte.</td>
+                </tr>
+
+                <tr>
+                    <td>Example: HTML</td>
+                    <td>Example: Python, C, Java</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+    </section>
+
+
+    <!-- Section 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. History of HTML</h2>
+
+        <p>
+            HTML cha vikas web technology chya suruvatichya
+            kalat zala. Webpages create ani share karne sope
+            vhava ha tyamaghcha main purpose hota.
+        </p>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+                <strong>1991</strong>
+                <p>
+                    Tim Berners-Lee yanni HTML chi pahili
+                    version introduce keli.
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <strong>1995</strong>
+                <p>
+                    HTML 2.0 specification publish zali.
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <strong>1997</strong>
+                <p>
+                    HTML 3.2 W3C recommendation banli.
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <strong>1999</strong>
+                <p>
+                    HTML 4.01 publish zali.
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <strong>2014</strong>
+                <p>
+                    HTML5 W3C Recommendation mhanun publish zali.
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <strong>Today</strong>
+                <p>
+                    HTML cha development WHATWG Living Standard
+                    madhun continue hot aahe.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. HTML, CSS and JavaScript</h2>
+
+        <p>
+            Modern website tayar karnyasathi HTML, CSS ani
+            JavaScript ya tin technologies cha use kela jato.
+            Pratyek technology che kam vegale aste.
+        </p>
+
+        <div class="technology-list">
+
+            <div class="technology-card html-card">
+                <h3>HTML</h3>
+                <p>Website cha structure tayar karte.</p>
+                <span>Structure</span>
+            </div>
+
+            <div class="technology-card css-card">
+                <h3>CSS</h3>
+                <p>Website la design ani styling dete.</p>
+                <span>Design</span>
+            </div>
+
+            <div class="technology-card js-card">
+                <h3>JavaScript</h3>
+                <p>Website madhye interactivity add karte.</p>
+                <span>Behavior</span>
+            </div>
+
+        </div>
+
+        <h3>Simple Real-Life Example:</h3>
+
+        <ul>
+            <li>
+                <strong>HTML:</strong>
+                Gharachi structure ani bhinti.
+            </li>
+
+            <li>
+                <strong>CSS:</strong>
+                Gharacha color, decoration ani design.
+            </li>
+
+            <li>
+                <strong>JavaScript:</strong>
+                Gharatil lights, switches ani interactive features.
+            </li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Web Development shikatana aadhi HTML,
+            nantar CSS ani mag JavaScript shikne upayogi aahe.
+        </div>
+
+    </section>
+
+
+    <!-- Section 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. How Does HTML Work?</h2>
+
+        <p>
+            HTML file browser madhye open kelyavar browser
+            HTML code read ani parse karto. Tyatun document
+            structure tayar hote ani browser webpage render karto.
+        </p>
+
+        <div class="workflow">
+
+            <div class="workflow-step">
+                <span>01</span>
+                <strong>HTML Code</strong>
+                <p>Developer HTML file create karto.</p>
+            </div>
+
+            <div class="workflow-arrow">↓</div>
+
+            <div class="workflow-step">
+                <span>02</span>
+                <strong>Web Browser</strong>
+                <p>Browser HTML code read karto.</p>
+            </div>
+
+            <div class="workflow-arrow">↓</div>
+
+            <div class="workflow-step">
+                <span>03</span>
+                <strong>DOM Structure</strong>
+                <p>Browser document chi structure tayar karto.</p>
+            </div>
+
+            <div class="workflow-arrow">↓</div>
+
+            <div class="workflow-step">
+                <span>04</span>
+                <strong>Webpage Output</strong>
+                <p>Browser webpage screen var display karto.</p>
+            </div>
+
+        </div>
+
+        <div class="info-box">
+            <strong>Note:</strong>
+            Browser HTML sobat CSS ani JavaScript suddha process
+            karu shakto. Ya mule webpage cha final appearance
+            ani behavior tayar hoto.
+        </div>
+
+    </section>
+
+
+    <!-- Section 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. First HTML Example</h2>
+
+        <p>
+            Ata apan ek simple HTML example pahu.
+            Ya example madhye heading ani paragraph display karu.
+        </p>
+
+        <h3>Code:</h3>
+
+        <pre class="code-block"><code>
+&lt;h1&gt;Hello World&lt;/h1&gt;
+
+&lt;p&gt;Welcome to HTML Learning.&lt;/p&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <h1>Hello World</h1>
+            <p>Welcome to HTML Learning.</p>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>
+                <strong>&lt;h1&gt;</strong>
+                ha heading display karnyasathi vaparla jato.
+            </li>
+
+            <li>
+                <strong>&lt;p&gt;</strong>
+                ha paragraph display karnyasathi vaparla jato.
+            </li>
+
+            <li>
+                <strong>&lt;/h1&gt;</strong>
+                ani <strong>&lt;/p&gt;</strong>
+                he closing tags aahet.
+            </li>
+        </ul>
+
+    </section>
+
+
+    <!-- Section 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Advantages of HTML</h2>
+
+        <ul>
+            <li>HTML shikayla sopi aahe.</li>
+            <li>HTML free ani open web standard aahe.</li>
+            <li>HTML files create karne sope aahe.</li>
+            <li>HTML la modern web browsers support kartat.</li>
+            <li>CSS ani JavaScript sobat HTML use karta yete.</li>
+            <li>Static webpages tayar karta yetat.</li>
+            <li>Web development cha ha basic foundation aahe.</li>
+        </ul>
+
+    </section>
+
+
+    <!-- Section 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Disadvantages and Limitations of HTML</h2>
+
+        <p>
+            HTML useful asali tari fakt HTML vaprun
+            complete dynamic website tayar karta yet nahi.
+        </p>
+
+        <ul>
+            <li>HTML swatah dynamic programming logic handle karat nahi.</li>
+            <li>Advanced design sathi CSS chi garaj aste.</li>
+            <li>Interactive functionality sathi JavaScript lagte.</li>
+            <li>Database madhye data save karnyasathi backend lagto.</li>
+            <li>User authentication sathi backend system lagte.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            HTML structure tayar karte. Database connection,
+            login authentication ani server-side processing
+            sathi Django sarkhya backend technology chi garaj aste.
+        </div>
+
+    </section>
+
+
+    <!-- Section 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Important HTML Terms</h2>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>Term</th>
+                    <th>Meaning</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>HTML</td>
+                    <td>HyperText Markup Language</td>
+                </tr>
+
+                <tr>
+                    <td>Tag</td>
+                    <td>HTML madhil markup instruction.</td>
+                </tr>
+
+                <tr>
+                    <td>Element</td>
+                    <td>Opening tag, content ani closing tag yanchi combination.</td>
+                </tr>
+
+                <tr>
+                    <td>Attribute</td>
+                    <td>HTML element la additional information dete.</td>
+                </tr>
+
+                <tr>
+                    <td>Browser</td>
+                    <td>Webpage display karnare software.</td>
+                </tr>
+
+                <tr>
+                    <td>DOM</td>
+                    <td>Document Object Model.</td>
+                </tr>
+
+                <tr>
+                    <td>Webpage</td>
+                    <td>Browser madhye display honare ek web document.</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+    </section>
+
+
+    <!-- Section 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Common Beginner Mistakes</h2>
+
+        <div class="mistake-card">
+            <strong>Mistake 1: HTML la programming language samajne</strong>
+            <p>
+                HTML hi markup language aahe.
+                Ticha main purpose webpage structure tayar karne aahe.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 2: HTML ani CSS same samajne</strong>
+            <p>
+                HTML structure tayar karte tar CSS webpage la styling dete.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 3: Fakt HTML ne complete website tayar hoil ase samajne</strong>
+            <p>
+                Complete website sathi requirement nusar CSS,
+                JavaScript ani backend technology suddha lagu shakte.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 4: HTML file save karayla visarne</strong>
+            <p>
+                HTML code lihilyanantar file .html extension ne
+                save karne avashyak aahe.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- Section 13 -->
+
+    <section class="lesson-section">
+
+        <h2>13. Quick Revision</h2>
+
+        <div class="revision-box">
+
+            <ul>
+                <li>HTML full form HyperText Markup Language aahe.</li>
+                <li>HTML hi Markup Language aahe.</li>
+                <li>HTML cha use webpage structure tayar karnyasathi hoto.</li>
+                <li>HTML cha prarambh Tim Berners-Lee yanni kela.</li>
+                <li>HTML5 2014 madhye W3C Recommendation banli.</li>
+                <li>HTML structure, CSS design ani JavaScript behavior handle karte.</li>
+                <li>Browser HTML document parse karun webpage render karto.</li>
+                <li>HTML file .html extension ne save keli jate.</li>
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 14 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>14. Practice Questions</h2>
+
+        <p>
+            Khali dilele questions swatah solve kar.
+            Ya mule topic changlya prakare samjel.
+        </p>
+
+        <h3>Basic Questions</h3>
+
+        <ol>
+            <li>HTML cha full form kay aahe?</li>
+            <li>HTML mhanje kay?</li>
+            <li>HTML cha use kashasathi hoto?</li>
+            <li>HTML hi programming language aahe ka?</li>
+            <li>HTML cha shodh koni lavla?</li>
+            <li>HTML ani CSS madhye kay difference aahe?</li>
+            <li>JavaScript cha website madhye kay use hoto?</li>
+            <li>HTML file kontya extension ne save kartat?</li>
+        </ol>
+
+        <h3>Practical Questions</h3>
+
+        <ol>
+            <li>Hello World heading display karanara HTML code lih.</li>
+            <li>Ek paragraph display karanara HTML code lih.</li>
+            <li>
+                HTML, CSS ani JavaScript yanchya use madhil
+                difference lih.
+            </li>
+        </ol>
+
+        <div class="task-box">
+
+            <h3>Mini Task: My First Webpage</h3>
+
+            <p>
+                Ek simple HTML page create kar ani tyamadhye:
+            </p>
+
+            <ul>
+                <li>Tujhe nav heading madhye display kar.</li>
+                <li>Tujhya baddal ek paragraph lih.</li>
+                <li>Tujha favourite subject lih.</li>
+                <li>Welcome message display kar.</li>
+            </ul>
+
+            <p>
+                File name: <strong>my_first_page.html</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Lesson Navigation -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'html_index' %}" class="nav-button previous-button">
+            ← HTML Topics
+        </a>
+
+        <a href="{% url 'html_topic' 'structure' %}" class="nav-button next-button">
+            Next: HTML Structure →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

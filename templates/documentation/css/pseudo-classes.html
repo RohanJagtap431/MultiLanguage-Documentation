@@ -1,0 +1,498 @@
+
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}CSS Pseudo-Classes | Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/css/pseudo-classes.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+    <div class="lesson-header">
+        <span class="lesson-label">CSS TUTORIAL</span>
+
+        <h1>CSS Pseudo-Classes</h1>
+
+        <p>
+            CSS Pseudo-Classes cha use HTML elements chya
+            specific state kiwa position nusar style
+            apply karanyasathi hoto.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 25 Minutes</span>
+            <span>📄 Page 17</span>
+        </div>
+    </div>
+
+
+    <!-- Section 1 -->
+    <section class="lesson-section">
+
+        <h2>1. Introduction to Pseudo-Classes</h2>
+
+        <p>
+            Pseudo-Class hi CSS selector chi ek special
+            keyword aahe. Ti element chya specific state
+            kiwa position la target karte.
+        </p>
+
+        <p>
+            Udaharanarth, user mouse button var gheun gela
+            tar hover state apply hote. Input field select
+            kela tar focus state apply hote.
+        </p>
+
+        <div class="info-box">
+            <strong>Definition:</strong>
+            A CSS pseudo-class is used to style an element
+            based on its state or position.
+        </div>
+
+        <h3>Syntax</h3>
+
+        <div class="code-block">
+            <pre><code>selector:pseudo-class {
+    property: value;
+}</code></pre>
+        </div>
+
+        <p>
+            Pseudo-class chya adhi colon (:) vapartat.
+        </p>
+
+    </section>
+
+
+    <!-- Section 2 -->
+    <section class="lesson-section">
+
+        <h2>2. :hover</h2>
+
+        <p>
+            :hover pseudo-class cha use user mouse
+            element var gheun gelyavar style change
+            karanyasathi hoto.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.button:hover {
+    background-color: blue;
+    color: white;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box hover-output">
+            <button class="hover-button">
+                Hover Over Me
+            </button>
+            <p>Mouse button var gheun ja.</p>
+        </div>
+
+    </section>
+
+
+    <!-- Section 3 -->
+    <section class="lesson-section">
+
+        <h2>3. :active</h2>
+
+        <p>
+            :active pseudo-class cha use user element
+            click kiwa press karat astana style
+            change karanyasathi hoto.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.button:active {
+    background-color: red;
+    transform: scale(0.95);
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box active-output">
+            <button class="active-button">
+                Press and Hold
+            </button>
+            <p>Button press karun theva.</p>
+        </div>
+
+    </section>
+
+
+    <!-- Section 4 -->
+    <section class="lesson-section">
+
+        <h2>4. :focus</h2>
+
+        <p>
+            :focus pseudo-class cha use element
+            keyboard kiwa mouse ne select kelyavar
+            tyachi style change karanyasathi hoto.
+        </p>
+
+        <p>
+            Input field var click kara kiwa Tab key
+            vaprun tyala focus kara.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>input:focus {
+    border-color: blue;
+    outline: 2px solid lightblue;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box focus-output">
+            <label for="focus-demo">Your Name</label>
+            <input
+                type="text"
+                id="focus-demo"
+                placeholder="Click here to type"
+            >
+            <p>Input field select karun paha.</p>
+        </div>
+
+    </section>
+
+
+    <!-- Section 5 -->
+    <section class="lesson-section">
+
+        <h2>5. :visited</h2>
+
+        <p>
+            :visited pseudo-class cha use user ne
+            already visit kelelya links la vegli
+            style denyasathi hoto.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>a:visited {
+    color: purple;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box visited-output">
+            <a href="#visited-demo">
+                Example Visited Link
+            </a>
+            <p>
+                Link open kelyanantar browser madhye
+                tyachi visited style disu shakte.
+            </p>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            :visited cha use links sathi hoto.
+            Browser privacy mule visited links var
+            fakt kahi CSS properties, jase color,
+            apply karta yetat.
+        </div>
+
+    </section>
+
+
+    <!-- Section 6 -->
+    <section class="lesson-section">
+
+        <h2>6. :first-child</h2>
+
+        <p>
+            :first-child pseudo-class cha use
+            parent madhil pahilya child element la
+            style denyasathi hoto.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>li:first-child {
+    color: blue;
+    font-weight: bold;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box first-child-output">
+            <ul>
+                <li>First Item</li>
+                <li>Second Item</li>
+                <li>Third Item</li>
+                <li>Fourth Item</li>
+            </ul>
+        </div>
+
+    </section>
+
+
+    <!-- Section 7 -->
+    <section class="lesson-section">
+
+        <h2>7. :last-child</h2>
+
+        <p>
+            :last-child pseudo-class cha use
+            parent madhil shevatchya child element la
+            style denyasathi hoto.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>li:last-child {
+    color: green;
+    font-weight: bold;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box last-child-output">
+            <ul>
+                <li>First Item</li>
+                <li>Second Item</li>
+                <li>Third Item</li>
+                <li>Last Item</li>
+            </ul>
+        </div>
+
+    </section>
+
+
+    <!-- Section 8 -->
+    <section class="lesson-section">
+
+        <h2>8. :nth-child()</h2>
+
+        <p>
+            :nth-child() pseudo-class cha use
+            parent madhil specific position var
+            aslelya child element la select
+            karanyasathi hoto.
+        </p>
+
+        <h3>Common Examples</h3>
+
+        <ul>
+            <li><strong>:nth-child(2)</strong> - Dusra child select karto.</li>
+            <li><strong>:nth-child(odd)</strong> - Odd position children select karto.</li>
+            <li><strong>:nth-child(even)</strong> - Even position children select karto.</li>
+        </ul>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>li:nth-child(2) {
+    color: blue;
+}
+
+li:nth-child(even) {
+    background-color: #e0f2fe;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box nth-child-output">
+            <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+                <li>Item 4</li>
+                <li>Item 5</li>
+                <li>Item 6</li>
+            </ul>
+        </div>
+
+    </section>
+
+
+    <!-- Section 9 -->
+    <section class="lesson-section">
+
+        <h2>9. :not()</h2>
+
+        <p>
+            :not() pseudo-class cha use dilelya
+            selector shi match na honare elements
+            select karanyasathi hoto.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>p:not(.special) {
+    color: gray;
+}</code></pre>
+        </div>
+
+        <p>
+            Ya example madhye special class naslelya
+            paragraph elements la style apply hoil.
+        </p>
+
+        <h3>Output</h3>
+
+        <div class="output-box not-output">
+            <p>Normal Paragraph</p>
+            <p class="special">Special Paragraph</p>
+            <p>Another Normal Paragraph</p>
+        </div>
+
+    </section>
+
+
+    <!-- Section 10 -->
+    <section class="lesson-section">
+
+        <h2>10. Difference Between Pseudo-Classes</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+
+                <thead>
+                    <tr>
+                        <th>Pseudo-Class</th>
+                        <th>Use</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>:hover</td>
+                        <td>Mouse element var gelyavar.</td>
+                    </tr>
+
+                    <tr>
+                        <td>:active</td>
+                        <td>Element press kiwa click hot astana.</td>
+                    </tr>
+
+                    <tr>
+                        <td>:focus</td>
+                        <td>Element focus madhye astana.</td>
+                    </tr>
+
+                    <tr>
+                        <td>:visited</td>
+                        <td>Already visited link sathi.</td>
+                    </tr>
+
+                    <tr>
+                        <td>:first-child</td>
+                        <td>Pahilya child element sathi.</td>
+                    </tr>
+
+                    <tr>
+                        <td>:last-child</td>
+                        <td>Shevatchya child element sathi.</td>
+                    </tr>
+
+                    <tr>
+                        <td>:nth-child()</td>
+                        <td>Specific position varil child sathi.</td>
+                    </tr>
+
+                    <tr>
+                        <td>:not()</td>
+                        <td>Dilelya selector shi match na honarya elements sathi.</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+    </section>
+
+
+    <!-- Section 11 -->
+    <section class="lesson-section">
+
+        <h2>11. Important Points</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>Pseudo-Classes sathi colon (:) vapartat.</li>
+                <li>:hover mouse hover state select karte.</li>
+                <li>:active press kiwa click state select karte.</li>
+                <li>:focus focused element select karte.</li>
+                <li>:visited visited links select karte.</li>
+                <li>:first-child pahila child select karte.</li>
+                <li>:last-child shevatcha child select karte.</li>
+                <li>:nth-child() position nusar child select karte.</li>
+                <li>:not() dilelya selector la match na honare elements select karte.</li>
+            </ul>
+        </div>
+
+    </section>
+
+
+    <!-- Practice -->
+    <section class="practice-section">
+
+        <h2>12. Practice Task</h2>
+
+        <div class="task-box">
+
+            <h3>Task: Create a Styled List and Buttons</h3>
+
+            <p>Ek HTML page tayar kara ani:</p>
+
+            <ol>
+                <li>Button la :hover style dya.</li>
+                <li>Button la :active style dya.</li>
+                <li>Input field la :focus style dya.</li>
+                <li>List madhil pahilya item la :first-child vaprun style dya.</li>
+                <li>Shevatchya item la :last-child vaprun style dya.</li>
+                <li>Even items la :nth-child(even) vaprun background dya.</li>
+                <li>.special class naslelya paragraph la :not() vaprun style dya.</li>
+            </ol>
+
+        </div>
+
+    </section>
+
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+
+        <a href="{% url 'css_topic' 'grid' %}"
+           class="nav-button previous">
+            ← Previous: CSS Grid
+        </a>
+
+        <a href="{% url 'css_topic' 'pseudo-elements' %}"
+           class="nav-button next">
+            Next: CSS Pseudo-Elements →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

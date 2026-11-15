@@ -1,0 +1,407 @@
+
+/* =====================================
+   HTML DOCUMENTATION - STRUCTURE PAGE
+===================================== */
+
+/* Main Container */
+
+.lesson-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    color: #334155;
+}
+
+/* Lesson Header */
+
+.lesson-header {
+    margin-bottom: 35px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.lesson-label {
+    display: inline-block;
+    color: #2563eb;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    margin-bottom: 12px;
+}
+
+.lesson-header h1 {
+    color: #172033;
+    font-size: 36px;
+    font-weight: 750;
+    margin: 0 0 12px;
+}
+
+.lesson-header > p {
+    color: #64748b;
+    font-size: 15px;
+    line-height: 1.8;
+    max-width: 850px;
+    margin: 0;
+}
+
+.lesson-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.lesson-meta span {
+    background: #eff6ff;
+    color: #2563eb;
+    padding: 7px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* Lesson Sections */
+
+.lesson-section {
+    margin-bottom: 35px;
+}
+
+.lesson-section h2 {
+    color: #172033;
+    font-size: 23px;
+    font-weight: 700;
+    margin: 0 0 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.lesson-section h3 {
+    color: #1e293b;
+    font-size: 17px;
+    font-weight: 650;
+    margin: 22px 0 12px;
+}
+
+.lesson-section p {
+    color: #475569;
+    font-size: 14px;
+    line-height: 1.9;
+    margin: 0 0 14px;
+}
+
+.lesson-section ul,
+.lesson-section ol {
+    padding-left: 24px;
+    margin: 12px 0 18px;
+}
+
+.lesson-section li {
+    color: #475569;
+    font-size: 14px;
+    line-height: 1.9;
+    margin-bottom: 7px;
+}
+
+.lesson-section strong {
+    color: #1e293b;
+}
+
+
+/* Information Boxes */
+
+.info-box,
+.important-box,
+.tip-box,
+.example-box,
+.revision-box,
+.task-box {
+    padding: 17px 19px;
+    margin: 20px 0;
+    border-radius: 9px;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.info-box {
+    background: #eff6ff;
+    border-left: 4px solid #2563eb;
+    color: #1e40af;
+}
+
+.important-box {
+    background: #fff7ed;
+    border-left: 4px solid #f59e0b;
+    color: #9a3412;
+}
+
+.tip-box {
+    background: #f0fdf4;
+    border-left: 4px solid #16a34a;
+    color: #166534;
+}
+
+.example-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    color: #334155;
+}
+
+
+/* Tables */
+
+.lesson-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: #ffffff;
+    font-size: 14px;
+}
+
+.lesson-table th {
+    background: #172033;
+    color: #ffffff;
+    text-align: left;
+    padding: 13px 15px;
+    font-weight: 600;
+}
+
+.lesson-table td {
+    color: #475569;
+    padding: 13px 15px;
+    border: 1px solid #e2e8f0;
+    line-height: 1.7;
+}
+
+.lesson-table tbody tr:nth-child(even) {
+    background: #f8fafc;
+}
+
+
+/* Code Block */
+
+.code-block {
+    background: #111827;
+    color: #e5e7eb;
+    padding: 20px;
+    border-radius: 10px;
+    overflow-x: auto;
+    margin: 15px 0 20px;
+}
+
+.code-block code {
+    color: #e5e7eb;
+    font-family: Consolas, monospace;
+    font-size: 14px;
+    line-height: 1.8;
+    white-space: pre;
+}
+
+
+/* Output Box */
+
+.output-box {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 15px 0 20px;
+}
+
+.output-box h1 {
+    color: #111827;
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+
+.output-box p {
+    color: #111827;
+    font-size: 16px;
+    margin: 1em 0;
+}
+
+.output-box a {
+    color: #2563eb;
+    text-decoration: underline;
+}
+
+
+/* Mistake Cards */
+
+.mistake-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #ef4444;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+}
+
+.mistake-card strong {
+    color: #b91c1c;
+    font-size: 14px;
+}
+
+.mistake-card p {
+    margin: 8px 0 0;
+    font-size: 13px;
+}
+
+
+/* Revision Box */
+
+.revision-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+}
+
+.revision-box ul {
+    margin: 0;
+}
+
+
+/* Practice Section */
+
+.practice-section {
+    padding: 22px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+}
+
+.task-box {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+}
+
+.task-box h3 {
+    color: #1d4ed8;
+    margin-top: 0;
+}
+
+
+/* Lesson Navigation */
+
+.lesson-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-top: 40px;
+    padding-top: 22px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.nav-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.previous-button {
+    color: #334155;
+    background: #f1f5f9;
+}
+
+.next-button {
+    color: #ffffff;
+    background: #2563eb;
+}
+
+.previous-button:hover {
+    background: #e2e8f0;
+}
+
+.next-button:hover {
+    background: #1d4ed8;
+}
+
+
+/* Tablet Responsive */
+
+@media (max-width: 900px) {
+
+    .lesson-header h1 {
+        font-size: 30px;
+    }
+
+}
+
+
+/* Mobile Responsive */
+
+@media (max-width: 700px) {
+
+    .lesson-header h1 {
+        font-size: 27px;
+    }
+
+    .lesson-section h2 {
+        font-size: 20px;
+    }
+
+    .lesson-section h3 {
+        font-size: 16px;
+    }
+
+    .lesson-section p,
+    .lesson-section li {
+        font-size: 13px;
+    }
+
+    .lesson-table {
+        font-size: 12px;
+    }
+
+    .lesson-table th,
+    .lesson-table td {
+        padding: 10px;
+    }
+
+    .code-block {
+        padding: 15px;
+    }
+
+    .code-block code {
+        font-size: 12px;
+    }
+
+    .practice-section {
+        padding: 16px;
+    }
+
+    .lesson-navigation {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .nav-button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+}
+
+
+/* Extra Small Mobile */
+
+@media (max-width: 380px) {
+
+    .lesson-header h1 {
+        font-size: 24px;
+    }
+
+    .lesson-section h2 {
+        font-size: 18px;
+    }
+
+    .lesson-meta span {
+        font-size: 11px;
+    }
+
+}

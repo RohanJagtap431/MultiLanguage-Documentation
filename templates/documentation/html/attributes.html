@@ -1,0 +1,1057 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}
+HTML Attributes | Roman Marathi
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/html/attributes.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+
+    <div class="lesson-header">
+
+        <span class="lesson-label">HTML DOCUMENTATION • PAGE 04</span>
+
+        <h1>HTML Attributes</h1>
+
+        <p>
+            HTML attributes mhanje kay, attributes chi syntax,
+            common attributes, global attributes ani tyanchya
+            practical uses baddal ya lesson madhye shikuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Beginner Level</span>
+            <span>35–40 Minutes</span>
+        </div>
+
+    </div>
+
+
+    <!-- Section 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What are HTML Attributes?</h2>
+
+        <p>
+            HTML Attributes he HTML elements baddal additional
+            information provide kartat.
+            Attributes mule element che behavior, properties
+            kiwa settings define karta yetat.
+        </p>
+
+        <p>
+            HTML attributes normally opening tag madhye lihitat.
+            Attribute madhye attribute name ani tyachi value aste.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;a href="https://www.google.com"&gt;
+    Visit Google
+&lt;/a&gt;
+        </code></pre>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li><strong>a:</strong> Anchor element aahe.</li>
+            <li><strong>href:</strong> Attribute name aahe.</li>
+            <li><strong>https://www.google.com:</strong> Attribute value aahe.</li>
+        </ul>
+
+        <div class="info-box">
+            <strong>Simple Definition:</strong>
+            HTML Attributes he elements la additional information
+            kiwa configuration denyasathi vapartat.
+        </div>
+
+    </section>
+
+
+    <!-- Section 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. HTML Attribute Syntax</h2>
+
+        <p>
+            HTML attribute ha opening tag madhye lihitat.
+            Attribute name nantar equal sign (=) lihitat
+            ani tyachya pudhe value quotes madhye detat.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>
+&lt;element attribute="value"&gt;
+        </code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;img src="flower.jpg" alt="Red Flower"&gt;
+        </code></pre>
+
+        <h3>Ya example madhye:</h3>
+
+        <ul>
+            <li>img = HTML element.</li>
+            <li>src = Attribute name.</li>
+            <li>flower.jpg = Attribute value.</li>
+            <li>alt = Dusra attribute.</li>
+            <li>Red Flower = Alt attribute chi value.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Attribute values double quotes (" ") madhye lihine
+            hi recommended practice aahe.
+        </div>
+
+    </section>
+
+
+    <!-- Section 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. href Attribute</h2>
+
+        <p>
+            href attribute cha use hyperlink cha destination
+            define karnyasathi hoto.
+            Ha attribute mainly anchor (&lt;a&gt;) element sobat
+            vapartat.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>
+&lt;a href="URL"&gt;Link Text&lt;/a&gt;
+        </code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;a href="https://www.google.com"&gt;
+    Visit Google
+&lt;/a&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <a href="https://www.google.com" target="_blank" rel="noopener">
+                Visit Google
+            </a>
+        </div>
+
+        <h3>Internal Page Link:</h3>
+
+        <pre class="code-block"><code>
+&lt;a href="about.html"&gt;
+    About Us
+&lt;/a&gt;
+        </code></pre>
+
+        <p>
+            Ya example madhye about.html ya webpage chi link dili aahe.
+        </p>
+
+        <h3>Email Link:</h3>
+
+        <pre class="code-block"><code>
+&lt;a href="mailto:example@gmail.com"&gt;
+    Send Email
+&lt;/a&gt;
+        </code></pre>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            href attribute vaprun external website,
+            internal webpage ani email link tayar karta yete.
+        </div>
+
+    </section>
+
+
+    <!-- Section 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. src Attribute</h2>
+
+        <p>
+            src attribute cha full form source asa aahe.
+            Ya attribute cha use image, audio, video kiwa
+            external script cha source path define karnyasathi hoto.
+        </p>
+
+        <h3>Image Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;img src="photo.jpg" alt="My Photo"&gt;
+        </code></pre>
+
+        <p>
+            Ithe photo.jpg hi image file browser la kuthe
+            shodhaychi te src attribute sangte.
+        </p>
+
+        <h3>JavaScript Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;script src="script.js"&gt;&lt;/script&gt;
+        </code></pre>
+
+        <h3>Video Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;video controls src="movie.mp4"&gt;&lt;/video&gt;
+        </code></pre>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            src attribute source file cha path define karte.
+            File path chukicha asel tar browser la resource
+            load karta yenar nahi.
+        </div>
+
+    </section>
+
+
+    <!-- Section 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. alt Attribute</h2>
+
+        <p>
+            alt attribute cha full form alternative text asa aahe.
+            Ha attribute image element sobat vapartat.
+        </p>
+
+        <p>
+            Image load zali nahi tar kahi paristhitit alt text
+            dakhavla jau shakto. Screen reader vaparnarya users na
+            image cha meaning samjnyasathi suddha alt text useful aahe.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>
+&lt;img src="flower.jpg" alt="Red Rose Flower"&gt;
+        </code></pre>
+
+        <h3>Good Alt Text Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;img
+    src="student.jpg"
+    alt="Student studying at a desk"
+&gt;
+        </code></pre>
+
+        <h3>Decorative Image Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;img src="decoration.png" alt=""&gt;
+        </code></pre>
+
+        <p>
+            Image fakt decoration sathi asel ani additional
+            information det nasel tar empty alt text vaparta yete.
+        </p>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Meaningful images sathi descriptive alt text lih.
+            Fakt image.jpg kiwa photo1 ase generic text lihun
+            fayda hot nahi.
+        </div>
+
+    </section>
+
+
+    <!-- Section 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. id Attribute</h2>
+
+        <p>
+            id attribute cha use specific HTML element la
+            unique identity denyasathi hoto.
+        </p>
+
+        <p>
+            Ekach HTML document madhye ekach id value
+            normally eka element la dyavi.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>
+&lt;element id="unique-name"&gt;
+        </code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;h1 id="main-heading"&gt;
+    Welcome to My Website
+&lt;/h1&gt;
+        </code></pre>
+
+        <h3>CSS sobat id cha use:</h3>
+
+        <pre class="code-block"><code>
+#main-heading {
+    color: blue;
+    font-size: 30px;
+}
+        </code></pre>
+
+        <p>
+            CSS madhye id selector select karnyasathi hash (#)
+            symbol vapartat.
+        </p>
+
+        <h3>JavaScript sobat id cha use:</h3>
+
+        <pre class="code-block"><code>
+document.getElementById("main-heading");
+        </code></pre>
+
+        <p>
+            Ya JavaScript method mule main-heading id aslela
+            element select karta yeto.
+        </p>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            id value unique thev. Eka document madhye same id
+            anek elements na dene avoid kar.
+        </div>
+
+    </section>
+
+
+    <!-- Section 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. class Attribute</h2>
+
+        <p>
+            class attribute cha use ek kiwa anek HTML elements
+            la group identity denyasathi hoto.
+            CSS styling ani JavaScript selection sathi class useful aahe.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>
+&lt;element class="class-name"&gt;
+        </code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;h2 class="heading"&gt;First Heading&lt;/h2&gt;
+
+&lt;p class="heading"&gt;First Paragraph&lt;/p&gt;
+
+&lt;h3 class="heading"&gt;Second Heading&lt;/h3&gt;
+        </code></pre>
+
+        <h3>CSS Example:</h3>
+
+        <pre class="code-block"><code>
+.heading {
+    color: green;
+}
+        </code></pre>
+
+        <p>
+            Ya CSS mule heading class aslele sagle elements
+            green color madhye display hotil.
+        </p>
+
+        <h3>Multiple Classes:</h3>
+
+        <pre class="code-block"><code>
+&lt;p class="text-box highlight"&gt;
+    Important Information
+&lt;/p&gt;
+        </code></pre>
+
+        <p>
+            Eka element la multiple classes deta yetat.
+            Class names madhye space vapartat.
+        </p>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            id specific element sathi unique identity aahe.
+            class anek elements madhye reuse karta yete.
+        </div>
+
+    </section>
+
+
+    <!-- Section 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. title Attribute</h2>
+
+        <p>
+            title attribute element baddal additional information
+            provide karte. Desktop browser madhye kahi vela
+            mouse pointer element var thevlyavar tooltip
+            display hoto.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>
+&lt;element title="Additional Information"&gt;
+    Content
+&lt;/element&gt;
+        </code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;p title="This is additional information"&gt;
+    Move your mouse over this text.
+&lt;/p&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <p title="This is additional information">
+                Move your mouse over this text.
+            </p>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            title attribute la essential information cha
+            ekmev replacement samju naye. Mobile ani keyboard
+            users sathi tooltip nehmich available asel ase nahi.
+        </div>
+
+    </section>
+
+
+    <!-- Section 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. style Attribute</h2>
+
+        <p>
+            style attribute cha use specific HTML element la
+            inline CSS denyasathi hoto.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>
+&lt;element style="property: value;"&gt;
+        </code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;h1 style="color: blue;"&gt;
+    Welcome
+&lt;/h1&gt;
+
+&lt;p style="font-size: 20px;"&gt;
+    Learn HTML
+&lt;/p&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <h1 style="color: blue;">Welcome</h1>
+            <p style="font-size: 20px;">Learn HTML</p>
+        </div>
+
+        <h3>Multiple CSS Properties:</h3>
+
+        <pre class="code-block"><code>
+&lt;p style="color: red; font-size: 18px; background-color: yellow;"&gt;
+    Important Text
+&lt;/p&gt;
+        </code></pre>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            style attribute inline CSS sathi aahe.
+            Large website madhye separate CSS file vaprane
+            maintainability sathi adhik changle aste.
+        </div>
+
+    </section>
+
+
+    <!-- Section 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. width and height Attributes</h2>
+
+        <p>
+            width ani height attributes kahi HTML elements
+            chi dimensions define karnyasathi vapartat.
+            Image element madhye he attributes commonly vapartat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;img
+    src="flower.jpg"
+    alt="Red Flower"
+    width="300"
+    height="200"
+&gt;
+        </code></pre>
+
+        <p>
+            Ithe image chi width 300 pixels ani height
+            200 pixels aahe.
+        </p>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            img chya width ani height attributes madhye
+            normally numeric values CSS pixels madhye specify kartat.
+            Responsive layout sathi CSS suddha vaparta yete.
+        </div>
+
+    </section>
+
+
+    <!-- Section 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Boolean Attributes</h2>
+
+        <p>
+            Boolean attributes he ase attributes aahet jyanchi
+            presence true value darshavte.
+            Tyanna separate true kiwa false string value denyachi
+            garaj naste.
+        </p>
+
+        <p>
+            Attribute present asel tar feature enable hoto.
+            Attribute absent asel tar feature enable hot nahi.
+        </p>
+
+        <h3>Common Boolean Attributes:</h3>
+
+        <ul>
+            <li>disabled</li>
+            <li>required</li>
+            <li>checked</li>
+            <li>readonly</li>
+            <li>multiple</li>
+            <li>autofocus</li>
+            <li>selected</li>
+            <li>hidden</li>
+        </ul>
+
+        <h3>Disabled Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;button disabled&gt;
+    Submit
+&lt;/button&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <button type="button" disabled>Submit</button>
+        </div>
+
+        <p>
+            Ithe disabled attribute mule button click karta yet nahi.
+        </p>
+
+        <h3>Required Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;input type="text" required&gt;
+        </code></pre>
+
+        <p>
+            Required attribute mule form submit karnyapurvi
+            ya field madhye value dene avashyak hote.
+        </p>
+
+        <h3>Checked Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;input type="checkbox" checked&gt;
+        </code></pre>
+
+        <p>
+            Checked attribute mule checkbox initially selected asto.
+        </p>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Boolean attribute true karaycha asel tar to present thev.
+            False karaycha asel tar attribute remove kar.
+        </div>
+
+    </section>
+
+
+    <!-- Section 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Global Attributes</h2>
+
+        <p>
+            Global attributes he ase attributes aahet je
+            bahutek HTML elements sobat vaparta yetat.
+            Pratyek element sathi pratyek attribute applicable
+            aselach ase nahi.
+        </p>
+
+        <h3>Common Global Attributes:</h3>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>Attribute</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>id</td>
+                    <td>Element la unique identity dene.</td>
+                </tr>
+
+                <tr>
+                    <td>class</td>
+                    <td>Elements group karne.</td>
+                </tr>
+
+                <tr>
+                    <td>style</td>
+                    <td>Inline CSS dene.</td>
+                </tr>
+
+                <tr>
+                    <td>title</td>
+                    <td>Additional information dene.</td>
+                </tr>
+
+                <tr>
+                    <td>hidden</td>
+                    <td>Element render madhye hide karne.</td>
+                </tr>
+
+                <tr>
+                    <td>lang</td>
+                    <td>Content chi language specify karne.</td>
+                </tr>
+
+                <tr>
+                    <td>dir</td>
+                    <td>Text direction specify karne.</td>
+                </tr>
+
+                <tr>
+                    <td>contenteditable</td>
+                    <td>Element content user la edit karta yene.</td>
+                </tr>
+
+                <tr>
+                    <td>data-*</td>
+                    <td>Custom data store karne.</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+
+    <!-- Section 13 -->
+
+    <section class="lesson-section">
+
+        <h2>13. data-* Custom Attributes</h2>
+
+        <p>
+            data-* attributes cha use HTML elements madhye
+            custom data store karnyasathi hoto.
+            Ya data cha use JavaScript madhun karta yeto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;button data-user-id="101"&gt;
+    View User
+&lt;/button&gt;
+        </code></pre>
+
+        <h3>JavaScript Example:</h3>
+
+        <pre class="code-block"><code>
+const button = document.querySelector("button");
+
+console.log(button.dataset.userId);
+        </code></pre>
+
+        <p>
+            Ya example madhye dataset.userId mule
+            101 hi value access karta yete.
+        </p>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            data-user-id he HTML madhil custom data attribute aahe.
+            JavaScript madhye dataset.userId ya format madhye
+            tyachi value access karta yete.
+        </div>
+
+    </section>
+
+
+    <!-- Section 14 -->
+
+    <section class="lesson-section">
+
+        <h2>14. Multiple Attributes</h2>
+
+        <p>
+            Eka HTML element la ekapeksha jast attributes
+            deta yetat. Attributes opening tag madhye lihitat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;img
+    src="student.jpg"
+    alt="Student Photo"
+    width="200"
+    height="200"
+    title="Student Profile"
+    class="profile-image"
+    id="student-photo"
+&gt;
+        </code></pre>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>src image file cha path dete.</li>
+            <li>alt image cha alternative text dete.</li>
+            <li>width image chi width define karte.</li>
+            <li>height image chi height define karte.</li>
+            <li>title additional information dete.</li>
+            <li>class CSS group identity dete.</li>
+            <li>id unique identity dete.</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Attributes cha order normally important nasto.
+            Pan code readable ani consistent thev.
+        </div>
+
+    </section>
+
+
+    <!-- Section 15 -->
+
+    <section class="lesson-section">
+
+        <h2>15. Practical Example - Student Profile</h2>
+
+        <p>
+            Ata apan different HTML attributes vaprun
+            ek simple student profile tayar karu.
+        </p>
+
+        <h3>HTML Code:</h3>
+
+        <pre class="code-block"><code>
+&lt;div id="student-card" class="profile-card"&gt;
+
+    &lt;h2 title="Student Name"&gt;
+        Rohan Jagtap
+    &lt;/h2&gt;
+
+    &lt;p class="course"&gt;
+        Course: B.Sc Computer Science
+    &lt;/p&gt;
+
+    &lt;img
+        src="student.jpg"
+        alt="Student Profile Photo"
+        width="150"
+        height="150"
+    &gt;
+
+    &lt;a href="https://example.com"&gt;
+        Visit Website
+    &lt;/a&gt;
+
+&lt;/div&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <div class="profile-demo">
+
+                <h2 title="Student Name">Rohan Jagtap</h2>
+
+                <p>Course: B.Sc Computer Science</p>
+
+                <p>Profile image file available asel tar image display hoil.</p>
+
+                <a href="https://example.com" target="_blank" rel="noopener">
+                    Visit Website
+                </a>
+
+            </div>
+
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>id student-card element la unique identity dete.</li>
+            <li>class profile-card styling sathi use hote.</li>
+            <li>title student name baddal additional information dete.</li>
+            <li>src profile image cha path dete.</li>
+            <li>alt image cha alternative text dete.</li>
+            <li>width ani height image dimensions define kartat.</li>
+            <li>href website chi link define karte.</li>
+        </ul>
+
+    </section>
+
+
+    <!-- Section 16 -->
+
+    <section class="lesson-section">
+
+        <h2>16. Common Beginner Mistakes</h2>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 1: Attribute wrong place madhye lihine</strong>
+
+            <p>
+                Attributes normally opening tag madhye lihayche astat,
+                closing tag madhye nahi.
+            </p>
+
+        </div>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 2: Attribute value quotes madhye na lihine</strong>
+
+            <p>
+                Attribute values quotes madhye lihine hi
+                recommended practice aahe.
+            </p>
+
+        </div>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 3: Same ID anek elements na dene</strong>
+
+            <p>
+                Eka document madhye id values unique thevne important aahe.
+            </p>
+
+        </div>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 4: Image la alt attribute na dene</strong>
+
+            <p>
+                Meaningful images sathi descriptive alt text dyava.
+            </p>
+
+        </div>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 5: src ani href confuse karne</strong>
+
+            <p>
+                href link destination sathi ani src resource
+                file source sathi vapartat.
+            </p>
+
+        </div>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 6: Boolean attribute la false string dene</strong>
+
+            <p>
+                disabled="false" lihilyane button enable hot nahi.
+                Boolean attribute present asel tar to active asto.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 17 -->
+
+    <section class="lesson-section">
+
+        <h2>17. Quick Revision</h2>
+
+        <div class="revision-box">
+
+            <ul>
+                <li>Attributes additional information provide kartat.</li>
+                <li>Attributes opening tag madhye lihitat.</li>
+                <li>href link destination define karte.</li>
+                <li>src resource file cha path define karte.</li>
+                <li>alt image cha alternative text dete.</li>
+                <li>id unique identity denyasathi vapartat.</li>
+                <li>class elements group karnyasathi vapartat.</li>
+                <li>title additional information dete.</li>
+                <li>style inline CSS denyasathi vapartat.</li>
+                <li>width ani height dimensions define kartat.</li>
+                <li>Boolean attributes chi presence true darshavte.</li>
+                <li>Global attributes bahutek elements sobat vaparta yetat.</li>
+                <li>data-* attributes custom data store kartat.</li>
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 18 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>18. Practice Questions</h2>
+
+        <h3>Basic Questions</h3>
+
+        <ol>
+            <li>HTML Attributes mhanje kay?</li>
+            <li>HTML attributes kuthe lihitat?</li>
+            <li>Attribute chi basic syntax lih.</li>
+            <li>href attribute cha use kay aahe?</li>
+            <li>src attribute cha use kay aahe?</li>
+            <li>alt attribute ka important aahe?</li>
+            <li>id ani class madhil difference lih.</li>
+            <li>title attribute cha use kay aahe?</li>
+            <li>style attribute mhanje kay?</li>
+            <li>Boolean Attributes mhanje kay?</li>
+            <li>Global Attributes mhanje kay?</li>
+            <li>data-* attribute cha use kay aahe?</li>
+        </ol>
+
+        <h3>Practical Questions</h3>
+
+        <ol>
+            <li>Google website chi link tayar kar.</li>
+            <li>Image add karun src ani alt attributes vapr.</li>
+            <li>Ek heading la unique id de.</li>
+            <li>Teen paragraphs la same class de.</li>
+            <li>Inline style vaprun paragraph cha color change kar.</li>
+            <li>Disabled button tayar kar.</li>
+            <li>Required input field tayar kar.</li>
+            <li>Image la width ani height de.</li>
+            <li>data-user-id attribute vaprun button tayar kar.</li>
+        </ol>
+
+        <div class="task-box">
+
+            <h3>Mini Task: Student Profile Card</h3>
+
+            <p>
+                HTML attributes vaprun ek Student Profile Card tayar kar.
+            </p>
+
+            <ul>
+                <li>Main div la id ani class de.</li>
+                <li>Student name heading madhye lih.</li>
+                <li>Heading la title attribute de.</li>
+                <li>Image sathi src ani alt vapr.</li>
+                <li>Image la width ani height de.</li>
+                <li>Course information paragraph madhye lih.</li>
+                <li>Website link sathi href vapr.</li>
+                <li>Ek disabled button tayar kar.</li>
+            </ul>
+
+            <p>
+                File Name: <strong>student_profile.html</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Lesson Navigation -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'html_topic' 'elements' %}"
+           class="nav-button previous-button">
+            ← Previous: HTML Elements
+        </a>
+
+        <a href="{% url 'html_topic' 'headings-paragraphs' %}"
+           class="nav-button next-button">
+            Next: Headings and Paragraphs →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,528 @@
+
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}CSS Flexbox | Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/css/flexbox.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+    <div class="lesson-header">
+        <span class="lesson-label">CSS TUTORIAL</span>
+
+        <h1>CSS Flexbox</h1>
+
+        <p>
+            CSS Flexbox cha use webpage madhil elements
+            arrange ani align karanyasathi hoto.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 30 Minutes</span>
+            <span>📄 Page 15</span>
+        </div>
+    </div>
+
+
+    <!-- Section 1 -->
+    <section class="lesson-section">
+
+        <h2>1. Introduction to Flexbox</h2>
+
+        <p>
+            Flexbox mhanje Flexible Box Layout.
+            Yacha use container madhil child elements
+            eka row kiwa column madhye arrange
+            karanyasathi hoto.
+        </p>
+
+        <p>
+            Flexbox mule elements chi alignment,
+            spacing ani size control karne sope hote.
+        </p>
+
+        <div class="info-box">
+            <strong>Definition:</strong>
+            CSS Flexbox is a one-dimensional layout
+            system used to arrange elements in rows
+            or columns.
+        </div>
+
+        <h3>Flexbox madhil don important terms</h3>
+
+        <ul>
+            <li>
+                <strong>Flex Container:</strong>
+                Jya parent element la display: flex
+                dile aahe.
+            </li>
+
+            <li>
+                <strong>Flex Items:</strong>
+                Flex container madhil direct child elements.
+            </li>
+        </ul>
+
+    </section>
+
+
+    <!-- Section 2 -->
+    <section class="lesson-section">
+
+        <h2>2. Display: Flex</h2>
+
+        <p>
+            Flexbox start karanyasathi parent
+            container la display: flex dyave lagte.
+            Tyamule tyache direct child elements
+            flex items bantat.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.container {
+    display: flex;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box flex-basic-output">
+            <div class="flex-basic-item">Item 1</div>
+            <div class="flex-basic-item">Item 2</div>
+            <div class="flex-basic-item">Item 3</div>
+        </div>
+
+    </section>
+
+
+    <!-- Section 3 -->
+    <section class="lesson-section">
+
+        <h2>3. Flex Direction</h2>
+
+        <p>
+            flex-direction property cha use
+            flex items kontya direction madhye
+            arrange hotil he set karanyasathi hoto.
+        </p>
+
+        <h3>Available Values</h3>
+
+        <ul>
+            <li><strong>row:</strong> Items left to right arrange hotat.</li>
+            <li><strong>row-reverse:</strong> Items right to left arrange hotat.</li>
+            <li><strong>column:</strong> Items top to bottom arrange hotat.</li>
+            <li><strong>column-reverse:</strong> Items bottom to top arrange hotat.</li>
+        </ul>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.container {
+    display: flex;
+    flex-direction: row;
+}</code></pre>
+        </div>
+
+        <h3>Row Output</h3>
+
+        <div class="output-box direction-row-output">
+            <div class="direction-item">1</div>
+            <div class="direction-item">2</div>
+            <div class="direction-item">3</div>
+        </div>
+
+        <h3>Column Output</h3>
+
+        <div class="output-box direction-column-output">
+            <div class="direction-item">1</div>
+            <div class="direction-item">2</div>
+            <div class="direction-item">3</div>
+        </div>
+
+    </section>
+
+
+    <!-- Section 4 -->
+    <section class="lesson-section">
+
+        <h2>4. Justify Content</h2>
+
+        <p>
+            justify-content property cha use
+            main axis var flex items chi alignment
+            ani spacing control karanyasathi hoto.
+        </p>
+
+        <h3>Available Values</h3>
+
+        <ul>
+            <li><strong>flex-start:</strong> Items suruvatila align hotat.</li>
+            <li><strong>flex-end:</strong> Items shevati align hotat.</li>
+            <li><strong>center:</strong> Items center la yetat.</li>
+            <li><strong>space-between:</strong> Items madhye equal space aste.</li>
+            <li><strong>space-around:</strong> Items chya around space aste.</li>
+            <li><strong>space-evenly:</strong> Saglikade equal space aste.</li>
+        </ul>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.container {
+    display: flex;
+    justify-content: center;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box justify-output">
+            <div class="justify-item">1</div>
+            <div class="justify-item">2</div>
+            <div class="justify-item">3</div>
+        </div>
+
+    </section>
+
+
+    <!-- Section 5 -->
+    <section class="lesson-section">
+
+        <h2>5. Align Items</h2>
+
+        <p>
+            align-items property cha use
+            cross axis var flex items chi alignment
+            control karanyasathi hoto.
+        </p>
+
+        <h3>Available Values</h3>
+
+        <ul>
+            <li><strong>stretch:</strong> Items cross axis var stretch hotat. (Default)</li>
+            <li><strong>flex-start:</strong> Suruvatila align hotat.</li>
+            <li><strong>flex-end:</strong> Shevati align hotat.</li>
+            <li><strong>center:</strong> Center la align hotat.</li>
+            <li><strong>baseline:</strong> Text baseline nusar align hotat.</li>
+        </ul>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.container {
+    display: flex;
+    align-items: center;
+    height: 150px;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box align-output">
+            <div class="align-item">Item 1</div>
+            <div class="align-item">Item 2</div>
+            <div class="align-item">Item 3</div>
+        </div>
+
+    </section>
+
+
+    <!-- Section 6 -->
+    <section class="lesson-section">
+
+        <h2>6. Flex Wrap</h2>
+
+        <p>
+            flex-wrap property cha use items
+            container madhye fit hot nastil tar
+            te next line madhye jayche ki nahi
+            he control karanyasathi hoto.
+        </p>
+
+        <h3>Available Values</h3>
+
+        <ul>
+            <li><strong>nowrap:</strong> Items eka line madhye rahatat. (Default)</li>
+            <li><strong>wrap:</strong> Items garaj padlyas next line madhye jatat.</li>
+            <li><strong>wrap-reverse:</strong> Items reverse cross direction madhye wrap hotat.</li>
+        </ul>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.container {
+    display: flex;
+    flex-wrap: wrap;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box wrap-output">
+            <div class="wrap-item">Item 1</div>
+            <div class="wrap-item">Item 2</div>
+            <div class="wrap-item">Item 3</div>
+            <div class="wrap-item">Item 4</div>
+            <div class="wrap-item">Item 5</div>
+            <div class="wrap-item">Item 6</div>
+        </div>
+
+    </section>
+
+
+    <!-- Section 7 -->
+    <section class="lesson-section">
+
+        <h2>7. Gap Property</h2>
+
+        <p>
+            gap property cha use flex items
+            madhil space set karanyasathi hoto.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.container {
+    display: flex;
+    gap: 20px;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box gap-output">
+            <div class="gap-item">Item 1</div>
+            <div class="gap-item">Item 2</div>
+            <div class="gap-item">Item 3</div>
+        </div>
+
+    </section>
+
+
+    <!-- Section 8 -->
+    <section class="lesson-section">
+
+        <h2>8. Flex Grow, Shrink and Basis</h2>
+
+        <p>
+            Ya properties cha use flex items la
+            available space nusar size denyasathi
+            kiwa size kami karanyasathi hoto.
+        </p>
+
+        <h3>Flex Grow</h3>
+
+        <p>
+            flex-grow property extra available space
+            items madhye kasha prakare divide hoil
+            he control karte.
+        </p>
+
+        <div class="code-block">
+            <pre><code>.item {
+    flex-grow: 1;
+}</code></pre>
+        </div>
+
+        <h3>Flex Shrink</h3>
+
+        <p>
+            flex-shrink property container madhye
+            space kami aslyas item kiti shrink hou
+            shakto he control karte.
+        </p>
+
+        <div class="code-block">
+            <pre><code>.item {
+    flex-shrink: 1;
+}</code></pre>
+        </div>
+
+        <h3>Flex Basis</h3>
+
+        <p>
+            flex-basis property item cha initial
+            main size set karte.
+        </p>
+
+        <div class="code-block">
+            <pre><code>.item {
+    flex-basis: 200px;
+}</code></pre>
+        </div>
+
+        <h3>Combined Example</h3>
+
+        <div class="code-block">
+            <pre><code>.item {
+    flex: 1 1 200px;
+}</code></pre>
+        </div>
+
+        <p>
+            Ya shorthand madhye values cha order
+            flex-grow, flex-shrink ani flex-basis
+            asa asto.
+        </p>
+
+        <h3>Output</h3>
+
+        <div class="output-box grow-output">
+            <div class="grow-item grow-one">Grow: 1</div>
+            <div class="grow-item grow-two">Grow: 2</div>
+            <div class="grow-item grow-one">Grow: 1</div>
+        </div>
+
+    </section>
+
+
+    <!-- Section 9 -->
+    <section class="lesson-section">
+
+        <h2>9. Practical Flexbox Layout</h2>
+
+        <p>
+            Aata Flexbox vaprun ek simple card
+            layout tayar karuya.
+        </p>
+
+        <h3>HTML Code</h3>
+
+        <div class="code-block">
+            <pre><code>&lt;div class="card-container"&gt;
+
+    &lt;div class="card"&gt;
+        &lt;h3&gt;HTML&lt;/h3&gt;
+        &lt;p&gt;Learn HTML basics.&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;div class="card"&gt;
+        &lt;h3&gt;CSS&lt;/h3&gt;
+        &lt;p&gt;Learn CSS styling.&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;div class="card"&gt;
+        &lt;h3&gt;JavaScript&lt;/h3&gt;
+        &lt;p&gt;Learn JavaScript basics.&lt;/p&gt;
+    &lt;/div&gt;
+
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.card {
+    flex: 1 1 200px;
+    padding: 20px;
+    background-color: #eff6ff;
+    border: 1px solid #2563eb;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box practical-output">
+            <div class="practical-card">
+                <h3>HTML</h3>
+                <p>Learn HTML basics.</p>
+            </div>
+
+            <div class="practical-card">
+                <h3>CSS</h3>
+                <p>Learn CSS styling.</p>
+            </div>
+
+            <div class="practical-card">
+                <h3>JavaScript</h3>
+                <p>Learn JavaScript basics.</p>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Section 10 -->
+    <section class="lesson-section">
+
+        <h2>10. Important Points</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>display: flex parent element la flex container banavte.</li>
+                <li>Direct children flex items bantat.</li>
+                <li>flex-direction items chi direction set karte.</li>
+                <li>justify-content main axis var alignment karte.</li>
+                <li>align-items cross axis var alignment karte.</li>
+                <li>flex-wrap items la next line madhye jau dete.</li>
+                <li>gap items madhil space set karte.</li>
+                <li>flex-grow extra space divide karte.</li>
+                <li>flex-shrink available space kami aslyas shrinking control karte.</li>
+                <li>flex-basis initial main size set karte.</li>
+            </ul>
+        </div>
+
+    </section>
+
+
+    <!-- Practice -->
+    <section class="practice-section">
+
+        <h2>11. Practice Task</h2>
+
+        <div class="task-box">
+
+            <h3>Task: Create a Flexbox Card Layout</h3>
+
+            <p>Ek HTML page tayar kara ani:</p>
+
+            <ol>
+                <li>Ek parent container tayar kara.</li>
+                <li>Container la display: flex dya.</li>
+                <li>Tyamadhye 4 cards tayar kara.</li>
+                <li>flex-direction: row apply kara.</li>
+                <li>justify-content: space-between vapra.</li>
+                <li>align-items: center vapra.</li>
+                <li>flex-wrap: wrap vaprun mobile screen test kara.</li>
+                <li>Cards madhye 15px gap dya.</li>
+            </ol>
+
+        </div>
+
+    </section>
+
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+
+        <a href="{% url 'css_topic' 'position' %}"
+           class="nav-button previous">
+            ← Previous: Position Property
+        </a>
+
+        <a href="{% url 'css_topic' 'grid' %}"
+           class="nav-button next">
+            Next: CSS Grid →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

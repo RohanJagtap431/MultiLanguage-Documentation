@@ -1,0 +1,511 @@
+
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}CSS Overflow and Z-Index | Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/css/overflow-z-index.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+    <div class="lesson-header">
+        <span class="lesson-label">CSS TUTORIAL</span>
+
+        <h1>CSS Overflow and Z-Index</h1>
+
+        <p>
+            CSS Overflow cha use extra content control
+            karanyasathi ani Z-Index cha use overlapping
+            elements cha stacking order control
+            karanyasathi hoto.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 25 Minutes</span>
+            <span>📄 Page 22</span>
+        </div>
+    </div>
+
+
+    <!-- Section 1 -->
+    <section class="lesson-section">
+
+        <h2>1. Introduction to CSS Overflow</h2>
+
+        <p>
+            Jevha HTML element madhil content tyachya
+            fixed width kiwa height peksha motha hoto,
+            tevha extra content box chya baher jau shakto.
+        </p>
+
+        <p>
+            Ashya extra content la kasa display karaycha
+            he tharavanyasathi CSS overflow property vapartat.
+        </p>
+
+        <div class="info-box">
+            <strong>Definition:</strong>
+            CSS Overflow controls what happens when
+            content is too large to fit inside an element.
+        </div>
+
+        <h3>Syntax</h3>
+
+        <div class="code-block">
+            <pre><code>selector {
+    overflow: value;
+}</code></pre>
+        </div>
+
+        <h3>Common Values</h3>
+
+        <ul>
+            <li>visible</li>
+            <li>hidden</li>
+            <li>scroll</li>
+            <li>auto</li>
+        </ul>
+
+    </section>
+
+
+    <!-- Section 2 -->
+    <section class="lesson-section">
+
+        <h2>2. overflow: visible</h2>
+
+        <p>
+            visible hi overflow property chi default
+            value aahe. Extra content element chya
+            baher suddha visible rahte.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    width: 180px;
+    height: 70px;
+    overflow: visible;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box visible-output">
+            <div class="overflow-visible-box">
+                Ha content box chya baher suddha
+                visible rahnar aahe.
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Section 3 -->
+    <section class="lesson-section">
+
+        <h2>3. overflow: hidden</h2>
+
+        <p>
+            hidden value cha use element chya boundary
+            baher janara extra content hide karanyasathi hoto.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    width: 180px;
+    height: 70px;
+    overflow: hidden;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box hidden-output">
+            <div class="overflow-hidden-box">
+                Ha content box chya baher gelyavar
+                hide hoil. Extra text disnar nahi.
+                Ha ajun kahi extra content aahe.
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Section 4 -->
+    <section class="lesson-section">
+
+        <h2>4. overflow: scroll</h2>
+
+        <p>
+            scroll value cha use extra content
+            pahanyasathi scrollbar display karanyasathi hoto.
+            Content fit asla tari scrollbar display hoto.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    width: 200px;
+    height: 100px;
+    overflow: scroll;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box scroll-output">
+            <div class="overflow-scroll-box">
+                <p>First line - CSS Overflow.</p>
+                <p>Second line - HTML Elements.</p>
+                <p>Third line - Extra Content.</p>
+                <p>Fourth line - CSS Properties.</p>
+                <p>Fifth line - Scroll to see more.</p>
+                <p>Sixth line - More content here.</p>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Section 5 -->
+    <section class="lesson-section">
+
+        <h2>5. overflow: auto</h2>
+
+        <p>
+            auto value cha use content overflow zalyas
+            garjenusar scrollbar display karanyasathi hoto.
+            Content fit asel tar scrollbar chi garaj naste.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    width: 200px;
+    height: 100px;
+    overflow: auto;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box auto-output">
+            <div class="overflow-auto-box">
+                <p>First line - CSS Overflow.</p>
+                <p>Second line - HTML Elements.</p>
+                <p>Third line - Extra Content.</p>
+                <p>Fourth line - CSS Properties.</p>
+                <p>Fifth line - Scroll to see more.</p>
+                <p>Sixth line - More content here.</p>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Section 6 -->
+    <section class="lesson-section">
+
+        <h2>6. overflow-x and overflow-y</h2>
+
+        <p>
+            overflow-x cha use horizontal direction
+            madhil overflow control karanyasathi hoto.
+        </p>
+
+        <p>
+            overflow-y cha use vertical direction
+            madhil overflow control karanyasathi hoto.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    overflow-x: auto;
+    overflow-y: hidden;
+}</code></pre>
+        </div>
+
+        <h3>Difference</h3>
+
+        <ul>
+            <li><strong>overflow-x</strong> - Left ani right direction.</li>
+            <li><strong>overflow-y</strong> - Top ani bottom direction.</li>
+        </ul>
+
+        <h3>Output</h3>
+
+        <div class="output-box axis-output">
+            <div class="overflow-axis-box">
+                <div class="axis-content">
+                    Horizontal Content - Scroll Left and Right
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Section 7 -->
+    <section class="lesson-section">
+
+        <h2>7. Introduction to CSS Z-Index</h2>
+
+        <p>
+            Z-Index property cha use ekmekanvar overlap
+            honarya elements madhye konta element
+            samor kiwa mage disel he tharavanyasathi hoto.
+        </p>
+
+        <p>
+            Z-Index cha use cards, dropdowns, menus,
+            modals ani overlays madhye kela jato.
+        </p>
+
+        <div class="info-box">
+            <strong>Definition:</strong>
+            CSS z-index controls the stacking order
+            of overlapping elements.
+        </div>
+
+        <h3>Syntax</h3>
+
+        <div class="code-block">
+            <pre><code>selector {
+    position: relative;
+    z-index: 2;
+}</code></pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Normal positioned elements sathi z-index
+            apply karanyasathi position relative,
+            absolute, fixed kiwa sticky asne avashyak aahe.
+            Flex ani Grid items sathi positioned nasle tari
+            z-index lagu hou shakto.
+        </div>
+
+    </section>
+
+
+    <!-- Section 8 -->
+    <section class="lesson-section">
+
+        <h2>8. Z-Index with Position</h2>
+
+        <p>
+            Don kiwa adhik elements ekmekanvar overlap
+            hot astil tar z-index value vaprun tyanchi
+            stacking order control karta yete.
+        </p>
+
+        <p>
+            Mothi z-index value aslela element generally
+            tyach stacking context madhil lahan value
+            aslelya element chya samor disel.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box-one {
+    position: relative;
+    z-index: 1;
+}
+
+.box-two {
+    position: relative;
+    z-index: 2;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box zindex-output">
+            <div class="zindex-box zindex-one">
+                Z-Index: 1
+            </div>
+
+            <div class="zindex-box zindex-two">
+                Z-Index: 2
+            </div>
+
+            <div class="zindex-box zindex-three">
+                Z-Index: 3
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Section 9 -->
+    <section class="lesson-section">
+
+        <h2>9. Understanding Stacking Order</h2>
+
+        <p>
+            Stacking Order mhanje overlapping elements
+            kontya order ne display hotat he.
+        </p>
+
+        <p>
+            Ekach stacking context madhye z-index
+            value compare karun element cha order
+            tharavta yeto.
+        </p>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>.first {
+    position: relative;
+    z-index: 1;
+}
+
+.second {
+    position: relative;
+    z-index: 5;
+}</code></pre>
+        </div>
+
+        <p>
+            Ya example madhye second element first
+            element chya samor disel.
+        </p>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Parent element madhye navin stacking context
+            tayar zala asel tar child element cha motha
+            z-index suddha dusrya parent chya baher jau
+            shakat nahi.
+        </div>
+
+    </section>
+
+
+    <!-- Section 10 -->
+    <section class="lesson-section">
+
+        <h2>10. Difference Between Overflow Values</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>visible</td>
+                        <td>Extra content baher visible rahte.</td>
+                    </tr>
+
+                    <tr>
+                        <td>hidden</td>
+                        <td>Extra content hide hote.</td>
+                    </tr>
+
+                    <tr>
+                        <td>scroll</td>
+                        <td>Scrollbar display hoto.</td>
+                    </tr>
+
+                    <tr>
+                        <td>auto</td>
+                        <td>Garaj asel tevhach scrollbar display hoto.</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+    </section>
+
+
+    <!-- Section 11 -->
+    <section class="lesson-section">
+
+        <h2>11. Important Points</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>Overflow extra content control karte.</li>
+                <li>visible hi default overflow value aahe.</li>
+                <li>hidden extra content hide karte.</li>
+                <li>scroll scrollbar display karte.</li>
+                <li>auto garjenusar scrollbar display karte.</li>
+                <li>overflow-x horizontal overflow control karte.</li>
+                <li>overflow-y vertical overflow control karte.</li>
+                <li>z-index overlapping elements cha order control karte.</li>
+                <li>Mothi z-index value generally samor display hote.</li>
+                <li>Stacking context mule z-index comparison limit hou shakto.</li>
+            </ul>
+        </div>
+
+    </section>
+
+
+    <!-- Practice Section -->
+    <section class="practice-section">
+
+        <h2>12. Practice Task</h2>
+
+        <div class="task-box">
+
+            <h3>Task: Create Overflow Boxes and Overlapping Cards</h3>
+
+            <p>Ek HTML page tayar kara ani:</p>
+
+            <ol>
+                <li>Ek fixed width ani height cha box create kara.</li>
+                <li>overflow: hidden vaprun extra content hide kara.</li>
+                <li>Dusrya box madhye overflow: scroll vapra.</li>
+                <li>Tisrya box madhye overflow: auto vapra.</li>
+                <li>overflow-x ani overflow-y properties try kara.</li>
+                <li>Tin overlapping div elements create kara.</li>
+                <li>Pratyek div la vegvegli z-index value dya.</li>
+                <li>Konti z-index value samor diste te observe kara.</li>
+            </ol>
+
+        </div>
+
+    </section>
+
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+
+        <a href="{% url 'css_topic' 'shadows-gradients' %}"
+           class="nav-button previous">
+            ← Previous: Shadows and Gradients
+        </a>
+
+        <a href="{% url 'css_topic' 'responsive-design' %}"
+           class="nav-button next">
+            Next: Responsive Web Design →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

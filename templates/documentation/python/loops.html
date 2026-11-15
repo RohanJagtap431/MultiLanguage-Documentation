@@ -1,0 +1,855 @@
+
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}Python Loops | Roman Marathi Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/python/loops.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">PYTHON • LESSON 17</span>
+        <h1>Python Loops</h1>
+        <p>
+            Loops cha use ekach code multiple times execute karnyasathi hoto.
+            For loop ani While loop vaprun repetitive tasks easily karta yetat.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Level: Beginner</span>
+            <span>⏱️ Time: 40–50 Minutes</span>
+        </div>
+    </div>
+
+    <!-- 1. Introduction -->
+    <section class="lesson-section">
+        <h2>1. What are Loops?</h2>
+
+        <p>
+            Python madhye Loop ha control flow statement aahe.
+            Tyacha use ekach code punha-punha execute karnyasathi hoto.
+        </p>
+
+        <p>
+            Samja aaplyala Hello 5 times print karaycha aahe.
+            Loop nasel tar print() 5 vela lihava lagel.
+            Loop vaparlyas code ekdach lihava lagto.
+        </p>
+
+        <h3>Without Loop</h3>
+
+        <pre><code>print("Hello")
+print("Hello")
+print("Hello")
+print("Hello")
+print("Hello")</code></pre>
+
+        <h3>With Loop</h3>
+
+        <pre><code>for i in range(5):
+    print("Hello")</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Hello
+Hello
+Hello
+Hello
+Hello</pre>
+        </div>
+
+        <div class="info-box">
+            <strong>Samjun ghe:</strong>
+            Loop mule repetitive code kami hoto ani program maintain
+            karne sope hote.
+        </div>
+    </section>
+
+    <!-- 2. Types -->
+    <section class="lesson-section">
+        <h2>2. Types of Loops in Python</h2>
+
+        <p>Python madhye mainly don types che loops aahet:</p>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Loop</th>
+                        <th>Use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>for loop</td>
+                        <td>Sequence kiwa iterable madhil items var iterate karto.</td>
+                    </tr>
+                    <tr>
+                        <td>while loop</td>
+                        <td>Condition True aseparyant code execute karto.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 3. For Loop -->
+    <section class="lesson-section">
+        <h2>3. for Loop</h2>
+
+        <p>
+            for loop cha use list, tuple, string, dictionary ani
+            itar iterable madhil items ek-ek karun access karnyasathi hoto.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre><code>for variable in sequence:
+    # Code to execute</code></pre>
+
+        <h3>Example – Print Numbers</h3>
+
+        <pre><code>numbers = [10, 20, 30, 40]
+
+for num in numbers:
+    print(num)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>10
+20
+30
+40</pre>
+        </div>
+
+        <h3>Example – Loop Through a String</h3>
+
+        <pre><code>name = "Python"
+
+for letter in name:
+    print(letter)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>P
+y
+t
+h
+o
+n</pre>
+        </div>
+
+        <div class="info-box">
+            <strong>Samjun ghe:</strong>
+            for loop pratyek iteration madhye sequence madhil pudhcha
+            item variable madhye store karto.
+        </div>
+    </section>
+
+    <!-- 4. Range -->
+    <section class="lesson-section">
+        <h2>4. range() Function</h2>
+
+        <p>
+            <code>range()</code> function numbers chi sequence tayar karto.
+            for loop sobat specific number of times code execute karnyasathi
+            yacha use hoto.
+        </p>
+
+        <h3>Example 1 – range(stop)</h3>
+
+        <pre><code>for i in range(5):
+    print(i)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>0
+1
+2
+3
+4</pre>
+        </div>
+
+        <p>
+            <code>range(5)</code> madhye counting 0 pasun suru hote
+            ani 5 chya aadhi stop hote.
+        </p>
+
+        <h3>Example 2 – range(start, stop)</h3>
+
+        <pre><code>for i in range(1, 6):
+    print(i)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>1
+2
+3
+4
+5</pre>
+        </div>
+
+        <p>
+            <code>range(1, 6)</code> madhye start 1 aahe ani stop 6 aahe.
+            6 output madhye include hot nahi.
+        </p>
+
+        <h3>Example 3 – range(start, stop, step)</h3>
+
+        <pre><code>for i in range(2, 11, 2):
+    print(i)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>2
+4
+6
+8
+10</pre>
+        </div>
+
+        <p>
+            Step 2 aslyamule pratyek veli number madhye 2 add hote.
+        </p>
+
+        <h3>Example 4 – Reverse Counting</h3>
+
+        <pre><code>for i in range(5, 0, -1):
+    print(i)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>5
+4
+3
+2
+1</pre>
+        </div>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Syntax</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>range(5)</td><td>0 te 4</td></tr>
+                    <tr><td>range(1, 6)</td><td>1 te 5</td></tr>
+                    <tr><td>range(2, 11, 2)</td><td>2, 4, 6, 8, 10</td></tr>
+                    <tr><td>range(5, 0, -1)</td><td>5 te 1 reverse</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            range() madhye stop value include hot nahi.
+            Step value negative asel tar reverse counting karta yete.
+        </div>
+    </section>
+
+    <!-- 5. While Loop -->
+    <section class="lesson-section">
+        <h2>5. while Loop</h2>
+
+        <p>
+            while loop condition True aseparyant code execute karto.
+            Condition False zalyavar loop stop hoto.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre><code>while condition:
+    # Code to execute</code></pre>
+
+        <h3>Example – Print 1 to 5</h3>
+
+        <pre><code>i = 1
+
+while i <= 5:
+    print(i)
+    i += 1</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>1
+2
+3
+4
+5</pre>
+        </div>
+
+        <h3>Code Explanation</h3>
+
+        <ul>
+            <li><code>i = 1</code> – Counting 1 pasun suru hote.</li>
+            <li><code>i <= 5</code> – Condition check hote.</li>
+            <li><code>print(i)</code> – Current number print hoto.</li>
+            <li><code>i += 1</code> – i chi value 1 ne increase hote.</li>
+        </ul>
+
+        <div class="warning-box">
+            <strong>Warning:</strong>
+            while loop madhye condition False honar nahi ashi situation
+            asel tar infinite loop tayar hou shakto.
+        </div>
+    </section>
+
+    <!-- 6. Difference -->
+    <section class="lesson-section">
+        <h2>6. Difference Between for and while Loop</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>for Loop</th>
+                        <th>while Loop</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Iterable var iterate karto.</td>
+                        <td>Condition True aseparyant chalto.</td>
+                    </tr>
+                    <tr>
+                        <td>Items kiwa iterations mahit astil tevha useful.</td>
+                        <td>Loop kiti vela chalel he condition var depend asel tevha useful.</td>
+                    </tr>
+                    <tr>
+                        <td>Automatic next item gheto.</td>
+                        <td>Condition ani update swatah manage karave lagtat.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            List madhil items access karayche astil tar for loop natural choice aahe.
+            Condition var depend aslela repetition asel tar while loop useful aahe.
+        </div>
+    </section>
+
+    <!-- 7. Loop with List -->
+    <section class="lesson-section">
+        <h2>7. Loop Through a List</h2>
+
+        <p>
+            List madhil pratyek item access karnyasathi for loop vaparta yeto.
+        </p>
+
+        <pre><code>fruits = ["Apple", "Banana", "Mango"]
+
+for fruit in fruits:
+    print(fruit)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Apple
+Banana
+Mango</pre>
+        </div>
+
+        <h3>Loop Through a Dictionary</h3>
+
+        <pre><code>student = {
+    "name": "Rohan",
+    "age": 20,
+    "course": "Python"
+}
+
+for key, value in student.items():
+    print(key, ":", value)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>name : Rohan
+age : 20
+course : Python</pre>
+        </div>
+    </section>
+
+    <!-- 8. Nested Loops -->
+    <section class="lesson-section">
+        <h2>8. Nested Loops</h2>
+
+        <p>
+            Ek loop chya aat dusra loop lihila tar tyala Nested Loop mhantat.
+        </p>
+
+        <p>
+            Outer loop chi pratyek iteration zalyavar inner loop purn
+            execute hoto.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre><code>for i in sequence:
+    for j in sequence:
+        # Code to execute</code></pre>
+
+        <h3>Example – Multiplication Pattern</h3>
+
+        <pre><code>for i in range(1, 4):
+    for j in range(1, 4):
+        print(i, j)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>1 1
+1 2
+1 3
+2 1
+2 2
+2 3
+3 1
+3 2
+3 3</pre>
+        </div>
+
+        <h3>Example – Star Pattern</h3>
+
+        <pre><code>for i in range(1, 5):
+    for j in range(i):
+        print("*", end=" ")
+    print()</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>*
+* *
+* * *
+* * * *</pre>
+        </div>
+
+        <div class="info-box">
+            <strong>Samjun ghe:</strong>
+            Outer loop rows control karto ani inner loop pratyek row
+            madhil stars print karto.
+        </div>
+    </section>
+
+    <!-- 9. Loop with if -->
+    <section class="lesson-section">
+        <h2>9. Loop with Conditions</h2>
+
+        <p>
+            Loop chya aat if condition vaprun specific items filter
+            karu shakto.
+        </p>
+
+        <h3>Example – Even Numbers</h3>
+
+        <pre><code>for i in range(1, 11):
+    if i % 2 == 0:
+        print(i)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>2
+4
+6
+8
+10</pre>
+        </div>
+
+        <h3>Example – Odd Numbers</h3>
+
+        <pre><code>for i in range(1, 11):
+    if i % 2 != 0:
+        print(i)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>1
+3
+5
+7
+9</pre>
+        </div>
+
+        <h3>Example – Sum of Numbers</h3>
+
+        <pre><code>total = 0
+
+for i in range(1, 6):
+    total += i
+
+print("Total:", total)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Total: 15</pre>
+        </div>
+    </section>
+
+    <!-- 10. enumerate -->
+    <section class="lesson-section">
+        <h2>10. enumerate() Function</h2>
+
+        <p>
+            List madhil item sobat tyacha index suddha pahije asel
+            tar <code>enumerate()</code> vaparta yete.
+        </p>
+
+        <pre><code>fruits = ["Apple", "Banana", "Mango"]
+
+for index, fruit in enumerate(fruits):
+    print(index, fruit)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>0 Apple
+1 Banana
+2 Mango</pre>
+        </div>
+
+        <p>
+            Index 1 pasun suru karaycha asel tar start argument deta yete.
+        </p>
+
+        <pre><code>fruits = ["Apple", "Banana", "Mango"]
+
+for index, fruit in enumerate(fruits, start=1):
+    print(index, fruit)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>1 Apple
+2 Banana
+3 Mango</pre>
+        </div>
+    </section>
+
+    <!-- 11. zip -->
+    <section class="lesson-section">
+        <h2>11. zip() Function</h2>
+
+        <p>
+            Don kiwa adhik iterables madhil corresponding items
+            ekatra access karnyasathi <code>zip()</code> vapartat.
+        </p>
+
+        <pre><code>names = ["Rohan", "Amit", "Priya"]
+marks = [85, 90, 95]
+
+for name, mark in zip(names, marks):
+    print(name, mark)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Rohan 85
+Amit 90
+Priya 95</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            zip() sadharanpane shortest iterable samplyavar thambto.
+        </div>
+    </section>
+
+    <!-- 12. else -->
+    <section class="lesson-section">
+        <h2>12. else with Loops</h2>
+
+        <p>
+            Python madhye for ani while loop sobat else block vaparta yeto.
+            Loop normal paddhatine complete zala tar else execute hoto.
+        </p>
+
+        <h3>Example – for-else</h3>
+
+        <pre><code>for i in range(3):
+    print(i)
+else:
+    print("Loop Completed")</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>0
+1
+2
+Loop Completed</pre>
+        </div>
+
+        <h3>Example – while-else</h3>
+
+        <pre><code>i = 1
+
+while i <= 3:
+    print(i)
+    i += 1
+else:
+    print("Loop Completed")</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>1
+2
+3
+Loop Completed</pre>
+        </div>
+
+        <div class="info-box">
+            <strong>Note:</strong>
+            break mule loop terminate zala tar loop cha else block
+            execute hot nahi. Normal completion zalyas else execute hoto.
+        </div>
+    </section>
+
+    <!-- 13. Infinite Loop -->
+    <section class="lesson-section">
+        <h2>13. Infinite Loop</h2>
+
+        <p>
+            Loop chi condition nehmi True rahili tar loop continuously
+            execute hot rahato. Tyala Infinite Loop mhantat.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>while True:
+    print("Hello")</code></pre>
+
+        <p>
+            Ya program madhye condition True aahe ani ti change hot nahi.
+            Mhanun loop swatah thambat nahi.
+        </p>
+
+        <div class="warning-box">
+            <strong>Warning:</strong>
+            Ha example run kelyas output continuously print hot rahil.
+            Terminal madhye Ctrl + C press karun program stop kar.
+        </div>
+    </section>
+
+    <!-- 14. Common Mistakes -->
+    <section class="lesson-section">
+        <h2>14. Common Beginner Mistakes</h2>
+
+        <div class="error-card">
+            <h3>Mistake 1: Infinite while Loop</h3>
+
+            <pre><code>i = 1
+
+while i <= 5:
+    print(i)</code></pre>
+
+            <p>
+                i chi value update hot nahi. Mhanun condition nehmi True rahte.
+            </p>
+
+            <pre><code>i = 1
+
+while i <= 5:
+    print(i)
+    i += 1</code></pre>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 2: Wrong range() Stop Value</h3>
+
+            <pre><code>for i in range(1, 5):
+    print(i)</code></pre>
+
+            <p>
+                Ya code madhye 5 print hot nahi karan stop value include hot nahi.
+            </p>
+
+            <pre><code>for i in range(1, 6):
+    print(i)</code></pre>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 3: Missing Colon</h3>
+
+            <pre><code>for i in range(5)
+    print(i)</code></pre>
+
+            <p>
+                for kiwa while statement nantar colon dene avashyak aahe.
+            </p>
+
+            <pre><code>for i in range(5):
+    print(i)</code></pre>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 4: Wrong Indentation</h3>
+
+            <pre><code>for i in range(5):
+print(i)</code></pre>
+
+            <p>
+                Loop chya aatil statement la indentation dene avashyak aahe.
+            </p>
+
+            <pre><code>for i in range(5):
+    print(i)</code></pre>
+        </div>
+    </section>
+
+    <!-- 15. Revision -->
+    <section class="lesson-section">
+        <h2>15. Quick Revision</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Concept</th>
+                        <th>Use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>for</td><td>Iterable madhil items var iterate karto.</td></tr>
+                    <tr><td>while</td><td>Condition True aseparyant chalto.</td></tr>
+                    <tr><td>range()</td><td>Numbers chi sequence tayar karto.</td></tr>
+                    <tr><td>Nested Loop</td><td>Loop chya aat dusra loop.</td></tr>
+                    <tr><td>enumerate()</td><td>Index ani item ekatra deto.</td></tr>
+                    <tr><td>zip()</td><td>Multiple iterables madhil items pair karto.</td></tr>
+                    <tr><td>else</td><td>Loop normal complete zalyavar execute hoto.</td></tr>
+                    <tr><td>Infinite Loop</td><td>Thambat naslela loop.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 16. Practice -->
+    <section class="practice-section">
+        <h2>16. Practice Questions</h2>
+
+        <p>
+            Khalil questions swatah code lihun solve kar.
+            Pratyek question sathi loop cha logic samjun ghe.
+        </p>
+
+        <div class="practice-task">
+            <h3>Question 1</h3>
+            <p>for loop vaprun 1 te 10 numbers print kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 2</h3>
+            <p>while loop vaprun 1 te 10 numbers print kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 3</h3>
+            <p>range() vaprun 1 te 20 madhil even numbers print kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 4</h3>
+            <p>range() vaprun 1 te 20 madhil odd numbers print kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 5</h3>
+            <p>1 te 100 numbers chi sum calculate kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 6</h3>
+            <p>Ek number input gheun tyacha multiplication table print kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 7</h3>
+            <p>List madhil sarva elements for loop vaprun print kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 8</h3>
+            <p>String madhil pratyek character separate line madhye print kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 9</h3>
+            <p>Nested loop vaprun 5 rows cha star pattern print kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 10</h3>
+            <p>enumerate() vaprun list madhil index ani values print kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 11</h3>
+            <p>Dictionary madhil Keys ani Values loop vaprun print kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 12</h3>
+            <p>while loop vaprun 10 te 1 reverse counting kar.</p>
+        </div>
+    </section>
+
+    <!-- 17. Practical Task -->
+    <section class="lesson-section">
+        <h2>17. Practical Task – Student Marks Calculator</h2>
+
+        <p>
+            Students chi marks list tayar kar.
+            for loop vaprun pratyek student che marks print kar
+            ani total marks calculate kar.
+        </p>
+
+        <pre><code>marks = [75, 80, 65, 90, 85]
+
+total = 0
+
+for mark in marks:
+    print("Marks:", mark)
+    total += mark
+
+print("Total Marks:", total)
+print("Average:", total / len(marks))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Marks: 75
+Marks: 80
+Marks: 65
+Marks: 90
+Marks: 85
+Total Marks: 395
+Average: 79.0</pre>
+        </div>
+
+        <p>
+            Ya practical madhye List, for loop, addition ani len()
+            function vaparla aahe.
+        </p>
+
+        <div class="tip-box">
+            <strong>Practice Challenge:</strong>
+            Ya program madhye condition add kar.
+            Marks 35 kiwa tyapeksha jast astil tar Pass,
+            nahitar Fail print kar.
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+        <a href="{% url 'python_topic' 'conditions' %}" class="nav-button back-button">
+            ← Previous: Conditions
+        </a>
+
+        <a href="{% url 'python_topic' 'loop-control' %}" class="nav-button next-button">
+            Next: Loop Control →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

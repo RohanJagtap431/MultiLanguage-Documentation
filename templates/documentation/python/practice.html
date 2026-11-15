@@ -1,0 +1,1030 @@
+
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}Python Practice | Roman Marathi Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/python/practice.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">PYTHON • FINAL LESSON</span>
+        <h1>Python Practice</h1>
+        <p>
+            Python madhye shiklele concepts practical programs,
+            coding questions ani mini projects vaprun strong karuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Level: Beginner to Intermediate</span>
+            <span>⏱️ Practice: Daily 60–90 Minutes</span>
+        </div>
+    </div>
+
+    <!-- Introduction -->
+    <section class="lesson-section">
+        <h2>1. How to Practice Python?</h2>
+
+        <p>
+            Fakt theory vachun programming strong hot nahi.
+            Swatah code lihine, errors solve karne ani programs run karne
+            khup important aahe.
+        </p>
+
+        <h3>Follow These Steps</h3>
+
+        <div class="steps-list">
+            <div class="step-item">
+                <span class="step-number">1</span>
+                <div>
+                    <strong>Understand the Question</strong>
+                    <p>Question madhye nemke kay output kiwa result pahije te samjun ghe.</p>
+                </div>
+            </div>
+
+            <div class="step-item">
+                <span class="step-number">2</span>
+                <div>
+                    <strong>Think About Logic</strong>
+                    <p>Code lihinyapurvi problem solve karnyachi steps tharav.</p>
+                </div>
+            </div>
+
+            <div class="step-item">
+                <span class="step-number">3</span>
+                <div>
+                    <strong>Write Code Yourself</strong>
+                    <p>Direct solution copy karu nakos. Swatah code lihinyacha prayatna kar.</p>
+                </div>
+            </div>
+
+            <div class="step-item">
+                <span class="step-number">4</span>
+                <div>
+                    <strong>Run and Test</strong>
+                    <p>Program run kar ani vegveglya inputs sobat test kar.</p>
+                </div>
+            </div>
+
+            <div class="step-item">
+                <span class="step-number">5</span>
+                <div>
+                    <strong>Understand Errors</strong>
+                    <p>Error alyas fakt code change karu nakos. Error ka aala te samjun ghe.</p>
+                </div>
+            </div>
+
+            <div class="step-item">
+                <span class="step-number">6</span>
+                <div>
+                    <strong>Repeat Without Looking</strong>
+                    <p>Solution baghitlyanantar code close kar ani punha swatah lih.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="important-box">
+            <strong>Important Rule:</strong>
+            Ek question solve karta aala mhanje topic complete zala asa nahi.
+            Tyach logic madhye thoda change karun navin problem solve karta
+            ali pahije.
+        </div>
+    </section>
+
+    <!-- 2 Basic -->
+    <section class="lesson-section">
+        <h2>2. Basic Python Practice</h2>
+
+        <p>
+            Ya questions madhye print(), input(), variables,
+            data types ani operators use kar.
+        </p>
+
+        <div class="question-card">
+            <span class="question-level easy">Easy</span>
+            <h3>Question 1 – Print Introduction</h3>
+            <p>
+                Swatachi name, age, city ani course print karanara
+                Python program lih.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level easy">Easy</span>
+            <h3>Question 2 – Add Two Numbers</h3>
+            <p>
+                User kadun don numbers ghe ani tyanchi addition print kar.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level easy">Easy</span>
+            <h3>Question 3 – Swap Two Variables</h3>
+            <p>
+                Don variables madhil values temporary variable vaprun swap kar.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level easy">Easy</span>
+            <h3>Question 4 – Area of Rectangle</h3>
+            <p>
+                Length ani width input ghe. Rectangle cha area calculate kar.
+                Formula: length × width.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level easy">Easy</span>
+            <h3>Question 5 – Simple Calculator</h3>
+            <p>
+                Don numbers input ghe ani addition, subtraction,
+                multiplication ani division perform kar.
+            </p>
+        </div>
+    </section>
+
+    <!-- 3 Data Types -->
+    <section class="lesson-section">
+        <h2>3. Variables and Data Types Practice</h2>
+
+        <div class="question-card">
+            <span class="question-level easy">Easy</span>
+            <h3>Question 6 – Check Data Types</h3>
+            <p>
+                Integer, float, string, boolean ani list variables create kar.
+                type() vaprun tyanchi data types print kar.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level easy">Easy</span>
+            <h3>Question 7 – Type Casting</h3>
+            <p>
+                User kadun number string format madhye ghe.
+                Tyala integer madhye convert karun 10 add kar.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level medium">Medium</span>
+            <h3>Question 8 – Student Details</h3>
+            <p>
+                Student che name, roll number, marks ani percentage
+                variables madhye store karun formatted output print kar.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level medium">Medium</span>
+            <h3>Question 9 – Simple Interest</h3>
+            <p>
+                Principal, rate ani time input ghe ani Simple Interest
+                calculate kar.
+            </p>
+            <div class="formula-box">
+                SI = (P × R × T) / 100
+            </div>
+        </div>
+    </section>
+
+    <!-- 4 Conditions -->
+    <section class="lesson-section">
+        <h2>4. Conditions Practice</h2>
+
+        <p>
+            if, elif, else, comparison operators ani logical operators
+            vaprun khalil programs solve kar.
+        </p>
+
+        <div class="question-card">
+            <span class="question-level easy">Easy</span>
+            <h3>Question 10 – Even or Odd</h3>
+            <p>
+                User kadun integer ghe ani number even aahe ki odd te check kar.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level easy">Easy</span>
+            <h3>Question 11 – Positive, Negative or Zero</h3>
+            <p>
+                Number positive, negative kiwa zero aahe te check kar.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level easy">Easy</span>
+            <h3>Question 12 – Largest of Two Numbers</h3>
+            <p>
+                Don numbers madhil motha number find kar.
+                Donhi equal aslyas te suddha display kar.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level medium">Medium</span>
+            <h3>Question 13 – Largest of Three Numbers</h3>
+            <p>
+                Tin numbers input ghe ani tyamadhil largest number find kar.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level medium">Medium</span>
+            <h3>Question 14 – Student Grade Calculator</h3>
+            <p>
+                Marks input ghe ani marks nusar grade display kar.
+                0 te 100 ya range baheril marks invalid samaj.
+            </p>
+            <div class="formula-box">
+                90–100: A Grade<br>
+                75–89: B Grade<br>
+                60–74: C Grade<br>
+                35–59: Pass<br>
+                0–34: Fail
+            </div>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level medium">Medium</span>
+            <h3>Question 15 – Leap Year</h3>
+            <p>
+                User kadun year ghe ani to leap year aahe ka te check kar.
+            </p>
+            <div class="formula-box">
+                Year 400 ne divisible asel kiwa 4 ne divisible ani
+                100 ne not divisible asel tar Leap Year.
+            </div>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level medium">Medium</span>
+            <h3>Question 16 – Login System</h3>
+            <p>
+                Username ani password input ghe.
+                Donhi correct aslyas Login Successful display kar,
+                anyatha Invalid Login display kar.
+            </p>
+        </div>
+    </section>
+
+    <!-- 5 Loops -->
+    <section class="lesson-section">
+        <h2>5. Loops Practice</h2>
+
+        <p>
+            for loop, while loop, range(), break ani continue
+            vaprun programs solve kar.
+        </p>
+
+        <div class="question-card">
+            <span class="question-level easy">Easy</span>
+            <h3>Question 17 – Print 1 to 10</h3>
+            <p>for loop vaprun 1 te 10 numbers print kar.</p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level easy">Easy</span>
+            <h3>Question 18 – Multiplication Table</h3>
+            <p>
+                User kadun number ghe ani tyacha 1 te 10 paryant table print kar.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level easy">Easy</span>
+            <h3>Question 19 – Sum of Natural Numbers</h3>
+            <p>
+                User kadun n ghe ani 1 te n paryant numbers chi sum calculate kar.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level medium">Medium</span>
+            <h3>Question 20 – Factorial</h3>
+            <p>
+                User kadun number ghe ani tyacha factorial calculate kar.
+            </p>
+            <div class="formula-box">
+                5! = 5 × 4 × 3 × 2 × 1 = 120
+            </div>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level medium">Medium</span>
+            <h3>Question 21 – Reverse a Number</h3>
+            <p>
+                User kadun integer ghe ani loop vaprun tyacha reverse number find kar.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level medium">Medium</span>
+            <h3>Question 22 – Count Digits</h3>
+            <p>
+                User kadun integer ghe ani tyamadhye kiti digits aahet te count kar.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level medium">Medium</span>
+            <h3>Question 23 – Prime Number</h3>
+            <p>
+                Number prime aahe ka te check kar.
+                1 ha prime number nahi he lakshat thev.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level medium">Medium</span>
+            <h3>Question 24 – Fibonacci Series</h3>
+            <p>
+                User kadun terms ghe ani Fibonacci series madhil
+                tevdhe terms print kar.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level hard">Challenge</span>
+            <h3>Question 25 – Armstrong Number</h3>
+            <p>
+                Number madhil pratyek digit la total digits chya power ne
+                raise karun tyanchi sum original number barobar aahe ka te check kar.
+            </p>
+            <div class="formula-box">
+                153 = 1³ + 5³ + 3³ = 153
+            </div>
+        </div>
+    </section>
+
+    <!-- 6 Strings -->
+    <section class="lesson-section">
+        <h2>6. Strings Practice</h2>
+
+        <div class="question-card">
+            <span class="question-level easy">Easy</span>
+            <h3>Question 26 – Reverse a String</h3>
+            <p>String input ghe ani slicing vaprun reverse kar.</p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level easy">Easy</span>
+            <h3>Question 27 – Palindrome String</h3>
+            <p>
+                String forward ani reverse same aahe ka te check kar.
+                Example: madam.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level medium">Medium</span>
+            <h3>Question 28 – Count Vowels</h3>
+            <p>
+                String madhil a, e, i, o, u ya vowels chi sankhya count kar.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level medium">Medium</span>
+            <h3>Question 29 – Character Frequency</h3>
+            <p>
+                String madhye user ne dilela character kiti vela aala aahe
+                te count kar.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level medium">Medium</span>
+            <h3>Question 30 – Word Counter</h3>
+            <p>
+                Sentence input ghe ani tyamadhye kiti words aahet te count kar.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level hard">Challenge</span>
+            <h3>Question 31 – Remove Duplicate Characters</h3>
+            <p>
+                String madhil repeated characters remove karun
+                original order maintain kar.
+            </p>
+        </div>
+    </section>
+
+    <!-- 7 Collections -->
+    <section class="lesson-section">
+        <h2>7. Lists, Tuples, Sets and Dictionaries Practice</h2>
+
+        <h3>List Questions</h3>
+
+        <div class="question-card">
+            <span class="question-level easy">Easy</span>
+            <h3>Question 32 – Largest Element</h3>
+            <p>
+                Numbers chi list ghe ani tyamadhil largest element find kar.
+                Built-in max() na vaparta solve kar.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level easy">Easy</span>
+            <h3>Question 33 – Separate Even and Odd</h3>
+            <p>
+                List madhil even ani odd numbers don vegveglya lists madhye store kar.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level medium">Medium</span>
+            <h3>Question 34 – Remove Duplicates</h3>
+            <p>
+                List madhil duplicate elements remove kar ani order maintain kar.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level medium">Medium</span>
+            <h3>Question 35 – Second Largest Number</h3>
+            <p>
+                List madhil second largest distinct number find kar.
+            </p>
+        </div>
+
+        <h3>Tuple Questions</h3>
+
+        <div class="question-card">
+            <span class="question-level easy">Easy</span>
+            <h3>Question 36 – Tuple Operations</h3>
+            <p>
+                Tuple create kar ani indexing, slicing, count() ani index()
+                methods use kar.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level medium">Medium</span>
+            <h3>Question 37 – Tuple Unpacking</h3>
+            <p>
+                Student name, age ani course tuple madhye store kar
+                ani vegveglya variables madhye unpack kar.
+            </p>
+        </div>
+
+        <h3>Set Questions</h3>
+
+        <div class="question-card">
+            <span class="question-level easy">Easy</span>
+            <h3>Question 38 – Unique Elements</h3>
+            <p>
+                List madhil duplicate values remove karanyasathi set use kar.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level medium">Medium</span>
+            <h3>Question 39 – Set Operations</h3>
+            <p>
+                Don sets create kar ani union, intersection,
+                difference operations perform kar.
+            </p>
+        </div>
+
+        <h3>Dictionary Questions</h3>
+
+        <div class="question-card">
+            <span class="question-level easy">Easy</span>
+            <h3>Question 40 – Student Dictionary</h3>
+            <p>
+                Student name, age, course ani marks dictionary madhye store kar.
+                Keys ani values print kar.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level medium">Medium</span>
+            <h3>Question 41 – Word Frequency</h3>
+            <p>
+                Sentence madhil pratyek word kiti vela repeat zala
+                te dictionary madhye store kar.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level hard">Challenge</span>
+            <h3>Question 42 – Highest Marks</h3>
+            <p>
+                Student names ani marks dictionary madhye store kar.
+                Highest marks aslela student find kar.
+            </p>
+        </div>
+    </section>
+
+    <!-- 8 Functions -->
+    <section class="lesson-section">
+        <h2>8. Functions and Lambda Practice</h2>
+
+        <div class="question-card">
+            <span class="question-level easy">Easy</span>
+            <h3>Question 43 – Addition Function</h3>
+            <p>
+                Don numbers accept karun tyanchi sum return karanare function lih.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level easy">Easy</span>
+            <h3>Question 44 – Even Number Function</h3>
+            <p>
+                Number even aahe ka te return karanare function create kar.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level medium">Medium</span>
+            <h3>Question 45 – *args Function</h3>
+            <p>
+                *args vaprun kiti hi numbers chi sum return karanare function lih.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level medium">Medium</span>
+            <h3>Question 46 – **kwargs Function</h3>
+            <p>
+                **kwargs vaprun student chi details accept kar ani print kar.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level medium">Medium</span>
+            <h3>Question 47 – Lambda with map()</h3>
+            <p>
+                Numbers list madhil pratyek number cha square map()
+                ani lambda vaprun find kar.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level medium">Medium</span>
+            <h3>Question 48 – Lambda with filter()</h3>
+            <p>
+                List madhun fakt even numbers filter() ani lambda vaprun select kar.
+            </p>
+        </div>
+    </section>
+
+    <!-- 9 Exception -->
+    <section class="lesson-section">
+        <h2>9. Modules, Exceptions and File Handling Practice</h2>
+
+        <h3>Modules</h3>
+
+        <div class="question-card">
+            <span class="question-level easy">Easy</span>
+            <h3>Question 49 – Math Module</h3>
+            <p>
+                math module vaprun square root, factorial ani power calculate kar.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level easy">Easy</span>
+            <h3>Question 50 – Random Number</h3>
+            <p>
+                random module vaprun 1 te 100 madhil random number generate kar.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level medium">Medium</span>
+            <h3>Question 51 – Create Own Module</h3>
+            <p>
+                calculator.py file create kar. Tyamadhye add() ani subtract()
+                functions lih. Dusrya Python file madhun import kar.
+            </p>
+        </div>
+
+        <h3>Exception Handling</h3>
+
+        <div class="question-card">
+            <span class="question-level easy">Easy</span>
+            <h3>Question 52 – Division Error</h3>
+            <p>
+                Don numbers divide kar. ZeroDivisionError handle karanyasathi
+                try-except use kar.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level medium">Medium</span>
+            <h3>Question 53 – Multiple Exceptions</h3>
+            <p>
+                Integer conversion ani division handle karanyasathi
+                ValueError ani ZeroDivisionError handle kar.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level medium">Medium</span>
+            <h3>Question 54 – Custom Exception</h3>
+            <p>
+                Age 18 peksha kami aslyas custom InvalidAgeError raise kar.
+            </p>
+        </div>
+
+        <h3>File Handling</h3>
+
+        <div class="question-card">
+            <span class="question-level easy">Easy</span>
+            <h3>Question 55 – Write to File</h3>
+            <p>
+                student.txt file create kar ani student details tyamadhye write kar.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level easy">Easy</span>
+            <h3>Question 56 – Read a File</h3>
+            <p>
+                student.txt file madhil content read karun display kar.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level medium">Medium</span>
+            <h3>Question 57 – Append to File</h3>
+            <p>
+                Existing file madhye navin student record append kar.
+                Juni information delete hou deu nakos.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level medium">Medium</span>
+            <h3>Question 58 – Count Words in File</h3>
+            <p>
+                Text file read kar ani tyamadhil total words count kar.
+            </p>
+        </div>
+    </section>
+
+    <!-- 10 OOP -->
+    <section class="lesson-section">
+        <h2>10. OOPs Practice</h2>
+
+        <div class="question-card">
+            <span class="question-level easy">Easy</span>
+            <h3>Question 59 – Student Class</h3>
+            <p>
+                Student class create kar. Name ani marks attributes thev.
+                Display method create kar.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level easy">Easy</span>
+            <h3>Question 60 – Constructor</h3>
+            <p>
+                __init__() vaprun Employee class create kar.
+                Name ani salary initialize kar.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level medium">Medium</span>
+            <h3>Question 61 – Encapsulation</h3>
+            <p>
+                BankAccount class create kar. Balance private attribute madhye
+                store kar ani deposit, withdraw, get_balance methods create kar.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level medium">Medium</span>
+            <h3>Question 62 – Inheritance</h3>
+            <p>
+                Person parent class ani Student child class create kar.
+                Parent constructor super() vaprun call kar.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level medium">Medium</span>
+            <h3>Question 63 – Method Overriding</h3>
+            <p>
+                Animal parent class ani Dog child class create kar.
+                Dog madhye sound() method override kar.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level medium">Medium</span>
+            <h3>Question 64 – Polymorphism</h3>
+            <p>
+                Dog, Cat ani Cow classes madhye same sound() method
+                vegveglya output sobat implement kar.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <span class="question-level hard">Challenge</span>
+            <h3>Question 65 – Abstract Class</h3>
+            <p>
+                ABC ani abstractmethod vaprun Shape abstract class create kar.
+                Circle ani Rectangle classes madhye area() implement kar.
+            </p>
+        </div>
+    </section>
+
+    <!-- 11 Mini Projects -->
+    <section class="lesson-section">
+        <h2>11. Python Mini Projects</h2>
+
+        <p>
+            Ata shiklele concepts ekatra use karun he mini projects build kar.
+            Pratyek project swatah complete karanyacha prayatna kar.
+        </p>
+
+        <div class="project-card">
+            <div class="project-number">PROJECT 01</div>
+            <h3>Student Management System</h3>
+            <p>
+                Students che records add, view, search, update ani delete
+                karanyasathi program create kar.
+            </p>
+            <strong>Features:</strong>
+            <ul>
+                <li>Add Student</li>
+                <li>View All Students</li>
+                <li>Search Student</li>
+                <li>Update Student</li>
+                <li>Delete Student</li>
+            </ul>
+            <span class="project-tech">Concepts: Dictionary, Functions, Loops, Conditions</span>
+        </div>
+
+        <div class="project-card">
+            <div class="project-number">PROJECT 02</div>
+            <h3>Bank Management System</h3>
+            <p>
+                Simple banking application create kar jyat user account
+                operations perform karu shakto.
+            </p>
+            <strong>Features:</strong>
+            <ul>
+                <li>Create Account</li>
+                <li>Deposit Money</li>
+                <li>Withdraw Money</li>
+                <li>Check Balance</li>
+                <li>Transaction History</li>
+            </ul>
+            <span class="project-tech">Concepts: OOPs, Classes, Encapsulation, File Handling</span>
+        </div>
+
+        <div class="project-card">
+            <div class="project-number">PROJECT 03</div>
+            <h3>Number Guessing Game</h3>
+            <p>
+                Computer random number generate karel ani user la
+                to number guess karaycha asel.
+            </p>
+            <strong>Features:</strong>
+            <ul>
+                <li>Random Number Generation</li>
+                <li>User Input</li>
+                <li>Too High / Too Low Hints</li>
+                <li>Attempt Counter</li>
+                <li>Play Again Option</li>
+            </ul>
+            <span class="project-tech">Concepts: Random Module, Loops, Conditions</span>
+        </div>
+
+        <div class="project-card">
+            <div class="project-number">PROJECT 04</div>
+            <h3>Contact Book</h3>
+            <p>
+                Contacts save, search, update ani delete karanyasathi
+                command-line application create kar.
+            </p>
+            <strong>Features:</strong>
+            <ul>
+                <li>Add Contact</li>
+                <li>View Contacts</li>
+                <li>Search by Name</li>
+                <li>Update Phone Number</li>
+                <li>Delete Contact</li>
+                <li>Save Data in JSON File</li>
+            </ul>
+            <span class="project-tech">Concepts: Dictionary, Functions, File Handling</span>
+        </div>
+
+        <div class="project-card">
+            <div class="project-number">PROJECT 05</div>
+            <h3>Expense Tracker</h3>
+            <p>
+                Daily expenses record karun total expenses ani category-wise
+                spending calculate karanara program create kar.
+            </p>
+            <strong>Features:</strong>
+            <ul>
+                <li>Add Expense</li>
+                <li>View Expenses</li>
+                <li>Category-wise Expenses</li>
+                <li>Calculate Total</li>
+                <li>Save Records in File</li>
+            </ul>
+            <span class="project-tech">Concepts: Lists, Dictionaries, Functions, File Handling</span>
+        </div>
+
+        <div class="project-card">
+            <div class="project-number">PROJECT 06</div>
+            <h3>Quiz Application</h3>
+            <p>
+                Multiple-choice questions ani score system aslela
+                command-line quiz application create kar.
+            </p>
+            <strong>Features:</strong>
+            <ul>
+                <li>Display Questions</li>
+                <li>Accept Answers</li>
+                <li>Calculate Score</li>
+                <li>Show Correct Answers</li>
+                <li>Display Final Result</li>
+            </ul>
+            <span class="project-tech">Concepts: Lists, Dictionaries, Loops, Conditions</span>
+        </div>
+    </section>
+
+    <!-- 12 Coding Habits -->
+    <section class="lesson-section">
+        <h2>12. Good Coding Habits</h2>
+
+        <ul>
+            <li>Variable ani function names meaningful thev.</li>
+            <li>Code proper indentation madhye lih.</li>
+            <li>Ekach function madhye khup jast responsibilities deu nakos.</li>
+            <li>Repeated code functions madhye organize kar.</li>
+            <li>Errors read karaychi savay lav.</li>
+            <li>Different inputs sobat testing kar.</li>
+            <li>Git ani GitHub vaprun projects save kar.</li>
+            <li>Code copy kelyas tyacha logic samjun ghe.</li>
+            <li>Problem solve kartana first logic, mag code lih.</li>
+        </ul>
+
+        <div class="warning-box">
+            <strong>Common Mistake:</strong>
+            Fakt tutorials baghne ani code copy karne mhanje coding practice nahi.
+            Swatah problem solve karne hi actual practice aahe.
+        </div>
+    </section>
+
+    <!-- 13 Interview -->
+    <section class="lesson-section">
+        <h2>13. Python Interview Practice Questions</h2>
+
+        <div class="interview-question">
+            <h3>1. What is Python?</h3>
+            <p>Python chi definition ani main features explain kar.</p>
+        </div>
+
+        <div class="interview-question">
+            <h3>2. What is the difference between List and Tuple?</h3>
+            <p>Mutability, syntax ani use cases compare kar.</p>
+        </div>
+
+        <div class="interview-question">
+            <h3>3. What is Dictionary?</h3>
+            <p>Key-value pairs ani dictionary methods explain kar.</p>
+        </div>
+
+        <div class="interview-question">
+            <h3>4. What is the difference between == and is?</h3>
+            <p>Value equality ani object identity madhil difference explain kar.</p>
+        </div>
+
+        <div class="interview-question">
+            <h3>5. What is the difference between break and continue?</h3>
+            <p>Donhi loop control statements examples sah explain kar.</p>
+        </div>
+
+        <div class="interview-question">
+            <h3>6. What is a Function?</h3>
+            <p>Function, parameter ani return statement explain kar.</p>
+        </div>
+
+        <div class="interview-question">
+            <h3>7. What are *args and **kwargs?</h3>
+            <p>Donhi arguments types examples sah explain kar.</p>
+        </div>
+
+        <div class="interview-question">
+            <h3>8. What is Exception Handling?</h3>
+            <p>try, except, else ani finally explain kar.</p>
+        </div>
+
+        <div class="interview-question">
+            <h3>9. What is OOP?</h3>
+            <p>Class, object ani four pillars of OOP explain kar.</p>
+        </div>
+
+        <div class="interview-question">
+            <h3>10. What is Inheritance?</h3>
+            <p>Inheritance che types ani super() explain kar.</p>
+        </div>
+
+        <div class="interview-question">
+            <h3>11. What is Polymorphism?</h3>
+            <p>Method overriding ani operator overloading explain kar.</p>
+        </div>
+
+        <div class="interview-question">
+            <h3>12. What is the difference between append() and extend()?</h3>
+            <p>List madhye donhi methods kasa work kartat te example sah explain kar.</p>
+        </div>
+    </section>
+
+    <!-- 14 Daily Plan -->
+    <section class="lesson-section">
+        <h2>14. Daily Python Practice Plan</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Activity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>15 Minutes</td>
+                        <td>Previous topic revision</td>
+                    </tr>
+                    <tr>
+                        <td>30 Minutes</td>
+                        <td>New coding questions</td>
+                    </tr>
+                    <tr>
+                        <td>20 Minutes</td>
+                        <td>Debugging and testing</td>
+                    </tr>
+                    <tr>
+                        <td>15 Minutes</td>
+                        <td>One old question without notes</td>
+                    </tr>
+                    <tr>
+                        <td>10 Minutes</td>
+                        <td>Write what you learned</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tip-box">
+            <strong>Consistency:</strong>
+            Darroj thoda code lihine he ekach divshi khup code lihun
+            nantar practice band karnyapeksha jast useful aahe.
+        </div>
+    </section>
+
+    <!-- Final -->
+    <section class="final-section">
+        <div class="final-icon">🐍</div>
+        <h2>Python Fundamentals Completed!</h2>
+
+        <p>
+            Tu Python che basic concepts, data structures, functions,
+            exception handling, file handling ani OOPs shikla aahes.
+        </p>
+
+        <p>
+            Aata he concepts swatah projects madhye implement kar.
+            Fakt topics complete karne ha final goal nahi;
+            independently programs lihita yene ha khara goal aahe.
+        </p>
+
+        <div class="final-message">
+            Learn → Practice → Build → Improve
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+        <a href="{% url 'python_topic' 'polymorphism' %}" class="nav-button back-button">
+            ← Previous: Polymorphism
+        </a>
+
+        <a href="{% url 'python_index' %}" class="nav-button next-button">
+            Python Topics →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

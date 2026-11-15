@@ -1,0 +1,854 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Django Login and Logout{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/django/login-logout.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- HEADER -->
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO COURSE • TOPIC 15</span>
+        <h1>Django Login &amp; Logout</h1>
+        <p>
+            Learn how to use Django built-in LoginView and LogoutView
+            to manage user authentication and sessions.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 45–55 Minutes</span>
+        </div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <section class="lesson-section">
+        <h2>1. Django Login &amp; Logout mhanje kay?</h2>
+
+        <p>
+            Login mhanje registered user la username ani password
+            vaprun application madhye access dene.
+        </p>
+
+        <p>
+            Logout mhanje current user chi authenticated session
+            terminate karne.
+        </p>
+
+        <div class="example-box">
+            <h3>Example</h3>
+            <ul>
+                <li>Login – User account madhye enter karne.</li>
+                <li>Dashboard – Login user la protected page dakhavne.</li>
+                <li>Logout – Account madhun securely baher padne.</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            Django built-in authentication views login ani logout
+            process handle karnyas madat kartat.
+        </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section class="lesson-section">
+        <h2>2. Django LoginView</h2>
+
+        <p>
+            LoginView ha Django cha built-in Class-Based View aahe.
+            Tyacha use user login process handle karnyasathi hoto.
+        </p>
+
+        <h3>Import LoginView</h3>
+
+        <pre class="code-block"><code>from django.contrib.auth.views import LoginView</code></pre>
+
+        <h3>Basic URL Configuration</h3>
+
+        <pre class="code-block"><code>from django.urls import path
+from django.contrib.auth.views import LoginView
+
+urlpatterns = [
+
+    path(
+        "login/",
+        LoginView.as_view(),
+        name="login"
+    ),
+
+]</code></pre>
+
+        <p>
+            Ya URL var user login page open karu shakto.
+            Default template path registration/login.html asto.
+        </p>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            LoginView automatically AuthenticationForm vaprun
+            username ani password validate karte.
+        </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section class="lesson-section">
+        <h2>3. AuthenticationForm</h2>
+
+        <p>
+            AuthenticationForm ha Django cha built-in form aahe.
+            Tyacha use user credentials validate karnyasathi hoto.
+        </p>
+
+        <h3>Import AuthenticationForm</h3>
+
+        <pre class="code-block"><code>from django.contrib.auth.forms import AuthenticationForm</code></pre>
+
+        <h3>Use with LoginView</h3>
+
+        <pre class="code-block"><code>from django.contrib.auth.views import LoginView
+from django.contrib.auth.forms import AuthenticationForm
+
+class CustomLoginView(LoginView):
+
+    template_name = "accounts/login.html"
+
+    form_class = AuthenticationForm</code></pre>
+
+        <p>
+            AuthenticationForm username ani password ghete
+            ani valid credentials aahet ka te check karte.
+        </p>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            AuthenticationForm login credentials validate karte.
+            LoginView request ani session handling karte.
+        </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section class="lesson-section">
+        <h2>4. Custom Login Template</h2>
+
+        <p>
+            Login page cha design customize karnyasathi
+            swatahcha HTML template create karta yeto.
+        </p>
+
+        <h3>File: templates/accounts/login.html</h3>
+
+        <pre class="code-block"><code>{% verbatim %}
+&lt;h1&gt;User Login&lt;/h1&gt;
+
+&lt;form method="POST"&gt;
+
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    &lt;input
+        type="hidden"
+        name="next"
+        value="{{ next }}"
+    &gt;
+
+    &lt;button type="submit"&gt;
+        Login
+    &lt;/button&gt;
+
+&lt;/form&gt;
+{% endverbatim %}</code></pre>
+
+        <p>
+            Ya template madhye form.as_p form fields display karte.
+            Hidden next field user la requested page var redirect
+            karnyas madat karte.
+        </p>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            POST form madhye csrf_token add karne required aahe.
+            LoginView madhye next parameter automatically handle
+            hoto; hidden field mule to form submission madhye preserve hoto.
+        </div>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section class="lesson-section">
+        <h2>5. Custom LoginView</h2>
+
+        <p>
+            LoginView customize karnyasathi subclass create
+            karun template ani form configuration set karta yete.
+        </p>
+
+        <h3>Example: views.py</h3>
+
+        <pre class="code-block"><code>from django.contrib.auth.views import LoginView
+from django.contrib.auth.forms import AuthenticationForm
+
+class CustomLoginView(LoginView):
+
+    template_name = "accounts/login.html"
+
+    form_class = AuthenticationForm
+
+    redirect_authenticated_user = True</code></pre>
+
+        <p>
+            redirect_authenticated_user=True aslyas already
+            authenticated user login page open kelyavar
+            redirect hoto.
+        </p>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            CustomLoginView madhye LoginView che existing
+            authentication features reuse karta yetat.
+        </div>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section class="lesson-section">
+        <h2>6. Django LogoutView</h2>
+
+        <p>
+            LogoutView ha Django cha built-in Class-Based View aahe.
+            Tyacha use current user la logout karnyasathi hoto.
+        </p>
+
+        <h3>Import LogoutView</h3>
+
+        <pre class="code-block"><code>from django.contrib.auth.views import LogoutView</code></pre>
+
+        <h3>URL Configuration</h3>
+
+        <pre class="code-block"><code>path(
+    "logout/",
+    LogoutView.as_view(),
+    name="logout"
+)</code></pre>
+
+        <p>
+            LogoutView current authenticated session terminate karte.
+            Django chya modern versions madhye LogoutView
+            logout sathi POST request accept karte.
+        </p>
+
+        <h3>Logout Form</h3>
+
+        <pre class="code-block"><code>{% verbatim %}
+&lt;form method="POST" action="{% url 'logout' %}"&gt;
+
+    {% csrf_token %}
+
+    &lt;button type="submit"&gt;
+        Logout
+    &lt;/button&gt;
+
+&lt;/form&gt;
+{% endverbatim %}</code></pre>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Logout link sathi GET request vapru naka.
+            POST form ani csrf_token vapra.
+        </div>
+    </section>
+
+    <!-- SECTION 7 -->
+    <section class="lesson-section">
+        <h2>7. LOGIN_URL and LOGIN_REDIRECT_URL</h2>
+
+        <p>
+            Django settings.py madhye login ani redirect
+            behavior configure karta yete.
+        </p>
+
+        <h3>settings.py</h3>
+
+        <pre class="code-block"><code>LOGIN_URL = "login"
+
+LOGIN_REDIRECT_URL = "dashboard"
+
+LOGOUT_REDIRECT_URL = "login"</code></pre>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Setting</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>LOGIN_URL</td>
+                    <td>Login page cha URL define karte.</td>
+                </tr>
+                <tr>
+                    <td>LOGIN_REDIRECT_URL</td>
+                    <td>Successful login nantar redirect page define karte.</td>
+                </tr>
+                <tr>
+                    <td>LOGOUT_REDIRECT_URL</td>
+                    <td>Logout nantar redirect page define karte.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            LOGIN_REDIRECT_URL default redirect destination aahe.
+            Valid next parameter aslyas user requested page var jau shakto.
+        </div>
+    </section>
+
+    <!-- SECTION 8 -->
+    <section class="lesson-section">
+        <h2>8. login_required Decorator</h2>
+
+        <p>
+            login_required decorator cha use protected pages
+            fakt logged-in users sathi available thevnyasathi hoto.
+        </p>
+
+        <h3>Example: views.py</h3>
+
+        <pre class="code-block"><code>from django.contrib.auth.decorators import login_required
+
+@login_required
+def dashboard(request):
+
+    return render(
+        request,
+        "accounts/dashboard.html"
+    )</code></pre>
+
+        <p>
+            User login nasel tar Django LOGIN_URL var redirect karte.
+        </p>
+
+        <h3>Protected URL</h3>
+
+        <pre class="code-block"><code>path(
+    "dashboard/",
+    views.dashboard,
+    name="dashboard"
+)</code></pre>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            login_required user login status check karte.
+            Pan user la specific role kiwa permission pahije asel
+            tar additional authorization checks implement kara.
+        </div>
+    </section>
+
+    <!-- SECTION 9 -->
+    <section class="lesson-section">
+        <h2>9. next Parameter</h2>
+
+        <p>
+            next parameter cha use login nantar user la tyachya
+            originally requested page var redirect karnyasathi hoto.
+        </p>
+
+        <h3>Example URL</h3>
+
+        <pre class="output-code"><code>/accounts/login/?next=/accounts/dashboard/</code></pre>
+
+        <p>
+            User protected dashboard open karnyacha prayatna karto,
+            pan login naslyamule Django tyala login page var pathavte.
+            Successful login nantar user dashboard var parat jato.
+        </p>
+
+        <h3>Login Template</h3>
+
+        <pre class="code-block"><code>{% verbatim %}
+&lt;form method="POST"&gt;
+
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    &lt;input
+        type="hidden"
+        name="next"
+        value="{{ next }}"
+    &gt;
+
+    &lt;button type="submit"&gt;Login&lt;/button&gt;
+
+&lt;/form&gt;
+{% endverbatim %}</code></pre>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            Django LoginView next parameter validate karte.
+            Invalid kiwa unsafe external redirect destinations
+            accept kele jat nahit.
+        </div>
+    </section>
+
+    <!-- SECTION 10 -->
+    <section class="lesson-section">
+        <h2>10. Login Error Messages</h2>
+
+        <p>
+            User ne incorrect username kiwa password enter kelyas
+            Django AuthenticationForm validation error provide karte.
+        </p>
+
+        <h3>Display Form Errors</h3>
+
+        <pre class="code-block"><code>{% verbatim %}
+&lt;form method="POST"&gt;
+
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    {% if form.errors %}
+        &lt;p&gt;Invalid username or password.&lt;/p&gt;
+    {% endif %}
+
+    &lt;button type="submit"&gt;Login&lt;/button&gt;
+
+&lt;/form&gt;
+{% endverbatim %}</code></pre>
+
+        <p>
+            form.as_p field errors display karte.
+            Form-level errors sathi form.non_field_errors suddha
+            use karta yetat.
+        </p>
+
+        <h3>Display Non-field Errors</h3>
+
+        <pre class="code-block"><code>{% verbatim %}
+{% for error in form.non_field_errors %}
+    &lt;p&gt;{{ error }}&lt;/p&gt;
+{% endfor %}
+{% endverbatim %}</code></pre>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            Invalid login credentials mule AuthenticationForm
+            non-field error generate karu shakto.
+        </div>
+    </section>
+
+    <!-- SECTION 11 -->
+    <section class="lesson-section">
+        <h2>11. Login and Logout Working Flow</h2>
+
+        <div class="flow-container">
+
+            <div class="flow-box flow-user">
+                <strong>User</strong>
+                <span>Open Protected Page</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-box">
+                <strong>login_required</strong>
+                <span>Check Authentication</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-box">
+                <strong>LoginView</strong>
+                <span>Validate Credentials</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-box flow-success">
+                <strong>Dashboard</strong>
+                <span>Access Granted</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-box">
+                <strong>LogoutView</strong>
+                <span>Terminate Session</span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 12 -->
+    <section class="lesson-section">
+        <h2>12. Practical – Complete Login &amp; Logout System</h2>
+
+        <p>
+            Ata LoginView ani LogoutView vaprun custom
+            Login, Dashboard ani Logout System create karu.
+        </p>
+
+        <h3>Step 1: Create App</h3>
+
+        <pre class="code-block"><code>python manage.py startapp accounts</code></pre>
+
+        <p>
+            App already Topic 14 madhye create kela asel tar
+            punha create karu naka.
+        </p>
+
+        <h3>Step 2: Register App</h3>
+
+        <p>File: config/settings.py</p>
+
+        <pre class="code-block"><code>INSTALLED_APPS = [
+
+    # Existing Django Apps
+
+    "accounts",
+]</code></pre>
+
+        <h3>Step 3: Create LoginView</h3>
+
+        <p>File: accounts/views.py</p>
+
+        <pre class="code-block"><code>from django.contrib.auth.views import (
+    LoginView,
+    LogoutView
+)
+
+from django.contrib.auth.forms import AuthenticationForm
+
+from django.contrib.auth.decorators import login_required
+
+from django.shortcuts import render
+
+
+class CustomLoginView(LoginView):
+
+    template_name = "accounts/login.html"
+
+    form_class = AuthenticationForm
+
+    redirect_authenticated_user = True
+
+
+class CustomLogoutView(LogoutView):
+
+    next_page = "login"
+
+
+@login_required
+def dashboard(request):
+
+    return render(
+        request,
+        "accounts/dashboard.html"
+    )</code></pre>
+
+        <h3>Step 4: Create URLs</h3>
+
+        <p>File: accounts/urls.py</p>
+
+        <pre class="code-block"><code>from django.urls import path
+from .views import (
+    CustomLoginView,
+    CustomLogoutView,
+    dashboard
+)
+
+urlpatterns = [
+
+    path(
+        "login/",
+        CustomLoginView.as_view(),
+        name="login"
+    ),
+
+    path(
+        "logout/",
+        CustomLogoutView.as_view(),
+        name="logout"
+    ),
+
+    path(
+        "dashboard/",
+        dashboard,
+        name="dashboard"
+    ),
+]</code></pre>
+
+        <h3>Step 5: Include URLs</h3>
+
+        <p>File: config/urls.py</p>
+
+        <pre class="code-block"><code>from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+
+    path("admin/", admin.site.urls),
+
+    path("accounts/", include("accounts.urls")),
+]</code></pre>
+
+        <p>
+            Existing URL patterns delete na karta accounts.urls
+            include kara.
+        </p>
+
+        <h3>Step 6: Configure Settings</h3>
+
+        <p>File: config/settings.py</p>
+
+        <pre class="code-block"><code>LOGIN_URL = "login"
+
+LOGIN_REDIRECT_URL = "dashboard"
+
+LOGOUT_REDIRECT_URL = "login"</code></pre>
+
+        <h3>Step 7: Create Login Template</h3>
+
+        <p>File: templates/accounts/login.html</p>
+
+        <pre class="code-block"><code>{% verbatim %}
+&lt;h1&gt;User Login&lt;/h1&gt;
+
+&lt;form method="POST"&gt;
+
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    &lt;input
+        type="hidden"
+        name="next"
+        value="{{ next }}"
+    &gt;
+
+    &lt;button type="submit"&gt;
+        Login
+    &lt;/button&gt;
+
+&lt;/form&gt;
+
+{% for error in form.non_field_errors %}
+    &lt;p&gt;{{ error }}&lt;/p&gt;
+{% endfor %}
+{% endverbatim %}</code></pre>
+
+        <h3>Step 8: Create Dashboard Template</h3>
+
+        <p>File: templates/accounts/dashboard.html</p>
+
+        <pre class="code-block"><code>{% verbatim %}
+&lt;h1&gt;Welcome to Dashboard&lt;/h1&gt;
+
+&lt;p&gt;
+    Hello {{ user.username }}
+&lt;/p&gt;
+
+&lt;form method="POST" action="{% url 'logout' %}"&gt;
+
+    {% csrf_token %}
+
+    &lt;button type="submit"&gt;
+        Logout
+    &lt;/button&gt;
+
+&lt;/form&gt;
+{% endverbatim %}</code></pre>
+
+        <h3>Step 9: Create Superuser</h3>
+
+        <pre class="code-block"><code>python manage.py createsuperuser</code></pre>
+
+        <p>
+            Superuser create kelyanantar tyach username ani
+            password vaprun login test karta yeil.
+        </p>
+
+        <h3>Step 10: Run Server</h3>
+
+        <pre class="code-block"><code>python manage.py runserver</code></pre>
+
+        <h3>Step 11: Open Login Page</h3>
+
+        <pre class="output-code"><code>http://127.0.0.1:8000/accounts/login/</code></pre>
+
+        <h3>Expected Output</h3>
+
+        <div class="browser-preview">
+
+            <div class="browser-bar">
+                <span></span>
+                <span></span>
+                <span></span>
+                <div class="browser-address">
+                    127.0.0.1:8000/accounts/login/
+                </div>
+            </div>
+
+            <div class="auth-preview">
+
+                <h2>User Login</h2>
+
+                <div class="preview-field">
+                    <label>Username</label>
+                    <div>Enter username</div>
+                </div>
+
+                <div class="preview-field">
+                    <label>Password</label>
+                    <div>Enter password</div>
+                </div>
+
+                <button type="button" class="demo-button">
+                    Login
+                </button>
+
+                <p class="preview-note">
+                    Illustrative preview. Actual page Django render karte.
+                </p>
+
+            </div>
+        </div>
+
+        <div class="info-box">
+            <strong>Practical Completed:</strong>
+            Ata LoginView user login handle karte,
+            login_required dashboard protect karte ani
+            LogoutView session terminate karte.
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Ha practical Topic 14 madhil accounts app reuse karto.
+            Donhi Topics madhye same login/logout URL names duplicate
+            karu naka. Ekach active URL configuration theva.
+        </div>
+    </section>
+
+    <!-- SECTION 13 -->
+    <section class="lesson-section">
+        <h2>13. Common Mistakes</h2>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Problem</th>
+                    <th>Solution</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>TemplateDoesNotExist</td>
+                    <td>Login template path check kara.</td>
+                </tr>
+                <tr>
+                    <td>Login URL not found</td>
+                    <td>URL name ani settings check kara.</td>
+                </tr>
+                <tr>
+                    <td>Login not working</td>
+                    <td>Valid username ani password vapra.</td>
+                </tr>
+                <tr>
+                    <td>Dashboard redirects to login</td>
+                    <td>User authenticated aahe ka check kara.</td>
+                </tr>
+                <tr>
+                    <td>Logout method not allowed</td>
+                    <td>POST form vapra.</td>
+                </tr>
+                <tr>
+                    <td>next redirect not working</td>
+                    <td>Hidden next field preserve kara.</td>
+                </tr>
+                <tr>
+                    <td>Duplicate URL names</td>
+                    <td>URL patterns madhil names unique theva.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- SECTION 14 -->
+    <section class="lesson-section">
+        <h2>14. Important Revision</h2>
+
+        <ol>
+            <li>LoginView Django built-in login class aahe.</li>
+            <li>LogoutView logout process handle karte.</li>
+            <li>AuthenticationForm credentials validate karte.</li>
+            <li>template_name custom login template define karte.</li>
+            <li>form_class login form select karte.</li>
+            <li>LOGIN_URL login page define karte.</li>
+            <li>LOGIN_REDIRECT_URL successful login destination define karte.</li>
+            <li>LOGOUT_REDIRECT_URL logout nantar redirect karte.</li>
+            <li>login_required protected views sathi vapartat.</li>
+            <li>next parameter requested destination preserve karto.</li>
+            <li>Logout sathi POST request vapra.</li>
+            <li>CSRF token POST forms protect karnyas madat karto.</li>
+        </ol>
+    </section>
+
+    <!-- PRACTICE -->
+    <section class="practice-section">
+
+        <h2>15. Practice Questions</h2>
+
+        <p>He questions swatah solve kar:</p>
+
+        <ol>
+            <li>Django LoginView mhanje kay?</li>
+            <li>LoginView ani AuthenticationForm explain kar.</li>
+            <li>Django LogoutView cha use sang.</li>
+            <li>Custom LoginView create kar.</li>
+            <li>LOGIN_URL ani LOGIN_REDIRECT_URL madhil difference lih.</li>
+            <li>login_required decorator cha use sang.</li>
+            <li>next parameter explain kar.</li>
+            <li>Login form madhye errors display kar.</li>
+            <li>Logout POST request ne implement kar.</li>
+            <li>Complete Login and Logout System create kar.</li>
+        </ol>
+
+    </section>
+
+    <!-- COMPLETION -->
+    <div class="completion-message">
+        <h2>Topic 15 Completed!</h2>
+        <p>
+            Ata tumhala Django LoginView, LogoutView,
+            AuthenticationForm, next parameter ani
+            Protected Dashboard samajle astil.
+        </p>
+    </div>
+
+    <!-- NAVIGATION -->
+    <div class="lesson-navigation">
+
+        <a href="{% url 'django_topic' 'authentication' %}"
+           class="nav-button previous-button">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'django_topic' 'admin-panel' %}"
+           class="nav-button next-button">
+            Next Topic →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

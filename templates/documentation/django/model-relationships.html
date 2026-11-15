@@ -1,0 +1,842 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Django Model Relationships{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/django/model-relationships.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- HEADER -->
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO COURSE • TOPIC 18</span>
+        <h1>Django Model Relationships</h1>
+        <p>
+            Learn how to connect multiple Django models using
+            ForeignKey, OneToOneField and ManyToManyField.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 50–60 Minutes</span>
+        </div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <section class="lesson-section">
+        <h2>1. Model Relationships mhanje kay?</h2>
+
+        <p>
+            Model Relationship mhanje don kiwa adhik database
+            tables madhil sambandh.
+        </p>
+
+        <p>
+            Django madhye ek model dusrya model sobat connect
+            karanyasathi relationship fields vapartat.
+        </p>
+
+        <div class="example-box">
+            <h3>Example – College Management</h3>
+            <ul>
+                <li>Ek Department madhye anek Students astat.</li>
+                <li>Ek Student chi ek Profile aste.</li>
+                <li>Ek Student anek Courses select karu shakto.</li>
+                <li>Ek Course anek Students gheu shaktat.</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            Django madhye mainly three types of model relationships
+            vapartat: One-to-One, One-to-Many ani Many-to-Many.
+        </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section class="lesson-section">
+        <h2>2. Types of Model Relationships</h2>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Relationship</th>
+                    <th>Field</th>
+                    <th>Meaning</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>One-to-One</td>
+                    <td>OneToOneField</td>
+                    <td>One record connects to one record.</td>
+                </tr>
+                <tr>
+                    <td>One-to-Many</td>
+                    <td>ForeignKey</td>
+                    <td>One record connects to many records.</td>
+                </tr>
+                <tr>
+                    <td>Many-to-Many</td>
+                    <td>ManyToManyField</td>
+                    <td>Many records connect to many records.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section class="lesson-section">
+        <h2>3. One-to-One Relationship</h2>
+
+        <p>
+            One-to-One relationship madhye ek record dusrya model
+            madhil fakt eka record sobat connect asto.
+        </p>
+
+        <h3>Example</h3>
+
+        <p>
+            Ek Student chi ek Student Profile asu shakते.
+            Ek profile fakt eka student chi aste.
+        </p>
+
+        <div class="relationship-diagram">
+            <div class="relation-box">
+                <strong>Student</strong>
+                <span>Student Details</span>
+            </div>
+
+            <div class="relation-line">
+                <span>1 ↔ 1</span>
+            </div>
+
+            <div class="relation-box">
+                <strong>StudentProfile</strong>
+                <span>Profile Details</span>
+            </div>
+        </div>
+
+        <h3>OneToOneField Syntax</h3>
+
+        <pre class="code-block"><code>from django.db import models
+
+class Student(models.Model):
+
+    name = models.CharField(max_length=100)
+
+
+class StudentProfile(models.Model):
+
+    student = models.OneToOneField(
+        Student,
+        on_delete=models.CASCADE
+    )
+
+    address = models.CharField(max_length=200)
+
+    phone = models.CharField(max_length=15)</code></pre>
+
+        <p>
+            OneToOneField eka record la dusrya model chya
+            ekach record sobat connect karte.
+        </p>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            OneToOneField vaparlyane related model madhye
+            unique relationship maintain hote.
+        </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section class="lesson-section">
+        <h2>4. One-to-Many Relationship</h2>
+
+        <p>
+            One-to-Many relationship madhye eka record sobat
+            dusrya model che anek records connect astat.
+        </p>
+
+        <h3>Example</h3>
+
+        <p>
+            Ek Department madhye anek Students asu shaktat.
+            Pan pratyek Student eka Department sobat associated asto.
+        </p>
+
+        <div class="relationship-diagram">
+            <div class="relation-box">
+                <strong>Department</strong>
+                <span>Computer Science</span>
+            </div>
+
+            <div class="relation-line">
+                <span>1 → Many</span>
+            </div>
+
+            <div class="relation-list">
+                <div class="relation-box">
+                    <strong>Student 1</strong>
+                </div>
+                <div class="relation-box">
+                    <strong>Student 2</strong>
+                </div>
+                <div class="relation-box">
+                    <strong>Student 3</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            Django madhye One-to-Many relationship sathi
+            ForeignKey vapartat.
+        </div>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section class="lesson-section">
+        <h2>5. ForeignKey</h2>
+
+        <p>
+            ForeignKey cha use eka model la dusrya model sobat
+            connect karnyasathi hoto.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre class="code-block"><code>from django.db import models
+
+class Department(models.Model):
+
+    name = models.CharField(max_length=100)
+
+
+class Student(models.Model):
+
+    name = models.CharField(max_length=100)
+
+    department = models.ForeignKey(
+        Department,
+        on_delete=models.CASCADE
+    )</code></pre>
+
+        <p>
+            Ya example madhye Student model madhil ForeignKey
+            Department model la reference karte.
+        </p>
+
+        <p>
+            Ek Department anek Students sobat connect hou shakto.
+        </p>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            ForeignKey field many-side model madhye define kartat.
+            Ya example madhye ForeignKey Student model madhye aahe.
+        </div>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section class="lesson-section">
+        <h2>6. Many-to-Many Relationship</h2>
+
+        <p>
+            Many-to-Many relationship madhye eka model madhil
+            anek records dusrya model madhil anek records sobat
+            connect hou shaktat.
+        </p>
+
+        <h3>Example</h3>
+
+        <ul>
+            <li>Ek Student anek Courses select karu shakto.</li>
+            <li>Ek Course anek Students sobat connect hou shakto.</li>
+        </ul>
+
+        <div class="relationship-diagram">
+            <div class="relation-box">
+                <strong>Students</strong>
+                <span>Student A, Student B</span>
+            </div>
+
+            <div class="relation-line">
+                <span>Many ↔ Many</span>
+            </div>
+
+            <div class="relation-box">
+                <strong>Courses</strong>
+                <span>Python, Django, Java</span>
+            </div>
+        </div>
+
+        <h3>ManyToManyField Syntax</h3>
+
+        <pre class="code-block"><code>from django.db import models
+
+class Course(models.Model):
+
+    name = models.CharField(max_length=100)
+
+
+class Student(models.Model):
+
+    name = models.CharField(max_length=100)
+
+    courses = models.ManyToManyField(Course)</code></pre>
+
+        <p>
+            Django ManyToManyField sathi automatically
+            intermediate database table create karte.
+        </p>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            ManyToManyField mule donhi models madhil multiple
+            records connect karta yetat.
+        </div>
+    </section>
+
+    <!-- SECTION 7 -->
+    <section class="lesson-section">
+        <h2>7. on_delete Options</h2>
+
+        <p>
+            ForeignKey kiwa OneToOneField madhye related object
+            delete zalyas kay action ghyaycha te on_delete define karte.
+        </p>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Option</th>
+                    <th>Meaning</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>CASCADE</td>
+                    <td>Referenced object delete zalyas related object suddha delete hoto.</td>
+                </tr>
+                <tr>
+                    <td>PROTECT</td>
+                    <td>Related objects aslyas deletion block hote.</td>
+                </tr>
+                <tr>
+                    <td>SET_NULL</td>
+                    <td>Related field NULL set hote.</td>
+                </tr>
+                <tr>
+                    <td>SET_DEFAULT</td>
+                    <td>Field default value var set hote.</td>
+                </tr>
+                <tr>
+                    <td>DO_NOTHING</td>
+                    <td>Django automatic action ghet nahi.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>CASCADE Example</h3>
+
+        <pre class="code-block"><code>department = models.ForeignKey(
+    Department,
+    on_delete=models.CASCADE
+)</code></pre>
+
+        <h3>PROTECT Example</h3>
+
+        <pre class="code-block"><code>department = models.ForeignKey(
+    Department,
+    on_delete=models.PROTECT
+)</code></pre>
+
+        <h3>SET_NULL Example</h3>
+
+        <pre class="code-block"><code>department = models.ForeignKey(
+    Department,
+    on_delete=models.SET_NULL,
+    null=True,
+    blank=True
+)</code></pre>
+
+        <h3>SET_DEFAULT Example</h3>
+
+        <pre class="code-block"><code>department = models.ForeignKey(
+    Department,
+    on_delete=models.SET_DEFAULT,
+    default=1
+)</code></pre>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            SET_NULL sathi null=True required aahe.
+            SET_DEFAULT sathi valid default value required aahe.
+            DO_NOTHING vaparlyas database constraints mule deletion
+            fail hou shakते.
+        </div>
+    </section>
+
+    <!-- SECTION 8 -->
+    <section class="lesson-section">
+        <h2>8. Related Objects</h2>
+
+        <p>
+            Relationship create kelyanantar related objects
+            access karta yetat.
+        </p>
+
+        <h3>ForeignKey – Forward Access</h3>
+
+        <pre class="code-block"><code>student = Student.objects.get(id=1)
+
+department = student.department
+
+print(department.name)</code></pre>
+
+        <h3>Reverse Access</h3>
+
+        <pre class="code-block"><code>department = Department.objects.get(id=1)
+
+students = department.student_set.all()</code></pre>
+
+        <p>
+            Default reverse manager madhye model name lowercase
+            ani _set suffix vapartat.
+        </p>
+    </section>
+
+    <!-- SECTION 9 -->
+    <section class="lesson-section">
+        <h2>9. related_name</h2>
+
+        <p>
+            related_name cha use reverse relationship access
+            karnyasathi custom name denyasathi hoto.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre class="code-block"><code>department = models.ForeignKey(
+    Department,
+    on_delete=models.CASCADE,
+    related_name="students"
+)</code></pre>
+
+        <h3>Reverse Access</h3>
+
+        <pre class="code-block"><code>department = Department.objects.get(id=1)
+
+students = department.students.all()</code></pre>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            related_name mule department.student_set aivaji
+            department.students vaparta yete.
+        </div>
+    </section>
+
+    <!-- SECTION 10 -->
+    <section class="lesson-section">
+        <h2>10. Many-to-Many Queries</h2>
+
+        <h3>Add Course</h3>
+
+        <pre class="code-block"><code>student = Student.objects.get(id=1)
+
+course = Course.objects.get(id=1)
+
+student.courses.add(course)</code></pre>
+
+        <h3>Get Student Courses</h3>
+
+        <pre class="code-block"><code>student = Student.objects.get(id=1)
+
+courses = student.courses.all()</code></pre>
+
+        <h3>Remove Course</h3>
+
+        <pre class="code-block"><code>student.courses.remove(course)</code></pre>
+
+        <h3>Clear All Courses</h3>
+
+        <pre class="code-block"><code>student.courses.clear()</code></pre>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Many-to-Many relationship add karnyapurvi Student
+            object database madhye save zalele asne required aahe.
+        </div>
+    </section>
+
+    <!-- SECTION 11 -->
+    <section class="lesson-section">
+        <h2>11. One-to-One Queries</h2>
+
+        <h3>Create Profile</h3>
+
+        <pre class="code-block"><code>student = Student.objects.get(id=1)
+
+profile = StudentProfile.objects.create(
+    student=student,
+    address="Pune",
+    phone="9876543210"
+)</code></pre>
+
+        <h3>Get Profile</h3>
+
+        <pre class="code-block"><code>profile = student.studentprofile
+
+print(profile.address)</code></pre>
+
+        <h3>Reverse Access with related_name</h3>
+
+        <pre class="code-block"><code>student = models.OneToOneField(
+    Student,
+    on_delete=models.CASCADE,
+    related_name="profile"
+)</code></pre>
+
+        <p>
+            Ata student.profile vaprun related profile access karta yete.
+        </p>
+    </section>
+
+    <!-- SECTION 12 -->
+    <section class="lesson-section">
+        <h2>12. Practical – Student and Course Management</h2>
+
+        <p>
+            Ata existing Student model sobat Department,
+            Course ani StudentProfile models connect karu.
+        </p>
+
+        <h3>Step 1: Open Existing Models</h3>
+
+        <p>File: students/models.py</p>
+
+        <p>
+            Topic 08 madhil existing Student model delete karu naka.
+            Tyat relationship fields add kara ani navin models create kara.
+        </p>
+
+        <h3>Step 2: Create Department Model</h3>
+
+        <pre class="code-block"><code>from django.db import models
+
+
+class Department(models.Model):
+
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name</code></pre>
+
+        <h3>Step 3: Create Course Model</h3>
+
+        <pre class="code-block"><code>class Course(models.Model):
+
+    name = models.CharField(max_length=100)
+
+    duration = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name</code></pre>
+
+        <h3>Step 4: Update Existing Student Model</h3>
+
+        <p>
+            Existing Student model madhye he don fields add kara.
+            Existing name, email, age ani course fields delete karu naka.
+        </p>
+
+        <pre class="code-block"><code>department = models.ForeignKey(
+    Department,
+    on_delete=models.SET_NULL,
+    null=True,
+    blank=True,
+    related_name="students"
+)
+
+courses = models.ManyToManyField(
+    Course,
+    blank=True,
+    related_name="students"
+)</code></pre>
+
+        <h3>Step 5: Create StudentProfile Model</h3>
+
+        <pre class="code-block"><code>class StudentProfile(models.Model):
+
+    student = models.OneToOneField(
+        Student,
+        on_delete=models.CASCADE,
+        related_name="profile"
+    )
+
+    address = models.CharField(max_length=200)
+
+    phone = models.CharField(max_length=15)
+
+    def __str__(self):
+        return self.student.name</code></pre>
+
+        <h3>Step 6: Understand Final Model Structure</h3>
+
+        <div class="relationship-diagram vertical-diagram">
+            <div class="relation-box">
+                <strong>Department</strong>
+                <span>One Department</span>
+            </div>
+
+            <div class="relation-line">
+                <span>1 → Many</span>
+            </div>
+
+            <div class="relation-box relation-main">
+                <strong>Student</strong>
+                <span>Existing Student Model</span>
+            </div>
+
+            <div class="relation-branches">
+                <div class="relation-branch">
+                    <span>1 ↔ 1</span>
+                    <div class="relation-box">
+                        <strong>StudentProfile</strong>
+                    </div>
+                </div>
+
+                <div class="relation-branch">
+                    <span>Many ↔ Many</span>
+                    <div class="relation-box">
+                        <strong>Course</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h3>Step 7: Create Migrations</h3>
+
+        <pre class="code-block"><code>python manage.py makemigrations
+
+python manage.py migrate</code></pre>
+
+        <p>
+            Existing Student records aslyas department field nullable
+            thevlyamule migration madhye existing records sathi
+            required default prompt talta yeto.
+        </p>
+
+        <h3>Step 8: Register Models in Admin</h3>
+
+        <p>File: students/admin.py</p>
+
+        <pre class="code-block"><code>from django.contrib import admin
+
+from .models import (
+    Student,
+    Department,
+    Course,
+    StudentProfile
+)
+
+admin.site.register(Student)
+admin.site.register(Department)
+admin.site.register(Course)
+admin.site.register(StudentProfile)</code></pre>
+
+        <p>
+            Student already registered asel tar duplicate registration
+            remove karun existing registration update kara.
+        </p>
+
+        <h3>Step 9: Create Sample Records</h3>
+
+        <p>Python shell open kara:</p>
+
+        <pre class="code-block"><code>python manage.py shell</code></pre>
+
+        <p>Department create kara:</p>
+
+        <pre class="code-block"><code>department = Department.objects.create(
+    name="Computer Science"
+)</code></pre>
+
+        <p>Course create kara:</p>
+
+        <pre class="code-block"><code>python_course = Course.objects.create(
+    name="Python",
+    duration="3 Months"
+)
+
+django_course = Course.objects.create(
+    name="Django",
+    duration="2 Months"
+)</code></pre>
+
+        <p>Existing Student select kara:</p>
+
+        <pre class="code-block"><code>student = Student.objects.first()</code></pre>
+
+        <p>Department assign kara:</p>
+
+        <pre class="code-block"><code>student.department = department
+
+student.save()</code></pre>
+
+        <p>Courses assign kara:</p>
+
+        <pre class="code-block"><code>student.courses.add(
+    python_course,
+    django_course
+)</code></pre>
+
+        <p>Profile create kara:</p>
+
+        <pre class="code-block"><code>profile = StudentProfile.objects.create(
+    student=student,
+    address="Pune",
+    phone="9876543210"
+)</code></pre>
+
+        <h3>Step 10: Test Relationships</h3>
+
+        <pre class="code-block"><code>student.department.name
+
+student.courses.all()
+
+student.profile.address
+
+department.students.all()
+
+python_course.students.all()</code></pre>
+
+        <div class="info-box">
+            <strong>Practical Completed:</strong>
+            Ata Department, Student, Course ani StudentProfile
+            yanchyat ForeignKey, ManyToManyField ani OneToOneField
+            relationships create kele aahet.
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Student.objects.first() None return karat asel tar
+            pahile Admin Panel madhye Student create kara.
+            Sample records punha create kartana duplicate names
+            ani records check kara.
+        </div>
+    </section>
+
+    <!-- SECTION 13 -->
+    <section class="lesson-section">
+        <h2>13. Common Mistakes</h2>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Problem</th>
+                    <th>Solution</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>ForeignKey error</td>
+                    <td>Referenced model import ani field check kara.</td>
+                </tr>
+                <tr>
+                    <td>SET_NULL error</td>
+                    <td>null=True add kara.</td>
+                </tr>
+                <tr>
+                    <td>ManyToMany add error</td>
+                    <td>Object database madhye save kara.</td>
+                </tr>
+                <tr>
+                    <td>Related object missing</td>
+                    <td>Related record create zala aahe ka check kara.</td>
+                </tr>
+                <tr>
+                    <td>Reverse accessor conflict</td>
+                    <td>Unique related_name vapra.</td>
+                </tr>
+                <tr>
+                    <td>Migration error</td>
+                    <td>makemigrations ani migrate check kara.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- SECTION 14 -->
+    <section class="lesson-section">
+        <h2>14. Important Revision</h2>
+
+        <ol>
+            <li>Model Relationships tables connect kartat.</li>
+            <li>OneToOneField One-to-One relationship create karte.</li>
+            <li>ForeignKey One-to-Many relationship create karte.</li>
+            <li>ManyToManyField Many-to-Many relationship create karte.</li>
+            <li>on_delete related object delete zalyavar action define karte.</li>
+            <li>CASCADE related objects delete karte.</li>
+            <li>PROTECT deletion block karte.</li>
+            <li>SET_NULL field NULL karte.</li>
+            <li>related_name reverse access sathi custom name dete.</li>
+            <li>ManyToManyField automatically intermediate table create karte.</li>
+        </ol>
+    </section>
+
+    <!-- PRACTICE -->
+    <section class="practice-section">
+
+        <h2>15. Practice Questions</h2>
+
+        <p>He questions swatah solve kar:</p>
+
+        <ol>
+            <li>Model Relationships mhanje kay?</li>
+            <li>One-to-One Relationship explain kar.</li>
+            <li>ForeignKey cha use kay?</li>
+            <li>ManyToManyField explain kar.</li>
+            <li>ForeignKey ani ManyToManyField madhil difference lih.</li>
+            <li>on_delete options explain kar.</li>
+            <li>related_name cha use kay?</li>
+            <li>Reverse Relationship mhanje kay?</li>
+            <li>Student ani Department madhye ForeignKey create kar.</li>
+            <li>Student ani Course madhye ManyToMany relationship create kar.</li>
+        </ol>
+
+    </section>
+
+    <!-- COMPLETION -->
+    <div class="completion-message">
+        <h2>Topic 18 Completed!</h2>
+        <p>
+            Ata tumhala Django ForeignKey, OneToOneField,
+            ManyToManyField ani Database Relationships samajle astil.
+        </p>
+    </div>
+
+    <!-- NAVIGATION -->
+    <div class="lesson-navigation">
+
+        <a href="{% url 'django_topic' 'sessions-and-cookies' %}"
+           class="nav-button previous-button">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'django_topic' 'file-image-upload' %}"
+           class="nav-button next-button">
+            Next Topic →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,803 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}JavaScript Object Methods and Destructuring | Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/javascript/object-methods.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Header -->
+
+    <div class="lesson-header">
+        <span class="lesson-label">JAVASCRIPT DOCUMENTATION • PAGE 16</span>
+
+        <h1>Object Methods and Destructuring</h1>
+
+        <p>
+            Ya lesson madhye Object Methods, this keyword,
+            Destructuring, Shorthand Properties, Optional Chaining
+            ani Spread Operator shikuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Beginner Level</span>
+            <span>40–45 Minutes</span>
+        </div>
+    </div>
+
+    <!-- Section 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. Object Methods</h2>
+
+        <p>
+            Object madhye function store kela asel tar tyala
+            Object Method mhantat.
+            Method cha use object sobat sambandhit operation
+            perform karnyasathi hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let student = {
+    name: "Rohan",
+
+    greet: function() {
+        return "Hello " + this.name;
+    }
+};
+
+console.log(student.greet());</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Hello Rohan</pre>
+        </div>
+
+        <p>
+            Ithe greet() hi object method aahe.
+            student.greet() vaprun ti call keli aahe.
+        </p>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            Object property madhye function asel tar tyala Method mhantat.
+        </div>
+
+    </section>
+
+    <!-- Section 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. this Keyword</h2>
+
+        <p>
+            Object method madhye this keyword cha use
+            current object cha reference milavnyasathi hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let student = {
+    name: "Rohan",
+    age: 20,
+
+    showDetails: function() {
+        console.log(this.name);
+        console.log(this.age);
+    }
+};
+
+student.showDetails();</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Rohan
+20</pre>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>this.name current object madhil name access karte.</li>
+            <li>this.age current object madhil age access karte.</li>
+            <li>student.showDetails() call kelyamule this student object la refer karte.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            this cha meaning function kasa call kela aahe yavar depend karto.
+            Arrow function madhye this surrounding scope madhun milto.
+            Mhanun object method sathi normal function vaprane
+            beginner level la sope aste.
+        </div>
+
+    </section>
+
+    <!-- Section 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. Method Shorthand</h2>
+
+        <p>
+            Object madhye method lihinyasathi function keyword
+            vaparnyachi garaj nahi. Short syntax suddha vaparta yete.
+        </p>
+
+        <h3>Normal Method:</h3>
+
+        <pre class="code-block"><code>let student = {
+    greet: function() {
+        return "Hello!";
+    }
+};</code></pre>
+
+        <h3>Shorthand Method:</h3>
+
+        <pre class="code-block"><code>let student = {
+    greet() {
+        return "Hello!";
+    }
+};
+
+console.log(student.greet());</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Hello!</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Remember:</strong>
+            Shorthand method madhye function keyword lihinyachi garaj naste.
+        </div>
+
+    </section>
+
+    <!-- Section 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. Object Destructuring</h2>
+
+        <p>
+            Object Destructuring cha use object madhun specific
+            properties chi values veglya variables madhye kadhnyasathi hoto.
+        </p>
+
+        <h3>Without Destructuring:</h3>
+
+        <pre class="code-block"><code>let student = {
+    name: "Rohan",
+    age: 20,
+    course: "BSc CS"
+};
+
+let name = student.name;
+let age = student.age;
+
+console.log(name);
+console.log(age);</code></pre>
+
+        <h3>With Destructuring:</h3>
+
+        <pre class="code-block"><code>let student = {
+    name: "Rohan",
+    age: 20,
+    course: "BSc CS"
+};
+
+let { name, age } = student;
+
+console.log(name);
+console.log(age);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Rohan
+20</pre>
+        </div>
+
+        <p>
+            Ithe name ani age ya properties chi values
+            direct variables madhye store zali aahet.
+        </p>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Object Destructuring madhye variable names default ne
+            object property names shi match zale pahijet.
+        </div>
+
+    </section>
+
+    <!-- Section 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. Destructuring with Rename</h2>
+
+        <p>
+            Object madhil property chi value veglya variable name madhye
+            store karaychi asel tar rename syntax vaparta yete.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let student = {
+    name: "Rohan",
+    age: 20
+};
+
+let { name: studentName, age: studentAge } = student;
+
+console.log(studentName);
+console.log(studentAge);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Rohan
+20</pre>
+        </div>
+
+        <p>
+            name chi value studentName madhye ani age chi value
+            studentAge madhye store zali aahe.
+        </p>
+
+    </section>
+
+    <!-- Section 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. Default Values in Destructuring</h2>
+
+        <p>
+            Object madhye property available nasel tar destructuring
+            kartana default value set karta yete.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let student = {
+    name: "Rohan"
+};
+
+let { name, city = "Kolhapur" } = student;
+
+console.log(name);
+console.log(city);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Rohan
+Kolhapur</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Note:</strong>
+            Default value fakt property missing kiwa undefined
+            asel tevha vaprali jate. Value null asel tar default
+            apply hot nahi.
+        </div>
+
+    </section>
+
+    <!-- Section 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. Nested Object Destructuring</h2>
+
+        <p>
+            Object madhye dusra object asel tar tyatil properties
+            suddha destructuring ne access karta yetat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let student = {
+    name: "Rohan",
+
+    address: {
+        city: "Kolhapur",
+        state: "Maharashtra"
+    }
+};
+
+let {
+    address: { city, state }
+} = student;
+
+console.log(city);
+console.log(state);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Kolhapur
+Maharashtra</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Remember:</strong>
+            Nested destructuring madhye inner object madhil
+            property names match karne avashyak aahe.
+        </div>
+
+    </section>
+
+    <!-- Section 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. Shorthand Properties</h2>
+
+        <p>
+            Variable ani object property che names same astil
+            tar object create kartana short syntax vaparta yete.
+        </p>
+
+        <h3>Without Shorthand:</h3>
+
+        <pre class="code-block"><code>let name = "Rohan";
+let age = 20;
+
+let student = {
+    name: name,
+    age: age
+};
+
+console.log(student);</code></pre>
+
+        <h3>With Shorthand:</h3>
+
+        <pre class="code-block"><code>let name = "Rohan";
+let age = 20;
+
+let student = {
+    name,
+    age
+};
+
+console.log(student);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>{ name: "Rohan", age: 20 }</pre>
+        </div>
+
+        <p>
+            Donhi examples madhye same object tayar hoto.
+            Shorthand mule code short hoto.
+        </p>
+
+    </section>
+
+    <!-- Section 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Optional Chaining (?.)</h2>
+
+        <p>
+            Optional Chaining cha use object madhil property
+            safe paddhatine access karnyasathi hoto.
+        </p>
+
+        <p>
+            Property chya madhil object null kiwa undefined asel
+            tar error yenya aivaji undefined milte.
+        </p>
+
+        <h3>Without Optional Chaining:</h3>
+
+        <pre class="code-block"><code>let student = {
+    name: "Rohan"
+};
+
+console.log(student.address.city);</code></pre>
+
+        <p>
+            Ithe address property available nahi.
+            Mhanun city access kartana error yeto.
+        </p>
+
+        <h3>With Optional Chaining:</h3>
+
+        <pre class="code-block"><code>let student = {
+    name: "Rohan"
+};
+
+console.log(student.address?.city);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>undefined</pre>
+        </div>
+
+        <h3>Another Example:</h3>
+
+        <pre class="code-block"><code>let student = {
+    name: "Rohan",
+    address: {
+        city: "Kolhapur"
+    }
+};
+
+console.log(student.address?.city);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Kolhapur</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Use:</strong>
+            API response madhye kahi properties missing astil
+            tar Optional Chaining upyogi padte.
+        </div>
+
+    </section>
+
+    <!-- Section 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Spread Operator with Objects</h2>
+
+        <p>
+            Spread Operator (...) cha use existing object madhil
+            properties dusrya object madhye copy karnyasathi hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let student = {
+    name: "Rohan",
+    age: 20
+};
+
+let newStudent = {
+    ...student,
+    city: "Kolhapur"
+};
+
+console.log(newStudent);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>{
+    name: "Rohan",
+    age: 20,
+    city: "Kolhapur"
+}</pre>
+        </div>
+
+        <p>
+            Ithe student madhil properties newStudent madhye copy
+            zalyat ani city hi new property add zali.
+        </p>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Object Spread ha shallow copy karto.
+            Nested objects kiwa arrays sathi inner references share hou shaktat.
+        </div>
+
+    </section>
+
+    <!-- Section 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Updating Objects with Spread</h2>
+
+        <p>
+            Spread Operator vaprun original object madhye direct
+            badal na karta updated new object tayar karta yeto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let student = {
+    name: "Rohan",
+    age: 20,
+    city: "Kolhapur"
+};
+
+let updatedStudent = {
+    ...student,
+    age: 21
+};
+
+console.log(updatedStudent);
+console.log(student.age);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>{
+    name: "Rohan",
+    age: 21,
+    city: "Kolhapur"
+}
+20</pre>
+        </div>
+
+        <p>
+            Ithe updatedStudent madhye age 21 aahe.
+            Original student madhil age 20 ch rahte.
+        </p>
+
+    </section>
+
+    <!-- Section 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Object.assign()</h2>
+
+        <p>
+            Object.assign() method cha use eka kiwa adhik source
+            objects madhil properties target object madhye copy karnyasathi hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let student = {
+    name: "Rohan"
+};
+
+let details = {
+    age: 20,
+    city: "Kolhapur"
+};
+
+let result = Object.assign({}, student, details);
+
+console.log(result);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>{
+    name: "Rohan",
+    age: 20,
+    city: "Kolhapur"
+}</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Remember:</strong>
+            Object.assign() suddha shallow copy karte.
+            Empty object {} target dilyamule source objects madhye
+            direct badal hot nahi.
+        </div>
+
+    </section>
+
+    <!-- Section 13 -->
+
+    <section class="lesson-section">
+
+        <h2>13. Important Concepts Comparison</h2>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Concept</th>
+                    <th>Use</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Object Method</td>
+                    <td>Object madhye function store karne.</td>
+                </tr>
+
+                <tr>
+                    <td>this</td>
+                    <td>Current object cha reference access karne.</td>
+                </tr>
+
+                <tr>
+                    <td>Destructuring</td>
+                    <td>Object madhun values veglya variables madhye kadhne.</td>
+                </tr>
+
+                <tr>
+                    <td>Shorthand</td>
+                    <td>Same property ani variable name sathi short syntax.</td>
+                </tr>
+
+                <tr>
+                    <td>Optional Chaining</td>
+                    <td>Missing nested property safe paddhatine access karne.</td>
+                </tr>
+
+                <tr>
+                    <td>Spread Operator</td>
+                    <td>Object properties copy karne ani update karne.</td>
+                </tr>
+
+                <tr>
+                    <td>Object.assign()</td>
+                    <td>Source object properties target object madhye copy karne.</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </section>
+
+    <!-- Section 14 -->
+
+    <section class="lesson-section">
+
+        <h2>14. Common Beginner Mistakes</h2>
+
+        <div class="mistake-card">
+            <strong>Mistake 1: Destructuring madhye property name mismatch</strong>
+            <p>
+                Object madhil property name ani destructuring madhil
+                name match nasel tar value undefined milu shakte.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 2: this ani arrow function confuse karne</strong>
+            <p>
+                Arrow function swatahcha this tayar karat nahi.
+                To surrounding scope madhun milto.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 3: Optional Chaining cha wrong use</strong>
+            <p>
+                Missing property access karaychi asel tar
+                yogya level var ?. vapra.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 4: Spread la deep copy samajne</strong>
+            <p>
+                Object Spread fakt shallow copy karto.
+                Nested object references share hou shaktat.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- Section 15 -->
+
+    <section class="lesson-section">
+
+        <h2>15. Quick Revision</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>Object madhil function la Method mhantat.</li>
+                <li>this current object cha reference deu shakto.</li>
+                <li>Method shorthand mule code short hoto.</li>
+                <li>Destructuring object madhun values extract karte.</li>
+                <li>Rename syntax ne variable name change karta yete.</li>
+                <li>Default values missing properties sathi vaparta yetat.</li>
+                <li>Nested Destructuring inner object madhil values kadhte.</li>
+                <li>Shorthand Properties mule object creation short hote.</li>
+                <li>Optional Chaining safe property access karte.</li>
+                <li>Spread Operator object properties copy karto.</li>
+                <li>Object.assign() objects madhil properties copy karte.</li>
+                <li>Spread ani Object.assign() shallow copy kartat.</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <!-- Section 16 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>16. Practice Questions</h2>
+
+        <h3>Basic Questions</h3>
+
+        <ol>
+            <li>Object Method mhanje kay?</li>
+            <li>this keyword cha use kay aahe?</li>
+            <li>Method Shorthand mhanje kay?</li>
+            <li>Object Destructuring mhanje kay?</li>
+            <li>Destructuring madhye rename kase kartat?</li>
+            <li>Default values cha use kay aahe?</li>
+            <li>Nested Destructuring mhanje kay?</li>
+            <li>Shorthand Properties mhanje kay?</li>
+            <li>Optional Chaining cha use kay aahe?</li>
+            <li>Spread Operator ani Object.assign() kay kartat?</li>
+        </ol>
+
+        <h3>Practical Questions</h3>
+
+        <ol>
+            <li>Student object madhye greet() method tayar kar.</li>
+            <li>this vaprun student cha name print kar.</li>
+            <li>Object madhun name ani age destructure kar.</li>
+            <li>Destructuring vaprun name la studentName ase rename kar.</li>
+            <li>Missing property sathi default value de.</li>
+            <li>Nested object madhun city destructure kar.</li>
+            <li>Shorthand Properties vaprun object tayar kar.</li>
+            <li>Optional Chaining vaprun address madhil city access kar.</li>
+            <li>Spread Operator vaprun object copy kar.</li>
+            <li>Spread vaprun object madhil age update kar.</li>
+        </ol>
+
+        <div class="task-box">
+
+            <h3>Mini Task: Developer Profile Manager</h3>
+
+            <p>
+                Developer profile object tayar kar ani tyavar
+                Object concepts apply kar.
+            </p>
+
+            <ul>
+                <li>name, age ani role properties tayar kar.</li>
+                <li>skills navachi Array add kar.</li>
+                <li>address navacha nested object tayar kar.</li>
+                <li>greet() method tayar kar.</li>
+                <li>this vaprun developer cha name print kar.</li>
+                <li>Destructuring vaprun name ani role vegale kar.</li>
+                <li>Optional Chaining vaprun address madhil city access kar.</li>
+                <li>Spread vaprun profile copy kar.</li>
+                <li>Copy madhye experience property add kar.</li>
+                <li>Original object ani copied object donhi print kar.</li>
+            </ul>
+
+            <p>
+                File name: <strong>javascript_object_methods.js</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Navigation -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'javascript_topic' 'objects' %}"
+           class="nav-button previous-button">
+            ← Previous: JavaScript Objects
+        </a>
+
+        <a href="{% url 'javascript_topic' 'dom' %}"
+           class="nav-button next-button">
+            Next: DOM Introduction →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

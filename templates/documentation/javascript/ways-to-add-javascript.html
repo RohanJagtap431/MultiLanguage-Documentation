@@ -1,0 +1,732 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Ways to Add JavaScript | Roman Marathi{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/javascript/ways-to-add-javascript.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+
+    <div class="lesson-header">
+        <span class="lesson-label">JAVASCRIPT DOCUMENTATION • PAGE 03</span>
+
+        <h1>Ways to Add JavaScript</h1>
+
+        <p>
+            HTML page madhye JavaScript code add karnyachya
+            vegveglya methods shikuya. Inline, Internal ani
+            External JavaScript practical examples sahit samjun gheuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Beginner Level</span>
+            <span>30–35 Minutes</span>
+        </div>
+    </div>
+
+    <!-- Section 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. Introduction</h2>
+
+        <p>
+            JavaScript code HTML webpage sobat connect karnyasathi
+            aplyakade 3 main methods aahet.
+        </p>
+
+        <div class="definition-list">
+            <div class="definition-item">
+                <strong>01</strong>
+                <span>Inline JavaScript</span>
+            </div>
+
+            <div class="definition-item">
+                <strong>02</strong>
+                <span>Internal JavaScript</span>
+            </div>
+
+            <div class="definition-item">
+                <strong>03</strong>
+                <span>External JavaScript</span>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <strong>Simple Definition:</strong>
+            JavaScript add karnyachya methods mhanje HTML webpage
+            madhye JavaScript code lihinyache kiwa external file
+            connect karnyache vegvegale ways.
+        </div>
+
+    </section>
+
+    <!-- Section 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Inline JavaScript</h2>
+
+        <p>
+            Inline JavaScript madhye JavaScript code directly
+            HTML element chya event attribute madhye lihila jato.
+        </p>
+
+        <p>
+            Udaharanarth, button click zalyavar action perform
+            karaychi asel tar onclick attribute madhye JavaScript
+            code lihita yeto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>&lt;button onclick="alert('Hello Rohan')"&gt;
+    Click Me
+&lt;/button&gt;</code></pre>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>
+                <strong>button:</strong>
+                HTML madhye button tayar karto.
+            </li>
+
+            <li>
+                <strong>onclick:</strong>
+                User button click kelyavar action trigger karto.
+            </li>
+
+            <li>
+                <strong>alert():</strong>
+                Browser madhye message popup dakhavto.
+            </li>
+        </ul>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <button type="button"
+                    onclick="alert('Hello Rohan!')">
+                Click Me
+            </button>
+            <p>Button click kelyavar browser madhye alert popup disel.</p>
+        </div>
+
+        <h3>Advantages:</h3>
+
+        <ul>
+            <li>Small examples sathi code lihine sope aahe.</li>
+            <li>Vegli JavaScript file tayar karavi lagat nahi.</li>
+        </ul>
+
+        <h3>Disadvantages:</h3>
+
+        <ul>
+            <li>HTML code madhye JavaScript mix hote.</li>
+            <li>Large project madhye code manage karne kathin hote.</li>
+            <li>Same code anek buttons sathi repeat karava lagu shakto.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Inline JavaScript fakt small demonstrations sathi
+            upayogi aahe. Large projects madhye code separate
+            thevne adhik changle.
+        </div>
+
+    </section>
+
+    <!-- Section 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. Internal JavaScript</h2>
+
+        <p>
+            Internal JavaScript madhye JavaScript code HTML file
+            madhyech script tag vaprun lihila jato.
+        </p>
+
+        <p>
+            JavaScript code lihinyasathi HTML madhye
+            &lt;script&gt; ani &lt;/script&gt; tags vapartat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Internal JavaScript&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;h1&gt;My Website&lt;/h1&gt;
+
+    &lt;script&gt;
+        console.log("Hello Rohan");
+        alert("Welcome to my website");
+    &lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>
+                <strong>&lt;script&gt;:</strong>
+                JavaScript code lihinyasathi vapartat.
+            </li>
+
+            <li>
+                <strong>console.log():</strong>
+                Browser Developer Console madhye message display karto.
+            </li>
+
+            <li>
+                <strong>alert():</strong>
+                Browser madhye popup message dakhavto.
+            </li>
+
+            <li>
+                <strong>&lt;/script&gt;:</strong>
+                JavaScript code block close karto.
+            </li>
+        </ul>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <h3>My Website</h3>
+            <p>Page load zalyavar Welcome to my website asa alert disel.</p>
+            <p>Console madhye Hello Rohan message disel.</p>
+        </div>
+
+        <h3>Internal JavaScript kuthe lihayche?</h3>
+
+        <p>
+            JavaScript code &lt;head&gt; madhye kiwa &lt;body&gt;
+            madhye lihita yeto. Beginner sathi script tag
+            body chya shevati lihine sope aste.
+        </p>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Script body chya shevati asel tar tyachya aadhi
+            HTML elements load honyachi shakyata aste.
+            Mhanun element select kartana loading order chi
+            kalji ghyavi.
+        </div>
+
+        <h3>Advantages:</h3>
+
+        <ul>
+            <li>Small webpage sathi convenient aahe.</li>
+            <li>JavaScript code tyach HTML file madhye rahto.</li>
+            <li>Separate file create karavi lagat nahi.</li>
+        </ul>
+
+        <h3>Disadvantages:</h3>
+
+        <ul>
+            <li>HTML file mothi hou shakte.</li>
+            <li>Multiple pages madhye code reuse karne kathin hote.</li>
+            <li>HTML ani JavaScript maintain karne avghad hou shakte.</li>
+        </ul>
+
+    </section>
+
+    <!-- Section 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. External JavaScript</h2>
+
+        <p>
+            External JavaScript madhye JavaScript code veglya
+            .js file madhye lihila jato ani HTML file sobat
+            script tag vaprun connect kela jato.
+        </p>
+
+        <p>
+            Large websites ani professional projects madhye
+            hi method adhik upayogi aahe.
+        </p>
+
+        <h3>Step 1: Folder Structure</h3>
+
+        <pre class="code-block"><code>MyWebsite/
+│
+├── index.html
+├── style.css
+└── script.js</code></pre>
+
+        <h3>Step 2: HTML Code (index.html)</h3>
+
+        <pre class="code-block"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;External JavaScript&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;h1 id="heading"&gt;Hello World&lt;/h1&gt;
+
+    &lt;button id="changeBtn"&gt;Click Me&lt;/button&gt;
+
+    &lt;script src="script.js" defer&gt;&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+        <h3>Step 3: CSS Code (style.css)</h3>
+
+        <pre class="code-block"><code>body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 40px;
+}
+
+button {
+    padding: 10px 20px;
+    background: #ca8a04;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}</code></pre>
+
+        <h3>Step 4: JavaScript Code (script.js)</h3>
+
+        <pre class="code-block"><code>const button = document.getElementById("changeBtn");
+
+const heading = document.getElementById("heading");
+
+button.addEventListener("click", function() {
+    heading.innerText = "Welcome to JavaScript!";
+});</code></pre>
+
+        <h3>Code Explanation:</h3>
+
+        <ul>
+            <li>
+                <strong>src="script.js":</strong>
+                HTML la external JavaScript file cha path sangto.
+            </li>
+
+            <li>
+                <strong>defer:</strong>
+                HTML parsing complete zalyanantar JavaScript
+                execute honyas madat karto.
+            </li>
+
+            <li>
+                <strong>getElementById():</strong>
+                HTML madhil id vaprun element select karto.
+            </li>
+
+            <li>
+                <strong>addEventListener():</strong>
+                Button var click event listen karto.
+            </li>
+
+            <li>
+                <strong>innerText:</strong>
+                Heading madhil text change karto.
+            </li>
+        </ul>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <h2 id="external-demo-heading">Hello World</h2>
+            <button type="button" id="external-demo-button">
+                Click Me
+            </button>
+            <p>Button click kelyavar heading change hoil.</p>
+        </div>
+
+        <h3>Advantages:</h3>
+
+        <ul>
+            <li>HTML ani JavaScript code separate rahto.</li>
+            <li>Same JavaScript file multiple HTML pages madhye vaparta yete.</li>
+            <li>Code maintain karne sope hote.</li>
+            <li>Large projects sathi upayogi aahe.</li>
+        </ul>
+
+        <h3>Disadvantages:</h3>
+
+        <ul>
+            <li>JavaScript sathi separate file create karavi lagte.</li>
+            <li>File path chukla tar JavaScript load honar nahi.</li>
+        </ul>
+
+    </section>
+
+    <!-- Section 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. Difference Between Three Methods</h2>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Method</th>
+                    <th>Code Location</th>
+                    <th>Use</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Inline</td>
+                    <td>HTML element attribute</td>
+                    <td>Small actions</td>
+                </tr>
+
+                <tr>
+                    <td>Internal</td>
+                    <td>HTML madhil script tag</td>
+                    <td>Small webpages</td>
+                </tr>
+
+                <tr>
+                    <td>External</td>
+                    <td>Separate .js file</td>
+                    <td>Large projects</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Professional projects madhye External JavaScript
+            vaprane sadharanpane adhik changle aste.
+        </div>
+
+    </section>
+
+    <!-- Section 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. Script Tag: Head vs Body</h2>
+
+        <p>
+            JavaScript file connect kartana script tag kuthe
+            lihila aahe yacha code execution var parinam hou shakto.
+        </p>
+
+        <h3>A. Script in Head</h3>
+
+        <pre class="code-block"><code>&lt;head&gt;
+    &lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;/head&gt;</code></pre>
+
+        <p>
+            Ya method madhye browser HTML parse karnyapurvi
+            JavaScript file load ani execute karu shakto.
+            JavaScript la ajun load na zalele HTML elements
+            access karayche asel tar problem yeu shakto.
+        </p>
+
+        <h3>B. Script at End of Body</h3>
+
+        <pre class="code-block"><code>&lt;body&gt;
+
+    &lt;h1 id="title"&gt;Hello&lt;/h1&gt;
+
+    &lt;script src="script.js"&gt;&lt;/script&gt;
+
+&lt;/body&gt;</code></pre>
+
+        <p>
+            Ya method madhye script chya aadhi HTML elements
+            parse zale astat. Mhanun JavaScript la te elements
+            access karne sope hote.
+        </p>
+
+        <h3>C. Script with Defer</h3>
+
+        <pre class="code-block"><code>&lt;head&gt;
+    &lt;script src="script.js" defer&gt;&lt;/script&gt;
+&lt;/head&gt;</code></pre>
+
+        <p>
+            Defer attribute mule browser JavaScript file
+            background madhye download karto ani HTML parsing
+            complete zalyanantar script execute karto.
+        </p>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            External JavaScript sathi defer ha upayogi option aahe.
+            To script la HTML document parse zalyanantar execute karto.
+        </div>
+
+    </section>
+
+    <!-- Section 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. Async vs Defer</h2>
+
+        <p>
+            Async ani defer he external JavaScript files load
+            karnyasathi vaprale janare attributes aahet.
+        </p>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Defer</th>
+                    <th>Async</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>HTML parsing complete zalyavar execute hoto.</td>
+                    <td>File download complete zalyavar execute hoto.</td>
+                </tr>
+
+                <tr>
+                    <td>Scripts cha order maintain karto.</td>
+                    <td>Scripts cha order guaranteed nasto.</td>
+                </tr>
+
+                <tr>
+                    <td>DOM var depend aslelya scripts sathi upayogi.</td>
+                    <td>Independent scripts sathi upayogi.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Defer Example:</h3>
+
+        <pre class="code-block"><code>&lt;script src="script.js" defer&gt;&lt;/script&gt;</code></pre>
+
+        <h3>Async Example:</h3>
+
+        <pre class="code-block"><code>&lt;script src="analytics.js" async&gt;&lt;/script&gt;</code></pre>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Async script execute honyachi vel download var depend
+            aste. Mhanun ekmekanvar depend aslelya scripts sathi
+            async vapartana kalji ghya.
+        </div>
+
+    </section>
+
+    <!-- Section 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. External JavaScript in Django</h2>
+
+        <p>
+            Django project madhye JavaScript files sadharanpane
+            static folder madhye thevlya jatat.
+        </p>
+
+        <h3>Folder Structure:</h3>
+
+        <pre class="code-block"><code>myproject/
+│
+├── documentation/
+├── templates/
+│   └── documentation/
+│       └── home.html
+│
+└── static/
+    └── js/
+        └── home.js</code></pre>
+
+        <h3>HTML Template (home.html):</h3>
+
+        <pre class="code-block"><code>{% load static %}
+
+&lt;h1 id="heading"&gt;Hello Django&lt;/h1&gt;
+
+&lt;button id="myButton"&gt;Click Me&lt;/button&gt;
+
+&lt;script src="{% static 'js/home.js' %}" defer&gt;&lt;/script&gt;</code></pre>
+
+        <h3>JavaScript File (home.js):</h3>
+
+        <pre class="code-block"><code>const button = document.getElementById("myButton");
+
+const heading = document.getElementById("heading");
+
+button.addEventListener("click", function() {
+    heading.innerText = "JavaScript with Django!";
+});</code></pre>
+
+        <div class="info-box">
+            <strong>Django sathi lakshat thev:</strong>
+            {% load static %} mule Django static files cha
+            path generate karte. {% static 'js/home.js' %}
+            mule browser la JavaScript file cha URL milto.
+        </div>
+
+        <div class="tip-box">
+            <strong>Backend Developer Tip:</strong>
+            Django templates madhye HTML ani JavaScript connect
+            karayla external static JS files vaprane upayogi aahe.
+            Pudhe API responses display kartana hech knowledge
+            vaparta yeil.
+        </div>
+
+    </section>
+
+    <!-- Section 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Common Beginner Mistakes</h2>
+
+        <div class="mistake-card">
+            <strong>Mistake 1: JavaScript file cha path chukavne</strong>
+            <p>
+                src madhil file path barobar aahe ka te check kar.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 2: Script tag close karayla visarne</strong>
+            <p>
+                Script tag properly close karne avashyak aahe.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 3: HTML element load honyapurvi select karne</strong>
+            <p>
+                Script la HTML elements access karayche astil tar
+                defer vapra kiwa script body chya shevati theva.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 4: Django madhye static tag visarne</strong>
+            <p>
+                Django template madhye static file connect
+                karnyasathi {% load static %} ani static tag vapra.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- Section 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Quick Revision</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>JavaScript add karnyachya 3 main methods aahet.</li>
+                <li>Inline JavaScript HTML attribute madhye lihitat.</li>
+                <li>Internal JavaScript script tag madhye lihitat.</li>
+                <li>External JavaScript separate .js file madhye lihitat.</li>
+                <li>src attribute external file connect karto.</li>
+                <li>defer HTML parsing complete zalyavar script execute karto.</li>
+                <li>async download complete zalyavar script execute karto.</li>
+                <li>Django madhye JavaScript files static folder madhye thevta yetat.</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <!-- Section 11 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>11. Practice Questions</h2>
+
+        <p>
+            Khali dilele questions swatah solve kar.
+            Pratyek method cha code VS Code madhye lihun test kar.
+        </p>
+
+        <h3>Basic Questions</h3>
+
+        <ol>
+            <li>JavaScript add karnyachya 3 methods kontya?</li>
+            <li>Inline JavaScript mhanje kay?</li>
+            <li>Internal JavaScript mhanje kay?</li>
+            <li>External JavaScript mhanje kay?</li>
+            <li>Script tag cha use kay aahe?</li>
+            <li>src attribute cha use kay aahe?</li>
+            <li>defer ani async madhye kay difference aahe?</li>
+            <li>Django madhye JavaScript file kuthe thevtat?</li>
+        </ol>
+
+        <h3>Practical Questions</h3>
+
+        <ol>
+            <li>Inline JavaScript vaprun alert message display kar.</li>
+            <li>Internal JavaScript vaprun console madhye tuzhe nav display kar.</li>
+            <li>External JavaScript file create karun HTML sobat connect kar.</li>
+            <li>Button click kelyavar heading change kar.</li>
+        </ol>
+
+        <div class="task-box">
+
+            <h3>Mini Task: Three JavaScript Methods</h3>
+
+            <p>
+                Ek webpage create kar ani khalil 3 methods
+                swatah implement kar.
+            </p>
+
+            <ul>
+                <li>Inline JavaScript vaprun ek alert button banav.</li>
+                <li>Internal JavaScript vaprun ek message display kar.</li>
+                <li>External JavaScript vaprun heading change kar.</li>
+            </ul>
+
+            <p>
+                Files:
+                <strong>index.html</strong>,
+                <strong>style.css</strong>,
+                <strong>script.js</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Lesson Navigation -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'javascript_topic' 'syntax' %}"
+           class="nav-button previous-button">
+            ← Previous: JavaScript Syntax
+        </a>
+
+        <a href="{% url 'javascript_topic' 'variables' %}"
+           class="nav-button next-button">
+            Next: JavaScript Variables →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,739 @@
+
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}Python Lambda Functions | Roman Marathi Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/python/lambda.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">PYTHON • LESSON 21</span>
+        <h1>Python Lambda Functions</h1>
+        <p>
+            Lambda function cha use small ani simple operations
+            ekach expression madhye perform karnyasathi hoto.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Level: Beginner</span>
+            <span>⏱️ Time: 35–45 Minutes</span>
+        </div>
+    </div>
+
+    <!-- 1. Introduction -->
+    <section class="lesson-section">
+        <h2>1. What is Lambda Function?</h2>
+
+        <p>
+            Lambda ha Python madhil keyword aahe.
+            Tyacha use anonymous function create karnyasathi hoto.
+        </p>
+
+        <p>
+            Anonymous function mhanje asa function jyala normal
+            function pramane def vaprun name denyachi garaj naste.
+        </p>
+
+        <p>
+            Lambda function madhye ekach expression lihita yeto.
+            Ha expression evaluate houn tyacha result automatically return hoto.
+        </p>
+
+        <h3>Normal Function Example</h3>
+
+        <pre><code>def square(number):
+    return number * number
+
+print(square(5))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>25</pre>
+        </div>
+
+        <h3>Lambda Function Example</h3>
+
+        <pre><code>square = lambda number: number * number
+
+print(square(5))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>25</pre>
+        </div>
+
+        <div class="info-box">
+            <strong>Samjun ghe:</strong>
+            Donhi examples madhye same calculation hot aahe.
+            Lambda madhye function short form madhye lihila aahe.
+        </div>
+    </section>
+
+    <!-- 2. Syntax -->
+    <section class="lesson-section">
+        <h2>2. Lambda Function Syntax</h2>
+
+        <h3>Syntax</h3>
+
+        <pre><code>lambda arguments: expression</code></pre>
+
+        <h3>Syntax Explanation</h3>
+
+        <ul>
+            <li><code>lambda</code> – Lambda function create karnyasathi keyword.</li>
+            <li><code>arguments</code> – Function la milnarya values.</li>
+            <li><code>:</code> – Arguments ani expression vegale karto.</li>
+            <li><code>expression</code> – Perform karaychi single expression.</li>
+        </ul>
+
+        <h3>Example</h3>
+
+        <pre><code>add = lambda a, b: a + b
+
+print(add(10, 20))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>30</pre>
+        </div>
+    </section>
+
+    <!-- 3. One Argument -->
+    <section class="lesson-section">
+        <h2>3. Lambda with One Argument</h2>
+
+        <p>
+            Lambda function madhye ek argument suddha pass karu shakto.
+        </p>
+
+        <h3>Example – Square</h3>
+
+        <pre><code>square = lambda x: x * x
+
+print(square(4))
+print(square(7))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>16
+49</pre>
+        </div>
+
+        <h3>Example – Cube</h3>
+
+        <pre><code>cube = lambda x: x * x * x
+
+print(cube(3))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>27</pre>
+        </div>
+
+        <h3>Example – Even or Odd</h3>
+
+        <pre><code>check = lambda n: "Even" if n % 2 == 0 else "Odd"
+
+print(check(10))
+print(check(7))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Even
+Odd</pre>
+        </div>
+    </section>
+
+    <!-- 4. Multiple Arguments -->
+    <section class="lesson-section">
+        <h2>4. Lambda with Multiple Arguments</h2>
+
+        <p>
+            Lambda function madhye multiple arguments pass karu shakto.
+        </p>
+
+        <h3>Addition</h3>
+
+        <pre><code>add = lambda a, b: a + b
+
+print(add(10, 20))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>30</pre>
+        </div>
+
+        <h3>Multiplication</h3>
+
+        <pre><code>multiply = lambda a, b: a * b
+
+print(multiply(5, 4))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>20</pre>
+        </div>
+
+        <h3>Maximum of Three Numbers</h3>
+
+        <pre><code>maximum = lambda a, b, c: max(a, b, c)
+
+print(maximum(10, 50, 30))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>50</pre>
+        </div>
+    </section>
+
+    <!-- 5. No Arguments -->
+    <section class="lesson-section">
+        <h2>5. Lambda with No Arguments</h2>
+
+        <p>
+            Lambda function la arguments nasle tari chalate.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>greet = lambda: "Hello Python"
+
+print(greet())</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Hello Python</pre>
+        </div>
+
+        <p>
+            Ya function madhye arguments nahit.
+            Tari suddha function call kelyavar string return hote.
+        </p>
+    </section>
+
+    <!-- 6. Normal vs Lambda -->
+    <section class="lesson-section">
+        <h2>6. Normal Function vs Lambda Function</h2>
+
+        <h3>Normal Function</h3>
+
+        <pre><code>def add(a, b):
+    return a + b
+
+result = add(10, 20)
+
+print(result)</code></pre>
+
+        <h3>Lambda Function</h3>
+
+        <pre><code>add = lambda a, b: a + b
+
+result = add(10, 20)
+
+print(result)</code></pre>
+
+        <div class="output-box">
+            <strong>Output of Both:</strong>
+            <pre>30</pre>
+        </div>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Normal Function</th>
+                        <th>Lambda Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>def keyword vaparto.</td>
+                        <td>lambda keyword vaparto.</td>
+                    </tr>
+                    <tr>
+                        <td>Function la name deta yeto.</td>
+                        <td>Anonymous function create karta yeto.</td>
+                    </tr>
+                    <tr>
+                        <td>Multiple statements lihita yetat.</td>
+                        <td>Ekach expression lihita yeto.</td>
+                    </tr>
+                    <tr>
+                        <td>Complex logic sathi suitable.</td>
+                        <td>Small operations sathi suitable.</td>
+                    </tr>
+                    <tr>
+                        <td>return statement vaparto.</td>
+                        <td>Expression result automatically return hoto.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 7. Lambda with map -->
+    <section class="lesson-section">
+        <h2>7. Lambda with map()</h2>
+
+        <p>
+            <code>map()</code> function iterable madhil pratyek item var
+            dilele function apply karto.
+        </p>
+
+        <p>
+            Lambda sobat map() vaprun list madhil pratyek number
+            transform karta yeto.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre><code>map(function, iterable)</code></pre>
+
+        <h3>Example – Square Every Number</h3>
+
+        <pre><code>numbers = [1, 2, 3, 4, 5]
+
+result = map(lambda x: x * x, numbers)
+
+print(list(result))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>[1, 4, 9, 16, 25]</pre>
+        </div>
+
+        <h3>Example – Add 10 to Every Number</h3>
+
+        <pre><code>numbers = [5, 10, 15, 20]
+
+result = map(lambda x: x + 10, numbers)
+
+print(list(result))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>[15, 20, 25, 30]</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Python 3 madhye map() iterator return karto.
+            Values pahanyasathi list() vapru shakto.
+        </div>
+    </section>
+
+    <!-- 8. Lambda with filter -->
+    <section class="lesson-section">
+        <h2>8. Lambda with filter()</h2>
+
+        <p>
+            <code>filter()</code> function condition true aslele items
+            select karnyasathi vapartat.
+        </p>
+
+        <p>
+            Lambda madhye condition lihun list madhun specific values
+            filter karta yetat.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre><code>filter(function, iterable)</code></pre>
+
+        <h3>Example – Even Numbers</h3>
+
+        <pre><code>numbers = [1, 2, 3, 4, 5, 6, 7, 8]
+
+result = filter(lambda x: x % 2 == 0, numbers)
+
+print(list(result))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>[2, 4, 6, 8]</pre>
+        </div>
+
+        <h3>Example – Numbers Greater Than 10</h3>
+
+        <pre><code>numbers = [5, 12, 8, 20, 15, 3]
+
+result = filter(lambda x: x > 10, numbers)
+
+print(list(result))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>[12, 20, 15]</pre>
+        </div>
+
+        <h3>Example – Filter Passing Marks</h3>
+
+        <pre><code>marks = [25, 45, 80, 30, 65, 90]
+
+result = filter(lambda x: x >= 35, marks)
+
+print(list(result))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>[45, 80, 65, 90]</pre>
+        </div>
+    </section>
+
+    <!-- 9. Lambda with sorted -->
+    <section class="lesson-section">
+        <h2>9. Lambda with sorted()</h2>
+
+        <p>
+            <code>sorted()</code> function iterable madhil values
+            sort karun new list return karto.
+        </p>
+
+        <p>
+            <code>key</code> parameter madhye lambda vaprun
+            sorting cha rule define karta yeto.
+        </p>
+
+        <h3>Example – Sort by Second Element</h3>
+
+        <pre><code>students = [
+    ("Amit", 80),
+    ("Rohan", 95),
+    ("Neha", 70)
+]
+
+result = sorted(students, key=lambda x: x[1])
+
+print(result)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>[('Neha', 70), ('Amit', 80), ('Rohan', 95)]</pre>
+        </div>
+
+        <p>
+            Ya example madhye x[1] mhanje tuple madhil second element,
+            arthaat marks. Mhanun students marks nusar ascending order madhye sort hotat.
+        </p>
+
+        <h3>Example – Descending Order</h3>
+
+        <pre><code>numbers = [10, 50, 20, 40, 30]
+
+result = sorted(numbers, key=lambda x: x, reverse=True)
+
+print(result)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>[50, 40, 30, 20, 10]</pre>
+        </div>
+
+        <h3>Example – Sort Names by Length</h3>
+
+        <pre><code>names = ["Rohan", "Amit", "Christopher", "Neha"]
+
+result = sorted(names, key=lambda name: len(name))
+
+print(result)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>['Amit', 'Neha', 'Rohan', 'Christopher']</pre>
+        </div>
+    </section>
+
+    <!-- 10. Lambda with Conditions -->
+    <section class="lesson-section">
+        <h2>10. Lambda with Conditional Expression</h2>
+
+        <p>
+            Lambda madhye if-else expression suddha vaparta yete.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre><code>lambda arguments: value_if_true if condition else value_if_false</code></pre>
+
+        <h3>Example – Pass or Fail</h3>
+
+        <pre><code>result = lambda marks: "Pass" if marks >= 35 else "Fail"
+
+print(result(80))
+print(result(20))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Pass
+Fail</pre>
+        </div>
+
+        <h3>Example – Positive or Negative</h3>
+
+        <pre><code>check = lambda n: "Positive" if n > 0 else "Not Positive"
+
+print(check(10))
+print(check(-5))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Positive
+Not Positive</pre>
+        </div>
+    </section>
+
+    <!-- 11. Practical -->
+    <section class="lesson-section">
+        <h2>11. Practical Example – Student Marks Processing</h2>
+
+        <p>
+            Student marks madhun passing students filter kar.
+            Nantar passing students che marks ascending order madhye sort kar.
+        </p>
+
+        <pre><code>marks = [25, 80, 45, 30, 90, 60, 20]
+
+passing = filter(lambda x: x >= 35, marks)
+
+result = sorted(passing)
+
+print("Passing Marks:", list(result))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Passing Marks: [45, 60, 80, 90]</pre>
+        </div>
+
+        <p>
+            Ya example madhye filter() passing marks select karto
+            ani sorted() tyanna ascending order madhye arrange karto.
+        </p>
+    </section>
+
+    <!-- 12. Map vs Filter -->
+    <section class="lesson-section">
+        <h2>12. Difference Between map() and filter()</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>map()</th>
+                        <th>filter()</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Pratyek item transform karto.</td>
+                        <td>Condition nusar items select karto.</td>
+                    </tr>
+                    <tr>
+                        <td>Pratyek input item sathi result deto.</td>
+                        <td>Fakt condition true aslele items deto.</td>
+                    </tr>
+                    <tr>
+                        <td>Example: Square numbers.</td>
+                        <td>Example: Even numbers select karne.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>map() Example</h3>
+
+        <pre><code>numbers = [1, 2, 3]
+
+result = map(lambda x: x * 2, numbers)
+
+print(list(result))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>[2, 4, 6]</pre>
+        </div>
+
+        <h3>filter() Example</h3>
+
+        <pre><code>numbers = [1, 2, 3, 4, 5]
+
+result = filter(lambda x: x % 2 == 0, numbers)
+
+print(list(result))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>[2, 4]</pre>
+        </div>
+    </section>
+
+    <!-- 13. Common Mistakes -->
+    <section class="lesson-section">
+        <h2>13. Common Beginner Mistakes</h2>
+
+        <div class="error-card">
+            <h3>Mistake 1: Using Multiple Statements</h3>
+
+            <pre><code>result = lambda x:
+    y = x * x
+    return y</code></pre>
+
+            <p>
+                Lambda function madhye assignment ani multiple statements
+                normal function pramane lihita yet nahit.
+            </p>
+
+            <pre><code>result = lambda x: x * x</code></pre>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 2: Forgetting the Colon</h3>
+
+            <pre><code>add = lambda a, b a + b</code></pre>
+
+            <p>
+                Arguments nantar colon dene avashyak aahe.
+            </p>
+
+            <pre><code>add = lambda a, b: a + b</code></pre>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 3: Forgetting list() with map()</h3>
+
+            <pre><code>numbers = [1, 2, 3]
+
+result = map(lambda x: x * 2, numbers)
+
+print(result)</code></pre>
+
+            <p>
+                Ya mule map object disel. Values pahanyasathi list() vapra.
+            </p>
+
+            <pre><code>print(list(result))</code></pre>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 4: Wrong Condition in filter()</h3>
+
+            <pre><code>numbers = [1, 2, 3, 4, 5]
+
+result = filter(lambda x: x > 3, numbers)
+
+print(list(result))</code></pre>
+
+            <p>
+                Ha code fakt 3 peksha mothe numbers select karto.
+                Condition samjun gheunach filter vapra.
+            </p>
+
+            <pre><code>[4, 5]</code></pre>
+        </div>
+    </section>
+
+    <!-- 14. Revision -->
+    <section class="lesson-section">
+        <h2>14. Quick Revision</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Concept</th>
+                        <th>Use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>lambda</td><td>Small anonymous function create karto.</td></tr>
+                    <tr><td>Arguments</td><td>Function la values pass karto.</td></tr>
+                    <tr><td>Expression</td><td>Result calculate karto.</td></tr>
+                    <tr><td>map()</td><td>Pratyek item transform karto.</td></tr>
+                    <tr><td>filter()</td><td>Condition true items select karto.</td></tr>
+                    <tr><td>sorted()</td><td>Values sort karun new list return karto.</td></tr>
+                    <tr><td>key</td><td>Sorting sathi comparison value define karto.</td></tr>
+                    <tr><td>reverse=True</td><td>Descending order madhye sorting karto.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 15. Practice -->
+    <section class="practice-section">
+        <h2>15. Practice Questions</h2>
+
+        <p>
+            Khalil questions swatah solve kar.
+            Pratyek code run karun output check kar.
+        </p>
+
+        <div class="practice-task">
+            <h3>Question 1</h3>
+            <p>Lambda vaprun don numbers chi addition kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 2</h3>
+            <p>Ek number cha square return karnara lambda function create kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 3</h3>
+            <p>Lambda vaprun number Even aahe ki Odd te check kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 4</h3>
+            <p>Lambda ani map() vaprun list madhil pratyek number cha cube calculate kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 5</h3>
+            <p>Lambda ani filter() vaprun list madhil odd numbers select kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 6</h3>
+            <p>filter() vaprun 50 peksha jast marks aslele students select kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 7</h3>
+            <p>sorted() ani lambda vaprun students na marks nusar sort kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 8</h3>
+            <p>Lambda vaprun don numbers madhil maximum number find kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 9</h3>
+            <p>sorted() ani lambda vaprun names length nusar sort kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 10</h3>
+            <p>map() ani lambda vaprun Celsius values Fahrenheit madhye convert kar.</p>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+        <a href="{% url 'python_topic' 'arguments' %}" class="nav-button back-button">
+            ← Previous: Function Arguments
+        </a>
+
+        <a href="{% url 'python_topic' 'modules' %}" class="nav-button next-button">
+            Next: Python Modules →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

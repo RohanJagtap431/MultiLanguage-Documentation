@@ -1,0 +1,475 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Django Messages Framework{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/django/messages-framework.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <header class="lesson-header">
+        <span class="lesson-label">DJANGO COURSE • TOPIC 22</span>
+        <h1>Django Messages Framework</h1>
+        <p>Learn how to display temporary notifications such as success, error, warning and information messages in Django.</p>
+        <div class="lesson-meta">
+            <span>Intermediate Level</span>
+            <span>45–60 Minutes</span>
+        </div>
+    </header>
+
+    <section class="lesson-section">
+        <h2>1. Messages Framework mhanje kay?</h2>
+        <p>Django Messages Framework ha built-in feature aahe. Tyachya madatine user la temporary notification messages display karta yetat.</p>
+
+        <div class="example-box">
+            <h3>Examples</h3>
+            <ul>
+                <li>Student Added Successfully!</li>
+                <li>Student Updated Successfully!</li>
+                <li>Student Deleted Successfully!</li>
+                <li>Invalid Data!</li>
+                <li>Please Login First!</li>
+            </ul>
+        </div>
+
+        <p>Message usually pudhchya response madhye display hoto ani read zalyavar remove hoto.</p>
+    </section>
+
+    <section class="lesson-section">
+        <h2>2. Django Messages Setup</h2>
+        <p>Django project create kartana Messages Framework che required settings default configuration madhye astat.</p>
+
+        <h3>INSTALLED_APPS</h3>
+        <p>File: config/settings.py</p>
+        <pre class="code-block"><code>INSTALLED_APPS = [
+    # Default Django apps
+
+    "django.contrib.messages",
+]</code></pre>
+
+        <h3>MIDDLEWARE</h3>
+        <pre class="code-block"><code>MIDDLEWARE = [
+    # Other middleware
+
+    "django.contrib.messages.middleware.MessageMiddleware",
+]</code></pre>
+
+        <h3>TEMPLATES Context Processor</h3>
+        <pre class="code-block"><code>"django.contrib.messages.context_processors.messages",</code></pre>
+
+        <p>Ha context processor TEMPLATES madhil OPTIONS chya context_processors list madhye asava.</p>
+    </section>
+
+    <section class="lesson-section">
+        <h2>3. Message Levels</h2>
+        <p>Django madhye 5 main message levels astat.</p>
+
+        <table class="lesson-table">
+            <thead>
+                <tr><th>Level</th><th>Use</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>DEBUG</td><td>Debugging information.</td></tr>
+                <tr><td>INFO</td><td>General information.</td></tr>
+                <tr><td>SUCCESS</td><td>Successful operation.</td></tr>
+                <tr><td>WARNING</td><td>Warning notification.</td></tr>
+                <tr><td>ERROR</td><td>Error notification.</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="lesson-section">
+        <h2>4. Success Message</h2>
+        <p>Operation successfully complete zalyavar success message display karnyasathi messages.success() vapartat.</p>
+
+        <pre class="code-block"><code>from django.contrib import messages
+
+messages.success(
+    request,
+    "Student Added Successfully!"
+)</code></pre>
+
+        <div class="alert success">
+            <strong>✓</strong>
+            Student Added Successfully!
+        </div>
+    </section>
+
+    <section class="lesson-section">
+        <h2>5. Error Message</h2>
+        <p>Operation madhye error alyas error message display karnyasathi messages.error() vapartat.</p>
+
+        <pre class="code-block"><code>from django.contrib import messages
+
+messages.error(
+    request,
+    "Something went wrong!"
+)</code></pre>
+
+        <div class="alert error">
+            <strong>✕</strong>
+            Something went wrong!
+        </div>
+    </section>
+
+    <section class="lesson-section">
+        <h2>6. Warning Message</h2>
+        <p>User la kahi warning dyaychi asel tar messages.warning() vapartat.</p>
+
+        <pre class="code-block"><code>messages.warning(
+    request,
+    "Please check your information!"
+)</code></pre>
+
+        <div class="alert warning">
+            <strong>!</strong>
+            Please check your information!
+        </div>
+    </section>
+
+    <section class="lesson-section">
+        <h2>7. Info Message</h2>
+        <p>User la general information dyaychi asel tar messages.info() vapartat.</p>
+
+        <pre class="code-block"><code>messages.info(
+    request,
+    "Welcome to Student Management System!"
+)</code></pre>
+
+        <div class="alert info">
+            <strong>i</strong>
+            Welcome to Student Management System!
+        </div>
+    </section>
+
+    <section class="lesson-section">
+        <h2>8. Debug Message</h2>
+        <p>Development madhye debugging information display karnyasathi messages.debug() vapartat.</p>
+
+        <pre class="code-block"><code>messages.debug(
+    request,
+    "Student form submitted!"
+)</code></pre>
+
+        <p>Debug messages default settings madhye display hot nahit. Tyasathi MESSAGE_LEVEL configure karava lagu shakto.</p>
+
+        <pre class="code-block"><code>MESSAGE_LEVEL = 10</code></pre>
+
+        <div class="important-box">Production madhye debugging messages enable karne talave.</div>
+    </section>
+
+    <section class="lesson-section">
+        <h2>9. Messages Template Madhye Display Karne</h2>
+        <p>View madhun message send kelyanantar template madhye messages variable vaprun to display karta yeto.</p>
+
+        <pre class="code-block"><code>{% verbatim %}
+{% if messages %}
+    {% for message in messages %}
+        &lt;p&gt;{{ message }}&lt;/p&gt;
+    {% endfor %}
+{% endif %}
+{% endverbatim %}</code></pre>
+    </section>
+
+    <section class="lesson-section">
+        <h2>10. Message Tags ani CSS</h2>
+        <p>Django pratyek message sobat tyacha level tag suddha provide karte.</p>
+
+        <table class="lesson-table">
+            <thead>
+                <tr><th>Message Level</th><th>Default Tag</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>DEBUG</td><td>debug</td></tr>
+                <tr><td>INFO</td><td>info</td></tr>
+                <tr><td>SUCCESS</td><td>success</td></tr>
+                <tr><td>WARNING</td><td>warning</td></tr>
+                <tr><td>ERROR</td><td>error</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Template Example</h3>
+        <pre class="code-block"><code>{% verbatim %}
+{% for message in messages %}
+    &lt;div class="alert {{ message.tags }}"&gt;
+        {{ message }}
+    &lt;/div&gt;
+{% endfor %}
+{% endverbatim %}</code></pre>
+
+        <h3>CSS Example</h3>
+        <pre class="code-block"><code>.alert {
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 6px;
+}
+
+.success {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.error {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.warning {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.info {
+    background: #dbeafe;
+    color: #1e40af;
+}</code></pre>
+    </section>
+
+    <section class="lesson-section">
+        <h2>11. Practical – Student CRUD Notifications</h2>
+        <p>Ata Student Management System madhye Student Add, Update ani Delete zalyavar success messages display karu.</p>
+
+        <h3>Step 1: Import Messages</h3>
+        <p>File: students/views.py</p>
+        <pre class="code-block"><code>from django.contrib import messages</code></pre>
+
+        <h3>Step 2: Student Create View</h3>
+        <pre class="code-block"><code>from django.shortcuts import render, redirect
+from django.contrib import messages
+from .forms import StudentForm
+
+def add_student(request):
+
+    if request.method == "POST":
+
+        form = StudentForm(request.POST)
+
+        if form.is_valid():
+
+            form.save()
+
+            messages.success(
+                request,
+                "Student Added Successfully!"
+            )
+
+            return redirect("student_list")
+
+        else:
+
+            messages.error(
+                request,
+                "Please correct the errors."
+            )
+
+    else:
+
+        form = StudentForm()
+
+    return render(
+        request,
+        "students/add.html",
+        {"form": form}
+    )</code></pre>
+
+        <h3>Step 3: Student Update View</h3>
+        <pre class="code-block"><code>from django.shortcuts import get_object_or_404
+
+def update_student(request, pk):
+
+    student = get_object_or_404(Student, pk=pk)
+
+    if request.method == "POST":
+
+        form = StudentForm(
+            request.POST,
+            instance=student
+        )
+
+        if form.is_valid():
+
+            form.save()
+
+            messages.success(
+                request,
+                "Student Updated Successfully!"
+            )
+
+            return redirect("student_list")
+
+    else:
+
+        form = StudentForm(instance=student)
+
+    return render(
+        request,
+        "students/add.html",
+        {"form": form}
+    )</code></pre>
+
+        <h3>Step 4: Student Delete View</h3>
+        <pre class="code-block"><code>def delete_student(request, pk):
+
+    student = get_object_or_404(Student, pk=pk)
+
+    if request.method == "POST":
+
+        student.delete()
+
+        messages.success(
+            request,
+            "Student Deleted Successfully!"
+        )
+
+        return redirect("student_list")
+
+    return render(
+        request,
+        "students/delete.html",
+        {"student": student}
+    )</code></pre>
+
+        <h3>Step 5: Display Messages</h3>
+        <p>Common template madhye messages display karne convenient aste.</p>
+        <p>File: templates/documentation/base.html madhil content block chya suruvatila kiwa shared page layout madhye he add kara.</p>
+
+        <pre class="code-block"><code>{% verbatim %}
+{% if messages %}
+    {% for message in messages %}
+        &lt;div class="alert {{ message.tags }}"&gt;
+            {{ message }}
+        &lt;/div&gt;
+    {% endfor %}
+{% endif %}
+{% endverbatim %}</code></pre>
+
+        <h3>Step 6: Add CSS</h3>
+        <pre class="code-block"><code>.alert {
+    padding: 12px 16px;
+    margin: 12px 0;
+    border-radius: 7px;
+    font-size: 14px;
+}
+
+.alert.success {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.alert.error {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.alert.warning {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.alert.info {
+    background: #dbeafe;
+    color: #1e40af;
+}</code></pre>
+
+        <h3>Expected Output</h3>
+
+        <div class="notification-preview">
+            <div class="alert success">
+                <strong>✓</strong>
+                Student Added Successfully!
+            </div>
+
+            <div class="alert success">
+                <strong>✓</strong>
+                Student Updated Successfully!
+            </div>
+
+            <div class="alert success">
+                <strong>✓</strong>
+                Student Deleted Successfully!
+            </div>
+        </div>
+
+        <div class="important-box">
+            <strong>Important Notes</strong>
+            <ul>
+                <li>Messages Framework madhye default storage sathi session ani cookie-based fallback mechanism vaparla jau shakto.</li>
+                <li>Messages display kelyanantar normally consume hotat.</li>
+                <li>messages.error() mule database operation automatic rollback hot nahi.</li>
+                <li>CRUD operations sathi POST request, CSRF protection ani permissions vapra.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="lesson-section">
+        <h2>12. Common Mistakes</h2>
+
+        <table class="lesson-table">
+            <thead>
+                <tr><th>Problem</th><th>Solution</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Message display hot nahi</td><td>Template madhye messages loop check kara.</td></tr>
+                <tr><td>MessageMiddleware missing</td><td>MIDDLEWARE setting check kara.</td></tr>
+                <tr><td>Context processor missing</td><td>Messages context processor add kara.</td></tr>
+                <tr><td>CSS apply hot nahi</td><td>message.tags class check kara.</td></tr>
+                <tr><td>Message repeat hotoy</td><td>Redirect ani message consumption flow check kara.</td></tr>
+                <tr><td>Debug message disat nahi</td><td>MESSAGE_LEVEL setting check kara.</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="lesson-section">
+        <h2>13. Important Revision</h2>
+        <ol>
+            <li>Messages Framework temporary notifications display karte.</li>
+            <li>messages.success() success message dete.</li>
+            <li>messages.error() error message dete.</li>
+            <li>messages.warning() warning message dete.</li>
+            <li>messages.info() information message dete.</li>
+            <li>messages.debug() debugging message dete.</li>
+            <li>messages variable template madhye vapartat.</li>
+            <li>message.tags CSS class provide karte.</li>
+            <li>MessageMiddleware settings madhye enable asave lagte.</li>
+            <li>Messages Framework CRUD operations madhye useful aahe.</li>
+        </ol>
+    </section>
+
+    <section class="practice-section">
+        <h2>14. Practice Questions</h2>
+        <ol>
+            <li>Django Messages Framework mhanje kay?</li>
+            <li>Django madhil five message levels lih.</li>
+            <li>messages.success() cha use kay?</li>
+            <li>messages.error() ani messages.warning() madhil farak lih.</li>
+            <li>messages.info() explain kar.</li>
+            <li>messages.debug() cha use kay?</li>
+            <li>Template madhye messages display kase karal?</li>
+            <li>message.tags mhanje kay?</li>
+            <li>MessageMiddleware cha use kay?</li>
+            <li>Student CRUD operations madhye success ani error messages add kar.</li>
+        </ol>
+    </section>
+
+    <div class="completion-message">
+        <h2>Topic 22 Completed!</h2>
+        <p>Ata tumhala Django Messages Framework ani temporary notifications display karne samajle asel.</p>
+    </div>
+
+    <div class="lesson-navigation">
+        <a href="{% url 'django_topic' 'middleware' %}" class="nav-button previous-button">
+            ← Previous Topic
+        </a>
+        <a href="{% url 'django_topic' 'pagination-search' %}" class="nav-button next-button">
+            Next Topic →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

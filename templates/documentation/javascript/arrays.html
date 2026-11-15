@@ -1,0 +1,695 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}JavaScript Arrays | Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/javascript/arrays.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+
+    <div class="lesson-header">
+        <span class="lesson-label">JAVASCRIPT DOCUMENTATION • PAGE 12</span>
+
+        <h1>JavaScript Arrays</h1>
+
+        <p>
+            Array cha use ekach variable madhye anek values store
+            karnyasathi hoto. Ya lesson madhye array create karne,
+            elements access karne, add, update ani delete karne shikuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Beginner Level</span>
+            <span>35–40 Minutes</span>
+        </div>
+    </div>
+
+    <!-- Section 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What is an Array?</h2>
+
+        <p>
+            Array ha ek special variable aahe jyamadhye anek values
+            ekach thikani store karta yetat.
+        </p>
+
+        <p>
+            Samja aplyala 5 students chi nave store karaychi aahet.
+            Vegvegale variables tayar karnyapeksha apan ek array vapru shakto.
+        </p>
+
+        <h3>Without Array:</h3>
+
+        <pre class="code-block"><code>let student1 = "Rohan";
+let student2 = "Amit";
+let student3 = "Rahul";
+let student4 = "Sagar";
+let student5 = "Akash";</code></pre>
+
+        <h3>With Array:</h3>
+
+        <pre class="code-block"><code>let students = [
+    "Rohan",
+    "Amit",
+    "Rahul",
+    "Sagar",
+    "Akash"
+];</code></pre>
+
+        <div class="info-box">
+            <strong>Simple Definition:</strong>
+            Ekach variable madhye multiple values store karanarya
+            data structure la Array mhantat.
+        </div>
+
+    </section>
+
+    <!-- Section 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Creating an Array</h2>
+
+        <p>
+            JavaScript madhye array tayar karnyasathi square brackets
+            [] vapartat.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>let arrayName = [value1, value2, value3];</code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let fruits = ["Apple", "Mango", "Banana"];
+
+let numbers = [10, 20, 30, 40];
+
+let mixed = ["Rohan", 20, true];</code></pre>
+
+        <p>
+            Array madhye strings, numbers, booleans ani vegveglya
+            data types chya values suddha store karta yetat.
+        </p>
+
+        <h3>Empty Array:</h3>
+
+        <pre class="code-block"><code>let colors = [];
+
+console.log(colors);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>[]</pre>
+        </div>
+
+    </section>
+
+    <!-- Section 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. Array Index</h2>
+
+        <p>
+            Array madhil pratyek element la ek number dilela asto.
+            Tyala Index mhantat.
+        </p>
+
+        <p>
+            JavaScript madhye array index 0 pasun suru hoto.
+            Mhanje pahilya element cha index 0 asto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let fruits = ["Apple", "Mango", "Banana"];
+
+console.log(fruits[0]);
+console.log(fruits[1]);
+console.log(fruits[2]);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Apple
+Mango
+Banana</pre>
+        </div>
+
+        <h3>Array Index Structure:</h3>
+
+        <div class="array-visual">
+            <div class="array-cell">
+                <span>Index 0</span>
+                <strong>Apple</strong>
+            </div>
+
+            <div class="array-cell">
+                <span>Index 1</span>
+                <strong>Mango</strong>
+            </div>
+
+            <div class="array-cell">
+                <span>Index 2</span>
+                <strong>Banana</strong>
+            </div>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Array cha index 0 pasun start hoto.
+            3 elements aslelya array madhye valid indexes 0, 1 ani 2 astat.
+        </div>
+
+    </section>
+
+    <!-- Section 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. Accessing Array Elements</h2>
+
+        <p>
+            Array madhil specific value access karnyasathi
+            arrayName[index] asa syntax vapartat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let students = ["Rohan", "Amit", "Rahul"];
+
+let firstStudent = students[0];
+
+console.log(firstStudent);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Rohan</pre>
+        </div>
+
+        <h3>Accessing Last Element:</h3>
+
+        <pre class="code-block"><code>let fruits = ["Apple", "Mango", "Banana"];
+
+console.log(fruits[fruits.length - 1]);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Banana</pre>
+        </div>
+
+        <p>
+            length - 1 mule array madhil shevatchya element cha
+            index milto.
+        </p>
+
+    </section>
+
+    <!-- Section 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. Array length Property</h2>
+
+        <p>
+            Array madhye ekun kiti elements aahet he janun
+            ghenyasathi length property vapartat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let fruits = ["Apple", "Mango", "Banana"];
+
+console.log(fruits.length);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>3</pre>
+        </div>
+
+        <h3>Another Example:</h3>
+
+        <pre class="code-block"><code>let numbers = [10, 20, 30, 40, 50];
+
+console.log("Total Elements:", numbers.length);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Total Elements: 5</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Array madhil elements chi sankhya check karnyasathi
+            length property vapra.
+        </div>
+
+    </section>
+
+    <!-- Section 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. Updating Array Elements</h2>
+
+        <p>
+            Array madhil existing value change karnyasathi
+            tya element cha index vapartat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let fruits = ["Apple", "Mango", "Banana"];
+
+fruits[1] = "Orange";
+
+console.log(fruits);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>["Apple", "Orange", "Banana"]</pre>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>Suruvatila index 1 var Mango hota.</li>
+            <li>fruits[1] = "Orange" mule value update zali.</li>
+            <li>Ata index 1 var Orange aahe.</li>
+        </ul>
+
+    </section>
+
+    <!-- Section 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. Adding Elements to an Array</h2>
+
+        <p>
+            Array madhye nave elements add karnyasathi
+            push() ani unshift() methods vapartat.
+        </p>
+
+        <h3>push() Method:</h3>
+
+        <p>
+            push() method array chya shevati nave element add karto.
+        </p>
+
+        <pre class="code-block"><code>let fruits = ["Apple", "Mango"];
+
+fruits.push("Banana");
+
+console.log(fruits);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>["Apple", "Mango", "Banana"]</pre>
+        </div>
+
+        <h3>unshift() Method:</h3>
+
+        <p>
+            unshift() method array chya suruvatila nave element add karto.
+        </p>
+
+        <pre class="code-block"><code>let fruits = ["Apple", "Mango"];
+
+fruits.unshift("Banana");
+
+console.log(fruits);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>["Banana", "Apple", "Mango"]</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Remember:</strong>
+            push() = शेवटी element add karto.
+            unshift() = सुरुवातीला element add karto.
+        </div>
+
+    </section>
+
+    <!-- Section 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. Removing Elements from an Array</h2>
+
+        <p>
+            Array madhun elements remove karnyasathi
+            pop() ani shift() methods vapartat.
+        </p>
+
+        <h3>pop() Method:</h3>
+
+        <p>
+            pop() method array madhil shevatcha element remove karto.
+        </p>
+
+        <pre class="code-block"><code>let fruits = ["Apple", "Mango", "Banana"];
+
+fruits.pop();
+
+console.log(fruits);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>["Apple", "Mango"]</pre>
+        </div>
+
+        <h3>shift() Method:</h3>
+
+        <p>
+            shift() method array madhil pahila element remove karto.
+        </p>
+
+        <pre class="code-block"><code>let fruits = ["Apple", "Mango", "Banana"];
+
+fruits.shift();
+
+console.log(fruits);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>["Mango", "Banana"]</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Remember:</strong>
+            pop() = शेवटचा element remove karto.
+            shift() = पहिला element remove karto.
+        </div>
+
+    </section>
+
+    <!-- Section 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Checking Array Elements</h2>
+
+        <p>
+            Array madhye specific value aahe ka he check
+            karnyasathi includes() method vapartat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let fruits = ["Apple", "Mango", "Banana"];
+
+console.log(fruits.includes("Mango"));
+console.log(fruits.includes("Orange"));</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>true
+false</pre>
+        </div>
+
+        <p>
+            includes() method value sapadlyas true ani value
+            naslyas false return karto.
+        </p>
+
+    </section>
+
+    <!-- Section 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Loop Through an Array</h2>
+
+        <p>
+            Array madhil sarva elements ek-ek karun access
+            karnyasathi loop vapru shakto.
+        </p>
+
+        <h3>Using for Loop:</h3>
+
+        <pre class="code-block"><code>let fruits = ["Apple", "Mango", "Banana"];
+
+for (let i = 0; i < fruits.length; i++) {
+    console.log(fruits[i]);
+}</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Apple
+Mango
+Banana</pre>
+        </div>
+
+        <h3>Using for...of:</h3>
+
+        <pre class="code-block"><code>let fruits = ["Apple", "Mango", "Banana"];
+
+for (let fruit of fruits) {
+    console.log(fruit);
+}</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Apple
+Mango
+Banana</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Array madhil values access karnyasathi for...of ha
+            simple option aahe. Index chi garaj asel tar traditional
+            for loop vapra.
+        </div>
+
+    </section>
+
+    <!-- Section 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Array is a Reference Type</h2>
+
+        <p>
+            JavaScript madhye array ha object type madhye yeto.
+            Array variable madhye array cha reference store hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let numbers = [10, 20, 30];
+
+let anotherNumbers = numbers;
+
+anotherNumbers.push(40);
+
+console.log(numbers);
+console.log(anotherNumbers);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>[10, 20, 30, 40]
+[10, 20, 30, 40]</pre>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>anotherNumbers madhye numbers cha reference assign kela.</li>
+            <li>Donhi variables ekach array la refer kartat.</li>
+            <li>anotherNumbers madhye 40 add kelyavar original array suddha change hoto.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Array copy karaycha asel tar spread operator (...) kiwa
+            slice() vaparta yeto. Ya topic cha detail pudhil lessons madhye pahu.
+        </div>
+
+    </section>
+
+    <!-- Section 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Common Beginner Mistakes</h2>
+
+        <div class="mistake-card">
+            <strong>Mistake 1: Index 1 pasun start samajne</strong>
+            <p>
+                JavaScript array index 0 pasun suru hoto.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 2: length la function samajne</strong>
+            <p>
+                length hi property aahe. fruits.length ase vapra,
+                fruits.length() ase nahi.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 3: push() ani unshift() confuse karne</strong>
+            <p>
+                push() shevati ani unshift() suruvatila element add karto.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 4: pop() ani shift() confuse karne</strong>
+            <p>
+                pop() shevatcha ani shift() pahila element remove karto.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 5: Invalid index access karne</strong>
+            <p>
+                Array madhye naslela index access kelyas undefined milu shakto.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 6: Array copy samjun reference assign karne</strong>
+            <p>
+                let second = first kelyane independent array copy tayar hot nahi.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- Section 13 -->
+
+    <section class="lesson-section">
+
+        <h2>13. Quick Revision</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>Array madhye multiple values store karta yetat.</li>
+                <li>Array create karnyasathi [] vapartat.</li>
+                <li>Array index 0 pasun start hoto.</li>
+                <li>Element access karnyasathi arrayName[index] vapartat.</li>
+                <li>length property total elements sangte.</li>
+                <li>Index vaprun element update karta yeto.</li>
+                <li>push() shevati element add karto.</li>
+                <li>unshift() suruvatila element add karto.</li>
+                <li>pop() shevatcha element remove karto.</li>
+                <li>shift() pahila element remove karto.</li>
+                <li>includes() value present aahe ka te check karto.</li>
+                <li>for ani for...of vaprun array traverse karta yeto.</li>
+                <li>Array variables reference share karu shaktat.</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <!-- Section 14 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>14. Practice Questions</h2>
+
+        <h3>Basic Questions</h3>
+
+        <ol>
+            <li>Array mhanje kay?</li>
+            <li>JavaScript madhye array kasa create kartat?</li>
+            <li>Array index kontya number pasun suru hoto?</li>
+            <li>Array madhil element kasa access kartat?</li>
+            <li>length property cha use kay aahe?</li>
+            <li>push() ani unshift() madhye kay difference aahe?</li>
+            <li>pop() ani shift() madhye kay difference aahe?</li>
+            <li>includes() method kay karte?</li>
+            <li>Array traverse mhanje kay?</li>
+            <li>Array reference mhanje kay?</li>
+        </ol>
+
+        <h3>Practical Questions</h3>
+
+        <ol>
+            <li>5 fruits cha array tayar kar ani print kar.</li>
+            <li>Array madhil first ani last element print kar.</li>
+            <li>Array madhil total elements count kar.</li>
+            <li>Array madhil second element update kar.</li>
+            <li>push() vaprun nave element add kar.</li>
+            <li>unshift() vaprun suruvatila element add kar.</li>
+            <li>pop() vaprun last element remove kar.</li>
+            <li>shift() vaprun first element remove kar.</li>
+            <li>includes() vaprun specific value check kar.</li>
+            <li>for loop vaprun array madhil sarva elements print kar.</li>
+        </ol>
+
+        <div class="task-box">
+
+            <h3>Mini Task: Student Marks Manager</h3>
+
+            <p>
+                Student marks handle karnyasathi simple array program tayar kar.
+            </p>
+
+            <ul>
+                <li>marks navacha array tayar kar.</li>
+                <li>Tyat 65, 80, 45, 90 ani 70 values add kar.</li>
+                <li>Array madhil total elements print kar.</li>
+                <li>push() vaprun ek nave mark add kar.</li>
+                <li>Array madhil pahila mark print kar.</li>
+                <li>for...of vaprun sarva marks print kar.</li>
+                <li>includes() vaprun 90 mark aahe ka check kar.</li>
+            </ul>
+
+            <p>
+                File name: <strong>javascript_arrays.js</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Navigation -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'javascript_topic' 'arrow-functions' %}"
+           class="nav-button previous-button">
+            ← Previous: Arrow Functions
+        </a>
+
+        <a href="{% url 'javascript_topic' 'array-methods' %}"
+           class="nav-button next-button">
+            Next: Array Methods →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

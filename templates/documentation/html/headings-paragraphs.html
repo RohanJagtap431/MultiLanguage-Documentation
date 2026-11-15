@@ -1,0 +1,861 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}
+HTML Headings and Paragraphs | Roman Marathi
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/html/headings-paragraphs.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+
+    <div class="lesson-header">
+
+        <span class="lesson-label">HTML DOCUMENTATION • PAGE 05</span>
+
+        <h1>HTML Headings and Paragraphs</h1>
+
+        <p>
+            HTML madhye headings, paragraphs, line breaks,
+            horizontal rules ani preformatted text kase vaprayche
+            he ya lesson madhye shikuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Beginner Level</span>
+            <span>35–40 Minutes</span>
+        </div>
+
+    </div>
+
+
+    <!-- Section 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What are HTML Headings?</h2>
+
+        <p>
+            HTML Headings cha use webpage madhye titles ani
+            subtitles create karnyasathi hoto.
+            Headings mule webpage cha content व्यवस्थित
+            sections madhye divide karta yeto.
+        </p>
+
+        <p>
+            HTML madhye total 6 heading elements aahet.
+            Te h1 pasun h6 paryant astat.
+        </p>
+
+        <h3>HTML Heading Elements:</h3>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>Tag</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>&lt;h1&gt;</td>
+                    <td>Primary heading</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;h2&gt;</td>
+                    <td>Second-level heading</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;h3&gt;</td>
+                    <td>Third-level heading</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;h4&gt;</td>
+                    <td>Fourth-level heading</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;h5&gt;</td>
+                    <td>Fifth-level heading</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;h6&gt;</td>
+                    <td>Sixth-level heading</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            h1 ha highest-level heading aahe ani h6 ha
+            lowest-level heading aahe.
+        </div>
+
+    </section>
+
+
+    <!-- Section 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. HTML Heading Syntax</h2>
+
+        <p>
+            Heading create karnyasathi opening heading tag,
+            content ani closing heading tag vapartat.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>
+&lt;h1&gt;Heading Text&lt;/h1&gt;
+        </code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;h1&gt;Welcome to My Website&lt;/h1&gt;
+&lt;h2&gt;About Us&lt;/h2&gt;
+&lt;h3&gt;Our Services&lt;/h3&gt;
+&lt;h4&gt;Web Development&lt;/h4&gt;
+&lt;h5&gt;HTML Tutorial&lt;/h5&gt;
+&lt;h6&gt;Introduction&lt;/h6&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <h1>Welcome to My Website</h1>
+            <h2>About Us</h2>
+            <h3>Our Services</h3>
+            <h4>Web Development</h4>
+            <h5>HTML Tutorial</h5>
+            <h6>Introduction</h6>
+
+        </div>
+
+        <p>
+            Browser pratyek heading la default font size ani
+            bold styling provide karto.
+            CSS vaprun he appearance change karta yete.
+        </p>
+
+    </section>
+
+
+    <!-- Section 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. Heading Hierarchy</h2>
+
+        <p>
+            Heading hierarchy mhanje webpage madhil content
+            logical order madhye arrange karne.
+            Main topic sathi h1 ani tyachya subtopics sathi
+            h2, h3 ase headings vapartat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;h1&gt;Web Development&lt;/h1&gt;
+
+    &lt;h2&gt;Frontend Development&lt;/h2&gt;
+
+        &lt;h3&gt;HTML&lt;/h3&gt;
+
+        &lt;h3&gt;CSS&lt;/h3&gt;
+
+        &lt;h3&gt;JavaScript&lt;/h3&gt;
+
+    &lt;h2&gt;Backend Development&lt;/h2&gt;
+
+        &lt;h3&gt;Python&lt;/h3&gt;
+
+        &lt;h3&gt;Django&lt;/h3&gt;
+        </code></pre>
+
+        <h3>Heading Structure:</h3>
+
+        <div class="output-box hierarchy-demo">
+
+            <h1>Web Development</h1>
+
+            <h2>Frontend Development</h2>
+            <h3>HTML</h3>
+            <h3>CSS</h3>
+            <h3>JavaScript</h3>
+
+            <h2>Backend Development</h2>
+            <h3>Python</h3>
+            <h3>Django</h3>
+
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Heading levels content cha logical structure
+            dakhavtat. Fakt text motha kiwa bold karnyasathi
+            heading tags vapru naye. Tyasathi CSS vapr.
+        </div>
+
+    </section>
+
+
+    <!-- Section 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. What is HTML Paragraph?</h2>
+
+        <p>
+            HTML Paragraph cha use webpage madhye normal text
+            kiwa information display karnyasathi hoto.
+            Paragraph create karnyasathi p tag vapartat.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>
+&lt;p&gt;Your paragraph text goes here.&lt;/p&gt;
+        </code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;h1&gt;About Me&lt;/h1&gt;
+
+&lt;p&gt;
+    My name is Rohan.
+    I am learning web development.
+&lt;/p&gt;
+
+&lt;p&gt;
+    I want to become a backend developer.
+&lt;/p&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <h1>About Me</h1>
+
+            <p>
+                My name is Rohan.
+                I am learning web development.
+            </p>
+
+            <p>
+                I want to become a backend developer.
+            </p>
+
+        </div>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            Browser paragraph chya adhi ani nantar
+            normally margin provide karto.
+        </div>
+
+    </section>
+
+
+    <!-- Section 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. Multiple Paragraphs</h2>
+
+        <p>
+            Webpage madhye anek paragraphs create karta yetat.
+            Pratyek paragraph sathi separate p element vapartat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;h1&gt;My College&lt;/h1&gt;
+
+&lt;p&gt;
+    My college provides quality education.
+&lt;/p&gt;
+
+&lt;p&gt;
+    I am studying Computer Science.
+&lt;/p&gt;
+
+&lt;p&gt;
+    I enjoy learning programming.
+&lt;/p&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <h1>My College</h1>
+
+            <p>My college provides quality education.</p>
+
+            <p>I am studying Computer Science.</p>
+
+            <p>I enjoy learning programming.</p>
+
+        </div>
+
+        <p>
+            Pratyek p element independent paragraph create karto.
+            Tyamule browser madhye paragraphs vegvegale display hotat.
+        </p>
+
+    </section>
+
+
+    <!-- Section 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. HTML Line Break (br)</h2>
+
+        <p>
+            br element cha use text madhye line break create
+            karnyasathi hoto.
+            Ya mule pudhil content next line madhye display hoto.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>
+&lt;br&gt;
+        </code></pre>
+
+        <p>
+            br ha void element aahe.
+            Tyala closing tag chi garaj naste.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;p&gt;
+    My name is Rohan.&lt;br&gt;
+    I am a Computer Science student.&lt;br&gt;
+    I love programming.
+&lt;/p&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <p>
+                My name is Rohan.<br>
+                I am a Computer Science student.<br>
+                I love programming.
+            </p>
+
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            br cha use address kiwa poem sarkhya content madhye
+            meaningful line break sathi kar.
+            Layout spacing create karnyasathi repeated br vapru naye.
+        </div>
+
+    </section>
+
+
+    <!-- Section 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. HTML Horizontal Rule (hr)</h2>
+
+        <p>
+            hr element cha use webpage madhye thematic break
+            kiwa content madhil section separation dakhavnyasathi hoto.
+            Browser normally horizontal line display karto.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>
+&lt;hr&gt;
+        </code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;h2&gt;About Us&lt;/h2&gt;
+
+&lt;p&gt;We are learning web development.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;Our Services&lt;/h2&gt;
+
+&lt;p&gt;We provide web development services.&lt;/p&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <h2>About Us</h2>
+
+            <p>We are learning web development.</p>
+
+            <hr>
+
+            <h2>Our Services</h2>
+
+            <p>We provide web development services.</p>
+
+        </div>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            hr ha suddha void element aahe.
+            Tyala closing tag chi garaj naste.
+        </div>
+
+    </section>
+
+
+    <!-- Section 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. HTML Preformatted Text (pre)</h2>
+
+        <p>
+            pre element cha use preformatted text display
+            karnyasathi hoto.
+            Ya element madhye spaces ani line breaks
+            normally preserve kele jatat.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>
+&lt;pre&gt;
+    Your formatted text
+&lt;/pre&gt;
+        </code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;pre&gt;
+Name: Rohan
+Course: B.Sc Computer Science
+College: Kasegaon
+&lt;/pre&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <pre>Name: Rohan
+Course: B.Sc Computer Science
+College: Kasegaon</pre>
+
+        </div>
+
+        <p>
+            pre element madhye lihilele spaces ani line breaks
+            browser preserve karto.
+        </p>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Code examples, formatted text ani spacing important
+            aslelya content sathi pre element useful aahe.
+        </div>
+
+    </section>
+
+
+    <!-- Section 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Difference Between br, hr and p</h2>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>Element</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>p</td>
+                    <td>Paragraph create karne.</td>
+                </tr>
+
+                <tr>
+                    <td>br</td>
+                    <td>Line break create karne.</td>
+                </tr>
+
+                <tr>
+                    <td>hr</td>
+                    <td>Thematic break create karne.</td>
+                </tr>
+
+                <tr>
+                    <td>pre</td>
+                    <td>Spaces ani line breaks preserve karne.</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            p, br, hr ani pre he vegvegale HTML elements aahet.
+            Tyanchya purpose madhye difference aahe.
+        </div>
+
+    </section>
+
+
+    <!-- Section 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Text Formatting vs Headings</h2>
+
+        <p>
+            Headings cha use content structure define karnyasathi
+            hoto. Text formatting elements cha use text la
+            specific meaning kiwa emphasis denyasathi hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;h1&gt;HTML Tutorial&lt;/h1&gt;
+
+&lt;p&gt;
+    HTML is &lt;strong&gt;important&lt;/strong&gt;
+    for web development.
+&lt;/p&gt;
+
+&lt;p&gt;
+    Learn &lt;em&gt;HTML carefully&lt;/em&gt;.
+&lt;/p&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <h1>HTML Tutorial</h1>
+
+            <p>
+                HTML is <strong>important</strong>
+                for web development.
+            </p>
+
+            <p>
+                Learn <em>HTML carefully</em>.
+            </p>
+
+        </div>
+
+        <p>
+            strong element important content darshavto,
+            tar em element emphasis darshavto.
+        </p>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            Heading, paragraph ani text formatting yanche
+            purposes vegvegale aahet.
+        </div>
+
+    </section>
+
+
+    <!-- Section 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Complete Practical Example</h2>
+
+        <p>
+            Ata headings, paragraphs, br ani hr vaprun
+            ek simple personal introduction webpage tayar karu.
+        </p>
+
+        <h3>HTML Code:</h3>
+
+        <pre class="code-block"><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;My Introduction&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;h1&gt;My Introduction&lt;/h1&gt;
+
+    &lt;p&gt;
+        Hello! My name is Rohan.&lt;br&gt;
+        I am a Computer Science student.
+    &lt;/p&gt;
+
+    &lt;hr&gt;
+
+    &lt;h2&gt;My Education&lt;/h2&gt;
+
+    &lt;p&gt;
+        I am studying B.Sc Computer Science.
+    &lt;/p&gt;
+
+    &lt;hr&gt;
+
+    &lt;h2&gt;My Skills&lt;/h2&gt;
+
+    &lt;p&gt;
+        Python, Django, HTML and CSS.
+    &lt;/p&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <h1>My Introduction</h1>
+
+            <p>
+                Hello! My name is Rohan.<br>
+                I am a Computer Science student.
+            </p>
+
+            <hr>
+
+            <h2>My Education</h2>
+
+            <p>
+                I am studying B.Sc Computer Science.
+            </p>
+
+            <hr>
+
+            <h2>My Skills</h2>
+
+            <p>
+                Python, Django, HTML and CSS.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Common Beginner Mistakes</h2>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 1: Heading order ignore karne</strong>
+
+            <p>
+                Content structure madhye unnecessary heading
+                levels skip karne avoid kar.
+                Logical hierarchy maintain kar.
+            </p>
+
+        </div>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 2: Paragraph sathi br cha repeated use</strong>
+
+            <p>
+                Vegvegale paragraphs create karnyasathi
+                separate p elements vapr.
+            </p>
+
+        </div>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 3: br ani hr confuse karne</strong>
+
+            <p>
+                br line break sathi ani hr thematic separation sathi aahe.
+            </p>
+
+        </div>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 4: Closing tags विसरणे</strong>
+
+            <p>
+                h1, h2 ani p sarkhya elements che closing tags
+                properly lih.
+            </p>
+
+        </div>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 5: Heading fakt font size sathi vaprane</strong>
+
+            <p>
+                Text motha karaycha asel tar CSS vapr.
+                Heading cha use content structure sathi kar.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 13 -->
+
+    <section class="lesson-section">
+
+        <h2>13. Quick Revision</h2>
+
+        <div class="revision-box">
+
+            <ul>
+                <li>HTML madhye 6 heading elements aahet.</li>
+                <li>h1 highest-level heading aahe.</li>
+                <li>h6 lowest-level heading aahe.</li>
+                <li>Heading elements content structure define kartat.</li>
+                <li>p element paragraph create karto.</li>
+                <li>br element line break create karto.</li>
+                <li>hr element thematic break darshavto.</li>
+                <li>pre element spaces ani line breaks preserve karto.</li>
+                <li>strong important content darshavto.</li>
+                <li>em text la emphasis dete.</li>
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 14 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>14. Practice Questions</h2>
+
+        <h3>Basic Questions</h3>
+
+        <ol>
+            <li>HTML Headings mhanje kay?</li>
+            <li>HTML madhye kiti heading elements aahet?</li>
+            <li>h1 ani h6 madhil difference kay?</li>
+            <li>Heading hierarchy mhanje kay?</li>
+            <li>HTML paragraph create karnyasathi konta tag vapartat?</li>
+            <li>br element cha use kay aahe?</li>
+            <li>hr element cha use kay aahe?</li>
+            <li>pre element mhanje kay?</li>
+            <li>br ani hr madhil difference lih.</li>
+            <li>strong ani em elements cha use kay aahe?</li>
+        </ol>
+
+        <h3>Practical Questions</h3>
+
+        <ol>
+            <li>h1 pasun h6 paryant sagle headings display kar.</li>
+            <li>My Introduction navacha webpage tayar kar.</li>
+            <li>Teen vegvegale paragraphs create kar.</li>
+            <li>br vaprun address next line madhye display kar.</li>
+            <li>hr vaprun don sections separate kar.</li>
+            <li>pre vaprun student details display kar.</li>
+            <li>strong ani em vaprun paragraph format kar.</li>
+        </ol>
+
+        <div class="task-box">
+
+            <h3>Mini Task: Personal Introduction Page</h3>
+
+            <p>
+                Ek simple personal introduction webpage tayar kar.
+            </p>
+
+            <ul>
+                <li>Page la ek main h1 heading de.</li>
+                <li>About Me sathi h2 heading de.</li>
+                <li>Swatachi mahiti paragraph madhye lih.</li>
+                <li>br vaprun address kiwa contact information lih.</li>
+                <li>hr vaprun sections separate kar.</li>
+                <li>My Education sathi h2 heading vapr.</li>
+                <li>My Skills sathi h2 heading vapr.</li>
+                <li>strong ani em vaprun important text highlight kar.</li>
+            </ul>
+
+            <p>
+                File Name: <strong>introduction.html</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Lesson Navigation -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'html_topic' 'attributes' %}"
+           class="nav-button previous-button">
+            ← Previous: HTML Attributes
+        </a>
+
+        <a href="{% url 'html_topic' 'links' %}"
+           class="nav-button next-button">
+            Next: HTML Links →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}
+

@@ -1,0 +1,676 @@
+
+/* =====================================
+   JAVASCRIPT DOCUMENTATION - DOM MANIPULATION
+===================================== */
+
+/* Main Container */
+
+.lesson-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    color: #334155;
+    box-sizing: border-box;
+}
+
+/* Lesson Header */
+
+.lesson-header {
+    margin-bottom: 35px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.lesson-label {
+    display: inline-block;
+    color: #a16207;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    margin-bottom: 12px;
+}
+
+.lesson-header h1 {
+    color: #172033;
+    font-size: 36px;
+    font-weight: 750;
+    line-height: 1.3;
+    margin: 0 0 12px;
+}
+
+.lesson-header > p {
+    color: #64748b;
+    font-size: 15px;
+    line-height: 1.8;
+    max-width: 850px;
+    margin: 0;
+}
+
+.lesson-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.lesson-meta span {
+    background: #fef9c3;
+    color: #854d0e;
+    padding: 7px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Lesson Sections */
+
+.lesson-section {
+    margin-bottom: 35px;
+}
+
+.lesson-section h2 {
+    color: #172033;
+    font-size: 23px;
+    font-weight: 700;
+    margin: 0 0 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.lesson-section h3 {
+    color: #1e293b;
+    font-size: 17px;
+    font-weight: 650;
+    margin: 22px 0 12px;
+}
+
+.lesson-section p {
+    color: #475569;
+    font-size: 14px;
+    line-height: 1.9;
+    margin: 0 0 14px;
+}
+
+.lesson-section ul,
+.lesson-section ol {
+    padding-left: 24px;
+    margin: 12px 0 18px;
+}
+
+.lesson-section li {
+    color: #475569;
+    font-size: 14px;
+    line-height: 1.9;
+    margin-bottom: 7px;
+}
+
+.lesson-section strong {
+    color: #1e293b;
+}
+
+/* Information Boxes */
+
+.info-box,
+.important-box,
+.tip-box,
+.revision-box,
+.task-box {
+    padding: 17px 19px;
+    margin: 20px 0;
+    border-radius: 9px;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.info-box {
+    background: #fefce8;
+    border-left: 4px solid #eab308;
+    color: #854d0e;
+}
+
+.important-box {
+    background: #fff7ed;
+    border-left: 4px solid #f59e0b;
+    color: #9a3412;
+}
+
+.tip-box {
+    background: #f0fdf4;
+    border-left: 4px solid #16a34a;
+    color: #166534;
+}
+
+/* Tables */
+
+.lesson-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: #ffffff;
+    font-size: 14px;
+}
+
+.lesson-table th {
+    background: #172033;
+    color: #ffffff;
+    text-align: left;
+    padding: 13px 15px;
+    font-weight: 600;
+}
+
+.lesson-table td {
+    color: #475569;
+    padding: 13px 15px;
+    border: 1px solid #e2e8f0;
+    line-height: 1.7;
+}
+
+.lesson-table tbody tr:nth-child(even) {
+    background: #f8fafc;
+}
+
+/* Code Blocks */
+
+.code-block {
+    background: #111827;
+    color: #e5e7eb;
+    padding: 20px;
+    border-radius: 10px;
+    overflow-x: auto;
+    margin: 15px 0 20px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.code-block code {
+    color: #e5e7eb;
+    font-family: Consolas, monospace;
+    font-size: 14px;
+    line-height: 1.8;
+    white-space: pre;
+}
+
+/* Output Box */
+
+.output-box {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 15px 0 20px;
+    overflow-x: auto;
+}
+
+.output-box pre {
+    color: #111827;
+    font-family: Consolas, monospace;
+    font-size: 14px;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    margin: 0;
+}
+
+/* Practical Demo */
+
+.demo-output {
+    text-align: left;
+}
+
+.demo-input-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.demo-input {
+    flex: 1;
+    min-width: 0;
+    padding: 11px 13px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    outline: none;
+    color: #334155;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.demo-input:focus {
+    border-color: #ca8a04;
+    box-shadow: 0 0 0 3px rgba(202, 138, 4, 0.12);
+}
+
+.demo-button {
+    background: #ca8a04;
+    color: #ffffff;
+    border: none;
+    padding: 11px 18px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.demo-button:hover {
+    background: #a16207;
+}
+
+.demo-list {
+    list-style: none;
+    padding: 0 !important;
+    margin: 18px 0 0 !important;
+}
+
+.demo-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 11px 12px;
+    margin-bottom: 9px !important;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 7px;
+    color: #334155;
+    font-size: 14px;
+}
+
+.demo-list-item span {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.remove-button {
+    flex-shrink: 0;
+    background: #fee2e2;
+    color: #b91c1c;
+    border: none;
+    border-radius: 5px;
+    padding: 7px 11px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.remove-button:hover {
+    background: #fecaca;
+}
+
+.demo-note {
+    color: #64748b !important;
+    font-size: 12px !important;
+    margin-top: 15px !important;
+}
+
+/* Mistake Cards */
+
+.mistake-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #ef4444;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+}
+
+.mistake-card strong {
+    color: #b91c1c;
+    font-size: 14px;
+}
+
+.mistake-card p {
+    margin: 8px 0 0;
+    font-size: 13px;
+}
+
+/* Revision */
+
+.revision-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+}
+
+.revision-box ul {
+    margin: 0;
+}
+
+/* Practice */
+
+.practice-section {
+    padding: 22px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+}
+
+.task-box {
+    background: #fefce8;
+    border: 1px solid #fde68a;
+}
+
+.task-box h3 {
+    color: #a16207;
+    margin-top: 0;
+}
+
+/* Navigation */
+
+.lesson-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-top: 40px;
+    padding-top: 22px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.nav-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.previous-button {
+    color: #334155;
+    background: #f1f5f9;
+}
+
+.next-button {
+    color: #ffffff;
+    background: #ca8a04;
+}
+
+.previous-button:hover {
+    background: #e2e8f0;
+}
+
+.next-button:hover {
+    background: #a16207;
+}
+
+/* =====================================
+   TABLET RESPONSIVE
+===================================== */
+
+@media (max-width: 900px) {
+
+    .lesson-container {
+        max-width: 100%;
+        padding: 0 20px;
+    }
+
+    .lesson-header h1 {
+        font-size: 30px;
+    }
+
+    .lesson-section h2 {
+        font-size: 21px;
+    }
+
+}
+
+/* =====================================
+   MOBILE RESPONSIVE
+===================================== */
+
+@media (max-width: 700px) {
+
+    .lesson-container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 12px;
+        box-sizing: border-box;
+    }
+
+    /* Header */
+
+    .lesson-header {
+        margin-bottom: 25px;
+        padding-bottom: 18px;
+    }
+
+    .lesson-label {
+        font-size: 11px;
+        letter-spacing: 1px;
+    }
+
+    .lesson-header h1 {
+        font-size: 25px;
+        line-height: 1.4;
+    }
+
+    .lesson-header > p {
+        font-size: 13px;
+        line-height: 1.7;
+    }
+
+    .lesson-meta {
+        gap: 7px;
+        margin-top: 14px;
+    }
+
+    .lesson-meta span {
+        padding: 6px 9px;
+        font-size: 10px;
+    }
+
+    /* Sections */
+
+    .lesson-section {
+        margin-bottom: 27px;
+    }
+
+    .lesson-section h2 {
+        font-size: 19px;
+        line-height: 1.4;
+        margin-bottom: 14px;
+        padding-bottom: 8px;
+    }
+
+    .lesson-section h3 {
+        font-size: 15px;
+        margin: 18px 0 10px;
+    }
+
+    .lesson-section p {
+        font-size: 13px;
+        line-height: 1.8;
+    }
+
+    .lesson-section ul,
+    .lesson-section ol {
+        padding-left: 20px;
+        margin: 10px 0 15px;
+    }
+
+    .lesson-section li {
+        font-size: 13px;
+        line-height: 1.8;
+        margin-bottom: 6px;
+    }
+
+    /* Information Boxes */
+
+    .info-box,
+    .important-box,
+    .tip-box,
+    .revision-box,
+    .task-box {
+        padding: 13px 14px;
+        margin: 15px 0;
+        font-size: 13px;
+        line-height: 1.7;
+        border-radius: 8px;
+    }
+
+    /* Tables */
+
+    .lesson-table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+        font-size: 12px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .lesson-table th,
+    .lesson-table td {
+        padding: 10px 12px;
+    }
+
+    /* Code */
+
+    .code-block {
+        padding: 14px;
+        margin: 12px 0 17px;
+        border-radius: 8px;
+    }
+
+    .code-block code {
+        font-size: 12px;
+        line-height: 1.7;
+        white-space: pre;
+    }
+
+    /* Output */
+
+    .output-box {
+        padding: 14px;
+        margin: 12px 0 17px;
+    }
+
+    .output-box pre {
+        font-size: 12px;
+        line-height: 1.7;
+    }
+
+    /* Practical Demo */
+
+    .demo-input-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .demo-input {
+        width: 100%;
+        font-size: 13px;
+    }
+
+    .demo-button {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .demo-list-item {
+        font-size: 13px;
+        padding: 10px;
+    }
+
+    /* Mistakes */
+
+    .mistake-card {
+        padding: 13px;
+        margin-bottom: 10px;
+    }
+
+    .mistake-card strong {
+        font-size: 13px;
+    }
+
+    .mistake-card p {
+        font-size: 12px;
+        line-height: 1.7;
+    }
+
+    /* Practice */
+
+    .practice-section {
+        padding: 15px;
+        border-radius: 9px;
+    }
+
+    .task-box h3 {
+        font-size: 15px;
+    }
+
+    /* Navigation */
+
+    .lesson-navigation {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        margin-top: 30px;
+        padding-top: 18px;
+    }
+
+    .nav-button {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 12px 14px;
+        font-size: 13px;
+    }
+
+}
+
+/* =====================================
+   SMALL MOBILE
+===================================== */
+
+@media (max-width: 380px) {
+
+    .lesson-container {
+        padding: 0 9px;
+    }
+
+    .lesson-header h1 {
+        font-size: 22px;
+    }
+
+    .lesson-section h2 {
+        font-size: 18px;
+    }
+
+    .lesson-section h3 {
+        font-size: 14px;
+    }
+
+    .lesson-section p,
+    .lesson-section li {
+        font-size: 12px;
+    }
+
+    .lesson-meta span {
+        font-size: 10px;
+        padding: 5px 8px;
+    }
+
+    .code-block {
+        padding: 11px;
+    }
+
+    .code-block code {
+        font-size: 11px;
+    }
+
+    .practice-section {
+        padding: 12px;
+    }
+
+    .demo-list-item {
+        gap: 7px;
+        font-size: 12px;
+    }
+
+    .remove-button {
+        padding: 7px 8px;
+        font-size: 11px;
+    }
+
+}

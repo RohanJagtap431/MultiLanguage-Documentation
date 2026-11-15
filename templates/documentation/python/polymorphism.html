@@ -1,0 +1,796 @@
+
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}Python Polymorphism | Roman Marathi Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/python/polymorphism.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">PYTHON • LESSON 27</span>
+        <h1>Python Polymorphism</h1>
+        <p>
+            Same method kiwa operation vegveglya objects sobat
+            vegveglya prakare kase work karte te shikuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Level: Beginner</span>
+            <span>⏱️ Time: 45–55 Minutes</span>
+        </div>
+    </div>
+
+    <!-- 1. Introduction -->
+    <section class="lesson-section">
+        <h2>1. What is Polymorphism?</h2>
+
+        <p>
+            Polymorphism ha Object-Oriented Programming madhil ek important
+            concept aahe.
+        </p>
+
+        <p>
+            Polymorphism ya word cha meaning "Many Forms" asa hoto.
+            Yacha arth ekach method kiwa operation vegveglya objects sobat
+            vegveglya prakare work karu shakto.
+        </p>
+
+        <h3>Real-Life Example</h3>
+
+        <p>
+            Samaj ek vyakti aahe. To vegveglya paristhitimadhye vegvegli
+            actions karu shakto:
+        </p>
+
+        <ul>
+            <li>Teacher classroom madhye teach karto.</li>
+            <li>Doctor hospital madhye treat karto.</li>
+            <li>Developer computer var code karto.</li>
+        </ul>
+
+        <p>
+            Vyakti vegveglya roles nusar vegvegli functionality perform karto.
+            Programming madhye suddha Polymorphism mule asach behavior milto.
+        </p>
+
+        <div class="info-box">
+            <strong>Simple Definition:</strong>
+            One interface, different implementations.
+            Mhanje same method call, pan object nusar different behavior.
+        </div>
+    </section>
+
+    <!-- 2. Why -->
+    <section class="lesson-section">
+        <h2>2. Why Use Polymorphism?</h2>
+
+        <ul>
+            <li>Same interface vaprun vegveglya objects sobat work karta yete.</li>
+            <li>Code flexible ani reusable banto.</li>
+            <li>New classes add karne sope hote.</li>
+            <li>Large applications maintain karne sope hote.</li>
+            <li>Different objects sathi common code lihita yeto.</li>
+        </ul>
+    </section>
+
+    <!-- 3. Basic Example -->
+    <section class="lesson-section">
+        <h2>3. Basic Polymorphism Example</h2>
+
+        <p>
+            Khalil example madhye Dog ani Cat ya donhi classes madhye
+            sound() method aahe. Pan donhi methods vegvegla output detat.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>class Dog:
+
+    def sound(self):
+        print("Dog barks")
+
+
+class Cat:
+
+    def sound(self):
+        print("Cat meows")
+
+
+dog = Dog()
+cat = Cat()
+
+dog.sound()
+cat.sound()</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Dog barks
+Cat meows</pre>
+        </div>
+
+        <p>
+            Donhi objects madhye same method name sound() aahe.
+            Pan object nusar output vegvegla milto.
+        </p>
+    </section>
+
+    <!-- 4. Types -->
+    <section class="lesson-section">
+        <h2>4. Types of Polymorphism</h2>
+
+        <p>Python madhye Polymorphism samjun ghenyasathi he important concepts aahet:</p>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Concept</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Method Overriding</td>
+                        <td>Child class parent method chi navin implementation dete.</td>
+                    </tr>
+                    <tr>
+                        <td>Method Overloading</td>
+                        <td>Same method name vegveglya parameters sobat use karne. Python madhye traditional signature-based overloading direct support nahi.</td>
+                    </tr>
+                    <tr>
+                        <td>Operator Overloading</td>
+                        <td>Operators objects sobat vegveglya prakare work kartat.</td>
+                    </tr>
+                    <tr>
+                        <td>Duck Typing</td>
+                        <td>Object cha type na baghta tyachyakade required method aahe ka te baghne.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 5. Method Overriding -->
+    <section class="lesson-section">
+        <h2>5. Method Overriding</h2>
+
+        <p>
+            Parent class madhil method child class madhye same name ne
+            punha define karun navin implementation dene mhanje
+            Method Overriding.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>class Animal:
+
+    def sound(self):
+        print("Animal makes sound")
+
+
+class Dog(Animal):
+
+    def sound(self):
+        print("Dog barks")
+
+
+class Cat(Animal):
+
+    def sound(self):
+        print("Cat meows")
+
+
+dog = Dog()
+cat = Cat()
+
+dog.sound()
+cat.sound()</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Dog barks
+Cat meows</pre>
+        </div>
+
+        <p>
+            Animal class madhye sound() method aahe.
+            Dog ani Cat ya child classes ne ti method override keli.
+        </p>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Method Overriding sathi inheritance lagte.
+            Child class parent class chi method navin paddhatine implement karte.
+        </div>
+    </section>
+
+    <!-- 6. Overriding with super -->
+    <section class="lesson-section">
+        <h2>6. Method Overriding with super()</h2>
+
+        <p>
+            Child class madhye parent method override kartana
+            parent chi original functionality suddha use karaychi asel
+            tar super() use karu shakto.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>class Animal:
+
+    def sound(self):
+        print("Animal makes sound")
+
+
+class Dog(Animal):
+
+    def sound(self):
+        super().sound()
+        print("Dog barks")
+
+
+dog = Dog()
+dog.sound()</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Animal makes sound
+Dog barks</pre>
+        </div>
+
+        <p>
+            super().sound() mule parent class madhil sound() method call hote.
+            Tyachyanantar child class cha code execute hoto.
+        </p>
+    </section>
+
+    <!-- 7. Method Overloading -->
+    <section class="lesson-section">
+        <h2>7. Method Overloading</h2>
+
+        <p>
+            Method Overloading mhanje same method name vegveglya
+            number kiwa type chya parameters sobat use karne.
+        </p>
+
+        <div class="warning-box">
+            <strong>Python Note:</strong>
+            Python traditional Java/C++ style method overloading
+            by function signature direct support karat nahi.
+            Same class madhye same name chi dusri definition lihilyas
+            ti pahili definition replace karte.
+        </div>
+
+        <h3>Incorrect Expectation</h3>
+
+        <pre><code>class Calculator:
+
+    def add(self, a, b):
+        return a + b
+
+    def add(self, a, b, c):
+        return a + b + c
+
+
+obj = Calculator()
+
+print(obj.add(10, 20))</code></pre>
+
+        <div class="error-box">
+            <strong>Result:</strong>
+            <p>
+                Ha code TypeError deil. Karan dusrya add() definition ne
+                pahili definition replace keli aahe ani ti 3 arguments expect karte.
+            </p>
+        </div>
+
+        <h3>Python Madhye Default Arguments Vaprun</h3>
+
+        <pre><code>class Calculator:
+
+    def add(self, a, b, c=0):
+        return a + b + c
+
+
+obj = Calculator()
+
+print(obj.add(10, 20))
+print(obj.add(10, 20, 30))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>30
+60</pre>
+        </div>
+
+        <p>
+            c la default value 0 dili aahe.
+            Tyamule don kiwa tin values pass karu shakto.
+        </p>
+
+        <h3>*args Vaprun</h3>
+
+        <pre><code>class Calculator:
+
+    def add(self, *numbers):
+        return sum(numbers)
+
+
+obj = Calculator()
+
+print(obj.add(10, 20))
+print(obj.add(10, 20, 30))
+print(obj.add(10, 20, 30, 40))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>30
+60
+100</pre>
+        </div>
+
+        <p>
+            *args mule method la vegveglya sankhyene positional arguments
+            pass karta yetat.
+        </p>
+    </section>
+
+    <!-- 8. Operator Overloading -->
+    <section class="lesson-section">
+        <h2>8. Operator Overloading</h2>
+
+        <p>
+            Python madhye operators vegveglya data types kiwa objects sobat
+            vegveglya paddhatine work karu shaktat.
+        </p>
+
+        <h3>Simple Example</h3>
+
+        <pre><code>print(10 + 20)
+print("Hello " + "Python")
+print([10, 20] + [30, 40])</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>30
+Hello Python
+[10, 20, 30, 40]</pre>
+        </div>
+
+        <p>
+            + operator integer values add karto, strings join karto
+            ani lists combine karto.
+        </p>
+
+        <h3>Magic Methods</h3>
+
+        <p>
+            Python madhye operators cha behavior special methods ne define
+            kela jau shakto. Tyanna Magic Methods kiwa Dunder Methods mhantat.
+        </p>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Operator</th>
+                        <th>Special Method</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>+</td><td>__add__()</td></tr>
+                    <tr><td>-</td><td>__sub__()</td></tr>
+                    <tr><td>*</td><td>__mul__()</td></tr>
+                    <tr><td>/</td><td>__truediv__()</td></tr>
+                    <tr><td>==</td><td>__eq__()</td></tr>
+                    <tr><td>&lt;</td><td>__lt__()</td></tr>
+                    <tr><td>&gt;</td><td>__gt__()</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Custom Operator Overloading Example</h3>
+
+        <pre><code>class Number:
+
+    def __init__(self, value):
+        self.value = value
+
+    def __add__(self, other):
+        return self.value + other.value
+
+
+num1 = Number(10)
+num2 = Number(20)
+
+result = num1 + num2
+
+print(result)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>30</pre>
+        </div>
+
+        <p>
+            num1 + num2 lihilyavar Python __add__() method call karto.
+            Ya method madhye donhi objects chya values add hotat.
+        </p>
+    </section>
+
+    <!-- 9. Duck Typing -->
+    <section class="lesson-section">
+        <h2>9. Duck Typing</h2>
+
+        <p>
+            Duck Typing ha Python madhil important concept aahe.
+            Yat object cha exact class type check karnyapeksha
+            object required method support karto ka te pahile jate.
+        </p>
+
+        <p>
+            Simple idea: "If it behaves like a duck, it can be treated like a duck."
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>class Dog:
+
+    def sound(self):
+        print("Dog barks")
+
+
+class Cat:
+
+    def sound(self):
+        print("Cat meows")
+
+
+def make_sound(animal):
+    animal.sound()
+
+
+dog = Dog()
+cat = Cat()
+
+make_sound(dog)
+make_sound(cat)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Dog barks
+Cat meows</pre>
+        </div>
+
+        <p>
+            make_sound() function la Dog kiwa Cat class mahit asnyachi garaj nahi.
+            Fakt object madhye sound() method asne garjeche aahe.
+        </p>
+
+        <div class="tip-box">
+            <strong>Remember:</strong>
+            Duck Typing madhye object kay aahe yapeksha to kay karu shakto
+            he important aste.
+        </div>
+    </section>
+
+    <!-- 10. Polymorphism with Functions -->
+    <section class="lesson-section">
+        <h2>10. Polymorphism with Functions</h2>
+
+        <p>
+            Python madhil built-in functions vegveglya objects sobat
+            work karu shaktat.
+        </p>
+
+        <h3>Example: len()</h3>
+
+        <pre><code>print(len("Python"))
+print(len([10, 20, 30]))
+print(len({"name": "Rohan", "age": 20}))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>6
+3
+2</pre>
+        </div>
+
+        <p>
+            len() function string chi length, list madhil elements
+            ani dictionary madhil keys chi sankhya return karte.
+        </p>
+
+        <h3>Example: sum()</h3>
+
+        <pre><code>print(sum([10, 20, 30]))
+print(sum((5, 10, 15)))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>60
+30</pre>
+        </div>
+    </section>
+
+    <!-- 11. Polymorphism with Inheritance -->
+    <section class="lesson-section">
+        <h2>11. Polymorphism with Inheritance</h2>
+
+        <p>
+            Parent class madhye common method define karun child classes
+            madhye vegvegli implementation deta yete.
+        </p>
+
+        <h3>Example: Payment System</h3>
+
+        <pre><code>class Payment:
+
+    def pay(self, amount):
+        print("Processing payment:", amount)
+
+
+class UpiPayment(Payment):
+
+    def pay(self, amount):
+        print("Paid using UPI:", amount)
+
+
+class CardPayment(Payment):
+
+    def pay(self, amount):
+        print("Paid using Card:", amount)
+
+
+class CashPayment(Payment):
+
+    def pay(self, amount):
+        print("Paid using Cash:", amount)
+
+
+payments = [
+    UpiPayment(),
+    CardPayment(),
+    CashPayment()
+]
+
+
+for payment in payments:
+    payment.pay(500)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Paid using UPI: 500
+Paid using Card: 500
+Paid using Cash: 500</pre>
+        </div>
+
+        <p>
+            Pratyek payment object kade pay() method aahe.
+            Pan payment type nusar tyache behavior change hote.
+        </p>
+
+        <div class="info-box">
+            <strong>Practical Use:</strong>
+            E-commerce applications madhye UPI, Card ani Cash payments
+            handle karnyasathi asha design cha use hou shakto.
+        </div>
+    </section>
+
+    <!-- 12. Overriding vs Overloading -->
+    <section class="lesson-section">
+        <h2>12. Method Overriding vs Method Overloading</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Method Overriding</th>
+                        <th>Method Overloading</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Inheritance required aste.</td>
+                        <td>Inheritance required nahi.</td>
+                    </tr>
+                    <tr>
+                        <td>Parent method child class madhye redefine hote.</td>
+                        <td>Same name vegveglya parameter combinations sobat use hote.</td>
+                    </tr>
+                    <tr>
+                        <td>Python support karte.</td>
+                        <td>Traditional signature-based form direct support nahi.</td>
+                    </tr>
+                    <tr>
+                        <td>Child implementation execute hote.</td>
+                        <td>Default arguments kiwa *args ne similar behavior banavta yete.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 13. Common Mistakes -->
+    <section class="lesson-section">
+        <h2>13. Common Beginner Mistakes</h2>
+
+        <div class="error-card">
+            <h3>Mistake 1: Same Method Name in One Class</h3>
+
+            <pre><code>class Calculator:
+
+    def add(self, a, b):
+        return a + b
+
+    def add(self, a, b, c):
+        return a + b + c</code></pre>
+
+            <p>
+                Python madhye dusri definition pahili definition replace karte.
+                Traditional method overloading automatic hot nahi.
+            </p>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 2: Wrong Method Name</h3>
+
+            <pre><code>class Dog:
+
+    def sound(self):
+        print("Bark")
+
+
+dog = Dog()
+dog.sounds()</code></pre>
+
+            <p>
+                Method che name sound aahe, sounds nahi.
+                Wrong method name mule AttributeError yeil.
+            </p>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 3: Forgetting self</h3>
+
+            <pre><code>class Dog:
+
+    def sound():
+        print("Bark")</code></pre>
+
+            <p>
+                Instance method madhye pahila parameter normally self asto.
+            </p>
+
+            <pre><code>class Dog:
+
+    def sound(self):
+        print("Bark")</code></pre>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 4: Assuming All Objects Have Same Method</h3>
+
+            <p>
+                Duck Typing vapartana function la dilelya pratyek object madhye
+                required method asne garjeche aahe. Nahi tar AttributeError yeu shakto.
+            </p>
+        </div>
+    </section>
+
+    <!-- 14. Revision -->
+    <section class="lesson-section">
+        <h2>14. Quick Revision</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Concept</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Polymorphism</td><td>One interface, different implementations.</td></tr>
+                    <tr><td>Method Overriding</td><td>Child class parent method redefine karte.</td></tr>
+                    <tr><td>Method Overloading</td><td>Same method name, different parameters; traditional form Python madhye direct support nahi.</td></tr>
+                    <tr><td>Operator Overloading</td><td>Operators cha behavior custom define karne.</td></tr>
+                    <tr><td>Magic Methods</td><td>Special double underscore methods.</td></tr>
+                    <tr><td>Duck Typing</td><td>Object chya behavior var focus karne.</td></tr>
+                    <tr><td>__add__()</td><td>+ operator cha behavior define karte.</td></tr>
+                    <tr><td>super()</td><td>MRO madhil next class chi functionality access karte.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 15. Practice -->
+    <section class="practice-section">
+        <h2>15. Practice Questions</h2>
+
+        <p>
+            Khalil programs swatah solve kar.
+            Pratyek program VS Code madhye run karun output check kar.
+        </p>
+
+        <div class="practice-task">
+            <h3>Question 1</h3>
+            <p>Polymorphism mhanje kay? Simple example sah explain kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 2</h3>
+            <p>Dog ani Cat classes madhye same sound() method define kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 3</h3>
+            <p>Inheritance vaprun Method Overriding demonstrate kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 4</h3>
+            <p>super() vaprun parent method ani child method donhi call kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 5</h3>
+            <p>Default arguments vaprun Calculator madhye add() method banav.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 6</h3>
+            <p>*args vaprun multiple numbers add karanari method create kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 7</h3>
+            <p>__add__() vaprun don custom objects add kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 8</h3>
+            <p>Duck Typing vaprun Dog ani Cat objects cha sound print kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 9</h3>
+            <p>len() function string, list ani dictionary sobat use kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 10</h3>
+            <p>Payment System create kar. UPI, Card ani Cash payment classes madhye pay() method implement kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 11</h3>
+            <p>Method Overriding ani Method Overloading madhil difference lih.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 12</h3>
+            <p>Employee class ani Developer, Manager classes vaprun polymorphism demonstrate kar.</p>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+        <a href="{% url 'python_topic' 'inheritance' %}" class="nav-button back-button">
+            ← Previous: Inheritance
+        </a>
+
+        <a href="{% url 'python_topic' 'practice' %}" class="nav-button next-button">
+            Next: Python Practice →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

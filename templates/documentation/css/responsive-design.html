@@ -1,0 +1,453 @@
+
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}Responsive Web Design | Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/css/responsive-design.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+    <div class="lesson-header">
+        <span class="lesson-label">CSS TUTORIAL</span>
+
+        <h1>Responsive Web Design</h1>
+
+        <p>
+            Responsive Web Design mule website mobile,
+            tablet ani desktop ya vegveglya screen sizes
+            nusar automatically adjust hote.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 25 Minutes</span>
+            <span>📄 Page 23</span>
+        </div>
+    </div>
+
+
+    <!-- Section 1 -->
+    <section class="lesson-section">
+
+        <h2>1. What is Responsive Web Design?</h2>
+
+        <p>
+            Responsive Web Design mhanje website cha layout,
+            images ani content vegveglya screen sizes nusar
+            adjust karanyachi technique.
+        </p>
+
+        <p>
+            Ek responsive website mobile, tablet ani desktop
+            ya tinhī devices var properly display hote.
+        </p>
+
+        <div class="info-box">
+            <strong>Definition:</strong>
+            Responsive Web Design is an approach used to
+            create websites that automatically adjust
+            according to different screen sizes.
+        </div>
+
+        <h3>Example</h3>
+
+        <ul>
+            <li>Desktop - 3 cards eka row madhye disu shaktat.</li>
+            <li>Tablet - 2 cards eka row madhye disu shaktat.</li>
+            <li>Mobile - 1 card eka row madhye disu shakto.</li>
+        </ul>
+
+        <div class="device-preview">
+            <div class="device-card desktop-device">
+                <div class="device-screen">
+                    <span>Desktop</span>
+                    <div class="device-lines">
+                        <i></i><i></i><i></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="device-card tablet-device">
+                <div class="device-screen">
+                    <span>Tablet</span>
+                    <div class="device-lines">
+                        <i></i><i></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="device-card mobile-device">
+                <div class="device-screen">
+                    <span>Mobile</span>
+                    <div class="device-lines">
+                        <i></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Section 2 -->
+    <section class="lesson-section">
+
+        <h2>2. Why Responsive Design is Important?</h2>
+
+        <p>
+            Aajkal users vegveglya devices varun websites
+            access kartat. Mhanun website fakt desktop sathi
+            design karne pureshe nahi.
+        </p>
+
+        <h3>Advantages</h3>
+
+        <ul>
+            <li>Website mobile-friendly bante.</li>
+            <li>Content vachne ani use karne sope hote.</li>
+            <li>Different screen sizes support hotat.</li>
+            <li>Users la changla experience milto.</li>
+            <li>Vegveglya devices sathi separate website banvavi lagat nahi.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Responsive design mule website cha layout
+            screen size nusar adjust hoto. Pan tyasathi
+            proper CSS ani testing karne avashyak aahe.
+        </div>
+
+    </section>
+
+
+    <!-- Section 3 -->
+    <section class="lesson-section">
+
+        <h2>3. Viewport Meta Tag</h2>
+
+        <p>
+            Viewport mhanje browser madhil website
+            display honari visible area.
+        </p>
+
+        <p>
+            Viewport meta tag browser la device chya
+            screen width nusar webpage display karayla
+            sangto.
+        </p>
+
+        <h3>HTML Code</h3>
+
+        <div class="code-block">
+            <pre><code>&lt;meta name="viewport"
+content="width=device-width, initial-scale=1.0"&gt;</code></pre>
+        </div>
+
+        <h3>Meaning</h3>
+
+        <ul>
+            <li><strong>width=device-width</strong> - Viewport chi width device screen width pramane thevte.</li>
+            <li><strong>initial-scale=1.0</strong> - Page chi initial zoom level 100% thevte.</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Responsive website tayar kartana viewport
+            meta tag HTML chya head section madhye
+            add kara. Aplya project chya base.html madhye
+            ha tag already asel tar punha add karu naka.
+        </div>
+
+    </section>
+
+
+    <!-- Section 4 -->
+    <section class="lesson-section">
+
+        <h2>4. Fluid Layout</h2>
+
+        <p>
+            Fluid Layout madhye fixed pixel width aivaji
+            percentage sarkhya relative units vapartat.
+            Tyamule container screen size nusar adjust hoto.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+}</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li><strong>width: 90%</strong> - Parent width chya 90% width ghete.</li>
+            <li><strong>max-width: 1000px</strong> - Container 1000px peksha motha hot nahi.</li>
+            <li><strong>margin: 0 auto</strong> - Container horizontally center hoto.</li>
+        </ul>
+
+        <h3>Output</h3>
+
+        <div class="output-box">
+            <div class="fluid-demo">
+                Fluid Container - Width: 90%
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Section 5 -->
+    <section class="lesson-section">
+
+        <h2>5. Flexible Images</h2>
+
+        <p>
+            Website madhil images mobile screen peksha
+            mothya aslyas layout baher jau shakto.
+            Flexible Images vaprun hi problem kami karta yete.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>img {
+    max-width: 100%;
+    height: auto;
+}</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li><strong>max-width: 100%</strong> - Image parent container peksha mothi hot nahi.</li>
+            <li><strong>height: auto</strong> - Image che original proportions maintain hotat.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Image la max-width: 100% dilyane ti
+            parent container chya width madhye fit hote.
+            Height auto mule image stretch hot nahi.
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box image-demo">
+            <div class="demo-image-placeholder">
+                <span>Flexible Image</span>
+                <small>Image fits inside its container</small>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Section 6 -->
+    <section class="lesson-section">
+
+        <h2>6. Mobile-First Approach</h2>
+
+        <p>
+            Mobile-First Approach madhye website design
+            kartana sarvat aadhi mobile screen cha vichar
+            kela jato. Nantar tablet ani desktop sathi
+            design improve kele jate.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>/* Mobile First */
+
+.container {
+    width: 100%;
+}
+
+/* Tablet */
+
+@media (min-width: 600px) {
+    .container {
+        width: 90%;
+    }
+}
+
+/* Desktop */
+
+@media (min-width: 992px) {
+    .container {
+        width: 85%;
+        max-width: 1100px;
+    }
+}</code></pre>
+        </div>
+
+        <h3>How it Works</h3>
+
+        <ol>
+            <li>First mobile sathi basic CSS lihaychi.</li>
+            <li>Tablet sathi media query add karaychi.</li>
+            <li>Desktop sathi additional styles add karayche.</li>
+        </ol>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Mobile-First Approach madhye aadhi small screen
+            design karun nantar larger screens sathi
+            CSS add keli jate.
+        </div>
+
+    </section>
+
+
+    <!-- Section 7 -->
+    <section class="lesson-section">
+
+        <h2>7. Responsive Layout Example</h2>
+
+        <p>
+            Ata ek practical example pahu. Ya example madhye
+            cards desktop var 3 columns, tablet var 2 columns
+            ani mobile var 1 column madhye display hotil.
+        </p>
+
+        <h3>HTML Code</h3>
+
+        <div class="code-block">
+            <pre><code>&lt;div class="card-container"&gt;
+
+    &lt;div class="card"&gt;Card One&lt;/div&gt;
+    &lt;div class="card"&gt;Card Two&lt;/div&gt;
+    &lt;div class="card"&gt;Card Three&lt;/div&gt;
+
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.card-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+.card {
+    padding: 30px;
+    background: #2563eb;
+    color: white;
+    text-align: center;
+}
+
+/* Tablet */
+
+@media (min-width: 600px) {
+    .card-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Desktop */
+
+@media (min-width: 992px) {
+    .card-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box">
+            <div class="responsive-card-demo">
+                <div class="responsive-demo-card">Card One</div>
+                <div class="responsive-demo-card">Card Two</div>
+                <div class="responsive-demo-card">Card Three</div>
+            </div>
+
+            <p class="demo-note">
+                Ha preview desktop var 3 columns dakhavto.
+                Browser window chi width kami karun
+                responsive behavior test kara.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- Section 8 -->
+    <section class="lesson-section">
+
+        <h2>8. Important Points</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>Responsive design website la different screen sizes sathi adjust karte.</li>
+                <li>Viewport meta tag mobile display sathi important aahe.</li>
+                <li>Fluid layout madhye percentage sarkhe relative units vapartat.</li>
+                <li>Flexible images sathi max-width: 100% vapartat.</li>
+                <li>height: auto image proportions maintain karte.</li>
+                <li>Mobile-First madhye aadhi mobile design kele jate.</li>
+                <li>Media Queries responsive layouts tayar karanyasathi vapartat.</li>
+                <li>CSS Grid ani Flexbox responsive layouts sathi useful aahet.</li>
+            </ul>
+        </div>
+
+    </section>
+
+
+    <!-- Practice Section -->
+    <section class="practice-section">
+
+        <h2>9. Practice Task</h2>
+
+        <div class="task-box">
+
+            <h3>Task: Create a Responsive Website Layout</h3>
+
+            <p>Ek simple webpage tayar kara ani:</p>
+
+            <ol>
+                <li>Ek container create kara.</li>
+                <li>Container la width: 90% dya.</li>
+                <li>Teen cards create kara.</li>
+                <li>Desktop var 3 columns display kara.</li>
+                <li>Tablet var 2 columns display kara.</li>
+                <li>Mobile var 1 column display kara.</li>
+                <li>Ek image add karun max-width: 100% dya.</li>
+                <li>Mobile, tablet ani desktop var website test kara.</li>
+            </ol>
+
+        </div>
+
+    </section>
+
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+
+        <a href="{% url 'css_topic' 'overflow-z-index' %}"
+           class="nav-button previous">
+            ← Previous: Overflow and Z-Index
+        </a>
+
+        <a href="{% url 'css_topic' 'media-queries' %}"
+           class="nav-button next">
+            Next: CSS Media Queries →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

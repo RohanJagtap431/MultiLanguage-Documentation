@@ -1,0 +1,645 @@
+
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}CSS Specificity and Inheritance | Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/css/specificity-inheritance.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+    <div class="lesson-header">
+        <span class="lesson-label">CSS TUTORIAL</span>
+
+        <h1>CSS Specificity and Inheritance</h1>
+
+        <p>
+            CSS Specificity mule konta CSS rule apply hoil
+            he tharavta yete. Inheritance mule parent
+            element chi kahi CSS properties child elements
+            madhye pass hotat.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 30 Minutes</span>
+            <span>📄 Page 26</span>
+        </div>
+    </div>
+
+
+    <!-- Section 1 -->
+    <section class="lesson-section">
+
+        <h2>1. What is CSS Specificity?</h2>
+
+        <p>
+            Specificity mhanje CSS selectors chi priority.
+            Ekach HTML element la vegveglya selectors madhun
+            CSS rules apply hot astil tar specificity
+            compare karun winning rule tharavla jato.
+        </p>
+
+        <p>
+            Jya selector chi specificity jast aste,
+            tyacha rule generally apply hoto.
+        </p>
+
+        <div class="info-box">
+            <strong>Definition:</strong>
+            CSS Specificity is the priority system used
+            by browsers to decide which CSS rule applies
+            when multiple rules target the same element.
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>p {
+    color: blue;
+}
+
+.text {
+    color: green;
+}
+
+#title {
+    color: red;
+}</code></pre>
+        </div>
+
+        <p>
+            Jar ekach paragraph la p, .text ani #title
+            he tinhī selectors match hot astil tar
+            #title selector la jast specificity asel.
+        </p>
+
+    </section>
+
+
+    <!-- Section 2 -->
+    <section class="lesson-section">
+
+        <h2>2. CSS Specificity Levels</h2>
+
+        <p>
+            CSS selectors chi specificity vegvegli aste.
+            Basic specificity order khalilpramane aahe.
+        </p>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+
+                <thead>
+                    <tr>
+                        <th>Selector Type</th>
+                        <th>Specificity Weight</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Inline Style</td>
+                        <td>1000</td>
+                    </tr>
+
+                    <tr>
+                        <td>ID Selector</td>
+                        <td>100</td>
+                    </tr>
+
+                    <tr>
+                        <td>Class Selector</td>
+                        <td>10</td>
+                    </tr>
+
+                    <tr>
+                        <td>Element Selector</td>
+                        <td>1</td>
+                    </tr>
+
+                    <tr>
+                        <td>Universal Selector (*)</td>
+                        <td>0</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            He basic specificity weights samjun ghenyasathi
+            dile aahet. Browser actual specificity
+            columns madhye compare karto. Inline style
+            ani !important sathi cascade che additional
+            rules suddha lagu hotat.
+        </div>
+
+    </section>
+
+
+    <!-- Section 3 -->
+    <section class="lesson-section">
+
+        <h2>3. Element Selector Specificity</h2>
+
+        <p>
+            Element Selector HTML tag la target karto.
+            Udaharanarth p, h1, div ani button.
+        </p>
+
+        <p>
+            Element selector chi specificity value 1 aste.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>p {
+    color: blue;
+}</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <p>
+            Ya rule mule sarva matching paragraph
+            elements cha text blue hoil, jar higher
+            priority cha dusra rule nasel.
+        </p>
+
+    </section>
+
+
+    <!-- Section 4 -->
+    <section class="lesson-section">
+
+        <h2>4. Class Selector Specificity</h2>
+
+        <p>
+            Class Selector cha use class attribute
+            aslelya HTML elements la target karanyasathi hoto.
+        </p>
+
+        <p>
+            Class selector chi specificity value 10 aste.
+        </p>
+
+        <h3>HTML Code</h3>
+
+        <div class="code-block">
+            <pre><code>&lt;p class="message"&gt;
+    Hello World
+&lt;/p&gt;</code></pre>
+        </div>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.message {
+    color: green;
+}</code></pre>
+        </div>
+
+        <p>
+            Class selector chi priority element selector
+            peksha jast aste.
+        </p>
+
+    </section>
+
+
+    <!-- Section 5 -->
+    <section class="lesson-section">
+
+        <h2>5. ID Selector Specificity</h2>
+
+        <p>
+            ID Selector cha use specific ID aslelya
+            HTML element la target karanyasathi hoto.
+        </p>
+
+        <p>
+            ID selector chi specificity value 100 aste.
+        </p>
+
+        <h3>HTML Code</h3>
+
+        <div class="code-block">
+            <pre><code>&lt;p id="heading"&gt;
+    Welcome
+&lt;/p&gt;</code></pre>
+        </div>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>#heading {
+    color: red;
+}</code></pre>
+        </div>
+
+        <p>
+            ID selector chi priority class ani element
+            selectors peksha jast aste.
+        </p>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Ekach HTML element la ID ani class donhi
+            asu shaktat. Pan ID unique thevne hi
+            recommended practice aahe.
+        </div>
+
+    </section>
+
+
+    <!-- Section 6 -->
+    <section class="lesson-section">
+
+        <h2>6. Inline CSS Specificity</h2>
+
+        <p>
+            Inline CSS hi HTML element chya style
+            attribute madhye lihili jate.
+        </p>
+
+        <p>
+            Basic specificity comparison madhye inline
+            style la ID, class ani element selectors
+            peksha jast priority aste.
+        </p>
+
+        <h3>HTML Code</h3>
+
+        <div class="code-block">
+            <pre><code>&lt;p style="color: purple;"&gt;
+    Hello World
+&lt;/p&gt;</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <p>
+            Ya example madhye paragraph cha text
+            purple display hoil, jar higher-priority
+            important rule tyala override karat nasel.
+        </p>
+
+        <div class="important-box">
+            <strong>Note:</strong>
+            Inline style ani !important yanchya
+            priority comparison sathi CSS Cascade
+            che rules samjun ghene avashyak aahe.
+        </div>
+
+    </section>
+
+
+    <!-- Section 7 -->
+    <section class="lesson-section">
+
+        <h2>7. Specificity Calculation</h2>
+
+        <p>
+            Ekach selector madhye multiple selector types
+            astil tar tyanchi specificity calculate karta yete.
+        </p>
+
+        <h3>Example 1</h3>
+
+        <div class="code-block">
+            <pre><code>p {
+    color: blue;
+}</code></pre>
+        </div>
+
+        <p>
+            Element selector = 1
+        </p>
+
+        <h3>Example 2</h3>
+
+        <div class="code-block">
+            <pre><code>.card p {
+    color: green;
+}</code></pre>
+        </div>
+
+        <p>
+            Class = 10, Element = 1
+
+            Total = 11
+        </p>
+
+        <h3>Example 3</h3>
+
+        <div class="code-block">
+            <pre><code>#main .card p {
+    color: red;
+}</code></pre>
+        </div>
+
+        <p>
+            ID = 100, Class = 10, Element = 1
+
+            Total = 111
+        </p>
+
+        <div class="revision-box">
+            <strong>Remember:</strong>
+            Specificity compare kartana ID, Class ani
+            Element ya columns cha order ne comparison
+            hoto. Fakt total number baghun comparison
+            karne nehmich yogya naste.
+        </div>
+
+    </section>
+
+
+    <!-- Section 8 -->
+    <section class="lesson-section">
+
+        <h2>8. !important Rule</h2>
+
+        <p>
+            !important declaration cha use CSS property
+            la important priority denyasathi hoto.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>p {
+    color: blue !important;
+}
+
+p {
+    color: red;
+}</code></pre>
+        </div>
+
+        <p>
+            Ya example madhye blue color apply hoil,
+            karan pahilya rule madhye !important aahe.
+        </p>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            !important cha unnecessary use karu naye.
+            Tyamule CSS maintain karne ani debugging
+            karne kathin hou shakte. !important
+            declarations madhye suddha cascade rules
+            ani specificity lagu hotat.
+        </div>
+
+    </section>
+
+
+    <!-- Section 9 -->
+    <section class="lesson-section">
+
+        <h2>9. What is CSS Inheritance?</h2>
+
+        <p>
+            Inheritance mhanje parent HTML element madhil
+            kahi CSS property values tyachya child
+            elements madhye automatically pass hone.
+        </p>
+
+        <p>
+            Udaharanarth, parent div la color red dila
+            tar tyachya child paragraph la dusra color
+            nasel tar to red inherit karu shakto.
+        </p>
+
+        <div class="info-box">
+            <strong>Definition:</strong>
+            CSS Inheritance is the process by which
+            certain CSS property values pass from
+            parent elements to their child elements.
+        </div>
+
+        <h3>HTML Code</h3>
+
+        <div class="code-block">
+            <pre><code>&lt;div class="parent"&gt;
+
+    &lt;p&gt;This is child paragraph.&lt;/p&gt;
+
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.parent {
+    color: blue;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box">
+            <div class="inheritance-demo">
+                <p>This is child paragraph.</p>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Section 10 -->
+    <section class="lesson-section">
+
+        <h2>10. Inherited and Non-Inherited Properties</h2>
+
+        <p>
+            CSS madhil sarva properties inherit hot nahit.
+            Kahi properties naturally inherit hotat,
+            tar kahi properties inherit hot nahit.
+        </p>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+
+                <thead>
+                    <tr>
+                        <th>Inherited Properties</th>
+                        <th>Non-Inherited Properties</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>color</td>
+                        <td>margin</td>
+                    </tr>
+
+                    <tr>
+                        <td>font-family</td>
+                        <td>padding</td>
+                    </tr>
+
+                    <tr>
+                        <td>font-size</td>
+                        <td>border</td>
+                    </tr>
+
+                    <tr>
+                        <td>line-height</td>
+                        <td>width</td>
+                    </tr>
+
+                    <tr>
+                        <td>text-align</td>
+                        <td>height</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Jar non-inherited property child element la
+            dyaychi asel tar ti property child selector
+            madhye explicitly lihavi lagte.
+        </div>
+
+    </section>
+
+
+    <!-- Section 11 -->
+    <section class="lesson-section">
+
+        <h2>11. Practical Example</h2>
+
+        <p>
+            Ata Specificity ani Inheritance donhi concepts
+            ekatra use karun example pahu.
+        </p>
+
+        <h3>HTML Code</h3>
+
+        <div class="code-block">
+            <pre><code>&lt;div class="parent-card"&gt;
+
+    &lt;h2&gt;Welcome&lt;/h2&gt;
+
+    &lt;p class="child-text"&gt;
+        Learning CSS
+    &lt;/p&gt;
+
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.parent-card {
+    color: blue;
+}
+
+.parent-card p {
+    color: green;
+}
+
+.child-text {
+    font-size: 18px;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box">
+            <div class="practical-card">
+                <h2>Welcome</h2>
+                <p>Learning CSS</p>
+            </div>
+        </div>
+
+        <p>
+            Parent cha blue color h2 la inherit hoto.
+            Paragraph la .parent-card p selector mule
+            green color milto. Paragraph cha font-size
+            class selector mule 18px hoto.
+        </p>
+
+    </section>
+
+
+    <!-- Revision -->
+    <section class="lesson-section">
+
+        <h2>12. Important Points</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>Specificity CSS selectors chi priority tharavte.</li>
+                <li>Inline style la normal selector rules peksha jast priority aste.</li>
+                <li>ID selector specificity 100 aste.</li>
+                <li>Class selector specificity 10 aste.</li>
+                <li>Element selector specificity 1 aste.</li>
+                <li>Universal selector chi specificity 0 aste.</li>
+                <li>!important declaration cascade madhye special priority dete.</li>
+                <li>Inheritance mule kahi properties parent kadun child kade pass hotat.</li>
+                <li>color ani font-family naturally inherit hotat.</li>
+                <li>margin ani padding naturally inherit hot nahit.</li>
+            </ul>
+        </div>
+
+    </section>
+
+
+    <!-- Practice Section -->
+    <section class="practice-section">
+
+        <h2>13. Practice Task</h2>
+
+        <div class="task-box">
+
+            <h3>Task: Practice Specificity and Inheritance</h3>
+
+            <p>Ek HTML page tayar kara ani:</p>
+
+            <ol>
+                <li>Ek paragraph element create kara.</li>
+                <li>Tyala element selector ne blue color dya.</li>
+                <li>Tyala class selector ne green color dya.</li>
+                <li>Tyala ID selector ne red color dya.</li>
+                <li>Kontya selector cha color apply hoto te check kara.</li>
+                <li>Parent div la color dya.</li>
+                <li>Tyachya child paragraph la color inherit hoto ka paha.</li>
+                <li>Child paragraph la swatacha color dya ani output check kara.</li>
+            </ol>
+
+        </div>
+
+    </section>
+
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+
+        <a href="{% url 'css_topic' 'variables' %}"
+           class="nav-button previous">
+            ← Previous: CSS Variables
+        </a>
+
+        <a href="{% url 'css_topic' 'best-practices' %}"
+           class="nav-button next">
+            Next: CSS Best Practices →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

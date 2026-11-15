@@ -1,0 +1,761 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}JavaScript Input and Output | Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/javascript/input-output.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+
+    <div class="lesson-header">
+        <span class="lesson-label">JAVASCRIPT DOCUMENTATION • PAGE 07</span>
+
+        <h1>JavaScript Input and Output</h1>
+
+        <p>
+            User kadun data kasa ghyaycha ani program madhil
+            result user la kasa dakhvaycha he JavaScript
+            madhye examples sahit shikuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Beginner Level</span>
+            <span>30–35 Minutes</span>
+        </div>
+    </div>
+
+    <!-- Section 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What is Input and Output?</h2>
+
+        <p>
+            Input mhanje user kadun program sathi data ghene.
+            Output mhanje program cha result user la dakhavne.
+        </p>
+
+        <h3>Real-Life Example:</h3>
+
+        <p>
+            Samaj tu ek calculator vapartoy. Tu calculator madhye
+            don numbers enter kartos, hi input aahe.
+            Calculator tyancha addition result dakhavto,
+            ha output aahe.
+        </p>
+
+        <div class="io-diagram">
+            <div class="io-item">
+                <strong>Input</strong>
+                <span>User data deto</span>
+            </div>
+
+            <div class="io-arrow">→</div>
+
+            <div class="io-item">
+                <strong>Process</strong>
+                <span>JavaScript calculation karte</span>
+            </div>
+
+            <div class="io-arrow">→</div>
+
+            <div class="io-item">
+                <strong>Output</strong>
+                <span>Result display hoto</span>
+            </div>
+        </div>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let a = 10;
+let b = 20;
+
+let result = a + b;
+
+console.log(result);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>30</pre>
+        </div>
+
+    </section>
+
+    <!-- Section 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. console.log()</h2>
+
+        <p>
+            console.log() cha use browser chya Developer Console
+            madhye output display karnyasathi hoto.
+            Debugging ani code testing sathi ha method khup upyogi aahe.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>console.log(value);</code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let name = "Rohan";
+let age = 20;
+
+console.log(name);
+console.log(age);
+console.log("Hello JavaScript");</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Rohan
+20
+Hello JavaScript</pre>
+        </div>
+
+        <h3>Console madhye Output kasa baghaycha?</h3>
+
+        <ol>
+            <li>Browser madhye webpage open kar.</li>
+            <li>Keyboard var F12 press kar.</li>
+            <li>Console tab open kar.</li>
+            <li>JavaScript cha output tithe disel.</li>
+        </ol>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            JavaScript code madhil values check karnyasathi
+            console.log() regular use kar.
+        </div>
+
+    </section>
+
+    <!-- Section 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. alert()</h2>
+
+        <p>
+            alert() cha use browser madhye message popup
+            display karnyasathi hoto.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>alert("Message");</code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>alert("Welcome to JavaScript!");</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <div class="demo-popup">
+                <span class="popup-icon">!</span>
+                <p>Welcome to JavaScript!</p>
+                <span class="popup-button">OK</span>
+            </div>
+            <p class="output-caption">
+                Browser madhye asa popup disel.
+            </p>
+        </div>
+
+        <h3>Practical Example:</h3>
+
+        <pre class="code-block"><code>let name = "Rohan";
+
+alert("Welcome " + name);</code></pre>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            alert() popup user ne OK click kareparyant
+            browser madhil JavaScript execution thambavto.
+            Mhanun tyacha use maryadit thev.
+        </div>
+
+    </section>
+
+    <!-- Section 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. prompt()</h2>
+
+        <p>
+            prompt() cha use user kadun text input ghenyasathi
+            hoto. Browser madhye ek popup open hoto ani user
+            tyamadhye value enter karu shakto.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>prompt("Enter your name");</code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let name = prompt("Enter your name");
+
+console.log(name);</code></pre>
+
+        <h3>Working:</h3>
+
+        <ol>
+            <li>prompt() user la input popup dakhavto.</li>
+            <li>User tyache nav enter karto.</li>
+            <li>Enter kiwa OK click karto.</li>
+            <li>Entered value name variable madhye store hote.</li>
+        </ol>
+
+        <h3>Practical Example:</h3>
+
+        <pre class="code-block"><code>let name = prompt("What is your name?");
+
+alert("Hello " + name);</code></pre>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            prompt() madhun milnari value String aste.
+            User number enter kela tari value String svarupat milte.
+            Cancel click kelyas null milte.
+        </div>
+
+    </section>
+
+    <!-- Section 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. Number() for Numeric Input</h2>
+
+        <p>
+            prompt() madhun milnari value String aste.
+            Mathematical calculation karnyasathi ti Number madhye
+            convert karavi lagte.
+        </p>
+
+        <h3>Wrong Example:</h3>
+
+        <pre class="code-block"><code>let a = prompt("Enter first number");
+let b = prompt("Enter second number");
+
+console.log(a + b);</code></pre>
+
+        <p>
+            User ne 10 ani 20 enter kele tar + operator
+            strings jodto.
+        </p>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>1020</pre>
+        </div>
+
+        <h3>Correct Example:</h3>
+
+        <pre class="code-block"><code>let a = Number(prompt("Enter first number"));
+let b = Number(prompt("Enter second number"));
+
+let result = a + b;
+
+console.log(result);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>30</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Number() vaprun String madhil numeric value
+            Number madhye convert karta yete.
+        </div>
+
+    </section>
+
+    <!-- Section 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. confirm()</h2>
+
+        <p>
+            confirm() cha use user kadun Yes kiwa No type
+            confirmation ghenyasathi hoto.
+        </p>
+
+        <p>
+            Browser madhye OK ani Cancel ase don buttons
+            aslela popup display hoto.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>confirm("Are you sure?");</code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let answer = confirm("Do you want to continue?");
+
+console.log(answer);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>OK click   → true
+Cancel     → false</pre>
+        </div>
+
+        <h3>Practical Example:</h3>
+
+        <pre class="code-block"><code>let answer = confirm("Are you sure?");
+
+if (answer) {
+    alert("You selected OK");
+} else {
+    alert("You selected Cancel");
+}</code></pre>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            confirm() OK click kelyas true ani Cancel click
+            kelyas false return karto.
+        </div>
+
+    </section>
+
+    <!-- Section 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. document.getElementById()</h2>
+
+        <p>
+            document.getElementById() cha use HTML madhil
+            specific id aslela element select karnyasathi hoto.
+            Tyamule JavaScript madhun webpage var output display
+            karta yeto.
+        </p>
+
+        <h3>HTML Code:</h3>
+
+        <pre class="code-block"><code>&lt;h2 id="message"&gt;Old Message&lt;/h2&gt;</code></pre>
+
+        <h3>JavaScript Code:</h3>
+
+        <pre class="code-block"><code>document.getElementById("message").innerText =
+    "Hello Rohan!";</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <h3 class="dom-demo-heading">Hello Rohan!</h3>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li><strong>document:</strong> Current webpage represent karto.</li>
+            <li><strong>getElementById():</strong> ID vaprun HTML element select karto.</li>
+            <li><strong>innerText:</strong> Element madhil visible text change karto.</li>
+        </ul>
+
+    </section>
+
+    <!-- Section 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. innerText and textContent</h2>
+
+        <p>
+            HTML element madhil text read kiwa change
+            karnyasathi innerText ani textContent properties
+            vaparta yetat.
+        </p>
+
+        <h3>innerText Example:</h3>
+
+        <pre class="code-block"><code>document.getElementById("message").innerText =
+    "Welcome!";</code></pre>
+
+        <p>
+            innerText visible text sobat kam karto ani
+            layout nusar hidden text ignore karu shakto.
+        </p>
+
+        <h3>textContent Example:</h3>
+
+        <pre class="code-block"><code>document.getElementById("message").textContent =
+    "Hello JavaScript!";</code></pre>
+
+        <p>
+            textContent element madhil text content access karto.
+            Hidden elements madhil text suddha include hou shakto.
+        </p>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Simple text display kiwa update karnyasathi
+            innerText kiwa textContent vapra.
+        </div>
+
+    </section>
+
+    <!-- Section 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. innerHTML</h2>
+
+        <p>
+            innerHTML cha use HTML element madhye HTML content
+            add kiwa change karnyasathi hoto.
+        </p>
+
+        <h3>HTML Code:</h3>
+
+        <pre class="code-block"><code>&lt;div id="result"&gt;&lt;/div&gt;</code></pre>
+
+        <h3>JavaScript Code:</h3>
+
+        <pre class="code-block"><code>document.getElementById("result").innerHTML =
+    "&lt;h2&gt;Hello Rohan!&lt;/h2&gt;";</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <h2 class="dom-demo-heading">Hello Rohan!</h2>
+        </div>
+
+        <div class="important-box">
+            <strong>Security Warning:</strong>
+            User kadun direct milalela untrusted data
+            innerHTML madhye taklyas XSS security risk nirman hou shakto.
+            User input display karnyasathi textContent prefer kar.
+        </div>
+
+    </section>
+
+    <!-- Section 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. document.write()</h2>
+
+        <p>
+            document.write() cha use webpage madhye direct
+            content write karnyasathi hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>document.write("Hello JavaScript!");</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <p>Hello JavaScript!</p>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Page load zalyanantar document.write() vaparlyas
+            existing webpage overwrite hou shakto.
+            Modern web development madhye DOM methods prefer kara.
+        </div>
+
+    </section>
+
+    <!-- Section 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Practical Example - User Greeting</h2>
+
+        <p>
+            Ata prompt() vaprun user kadun name gheu ani
+            webpage var greeting display karu.
+        </p>
+
+        <h3>HTML Code:</h3>
+
+        <pre class="code-block"><code>&lt;h2 id="greeting"&gt;Welcome!&lt;/h2&gt;
+
+&lt;button onclick="showGreeting()"&gt;
+    Enter Name
+&lt;/button&gt;</code></pre>
+
+        <h3>JavaScript Code:</h3>
+
+        <pre class="code-block"><code>function showGreeting() {
+
+    let name = prompt("Enter your name");
+
+    if (name !== null) {
+
+        document.getElementById("greeting").textContent =
+            "Hello " + name + "!";
+
+    }
+
+}</code></pre>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li><strong>showGreeting():</strong> Greeting function tayar karto.</li>
+            <li><strong>prompt():</strong> User kadun name gheto.</li>
+            <li><strong>name !== null:</strong> User ne Cancel kele nahi he check karto.</li>
+            <li><strong>textContent:</strong> Webpage var greeting display karto.</li>
+        </ul>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <div class="greeting-demo">
+                <h3 id="io-greeting">Welcome!</h3>
+
+                <button type="button" id="io-greeting-button">
+                    Enter Name
+                </button>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Section 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Input and Output Methods Comparison</h2>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Method</th>
+                    <th>Use</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>console.log()</td>
+                    <td>Console madhye output display karto.</td>
+                </tr>
+
+                <tr>
+                    <td>alert()</td>
+                    <td>Message popup display karto.</td>
+                </tr>
+
+                <tr>
+                    <td>prompt()</td>
+                    <td>User kadun text input gheto.</td>
+                </tr>
+
+                <tr>
+                    <td>confirm()</td>
+                    <td>OK kiwa Cancel confirmation gheto.</td>
+                </tr>
+
+                <tr>
+                    <td>innerText</td>
+                    <td>Visible text read kiwa update karto.</td>
+                </tr>
+
+                <tr>
+                    <td>textContent</td>
+                    <td>Element madhil text read kiwa update karto.</td>
+                </tr>
+
+                <tr>
+                    <td>innerHTML</td>
+                    <td>HTML content read kiwa update karto.</td>
+                </tr>
+
+                <tr>
+                    <td>document.write()</td>
+                    <td>Document madhye direct content lihito.</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </section>
+
+    <!-- Section 13 -->
+
+    <section class="lesson-section">
+
+        <h2>13. Common Beginner Mistakes</h2>
+
+        <div class="mistake-card">
+            <strong>Mistake 1: prompt() madhil value direct addition sathi vaprane</strong>
+            <p>
+                prompt() String return karto. Number() vaprun
+                numeric value convert kara.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 2: getElementById() madhye chukiche ID dene</strong>
+            <p>
+                HTML madhil ID ani JavaScript madhil ID
+                same asne avashyak aahe.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 3: console.log() cha output webpage var shodhne</strong>
+            <p>
+                console.log() cha output browser Developer Console madhye disato.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 4: prompt() madhil Cancel ignore karne</strong>
+            <p>
+                Cancel click kelyas null milte.
+                Garaj aslyas null check kara.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 5: Untrusted input innerHTML madhye takne</strong>
+            <p>
+                User input display karnyasathi textContent vapra.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- Section 14 -->
+
+    <section class="lesson-section">
+
+        <h2>14. Quick Revision</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>Input mhanje user kadun data ghene.</li>
+                <li>Output mhanje result display karne.</li>
+                <li>console.log() console madhye output dakhavto.</li>
+                <li>alert() message popup dakhavto.</li>
+                <li>prompt() user kadun String input gheto.</li>
+                <li>confirm() true kiwa false return karto.</li>
+                <li>Number() String value la Number madhye convert karto.</li>
+                <li>getElementById() HTML element select karto.</li>
+                <li>innerText ani textContent text update kartat.</li>
+                <li>innerHTML HTML content update karto.</li>
+                <li>Untrusted input sathi textContent prefer kara.</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <!-- Section 15 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>15. Practice Questions</h2>
+
+        <h3>Basic Questions</h3>
+
+        <ol>
+            <li>Input ani Output mhanje kay?</li>
+            <li>console.log() cha use kay aahe?</li>
+            <li>alert() method kay karto?</li>
+            <li>prompt() cha use kay aahe?</li>
+            <li>confirm() kontya values return karto?</li>
+            <li>prompt() madhun kontya data type chi value milte?</li>
+            <li>Number() cha use kay aahe?</li>
+            <li>getElementById() kay karto?</li>
+            <li>innerText ani textContent madhye kay difference aahe?</li>
+            <li>innerHTML vapartana konti security kalji ghyavi?</li>
+        </ol>
+
+        <h3>Practical Questions</h3>
+
+        <ol>
+            <li>console.log() vaprun tuzhe nav display kar.</li>
+            <li>alert() vaprun Welcome message display kar.</li>
+            <li>prompt() vaprun user kadun name ghe.</li>
+            <li>confirm() vaprun user kadun confirmation ghe.</li>
+            <li>prompt() vaprun don numbers ghe ani addition kar.</li>
+            <li>getElementById() vaprun heading cha text change kar.</li>
+            <li>textContent vaprun webpage var message display kar.</li>
+        </ol>
+
+        <div class="task-box">
+
+            <h3>Mini Task: User Information Program</h3>
+
+            <p>
+                JavaScript vaprun user information program tayar kar.
+            </p>
+
+            <ul>
+                <li>prompt() vaprun user kadun name ghe.</li>
+                <li>prompt() vaprun user kadun age ghe.</li>
+                <li>Number() vaprun age convert kar.</li>
+                <li>console.log() vaprun name ani age display kar.</li>
+                <li>alert() vaprun welcome message display kar.</li>
+                <li>Webpage var textContent vaprun user details display kar.</li>
+            </ul>
+
+            <p>
+                File name: <strong>javascript_input_output.js</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Navigation -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'javascript_topic' 'operators' %}"
+           class="nav-button previous-button">
+            ← Previous: JavaScript Operators
+        </a>
+
+        <a href="{% url 'javascript_topic' 'conditions' %}"
+           class="nav-button next-button">
+            Next: Conditional Statements →
+        </a>
+
+    </div>
+
+</div>
+
+<script>
+    const greetingButton = document.getElementById("io-greeting-button");
+    const greetingOutput = document.getElementById("io-greeting");
+
+    greetingButton.addEventListener("click", function () {
+
+        const name = prompt("Enter your name");
+
+        if (name !== null) {
+            greetingOutput.textContent = name.trim()
+                ? "Hello " + name + "!"
+                : "Please enter your name.";
+        }
+
+    });
+</script>
+
+{% endblock %}

@@ -1,0 +1,826 @@
+
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}Python Conditions | Roman Marathi Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/python/conditions.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">PYTHON • LESSON 16</span>
+        <h1>Python Conditions</h1>
+        <p>
+            Conditions cha use program madhye decision ghenyasathi hoto.
+            Condition True kiwa False aahe yavarun code execute hoto.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Level: Beginner</span>
+            <span>⏱️ Time: 35–45 Minutes</span>
+        </div>
+    </div>
+
+    <!-- 1. Introduction -->
+    <section class="lesson-section">
+        <h2>1. What are Conditions?</h2>
+
+        <p>
+            Python madhye Conditions cha use specific condition check
+            karun decision ghenyasathi hoto.
+        </p>
+
+        <p>
+            Udaharanarth, student che marks 35 kiwa tyapeksha jast
+            astil tar student Pass, nahitar Fail.
+        </p>
+
+        <pre><code>marks = 60
+
+if marks >= 35:
+    print("Pass")</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Pass</pre>
+        </div>
+
+        <div class="info-box">
+            <strong>Samjun ghe:</strong>
+            <code>marks >= 35</code> hi condition check hote.
+            Condition True aslyamule print() execute hote.
+        </div>
+    </section>
+
+    <!-- 2. Types -->
+    <section class="lesson-section">
+        <h2>2. Types of Conditional Statements</h2>
+
+        <p>Python madhye mainly khalil conditional statements vapartat:</p>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Statement</th>
+                        <th>Use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>if</td>
+                        <td>Condition True asel tevha code execute karto.</td>
+                    </tr>
+                    <tr>
+                        <td>if-else</td>
+                        <td>True ani False sathi vegvegla code execute karto.</td>
+                    </tr>
+                    <tr>
+                        <td>if-elif-else</td>
+                        <td>Anek conditions check karto.</td>
+                    </tr>
+                    <tr>
+                        <td>Nested if</td>
+                        <td>Ek if statement chya aat dusra if vaparto.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 3. if -->
+    <section class="lesson-section">
+        <h2>3. if Statement</h2>
+
+        <p>
+            <code>if</code> statement cha use ek condition check
+            karnyasathi hoto.
+        </p>
+
+        <p>
+            Condition True asel tar if chya aatil code execute hoto.
+            False asel tar to code skip hoto.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre><code>if condition:
+    # Code to execute</code></pre>
+
+        <h3>Example</h3>
+
+        <pre><code>age = 20
+
+if age >= 18:
+    print("You can vote")</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>You can vote</pre>
+        </div>
+
+        <h3>Condition False Example</h3>
+
+        <pre><code>age = 15
+
+if age >= 18:
+    print("You can vote")
+
+print("Program completed")</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Program completed</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            if nantar colon <code>:</code> dene avashyak aahe.
+            if chya aatil code la indentation (usually 4 spaces)
+            dene suddha avashyak aahe.
+        </div>
+    </section>
+
+    <!-- 4. if else -->
+    <section class="lesson-section">
+        <h2>4. if-else Statement</h2>
+
+        <p>
+            <code>if-else</code> cha use don possible conditions madhun
+            ek result select karnyasathi hoto.
+        </p>
+
+        <p>
+            Condition True asel tar if block execute hoto.
+            Condition False asel tar else block execute hoto.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre><code>if condition:
+    # True code
+else:
+    # False code</code></pre>
+
+        <h3>Example – Pass or Fail</h3>
+
+        <pre><code>marks = 30
+
+if marks >= 35:
+    print("Pass")
+else:
+    print("Fail")</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Fail</pre>
+        </div>
+
+        <h3>Example – Even or Odd</h3>
+
+        <pre><code>number = 8
+
+if number % 2 == 0:
+    print("Even Number")
+else:
+    print("Odd Number")</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Even Number</pre>
+        </div>
+
+        <div class="info-box">
+            <strong>Samjun ghe:</strong>
+            <code>%</code> ha modulus operator aahe.
+            Number la 2 ne divide kelyavar remainder 0 asel tar
+            number Even asto, nahitar Odd asto.
+        </div>
+    </section>
+
+    <!-- 5. elif -->
+    <section class="lesson-section">
+        <h2>5. if-elif-else Statement</h2>
+
+        <p>
+            Aplyala ekapeksha jast conditions check karaychya astil
+            tar <code>elif</code> vapartat.
+        </p>
+
+        <p>
+            Python conditions ek-ek karun check karto.
+            Pahili True condition sapadlyavar ticha block execute hoto
+            ani urlelya conditions skip hotat.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre><code>if condition1:
+    # Code 1
+elif condition2:
+    # Code 2
+elif condition3:
+    # Code 3
+else:
+    # Default code</code></pre>
+
+        <h3>Example – Grade System</h3>
+
+        <pre><code>marks = 85
+
+if marks >= 90:
+    print("Grade A")
+elif marks >= 75:
+    print("Grade B")
+elif marks >= 60:
+    print("Grade C")
+elif marks >= 35:
+    print("Pass")
+else:
+    print("Fail")</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Grade B</pre>
+        </div>
+
+        <h3>Another Example – Positive, Negative or Zero</h3>
+
+        <pre><code>number = -5
+
+if number > 0:
+    print("Positive")
+elif number < 0:
+    print("Negative")
+else:
+    print("Zero")</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Negative</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            if-elif-else madhye else optional aahe.
+            Sarva conditions False astil ani else available asel
+            tar else execute hoto.
+        </div>
+    </section>
+
+    <!-- 6. Nested if -->
+    <section class="lesson-section">
+        <h2>6. Nested if Statement</h2>
+
+        <p>
+            Ek if statement chya aat dusra if statement lihila
+            tar tyala Nested if mhantat.
+        </p>
+
+        <p>
+            Pahili condition True zalyanantar dusri condition check
+            karaychi asel tar Nested if useful aahe.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre><code>if condition1:
+    if condition2:
+        # Code to execute</code></pre>
+
+        <h3>Example – Voting Eligibility</h3>
+
+        <pre><code>age = 20
+has_voter_id = True
+
+if age >= 18:
+    if has_voter_id:
+        print("You can vote")
+    else:
+        print("Voter ID required")
+else:
+    print("You are too young")</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>You can vote</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Nested if madhye indentation khup important aahe.
+            Inner if cha code outer if peksha adhik indent karava lagto.
+        </div>
+    </section>
+
+    <!-- 7. Comparison -->
+    <section class="lesson-section">
+        <h2>7. Comparison Operators in Conditions</h2>
+
+        <p>
+            Conditions madhye don values compare karnyasathi
+            Comparison Operators vapartat.
+        </p>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Operator</th>
+                        <th>Meaning</th>
+                        <th>Example</th>
+                        <th>Result</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>==</td><td>Equal</td><td>10 == 10</td><td>True</td></tr>
+                    <tr><td>!=</td><td>Not Equal</td><td>10 != 5</td><td>True</td></tr>
+                    <tr><td>&gt;</td><td>Greater Than</td><td>10 &gt; 5</td><td>True</td></tr>
+                    <tr><td>&lt;</td><td>Less Than</td><td>5 &lt; 10</td><td>True</td></tr>
+                    <tr><td>&gt;=</td><td>Greater or Equal</td><td>10 &gt;= 10</td><td>True</td></tr>
+                    <tr><td>&lt;=</td><td>Less or Equal</td><td>5 &lt;= 10</td><td>True</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Example</h3>
+
+        <pre><code>age = 20
+
+if age == 20:
+    print("Age is 20")
+
+if age != 18:
+    print("Age is not 18")</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Age is 20
+Age is not 18</pre>
+        </div>
+    </section>
+
+    <!-- 8. Logical -->
+    <section class="lesson-section">
+        <h2>8. Logical Operators in Conditions</h2>
+
+        <p>
+            Ekach condition madhye anek conditions check karnyasathi
+            Logical Operators vapartat.
+        </p>
+
+        <h3>and Operator</h3>
+
+        <p>
+            Donhi conditions True astil tarch result True milto.
+        </p>
+
+        <pre><code>age = 20
+has_id = True
+
+if age >= 18 and has_id:
+    print("Entry Allowed")
+else:
+    print("Entry Denied")</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Entry Allowed</pre>
+        </div>
+
+        <h3>or Operator</h3>
+
+        <p>
+            Don paiki kontihi ek condition True asel tar result True milto.
+        </p>
+
+        <pre><code>day = "Sunday"
+
+if day == "Saturday" or day == "Sunday":
+    print("Holiday")
+else:
+    print("Working Day")</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Holiday</pre>
+        </div>
+
+        <h3>not Operator</h3>
+
+        <p>
+            not operator condition cha result ulta karto.
+            True la False ani False la True karto.
+        </p>
+
+        <pre><code>is_raining = False
+
+if not is_raining:
+    print("You can go outside")</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>You can go outside</pre>
+        </div>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Operator</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>and</td><td>All conditions True pahijet.</td></tr>
+                    <tr><td>or</td><td>At least one condition True pahije.</td></tr>
+                    <tr><td>not</td><td>Condition cha result reverse karto.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 9. Multiple Conditions -->
+    <section class="lesson-section">
+        <h2>9. Multiple Conditions</h2>
+
+        <p>
+            Aapan ekach if statement madhye multiple conditions
+            combine karu shakto.
+        </p>
+
+        <h3>Example – Age and Marks</h3>
+
+        <pre><code>age = 20
+marks = 80
+
+if age >= 18 and marks >= 35:
+    print("Eligible")
+else:
+    print("Not Eligible")</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Eligible</pre>
+        </div>
+
+        <h3>Example – Number Range</h3>
+
+        <pre><code>number = 15
+
+if number >= 10 and number <= 20:
+    print("Number is between 10 and 20")
+else:
+    print("Number is outside the range")</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Number is between 10 and 20</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Python madhye range check karnyasathi
+            <code>10 <= number <= 20</code> ase suddha lihita yete.
+        </div>
+    </section>
+
+    <!-- 10. Ternary -->
+    <section class="lesson-section">
+        <h2>10. Short-Hand if-else (Ternary Operator)</h2>
+
+        <p>
+            Simple if-else condition ekach line madhye lihaychi asel
+            tar conditional expression vaparta yete.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre><code>value_if_true if condition else value_if_false</code></pre>
+
+        <h3>Example</h3>
+
+        <pre><code>age = 20
+
+result = "Adult" if age >= 18 else "Minor"
+
+print(result)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Adult</pre>
+        </div>
+
+        <div class="info-box">
+            <strong>Note:</strong>
+            Ternary expression simple conditions sathi useful aahe.
+            Complex conditions sathi normal if-else vaprane changle.
+        </div>
+    </section>
+
+    <!-- 11. Truthy Falsy -->
+    <section class="lesson-section">
+        <h2>11. Truthy and Falsy Values</h2>
+
+        <p>
+            Python madhye kahi values condition madhye directly vaparlya
+            tar False samajlya jatat, tar bahutek non-empty values True
+            samajlya jatat.
+        </p>
+
+        <h3>Falsy Values</h3>
+
+        <ul>
+            <li><code>False</code></li>
+            <li><code>None</code></li>
+            <li><code>0</code> ani <code>0.0</code></li>
+            <li>Empty String <code>""</code></li>
+            <li>Empty List <code>[]</code></li>
+            <li>Empty Tuple <code>()</code></li>
+            <li>Empty Dictionary <code>{}</code></li>
+            <li>Empty Set <code>set()</code></li>
+        </ul>
+
+        <h3>Example – Empty List</h3>
+
+        <pre><code>students = []
+
+if students:
+    print("Students Available")
+else:
+    print("No Students Found")</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>No Students Found</pre>
+        </div>
+
+        <h3>Example – Non-empty List</h3>
+
+        <pre><code>students = ["Rohan", "Amit"]
+
+if students:
+    print("Students Available")
+else:
+    print("No Students Found")</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Students Available</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Empty collection False aste. Non-empty collection True aste.
+            He check kartana len() vaparnyachi garaj naste.
+        </div>
+    </section>
+
+    <!-- 12. Pass -->
+    <section class="lesson-section">
+        <h2>12. pass Statement</h2>
+
+        <p>
+            <code>pass</code> statement cha use empty code block
+            temporary thevnyasathi hoto.
+        </p>
+
+        <pre><code>age = 20
+
+if age >= 18:
+    pass
+
+print("Program completed")</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Program completed</pre>
+        </div>
+
+        <p>
+            pass mule kontihi action hot nahi. To fakt empty block mule
+            yenari syntax error talto.
+        </p>
+    </section>
+
+    <!-- 13. Common Mistakes -->
+    <section class="lesson-section">
+        <h2>13. Common Beginner Mistakes</h2>
+
+        <div class="error-card">
+            <h3>Mistake 1: Colon Missing</h3>
+
+            <pre><code>age = 20
+
+if age >= 18
+    print("Adult")</code></pre>
+
+            <p>
+                if condition nantar colon dene avashyak aahe.
+            </p>
+
+            <pre><code>if age >= 18:
+    print("Adult")</code></pre>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 2: Wrong Indentation</h3>
+
+            <pre><code>age = 20
+
+if age >= 18:
+print("Adult")</code></pre>
+
+            <p>
+                if chya aatil code la indentation dene avashyak aahe.
+            </p>
+
+            <pre><code>if age >= 18:
+    print("Adult")</code></pre>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 3: Using = Instead of ==</h3>
+
+            <pre><code>number = 10
+
+if number = 10:
+    print("Equal")</code></pre>
+
+            <p>
+                Comparison sathi == vapartat. = ha assignment operator aahe.
+            </p>
+
+            <pre><code>if number == 10:
+    print("Equal")</code></pre>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 4: Wrong Condition Order</h3>
+
+            <pre><code>marks = 90
+
+if marks >= 35:
+    print("Pass")
+elif marks >= 90:
+    print("Grade A")</code></pre>
+
+            <p>
+                90 marks asun suddha pahili condition True hote,
+                tyamule Grade A block execute hot nahi.
+                More specific condition aadhi check kar.
+            </p>
+
+            <pre><code>if marks >= 90:
+    print("Grade A")
+elif marks >= 35:
+    print("Pass")
+else:
+    print("Fail")</code></pre>
+        </div>
+    </section>
+
+    <!-- 14. Revision -->
+    <section class="lesson-section">
+        <h2>14. Quick Revision</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Concept</th>
+                        <th>Use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>if</td><td>Ek condition check karto.</td></tr>
+                    <tr><td>else</td><td>if False asel tar execute hoto.</td></tr>
+                    <tr><td>elif</td><td>Additional condition check karto.</td></tr>
+                    <tr><td>Nested if</td><td>if chya aat dusra if vaparto.</td></tr>
+                    <tr><td>and</td><td>Donhi conditions True pahijet.</td></tr>
+                    <tr><td>or</td><td>Ek condition True asali tari chalte.</td></tr>
+                    <tr><td>not</td><td>Boolean result reverse karto.</td></tr>
+                    <tr><td>pass</td><td>Empty block temporary thevto.</td></tr>
+                    <tr><td>Ternary</td><td>Short-hand if-else expression.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 15. Practice -->
+    <section class="practice-section">
+        <h2>15. Practice Questions</h2>
+
+        <p>
+            Khalil questions swatah code lihun solve kar.
+            Pratyek question madhye condition cha logic samjun ghe.
+        </p>
+
+        <div class="practice-task">
+            <h3>Question 1</h3>
+            <p>Number 10 peksha motha asel tar Greater print kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 2</h3>
+            <p>Student marks 35 kiwa tyapeksha jast astil tar Pass, nahitar Fail print kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 3</h3>
+            <p>Number Even aahe ki Odd te check kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 4</h3>
+            <p>Number Positive, Negative kiwa Zero aahe te check kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 5</h3>
+            <p>Age nusar Child, Teenager kiwa Adult print kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 6</h3>
+            <p>Marks nusar A, B, C Grade kiwa Fail print kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 7</h3>
+            <p>Number 10 te 50 ya range madhye aahe ka te check kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 8</h3>
+            <p>and operator vaprun age ani voter ID check kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 9</h3>
+            <p>Nested if vaprun login eligibility check kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 10</h3>
+            <p>Ternary expression vaprun number Even kiwa Odd print kar.</p>
+        </div>
+    </section>
+
+    <!-- 16. Practical Task -->
+    <section class="lesson-section">
+        <h2>16. Practical Task – Simple Login System</h2>
+
+        <p>
+            Username ani password check karun simple login system tayar kar.
+            Donhi correct astil tar Login Successful print kar.
+        </p>
+
+        <pre><code>username = "rohan"
+password = "python123"
+
+if username == "rohan":
+    if password == "python123":
+        print("Login Successful")
+    else:
+        print("Wrong Password")
+else:
+    print("User Not Found")</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Login Successful</pre>
+        </div>
+
+        <p>
+            Ya practical madhye if, nested if ani comparison operators
+            vaprale aahet.
+        </p>
+
+        <div class="tip-box">
+            <strong>Practice Challenge:</strong>
+            Username ani password vegvegale values karun program test kar.
+            Wrong username ani wrong password asel tevha kay output yeto
+            te swatah check kar.
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+        <a href="{% url 'python_topic' 'dictionaries' %}" class="nav-button back-button">
+            ← Previous: Dictionaries
+        </a>
+
+        <a href="{% url 'python_topic' 'loops' %}" class="nav-button next-button">
+            Next: Loops →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,536 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}JavaScript Arrow Functions | Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/javascript/arrow-functions.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+
+    <div class="lesson-header">
+        <span class="lesson-label">JAVASCRIPT DOCUMENTATION • PAGE 11</span>
+
+        <h1>JavaScript Arrow Functions</h1>
+
+        <p>
+            Arrow Function hi JavaScript madhye function lihinyachi
+            short syntax aahe. Ya lesson madhye arrow function,
+            parameters, return ani tyache practical uses shikuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Beginner Level</span>
+            <span>25–30 Minutes</span>
+        </div>
+    </div>
+
+    <!-- Section 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What is an Arrow Function?</h2>
+
+        <p>
+            Arrow Function hi normal function lihinyachi short
+            syntax aahe. Arrow Function madhye => ya arrow symbol
+            cha use hoto.
+        </p>
+
+        <h3>Normal Function:</h3>
+
+        <pre class="code-block"><code>function greet() {
+    console.log("Hello Rohan");
+}
+
+greet();</code></pre>
+
+        <h3>Arrow Function:</h3>
+
+        <pre class="code-block"><code>const greet = () => {
+    console.log("Hello Rohan");
+};
+
+greet();</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Hello Rohan</pre>
+        </div>
+
+        <div class="info-box">
+            <strong>Simple Definition:</strong>
+            => symbol vaprun function lihinyachya short syntax la
+            Arrow Function mhantat.
+        </div>
+
+    </section>
+
+    <!-- Section 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Arrow Function Syntax</h2>
+
+        <p>
+            Arrow Function madhye const kiwa let vaprun function
+            variable madhye store karta yeto.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>const functionName = () => {
+    // Code to execute
+};</code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>const welcome = () => {
+    console.log("Welcome to JavaScript");
+};
+
+welcome();</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Welcome to JavaScript</pre>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li><strong>const:</strong> Function variable declare karto.</li>
+            <li><strong>welcome:</strong> Function che name.</li>
+            <li><strong>():</strong> Parameters lihinyasathi.</li>
+            <li><strong>=></strong> Arrow symbol.</li>
+            <li><strong>{ }:</strong> Function cha code block.</li>
+            <li><strong>welcome():</strong> Function call karto.</li>
+        </ul>
+
+    </section>
+
+    <!-- Section 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. Arrow Function with Parameters</h2>
+
+        <p>
+            Normal function pramane Arrow Function madhye suddha
+            parameters ani arguments pass karta yetat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>const greet = (name) => {
+    console.log("Hello " + name);
+};
+
+greet("Rohan");
+greet("Amit");</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Hello Rohan
+Hello Amit</pre>
+        </div>
+
+        <h3>Multiple Parameters:</h3>
+
+        <pre class="code-block"><code>const add = (a, b) => {
+    console.log(a + b);
+};
+
+add(10, 20);
+add(5, 15);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>30
+20</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Multiple parameters astil tar parentheses () vaprane
+            avashyak aahe.
+        </div>
+
+    </section>
+
+    <!-- Section 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. Single Parameter Arrow Function</h2>
+
+        <p>
+            Fakt ek parameter asel tar parentheses () vaprane
+            optional aahe.
+        </p>
+
+        <h3>With Parentheses:</h3>
+
+        <pre class="code-block"><code>const square = (number) => {
+    return number * number;
+};
+
+console.log(square(5));</code></pre>
+
+        <h3>Without Parentheses:</h3>
+
+        <pre class="code-block"><code>const square = number => {
+    return number * number;
+};
+
+console.log(square(5));</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>25</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Ek parameter asel tar parentheses optional aahet.
+            Zero kiwa multiple parameters astil tar () vaprave lagtat.
+        </div>
+
+    </section>
+
+    <!-- Section 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. Implicit Return</h2>
+
+        <p>
+            Arrow Function madhye fakt ek expression return
+            karaycha asel tar return keyword ani curly brackets
+            {} skip karta yetat.
+        </p>
+
+        <h3>Normal Return:</h3>
+
+        <pre class="code-block"><code>const add = (a, b) => {
+    return a + b;
+};
+
+console.log(add(10, 20));</code></pre>
+
+        <h3>Implicit Return:</h3>
+
+        <pre class="code-block"><code>const add = (a, b) => a + b;
+
+console.log(add(10, 20));</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>30</pre>
+        </div>
+
+        <h3>Another Example:</h3>
+
+        <pre class="code-block"><code>const square = number => number * number;
+
+console.log(square(6));</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>36</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Curly brackets {} vaparlyas explicit return lihava lagto.
+            Curly brackets naslyas expression automatically return hote.
+        </div>
+
+    </section>
+
+    <!-- Section 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. Arrow Function with Multiple Statements</h2>
+
+        <p>
+            Function madhye anek statements astil tar curly
+            brackets ani return keyword vaprave lagtat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>const calculate = (a, b) => {
+
+    let sum = a + b;
+
+    let result = sum * 2;
+
+    return result;
+};
+
+console.log(calculate(10, 5));</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>30</pre>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>Function don values accept karto.</li>
+            <li>sum madhye donhi values add hotat.</li>
+            <li>result madhye sum la 2 ne multiply kele jate.</li>
+            <li>return result final value parat karto.</li>
+        </ul>
+
+    </section>
+
+    <!-- Section 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. Arrow Function vs Normal Function</h2>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Normal Function</th>
+                    <th>Arrow Function</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>function keyword vaparto.</td>
+                    <td>=&gt; symbol vaparto.</td>
+                </tr>
+
+                <tr>
+                    <td>Syntax comparatively mothi aste.</td>
+                    <td>Syntax short aste.</td>
+                </tr>
+
+                <tr>
+                    <td>Swatacha this context asto.</td>
+                    <td>this surrounding scope madhun gheto.</td>
+                </tr>
+
+                <tr>
+                    <td>Constructor mhanun use karta yeto.</td>
+                    <td>Constructor mhanun use karta yet nahi.</td>
+                </tr>
+
+                <tr>
+                    <td>Function declaration ani expression donhi shakya.</td>
+                    <td>Sahasa variable madhye store karto.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Arrow Function ha normal function cha fakt shorter
+            replacement nahi. this ani constructor behavior vegle
+            aslyamule yogya situation madhye yogya function vapra.
+        </div>
+
+    </section>
+
+    <!-- Section 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. Where are Arrow Functions Used?</h2>
+
+        <p>
+            Arrow Functions cha use JavaScript madhye anek thikani
+            hoto. Visheshatah callbacks ani array methods madhye.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let numbers = [10, 20, 30];
+
+numbers.forEach(number => {
+    console.log(number);
+});</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>10
+20
+30</pre>
+        </div>
+
+        <p>
+            forEach() madhye arrow function callback mhanun
+            pass kela aahe. Array madhil pratyek value sathi
+            ha callback execute hoto.
+        </p>
+
+        <div class="tip-box">
+            <strong>Backend Relevance:</strong>
+            Array methods, data processing ani asynchronous
+            callbacks madhye Arrow Functions upyogi padtat.
+        </div>
+
+    </section>
+
+    <!-- Section 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Common Beginner Mistakes</h2>
+
+        <div class="mistake-card">
+            <strong>Mistake 1: Arrow symbol visarne</strong>
+            <p>
+                Arrow Function madhye => symbol vaprane avashyak aahe.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 2: Implicit return madhye curly brackets vaprane</strong>
+            <p>
+                Curly brackets vaparlyas return keyword lihava lagto.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 3: Multiple parameters sathi parentheses skip karne</strong>
+            <p>
+                Multiple parameters astil tar parentheses () avashyak aahet.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 4: Function call karayla visarne</strong>
+            <p>
+                Function execute karnyasathi tyala call karave lagte.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 5: Arrow Function la constructor samajne</strong>
+            <p>
+                Arrow Function sobat new keyword vaprun object
+                create karta yet nahi.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- Section 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Quick Revision</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>Arrow Function hi function lihinyachi short syntax aahe.</li>
+                <li>Arrow Function madhye =&gt; symbol vapartat.</li>
+                <li>Function variable madhye store karta yeto.</li>
+                <li>Parameters ani arguments pass karta yetat.</li>
+                <li>Single parameter asel tar parentheses optional aahet.</li>
+                <li>Implicit return madhye return keyword skip karta yeto.</li>
+                <li>Multiple statements sathi {} ani return vapartat.</li>
+                <li>Arrow Function cha this context lexical asto.</li>
+                <li>Arrow Functions callbacks madhye upyogi aahet.</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <!-- Section 11 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>11. Practice Questions</h2>
+
+        <h3>Basic Questions</h3>
+
+        <ol>
+            <li>Arrow Function mhanje kay?</li>
+            <li>Arrow Function madhye konta symbol vapartat?</li>
+            <li>Normal Function ani Arrow Function madhye kay difference aahe?</li>
+            <li>Single parameter sathi parentheses optional aahet ka?</li>
+            <li>Implicit Return mhanje kay?</li>
+            <li>Multiple statements sathi kay vaprave lagte?</li>
+            <li>Arrow Function madhil this context kasa asto?</li>
+        </ol>
+
+        <h3>Practical Questions</h3>
+
+        <ol>
+            <li>greet() navacha Arrow Function tayar kar.</li>
+            <li>Don numbers accept karun addition return kar.</li>
+            <li>Single parameter vaprun square calculate kar.</li>
+            <li>Implicit return vaprun multiplication kar.</li>
+            <li>Arrow Function vaprun number Even kiwa Odd check kar.</li>
+            <li>forEach() vaprun array madhil numbers print kar.</li>
+        </ol>
+
+        <div class="task-box">
+
+            <h3>Mini Task: Arrow Function Calculator</h3>
+
+            <p>
+                Arrow Functions vaprun simple calculator tayar kar.
+            </p>
+
+            <ul>
+                <li>add(a, b) Arrow Function tayar kar.</li>
+                <li>subtract(a, b) Arrow Function tayar kar.</li>
+                <li>multiply(a, b) Arrow Function tayar kar.</li>
+                <li>divide(a, b) Arrow Function tayar kar.</li>
+                <li>Pratyek function madhun result return kar.</li>
+                <li>Division kartana zero check kar.</li>
+                <li>Console madhye sarva results display kar.</li>
+            </ul>
+
+            <p>
+                File name: <strong>javascript_arrow_functions.js</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Navigation -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'javascript_topic' 'functions' %}"
+           class="nav-button previous-button">
+            ← Previous: JavaScript Functions
+        </a>
+
+        <a href="{% url 'javascript_topic' 'arrays' %}"
+           class="nav-button next-button">
+            Next: JavaScript Arrays →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

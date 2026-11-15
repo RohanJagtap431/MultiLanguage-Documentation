@@ -1,0 +1,501 @@
+
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}CSS Position Property | Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/css/position.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+    <div class="lesson-header">
+        <span class="lesson-label">CSS TUTORIAL</span>
+
+        <h1>CSS Position Property</h1>
+
+        <p>
+            CSS Position property cha use HTML elements
+            webpage var specific location la place
+            karanyasathi hoto.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 25 Minutes</span>
+            <span>📄 Page 14</span>
+        </div>
+    </div>
+
+
+    <!-- Section 1 -->
+    <section class="lesson-section">
+
+        <h2>1. Introduction to Position</h2>
+
+        <p>
+            Normal webpage layout madhye HTML elements
+            tyanchya default order nusar display hotat.
+            CSS position property vaprun aapan elements
+            chi position change karu shakto.
+        </p>
+
+        <div class="info-box">
+            <strong>Definition:</strong>
+            The CSS position property specifies how an
+            element is positioned in a webpage.
+        </div>
+
+        <h3>Position Values</h3>
+
+        <ul>
+            <li>static</li>
+            <li>relative</li>
+            <li>absolute</li>
+            <li>fixed</li>
+            <li>sticky</li>
+        </ul>
+
+    </section>
+
+
+    <!-- Section 2 -->
+    <section class="lesson-section">
+
+        <h2>2. Position: Static</h2>
+
+        <p>
+            static hi HTML elements chi default position
+            aste. Element normal document flow madhye
+            display hoto.
+        </p>
+
+        <p>
+            Static element var top, right, bottom ani
+            left properties cha effect hot nahi.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    position: static;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box static-output">
+            <div class="static-item">Static Element 1</div>
+            <div class="static-item">Static Element 2</div>
+            <div class="static-item">Static Element 3</div>
+        </div>
+
+    </section>
+
+
+    <!-- Section 3 -->
+    <section class="lesson-section">
+
+        <h2>3. Position: Relative</h2>
+
+        <p>
+            relative position mule element tyachya
+            original position chya reference ne
+            move karta yeto.
+        </p>
+
+        <p>
+            Element move zala tari tyachi original
+            layout space reserve rahate.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    position: relative;
+    top: 20px;
+    left: 30px;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box relative-output">
+            <div class="relative-placeholder">
+                Original Position
+            </div>
+
+            <div class="relative-demo">
+                Relative Element
+            </div>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Relative position cha use absolute
+            positioned child element sathi reference
+            container tayar karanyasathi suddha hoto.
+        </div>
+
+    </section>
+
+
+    <!-- Section 4 -->
+    <section class="lesson-section">
+
+        <h2>4. Position: Absolute</h2>
+
+        <p>
+            absolute position mule element normal
+            document flow madhun baher yeto ani
+            tyachya nearest positioned ancestor
+            chya reference ne place hoto.
+        </p>
+
+        <p>
+            Positioned ancestor nasel tar element
+            initial containing block chya reference
+            ne position hoto.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.parent {
+    position: relative;
+}
+
+.child {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box absolute-output">
+            <div class="absolute-parent">
+                Parent Container
+
+                <div class="absolute-child">
+                    Absolute Box
+                </div>
+            </div>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Absolute element normal layout madhye
+            space reserve karat nahi.
+        </div>
+
+    </section>
+
+
+    <!-- Section 5 -->
+    <section class="lesson-section">
+
+        <h2>5. Position: Fixed</h2>
+
+        <p>
+            fixed position mule element viewport
+            chya reference ne position hoto.
+        </p>
+
+        <p>
+            Page scroll kela tari element tyach
+            position var rahato.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box fixed-output">
+            <p>
+                Fixed elements viewport chya reference
+                ne position hotat.
+            </p>
+
+            <div class="fixed-demo">
+                Fixed Example
+            </div>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Fixed position cha use floating buttons,
+            chat buttons ani back-to-top buttons
+            tayar karanyasathi hoto.
+        </div>
+
+    </section>
+
+
+    <!-- Section 6 -->
+    <section class="lesson-section">
+
+        <h2>6. Position: Sticky</h2>
+
+        <p>
+            sticky position mule element suruvatila
+            normal flow madhye rahato. Scroll kartana
+            specified offset paryant pohachlyavar
+            to stick hoto.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.heading {
+    position: sticky;
+    top: 0;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box sticky-output">
+            <div class="sticky-demo">
+                Sticky Heading
+            </div>
+
+            <div class="sticky-content">
+                <p>Content Line 1</p>
+                <p>Content Line 2</p>
+                <p>Content Line 3</p>
+                <p>Content Line 4</p>
+                <p>Content Line 5</p>
+                <p>Content Line 6</p>
+                <p>Content Line 7</p>
+            </div>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Sticky element sathi top, bottom,
+            left kiwa right madhil yogya offset
+            set karne avashyak aste. Parent container
+            madhil scrolling ani overflow settings
+            suddha sticky behavior var effect karu shaktat.
+        </div>
+
+    </section>
+
+
+    <!-- Section 7 -->
+    <section class="lesson-section">
+
+        <h2>7. Top, Right, Bottom and Left</h2>
+
+        <p>
+            top, right, bottom ani left properties
+            positioned element chi location set
+            karanyasathi vapartat.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    position: relative;
+    top: 10px;
+    right: 15px;
+    bottom: 20px;
+    left: 25px;
+}</code></pre>
+        </div>
+
+        <h3>Properties</h3>
+
+        <ul>
+            <li><strong>top:</strong> Top side pasun offset set karte.</li>
+            <li><strong>right:</strong> Right side pasun offset set karte.</li>
+            <li><strong>bottom:</strong> Bottom side pasun offset set karte.</li>
+            <li><strong>left:</strong> Left side pasun offset set karte.</li>
+        </ul>
+
+        <div class="info-box">
+            <strong>Lakshat Thev:</strong>
+            Ya offset properties cha effect
+            static position var hot nahi.
+        </div>
+
+    </section>
+
+
+    <!-- Section 8 -->
+    <section class="lesson-section">
+
+        <h2>8. Z-Index</h2>
+
+        <p>
+            z-index property cha use overlapping
+            elements madhye konta element samor
+            disel he control karanyasathi hoto.
+        </p>
+
+        <p>
+            Jya element cha z-index value jast aste,
+            to same stacking context madhye
+            samor display hou shakto.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box-one {
+    position: relative;
+    z-index: 1;
+}
+
+.box-two {
+    position: relative;
+    z-index: 2;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box z-index-output">
+            <div class="z-index-one">Z-Index: 1</div>
+            <div class="z-index-two">Z-Index: 2</div>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            z-index cha result stacking context
+            var depend karto. Fakt mothi value
+            dilyane element nehmich saglyanchya
+            samor yeil ase nahi.
+        </div>
+
+    </section>
+
+
+    <!-- Section 9 -->
+    <section class="lesson-section">
+
+        <h2>9. Difference Between Position Values</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+
+                <thead>
+                    <tr>
+                        <th>Position</th>
+                        <th>Behavior</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>static</td>
+                        <td>Default position; normal flow madhye rahato.</td>
+                    </tr>
+
+                    <tr>
+                        <td>relative</td>
+                        <td>Original position chya reference ne move hoto.</td>
+                    </tr>
+
+                    <tr>
+                        <td>absolute</td>
+                        <td>Positioned ancestor chya reference ne place hoto.</td>
+                    </tr>
+
+                    <tr>
+                        <td>fixed</td>
+                        <td>Viewport chya reference ne fixed rahato.</td>
+                    </tr>
+
+                    <tr>
+                        <td>sticky</td>
+                        <td>Scroll kartana specified offset var stick hoto.</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+    </section>
+
+
+    <!-- Section 10 -->
+    <section class="lesson-section">
+
+        <h2>10. Important Points</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>static hi default position aahe.</li>
+                <li>relative element chi original space reserve rahate.</li>
+                <li>absolute element normal flow madhun baher yeto.</li>
+                <li>fixed element viewport chya reference ne position hoto.</li>
+                <li>sticky element scrolling darmyan stick hoto.</li>
+                <li>top, right, bottom ani left offset set kartat.</li>
+                <li>z-index overlapping elements cha stacking order control karto.</li>
+            </ul>
+        </div>
+
+    </section>
+
+
+    <!-- Practice -->
+    <section class="practice-section">
+
+        <h2>11. Practice Task</h2>
+
+        <div class="task-box">
+
+            <h3>Task: Create Positioned Elements</h3>
+
+            <p>Ek HTML page tayar kara ani:</p>
+
+            <ol>
+                <li>Ek static element tayar kara.</li>
+                <li>Ek relative element 20px move kara.</li>
+                <li>Relative parent madhye absolute child tayar kara.</li>
+                <li>Ek fixed button tayar kara.</li>
+                <li>Ek sticky heading tayar kara.</li>
+                <li>Don overlapping boxes var z-index apply kara.</li>
+            </ol>
+
+        </div>
+
+    </section>
+
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+
+        <a href="{% url 'css_topic' 'display' %}"
+           class="nav-button previous">
+            ← Previous: Display Property
+        </a>
+
+        <a href="{% url 'css_topic' 'flexbox' %}"
+           class="nav-button next">
+            Next: CSS Flexbox →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

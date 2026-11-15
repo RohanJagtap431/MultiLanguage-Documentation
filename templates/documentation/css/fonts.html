@@ -1,0 +1,504 @@
+
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}CSS Fonts | Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/css/fonts.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+    <div class="lesson-header">
+        <span class="lesson-label">CSS TUTORIAL</span>
+
+        <h1>CSS Fonts</h1>
+
+        <p>
+            CSS Fonts cha use website madhil text cha font,
+            size, thickness ani style change karanyasathi hoto.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 20 Minutes</span>
+            <span>📄 Page 07</span>
+        </div>
+    </div>
+
+
+    <!-- Section 1 -->
+    <section class="lesson-section">
+
+        <h2>1. Introduction to CSS Fonts</h2>
+
+        <p>
+            Font mhanje text lihinyachi visual style.
+            CSS madhil font properties vaprun aapan
+            website varil text cha appearance badlu shakto.
+        </p>
+
+        <p>
+            Udaharanarth, heading mothi karne, text bold
+            karne kiwa italic style dene.
+        </p>
+
+        <div class="info-box">
+            <strong>Definition:</strong>
+            CSS Font Properties are used to control the
+            typeface, size, weight and style of text.
+        </div>
+
+    </section>
+
+
+    <!-- Section 2 -->
+    <section class="lesson-section">
+
+        <h2>2. Font Family</h2>
+
+        <p>
+            <strong>font-family</strong> property cha use
+            text sathi konta font vapraycha he tharavnyasathi hoto.
+        </p>
+
+        <h3>Common Font Families</h3>
+
+        <ul>
+            <li>Arial</li>
+            <li>Verdana</li>
+            <li>Georgia</li>
+            <li>Times New Roman</li>
+            <li>Courier New</li>
+        </ul>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    font-family: Georgia, serif;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box family-output">
+            <h3>Welcome to CSS</h3>
+            <p>This paragraph uses Arial font.</p>
+            <p class="georgia-text">This paragraph uses Georgia font.</p>
+        </div>
+
+        <div class="tip-box">
+            <strong>Lakshat Thev:</strong>
+            Ekapeksha jast fonts dile tar browser pahila
+            available font vaparto. Shevti generic font family
+            dene changli practice aahe.
+        </div>
+
+    </section>
+
+
+    <!-- Section 3 -->
+    <section class="lesson-section">
+
+        <h2>3. Font Size</h2>
+
+        <p>
+            <strong>font-size</strong> property cha use
+            text cha size motha kiwa lahan karanyasathi hoto.
+        </p>
+
+        <h3>Common Units</h3>
+
+        <ul>
+            <li>px – Fixed pixel size.</li>
+            <li>em – Parent element chya font size nusar.</li>
+            <li>rem – Root element chya font size nusar.</li>
+            <li>% – Parent font size chya percentage nusar.</li>
+        </ul>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.small-text {
+    font-size: 14px;
+}
+
+.medium-text {
+    font-size: 20px;
+}
+
+.large-text {
+    font-size: 30px;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box size-output">
+            <p class="small-text">Small Text - 14px</p>
+            <p class="medium-text">Medium Text - 20px</p>
+            <p class="large-text">Large Text - 30px</p>
+        </div>
+
+    </section>
+
+
+    <!-- Section 4 -->
+    <section class="lesson-section">
+
+        <h2>4. Font Weight</h2>
+
+        <p>
+            <strong>font-weight</strong> property cha use
+            text kiti bold kiwa light disel he control
+            karanyasathi hoto.
+        </p>
+
+        <h3>Common Values</h3>
+
+        <ul>
+            <li>normal – Normal text.</li>
+            <li>bold – Bold text.</li>
+            <li>100 to 900 – Text chi thickness set karte.</li>
+        </ul>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.normal-text {
+    font-weight: normal;
+}
+
+.bold-text {
+    font-weight: bold;
+}
+
+.heavy-text {
+    font-weight: 900;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box weight-output">
+            <p class="normal-text">Normal Text</p>
+            <p class="bold-text">Bold Text</p>
+            <p class="heavy-text">Heavy Text</p>
+        </div>
+
+    </section>
+
+
+    <!-- Section 5 -->
+    <section class="lesson-section">
+
+        <h2>5. Font Style</h2>
+
+        <p>
+            <strong>font-style</strong> property cha use
+            text normal kiwa italic style madhye
+            dakhavnyasathi hoto.
+        </p>
+
+        <h3>Common Values</h3>
+
+        <ul>
+            <li>normal – Normal text.</li>
+            <li>italic – Italic text.</li>
+            <li>oblique – Slanted text.</li>
+        </ul>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.normal-style {
+    font-style: normal;
+}
+
+.italic-style {
+    font-style: italic;
+}
+
+.oblique-style {
+    font-style: oblique;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box style-output">
+            <p class="normal-style">Normal Font Style</p>
+            <p class="italic-style">Italic Font Style</p>
+            <p class="oblique-style">Oblique Font Style</p>
+        </div>
+
+    </section>
+
+
+    <!-- Section 6 -->
+    <section class="lesson-section">
+
+        <h2>6. Font Variant</h2>
+
+        <p>
+            <strong>font-variant</strong> property cha use
+            lowercase letters la small capital letters
+            mhanjech small-caps style madhye dakhavnyasathi hoto.
+        </p>
+
+        <h3>Common Values</h3>
+
+        <ul>
+            <li>normal – Normal text.</li>
+            <li>small-caps – Small capital letters.</li>
+        </ul>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.normal-variant {
+    font-variant: normal;
+}
+
+.small-caps {
+    font-variant: small-caps;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box variant-output">
+            <p class="normal-variant">Welcome to CSS</p>
+            <p class="small-caps">Welcome to CSS</p>
+        </div>
+
+    </section>
+
+
+    <!-- Section 7 -->
+    <section class="lesson-section">
+
+        <h2>7. Google Fonts</h2>
+
+        <p>
+            Google Fonts hi free font library aahe.
+            Yatun website sathi vegvegale fonts vaparta yetat.
+        </p>
+
+        <p>
+            Google Font vaparnyasathi font select karun
+            tyachi stylesheet HTML madhye link karavi lagte.
+        </p>
+
+        <h3>Step 1: Google Fonts</h3>
+
+        <p>
+            <a href="https://fonts.google.com/"
+               target="_blank"
+               rel="noopener noreferrer">
+                Google Fonts Website
+            </a>
+            open kara ani avadlela font select kara.
+        </p>
+
+        <h3>Step 2: HTML Code</h3>
+
+        <div class="code-block">
+            <pre><code>&lt;head&gt;
+    &lt;link rel="preconnect"
+          href="https://fonts.googleapis.com"&gt;
+
+    &lt;link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin&gt;
+
+    &lt;link href="https://fonts.googleapis.com/css2?family=Roboto&amp;display=swap"
+          rel="stylesheet"&gt;
+&lt;/head&gt;</code></pre>
+        </div>
+
+        <h3>Step 3: CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>body {
+    font-family: 'Roboto', sans-serif;
+}</code></pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Google Fonts vaparnyasathi internet connection
+            lagte. External font service vapratana website
+            chi privacy ani loading requirements lakshat ghya.
+        </div>
+
+    </section>
+
+
+    <!-- Section 8 -->
+    <section class="lesson-section">
+
+        <h2>8. Font Shorthand Property</h2>
+
+        <p>
+            <strong>font</strong> hi shorthand property aahe.
+            Yachya madatine anek font properties ekach
+            declaration madhye set karta yetat.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <div class="code-block">
+            <pre><code>font: style weight size family;</code></pre>
+        </div>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>p {
+    font: italic bold 20px Arial, sans-serif;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box shorthand-output">
+            <p>Welcome to CSS Documentation</p>
+        </div>
+
+        <div class="tip-box">
+            <strong>Lakshat Thev:</strong>
+            Shorthand madhye font-size ani font-family
+            dene avashyak aahe. Font-style ani font-weight
+            optional aahet.
+        </div>
+
+    </section>
+
+
+    <!-- Section 9 -->
+    <section class="lesson-section">
+
+        <h2>9. Difference Between Font Properties</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+
+                <thead>
+                    <tr>
+                        <th>Property</th>
+                        <th>Use</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>font-family</td>
+                        <td>Font cha type select karte.</td>
+                    </tr>
+
+                    <tr>
+                        <td>font-size</td>
+                        <td>Text cha size set karte.</td>
+                    </tr>
+
+                    <tr>
+                        <td>font-weight</td>
+                        <td>Text chi thickness set karte.</td>
+                    </tr>
+
+                    <tr>
+                        <td>font-style</td>
+                        <td>Normal kiwa italic style dete.</td>
+                    </tr>
+
+                    <tr>
+                        <td>font-variant</td>
+                        <td>Small-caps style dete.</td>
+                    </tr>
+
+                    <tr>
+                        <td>font</td>
+                        <td>Anek font properties ekatra set karte.</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+    </section>
+
+
+    <!-- Section 10 -->
+    <section class="lesson-section">
+
+        <h2>10. Important Points</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>font-family text cha type select karte.</li>
+                <li>font-size text cha size change karte.</li>
+                <li>font-weight text bold kiwa light karte.</li>
+                <li>font-style italic kiwa oblique style dete.</li>
+                <li>font-variant small-caps style dete.</li>
+                <li>Google Fonts madhun external fonts vaparta yetat.</li>
+                <li>font shorthand madhye anek properties ekatra lihita yetat.</li>
+            </ul>
+        </div>
+
+    </section>
+
+
+    <!-- Practice -->
+    <section class="practice-section">
+
+        <h2>11. Practice Task</h2>
+
+        <div class="task-box">
+
+            <h3>Task: Create a Font Styling Page</h3>
+
+            <p>Ek HTML page tayar kara ani tyamadhye:</p>
+
+            <ol>
+                <li>Body la Arial font dya.</li>
+                <li>Heading cha font-size 32px kara.</li>
+                <li>Paragraph la bold kara.</li>
+                <li>Ek paragraph italic kara.</li>
+                <li>Ek text small-caps madhye dakhva.</li>
+                <li>Google Fonts madhun Roboto vapra.</li>
+                <li>Font shorthand property vaprun text style kara.</li>
+            </ol>
+
+        </div>
+
+    </section>
+
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+
+        <a href="{% url 'css_topic' 'text-properties' %}"
+           class="nav-button previous">
+            ← Previous: Text Properties
+        </a>
+
+        <a href="{% url 'css_topic' 'units' %}"
+           class="nav-button next">
+            Next: CSS Units →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

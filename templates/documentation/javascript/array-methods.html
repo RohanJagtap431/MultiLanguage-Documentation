@@ -1,0 +1,853 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}JavaScript Array Methods | Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/javascript/array-methods.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+
+    <div class="lesson-header">
+        <span class="lesson-label">JAVASCRIPT DOCUMENTATION • PAGE 13</span>
+
+        <h1>JavaScript Array Methods</h1>
+
+        <p>
+            Array Methods cha use array madhil data add, remove,
+            search, filter ani calculate karnyasathi hoto.
+            Ya lesson madhye important methods practical examples sahit shikuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Beginner Level</span>
+            <span>40–45 Minutes</span>
+        </div>
+    </div>
+
+    <!-- Section 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What are Array Methods?</h2>
+
+        <p>
+            JavaScript madhye array var vegvegli operations
+            perform karnyasathi built-in methods available aahet.
+            Tyanna Array Methods mhantat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let fruits = ["Apple", "Mango"];
+
+fruits.push("Banana");
+
+console.log(fruits);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>["Apple", "Mango", "Banana"]</pre>
+        </div>
+
+        <div class="info-box">
+            <strong>Simple Definition:</strong>
+            Array var specific operation perform karanarya
+            built-in functions na Array Methods mhantat.
+        </div>
+
+    </section>
+
+    <!-- Section 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. push() and pop()</h2>
+
+        <h3>push() Method</h3>
+
+        <p>
+            push() method array chya shevati ek kiwa adhik
+            elements add karto.
+        </p>
+
+        <pre class="code-block"><code>let fruits = ["Apple", "Mango"];
+
+fruits.push("Banana");
+
+console.log(fruits);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>["Apple", "Mango", "Banana"]</pre>
+        </div>
+
+        <h3>pop() Method</h3>
+
+        <p>
+            pop() method array madhil shevatcha element remove karto
+            ani remove kelela element return karto.
+        </p>
+
+        <pre class="code-block"><code>let fruits = ["Apple", "Mango", "Banana"];
+
+let removed = fruits.pop();
+
+console.log(removed);
+console.log(fruits);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Banana
+["Apple", "Mango"]</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Remember:</strong>
+            push() element add karto, tar pop() shevatcha element remove karto.
+        </div>
+
+    </section>
+
+    <!-- Section 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. shift() and unshift()</h2>
+
+        <h3>shift() Method</h3>
+
+        <p>
+            shift() method array madhil pahila element remove karto
+            ani to element return karto.
+        </p>
+
+        <pre class="code-block"><code>let fruits = ["Apple", "Mango", "Banana"];
+
+let removed = fruits.shift();
+
+console.log(removed);
+console.log(fruits);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Apple
+["Mango", "Banana"]</pre>
+        </div>
+
+        <h3>unshift() Method</h3>
+
+        <p>
+            unshift() method array chya suruvatila ek kiwa adhik
+            elements add karto.
+        </p>
+
+        <pre class="code-block"><code>let fruits = ["Mango", "Banana"];
+
+fruits.unshift("Apple");
+
+console.log(fruits);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>["Apple", "Mango", "Banana"]</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Revision:</strong>
+            shift() pahila element remove karto.
+            unshift() suruvatila element add karto.
+        </div>
+
+    </section>
+
+    <!-- Section 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. slice() Method</h2>
+
+        <p>
+            slice() method array madhil specific range madhil
+            elements chi new array tayar karto.
+        </p>
+
+        <p>
+            Original array madhye badal hot nahi.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>array.slice(start, end);</code></pre>
+
+        <ul>
+            <li><strong>start:</strong> Kontya index pasun copy suru karaychi.</li>
+            <li><strong>end:</strong> Kontya index chya aadhi thambayche. End index include hot nahi.</li>
+        </ul>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let numbers = [10, 20, 30, 40, 50];
+
+let result = numbers.slice(1, 4);
+
+console.log(result);
+console.log(numbers);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>[20, 30, 40]
+[10, 20, 30, 40, 50]</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            slice() original array change karat nahi.
+            End index cha element result madhye include hot nahi.
+        </div>
+
+    </section>
+
+    <!-- Section 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. splice() Method</h2>
+
+        <p>
+            splice() method array madhye elements add, remove
+            kiwa replace karnyasathi vapartat.
+        </p>
+
+        <p>
+            splice() original array madhye badal karto.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>array.splice(start, deleteCount, item1, item2);</code></pre>
+
+        <ul>
+            <li><strong>start:</strong> Badal kontya index pasun karaycha.</li>
+            <li><strong>deleteCount:</strong> Kiti elements remove karayche.</li>
+            <li><strong>item1, item2:</strong> Nave elements add karayche aslyas.</li>
+        </ul>
+
+        <h3>Example – Remove Element:</h3>
+
+        <pre class="code-block"><code>let fruits = ["Apple", "Mango", "Banana"];
+
+fruits.splice(1, 1);
+
+console.log(fruits);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>["Apple", "Banana"]</pre>
+        </div>
+
+        <h3>Example – Add Element:</h3>
+
+        <pre class="code-block"><code>let fruits = ["Apple", "Banana"];
+
+fruits.splice(1, 0, "Mango");
+
+console.log(fruits);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>["Apple", "Mango", "Banana"]</pre>
+        </div>
+
+        <h3>Example – Replace Element:</h3>
+
+        <pre class="code-block"><code>let fruits = ["Apple", "Mango", "Banana"];
+
+fruits.splice(1, 1, "Orange");
+
+console.log(fruits);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>["Apple", "Orange", "Banana"]</pre>
+        </div>
+
+    </section>
+
+    <!-- Section 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. map() Method</h2>
+
+        <p>
+            map() method array madhil pratyek element var
+            callback function execute karto ani new array return karto.
+        </p>
+
+        <p>
+            Original array change hot nahi.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let numbers = [1, 2, 3, 4, 5];
+
+let doubled = numbers.map(number => number * 2);
+
+console.log(doubled);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>[2, 4, 6, 8, 10]</pre>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>map() pratyek number access karto.</li>
+            <li>Pratyek number la 2 ne multiply karto.</li>
+            <li>Result new array madhye store hoto.</li>
+            <li>Original numbers array tasach rahto.</li>
+        </ul>
+
+        <h3>Another Example:</h3>
+
+        <pre class="code-block"><code>let prices = [100, 200, 300];
+
+let updatedPrices = prices.map(price => price + 50);
+
+console.log(updatedPrices);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>[150, 250, 350]</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Use:</strong>
+            Array madhil pratyek value transform karun new array
+            tayar karaycha asel tar map() vapra.
+        </div>
+
+    </section>
+
+    <!-- Section 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. filter() Method</h2>
+
+        <p>
+            filter() method condition check karto ani condition
+            true aslelya elements chi new array return karto.
+        </p>
+
+        <p>
+            Original array change hot nahi.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let numbers = [10, 15, 20, 25, 30];
+
+let evenNumbers = numbers.filter(number => number % 2 === 0);
+
+console.log(evenNumbers);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>[10, 20, 30]</pre>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>filter() pratyek number check karto.</li>
+            <li>number % 2 === 0 hi even number chi condition aahe.</li>
+            <li>Fakt condition true aslele numbers new array madhye yetat.</li>
+        </ul>
+
+        <h3>Another Example:</h3>
+
+        <pre class="code-block"><code>let marks = [25, 40, 75, 30, 90];
+
+let passed = marks.filter(mark => mark >= 35);
+
+console.log(passed);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>[40, 75, 90]</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Use:</strong>
+            API data madhun specific records select karnyasathi
+            filter() khup upyogi aahe.
+        </div>
+
+    </section>
+
+    <!-- Section 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. reduce() Method</h2>
+
+        <p>
+            reduce() method array madhil sarva elements process
+            karun ek final value tayar karto.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>array.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue;
+}, initialValue);</code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let numbers = [10, 20, 30, 40];
+
+let total = numbers.reduce((sum, number) => {
+    return sum + number;
+}, 0);
+
+console.log(total);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>100</pre>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li><strong>sum:</strong> Accumulator mhanje jama hot janari value.</li>
+            <li><strong>number:</strong> Current element.</li>
+            <li><strong>0:</strong> Initial value.</li>
+            <li>Pratyek number sum madhye add hoto.</li>
+            <li>Shevati ek final total milto.</li>
+        </ul>
+
+        <h3>Step-by-Step:</h3>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Step</th>
+                    <th>Current Number</th>
+                    <th>Sum</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Initial</td>
+                    <td>-</td>
+                    <td>0</td>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>10</td>
+                    <td>10</td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td>20</td>
+                    <td>30</td>
+                </tr>
+
+                <tr>
+                    <td>3</td>
+                    <td>30</td>
+                    <td>60</td>
+                </tr>
+
+                <tr>
+                    <td>4</td>
+                    <td>40</td>
+                    <td>100</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="tip-box">
+            <strong>Use:</strong>
+            Shopping cart total, marks total ani data madhil
+            values calculate karnyasathi reduce() vaparta yeto.
+        </div>
+
+    </section>
+
+    <!-- Section 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. find() Method</h2>
+
+        <p>
+            find() method condition true honara pahila element
+            return karto.
+        </p>
+
+        <p>
+            Matching element sapadla nahi tar undefined return hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let numbers = [10, 25, 30, 45, 50];
+
+let result = numbers.find(number => number > 30);
+
+console.log(result);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>45</pre>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>find() array madhil elements ek-ek karun check karto.</li>
+            <li>10 ani 25 condition pass karat nahit.</li>
+            <li>30 suddha condition pass karat nahi.</li>
+            <li>45 pahila matching element aslyamule return hoto.</li>
+            <li>Tyachyanantar pudhil elements check hot nahit.</li>
+        </ul>
+
+    </section>
+
+    <!-- Section 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. forEach() Method</h2>
+
+        <p>
+            forEach() method array madhil pratyek element sathi
+            callback function execute karto.
+        </p>
+
+        <p>
+            forEach() new array return karat nahi.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let fruits = ["Apple", "Mango", "Banana"];
+
+fruits.forEach(fruit => {
+    console.log(fruit);
+});</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Apple
+Mango
+Banana</pre>
+        </div>
+
+        <h3>Index Access Example:</h3>
+
+        <pre class="code-block"><code>let fruits = ["Apple", "Mango", "Banana"];
+
+fruits.forEach((fruit, index) => {
+    console.log(index, fruit);
+});</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>0 Apple
+1 Mango
+2 Banana</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            forEach() madhun array return hot nahi.
+            New array tayar karaycha asel tar map() vapra.
+        </div>
+
+    </section>
+
+    <!-- Section 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. includes() Method</h2>
+
+        <p>
+            includes() method array madhye specific value aahe ka
+            te check karto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let fruits = ["Apple", "Mango", "Banana"];
+
+console.log(fruits.includes("Mango"));
+console.log(fruits.includes("Orange"));</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>true
+false</pre>
+        </div>
+
+        <p>
+            Value present asel tar true ani nasel tar false return hoto.
+        </p>
+
+    </section>
+
+    <!-- Section 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Difference Between Important Methods</h2>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Method</th>
+                    <th>Use</th>
+                    <th>Result</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>map()</td>
+                    <td>Elements transform karto.</td>
+                    <td>New Array</td>
+                </tr>
+
+                <tr>
+                    <td>filter()</td>
+                    <td>Condition nusar elements select karto.</td>
+                    <td>New Array</td>
+                </tr>
+
+                <tr>
+                    <td>reduce()</td>
+                    <td>Elements process karun final value deto.</td>
+                    <td>Single Value</td>
+                </tr>
+
+                <tr>
+                    <td>find()</td>
+                    <td>Pahila matching element shodhto.</td>
+                    <td>Element / undefined</td>
+                </tr>
+
+                <tr>
+                    <td>forEach()</td>
+                    <td>Pratyek element var callback chalavto.</td>
+                    <td>undefined</td>
+                </tr>
+
+                <tr>
+                    <td>includes()</td>
+                    <td>Value present aahe ka check karto.</td>
+                    <td>Boolean</td>
+                </tr>
+
+                <tr>
+                    <td>slice()</td>
+                    <td>Array cha kahi bhag copy karto.</td>
+                    <td>New Array</td>
+                </tr>
+
+                <tr>
+                    <td>splice()</td>
+                    <td>Elements add, remove kiwa replace karto.</td>
+                    <td>Removed Elements</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </section>
+
+    <!-- Section 13 -->
+
+    <section class="lesson-section">
+
+        <h2>13. Common Beginner Mistakes</h2>
+
+        <div class="mistake-card">
+            <strong>Mistake 1: map() ani forEach() confuse karne</strong>
+            <p>
+                map() new array return karto, tar forEach() return value
+                mhanun undefined deto.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 2: slice() ani splice() confuse karne</strong>
+            <p>
+                slice() original array change karat nahi.
+                splice() original array madhye badal karto.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 3: filter() madhye condition visarne</strong>
+            <p>
+                filter() callback madhun true kiwa false milne avashyak aahe.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 4: reduce() madhye initial value na dene</strong>
+            <p>
+                Initial value dene anek calculations madhye adhik safe
+                ani predictable aste. Empty array sathi suddha te mahatvache aahe.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 5: find() ani filter() confuse karne</strong>
+            <p>
+                find() pahila matching element deto, tar filter()
+                sarva matching elements chi array deto.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- Section 14 -->
+
+    <section class="lesson-section">
+
+        <h2>14. Quick Revision</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>push() shevati elements add karto.</li>
+                <li>pop() shevatcha element remove karto.</li>
+                <li>shift() pahila element remove karto.</li>
+                <li>unshift() suruvatila elements add karto.</li>
+                <li>slice() new array tayar karto.</li>
+                <li>splice() original array change karto.</li>
+                <li>map() elements transform karto.</li>
+                <li>filter() condition nusar elements select karto.</li>
+                <li>reduce() final value calculate karto.</li>
+                <li>find() pahila matching element return karto.</li>
+                <li>forEach() pratyek element var callback chalavto.</li>
+                <li>includes() value present aahe ka check karto.</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <!-- Section 15 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>15. Practice Questions</h2>
+
+        <h3>Basic Questions</h3>
+
+        <ol>
+            <li>Array Methods mhanje kay?</li>
+            <li>push() ani pop() madhye kay difference aahe?</li>
+            <li>shift() ani unshift() madhye kay difference aahe?</li>
+            <li>slice() ani splice() madhye kay difference aahe?</li>
+            <li>map() method kay karte?</li>
+            <li>filter() method kay karte?</li>
+            <li>reduce() method cha use kay aahe?</li>
+            <li>find() ani filter() madhye kay difference aahe?</li>
+            <li>forEach() ani map() madhye kay difference aahe?</li>
+            <li>includes() method kay karte?</li>
+        </ol>
+
+        <h3>Practical Questions</h3>
+
+        <ol>
+            <li>push() vaprun array madhye nave element add kar.</li>
+            <li>pop() vaprun last element remove kar.</li>
+            <li>slice() vaprun array madhil kahi elements copy kar.</li>
+            <li>splice() vaprun element remove kar.</li>
+            <li>map() vaprun pratyek number double kar.</li>
+            <li>filter() vaprun even numbers select kar.</li>
+            <li>reduce() vaprun numbers chi total calculate kar.</li>
+            <li>find() vaprun 50 peksha motha pahila number shodh.</li>
+            <li>forEach() vaprun sarva elements print kar.</li>
+            <li>includes() vaprun specific value check kar.</li>
+        </ol>
+
+        <div class="task-box">
+
+            <h3>Mini Task: Product Price Manager</h3>
+
+            <p>
+                Product prices handle karnyasathi Array Methods vapra.
+            </p>
+
+            <ul>
+                <li>prices navacha array tayar kar: 100, 250, 400, 150, 500.</li>
+                <li>map() vaprun pratyek price madhye 10 add kar.</li>
+                <li>filter() vaprun 200 peksha jast prices select kar.</li>
+                <li>reduce() vaprun sarva prices chi total calculate kar.</li>
+                <li>find() vaprun 300 peksha jast pahili price shodh.</li>
+                <li>includes() vaprun 400 price aahe ka check kar.</li>
+                <li>Original array suddha print kar ani tyat badal zala ka te check kar.</li>
+            </ul>
+
+            <p>
+                File name: <strong>javascript_array_methods.js</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Navigation -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'javascript_topic' 'arrays' %}"
+           class="nav-button previous-button">
+            ← Previous: JavaScript Arrays
+        </a>
+
+        <a href="{% url 'javascript_topic' 'strings' %}"
+           class="nav-button next-button">
+            Next: Strings and String Methods →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

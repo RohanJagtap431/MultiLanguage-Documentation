@@ -1,0 +1,808 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}
+HTML Document Structure | Roman Marathi
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/html/structure.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+
+    <div class="lesson-header">
+
+        <span class="lesson-label">HTML DOCUMENTATION • PAGE 02</span>
+
+        <h1>HTML Document Structure</h1>
+
+        <p>
+            HTML document chi basic structure, important tags,
+            head section, body section ani complete HTML boilerplate
+            ya lesson madhye samjun gheu.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Beginner Level</span>
+            <span>30–35 Minutes</span>
+        </div>
+
+    </div>
+
+
+    <!-- Section 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What is HTML Document Structure?</h2>
+
+        <p>
+            HTML Document Structure mhanje HTML webpage madhil
+            vegveglya sections chi arrangement.
+            Pratyek HTML document la ek basic structure aste.
+        </p>
+
+        <p>
+            Ya structure mule browser la webpage madhil content
+            kasa organize kela aahe he samajte.
+            HTML document madhye document type declaration,
+            html element, head section ani body section astat.
+        </p>
+
+        <div class="info-box">
+            <strong>Simple Definition:</strong>
+            HTML Document Structure mhanje webpage tayar
+            karnyasathi vaparlya janarya HTML elements chi
+            proper arrangement.
+        </div>
+
+    </section>
+
+
+    <!-- Section 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Basic HTML Document Structure</h2>
+
+        <p>
+            Khali ek basic HTML document structure dile aahe.
+            Pratyek HTML page lihitana ya structure cha use karto.
+        </p>
+
+        <h3>Basic Syntax:</h3>
+
+        <pre class="code-block"><code>
+&lt;!DOCTYPE html&gt;
+
+&lt;html lang="en"&gt;
+
+    &lt;head&gt;
+        &lt;title&gt;My First Website&lt;/title&gt;
+    &lt;/head&gt;
+
+    &lt;body&gt;
+
+        &lt;h1&gt;Hello World&lt;/h1&gt;
+
+        &lt;p&gt;Welcome to my website.&lt;/p&gt;
+
+    &lt;/body&gt;
+
+&lt;/html&gt;
+        </code></pre>
+
+        <h3>Structure Explanation:</h3>
+
+        <ol>
+            <li>
+                <strong>&lt;!DOCTYPE html&gt;</strong> -
+                Browser la document HTML5 standard vaparto he sangte.
+            </li>
+
+            <li>
+                <strong>&lt;html&gt;</strong> -
+                Complete HTML document cha root element aahe.
+            </li>
+
+            <li>
+                <strong>&lt;head&gt;</strong> -
+                Webpage baddal metadata ani settings thevnyasathi.
+            </li>
+
+            <li>
+                <strong>&lt;title&gt;</strong> -
+                Browser tab madhye webpage che title dakhavte.
+            </li>
+
+            <li>
+                <strong>&lt;body&gt;</strong> -
+                Webpage var disnara main content thevte.
+            </li>
+        </ol>
+
+    </section>
+
+
+    <!-- Section 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. DOCTYPE Declaration</h2>
+
+        <p>
+            DOCTYPE cha full meaning Document Type Declaration asa aahe.
+            HTML document chya suruvatila DOCTYPE declaration lihitat.
+        </p>
+
+        <p>
+            HTML5 madhye tyachi syntax:
+        </p>
+
+        <pre class="code-block"><code>
+&lt;!DOCTYPE html&gt;
+        </code></pre>
+
+        <h3>Why is DOCTYPE Used?</h3>
+
+        <ul>
+            <li>Browser la HTML document cha standard sangte.</li>
+            <li>Browser la standards mode madhye render karayla madat karte.</li>
+            <li>Modern HTML documents madhye hi declaration vapartat.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            DOCTYPE ha HTML tag nahi.
+            Hi document type declaration aahe.
+            Hi HTML document madhye sarvat aadhi lihaychi aste.
+        </div>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;body&gt;
+        &lt;h1&gt;My Website&lt;/h1&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+        </code></pre>
+
+    </section>
+
+
+    <!-- Section 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. HTML Root Element</h2>
+
+        <p>
+            &lt;html&gt; ha HTML document cha root element aahe.
+            Document madhil itar HTML elements ya root element chya
+            aat astat.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>
+&lt;html lang="en"&gt;
+
+    &lt;head&gt;
+        &lt;title&gt;My Website&lt;/title&gt;
+    &lt;/head&gt;
+
+    &lt;body&gt;
+        &lt;h1&gt;Welcome&lt;/h1&gt;
+    &lt;/body&gt;
+
+&lt;/html&gt;
+        </code></pre>
+
+        <h3>lang Attribute:</h3>
+
+        <p>
+            lang attribute mule document madhil main language
+            konti aahe he browser ani assistive technologies
+            la samajnyas madat hote.
+        </p>
+
+        <pre class="code-block"><code>
+&lt;html lang="en"&gt;
+        </code></pre>
+
+        <p>
+            Ithe en mhanje English language.
+            Marathi document sathi lang="mr" vaparta yete.
+        </p>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            HTML document madhye root element la lang attribute
+            dene hi changli practice aahe.
+        </div>
+
+    </section>
+
+
+    <!-- Section 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. Head Section</h2>
+
+        <p>
+            &lt;head&gt; element madhye webpage baddal mahiti,
+            metadata, title, CSS links ani itar settings thevtat.
+        </p>
+
+        <p>
+            Head madhil bahutek content directly webpage var
+            disat nahi. To browser ani search engines sathi
+            useful asto.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>
+&lt;head&gt;
+
+    &lt;title&gt;My Website&lt;/title&gt;
+
+    &lt;meta charset="UTF-8"&gt;
+
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+
+&lt;/head&gt;
+        </code></pre>
+
+        <h3>Head madhye vaparlya janarya elements:</h3>
+
+        <ul>
+            <li>
+                <strong>&lt;title&gt;:</strong>
+                Browser tab madhye page title dakhavte.
+            </li>
+
+            <li>
+                <strong>&lt;meta&gt;:</strong>
+                Document baddal metadata provide karte.
+            </li>
+
+            <li>
+                <strong>&lt;link&gt;:</strong>
+                External CSS file connect karnyasathi vapartat.
+            </li>
+
+            <li>
+                <strong>&lt;style&gt;:</strong>
+                Internal CSS lihinyasathi vapartat.
+            </li>
+
+            <li>
+                <strong>&lt;script&gt;:</strong>
+                JavaScript file kiwa code include karnyasathi vapartat.
+            </li>
+        </ul>
+
+    </section>
+
+
+    <!-- Section 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. Title Element</h2>
+
+        <p>
+            &lt;title&gt; element cha use webpage che title define
+            karnyasathi hoto.
+            He title browser tab madhye diste.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>
+&lt;head&gt;
+    &lt;title&gt;Student Registration&lt;/title&gt;
+&lt;/head&gt;
+        </code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;My Portfolio&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Welcome to My Portfolio&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+        </code></pre>
+
+        <div class="example-box">
+            <strong>Output:</strong>
+            Browser tab madhye My Portfolio he title disel.
+            Webpage chya content madhye Welcome to My Portfolio
+            hi heading disel.
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            &lt;title&gt; ani &lt;h1&gt; he don vegale elements aahet.
+            Title browser tab sathi aahe, tar h1 webpage var
+            main heading dakhavnyasathi aahe.
+        </div>
+
+    </section>
+
+
+    <!-- Section 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. Meta Tags</h2>
+
+        <p>
+            &lt;meta&gt; element webpage baddal additional information
+            provide karte. Ya information la metadata mhantat.
+        </p>
+
+        <p>
+            Meta elements head section madhye lihitat.
+            Tyanna closing tag nasto.
+        </p>
+
+        <h3>A. Charset Meta Tag</h3>
+
+        <pre class="code-block"><code>
+&lt;meta charset="UTF-8"&gt;
+        </code></pre>
+
+        <p>
+            UTF-8 character encoding vaparlyamule English,
+            Marathi ani itar anek languages madhil characters
+            yogya prakare handle karta yetat.
+        </p>
+
+        <h3>B. Viewport Meta Tag</h3>
+
+        <pre class="code-block"><code>
+&lt;meta name="viewport"
+      content="width=device-width, initial-scale=1.0"&gt;
+        </code></pre>
+
+        <p>
+            Ya meta tag mule webpage chi viewport width device
+            screen width nusar set hote. Mobile responsive design
+            sathi he important aahe.
+        </p>
+
+        <h3>C. Description Meta Tag</h3>
+
+        <pre class="code-block"><code>
+&lt;meta name="description"
+      content="Learn HTML in Roman Marathi."&gt;
+        </code></pre>
+
+        <p>
+            Ya tag madhye webpage baddal short description deta yete.
+            Search engines hi information search results madhye
+            vapru shaktat.
+        </p>
+
+        <h3>D. Author Meta Tag</h3>
+
+        <pre class="code-block"><code>
+&lt;meta name="author" content="Website Author"&gt;
+        </code></pre>
+
+        <p>
+            Ya tag madhye webpage cha author kon aahe
+            he define karta yete.
+        </p>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            UTF-8 ani viewport meta tags pratyek modern HTML
+            webpage madhye include karne changli practice aahe.
+        </div>
+
+    </section>
+
+
+    <!-- Section 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. Body Section</h2>
+
+        <p>
+            &lt;body&gt; element madhye webpage var display honara
+            main content lihitat.
+        </p>
+
+        <p>
+            User la browser madhye je content diste te
+            body section madhye aste.
+        </p>
+
+        <h3>Body madhye vaparlya janarya elements:</h3>
+
+        <ul>
+            <li>Headings</li>
+            <li>Paragraphs</li>
+            <li>Images</li>
+            <li>Links</li>
+            <li>Lists</li>
+            <li>Tables</li>
+            <li>Forms</li>
+            <li>Audio ani Video</li>
+        </ul>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;body&gt;
+
+    &lt;h1&gt;Welcome to My Website&lt;/h1&gt;
+
+    &lt;p&gt;This is my first webpage.&lt;/p&gt;
+
+    &lt;a href="https://example.com"&gt;
+        Visit Website
+    &lt;/a&gt;
+
+&lt;/body&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <h1>Welcome to My Website</h1>
+            <p>This is my first webpage.</p>
+            <a href="https://example.com" target="_blank" rel="noopener">
+                Visit Website
+            </a>
+        </div>
+
+    </section>
+
+
+    <!-- Section 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Difference Between Head and Body</h2>
+
+        <p>
+            HTML document madhye head ani body he don important
+            sections aahet. Pan doghanchi kame vegvegli aahet.
+        </p>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>Head</th>
+                    <th>Body</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Webpage chi metadata thevte.</td>
+                    <td>Webpage cha main content thevte.</td>
+                </tr>
+
+                <tr>
+                    <td>Title ani meta tags astat.</td>
+                    <td>Headings ani paragraphs astat.</td>
+                </tr>
+
+                <tr>
+                    <td>CSS links include karu shakto.</td>
+                    <td>Images, links, tables ani forms astat.</td>
+                </tr>
+
+                <tr>
+                    <td>Bahutek content directly display hot nahi.</td>
+                    <td>Content browser madhye display hoto.</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+    </section>
+
+
+    <!-- Section 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. HTML Comments in Document</h2>
+
+        <p>
+            HTML comments cha use code madhye notes lihinyasathi
+            hoto. Browser comments webpage var display karat nahi.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>
+&lt;!-- This is an HTML comment --&gt;
+        </code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;body&gt;
+
+    &lt;!-- Main heading --&gt;
+    &lt;h1&gt;My Website&lt;/h1&gt;
+
+    &lt;!-- Introduction paragraph --&gt;
+    &lt;p&gt;Welcome to my website.&lt;/p&gt;
+
+&lt;/body&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <h1>My Website</h1>
+            <p>Welcome to my website.</p>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Comments code samjun ghenyasathi useful astat.
+            Sensitive information comments madhye thevu naye,
+            karan page source madhun comments disu shaktat.
+        </div>
+
+    </section>
+
+
+    <!-- Section 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Complete HTML Boilerplate</h2>
+
+        <p>
+            HTML Boilerplate mhanje navin HTML webpage suru
+            karnyasathi vaparla janara basic ready structure.
+            Pratyek navin HTML project madhye ha structure
+            use karta yeto.
+        </p>
+
+        <h3>Complete Code:</h3>
+
+        <pre class="code-block"><code>
+&lt;!DOCTYPE html&gt;
+
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+
+    &lt;meta charset="UTF-8"&gt;
+
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+
+    &lt;meta name="description"
+          content="My first HTML webpage"&gt;
+
+    &lt;title&gt;My First Webpage&lt;/title&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;h1&gt;Hello World&lt;/h1&gt;
+
+    &lt;p&gt;Welcome to my first HTML webpage.&lt;/p&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <h1>Hello World</h1>
+            <p>Welcome to my first HTML webpage.</p>
+        </div>
+
+        <h3>Code Explanation:</h3>
+
+        <ol>
+            <li>DOCTYPE browser la HTML standard sangte.</li>
+            <li>HTML root element complete document contain karte.</li>
+            <li>Head madhye metadata ani title define kele aahe.</li>
+            <li>Body madhye heading ani paragraph lihila aahe.</li>
+            <li>Browser body madhil content webpage var display karto.</li>
+        </ol>
+
+    </section>
+
+
+    <!-- Section 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Common Beginner Mistakes</h2>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 1: DOCTYPE lihayla visarne</strong>
+
+            <p>
+                HTML document chya beginning la
+                &lt;!DOCTYPE html&gt; lihayla visaru naye.
+            </p>
+
+        </div>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 2: Head ani Body confuse karne</strong>
+
+            <p>
+                Title ani metadata head madhye thevayche,
+                tar visible content body madhye thevaycha.
+            </p>
+
+        </div>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 3: Viewport Meta Tag skip karne</strong>
+
+            <p>
+                Responsive webpage sathi viewport meta tag
+                include karne important aahe.
+            </p>
+
+        </div>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 4: Multiple title elements lihine</strong>
+
+            <p>
+                Eka HTML document madhye ekach title element
+                thevne yogya aahe.
+            </p>
+
+        </div>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 5: HTML elements chi nesting chukvine</strong>
+
+            <p>
+                HTML elements yogya order madhye close karne
+                ani proper nesting thevne avashyak aahe.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 13 -->
+
+    <section class="lesson-section">
+
+        <h2>13. Important Points</h2>
+
+        <div class="revision-box">
+
+            <ul>
+                <li>HTML document chi basic structure fixed aste.</li>
+                <li>DOCTYPE declaration sarvat aadhi lihitat.</li>
+                <li>HTML ha document cha root element aahe.</li>
+                <li>Head section madhye metadata aste.</li>
+                <li>Title browser tab madhye display hote.</li>
+                <li>Meta tag additional information provide karte.</li>
+                <li>Body section madhye visible webpage content aste.</li>
+                <li>Comments browser madhye display hot nahit.</li>
+                <li>HTML Boilerplate navin webpage sathi basic structure aahe.</li>
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 14 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>14. Practice Questions</h2>
+
+        <h3>Basic Questions</h3>
+
+        <ol>
+            <li>HTML Document Structure mhanje kay?</li>
+            <li>DOCTYPE declaration cha use kay aahe?</li>
+            <li>HTML root element konta aahe?</li>
+            <li>Head section madhye kay lihitat?</li>
+            <li>Body section cha use kay aahe?</li>
+            <li>Title element cha use kay aahe?</li>
+            <li>Meta tag mhanje kay?</li>
+            <li>Viewport meta tag ka vapartat?</li>
+            <li>HTML comments chi syntax lih.</li>
+            <li>Head ani Body madhil difference lih.</li>
+        </ol>
+
+        <h3>Practical Questions</h3>
+
+        <ol>
+            <li>Complete HTML Boilerplate code lih.</li>
+            <li>Webpage la title denyasathi HTML code lih.</li>
+            <li>UTF-8 charset meta tag lih.</li>
+            <li>Viewport meta tag lih.</li>
+            <li>HTML comment lihun dakhav.</li>
+        </ol>
+
+        <div class="task-box">
+
+            <h3>Mini Task: Personal Webpage</h3>
+
+            <p>
+                Ek complete HTML document create kar ani
+                tyamadhye khalil goshti add kar:
+            </p>
+
+            <ul>
+                <li>DOCTYPE declaration.</li>
+                <li>HTML root element with lang attribute.</li>
+                <li>Head section madhye title ani meta tags.</li>
+                <li>Body madhye tujhya navachi heading.</li>
+                <li>Tujhya baddal ek paragraph.</li>
+                <li>HTML comments.</li>
+            </ul>
+
+            <p>
+                File Name: <strong>personal_webpage.html</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Lesson Navigation -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'html_topic' 'introduction' %}"
+           class="nav-button previous-button">
+            ← Previous: Introduction
+        </a>
+
+        <a href="{% url 'html_topic' 'elements' %}"
+           class="nav-button next-button">
+            Next: HTML Elements →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

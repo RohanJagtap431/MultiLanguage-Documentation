@@ -1,0 +1,413 @@
+
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}Ways to Add CSS | Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/css/ways-to-add-css.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+    <div class="lesson-header">
+        <span class="lesson-label">CSS TUTORIAL</span>
+
+        <h1>Ways to Add CSS</h1>
+
+        <p>
+            HTML page madhye CSS add karnyachya teen paddhati
+            samjun ghya ani tyanchi practical examples paha.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 15 Minutes</span>
+            <span>📄 Page 03</span>
+        </div>
+    </div>
+
+
+    <!-- Section 1 -->
+    <section class="lesson-section">
+
+        <h2>1. Introduction</h2>
+
+        <p>
+            Aapan HTML document madhye CSS add karnyasathi
+            teen vegveglya paddhati vaparu shakto.
+            Ya paddhatincha vapar HTML elements la
+            design ani style denyasathi hoto.
+        </p>
+
+        <div class="info-box">
+            <strong>CSS add karnyachya teen paddhati:</strong>
+            <ol>
+                <li>Inline CSS</li>
+                <li>Internal CSS</li>
+                <li>External CSS</li>
+            </ol>
+        </div>
+
+    </section>
+
+
+    <!-- Section 2 -->
+    <section class="lesson-section">
+
+        <h2>2. Inline CSS</h2>
+
+        <p>
+            Inline CSS madhye aapan HTML element lach
+            direct style deu shakto.
+            Yasathi HTML element madhye
+            <code>style</code> attribute vaparla jato.
+        </p>
+
+        <p>
+            Inline CSS ha HTML element chya opening tag madhye
+            lihila jato.
+        </p>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>&lt;h1 style="color: blue;"&gt;
+    Welcome to CSS
+&lt;/h1&gt;
+
+&lt;p style="font-size: 18px;"&gt;
+    This is an example of Inline CSS.
+&lt;/p&gt;</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box inline-output">
+            <h1>Welcome to CSS</h1>
+            <p>This is an example of Inline CSS.</p>
+        </div>
+
+        <h3>Fayde</h3>
+
+        <ul>
+            <li>Ekhadya single element la style dene sope aste.</li>
+            <li>Lavkar styling karnyasathi upyogi aste.</li>
+        </ul>
+
+        <h3>Tote</h3>
+
+        <ul>
+            <li>Anek elements sathi same CSS punha vaparta yet nahi.</li>
+            <li>HTML code motha ani sambhalayla kathin hoto.</li>
+            <li>HTML structure ani CSS design ekach thikani yetat.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Lakshat Theva:</strong>
+            Inline CSS madhye HTML element chya aat
+            <code>style</code> attribute vaparla jato.
+        </div>
+
+    </section>
+
+
+    <!-- Section 3 -->
+    <section class="lesson-section">
+
+        <h2>3. Internal CSS</h2>
+
+        <p>
+            Internal CSS madhye CSS code ha HTML document chya
+            <code>head</code> section madhil
+            <code>style</code> element chya aat lihila jato.
+        </p>
+
+        <p>
+            Ekach HTML page la design dyaycha asel tar
+            Internal CSS upyogi padte.
+        </p>
+
+        <h3>Example</h3>
+
+        <p>HTML Code:</p>
+
+        <div class="code-block">
+            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Internal CSS&lt;/title&gt;
+    &lt;style&gt;
+        h1 {
+            color: green;
+            text-align: center;
+        }
+
+        p {
+            font-size: 18px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;h1&gt;Welcome to CSS&lt;/h1&gt;
+    &lt;p&gt;This is Internal CSS.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box internal-output">
+            <h1>Welcome to CSS</h1>
+            <p>This is Internal CSS.</p>
+        </div>
+
+        <h3>Fayde</h3>
+
+        <ul>
+            <li>Ekach page madhil anek elements la style deta yete.</li>
+            <li>Vegli CSS file tayar karnyachi garaj naste.</li>
+        </ul>
+
+        <h3>Tote</h3>
+
+        <ul>
+            <li>Dusrya HTML pages madhye hech CSS direct reuse karta yet nahi.</li>
+            <li>Motha HTML code sambhalne kathin hote.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Lakshat Theva:</strong>
+            Internal CSS madhye
+            <code>head</code> section chya aat
+            <code>style</code> element vaparla jato.
+        </div>
+
+    </section>
+
+
+    <!-- Section 4 -->
+    <section class="lesson-section">
+
+        <h2>4. External CSS</h2>
+
+        <p>
+            External CSS madhye CSS code ha veglya file madhye
+            lihila jato. Ya file cha extension
+            <code>.css</code> asa asto.
+        </p>
+
+        <p>
+            External CSS file la HTML document sobat jodnyasathi
+            <code>link</code> element vaparla jato.
+        </p>
+
+        <h3>HTML Code</h3>
+
+        <div class="code-block">
+            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;External CSS&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;h1&gt;Welcome to CSS&lt;/h1&gt;
+    &lt;p&gt;This is External CSS.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </div>
+
+        <h3>CSS Code (style.css)</h3>
+
+        <div class="code-block">
+            <pre><code>h1 {
+    color: purple;
+    text-align: center;
+}
+
+p {
+    font-size: 18px;
+    color: gray;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box external-output">
+            <h1>Welcome to CSS</h1>
+            <p>This is External CSS.</p>
+        </div>
+
+        <h3>Fayde</h3>
+
+        <ul>
+            <li>Ekach CSS file anek HTML pages sathi vaparta yete.</li>
+            <li>HTML ani CSS code vegvegla rahto.</li>
+            <li>Design madhye badal karne ani code sambhalne sope hote.</li>
+            <li>Mothya websites sathi upyogi aste.</li>
+        </ul>
+
+        <h3>Tote</h3>
+
+        <ul>
+            <li>Vegli CSS file tayar karavi lagte.</li>
+            <li>CSS file cha path chukicha asel tar styling load honar nahi.</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Best Practice:</strong>
+            Real-world websites madhye External CSS vaprane
+            sahasa changle aste. Karan yamule HTML structure
+            ani CSS design vegvegale rahtat.
+        </div>
+
+    </section>
+
+
+    <!-- Section 5 -->
+    <section class="lesson-section">
+
+        <h2>5. Teenhi Paddhatinmadhil Farak</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+
+                <thead>
+                    <tr>
+                        <th>Paddhat</th>
+                        <th>Kuthe Lihitat?</th>
+                        <th>Kashasathi?</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Inline CSS</td>
+                        <td>HTML element madhye</td>
+                        <td>Ekach element</td>
+                    </tr>
+
+                    <tr>
+                        <td>Internal CSS</td>
+                        <td>Head section madhye</td>
+                        <td>Ekach HTML page</td>
+                    </tr>
+
+                    <tr>
+                        <td>External CSS</td>
+                        <td>Veglya CSS file madhye</td>
+                        <td>Anek HTML pages</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+    </section>
+
+
+    <!-- Section 6 -->
+    <section class="lesson-section">
+
+        <h2>6. Konti CSS Paddhat Vapraychi?</h2>
+
+        <p>
+            Pratyek CSS paddhaticha vapar vegveglya
+            kamasathi hoto. Aplya project chi garaj
+            lakshat gheun yogya paddhat nivadavi.
+        </p>
+
+        <div class="workflow">
+
+            <div class="workflow-step">
+                <span>01</span>
+                <strong>Inline CSS</strong>
+                <p>Ekach element la lagech style dyaychi asel tar.</p>
+            </div>
+
+            <div class="workflow-arrow">↓</div>
+
+            <div class="workflow-step">
+                <span>02</span>
+                <strong>Internal CSS</strong>
+                <p>Ekach HTML page la style dyaychi asel tar.</p>
+            </div>
+
+            <div class="workflow-arrow">↓</div>
+
+            <div class="workflow-step">
+                <span>03</span>
+                <strong>External CSS</strong>
+                <p>Anek pages kiwa sampurna website la style dyaychi asel tar.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 7 -->
+    <section class="lesson-section">
+
+        <h2>7. Mahatvache Mudde</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>CSS add karnyachya ekun teen paddhati aahet.</li>
+                <li>Inline CSS madhye <code>style</code> attribute vapartat.</li>
+                <li>Internal CSS madhye <code>style</code> element vapartat.</li>
+                <li>External CSS madhye vegli <code>.css</code> file aste.</li>
+                <li><code>link</code> element External CSS la HTML sobat jodto.</li>
+                <li>Mothya websites sathi External CSS adhik upyogi aste.</li>
+            </ul>
+        </div>
+
+    </section>
+
+
+    <!-- Practice Section -->
+    <section class="practice-section">
+
+        <h2>8. Saravasaathi Kruti</h2>
+
+        <div class="task-box">
+
+            <h3>Task: CSS Chya Teen Examples Tayaar Kara</h3>
+
+            <ol>
+                <li>Inline CSS vaprun ek heading tayar kara.</li>
+                <li>Internal CSS vaprun ek paragraph design kara.</li>
+                <li><code>style.css</code> navachi vegli file tayar kara.</li>
+                <li><code>link</code> element vaprun CSS file HTML sobat joda.</li>
+                <li>Heading ani paragraph che colors badlun paha.</li>
+            </ol>
+
+        </div>
+
+    </section>
+
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+
+        <a href="{% url 'css_topic' 'syntax' %}"
+           class="nav-button previous">
+            ← Magil: CSS Syntax
+        </a>
+
+        <a href="{% url 'css_topic' 'selectors' %}"
+           class="nav-button next">
+            Pudhe: CSS Selectors →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

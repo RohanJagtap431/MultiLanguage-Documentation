@@ -1,0 +1,943 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Django ModelForms{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/django/modelforms.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- HEADER -->
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO COURSE • TOPIC 12</span>
+        <h1>Django ModelForms</h1>
+        <p>
+            Learn how to create forms directly from models,
+            validate user input and perform database operations.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 45–55 Minutes</span>
+        </div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <section class="lesson-section">
+        <h2>1. ModelForms mhanje kay?</h2>
+
+        <p>
+            Django ModelForm ha built-in class aahe.
+            Tyacha use Django Model var based Form create
+            karnyasathi hoto.
+        </p>
+
+        <p>
+            ModelForm automatically Model madhil fields
+            vaprun Form tayar karto. Valid data save karnyasathi
+            form.save() method vaparta yete.
+        </p>
+
+        <div class="example-box">
+            <h3>Example</h3>
+            <p>
+                Samja Student Model madhye name, email, age ani
+                course he fields aahet. ModelForm vaprun ya fields
+                sathi Form automatically create karta yeto.
+            </p>
+        </div>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            ModelForm mule Model ani Form madhil connection
+            soppe hote.
+        </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section class="lesson-section">
+        <h2>2. Forms vs ModelForms</h2>
+
+        <p>
+            Django madhye forms.Form ani forms.ModelForm
+            donhi user input collect ani validate karnyasathi
+            vapartat. Pan tyanchya working madhye difference aahe.
+        </p>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>forms.Form</th>
+                    <th>forms.ModelForm</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Fields manually define karave lagtat.</td>
+                    <td>Model madhun fields generate hotat.</td>
+                </tr>
+                <tr>
+                    <td>Model sobat direct connection nahi.</td>
+                    <td>Specific Model sobat connected asto.</td>
+                </tr>
+                <tr>
+                    <td>Data manually save karava lagto.</td>
+                    <td>form.save() vaprun save karta yeto.</td>
+                </tr>
+                <tr>
+                    <td>Custom forms sathi useful.</td>
+                    <td>Database Model based forms sathi useful.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section class="lesson-section">
+        <h2>3. Create a ModelForm</h2>
+
+        <p>
+            ModelForm create karnyasathi django.forms madhun
+            ModelForm import karava lagto.
+        </p>
+
+        <h3>File: students/forms.py</h3>
+
+        <pre class="code-block"><code>from django import forms
+from .models import Student
+
+class StudentForm(forms.ModelForm):
+
+    class Meta:
+        model = Student
+        fields = "__all__"</code></pre>
+
+        <p>Ya code madhye:</p>
+
+        <ul>
+            <li><code>forms.ModelForm</code> – ModelForm base class.</li>
+            <li><code>class Meta</code> – ModelForm configuration define karte.</li>
+            <li><code>model = Student</code> – Student Model select karto.</li>
+            <li><code>fields = "__all__"</code> – Model madhil sarva editable fields include karto.</li>
+        </ul>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            ModelForm madhye Meta class vaprun Model ani
+            Form madhye konthe fields pahijet te define kartat.
+        </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section class="lesson-section">
+        <h2>4. Meta Class</h2>
+
+        <p>
+            ModelForm madhye Meta class cha use Form chi
+            configuration define karnyasathi hoto.
+        </p>
+
+        <h3>Important Meta Options</h3>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Option</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>model</td>
+                    <td>Kontya Model var Form based aahe te sangte.</td>
+                </tr>
+                <tr>
+                    <td>fields</td>
+                    <td>Form madhye konthe fields pahijet te select karte.</td>
+                </tr>
+                <tr>
+                    <td>exclude</td>
+                    <td>Specific Model fields Form madhun exclude karte.</td>
+                </tr>
+                <tr>
+                    <td>widgets</td>
+                    <td>Form fields che widgets customize karte.</td>
+                </tr>
+                <tr>
+                    <td>labels</td>
+                    <td>Fields che display labels customize karte.</td>
+                </tr>
+                <tr>
+                    <td>help_texts</td>
+                    <td>Fields sathi help information define karte.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Example</h3>
+
+        <pre class="code-block"><code>from django import forms
+from .models import Student
+
+class StudentForm(forms.ModelForm):
+
+    class Meta:
+        model = Student
+
+        fields = [
+            "name",
+            "email",
+            "age",
+            "course"
+        ]</code></pre>
+
+        <p>
+            Ya example madhye Student Model madhil fakt
+            name, email, age ani course fields Form madhye
+            include hotil.
+        </p>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section class="lesson-section">
+        <h2>5. fields and exclude</h2>
+
+        <p>
+            ModelForm madhye fields ani exclude cha use
+            Form madhye konthe fields display karayche te
+            control karnyasathi hoto.
+        </p>
+
+        <h3>Using fields</h3>
+
+        <pre class="code-block"><code>class StudentForm(forms.ModelForm):
+
+    class Meta:
+        model = Student
+        fields = ["name", "email", "age"]</code></pre>
+
+        <p>
+            Ya Form madhye fakt name, email ani age fields
+            display hotil.
+        </p>
+
+        <h3>Using exclude</h3>
+
+        <pre class="code-block"><code>class StudentForm(forms.ModelForm):
+
+    class Meta:
+        model = Student
+        exclude = ["created_at"]</code></pre>
+
+        <p>
+            Ya example madhye created_at field Form madhun
+            exclude hoil. Itar editable Model fields include hotil.
+        </p>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            fields ani exclude donhi ekach Meta configuration
+            madhye vapru naye. Explicit fields list vaprane
+            applications madhye adhik safe aahe.
+        </div>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section class="lesson-section">
+        <h2>6. Customize ModelForm Widgets</h2>
+
+        <p>
+            ModelForm madhye widgets vaprun input fields
+            cha appearance customize karta yeto.
+        </p>
+
+        <h3>Example: forms.py</h3>
+
+        <pre class="code-block"><code>from django import forms
+from .models import Student
+
+class StudentForm(forms.ModelForm):
+
+    class Meta:
+        model = Student
+
+        fields = [
+            "name",
+            "email",
+            "age",
+            "course"
+        ]
+
+        widgets = {
+            "name": forms.TextInput(
+                attrs={
+                    "placeholder": "Enter name"
+                }
+            ),
+
+            "email": forms.EmailInput(
+                attrs={
+                    "placeholder": "Enter email"
+                }
+            ),
+
+            "age": forms.NumberInput(
+                attrs={
+                    "min": 16
+                }
+            ),
+
+            "course": forms.TextInput(
+                attrs={
+                    "placeholder": "Enter course"
+                }
+            )
+        }</code></pre>
+
+        <p>
+            widgets madhye attrs dictionary vaprun
+            placeholder, class, id ani itar HTML attributes
+            set karta yetat.
+        </p>
+    </section>
+
+    <!-- SECTION 7 -->
+    <section class="lesson-section">
+        <h2>7. form.save() Method</h2>
+
+        <p>
+            form.save() method cha use validated ModelForm
+            data database madhye save karnyasathi hoto.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre class="code-block"><code>form = StudentForm(request.POST)
+
+if form.is_valid():
+
+    form.save()</code></pre>
+
+        <p>
+            Ya code madhye form valid aslyas Django automatically
+            Student Model madhye record create karte.
+        </p>
+
+        <h3>save(commit=False)</h3>
+
+        <p>
+            save(commit=False) vaparlyas Model object tayar hoto,
+            pan to lagech database madhye save hot nahi.
+        </p>
+
+        <pre class="code-block"><code>form = StudentForm(request.POST)
+
+if form.is_valid():
+
+    student = form.save(commit=False)
+
+    student.course = "Computer Science"
+
+    student.save()</code></pre>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            commit=False mule object database madhye save
+            karnyapurvi additional changes karta yetat.
+        </div>
+    </section>
+
+    <!-- SECTION 8 -->
+    <section class="lesson-section">
+        <h2>8. Update Form using instance</h2>
+
+        <p>
+            Existing database record update karnyasathi
+            ModelForm madhye instance parameter vapartat.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre class="code-block"><code>student = Student.objects.get(id=1)
+
+form = StudentForm(
+    instance=student
+)</code></pre>
+
+        <p>
+            Ya code madhye existing student cha data Form madhye
+            automatically fill hoil.
+        </p>
+
+        <h3>Submit Updated Data</h3>
+
+        <pre class="code-block"><code>student = Student.objects.get(id=1)
+
+form = StudentForm(
+    request.POST,
+    instance=student
+)
+
+if form.is_valid():
+
+    form.save()</code></pre>
+
+        <p>
+            Ya example madhye existing student record update hoil.
+            Navin record create honar nahi.
+        </p>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            instance pass na kelyas form.save() navin object
+            create karu shakto. Existing record update karaycha
+            aslyas instance vapra.
+        </div>
+    </section>
+
+    <!-- SECTION 9 -->
+    <section class="lesson-section">
+        <h2>9. ModelForm Validation</h2>
+
+        <p>
+            ModelForm automatically Model fields var based
+            validation perform karto.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre class="code-block"><code>from django import forms
+from .models import Student
+
+class StudentForm(forms.ModelForm):
+
+    class Meta:
+        model = Student
+        fields = [
+            "name",
+            "email",
+            "age",
+            "course"
+        ]
+
+    def clean_name(self):
+
+        name = self.cleaned_data["name"]
+
+        if name.isdigit():
+            raise forms.ValidationError(
+                "Name cannot contain only numbers."
+            )
+
+        return name</code></pre>
+
+        <p>
+            Ya example madhye name field sathi custom validation
+            add keli aahe.
+        </p>
+
+        <h3>Important Validation Methods</h3>
+
+        <ul>
+            <li><code>is_valid()</code> – Submitted data validate karte.</li>
+            <li><code>cleaned_data</code> – Validated data provide karte.</li>
+            <li><code>clean_name()</code> – Name field sathi custom validation.</li>
+            <li><code>ValidationError</code> – Custom error display karte.</li>
+        </ul>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            ModelForm madhye Model field validation ani
+            custom validation donhi use karta yetat.
+        </div>
+    </section>
+
+    <!-- SECTION 10 -->
+    <section class="lesson-section">
+        <h2>10. Practical – Student Management System</h2>
+
+        <p>
+            Ata ModelForm vaprun Student Create, Display,
+            Update ani Delete operations perform karu.
+        </p>
+
+        <h3>Step 1: Student Model</h3>
+
+        <p>File: students/models.py</p>
+
+        <pre class="code-block"><code>from django.db import models
+
+class Student(models.Model):
+
+    name = models.CharField(max_length=100)
+
+    email = models.EmailField(unique=True)
+
+    age = models.IntegerField()
+
+    course = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name</code></pre>
+
+        <p>
+            Ha Model Topic 08 madhye create kelela asel tar
+            punha duplicate class create karu naka.
+        </p>
+
+        <h3>Step 2: Create ModelForm</h3>
+
+        <p>File: students/forms.py</p>
+
+        <pre class="code-block"><code>from django import forms
+from .models import Student
+
+class StudentForm(forms.ModelForm):
+
+    class Meta:
+        model = Student
+
+        fields = [
+            "name",
+            "email",
+            "age",
+            "course"
+        ]
+
+        widgets = {
+            "name": forms.TextInput(
+                attrs={"placeholder": "Enter name"}
+            ),
+
+            "email": forms.EmailInput(
+                attrs={"placeholder": "Enter email"}
+            ),
+
+            "age": forms.NumberInput(),
+
+            "course": forms.TextInput(
+                attrs={"placeholder": "Enter course"}
+            )
+        }</code></pre>
+
+        <h3>Step 3: Create Views</h3>
+
+        <p>File: students/views.py</p>
+
+        <pre class="code-block"><code>from django.shortcuts import (
+    render,
+    redirect,
+    get_object_or_404
+)
+
+from .models import Student
+from .forms import StudentForm
+
+
+# Display and Create Student
+
+def student_list(request):
+
+    if request.method == "POST":
+
+        form = StudentForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect("student_list")
+
+    else:
+        form = StudentForm()
+
+    students = Student.objects.all()
+
+    return render(
+        request,
+        "student_list.html",
+        {
+            "form": form,
+            "students": students
+        }
+    )
+
+
+# Update Student
+
+def student_update(request, pk):
+
+    student = get_object_or_404(
+        Student,
+        pk=pk
+    )
+
+    if request.method == "POST":
+
+        form = StudentForm(
+            request.POST,
+            instance=student
+        )
+
+        if form.is_valid():
+            form.save()
+            return redirect("student_list")
+
+    else:
+        form = StudentForm(
+            instance=student
+        )
+
+    return render(
+        request,
+        "student_update.html",
+        {
+            "form": form,
+            "student": student
+        }
+    )
+
+
+# Delete Student
+
+def student_delete(request, pk):
+
+    student = get_object_or_404(
+        Student,
+        pk=pk
+    )
+
+    if request.method == "POST":
+
+        student.delete()
+
+        return redirect("student_list")
+
+    return render(
+        request,
+        "student_confirm_delete.html",
+        {"student": student}
+    )</code></pre>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Delete operation POST request madhun keli aahe.
+            GET request madhun database record delete karu naye.
+            Real application madhye ya views la authentication
+            ani permission checks suddha add kara.
+        </div>
+
+        <h3>Step 4: Create URLs</h3>
+
+        <p>File: students/urls.py</p>
+
+        <pre class="code-block"><code>from django.urls import path
+from . import views
+
+urlpatterns = [
+
+    path(
+        "students/",
+        views.student_list,
+        name="student_list"
+    ),
+
+    path(
+        "students/update/&lt;int:pk&gt;/",
+        views.student_update,
+        name="student_update"
+    ),
+
+    path(
+        "students/delete/&lt;int:pk&gt;/",
+        views.student_delete,
+        name="student_delete"
+    ),
+]</code></pre>
+
+        <p>
+            Project urls.py madhye students.urls include kele
+            aahet yachi khatri kara.
+        </p>
+
+        <h3>Step 5: Student List Template</h3>
+
+        <p>File: templates/student_list.html</p>
+
+        <pre class="code-block"><code>{% verbatim %}
+&lt;h1&gt;Student Management&lt;/h1&gt;
+
+&lt;h2&gt;Add Student&lt;/h2&gt;
+
+&lt;form method="POST"&gt;
+
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    &lt;button type="submit"&gt;
+        Save Student
+    &lt;/button&gt;
+
+&lt;/form&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;Student List&lt;/h2&gt;
+
+{% for student in students %}
+
+    &lt;p&gt;
+        {{ student.name }} -
+        {{ student.email }} -
+        {{ student.age }} -
+        {{ student.course }}
+
+        &lt;a href="{% url 'student_update' student.pk %}"&gt;
+            Edit
+        &lt;/a&gt;
+
+        &lt;a href="{% url 'student_delete' student.pk %}"&gt;
+            Delete
+        &lt;/a&gt;
+    &lt;/p&gt;
+
+{% empty %}
+
+    &lt;p&gt;No students found.&lt;/p&gt;
+
+{% endfor %}
+{% endverbatim %}</code></pre>
+
+        <h3>Step 6: Update Template</h3>
+
+        <p>File: templates/student_update.html</p>
+
+        <pre class="code-block"><code>{% verbatim %}
+&lt;h1&gt;Update Student&lt;/h1&gt;
+
+&lt;form method="POST"&gt;
+
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    &lt;button type="submit"&gt;
+        Update Student
+    &lt;/button&gt;
+
+&lt;/form&gt;
+
+&lt;a href="{% url 'student_list' %}"&gt;
+    Back
+&lt;/a&gt;
+{% endverbatim %}</code></pre>
+
+        <h3>Step 7: Delete Confirmation Template</h3>
+
+        <p>File: templates/student_confirm_delete.html</p>
+
+        <pre class="code-block"><code>{% verbatim %}
+&lt;h1&gt;Delete Student&lt;/h1&gt;
+
+&lt;p&gt;
+    Are you sure you want to delete
+    {{ student.name }}?
+&lt;/p&gt;
+
+&lt;form method="POST"&gt;
+
+    {% csrf_token %}
+
+    &lt;button type="submit"&gt;
+        Confirm Delete
+    &lt;/button&gt;
+
+&lt;/form&gt;
+
+&lt;a href="{% url 'student_list' %}"&gt;
+    Cancel
+&lt;/a&gt;
+{% endverbatim %}</code></pre>
+
+        <h3>Step 8: Run Server</h3>
+
+        <pre class="code-block"><code>python manage.py runserver</code></pre>
+
+        <h3>Step 9: Open Student Management Page</h3>
+
+        <pre class="output-code"><code>http://127.0.0.1:8000/students/</code></pre>
+
+        <h3>Expected Output</h3>
+
+        <div class="browser-preview">
+            <div class="browser-bar">
+                <span></span>
+                <span></span>
+                <span></span>
+                <div class="browser-address">127.0.0.1:8000/students/</div>
+            </div>
+
+            <div class="form-preview">
+                <h2>Student Management</h2>
+
+                <div class="preview-field">
+                    <label>Student Name</label>
+                    <div>Rohan Jagtap</div>
+                </div>
+
+                <div class="preview-field">
+                    <label>Email</label>
+                    <div>rohan@example.com</div>
+                </div>
+
+                <div class="preview-field">
+                    <label>Age</label>
+                    <div>20</div>
+                </div>
+
+                <div class="preview-field">
+                    <label>Course</label>
+                    <div>BSc Computer Science</div>
+                </div>
+
+                <button type="button" class="demo-button">
+                    Save Student
+                </button>
+
+                <hr>
+
+                <h3>Student List</h3>
+                <p>Rohan Jagtap – BSc Computer Science</p>
+                <span class="preview-action">Edit</span>
+                <span class="preview-action delete-action">Delete</span>
+
+                <p class="preview-note">
+                    Illustrative preview. Actual page Django render karte.
+                </p>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <strong>Practical Completed:</strong>
+            Ata Student create, display, update ani delete
+            operations ModelForm vaprun perform karta yetil.
+        </div>
+    </section>
+
+    <!-- SECTION 11 -->
+    <section class="lesson-section">
+        <h2>11. Common Mistakes</h2>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Problem</th>
+                    <th>Solution</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>ModelForm not working</td>
+                    <td>Meta class madhye model define kara.</td>
+                </tr>
+                <tr>
+                    <td>Unknown field error</td>
+                    <td>fields list madhil names check kara.</td>
+                </tr>
+                <tr>
+                    <td>Data not saving</td>
+                    <td>is_valid() ani form.save() check kara.</td>
+                </tr>
+                <tr>
+                    <td>Update creates new record</td>
+                    <td>Existing object instance madhye pass kara.</td>
+                </tr>
+                <tr>
+                    <td>CSRF error</td>
+                    <td>POST form madhye csrf_token add kara.</td>
+                </tr>
+                <tr>
+                    <td>Duplicate email error</td>
+                    <td>Unique email validation check kara.</td>
+                </tr>
+                <tr>
+                    <td>Delete not working</td>
+                    <td>Delete confirmation POST form check kara.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- SECTION 12 -->
+    <section class="lesson-section">
+        <h2>12. Important Revision</h2>
+
+        <ol>
+            <li>ModelForm Model var based Form create karto.</li>
+            <li>forms.ModelForm ha base class aahe.</li>
+            <li>Meta class madhye Model configuration define karte.</li>
+            <li>model option Model select karto.</li>
+            <li>fields option Form fields select karte.</li>
+            <li>exclude option specific fields remove karte.</li>
+            <li>widgets input appearance customize kartat.</li>
+            <li>form.save() database madhye object save karte.</li>
+            <li>save(commit=False) object save na karta return karte.</li>
+            <li>instance existing record update karnyasathi vapartat.</li>
+            <li>is_valid() form data validate karte.</li>
+            <li>clean_fieldname() custom validation sathi vapartat.</li>
+        </ol>
+    </section>
+
+    <!-- PRACTICE -->
+    <section class="practice-section">
+        <h2>13. Practice Questions</h2>
+
+        <p>He questions swatah solve kar:</p>
+
+        <ol>
+            <li>Django ModelForms mhanje kay?</li>
+            <li>Forms ani ModelForms madhil difference lih.</li>
+            <li>Student Model sathi ModelForm create kar.</li>
+            <li>Meta class explain kar.</li>
+            <li>fields ani exclude madhil difference lih.</li>
+            <li>Widgets cha use kay aahe?</li>
+            <li>form.save() method explain kar.</li>
+            <li>save(commit=False) cha use sang.</li>
+            <li>instance parameter cha use kay aahe?</li>
+            <li>Student Update Form create kar.</li>
+            <li>ModelForm madhye custom validation add kar.</li>
+            <li>Complete Student CRUD application create kar.</li>
+        </ol>
+    </section>
+
+    <!-- COMPLETION -->
+    <div class="completion-message">
+        <h2>Topic 12 Completed!</h2>
+        <p>
+            Ata tumhala Django ModelForms, Meta Class,
+            form.save(), instance ani CRUD operations samajle astil.
+        </p>
+    </div>
+
+    <!-- NAVIGATION -->
+    <div class="lesson-navigation">
+
+        <a href="{% url 'django_topic' 'forms' %}"
+           class="nav-button previous-button">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'django_topic' 'crud-operations' %}"
+           class="nav-button next-button">
+            Next Topic →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,439 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Django Testing{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/django/testing.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <header class="lesson-header">
+        <span class="lesson-label">DJANGO COURSE • TOPIC 25</span>
+        <h1>Django Testing</h1>
+        <p>Learn how to test Django models, views and HTTP responses using automated tests.</p>
+        <div class="lesson-meta">
+            <span>Intermediate Level</span>
+            <span>60–75 Minutes</span>
+        </div>
+    </header>
+
+    <section class="lesson-section">
+        <h2>1. Testing mhanje kay?</h2>
+        <p>Testing mhanje application madhil code expected result deto ka he check karne.</p>
+
+        <div class="example-box">
+            <h3>Example</h3>
+            <p>Samja Student model madhye student create kela.</p>
+            <pre class="code-block"><code>student = Student.objects.create(
+    name="Rohan",
+    email="rohan@example.com",
+    age=20,
+    course="Computer Science"
+)</code></pre>
+            <p>Testing madhye apan check karu shakto ki student database madhye save zala aahe ka.</p>
+            <pre class="code-block"><code>self.assertEqual(student.name, "Rohan")</code></pre>
+        </div>
+    </section>
+
+    <section class="lesson-section">
+        <h2>2. Unit Testing</h2>
+        <p>Unit Testing mhanje application madhil ek specific function kiwa small unit test karne.</p>
+
+        <h3>Example</h3>
+        <pre class="code-block"><code>def add(a, b):
+    return a + b</code></pre>
+
+        <h3>Test</h3>
+        <pre class="code-block"><code>self.assertEqual(add(10, 20), 30)</code></pre>
+
+        <p>Ithe add() function cha output check kela aahe.</p>
+
+        <ul>
+            <li>Code madhil errors lavkar samajtat.</li>
+            <li>Code changes nantar functionality check karta yete.</li>
+            <li>Debugging easy hote.</li>
+            <li>Application reliability improve hote.</li>
+        </ul>
+    </section>
+
+    <section class="lesson-section">
+        <h2>3. Django TestCase</h2>
+        <p>Django madhye automated testing sathi TestCase class vapartat.</p>
+
+        <h3>Import</h3>
+        <pre class="code-block"><code>from django.test import TestCase</code></pre>
+
+        <h3>Basic Example</h3>
+        <pre class="code-block"><code>from django.test import TestCase
+
+class MyTest(TestCase):
+
+    def test_example(self):
+        self.assertEqual(10 + 20, 30)</code></pre>
+
+        <table class="lesson-table">
+            <thead>
+                <tr><th>Code</th><th>Use</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>TestCase</td><td>Test class create karte.</td></tr>
+                <tr><td>test_example()</td><td>Test method.</td></tr>
+                <tr><td>assertEqual()</td><td>Don values equal aahet ka check karte.</td></tr>
+            </tbody>
+        </table>
+
+        <p>Django test runner test_ ne suru honarya test methods execute karto.</p>
+        <p>TestCase tests sathi separate test database vaparte. Test complete zalyavar test data rollback hoto.</p>
+    </section>
+
+    <section class="lesson-section">
+        <h2>4. Important Assertion Methods</h2>
+        <p>Assertions mhanje expected result check karanyasathi vaparlya janarya methods.</p>
+
+        <table class="lesson-table">
+            <thead>
+                <tr><th>Method</th><th>Use</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>assertEqual(a, b)</td><td>Don values equal aahet ka?</td></tr>
+                <tr><td>assertNotEqual(a, b)</td><td>Don values different aahet ka?</td></tr>
+                <tr><td>assertTrue(value)</td><td>Value True aahe ka?</td></tr>
+                <tr><td>assertFalse(value)</td><td>Value False aahe ka?</td></tr>
+                <tr><td>assertIsNone(value)</td><td>Value None aahe ka?</td></tr>
+                <tr><td>assertIn(a, b)</td><td>A, B madhye aahe ka?</td></tr>
+                <tr><td>assertContains(response, text)</td><td>Response madhye text aahe ka?</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Example</h3>
+        <pre class="code-block"><code>self.assertEqual(10, 10)
+
+self.assertTrue(True)
+
+self.assertIn("Django", "Learn Django")</code></pre>
+    </section>
+
+    <section class="lesson-section">
+        <h2>5. Model Testing</h2>
+        <p>Model Testing madhye database model properly work karto ka he check karto.</p>
+
+        <h3>Example</h3>
+        <pre class="code-block"><code>from django.test import TestCase
+from .models import Student
+
+class StudentModelTest(TestCase):
+
+    def test_student_creation(self):
+
+        student = Student.objects.create(
+            name="Rohan",
+            email="rohan@example.com",
+            age=20,
+            course="CS"
+        )
+
+        self.assertEqual(student.name, "Rohan")
+        self.assertEqual(student.age, 20)</code></pre>
+
+        <p>Student object create kela, database madhye record save zala ani tyache name ani age check kele.</p>
+    </section>
+
+    <section class="lesson-section">
+        <h2>6. View Testing</h2>
+        <p>View Testing madhye Django view expected response dete ka he check karto.</p>
+
+        <h3>Example View</h3>
+        <pre class="code-block"><code>from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("Welcome to Django")</code></pre>
+
+        <h3>Test</h3>
+        <pre class="code-block"><code>from django.test import TestCase
+from django.urls import reverse
+
+class HomeViewTest(TestCase):
+
+    def test_home_page(self):
+
+        response = self.client.get(
+            reverse("home")
+        )
+
+        self.assertEqual(response.status_code, 200)</code></pre>
+
+        <ul>
+            <li>self.client.get() request pathavte.</li>
+            <li>reverse("home") URL name varun URL milavte.</li>
+            <li>status_code response status check karto.</li>
+            <li>200 mhanje request successful aahe.</li>
+        </ul>
+    </section>
+
+    <section class="lesson-section">
+        <h2>7. Django Test Client</h2>
+        <p>Django Test Client vaprun browser sarkhya HTTP requests test karta yetat. Actual browser open karava lagat nahi.</p>
+
+        <h3>GET Request</h3>
+        <pre class="code-block"><code>response = self.client.get("/students/")</code></pre>
+
+        <h3>POST Request</h3>
+        <pre class="code-block"><code>response = self.client.post(
+    "/students/add/",
+    {
+        "name": "Rohan",
+        "email": "rohan@example.com"
+    }
+)</code></pre>
+
+        <table class="lesson-table">
+            <thead>
+                <tr><th>Method</th><th>Use</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>client.get()</td><td>GET request</td></tr>
+                <tr><td>client.post()</td><td>POST request</td></tr>
+                <tr><td>client.put()</td><td>PUT request</td></tr>
+                <tr><td>client.delete()</td><td>DELETE request</td></tr>
+                <tr><td>client.login()</td><td>Test user login</td></tr>
+                <tr><td>client.logout()</td><td>Test user logout</td></tr>
+            </tbody>
+        </table>
+
+        <p>Test Client ha request-response testing sathi aahe. To browser madhil JavaScript kiwa visual layout automatically test karat nahi.</p>
+    </section>
+
+    <section class="lesson-section">
+        <h2>8. Status Code Testing</h2>
+        <p>HTTP response status code varun request cha result samajto.</p>
+
+        <table class="lesson-table">
+            <thead>
+                <tr><th>Status Code</th><th>Meaning</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>200</td><td>OK</td></tr>
+                <tr><td>201</td><td>Created</td></tr>
+                <tr><td>302</td><td>Redirect</td></tr>
+                <tr><td>400</td><td>Bad Request</td></tr>
+                <tr><td>403</td><td>Forbidden</td></tr>
+                <tr><td>404</td><td>Not Found</td></tr>
+                <tr><td>500</td><td>Server Error</td></tr>
+            </tbody>
+        </table>
+
+        <h3>200 Testing</h3>
+        <pre class="code-block"><code>response = self.client.get("/students/")
+
+self.assertEqual(response.status_code, 200)</code></pre>
+
+        <h3>404 Testing</h3>
+        <pre class="code-block"><code>response = self.client.get("/wrong-url/")
+
+self.assertEqual(response.status_code, 404)</code></pre>
+    </section>
+
+    <section class="lesson-section">
+        <h2>9. Test Commands</h2>
+        <p>Django madhye tests run karanyasathi manage.py test command vapartat.</p>
+
+        <h3>All Tests</h3>
+        <pre class="code-block"><code>python manage.py test</code></pre>
+
+        <h3>Specific App Tests</h3>
+        <pre class="code-block"><code>python manage.py test students</code></pre>
+
+        <h3>Specific Test Class</h3>
+        <pre class="code-block"><code>python manage.py test students.tests.StudentModelTest</code></pre>
+
+        <h3>Verbose Output</h3>
+        <pre class="code-block"><code>python manage.py test students --verbosity 2</code></pre>
+
+        <ul>
+            <li>test – Tests execute karto.</li>
+            <li>students – Specific app madhil tests run karto.</li>
+            <li>--verbosity 2 – Detailed test output dakhavto.</li>
+        </ul>
+    </section>
+
+    <section class="lesson-section">
+        <h2>10. Practical – Student Management System Testing</h2>
+        <p>Ata existing Student model ani Student List view test karu.</p>
+
+        <h3>Step 1: Create tests.py</h3>
+        <p>File: students/tests.py</p>
+
+        <pre class="code-block"><code>from django.test import TestCase
+from django.urls import reverse
+
+from .models import Student
+
+
+class StudentModelTest(TestCase):
+
+    def test_student_creation(self):
+
+        student = Student.objects.create(
+            name="Rohan",
+            email="rohan@example.com",
+            age=20,
+            course="CS"
+        )
+
+        self.assertEqual(student.name, "Rohan")
+        self.assertEqual(student.email, "rohan@example.com")
+        self.assertEqual(student.age, 20)
+
+
+class StudentViewTest(TestCase):
+
+    def setUp(self):
+
+        Student.objects.create(
+            name="Rohan",
+            email="rohan@example.com",
+            age=20,
+            course="CS"
+        )
+
+    def test_student_list_page(self):
+
+        response = self.client.get(
+            reverse("student_list")
+        )
+
+        self.assertEqual(response.status_code, 200)
+
+    def test_student_name_display(self):
+
+        response = self.client.get(
+            reverse("student_list")
+        )
+
+        self.assertContains(response, "Rohan")</code></pre>
+
+        <h3>Step 2: Understand setUp()</h3>
+        <pre class="code-block"><code>def setUp(self):
+
+    Student.objects.create(
+        name="Rohan",
+        email="rohan@example.com",
+        age=20,
+        course="CS"
+    )</code></pre>
+
+        <p>setUp() method pratyek test method run honyapurvi execute hote.</p>
+
+        <h3>Step 3: Check URL Name</h3>
+        <p>students/urls.py madhye URL name asa asava:</p>
+
+        <pre class="code-block"><code>path(
+    "students/",
+    views.student_list,
+    name="student_list"
+)</code></pre>
+
+        <p>Tumchya project madhye URL namespace asel tar reverse() madhye namespace suddha dya.</p>
+
+        <h3>Step 4: Run Tests</h3>
+        <pre class="code-block"><code>python manage.py test students</code></pre>
+
+        <h3>Expected Terminal Output</h3>
+        <div class="terminal-preview">
+            <span class="terminal-label">TERMINAL</span>
+            <pre><code>Found 3 test(s).
+Creating test database...
+System check identified no issues.
+...
+Ran 3 tests in 0.XXXs
+
+OK
+Destroying test database...</code></pre>
+        </div>
+
+        <p>Illustrative output. Actual test count ani timing tumchya project var depend kartil.</p>
+
+        <h3>Step 5: Understand Test Result</h3>
+        <ul>
+            <li>OK – Sarva tests pass zale.</li>
+            <li>FAIL – Expected result ani actual result match zale nahi.</li>
+            <li>ERROR – Test execute kartana exception aala.</li>
+        </ul>
+    </section>
+
+    <section class="lesson-section">
+        <h2>11. Common Testing Mistakes</h2>
+
+        <table class="lesson-table">
+            <thead>
+                <tr><th>Mistake</th><th>Solution</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Test method test_ ne start hot nahi</td><td>test_ prefix vapra.</td></tr>
+                <tr><td>Wrong URL name</td><td>reverse() madhil name check kara.</td></tr>
+                <tr><td>Model field missing</td><td>Existing model fields check kara.</td></tr>
+                <tr><td>Duplicate unique email</td><td>Pratyek test madhye unique email vapra.</td></tr>
+                <tr><td>Test fail hoto</td><td>Error message ani assertion check kara.</td></tr>
+                <tr><td>Test data permanent save hot nahi</td><td>TestCase database rollback behavior lakshat theva.</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="lesson-section">
+        <h2>12. Important Revision</h2>
+        <ol>
+            <li>Testing mhanje code expected result deto ka he check karne.</li>
+            <li>Unit Testing ek specific function kiwa unit test karte.</li>
+            <li>Django madhye TestCase vapartat.</li>
+            <li>test_ ne suru honarya methods test runner execute karto.</li>
+            <li>assertEqual() don values compare karte.</li>
+            <li>Model Testing database models check karte.</li>
+            <li>View Testing HTTP response check karte.</li>
+            <li>self.client.get() GET request pathavte.</li>
+            <li>self.client.post() POST request pathavte.</li>
+            <li>HTTP 200 mhanje successful response.</li>
+            <li>setUp() pratyek test method purvi execute hote.</li>
+            <li>python manage.py test tests run karte.</li>
+        </ol>
+    </section>
+
+    <section class="practice-section">
+        <h2>13. Practice Questions</h2>
+        <ol>
+            <li>Django Testing mhanje kay?</li>
+            <li>Unit Testing explain kar.</li>
+            <li>Django TestCase class cha use kay?</li>
+            <li>Assertion methods mhanje kay?</li>
+            <li>Model Testing explain kar.</li>
+            <li>View Testing explain kar.</li>
+            <li>Django Test Client mhanje kay?</li>
+            <li>GET ani POST requests test kase karal?</li>
+            <li>HTTP status codes mhanje kay?</li>
+            <li>setUp() method cha use kay?</li>
+            <li>python manage.py test command explain kar.</li>
+            <li>Student Management System sathi Model ani View tests lih.</li>
+        </ol>
+    </section>
+
+    <div class="completion-message">
+        <h2>Topic 25 Completed!</h2>
+        <p>Ata tumhala Django Testing, TestCase, Assertions ani Test Client samajle astil.</p>
+    </div>
+
+    <div class="lesson-navigation">
+        <a href="{% url 'django_topic' 'security' %}" class="nav-button previous-button">
+            ← Previous Topic
+        </a>
+        <a href="{% url 'django_topic' 'deployment' %}" class="nav-button next-button">
+            Next Topic →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

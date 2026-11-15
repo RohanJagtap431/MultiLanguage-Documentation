@@ -1,0 +1,202 @@
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}
+Python Documentation | Roman Marathi
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/python/index.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<div class="page-heading">
+
+    <span class="section-label">PROGRAMMING LANGUAGE</span>
+
+    <h1>Python Documentation</h1>
+
+    <p>
+        Python programming basic pasun advanced paryant
+        soprya Roman Marathi madhye shika.
+        Pratyek topic sobat explanation, syntax,
+        code examples ani output dile aahet.
+    </p>
+
+</div>
+
+<div class="topic-list">
+
+    <a href="{% url 'python_topic' 'introduction' %}" class="topic-card">
+        <span class="topic-number">01</span>
+        <span class="topic-name">Introduction to Python</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'python_topic' 'installation' %}" class="topic-card">
+        <span class="topic-number">02</span>
+        <span class="topic-name">Python Installation</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'python_topic' 'syntax' %}" class="topic-card">
+        <span class="topic-number">03</span>
+        <span class="topic-name">Python Syntax</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'python_topic' 'comments' %}" class="topic-card">
+        <span class="topic-number">04</span>
+        <span class="topic-name">Comments</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'python_topic' 'variables' %}" class="topic-card">
+        <span class="topic-number">05</span>
+        <span class="topic-name">Variables</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'python_topic' 'data-types' %}" class="topic-card">
+        <span class="topic-number">06</span>
+        <span class="topic-name">Data Types</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'python_topic' 'type-casting' %}" class="topic-card">
+        <span class="topic-number">07</span>
+        <span class="topic-name">Type Casting</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'python_topic' 'input-output' %}" class="topic-card">
+        <span class="topic-number">08</span>
+        <span class="topic-name">Input and Output</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'python_topic' 'operators' %}" class="topic-card">
+        <span class="topic-number">09</span>
+        <span class="topic-name">Operators</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'python_topic' 'strings' %}" class="topic-card">
+        <span class="topic-number">10</span>
+        <span class="topic-name">Strings</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'python_topic' 'string-methods' %}" class="topic-card">
+        <span class="topic-number">11</span>
+        <span class="topic-name">String Methods</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'python_topic' 'lists' %}" class="topic-card">
+        <span class="topic-number">12</span>
+        <span class="topic-name">Lists</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'python_topic' 'tuples' %}" class="topic-card">
+        <span class="topic-number">13</span>
+        <span class="topic-name">Tuples</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'python_topic' 'sets' %}" class="topic-card">
+        <span class="topic-number">14</span>
+        <span class="topic-name">Sets</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'python_topic' 'dictionaries' %}" class="topic-card">
+        <span class="topic-number">15</span>
+        <span class="topic-name">Dictionaries</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'python_topic' 'conditions' %}" class="topic-card">
+        <span class="topic-number">16</span>
+        <span class="topic-name">Conditional Statements</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'python_topic' 'loops' %}" class="topic-card">
+        <span class="topic-number">17</span>
+        <span class="topic-name">Loops</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'python_topic' 'loop-control' %}" class="topic-card">
+        <span class="topic-number">18</span>
+        <span class="topic-name">Break, Continue and Pass</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'python_topic' 'functions' %}" class="topic-card">
+        <span class="topic-number">19</span>
+        <span class="topic-name">Functions</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'python_topic' 'arguments' %}" class="topic-card">
+        <span class="topic-number">20</span>
+        <span class="topic-name">Function Arguments</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'python_topic' 'lambda' %}" class="topic-card">
+        <span class="topic-number">21</span>
+        <span class="topic-name">Lambda Functions</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'python_topic' 'modules' %}" class="topic-card">
+        <span class="topic-number">22</span>
+        <span class="topic-name">Modules</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'python_topic' 'exceptions' %}" class="topic-card">
+        <span class="topic-number">23</span>
+        <span class="topic-name">Exception Handling</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'python_topic' 'file-handling' %}" class="topic-card">
+        <span class="topic-number">24</span>
+        <span class="topic-name">File Handling</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'python_topic' 'oops' %}" class="topic-card">
+        <span class="topic-number">25</span>
+        <span class="topic-name">Object Oriented Programming</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'python_topic' 'inheritance' %}" class="topic-card">
+        <span class="topic-number">26</span>
+        <span class="topic-name">Inheritance</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'python_topic' 'polymorphism' %}" class="topic-card">
+        <span class="topic-number">27</span>
+        <span class="topic-name">Polymorphism</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'python_topic' 'practice' %}" class="topic-card">
+        <span class="topic-number">28</span>
+        <span class="topic-name">Python Practice Questions</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+</div>
+
+{% endblock %}

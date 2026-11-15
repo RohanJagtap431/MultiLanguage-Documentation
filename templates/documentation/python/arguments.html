@@ -1,0 +1,797 @@
+
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}Python Function Arguments | Roman Marathi Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/python/arguments.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">PYTHON • LESSON 20</span>
+        <h1>Python Function Arguments</h1>
+        <p>
+            Function la values pass karnyachya vegveglya methods
+            ya lesson madhye samjun gheu.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Level: Beginner</span>
+            <span>⏱️ Time: 45–55 Minutes</span>
+        </div>
+    </div>
+
+    <!-- 1. Introduction -->
+    <section class="lesson-section">
+        <h2>1. What are Function Arguments?</h2>
+
+        <p>
+            Function call kartana function la dilelya actual values na
+            Arguments mhantat.
+        </p>
+
+        <p>
+            Function definition madhye parameters astat ani function call
+            kartana arguments pass kele jatat.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>def greet(name):
+    print("Hello", name)
+
+greet("Rohan")</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Hello Rohan</pre>
+        </div>
+
+        <ul>
+            <li><code>name</code> – Parameter</li>
+            <li><code>"Rohan"</code> – Argument</li>
+        </ul>
+
+        <div class="info-box">
+            <strong>Lakshat thev:</strong>
+            Parameter ha function define kartana lihitat.
+            Argument hi actual value aste ji function call kartana detat.
+        </div>
+    </section>
+
+    <!-- 2. Types -->
+    <section class="lesson-section">
+        <h2>2. Types of Function Arguments</h2>
+
+        <p>Python madhye commonly he argument types vapartat:</p>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Positional Arguments</td>
+                        <td>Position nusar values pass hotat.</td>
+                    </tr>
+                    <tr>
+                        <td>Keyword Arguments</td>
+                        <td>Parameter name vaprun values pass hotat.</td>
+                    </tr>
+                    <tr>
+                        <td>Default Arguments</td>
+                        <td>Value dili nahi tar default value vaprali jate.</td>
+                    </tr>
+                    <tr>
+                        <td>*args</td>
+                        <td>Multiple positional arguments accept karto.</td>
+                    </tr>
+                    <tr>
+                        <td>**kwargs</td>
+                        <td>Multiple keyword arguments accept karto.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 3. Positional -->
+    <section class="lesson-section">
+        <h2>3. Positional Arguments</h2>
+
+        <p>
+            Function call kartana arguments jya order madhye pass karto,
+            tyach order madhye te parameters la assign hotat.
+            Tyanna Positional Arguments mhantat.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>def student(name, age):
+    print("Name:", name)
+    print("Age:", age)
+
+student("Rohan", 20)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Name: Rohan
+Age: 20</pre>
+        </div>
+
+        <h3>Order Change Kelyas</h3>
+
+        <pre><code>def student(name, age):
+    print("Name:", name)
+    print("Age:", age)
+
+student(20, "Rohan")</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Name: 20
+Age: Rohan</pre>
+        </div>
+
+        <div class="warning-box">
+            <strong>Important:</strong>
+            Positional arguments madhye order important asto.
+            Chukicha order dilyas values wrong parameters madhye jau shaktat.
+        </div>
+    </section>
+
+    <!-- 4. Keyword -->
+    <section class="lesson-section">
+        <h2>4. Keyword Arguments</h2>
+
+        <p>
+            Function call kartana parameter name sobat value pass keli,
+            tar tyala Keyword Argument mhantat.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>def student(name, age):
+    print("Name:", name)
+    print("Age:", age)
+
+student(age=20, name="Rohan")</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Name: Rohan
+Age: 20</pre>
+        </div>
+
+        <p>
+            Yethe arguments cha order badlala tari output barobar milto.
+            Karan values parameter names nusar assign hotat.
+        </p>
+
+        <h3>Another Example</h3>
+
+        <pre><code>def employee(name, salary, city):
+    print(name)
+    print(salary)
+    print(city)
+
+employee(
+    city="Pune",
+    name="Amit",
+    salary=25000
+)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Amit
+25000
+Pune</pre>
+        </div>
+    </section>
+
+    <!-- 5. Default -->
+    <section class="lesson-section">
+        <h2>5. Default Arguments</h2>
+
+        <p>
+            Function define kartana parameter la default value dili,
+            tar tyala Default Argument mhantat.
+        </p>
+
+        <p>
+            Function call kartana tya parameter chi value dili nahi,
+            tar default value use hote.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>def greet(name="Guest"):
+    print("Hello", name)
+
+greet()
+greet("Rohan")</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Hello Guest
+Hello Rohan</pre>
+        </div>
+
+        <h3>Default Value with Multiple Parameters</h3>
+
+        <pre><code>def student(name, course="Python"):
+    print("Name:", name)
+    print("Course:", course)
+
+student("Rohan")
+student("Amit", "Django")</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Name: Rohan
+Course: Python
+Name: Amit
+Course: Django</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important Rule:</strong>
+            Default value aslele parameters he default value naslelya
+            parameters nantar define karave.
+        </div>
+
+        <h3>Incorrect Example</h3>
+
+        <pre><code>def student(course="Python", name):
+    print(name, course)</code></pre>
+
+        <p>
+            Ha code SyntaxError deto, karan default parameter chya aadhi
+            non-default parameter asla pahije.
+        </p>
+
+        <h3>Correct Example</h3>
+
+        <pre><code>def student(name, course="Python"):
+    print(name, course)</code></pre>
+    </section>
+
+    <!-- 6. args -->
+    <section class="lesson-section">
+        <h2>6. Arbitrary Positional Arguments (*args)</h2>
+
+        <p>
+            Kahi vela function la kiti arguments milnar aahet he
+            aadhi mahit naste.
+        </p>
+
+        <p>
+            Ashya veli <code>*args</code> vaprun multiple positional
+            arguments accept karta yetat.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>def add_numbers(*args):
+    print(args)
+
+add_numbers(10, 20, 30)
+add_numbers(5, 10, 15, 20, 25)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>(10, 20, 30)
+(5, 10, 15, 20, 25)</pre>
+        </div>
+
+        <p>
+            <code>*args</code> madhye milalele positional arguments
+            tuple madhye collect hotat.
+        </p>
+
+        <h3>Using *args in Calculation</h3>
+
+        <pre><code>def add_numbers(*args):
+    total = sum(args)
+    return total
+
+print(add_numbers(10, 20))
+print(add_numbers(10, 20, 30, 40))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>30
+100</pre>
+        </div>
+
+        <h3>Loop with *args</h3>
+
+        <pre><code>def show_numbers(*args):
+    for number in args:
+        print(number)
+
+show_numbers(10, 20, 30)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>10
+20
+30</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            args he fixed Python keyword nahi.
+            <code>*</code> ha important syntax aahe.
+            args ya navachya jagi dusre valid nav suddha vapru shakto.
+        </div>
+    </section>
+
+    <!-- 7. kwargs -->
+    <section class="lesson-section">
+        <h2>7. Keyword Arbitrary Arguments (**kwargs)</h2>
+
+        <p>
+            Function la multiple keyword arguments accept karayche astil,
+            tar <code>**kwargs</code> vapartat.
+        </p>
+
+        <p>
+            Ya madhye arguments key-value pairs chya form madhye
+            dictionary madhye collect hotat.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>def student(**kwargs):
+    print(kwargs)
+
+student(name="Rohan", age=20, course="Python")</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>{'name': 'Rohan', 'age': 20, 'course': 'Python'}</pre>
+        </div>
+
+        <h3>Accessing Values</h3>
+
+        <pre><code>def student(**kwargs):
+    print("Name:", kwargs["name"])
+    print("Age:", kwargs["age"])
+    print("Course:", kwargs["course"])
+
+student(
+    name="Rohan",
+    age=20,
+    course="Computer Science"
+)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Name: Rohan
+Age: 20
+Course: Computer Science</pre>
+        </div>
+
+        <h3>Loop with **kwargs</h3>
+
+        <pre><code>def show_details(**kwargs):
+    for key, value in kwargs.items():
+        print(key, ":", value)
+
+show_details(
+    name="Amit",
+    city="Pune",
+    skill="Python"
+)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>name : Amit
+city : Pune
+skill : Python</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Lakshat thev:</strong>
+            <code>*args</code> positional values tuple madhye store karto.
+            <code>**kwargs</code> keyword values dictionary madhye store karto.
+        </div>
+    </section>
+
+    <!-- 8. Combining -->
+    <section class="lesson-section">
+        <h2>8. Combining Different Argument Types</h2>
+
+        <p>
+            Ekach function madhye positional, default, *args ani **kwargs
+            vaparta yetat. Pan tyanchya order che rules follow karave lagtat.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>def student(name, course="Python", *subjects, **details):
+    print("Name:", name)
+    print("Course:", course)
+    print("Subjects:", subjects)
+    print("Details:", details)
+
+student(
+    "Rohan",
+    "Django",
+    "Python",
+    "SQL",
+    city="Pune",
+    age=20
+)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Name: Rohan
+Course: Django
+Subjects: ('Python', 'SQL')
+Details: {'city': 'Pune', 'age': 20}</pre>
+        </div>
+
+        <p>
+            Ya example madhye:
+        </p>
+
+        <ul>
+            <li><code>name</code> – Positional parameter</li>
+            <li><code>course</code> – Default parameter</li>
+            <li><code>*subjects</code> – Extra positional arguments</li>
+            <li><code>**details</code> – Extra keyword arguments</li>
+        </ul>
+
+        <div class="warning-box">
+            <strong>Note:</strong>
+            Ha combined example samjun ghenyasathi aahe.
+            Suruvatila pratyek argument type separately practice kar.
+        </div>
+    </section>
+
+    <!-- 9. Unpacking -->
+    <section class="lesson-section">
+        <h2>9. Argument Unpacking</h2>
+
+        <p>
+            List kiwa tuple madhil values function la separate arguments
+            mhanun pass karaychya astil tar <code>*</code> vapartat.
+        </p>
+
+        <h3>List Unpacking</h3>
+
+        <pre><code>def add(a, b, c):
+    return a + b + c
+
+numbers = [10, 20, 30]
+
+print(add(*numbers))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>60</pre>
+        </div>
+
+        <h3>Dictionary Unpacking</h3>
+
+        <pre><code>def student(name, age):
+    print("Name:", name)
+    print("Age:", age)
+
+details = {
+    "name": "Rohan",
+    "age": 20
+}
+
+student(**details)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Name: Rohan
+Age: 20</pre>
+        </div>
+
+        <p>
+            Dictionary unpacking madhye dictionary keys function chya
+            parameter names shi match zalyach pahijet.
+        </p>
+    </section>
+
+    <!-- 10. Comparison -->
+    <section class="lesson-section">
+        <h2>10. Difference Between Argument Types</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>How it works</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Positional</td>
+                        <td>Position nusar value assign hote.</td>
+                        <td>greet("Rohan")</td>
+                    </tr>
+                    <tr>
+                        <td>Keyword</td>
+                        <td>Parameter name nusar value assign hote.</td>
+                        <td>greet(name="Rohan")</td>
+                    </tr>
+                    <tr>
+                        <td>Default</td>
+                        <td>Value nasel tar default value vaparto.</td>
+                        <td>greet()</td>
+                    </tr>
+                    <tr>
+                        <td>*args</td>
+                        <td>Extra positional values tuple madhye.</td>
+                        <td>add(10, 20, 30)</td>
+                    </tr>
+                    <tr>
+                        <td>**kwargs</td>
+                        <td>Extra keyword values dictionary madhye.</td>
+                        <td>student(name="Rohan")</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 11. Common Mistakes -->
+    <section class="lesson-section">
+        <h2>11. Common Beginner Mistakes</h2>
+
+        <div class="error-card">
+            <h3>Mistake 1: Missing Required Argument</h3>
+
+            <pre><code>def greet(name):
+    print("Hello", name)
+
+greet()</code></pre>
+
+            <p>
+                name ha required parameter aahe. Value dili nahi tar
+                TypeError yeil.
+            </p>
+
+            <pre><code>greet("Rohan")</code></pre>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 2: Too Many Positional Arguments</h3>
+
+            <pre><code>def add(a, b):
+    print(a + b)
+
+add(10, 20, 30)</code></pre>
+
+            <p>
+                Function fakt don arguments accept karto.
+                Tisri value dilyas TypeError yeil.
+            </p>
+
+            <pre><code>add(10, 20)</code></pre>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 3: Default Parameter Order</h3>
+
+            <pre><code>def student(course="Python", name):
+    print(name, course)</code></pre>
+
+            <p>
+                Non-default parameter ha default parameter chya aadhi
+                asla pahije.
+            </p>
+
+            <pre><code>def student(name, course="Python"):
+    print(name, course)</code></pre>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 4: Positional Argument After Keyword Argument</h3>
+
+            <pre><code>def student(name, age):
+    print(name, age)
+
+student(name="Rohan", 20)</code></pre>
+
+            <p>
+                Keyword argument nantar positional argument pass karta yet nahi.
+            </p>
+
+            <pre><code>student("Rohan", 20)</code></pre>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 5: Wrong Dictionary Key</h3>
+
+            <pre><code>def student(name, age):
+    print(name, age)
+
+details = {"student_name": "Rohan", "age": 20}
+
+student(**details)</code></pre>
+
+            <p>
+                student_name hi key name parameter shi match hot nahi.
+                Mhanun function call fail hoil.
+            </p>
+
+            <pre><code>details = {"name": "Rohan", "age": 20}
+student(**details)</code></pre>
+        </div>
+    </section>
+
+    <!-- 12. Revision -->
+    <section class="lesson-section">
+        <h2>12. Quick Revision</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Concept</th>
+                        <th>Remember</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Argument</td><td>Function call kartana dileli value.</td></tr>
+                    <tr><td>Positional</td><td>Order nusar value assign hote.</td></tr>
+                    <tr><td>Keyword</td><td>Parameter name vaprun value pass hote.</td></tr>
+                    <tr><td>Default</td><td>Value nasel tar default value vaparto.</td></tr>
+                    <tr><td>*args</td><td>Extra positional arguments tuple madhye.</td></tr>
+                    <tr><td>**kwargs</td><td>Extra keyword arguments dictionary madhye.</td></tr>
+                    <tr><td>* Unpacking</td><td>Iterable madhil values separate arguments mhanun pass karto.</td></tr>
+                    <tr><td>** Unpacking</td><td>Dictionary madhil key-value pairs keyword arguments mhanun pass karto.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 13. Practice -->
+    <section class="practice-section">
+        <h2>13. Practice Questions</h2>
+
+        <p>
+            Pratyek question swatah solve kar.
+            Output predict kar ani mag code run karun check kar.
+        </p>
+
+        <div class="practice-task">
+            <h3>Question 1</h3>
+            <p>Don numbers accept karun addition print karnara function create kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 2</h3>
+            <p>Name ani city accept karun student details print kar. Positional arguments vapra.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 3</h3>
+            <p>Keyword arguments vaprun employee details print kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 4</h3>
+            <p>Default argument vaprun welcome message create kar. Default name Guest thev.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 5</h3>
+            <p>*args vaprun kiti hi numbers chi sum calculate kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 6</h3>
+            <p>**kwargs vaprun user profile details print kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 7</h3>
+            <p>List unpacking vaprun three numbers chi addition kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 8</h3>
+            <p>Dictionary unpacking vaprun student name ani age print kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 9</h3>
+            <p>Function madhye name required ani course default "Python" thev.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 10</h3>
+            <p>Ek function create kar jo name, age, multiple skills ani extra details accept karel.</p>
+        </div>
+    </section>
+
+    <!-- 14. Practical -->
+    <section class="lesson-section">
+        <h2>14. Practical Task – Student Profile System</h2>
+
+        <p>
+            Student profile system create kar.
+            Ya system madhye name, age, course, multiple skills
+            ani extra details accept kar.
+        </p>
+
+        <pre><code>def student_profile(name, age, course="Python", *skills, **details):
+
+    print("Student Name:", name)
+    print("Age:", age)
+    print("Course:", course)
+
+    print("Skills:")
+    for skill in skills:
+        print("-", skill)
+
+    print("Other Details:")
+    for key, value in details.items():
+        print(key, ":", value)
+
+
+student_profile(
+    "Rohan",
+    20,
+    "Django",
+    "Python",
+    "HTML",
+    "CSS",
+    city="Pune",
+    college="Computer Science"
+)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Student Name: Rohan
+Age: 20
+Course: Django
+Skills:
+- Python
+- HTML
+- CSS
+Other Details:
+city : Pune
+college : Computer Science</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Practice Challenge:</strong>
+            Ya system madhye student cha email ani mobile number
+            suddha keyword arguments madhun accept kar.
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+        <a href="{% url 'python_topic' 'functions' %}" class="nav-button back-button">
+            ← Previous: Functions
+        </a>
+
+        <a href="{% url 'python_topic' 'lambda' %}" class="nav-button next-button">
+            Next: Lambda Functions →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

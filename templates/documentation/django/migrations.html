@@ -1,0 +1,712 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Django Migrations{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/django/migrations.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- HEADER -->
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO COURSE • TOPIC 10</span>
+        <h1>Django Migrations</h1>
+        <p>
+            Learn how to create migration files, apply database changes,
+            check migration history and manage model updates.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 40–50 Minutes</span>
+        </div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <section class="lesson-section">
+        <h2>1. Migration mhanje kay?</h2>
+
+        <p>
+            Migration mhanje Django Model madhye kelelya changes
+            Database Schema madhye apply karnyachi process.
+        </p>
+
+        <p>
+            Udaharanarth, Student Model madhye new field add kela,
+            tar migration mule Database Table madhye suddha
+            required change apply karta yeto.
+        </p>
+
+        <div class="example-box">
+            <h3>Example</h3>
+
+            <p><strong>Before:</strong></p>
+            <pre class="output-code"><code>Student
+- id
+- name
+- age</code></pre>
+
+            <p><strong>After adding email field:</strong></p>
+            <pre class="output-code"><code>Student
+- id
+- name
+- age
+- email</code></pre>
+        </div>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            Migration Model ani Database Schema madhil changes
+            synchronize karnyas madat karte.
+        </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section class="lesson-section">
+        <h2>2. Migration Files</h2>
+
+        <p>
+            Django migration files automatically create karte.
+            Ya files app madhil migrations folder madhye store hotat.
+        </p>
+
+        <h3>Folder Structure</h3>
+
+        <pre class="code-block"><code>students/
+│
+├── migrations/
+│   ├── __init__.py
+│   ├── 0001_initial.py
+│   ├── 0002_student_email.py
+│   └── 0003_student_phone.py
+│
+├── models.py
+├── admin.py
+├── views.py
+└── apps.py</code></pre>
+
+        <ul>
+            <li><code>__init__.py</code> – Migrations folder Python package banavte.</li>
+            <li><code>0001_initial.py</code> – First migration file.</li>
+            <li><code>0002_student_email.py</code> – Email field add karnyachi migration.</li>
+            <li><code>0003_student_phone.py</code> – Phone field add karnyachi migration.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Migration file manually edit kiwa delete karu naka,
+            jo paryant tyachi garaj ani result purnapane samajlela nahi.
+        </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section class="lesson-section">
+        <h2>3. makemigrations Command</h2>
+
+        <p>
+            makemigrations command cha use Model madhil changes
+            detect karun migration files create karnyasathi hoto.
+        </p>
+
+        <h3>Command</h3>
+
+        <pre class="code-block"><code>python manage.py makemigrations</code></pre>
+
+        <h3>Example</h3>
+
+        <p>File: students/models.py</p>
+
+        <pre class="code-block"><code>from django.db import models
+
+class Student(models.Model):
+
+    name = models.CharField(max_length=100)
+    age = models.IntegerField()
+    email = models.EmailField()</code></pre>
+
+        <p>Terminal madhye command run kara:</p>
+
+        <pre class="code-block"><code>python manage.py makemigrations students</code></pre>
+
+        <h3>Expected Output</h3>
+
+        <pre class="output-code"><code>Migrations for 'students':
+  students/migrations/0002_student_email.py
+    + Add field email to student</code></pre>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            makemigrations migration file create karte.
+            Ti database madhye changes apply karat nahi.
+        </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section class="lesson-section">
+        <h2>4. migrate Command</h2>
+
+        <p>
+            migrate command cha use pending migration files
+            Database madhye apply karnyasathi hoto.
+        </p>
+
+        <h3>Command</h3>
+
+        <pre class="code-block"><code>python manage.py migrate</code></pre>
+
+        <h3>Expected Output</h3>
+
+        <pre class="output-code"><code>Operations to perform:
+  Apply all migrations
+
+Running migrations:
+  Applying students.0002_student_email... OK</code></pre>
+
+        <p>
+            Ya command mule migration madhye define kelelya
+            database changes apply hotat.
+        </p>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            makemigrations ani migrate ya don vegveglya commands aahet.
+            Migration file create karne ani ti apply karne ya don
+            veglya processes aahet.
+        </div>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section class="lesson-section">
+        <h2>5. showmigrations Command</h2>
+
+        <p>
+            showmigrations command cha use project madhil migrations
+            ani tyanchi applied status check karnyasathi hoto.
+        </p>
+
+        <h3>Command</h3>
+
+        <pre class="code-block"><code>python manage.py showmigrations</code></pre>
+
+        <h3>Expected Output</h3>
+
+        <pre class="output-code"><code>admin
+ [X] 0001_initial
+ [X] 0002_logentry_remove_auto_add
+
+auth
+ [X] 0001_initial
+ [X] 0002_alter_permission_name_max_length
+
+students
+ [X] 0001_initial
+ [X] 0002_student_email</code></pre>
+
+        <h3>Status Meaning</h3>
+
+        <ul>
+            <li><code>[X]</code> – Migration apply zali aahe.</li>
+            <li><code>[ ]</code> – Migration ajun apply zali nahi.</li>
+        </ul>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            showmigrations database madhil migration status
+            samajnyas madat karte.
+        </div>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section class="lesson-section">
+        <h2>6. sqlmigrate Command</h2>
+
+        <p>
+            sqlmigrate command cha use specific migration file sathi
+            Django konti SQL statements generate karel te pahanyasathi hoto.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre class="code-block"><code>python manage.py sqlmigrate app_name migration_number</code></pre>
+
+        <h3>Example</h3>
+
+        <pre class="code-block"><code>python manage.py sqlmigrate students 0002</code></pre>
+
+        <h3>Expected SQL Example</h3>
+
+        <pre class="output-code"><code>BEGIN;
+
+ALTER TABLE "students_student"
+ADD COLUMN "email" varchar(254) NOT NULL;
+
+COMMIT;</code></pre>
+
+        <p>
+            Actual SQL database engine ani migration madhil
+            operations nusar vegli asu shakte.
+        </p>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            sqlmigrate SQL statements display karte.
+            Ti migration database madhye apply karat nahi.
+        </div>
+    </section>
+
+    <!-- SECTION 7 -->
+    <section class="lesson-section">
+        <h2>7. Migration History</h2>
+
+        <p>
+            Django applied migrations chi information database madhil
+            django_migrations table madhye store karte.
+        </p>
+
+        <h3>Example</h3>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>App</th>
+                    <th>Migration</th>
+                    <th>Applied</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>students</td>
+                    <td>0001_initial</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td>students</td>
+                    <td>0002_student_email</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td>students</td>
+                    <td>0003_student_phone</td>
+                    <td>No</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>
+            Django migration history vaprun kontya migrations
+            apply zalyat ani kontya pending aahet he track karte.
+        </p>
+    </section>
+
+    <!-- SECTION 8 -->
+    <section class="lesson-section">
+        <h2>8. Model Changes and Migrations</h2>
+
+        <p>
+            Model madhye new field add, existing field modify
+            kiwa field remove kelyas migration create karavi lagte.
+        </p>
+
+        <h3>Example 1: Add New Field</h3>
+
+        <pre class="code-block"><code>class Student(models.Model):
+
+    name = models.CharField(max_length=100)
+    age = models.IntegerField()
+    email = models.EmailField()
+
+    phone = models.CharField(
+        max_length=15,
+        blank=True
+    )</code></pre>
+
+        <p>Commands:</p>
+
+        <pre class="code-block"><code>python manage.py makemigrations
+python manage.py migrate</code></pre>
+
+        <h3>Example 2: Modify Field</h3>
+
+        <p>Before:</p>
+
+        <pre class="code-block"><code>name = models.CharField(max_length=50)</code></pre>
+
+        <p>After:</p>
+
+        <pre class="code-block"><code>name = models.CharField(max_length=150)</code></pre>
+
+        <p>
+            Ata migration create karun database madhye apply kara.
+        </p>
+
+        <h3>Example 3: Remove Field</h3>
+
+        <p>Model madhun phone field remove kara:</p>
+
+        <pre class="code-block"><code># Remove phone field from Student model</code></pre>
+
+        <p>Commands:</p>
+
+        <pre class="code-block"><code>python manage.py makemigrations
+python manage.py migrate</code></pre>
+
+        <div class="important-box">
+            <strong>Warning:</strong>
+            Database madhun field remove kelyavar tyatil stored data
+            delete hou shakto. Production madhye changes karnyapurvi
+            backup ani impact check kara.
+        </div>
+    </section>
+
+    <!-- SECTION 9 -->
+    <section class="lesson-section">
+        <h2>9. Migration Dependencies</h2>
+
+        <p>
+            Kahi migrations apply honyapurvi dusri migration
+            apply hone required aste. Ya relationship la
+            Migration Dependency mhantat.
+        </p>
+
+        <h3>Example</h3>
+
+        <div class="flow-container">
+            <div class="flow-box">0001_initial.py</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-box">0002_student_email.py</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-box">0003_student_phone.py</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-success">Latest Database Structure</div>
+        </div>
+
+        <p>
+            Ya example madhye 0003 migration la 0002 migration
+            apply zalyanantarach apply karave lagte.
+        </p>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            Migration dependencies mule Django migrations
+            yogya order madhye apply karu shakto.
+        </div>
+    </section>
+
+    <!-- SECTION 10 -->
+    <section class="lesson-section">
+        <h2>10. Rollback Migration</h2>
+
+        <p>
+            Rollback cha use specific app la previous migration
+            state madhye parat aananyasathi hoto.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre class="code-block"><code>python manage.py migrate students 0001</code></pre>
+
+        <p>
+            Ya command mule students app la 0001 migration paryant
+            parat aanle jate. Tyapudhil applied migrations reverse
+            karnyacha prayatna hoto.
+        </p>
+
+        <div class="important-box">
+            <strong>Warning:</strong>
+            Rollback mule database schema kiwa data madhye changes
+            hou shaktat. Command run karnyapurvi migration plan
+            ani data backup check kara.
+        </div>
+    </section>
+
+    <!-- SECTION 11 -->
+    <section class="lesson-section">
+        <h2>11. Common Migration Errors</h2>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Error / Problem</th>
+                    <th>Solution</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>No changes detected</td>
+                    <td>Model madhye actual changes aahet ka check kara.</td>
+                </tr>
+                <tr>
+                    <td>No such table</td>
+                    <td>Required migrations apply kara.</td>
+                </tr>
+                <tr>
+                    <td>App not installed</td>
+                    <td>INSTALLED_APPS madhye app add kara.</td>
+                </tr>
+                <tr>
+                    <td>Duplicate column</td>
+                    <td>Database schema ani migration history check kara.</td>
+                </tr>
+                <tr>
+                    <td>NOT NULL constraint failed</td>
+                    <td>Existing records sathi suitable default kiwa data migration plan kara.</td>
+                </tr>
+                <tr>
+                    <td>Conflicting migrations</td>
+                    <td>Migration dependencies ani conflict carefully resolve kara.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- SECTION 12 -->
+    <section class="lesson-section">
+        <h2>12. Complete Practical – Add Fields to Student Model</h2>
+
+        <p>
+            Ata existing Student Model madhye phone ani address
+            fields add karun migration create ani apply karu.
+        </p>
+
+        <h3>Step 1: Existing Model</h3>
+
+        <p>File: students/models.py</p>
+
+        <pre class="code-block"><code>from django.db import models
+
+class Student(models.Model):
+
+    name = models.CharField(max_length=100)
+
+    email = models.EmailField(unique=True)
+
+    age = models.IntegerField()
+
+    course = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name</code></pre>
+
+        <h3>Step 2: Add New Fields</h3>
+
+        <p>Student Model update kara:</p>
+
+        <pre class="code-block"><code>from django.db import models
+
+class Student(models.Model):
+
+    name = models.CharField(max_length=100)
+
+    email = models.EmailField(unique=True)
+
+    age = models.IntegerField()
+
+    course = models.CharField(max_length=100)
+
+    phone = models.CharField(
+        max_length=15,
+        blank=True
+    )
+
+    address = models.TextField(
+        blank=True
+    )
+
+    def __str__(self):
+        return self.name</code></pre>
+
+        <h3>Step 3: Create Migration</h3>
+
+        <pre class="code-block"><code>python manage.py makemigrations students</code></pre>
+
+        <h3>Step 4: Apply Migration</h3>
+
+        <pre class="code-block"><code>python manage.py migrate</code></pre>
+
+        <h3>Step 5: Check Migration Status</h3>
+
+        <pre class="code-block"><code>python manage.py showmigrations students</code></pre>
+
+        <h3>Step 6: Expected Database Structure</h3>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>id</td>
+                    <td>Auto Primary Key</td>
+                </tr>
+                <tr>
+                    <td>name</td>
+                    <td>CharField</td>
+                </tr>
+                <tr>
+                    <td>email</td>
+                    <td>EmailField</td>
+                </tr>
+                <tr>
+                    <td>age</td>
+                    <td>IntegerField</td>
+                </tr>
+                <tr>
+                    <td>course</td>
+                    <td>CharField</td>
+                </tr>
+                <tr>
+                    <td>phone</td>
+                    <td>CharField</td>
+                </tr>
+                <tr>
+                    <td>address</td>
+                    <td>TextField</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="browser-preview">
+            <div class="browser-bar">
+                <span></span>
+                <span></span>
+                <span></span>
+                <div class="browser-address">Student Database</div>
+            </div>
+
+            <div class="database-preview">
+                <h3>Student Table</h3>
+
+                <div class="database-row">
+                    <strong>Rohan</strong>
+                    <span>rohan@example.com</span>
+                    <span>20</span>
+                </div>
+
+                <div class="database-row">
+                    <strong>Rahul</strong>
+                    <span>rahul@example.com</span>
+                    <span>21</span>
+                </div>
+
+                <p>Illustrative database preview after adding fields.</p>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <strong>Practical Completed:</strong>
+            Ata Student Model madhye phone ani address fields add
+            zale aahet ani migration database madhye apply zali aahe.
+        </div>
+    </section>
+
+    <!-- SECTION 13 -->
+    <section class="lesson-section">
+        <h2>13. Important Migration Commands</h2>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Command</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>makemigrations</td>
+                    <td>Migration files create karte.</td>
+                </tr>
+                <tr>
+                    <td>migrate</td>
+                    <td>Migrations apply karte.</td>
+                </tr>
+                <tr>
+                    <td>showmigrations</td>
+                    <td>Migration status display karte.</td>
+                </tr>
+                <tr>
+                    <td>sqlmigrate</td>
+                    <td>Migration sathi SQL display karte.</td>
+                </tr>
+                <tr>
+                    <td>migrate app 0001</td>
+                    <td>App la specified migration state madhye aanate.</td>
+                </tr>
+                <tr>
+                    <td>makemigrations app</td>
+                    <td>Specific app sathi migration create karte.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- SECTION 14 -->
+    <section class="lesson-section">
+        <h2>14. Important Revision</h2>
+
+        <ol>
+            <li>Migration Model changes Database Schema madhye apply karte.</li>
+            <li>Migration files migrations folder madhye store hotat.</li>
+            <li>makemigrations migration files create karte.</li>
+            <li>migrate pending migrations apply karte.</li>
+            <li>showmigrations migration status display karte.</li>
+            <li>sqlmigrate generated SQL display karte.</li>
+            <li>django_migrations table migration history store karte.</li>
+            <li>Model changes sathi navin migration create karavi lagte.</li>
+            <li>Migration dependencies apply order manage kartat.</li>
+            <li>Rollback previous migration state restore karu shakte.</li>
+        </ol>
+    </section>
+
+    <!-- PRACTICE -->
+    <section class="practice-section">
+        <h2>15. Practice Questions</h2>
+
+        <p>He questions swatah solve kar:</p>
+
+        <ol>
+            <li>Django Migration mhanje kay?</li>
+            <li>Migration Files kuthe store hotat?</li>
+            <li>makemigrations ani migrate madhil difference lih.</li>
+            <li>showmigrations command cha use kay aahe?</li>
+            <li>sqlmigrate command explain kar.</li>
+            <li>Migration History kuthe store hote?</li>
+            <li>Model madhye new field add karun migration apply kar.</li>
+            <li>Migration rollback command lih.</li>
+            <li>No changes detected error ka yeto?</li>
+            <li>Student Model madhye phone ani address fields add kar.</li>
+        </ol>
+    </section>
+
+    <!-- COMPLETION -->
+    <div class="completion-message">
+        <h2>Topic 10 Completed!</h2>
+        <p>
+            Ata tumhala Django Migrations, Migration Files,
+            Commands ani Database Schema Updates samajle astil.
+        </p>
+    </div>
+
+    <!-- NAVIGATION -->
+    <div class="lesson-navigation">
+        <a href="{% url 'django_topic' 'django-orm' %}"
+           class="nav-button previous-button">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'django_topic' 'forms' %}"
+           class="nav-button next-button">
+            Next Topic →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

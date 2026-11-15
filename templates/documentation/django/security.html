@@ -1,0 +1,432 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Django Security{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/django/security.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <header class="lesson-header">
+        <span class="lesson-label">DJANGO COURSE • TOPIC 24</span>
+        <h1>Django Security</h1>
+        <p>Learn how to protect Django applications, user accounts and database information from common security attacks.</p>
+        <div class="lesson-meta">
+            <span>Intermediate Level</span>
+            <span>60–75 Minutes</span>
+        </div>
+    </header>
+
+    <section class="lesson-section">
+        <h2>1. Django Security mhanje kay?</h2>
+        <p>Django Security mhanje website, user data ani database la unauthorized access ani attacks pasun protect karne.</p>
+
+        <div class="example-box">
+            <h3>Example</h3>
+            <p>Student Management System madhye:</p>
+            <ul>
+                <li>Student login karto.</li>
+                <li>Student personal information baghto.</li>
+                <li>Admin student records manage karto.</li>
+            </ul>
+            <p>Security nasel tar dusra user unauthorized access karu shakto.</p>
+        </div>
+
+        <p>Django madhye anek built-in security features aahet.</p>
+    </section>
+
+    <section class="lesson-section">
+        <h2>2. SQL Injection</h2>
+        <p>SQL Injection ha database attack aahe. Attacker input field madhye malicious SQL code takun database madhil data access kiwa modify karanyacha prayatna karto.</p>
+
+        <h3>Unsafe Example</h3>
+        <pre class="code-block"><code>query = "SELECT * FROM students WHERE name = '" + username + "'"
+cursor.execute(query)</code></pre>
+
+        <p>Ya code madhye user input direct SQL query madhye add hot aahe. He dangerous aahe.</p>
+
+        <h3>Safe Example – Django ORM</h3>
+        <pre class="code-block"><code>students = Student.objects.filter(
+    name=username
+)</code></pre>
+
+        <p>Django ORM parameterized database queries vaparte. Mhanun normal ORM queries madhye user input direct SQL code mhanun execute hot nahi.</p>
+
+        <div class="important-box">
+            <strong>Important</strong>
+            <p>Database queries sathi Django ORM prefer kara. Raw SQL vaprat asal tar parameters bind kara; string concatenation karu naka.</p>
+        </div>
+    </section>
+
+    <section class="lesson-section">
+        <h2>3. CSRF Protection</h2>
+        <p>CSRF cha full form Cross-Site Request Forgery aahe.</p>
+        <p>Ha attack user login asatana tyachya browser madhun tyala nakalat unwanted request pathavnyacha prayatna karto.</p>
+
+        <div class="example-box">
+            <h3>Example</h3>
+            <p>Samja user bank website madhye login aahe. Attacker user kadun tyachya nakalat money transfer request submit karun ghenyacha prayatna karto.</p>
+        </div>
+
+        <p>Django madhye CSRF protection built-in aahe.</p>
+
+        <h3>HTML Form Example</h3>
+        <pre class="code-block"><code>{% verbatim %}
+&lt;form method="POST"&gt;
+
+    {% csrf_token %}
+
+    &lt;input type="text" name="username"&gt;
+
+    &lt;button type="submit"&gt;
+        Submit
+    &lt;/button&gt;
+
+&lt;/form&gt;
+{% endverbatim %}</code></pre>
+
+        <p>{% templatetag openblock %} csrf_token {% templatetag closeblock %} form madhye CSRF token add karto.</p>
+
+        <ul>
+            <li>POST form madhye csrf_token vapra.</li>
+            <li>Django madhye CsrfViewMiddleware enabled theva.</li>
+            <li>CSRF protection disable karu naka.</li>
+        </ul>
+    </section>
+
+    <section class="lesson-section">
+        <h2>4. XSS Attack</h2>
+        <p>XSS cha full form Cross-Site Scripting aahe.</p>
+        <p>Attacker website madhye malicious JavaScript inject karanyacha prayatna karto.</p>
+
+        <h3>Example</h3>
+        <pre class="code-block"><code>&lt;script&gt;alert("Hacked")&lt;/script&gt;</code></pre>
+
+        <p>Jar website ha input unsafe HTML mhanun display karat asel tar browser madhye script execute hou shakto.</p>
+
+        <h3>Django Safe Output</h3>
+        <pre class="code-block"><code>{% verbatim %}
+&lt;p&gt;{{ student.name }}&lt;/p&gt;
+{% endverbatim %}</code></pre>
+
+        <p>Django templates madhye autoescaping default enabled aste. Normal variable output madhil HTML special characters escape hotat.</p>
+
+        <h3>Dangerous Example</h3>
+        <pre class="code-block"><code>{% verbatim %}
+{{ student.name|safe }}
+{% endverbatim %}</code></pre>
+
+        <p>safe filter output la trusted HTML samjun render karte. Untrusted user input var ha filter vapru naka.</p>
+
+        <ul>
+            <li>Template madhye normal variable output vapra.</li>
+            <li>Untrusted data var safe filter vapru naka.</li>
+            <li>User input validate kara.</li>
+            <li>Rich HTML allow karaycha asel tar trusted sanitizer vapra.</li>
+        </ul>
+    </section>
+
+    <section class="lesson-section">
+        <h2>5. Clickjacking Protection</h2>
+        <p>Clickjacking madhye attacker dusrya website cha page invisible frame madhye load karun user kadun nakalat click karun ghenyacha prayatna karto.</p>
+
+        <p>Django madhye XFrameOptionsMiddleware protection dete.</p>
+
+        <h3>Settings Example</h3>
+        <pre class="code-block"><code>MIDDLEWARE = [
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+]</code></pre>
+
+        <p>Default Django setup madhye XFrameOptionsMiddleware enabled aste.</p>
+
+        <h3>X-Frame-Options Setting</h3>
+        <pre class="code-block"><code>X_FRAME_OPTIONS = "DENY"</code></pre>
+
+        <p>Yamule website dusrya site chya frame madhye load honyapasun block hote.</p>
+    </section>
+
+    <section class="lesson-section">
+        <h2>6. Secure Password Handling</h2>
+        <p>User passwords secure thevne khup important aahe. Django password hashing system vaparte.</p>
+
+        <h3>Unsafe Example</h3>
+        <pre class="code-block"><code>password = "rohan123"</code></pre>
+
+        <p>Password plain text madhye store karne unsafe aahe.</p>
+
+        <h3>Safe Example</h3>
+        <pre class="code-block"><code>from django.contrib.auth.hashers import make_password
+
+hashed_password = make_password("rohan123")</code></pre>
+
+        <h3>Password Verify</h3>
+        <pre class="code-block"><code>from django.contrib.auth.hashers import check_password
+
+check_password("rohan123", hashed_password)</code></pre>
+
+        <p>Django chya built-in User system madhye set_password() ani check_password() suddha vaparta yetat.</p>
+
+        <ul>
+            <li>Password database madhye plain text madhye store karu naka.</li>
+            <li>Django authentication system vapra.</li>
+            <li>Password hash swatah manually create karu naka.</li>
+            <li>Password user la parat display karu naka.</li>
+        </ul>
+    </section>
+
+    <section class="lesson-section">
+        <h2>7. HTTPS ani Secure Cookies</h2>
+        <p>HTTPS website ani user browser madhil communication encrypt karte.</p>
+
+        <h3>Example URL</h3>
+        <pre class="output-code"><code>https://example.com</code></pre>
+
+        <h3>Django Production Settings</h3>
+        <pre class="code-block"><code>SECURE_SSL_REDIRECT = True
+
+SESSION_COOKIE_SECURE = True
+
+CSRF_COOKIE_SECURE = True</code></pre>
+
+        <table class="lesson-table">
+            <thead>
+                <tr><th>Setting</th><th>Use</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>SECURE_SSL_REDIRECT</td><td>HTTP requests HTTPS kade redirect karte.</td></tr>
+                <tr><td>SESSION_COOKIE_SECURE</td><td>Session cookie HTTPS varach pathavte.</td></tr>
+                <tr><td>CSRF_COOKIE_SECURE</td><td>CSRF cookie HTTPS varach pathavte.</td></tr>
+            </tbody>
+        </table>
+
+        <div class="important-box">
+            <strong>Important</strong>
+            <p>He settings HTTPS properly configured asel tarch enable kara. Nahi tar website access madhye problem yeu shakto.</p>
+        </div>
+    </section>
+
+    <section class="lesson-section">
+        <h2>8. Important Django Security Settings</h2>
+        <p>Production website secure thevnyasathi settings.py madhye kahi settings configure karavya lagtat.</p>
+
+        <pre class="code-block"><code>DEBUG = False
+
+ALLOWED_HOSTS = [
+    "example.com",
+]
+
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
+X_FRAME_OPTIONS = "DENY"
+
+SESSION_COOKIE_HTTPONLY = True
+
+CSRF_COOKIE_HTTPONLY = False</code></pre>
+
+        <table class="lesson-table">
+            <thead>
+                <tr><th>Setting</th><th>Meaning</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>DEBUG = False</td><td>Production madhye detailed error pages hide karte.</td></tr>
+                <tr><td>ALLOWED_HOSTS</td><td>Valid hostnames specify karte.</td></tr>
+                <tr><td>SECURE_CONTENT_TYPE_NOSNIFF</td><td>Browser la content type guess karanyapasun rokhte.</td></tr>
+                <tr><td>X_FRAME_OPTIONS</td><td>Clickjacking pasun protection dete.</td></tr>
+                <tr><td>SESSION_COOKIE_HTTPONLY</td><td>JavaScript madhun session cookie access block karte.</td></tr>
+                <tr><td>CSRF_COOKIE_HTTPONLY</td><td>JavaScript madhun CSRF cookie access block karte.</td></tr>
+            </tbody>
+        </table>
+
+        <p>CSRF_COOKIE_HTTPONLY = False he Django madhil default behavior aahe. JavaScript-based CSRF token handling sathi kahi applications madhye cookie read karavi lagte. Tumchya application chi garaj samjun setting kara.</p>
+    </section>
+
+    <section class="lesson-section">
+        <h2>9. Django Security Checklist</h2>
+        <p>Production website deploy karanyapurvi he points check kara:</p>
+
+        <ul>
+            <li>DEBUG = False theva.</li>
+            <li>SECRET_KEY environment variable madhye theva.</li>
+            <li>ALLOWED_HOSTS madhye valid domains dya.</li>
+            <li>HTTPS enable kara.</li>
+            <li>CSRF middleware enabled theva.</li>
+            <li>User input validate kara.</li>
+            <li>Password Django authentication system ne handle kara.</li>
+            <li>Database credentials .env madhye theva.</li>
+            <li>Sensitive information GitHub var upload karu naka.</li>
+            <li>Django security updates install kara.</li>
+        </ul>
+
+        <h3>Security Check Command</h3>
+        <pre class="code-block"><code>python manage.py check --deploy</code></pre>
+
+        <p>Ha command production deployment sathi security-related warnings dakhavto. Warnings review karun appropriate settings configure kara.</p>
+    </section>
+
+    <section class="lesson-section">
+        <h2>10. Practical – Secure Student Management System</h2>
+        <p>Ata existing Student Management System madhye security settings configure karu.</p>
+
+        <h3>Step 1: DEBUG ani ALLOWED_HOSTS</h3>
+        <p>File: settings.py</p>
+        <pre class="code-block"><code>import os
+
+DEBUG = os.getenv("DEBUG", "False") == "True"
+
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "example.com",
+]</code></pre>
+
+        <p>Development environment madhye DEBUG=True explicitly set kara. Production madhye False theva.</p>
+
+        <h3>Step 2: SECRET_KEY Environment Variable</h3>
+        <pre class="code-block"><code>SECRET_KEY = os.getenv("SECRET_KEY")</code></pre>
+
+        <p>.env file:</p>
+        <pre class="output-code"><code>SECRET_KEY=your-secret-key
+DEBUG=False</code></pre>
+
+        <p>.env file GitHub var push karu naka.</p>
+
+        <h3>Step 3: CSRF Protection</h3>
+        <pre class="code-block"><code>MIDDLEWARE = [
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+]</code></pre>
+
+        <p>Existing MIDDLEWARE list madhye he middleware already astil tar duplicate add karu naka.</p>
+
+        <h3>Step 4: Secure HTML Form</h3>
+        <pre class="code-block"><code>{% verbatim %}
+&lt;form method="POST"&gt;
+
+    {% csrf_token %}
+
+    &lt;input
+        type="text"
+        name="name"
+        placeholder="Student Name"
+    &gt;
+
+    &lt;button type="submit"&gt;
+        Save Student
+    &lt;/button&gt;
+
+&lt;/form&gt;
+{% endverbatim %}</code></pre>
+
+        <h3>Step 5: Secure Database Query</h3>
+        <pre class="code-block"><code>students = Student.objects.filter(
+    name__icontains=search
+)</code></pre>
+
+        <p>Django ORM vaparlyamule manually SQL string concatenate karanyachi garaj nahi.</p>
+
+        <h3>Step 6: Deployment Security Check</h3>
+        <pre class="code-block"><code>python manage.py check --deploy</code></pre>
+
+        <p>Production warnings check kara ani deployment environment nusar settings configure kara.</p>
+
+        <div class="example-box">
+            <h3>Practical madhun kay shiklo?</h3>
+            <ol>
+                <li>Secret key secure thevne.</li>
+                <li>DEBUG production madhye False thevne.</li>
+                <li>CSRF token vaprane.</li>
+                <li>Django ORM vaprane.</li>
+                <li>HTTPS ani secure cookies configure karne.</li>
+                <li>Deployment security check karne.</li>
+            </ol>
+        </div>
+    </section>
+
+    <section class="lesson-section">
+        <h2>11. Common Security Mistakes</h2>
+
+        <table class="lesson-table">
+            <thead>
+                <tr><th>Mistake</th><th>Correct Practice</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Production madhye DEBUG=True</td><td>DEBUG=False</td></tr>
+                <tr><td>Secret key GitHub var push karne</td><td>Environment variable vapra.</td></tr>
+                <tr><td>POST form madhye CSRF token nasne</td><td>csrf_token add kara.</td></tr>
+                <tr><td>Raw SQL string concatenate karne</td><td>Django ORM kiwa parameterized SQL vapra.</td></tr>
+                <tr><td>User input la safe filter lavne</td><td>Untrusted HTML escape/sanitize kara.</td></tr>
+                <tr><td>HTTP var sensitive data pathavne</td><td>HTTPS vapra.</td></tr>
+                <tr><td>Password plain text madhye store karne</td><td>Django password hashing vapra.</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="lesson-section">
+        <h2>12. Important Revision</h2>
+        <ol>
+            <li>Django Security website ani user data protect karte.</li>
+            <li>SQL Injection ha database attack aahe.</li>
+            <li>Django ORM SQL Injection cha risk kami karte.</li>
+            <li>CSRF cha full form Cross-Site Request Forgery aahe.</li>
+            <li>csrf_token POST forms madhye vapartat.</li>
+            <li>XSS cha full form Cross-Site Scripting aahe.</li>
+            <li>Django templates madhye autoescaping default enabled aste.</li>
+            <li>Clickjacking pasun protection sathi XFrameOptionsMiddleware vapartat.</li>
+            <li>Django password hashing system vaparte.</li>
+            <li>HTTPS communication encrypt karte.</li>
+            <li>Production madhye DEBUG=False thevave.</li>
+            <li>check --deploy security-related deployment warnings dakhavte.</li>
+        </ol>
+    </section>
+
+    <section class="practice-section">
+        <h2>13. Practice Questions</h2>
+        <ol>
+            <li>Django Security mhanje kay?</li>
+            <li>SQL Injection explain kar.</li>
+            <li>CSRF cha full form kay? CSRF protection kase work karte?</li>
+            <li>csrf_token cha use kay?</li>
+            <li>XSS attack explain kar.</li>
+            <li>Django madhye autoescaping mhanje kay?</li>
+            <li>Clickjacking mhanje kay?</li>
+            <li>XFrameOptionsMiddleware cha use kay?</li>
+            <li>Django password hashing explain kar.</li>
+            <li>HTTPS ani Secure Cookies mhanje kay?</li>
+            <li>DEBUG=False ka important aahe?</li>
+            <li>Django madhye check --deploy command cha use kay?</li>
+        </ol>
+    </section>
+
+    <div class="completion-message">
+        <h2>Topic 24 Completed!</h2>
+        <p>Ata tumhala Django Security, common attacks ani basic production security settings samajle astil.</p>
+    </div>
+
+    <div class="lesson-navigation">
+        <a href="{% url 'django_topic' 'pagination-search' %}" class="nav-button previous-button">
+            ← Previous Topic
+        </a>
+        <a href="{% url 'django_topic' 'testing' %}" class="nav-button next-button">
+            Next Topic →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,386 @@
+
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}CSS Syntax and Rules | Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/css/syntax.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+    <div class="lesson-header">
+        <span class="lesson-label">CSS TUTORIAL</span>
+
+        <h1>CSS Syntax and Rules</h1>
+
+        <p>
+            CSS code lihinyachi basic paddhat, Selectors,
+            Properties, Values ani Declarations samjun ghya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 15 Minutes</span>
+            <span>📄 Page 02</span>
+        </div>
+    </div>
+
+
+    <!-- Section 1 -->
+    <section class="lesson-section">
+
+        <h2>1. CSS Syntax Mhanje Kay?</h2>
+
+        <p>
+            CSS Syntax mhanje CSS code lihinyache kahi tharavik
+            niyam. Ya niyamanusar aapan CSS code lihito ani
+            browser la HTML elements var konti style lavaychi
+            he sangto.
+        </p>
+
+        <p>
+            Pratyek CSS Rule madhye ek Selector ani ek
+            Declaration Block asto.
+        </p>
+
+        <div class="info-box">
+            <strong>Definition:</strong>
+            CSS Syntax mhanje Selectors, Properties ani Values
+            yanchya madatine CSS Rules lihinyachi tharavik paddhat.
+        </div>
+
+    </section>
+
+
+    <!-- Section 2 -->
+    <section class="lesson-section">
+
+        <h2>2. Basic CSS Syntax</h2>
+
+        <p>
+            CSS Rule lihinyasathi khalil basic structure vaparla jato.
+        </p>
+
+        <div class="code-block">
+            <pre><code>selector {
+    property: value;
+}</code></pre>
+        </div>
+
+        <p>Example:</p>
+
+        <div class="code-block">
+            <pre><code>h1 {
+    color: blue;
+    font-size: 30px;
+}</code></pre>
+        </div>
+
+        <p>Ya Example madhye:</p>
+
+        <ul>
+            <li><strong>h1:</strong> Ha Selector aahe.</li>
+            <li><strong>color:</strong> Hi Property aahe.</li>
+            <li><strong>blue:</strong> Hi Value aahe.</li>
+            <li><strong>font-size:</strong> Hi dusri Property aahe.</li>
+            <li><strong>30px:</strong> Hi tya Property chi Value aahe.</li>
+        </ul>
+
+    </section>
+
+
+    <!-- Section 3 -->
+    <section class="lesson-section">
+
+        <h2>3. CSS Rule Che Bhag</h2>
+
+        <p>
+            Ek CSS Rule tayar honyasathi teen mahatvache
+            bhag astat.
+        </p>
+
+        <div class="definition-list">
+
+            <div class="definition-item">
+                <strong>1</strong>
+                <span>Selector</span>
+            </div>
+
+            <div class="definition-item">
+                <strong>2</strong>
+                <span>Property</span>
+            </div>
+
+            <div class="definition-item">
+                <strong>3</strong>
+                <span>Value</span>
+            </div>
+
+        </div>
+
+        <h3>1. Selector</h3>
+
+        <p>
+            Selector cha vapar kontya HTML element la style
+            dyaychi aahe he tharavnyasathi hoto.
+        </p>
+
+        <h3>2. Property</h3>
+
+        <p>
+            Property mhanje aaplyala kontya design madhye
+            badal karaycha aahe te sangnara bhag.
+            Udaharanarth: color, font-size.
+        </p>
+
+        <h3>3. Value</h3>
+
+        <p>
+            Value mhanje Property la dileli setting.
+            Udaharanarth: blue, red kiwa 20px.
+        </p>
+
+    </section>
+
+
+    <!-- Section 4 -->
+    <section class="lesson-section">
+
+        <h2>4. CSS Declaration</h2>
+
+        <p>
+            Declaration mhanje Property ani Value yanchi
+            jodi. Ya donhi goshti ekatra lihilya ki
+            ek CSS Declaration tayar hote.
+        </p>
+
+        <p>
+            Pratyek Declaration chya shevati Semicolon (;)
+            vaparla jato.
+        </p>
+
+        <div class="code-block">
+            <pre><code>p {
+    color: red;
+}</code></pre>
+        </div>
+
+        <p>
+            Ya Example madhye
+            <strong>color: red;</strong>
+            ha ek CSS Declaration aahe.
+        </p>
+
+        <div class="important-box">
+            <strong>Mahatvache:</strong>
+            Declaration Block chi suruvat Opening Curly Bracket
+            <code>{</code> ne hote ani shevat Closing Curly Bracket
+            <code>}</code> ne hoto.
+        </div>
+
+    </section>
+
+
+    <!-- Section 5 -->
+    <section class="lesson-section">
+
+        <h2>5. Multiple CSS Declarations</h2>
+
+        <p>
+            Aapan eka CSS Rule madhye ekapeksha jast
+            Declarations lihू shakto. Yamule ekach HTML
+            element la vegveglya styles deta yetat.
+        </p>
+
+        <div class="code-block">
+            <pre><code>h1 {
+    color: green;
+    font-size: 32px;
+    text-align: center;
+    background-color: lightgray;
+}</code></pre>
+        </div>
+
+        <p>
+            Ya Example madhye h1 element la char vegveglya
+            Properties vaprun style dili aahe.
+        </p>
+
+        <ul>
+            <li><strong>color:</strong> Text cha rang badalto.</li>
+            <li><strong>font-size:</strong> Text cha aakar badalto.</li>
+            <li><strong>text-align:</strong> Text kuthe align karaycha te tharavto.</li>
+            <li><strong>background-color:</strong> Background cha rang badalto.</li>
+        </ul>
+
+    </section>
+
+
+    <!-- Section 6 -->
+    <section class="lesson-section">
+
+        <h2>6. CSS Syntax Example</h2>
+
+        <p>
+            Aata ek HTML Heading ani Paragraph la CSS
+            vaprun style kashi dyaychi te pahu.
+        </p>
+
+        <h3>HTML Code</h3>
+
+        <div class="code-block">
+            <pre><code>&lt;h1&gt;Welcome to CSS&lt;/h1&gt;
+&lt;p&gt;Learning CSS is easy.&lt;/p&gt;</code></pre>
+        </div>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>h1 {
+    color: blue;
+    text-align: center;
+}
+
+p {
+    color: gray;
+    font-size: 18px;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box">
+            <h1>Welcome to CSS</h1>
+            <p>Learning CSS is easy.</p>
+        </div>
+
+    </section>
+
+
+    <!-- Section 7 -->
+    <section class="lesson-section">
+
+        <h2>7. CSS Syntax Madhil Common Mistakes</h2>
+
+        <div class="mistake-card">
+            <strong>Mistake 1: Semicolon Lihaycha Rahane</strong>
+
+            <div class="code-block">
+                <pre><code>h1 {
+    color: blue
+}</code></pre>
+            </div>
+
+            <p>
+                Pratyek Declaration nantar Semicolon lavayla visru naka.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 2: Curly Brackets Lihayla Visarane</strong>
+
+            <div class="code-block">
+                <pre><code>h1
+    color: blue;</code></pre>
+            </div>
+
+            <p>
+                CSS Declaration Block lihitana Opening ani
+                Closing Curly Brackets vaprane avashyak aahe.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 3: Colon Lihayla Visarane</strong>
+
+            <div class="code-block">
+                <pre><code>h1 {
+    color blue;
+}</code></pre>
+            </div>
+
+            <p>
+                Property ani Value yanchya madhye Colon (:)
+                vaprane avashyak aahe.
+            </p>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            CSS code lihitana Brackets, Colon ani Semicolon
+            barobar aahet ka he nehmi tapasun paha.
+        </div>
+
+    </section>
+
+
+    <!-- Section 8 -->
+    <section class="lesson-section">
+
+        <h2>8. Mahatvache Mudde</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>CSS Rule madhye Selector ani Declaration astat.</li>
+                <li>Selector HTML element nivadto.</li>
+                <li>Property konti style badlaychi te sangte.</li>
+                <li>Value Property chi setting tharavte.</li>
+                <li>Declaration madhye Property ani Value astat.</li>
+                <li>Declarations vegle karnyasathi Semicolon vapartat.</li>
+                <li>Curly Brackets madhye CSS Declarations lihitat.</li>
+            </ul>
+        </div>
+
+    </section>
+
+
+    <!-- Practice -->
+    <section class="practice-section">
+
+        <h2>9. Saravasaathi Kruti</h2>
+
+        <div class="task-box">
+
+            <h3>Task: Heading la Style dya</h3>
+
+            <p>
+                Ek HTML page tayar kara. Tyamadhye ek Heading
+                ani ek Paragraph add kara.
+            </p>
+
+            <ol>
+                <li>Heading cha color red kara.</li>
+                <li>Heading cha font-size 35px theva.</li>
+                <li>Heading la center madhye align kara.</li>
+                <li>Paragraph cha color green kara.</li>
+                <li>Paragraph cha font-size 18px theva.</li>
+            </ol>
+
+        </div>
+
+    </section>
+
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+
+        <a href="{% url 'css_topic' 'introduction' %}"
+           class="nav-button previous">
+            ← Magil: Introduction
+        </a>
+
+        <a href="{% url 'css_topic' 'ways-to-add-css' %}"
+           class="nav-button next">
+            Pudhe: Ways to Add CSS →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

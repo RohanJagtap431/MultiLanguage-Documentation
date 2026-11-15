@@ -1,0 +1,681 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Django Static Files{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/django/static-files.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- HEADER -->
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO COURSE • TOPIC 07</span>
+        <h1>Django Static Files</h1>
+        <p>
+            Learn how to add CSS, JavaScript and Images
+            to Django websites using Static Files.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 35–45 Minutes</span>
+        </div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <section class="lesson-section">
+        <h2>1. Static Files mhanje kay?</h2>
+
+        <p>
+            Static Files mhanje website madhil ase files je
+            normally user request nusar change hot nahit.
+        </p>
+
+        <p>
+            Django madhye CSS, JavaScript ani Images sarkhya
+            files static files mhanun olakhlya jatat.
+        </p>
+
+        <h3>Examples of Static Files</h3>
+
+        <div class="example-box">
+            <ul>
+                <li>CSS – Website la design denyasathi.</li>
+                <li>JavaScript – Website interactive karnyasathi.</li>
+                <li>Images – Website madhye photos display karnyasathi.</li>
+                <li>Icons – Website madhye symbols display karnyasathi.</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            Static Files website cha design ani frontend functionality
+            manage karnyasathi vapartat.
+        </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section class="lesson-section">
+        <h2>2. Static Folder Structure</h2>
+
+        <p>
+            Django project madhye static files store karnyasathi
+            static folder create karu shakto.
+        </p>
+
+        <h3>Project Structure</h3>
+
+        <pre class="code-block"><code>project/
+│
+├── config/
+│   ├── settings.py
+│   └── urls.py
+│
+├── students/
+│   ├── views.py
+│   ├── models.py
+│   └── urls.py
+│
+├── static/
+│   ├── css/
+│   │   └── style.css
+│   │
+│   ├── js/
+│   │   └── script.js
+│   │
+│   └── images/
+│       └── logo.png
+│
+├── templates/
+│   └── home.html
+│
+└── manage.py</code></pre>
+
+        <p>Static folder madhye teen main folders aahet:</p>
+
+        <ul>
+            <li><code>css/</code> – CSS files store karnyasathi.</li>
+            <li><code>js/</code> – JavaScript files store karnyasathi.</li>
+            <li><code>images/</code> – Images store karnyasathi.</li>
+        </ul>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section class="lesson-section">
+        <h2>3. STATIC_URL Setting</h2>
+
+        <p>
+            STATIC_URL hi Django setting static files access
+            karnyasathi URL prefix define karte.
+        </p>
+
+        <h3>File: config/settings.py</h3>
+
+        <pre class="code-block"><code>STATIC_URL = 'static/'</code></pre>
+
+        <p>
+            Ya setting mule browser madhye static files access
+            karnyasathi static/ URL prefix vaparla jato.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre class="output-code"><code>/static/css/style.css
+/static/js/script.js
+/static/images/logo.png</code></pre>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            STATIC_URL hi URL prefix aahe. Ti static folder cha
+            actual filesystem path nahi.
+        </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section class="lesson-section">
+        <h2>4. STATICFILES_DIRS</h2>
+
+        <p>
+            STATICFILES_DIRS cha use project madhil additional
+            static folders cha path Django la sangnyasathi hoto.
+        </p>
+
+        <h3>File: config/settings.py</h3>
+
+        <pre class="code-block"><code>from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]</code></pre>
+
+        <ul>
+            <li><code>BASE_DIR</code> – Project root directory cha path.</li>
+            <li><code>STATICFILES_DIRS</code> – Additional static folders chi list.</li>
+            <li><code>BASE_DIR / 'static'</code> – Project-level static folder cha path.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Existing BASE_DIR ani STATIC_URL settings punha duplicate
+            karu naka. Existing settings madhye required entry add kara.
+        </div>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section class="lesson-section">
+        <h2>5. Load Static Tag</h2>
+
+        <p>
+            Django template madhye static files use karnyasathi
+            load static tag vapartat.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre class="code-block"><code>{% verbatim %}
+{% load static %}
+{% endverbatim %}</code></pre>
+
+        <p>
+            Ha tag template madhye static template tag library load karto.
+        </p>
+
+        <h3>Example: home.html</h3>
+
+        <pre class="code-block"><code>{% verbatim %}
+{% load static %}
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Home Page&lt;/title&gt;
+
+    &lt;link rel="stylesheet"
+          href="{% static 'css/style.css' %}"&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;h1&gt;Welcome to Django&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+{% endverbatim %}</code></pre>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            {% templatetag openblock %} load static {% templatetag closeblock %}
+            tag static template tags available karto.
+        </div>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section class="lesson-section">
+        <h2>6. Add CSS File</h2>
+
+        <p>
+            Django website la styling denyasathi external CSS file
+            create karun HTML template sobat connect karavi lagte.
+        </p>
+
+        <h3>Step 1: static/css/style.css</h3>
+
+        <pre class="code-block"><code>body {
+    background-color: #f1f5f9;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: #2563eb;
+    text-align: center;
+}
+
+p {
+    color: #475569;
+    font-size: 18px;
+}</code></pre>
+
+        <h3>Step 2: home.html</h3>
+
+        <pre class="code-block"><code>{% verbatim %}
+{% load static %}
+
+&lt;link rel="stylesheet"
+      href="{% static 'css/style.css' %}"&gt;
+
+&lt;h1&gt;Welcome to Django&lt;/h1&gt;
+&lt;p&gt;Learning Django Static Files&lt;/p&gt;
+{% endverbatim %}</code></pre>
+
+        <h3>Expected Output</h3>
+
+        <div class="browser-preview">
+            <div class="browser-bar">
+                <span></span>
+                <span></span>
+                <span></span>
+                <div class="browser-address">127.0.0.1:8000/</div>
+            </div>
+
+            <div class="css-preview">
+                <h2>Welcome to Django</h2>
+                <p>Learning Django Static Files</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7 -->
+    <section class="lesson-section">
+        <h2>7. Add JavaScript File</h2>
+
+        <p>
+            JavaScript cha use website madhye interactive features
+            add karnyasathi hoto.
+        </p>
+
+        <h3>Step 1: static/js/script.js</h3>
+
+        <pre class="code-block"><code>function showMessage() {
+    alert("Welcome to Django!");
+}</code></pre>
+
+        <h3>Step 2: home.html</h3>
+
+        <pre class="code-block"><code>{% verbatim %}
+{% load static %}
+
+&lt;h1&gt;Django JavaScript Example&lt;/h1&gt;
+
+&lt;button onclick="showMessage()"&gt;
+    Click Me
+&lt;/button&gt;
+
+&lt;script src="{% static 'js/script.js' %}"&gt;&lt;/script&gt;
+{% endverbatim %}</code></pre>
+
+        <h3>Expected Output</h3>
+
+        <div class="browser-preview">
+            <div class="browser-bar">
+                <span></span>
+                <span></span>
+                <span></span>
+                <div class="browser-address">JavaScript Preview</div>
+            </div>
+
+            <div class="js-preview">
+                <h3>Django JavaScript Example</h3>
+                <button type="button" class="demo-button"
+                    onclick="alert('Welcome to Django!')">
+                    Click Me
+                </button>
+                <p>Button click kelyavar alert message display hoto.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 8 -->
+    <section class="lesson-section">
+        <h2>8. Add Images</h2>
+
+        <p>
+            Django template madhye image display karnyasathi
+            static tag vapartat.
+        </p>
+
+        <h3>Step 1: Image Folder</h3>
+
+        <pre class="code-block"><code>static/
+└── images/
+    └── logo.png</code></pre>
+
+        <h3>Step 2: home.html</h3>
+
+        <pre class="code-block"><code>{% verbatim %}
+{% load static %}
+
+&lt;img src="{% static 'images/logo.png' %}"
+     alt="Website Logo"
+     width="150"&gt;
+{% endverbatim %}</code></pre>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            Image cha path static folder pasun dyaycha asto.
+        </div>
+    </section>
+
+    <!-- SECTION 9 -->
+    <section class="lesson-section">
+        <h2>9. STATIC_ROOT and collectstatic</h2>
+
+        <p>
+            Production deployment madhye static files collect
+            karnyasathi STATIC_ROOT ani collectstatic command vapartat.
+        </p>
+
+        <h3>File: config/settings.py</h3>
+
+        <pre class="code-block"><code>STATIC_URL = 'static/'
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'</code></pre>
+
+        <h3>Command</h3>
+
+        <pre class="code-block"><code>python manage.py collectstatic</code></pre>
+
+        <p>
+            Ha command project ani installed apps madhil static files
+            ekach destination folder madhye collect karto.
+        </p>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            STATIC_ROOT ha collected static files cha destination aahe.
+            STATICFILES_DIRS ha source folders specify karto.
+            Donhi settings cha purpose vegla aahe.
+        </div>
+
+        <h3>Difference</h3>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Setting</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>STATIC_URL</td>
+                    <td>Static files cha URL prefix.</td>
+                </tr>
+                <tr>
+                    <td>STATICFILES_DIRS</td>
+                    <td>Additional static source folders.</td>
+                </tr>
+                <tr>
+                    <td>STATIC_ROOT</td>
+                    <td>Collected files cha destination folder.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- SECTION 10 -->
+    <section class="lesson-section">
+        <h2>10. Complete Practical – Student Profile Page</h2>
+
+        <p>
+            Ata CSS, JavaScript ani Image ekatra use karun
+            Student Profile Page create karu.
+        </p>
+
+        <h3>Step 1: Folder Structure</h3>
+
+        <pre class="code-block"><code>project/
+│
+├── static/
+│   ├── css/
+│   │   └── profile.css
+│   │
+│   ├── js/
+│   │   └── profile.js
+│   │
+│   └── images/
+│       └── student.png
+│
+└── templates/
+    └── profile.html</code></pre>
+
+        <h3>Step 2: static/css/profile.css</h3>
+
+        <pre class="code-block"><code>body {
+    font-family: Arial, sans-serif;
+    background: #f1f5f9;
+}
+
+.profile {
+    width: 300px;
+    margin: 50px auto;
+    padding: 25px;
+    background: white;
+    text-align: center;
+    border-radius: 12px;
+}
+
+.profile img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.profile h2 {
+    color: #172033;
+}
+
+.profile p {
+    color: #64748b;
+}
+
+.profile button {
+    padding: 10px 18px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}</code></pre>
+
+        <h3>Step 3: static/js/profile.js</h3>
+
+        <pre class="code-block"><code>function showProfile() {
+    alert("Welcome to Student Profile!");
+}</code></pre>
+
+        <h3>Step 4: templates/profile.html</h3>
+
+        <pre class="code-block"><code>{% verbatim %}
+{% load static %}
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Student Profile&lt;/title&gt;
+
+    &lt;link rel="stylesheet"
+          href="{% static 'css/profile.css' %}"&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;div class="profile"&gt;
+
+        &lt;img src="{% static 'images/student.png' %}"
+             alt="Student Photo"&gt;
+
+        &lt;h2&gt;Rohan Jagtap&lt;/h2&gt;
+
+        &lt;p&gt;BSc Computer Science&lt;/p&gt;
+
+        &lt;button onclick="showProfile()"&gt;
+            View Profile
+        &lt;/button&gt;
+
+    &lt;/div&gt;
+
+    &lt;script src="{% static 'js/profile.js' %}"&gt;&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+{% endverbatim %}</code></pre>
+
+        <h3>Step 5: students/views.py</h3>
+
+        <pre class="code-block"><code>from django.shortcuts import render
+
+def profile(request):
+    return render(request, "profile.html")</code></pre>
+
+        <h3>Step 6: students/urls.py</h3>
+
+        <pre class="code-block"><code>from django.urls import path
+from . import views
+
+urlpatterns = [
+    path("profile/", views.profile, name="profile"),
+]</code></pre>
+
+        <h3>Step 7: config/urls.py</h3>
+
+        <pre class="code-block"><code>from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    path("", include("students.urls")),
+]</code></pre>
+
+        <h3>Step 8: Run Server</h3>
+
+        <pre class="code-block"><code>python manage.py runserver</code></pre>
+
+        <h3>Browser URL</h3>
+
+        <pre class="output-code"><code>http://127.0.0.1:8000/profile/</code></pre>
+
+        <h3>Expected Output</h3>
+
+        <div class="browser-preview">
+            <div class="browser-bar">
+                <span></span>
+                <span></span>
+                <span></span>
+                <div class="browser-address">127.0.0.1:8000/profile/</div>
+            </div>
+
+            <div class="profile-preview">
+                <div class="profile-avatar">RJ</div>
+                <h3>Rohan Jagtap</h3>
+                <p>BSc Computer Science</p>
+                <button type="button" class="demo-button"
+                    onclick="alert('Welcome to Student Profile!')">
+                    View Profile
+                </button>
+            </div>
+        </div>
+
+        <div class="important-box">
+            <strong>Note:</strong>
+            Practical madhye student.png image file tu swatah
+            static/images/ folder madhye add kar.
+        </div>
+    </section>
+
+    <!-- SECTION 11 -->
+    <section class="lesson-section">
+        <h2>11. Common Mistakes</h2>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Problem</th>
+                    <th>Solution</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>CSS load hot nahi</td>
+                    <td>CSS file path ani STATIC_URL check kara.</td>
+                </tr>
+                <tr>
+                    <td>Image display hot nahi</td>
+                    <td>Image cha correct path check kara.</td>
+                </tr>
+                <tr>
+                    <td>JavaScript work hot nahi</td>
+                    <td>JS file path ani browser console check kara.</td>
+                </tr>
+                <tr>
+                    <td>Invalid block tag: static</td>
+                    <td>Template madhye load static add kara.</td>
+                </tr>
+                <tr>
+                    <td>Static folder not found</td>
+                    <td>STATICFILES_DIRS setting check kara.</td>
+                </tr>
+                <tr>
+                    <td>Production madhye files missing</td>
+                    <td>collectstatic ani static hosting configuration check kara.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- SECTION 12 -->
+    <section class="lesson-section">
+        <h2>12. Important Revision</h2>
+
+        <ol>
+            <li>Static Files madhye CSS, JavaScript ani Images astat.</li>
+            <li>STATIC_URL static files cha URL prefix define karte.</li>
+            <li>STATICFILES_DIRS additional static source folders define karte.</li>
+            <li>STATIC_ROOT collected files cha destination aahe.</li>
+            <li>load static tag static template tags load karto.</li>
+            <li>static tag file cha URL generate karto.</li>
+            <li>CSS website la styling dete.</li>
+            <li>JavaScript website interactive karte.</li>
+            <li>collectstatic command static files collect karto.</li>
+        </ol>
+    </section>
+
+    <!-- PRACTICE -->
+    <section class="practice-section">
+        <h2>13. Practice Questions</h2>
+
+        <p>He questions swatah solve kar:</p>
+
+        <ol>
+            <li>Static Files mhanje kay?</li>
+            <li>STATIC_URL cha use kay aahe?</li>
+            <li>STATICFILES_DIRS ani STATIC_ROOT madhil difference lih.</li>
+            <li>Django template madhye CSS file connect kar.</li>
+            <li>JavaScript file connect karun button click event add kar.</li>
+            <li>Static folder madhun image display kar.</li>
+            <li>collectstatic command cha use kay aahe?</li>
+            <li>Student Profile Page create kar.</li>
+        </ol>
+    </section>
+
+    <!-- COMPLETION -->
+    <div class="completion-message">
+        <h2>Topic 07 Completed!</h2>
+        <p>
+            Ata tumhala Django madhye CSS, JavaScript,
+            Images ani Static Files configuration samajle asel.
+        </p>
+    </div>
+
+    <!-- NAVIGATION -->
+    <div class="lesson-navigation">
+        <a href="{% url 'django_topic' 'templates' %}"
+           class="nav-button previous-button">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'django_topic' 'models' %}"
+           class="nav-button next-button">
+            Next Topic →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

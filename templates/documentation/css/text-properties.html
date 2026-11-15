@@ -1,0 +1,568 @@
+
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}CSS Text Properties | Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/css/text-properties.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+    <div class="lesson-header">
+        <span class="lesson-label">CSS TUTORIAL</span>
+
+        <h1>CSS Text Properties</h1>
+
+        <p>
+            Learn how to control text alignment, decoration,
+            transformation, spacing and shadows using CSS.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 20 Minutes</span>
+            <span>📄 Page 06</span>
+        </div>
+    </div>
+
+
+    <!-- Section 1 -->
+    <section class="lesson-section">
+
+        <h2>1. Introduction to Text Properties</h2>
+
+        <p>
+            CSS Text Properties cha use web page varil
+            text cha appearance ani arrangement control
+            karanyasathi hoto.
+        </p>
+
+        <p>
+            Ya properties mule text chi position,
+            decoration, size madhil spacing ani shadow
+            control karta yete.
+        </p>
+
+        <div class="info-box">
+            <strong>Definition:</strong>
+            CSS Text Properties are used to control the
+            appearance and alignment of text in HTML elements.
+        </div>
+
+    </section>
+
+
+    <!-- Section 2 -->
+    <section class="lesson-section">
+
+        <h2>2. Text Align</h2>
+
+        <p>
+            <strong>text-align</strong> property cha use
+            text la left, right, center kiwa justify
+            karanyasathi hoto.
+        </p>
+
+        <h3>Common Values</h3>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>left</td>
+                        <td>Text davya bajula align hoto.</td>
+                    </tr>
+                    <tr>
+                        <td>right</td>
+                        <td>Text ujvya bajula align hoto.</td>
+                    </tr>
+                    <tr>
+                        <td>center</td>
+                        <td>Text madhyabhagi align hoto.</td>
+                    </tr>
+                    <tr>
+                        <td>justify</td>
+                        <td>Text donhi bajunni align hoto.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>HTML Code</h3>
+
+        <div class="code-block">
+            <pre><code>&lt;p class="left-text"&gt;Left Aligned Text&lt;/p&gt;
+
+&lt;p class="center-text"&gt;Center Aligned Text&lt;/p&gt;
+
+&lt;p class="right-text"&gt;Right Aligned Text&lt;/p&gt;</code></pre>
+        </div>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.left-text {
+    text-align: left;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.right-text {
+    text-align: right;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box align-output">
+            <p class="left-text">Left Aligned Text</p>
+            <p class="center-text">Center Aligned Text</p>
+            <p class="right-text">Right Aligned Text</p>
+        </div>
+
+    </section>
+
+
+    <!-- Section 3 -->
+    <section class="lesson-section">
+
+        <h2>3. Text Decoration</h2>
+
+        <p>
+            <strong>text-decoration</strong> property cha
+            use text la underline, overline kiwa
+            line-through denyasathi hoto.
+        </p>
+
+        <h3>Common Values</h3>
+
+        <ul>
+            <li>underline – Text khali line yete.</li>
+            <li>overline – Text var line yete.</li>
+            <li>line-through – Text madhun line jate.</li>
+            <li>none – Text decoration remove hote.</li>
+        </ul>
+
+        <h3>HTML Code</h3>
+
+        <div class="code-block">
+            <pre><code>&lt;p class="underline"&gt;Underline Text&lt;/p&gt;
+
+&lt;p class="overline"&gt;Overline Text&lt;/p&gt;
+
+&lt;p class="line-through"&gt;Line Through Text&lt;/p&gt;
+
+&lt;a href="#" class="no-decoration"&gt;Normal Link&lt;/a&gt;</code></pre>
+        </div>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.underline {
+    text-decoration: underline;
+}
+
+.overline {
+    text-decoration: overline;
+}
+
+.line-through {
+    text-decoration: line-through;
+}
+
+.no-decoration {
+    text-decoration: none;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box decoration-output">
+            <p class="underline">Underline Text</p>
+            <p class="overline">Overline Text</p>
+            <p class="line-through">Line Through Text</p>
+            <a href="#text-properties-demo" class="no-decoration">Normal Link</a>
+        </div>
+
+        <div class="tip-box">
+            <strong>Lakshat Thev:</strong>
+            Links varil default underline remove karanyasathi
+            text-decoration: none vapartat.
+        </div>
+
+    </section>
+
+
+    <!-- Section 4 -->
+    <section class="lesson-section">
+
+        <h2>4. Text Transform</h2>
+
+        <p>
+            <strong>text-transform</strong> property cha
+            use text madhil letters uppercase, lowercase
+            kiwa capitalize karanyasathi hoto.
+        </p>
+
+        <h3>Common Values</h3>
+
+        <ul>
+            <li>uppercase – Sarva letters capital hotat.</li>
+            <li>lowercase – Sarva letters small hotat.</li>
+            <li>capitalize – Pratyek word cha pahila letter capital hoto.</li>
+            <li>none – Original text transformation hot nahi.</li>
+        </ul>
+
+        <h3>HTML Code</h3>
+
+        <div class="code-block">
+            <pre><code>&lt;p class="uppercase"&gt;welcome to css&lt;/p&gt;
+
+&lt;p class="lowercase"&gt;WELCOME TO CSS&lt;/p&gt;
+
+&lt;p class="capitalize"&gt;welcome to css&lt;/p&gt;</code></pre>
+        </div>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.uppercase {
+    text-transform: uppercase;
+}
+
+.lowercase {
+    text-transform: lowercase;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box transform-output">
+            <p class="uppercase">welcome to css</p>
+            <p class="lowercase">WELCOME TO CSS</p>
+            <p class="capitalize">welcome to css</p>
+        </div>
+
+    </section>
+
+
+    <!-- Section 5 -->
+    <section class="lesson-section">
+
+        <h2>5. Text Indent</h2>
+
+        <p>
+            <strong>text-indent</strong> property cha use
+            paragraph madhil first line la thoda space
+            denyasathi hoto.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>p {
+    text-indent: 40px;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box indent-output">
+            <p>
+                CSS is used to style HTML web pages.
+                It helps us change the appearance of text,
+                colors, backgrounds and layouts.
+            </p>
+        </div>
+
+        <div class="tip-box">
+            <strong>Remember:</strong>
+            text-indent fakt paragraph chi first line
+            indent karte.
+        </div>
+
+    </section>
+
+
+    <!-- Section 6 -->
+    <section class="lesson-section">
+
+        <h2>6. Line Height</h2>
+
+        <p>
+            <strong>line-height</strong> property cha use
+            paragraph madhil eka line ani dusrya line
+            madhil vertical spacing control karanyasathi hoto.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>p {
+    line-height: 1.8;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box line-height-output">
+            <p>
+                CSS is used to design web pages.
+                It makes websites attractive and readable.
+                We can control text spacing using CSS.
+            </p>
+        </div>
+
+        <div class="info-box">
+            <strong>Note:</strong>
+            line-height: 1.8 mhanje font size chya
+            1.8 pat line height. Udaharanarth,
+            16px font asel tar line height 28.8px hote.
+        </div>
+
+    </section>
+
+
+    <!-- Section 7 -->
+    <section class="lesson-section">
+
+        <h2>7. Letter Spacing</h2>
+
+        <p>
+            <strong>letter-spacing</strong> property cha
+            use letters madhil horizontal antar
+            vadhavnyasathi kiwa kami karanyasathi hoto.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>h2 {
+    letter-spacing: 4px;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box letter-output">
+            <p>WELCOME TO CSS</p>
+        </div>
+
+    </section>
+
+
+    <!-- Section 8 -->
+    <section class="lesson-section">
+
+        <h2>8. Word Spacing</h2>
+
+        <p>
+            <strong>word-spacing</strong> property cha
+            use don words madhil horizontal antar
+            control karanyasathi hoto.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>p {
+    word-spacing: 10px;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box word-output">
+            <p>Welcome to CSS Documentation</p>
+        </div>
+
+    </section>
+
+
+    <!-- Section 9 -->
+    <section class="lesson-section">
+
+        <h2>9. Text Shadow</h2>
+
+        <p>
+            <strong>text-shadow</strong> property cha
+            use text chya mage shadow effect denyasathi hoto.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <div class="code-block">
+            <pre><code>text-shadow: horizontal vertical blur color;</code></pre>
+        </div>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>h1 {
+    text-shadow: 2px 2px 4px gray;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box shadow-output">
+            <h2>Welcome to CSS</h2>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Text shadow madhil pahile value horizontal
+            distance, dusre vertical distance, tisre blur
+            ani chauthe shadow cha color darshavte.
+        </div>
+
+    </section>
+
+
+    <!-- Section 10 -->
+    <section class="lesson-section">
+
+        <h2>10. Difference Between Text Properties</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+
+                <thead>
+                    <tr>
+                        <th>Property</th>
+                        <th>Use</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>text-align</td>
+                        <td>Text alignment set karte.</td>
+                    </tr>
+
+                    <tr>
+                        <td>text-decoration</td>
+                        <td>Text la underline kiwa line-through dete.</td>
+                    </tr>
+
+                    <tr>
+                        <td>text-transform</td>
+                        <td>Letters che case change karte.</td>
+                    </tr>
+
+                    <tr>
+                        <td>text-indent</td>
+                        <td>First line indent karte.</td>
+                    </tr>
+
+                    <tr>
+                        <td>line-height</td>
+                        <td>Lines madhil vertical antar set karte.</td>
+                    </tr>
+
+                    <tr>
+                        <td>letter-spacing</td>
+                        <td>Letters madhil antar set karte.</td>
+                    </tr>
+
+                    <tr>
+                        <td>word-spacing</td>
+                        <td>Words madhil antar set karte.</td>
+                    </tr>
+
+                    <tr>
+                        <td>text-shadow</td>
+                        <td>Text la shadow effect dete.</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+    </section>
+
+
+    <!-- Section 11 -->
+    <section class="lesson-section">
+
+        <h2>11. Important Points</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>text-align text chi alignment control karte.</li>
+                <li>text-decoration text la decoration dete.</li>
+                <li>text-transform letters che case change karte.</li>
+                <li>text-indent first line la space dete.</li>
+                <li>line-height lines madhil vertical antar control karte.</li>
+                <li>letter-spacing letters madhil antar control karte.</li>
+                <li>word-spacing words madhil antar control karte.</li>
+                <li>text-shadow text la shadow dete.</li>
+            </ul>
+        </div>
+
+    </section>
+
+
+    <!-- Practice -->
+    <section class="practice-section">
+
+        <h2>12. Practice Task</h2>
+
+        <div class="task-box">
+
+            <h3>Task: Design a Text Page</h3>
+
+            <p>Ek HTML page tayar kara ani tyamadhye:</p>
+
+            <ol>
+                <li>Heading la center align kara.</li>
+                <li>Paragraph la underline dya.</li>
+                <li>Ek heading uppercase kara.</li>
+                <li>Paragraph la 30px text-indent dya.</li>
+                <li>Paragraph chi line-height 1.8 kara.</li>
+                <li>Heading la 3px letter-spacing dya.</li>
+                <li>Words madhil spacing 8px kara.</li>
+                <li>Heading la text-shadow dya.</li>
+            </ol>
+
+        </div>
+
+    </section>
+
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+
+        <a href="{% url 'css_topic' 'colors-backgrounds' %}"
+           class="nav-button previous">
+            ← Previous: Colors and Backgrounds
+        </a>
+
+        <a href="{% url 'css_topic' 'fonts' %}"
+           class="nav-button next">
+            Next: CSS Fonts →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

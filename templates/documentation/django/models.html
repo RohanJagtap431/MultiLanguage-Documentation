@@ -1,0 +1,745 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Django Models{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/django/models.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- HEADER -->
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO COURSE • TOPIC 08</span>
+        <h1>Django Models</h1>
+        <p>
+            Learn how to create database models, define fields,
+            perform migrations and manage data using Django Admin.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 45–55 Minutes</span>
+        </div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <section class="lesson-section">
+        <h2>1. Django Model mhanje kay?</h2>
+
+        <p>
+            Django Model ha Python class asto jo database madhil
+            table represent karto.
+        </p>
+
+        <p>
+            Model madhye apan fields define karto. Pratyek field
+            database madhil column represent karto.
+        </p>
+
+        <div class="example-box">
+            <h3>Example: Student Database</h3>
+
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>name</th>
+                        <th>age</th>
+                        <th>course</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Rohan</td>
+                        <td>20</td>
+                        <td>BSc CS</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Rahul</td>
+                        <td>21</td>
+                        <td>BCA</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Priya</td>
+                        <td>19</td>
+                        <td>BSc IT</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            Django Model Python class cha use karun database table
+            create ani manage karnyas madat karto.
+        </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section class="lesson-section">
+        <h2>2. Database mhanje kay?</h2>
+
+        <p>
+            Database mhanje data systematically store, organize
+            ani manage karnyasathi vaparla janara system.
+        </p>
+
+        <h3>Popular Databases</h3>
+
+        <ul>
+            <li>SQLite – Lightweight database.</li>
+            <li>MySQL – Popular relational database.</li>
+            <li>PostgreSQL – Advanced relational database.</li>
+            <li>Oracle – Enterprise database system.</li>
+        </ul>
+
+        <h3>Django Default Database</h3>
+
+        <p>
+            Django project create kelyavar default configuration
+            SQLite database vaparte.
+        </p>
+
+        <h3>File: config/settings.py</h3>
+
+        <pre class="code-block"><code>DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}</code></pre>
+
+        <p>
+            <code>db.sqlite3</code> hi project madhil SQLite
+            database file aahe.
+        </p>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section class="lesson-section">
+        <h2>3. Create Django Model</h2>
+
+        <p>
+            Django madhye model create karnyasathi app madhil
+            models.py file vapartat.
+        </p>
+
+        <h3>Step 1: App Structure</h3>
+
+        <pre class="code-block"><code>students/
+│
+├── migrations/
+│   └── __init__.py
+│
+├── admin.py
+├── apps.py
+├── models.py
+├── tests.py
+└── views.py</code></pre>
+
+        <h3>Step 2: students/models.py</h3>
+
+        <pre class="code-block"><code>from django.db import models
+
+class Student(models.Model):
+
+    name = models.CharField(max_length=100)
+    age = models.IntegerField()
+    course = models.CharField(max_length=100)</code></pre>
+
+        <p>Ya model madhye:</p>
+
+        <ul>
+            <li><code>Student</code> – Model class name.</li>
+            <li><code>name</code> – Student cha name store karto.</li>
+            <li><code>age</code> – Student che age store karto.</li>
+            <li><code>course</code> – Student cha course store karto.</li>
+        </ul>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            Model class create kelyane database table lagech create hot nahi.
+            Tyasathi migrations execute karave lagtat.
+        </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section class="lesson-section">
+        <h2>4. Model Field Types</h2>
+
+        <p>
+            Django madhye vegveglya types cha data store karnyasathi
+            vegvegale Model Fields available aahet.
+        </p>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>CharField</td>
+                    <td>Short text store karnyasathi.</td>
+                </tr>
+                <tr>
+                    <td>TextField</td>
+                    <td>Long text store karnyasathi.</td>
+                </tr>
+                <tr>
+                    <td>IntegerField</td>
+                    <td>Integer numbers store karnyasathi.</td>
+                </tr>
+                <tr>
+                    <td>FloatField</td>
+                    <td>Decimal numbers store karnyasathi.</td>
+                </tr>
+                <tr>
+                    <td>EmailField</td>
+                    <td>Email address store karnyasathi.</td>
+                </tr>
+                <tr>
+                    <td>DateField</td>
+                    <td>Date store karnyasathi.</td>
+                </tr>
+                <tr>
+                    <td>DateTimeField</td>
+                    <td>Date ani time store karnyasathi.</td>
+                </tr>
+                <tr>
+                    <td>BooleanField</td>
+                    <td>True kiwa False value store karnyasathi.</td>
+                </tr>
+                <tr>
+                    <td>DecimalField</td>
+                    <td>Fixed precision decimal values sathi.</td>
+                </tr>
+                <tr>
+                    <td>URLField</td>
+                    <td>URL store karnyasathi.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Example</h3>
+
+        <pre class="code-block"><code>from django.db import models
+
+class Student(models.Model):
+
+    name = models.CharField(max_length=100)
+    description = models.TextField()
+    age = models.IntegerField()
+    percentage = models.FloatField()
+    email = models.EmailField()
+    birth_date = models.DateField()
+    is_active = models.BooleanField(default=True)</code></pre>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section class="lesson-section">
+        <h2>5. Field Options</h2>
+
+        <p>
+            Field Options cha use model field che rules ani
+            default values define karnyasathi hoto.
+        </p>
+
+        <h3>Common Field Options</h3>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Option</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>max_length</td>
+                    <td>Maximum text length define karte.</td>
+                </tr>
+                <tr>
+                    <td>default</td>
+                    <td>Default value set karte.</td>
+                </tr>
+                <tr>
+                    <td>null</td>
+                    <td>Database madhye NULL allow karte.</td>
+                </tr>
+                <tr>
+                    <td>blank</td>
+                    <td>Form validation madhye empty value allow karte.</td>
+                </tr>
+                <tr>
+                    <td>unique</td>
+                    <td>Duplicate values prevent karte.</td>
+                </tr>
+                <tr>
+                    <td>choices</td>
+                    <td>Allowed options define karte.</td>
+                </tr>
+                <tr>
+                    <td>primary_key</td>
+                    <td>Field la primary key banavte.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Example</h3>
+
+        <pre class="code-block"><code>from django.db import models
+
+class Student(models.Model):
+
+    name = models.CharField(max_length=100)
+
+    email = models.EmailField(unique=True)
+
+    age = models.IntegerField(default=18)
+
+    address = models.TextField(
+        blank=True,
+        null=True
+    )
+
+    is_active = models.BooleanField(default=True)</code></pre>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            blank ani null same nahi.
+            blank form validation shi related aahe, tar null
+            database madhil NULL value shi related aahe.
+        </div>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section class="lesson-section">
+        <h2>6. __str__() Method</h2>
+
+        <p>
+            __str__() method cha use model object la readable
+            string representation denyasathi hoto.
+        </p>
+
+        <h3>Without __str__()</h3>
+
+        <pre class="code-block"><code>Student object (1)</code></pre>
+
+        <h3>With __str__()</h3>
+
+        <pre class="code-block"><code>from django.db import models
+
+class Student(models.Model):
+
+    name = models.CharField(max_length=100)
+    age = models.IntegerField()
+
+    def __str__(self):
+        return self.name</code></pre>
+
+        <h3>Expected Output</h3>
+
+        <div class="example-box">
+            <p><strong>Student Object:</strong> Rohan</p>
+            <p><strong>Student Object:</strong> Rahul</p>
+            <p><strong>Student Object:</strong> Priya</p>
+        </div>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            __str__() method Django Admin madhye object identify
+            karnyasathi useful aahe.
+        </div>
+    </section>
+
+    <!-- SECTION 7 -->
+    <section class="lesson-section">
+        <h2>7. Register Model in Admin</h2>
+
+        <p>
+            Django Admin madhye model manage karnyasathi
+            admin.py file madhye model register karava lagto.
+        </p>
+
+        <h3>File: students/admin.py</h3>
+
+        <pre class="code-block"><code>from django.contrib import admin
+from .models import Student
+
+admin.site.register(Student)</code></pre>
+
+        <h3>Create Superuser</h3>
+
+        <pre class="code-block"><code>python manage.py createsuperuser</code></pre>
+
+        <p>
+            Command run kelyavar username, email ani password
+            enter karave lagtat.
+        </p>
+
+        <h3>Run Server</h3>
+
+        <pre class="code-block"><code>python manage.py runserver</code></pre>
+
+        <h3>Admin URL</h3>
+
+        <pre class="output-code"><code>http://127.0.0.1:8000/admin/</code></pre>
+
+        <div class="browser-preview">
+            <div class="browser-bar">
+                <span></span>
+                <span></span>
+                <span></span>
+                <div class="browser-address">127.0.0.1:8000/admin/</div>
+            </div>
+
+            <div class="admin-preview">
+                <h2>Django Administration</h2>
+                <div class="admin-row">
+                    <strong>Students</strong>
+                    <span>Student records</span>
+                </div>
+                <p>Manage your student database from the admin panel.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 8 -->
+    <section class="lesson-section">
+        <h2>8. Database Migrations</h2>
+
+        <p>
+            Migration cha use Django Model madhil changes database
+            schema madhye apply karnyasathi hoto.
+        </p>
+
+        <h3>Step 1: Make Migrations</h3>
+
+        <pre class="code-block"><code>python manage.py makemigrations</code></pre>
+
+        <p>
+            Ha command models.py madhil changes detect karun
+            migration file create karto.
+        </p>
+
+        <h3>Step 2: Migrate</h3>
+
+        <pre class="code-block"><code>python manage.py migrate</code></pre>
+
+        <p>
+            Ha command pending migrations database madhye apply karto.
+        </p>
+
+        <h3>Step 3: Show Migrations</h3>
+
+        <pre class="code-block"><code>python manage.py showmigrations</code></pre>
+
+        <p>
+            Ya command mule migrations chi status list display hote.
+        </p>
+
+        <h3>Migration Flow</h3>
+
+        <div class="flow-container">
+            <div class="flow-box">models.py</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-box">makemigrations</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-box">Migration File</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-box">migrate</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-success">Database Table</div>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            makemigrations ani migrate ya don vegveglya commands aahet.
+            Donhi commands cha purpose samjun ghya.
+        </div>
+    </section>
+
+    <!-- SECTION 9 -->
+    <section class="lesson-section">
+        <h2>9. Primary Key and ID</h2>
+
+        <p>
+            Primary Key hi database table madhil pratyek record
+            uniquely identify karte.
+        </p>
+
+        <p>
+            Django Model madhye explicitly primary key define keli
+            nasel tar Django automatic ID field add karto.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre class="code-block"><code>from django.db import models
+
+class Student(models.Model):
+
+    name = models.CharField(max_length=100)
+    age = models.IntegerField()</code></pre>
+
+        <h3>Database Table</h3>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>age</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Rohan</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Rahul</td>
+                    <td>21</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Priya</td>
+                    <td>19</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            Django default primary key field create karto.
+            Project configuration nusar tyacha type BigAutoField
+            kiwa AutoField asu shakto.
+        </div>
+    </section>
+
+    <!-- SECTION 10 -->
+    <section class="lesson-section">
+        <h2>10. Complete Practical – Student Model</h2>
+
+        <p>
+            Ata Student Model create karun database madhye
+            student information store karu.
+        </p>
+
+        <h3>Step 1: students/models.py</h3>
+
+        <pre class="code-block"><code>from django.db import models
+
+class Student(models.Model):
+
+    name = models.CharField(max_length=100)
+
+    email = models.EmailField(unique=True)
+
+    age = models.IntegerField()
+
+    course = models.CharField(max_length=100)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name</code></pre>
+
+        <h3>Step 2: Register App</h3>
+
+        <p>config/settings.py madhil INSTALLED_APPS madhye:</p>
+
+        <pre class="code-block"><code>INSTALLED_APPS = [
+    # Default Django Apps
+    'students',
+]</code></pre>
+
+        <div class="important-box">
+            <strong>Note:</strong>
+            Existing INSTALLED_APPS madhil Django apps delete karu naka.
+            Fakt students app add kara.
+        </div>
+
+        <h3>Step 3: Make Migrations</h3>
+
+        <pre class="code-block"><code>python manage.py makemigrations</code></pre>
+
+        <h3>Step 4: Apply Migrations</h3>
+
+        <pre class="code-block"><code>python manage.py migrate</code></pre>
+
+        <h3>Step 5: students/admin.py</h3>
+
+        <pre class="code-block"><code>from django.contrib import admin
+from .models import Student
+
+admin.site.register(Student)</code></pre>
+
+        <h3>Step 6: Create Superuser</h3>
+
+        <pre class="code-block"><code>python manage.py createsuperuser</code></pre>
+
+        <h3>Step 7: Run Server</h3>
+
+        <pre class="code-block"><code>python manage.py runserver</code></pre>
+
+        <h3>Step 8: Open Admin Panel</h3>
+
+        <pre class="output-code"><code>http://127.0.0.1:8000/admin/</code></pre>
+
+        <p>
+            Login kelyanantar Students model madhye jaun
+            Add Student var click kar ani student information save kar.
+        </p>
+
+        <div class="browser-preview">
+            <div class="browser-bar">
+                <span></span>
+                <span></span>
+                <span></span>
+                <div class="browser-address">Django Admin • Students</div>
+            </div>
+
+            <div class="admin-preview">
+                <h2>Students</h2>
+                <div class="admin-row">
+                    <strong>Rohan</strong>
+                    <span>rohan@example.com</span>
+                </div>
+                <div class="admin-row">
+                    <strong>Rahul</strong>
+                    <span>rahul@example.com</span>
+                </div>
+                <div class="admin-row">
+                    <strong>Priya</strong>
+                    <span>priya@example.com</span>
+                </div>
+                <p>Sample preview of student records.</p>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <strong>Practical Completed:</strong>
+            Ata tumcha Student Model database madhye create zala aahe
+            ani Admin Panel madhun records manage karta yetil.
+        </div>
+    </section>
+
+    <!-- SECTION 11 -->
+    <section class="lesson-section">
+        <h2>11. Common Mistakes</h2>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Problem</th>
+                    <th>Solution</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Model Admin madhye disat nahi</td>
+                    <td>admin.py madhye model register kara.</td>
+                </tr>
+                <tr>
+                    <td>No such table</td>
+                    <td>makemigrations ani migrate run kara.</td>
+                </tr>
+                <tr>
+                    <td>App not installed</td>
+                    <td>INSTALLED_APPS madhye app add kara.</td>
+                </tr>
+                <tr>
+                    <td>Duplicate email error</td>
+                    <td>Unique field sathi different email vapra.</td>
+                </tr>
+                <tr>
+                    <td>Model changes apply hot nahit</td>
+                    <td>Migration commands run kara.</td>
+                </tr>
+                <tr>
+                    <td>Object display readable nahi</td>
+                    <td>Model madhye __str__() method add kara.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- SECTION 12 -->
+    <section class="lesson-section">
+        <h2>12. Important Revision</h2>
+
+        <ol>
+            <li>Django Model ha Python class asto.</li>
+            <li>Model database table represent karto.</li>
+            <li>Field database madhil column represent karto.</li>
+            <li>models.py madhye models define kartat.</li>
+            <li>CharField short text store karto.</li>
+            <li>IntegerField integer values store karto.</li>
+            <li>EmailField email values store karto.</li>
+            <li>__str__() readable object name return karto.</li>
+            <li>admin.py madhye models register kartat.</li>
+            <li>makemigrations migration files create karto.</li>
+            <li>migrate database madhye changes apply karto.</li>
+            <li>Django default primary key create karto.</li>
+        </ol>
+    </section>
+
+    <!-- PRACTICE -->
+    <section class="practice-section">
+        <h2>13. Practice Questions</h2>
+
+        <p>He questions swatah solve kar:</p>
+
+        <ol>
+            <li>Django Model mhanje kay?</li>
+            <li>Database mhanje kay?</li>
+            <li>Model ani Database madhil relationship explain kar.</li>
+            <li>CharField ani TextField madhil difference lih.</li>
+            <li>IntegerField ani BooleanField cha use sang.</li>
+            <li>__str__() method cha use kay aahe?</li>
+            <li>Model Admin Panel madhye register kar.</li>
+            <li>makemigrations ani migrate madhil difference lih.</li>
+            <li>Student Model create karun migrations apply kar.</li>
+            <li>Student Model Admin Panel madhye manage kar.</li>
+        </ol>
+    </section>
+
+    <!-- COMPLETION -->
+    <div class="completion-message">
+        <h2>Topic 08 Completed!</h2>
+        <p>
+            Ata tumhala Django Models, Field Types, Database,
+            Admin Registration ani Migrations samajle astil.
+        </p>
+    </div>
+
+    <!-- NAVIGATION -->
+    <div class="lesson-navigation">
+        <a href="{% url 'django_topic' 'static-files' %}"
+           class="nav-button previous-button">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'django_topic' 'django-orm' %}"
+           class="nav-button next-button">
+            Next Topic →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

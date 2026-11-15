@@ -1,0 +1,581 @@
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}
+Introduction to Django | Django Documentation
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/django/introduction.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- HEADER -->
+
+    <div class="lesson-header">
+
+        <span class="lesson-label">DJANGO DOCUMENTATION</span>
+
+        <h1>01. Introduction to Django</h1>
+
+        <p>
+            Django mhanje kay, te kase work karte, tyachi garaj ka aahe
+            ani Django vaprun web applications kasha banavtat he samjun gheu.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Beginner Level</span>
+            <span>Topic 01 of 26</span>
+            <span>Python Backend Development</span>
+        </div>
+
+    </div>
+
+
+    <!-- SECTION 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. Django Mhanje Kay?</h2>
+
+        <p>
+            Django he Python madhye banavlele ek
+            <strong>High-Level Web Framework</strong> aahe.
+        </p>
+
+        <p>
+            Framework mhanje website kiwa web application banavnyasathi
+            aadhipasun tayar aslele tools, rules ani structure.
+        </p>
+
+        <p>
+            Sopya bhashet, Django aplyala backend development sathi
+            anek ready-made features deto. Tyamule aplyala pratyek
+            feature zero pasun create karave lagat nahi.
+        </p>
+
+        <div class="example-box">
+
+            <h3>Real-Life Example</h3>
+
+            <p>
+                Samja aplyala Student Management System banvaychi aahe.
+                Tyat khalil features asu shaktat:
+            </p>
+
+            <ul>
+                <li>Student Registration</li>
+                <li>Login and Logout</li>
+                <li>Student Details Save Karane</li>
+                <li>Database madhun Data Milavane</li>
+                <li>Student Information Display Karane</li>
+                <li>Admin Panel Madhun Records Manage Karane</li>
+            </ul>
+
+            <p>
+                He sagle features Django vaprun structured way madhye
+                develop karta yetat.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Django Chi Garaj Ka Padte?</h2>
+
+        <p>
+            Samja tu ek College Management Website banavtoy.
+            Ya website madhye student, teacher, attendance ani marks
+            yanchi information store karaychi aahe.
+        </p>
+
+        <p>
+            Django nasel tar anek backend features swatah develop
+            karave lagtil. Django madhye ya kamansathi built-in
+            support milto.
+        </p>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Use</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>URL Routing</td>
+                    <td>URL nusar page open karane.</td>
+                </tr>
+
+                <tr>
+                    <td>Views</td>
+                    <td>Backend logic lihine.</td>
+                </tr>
+
+                <tr>
+                    <td>Models</td>
+                    <td>Database structure define karane.</td>
+                </tr>
+
+                <tr>
+                    <td>ORM</td>
+                    <td>Python madhun database operations karane.</td>
+                </tr>
+
+                <tr>
+                    <td>Authentication</td>
+                    <td>Login, Logout ani Registration.</td>
+                </tr>
+
+                <tr>
+                    <td>Admin Panel</td>
+                    <td>Database records manage karane.</td>
+                </tr>
+
+                <tr>
+                    <td>Forms</td>
+                    <td>User input handle karane.</td>
+                </tr>
+
+                <tr>
+                    <td>Security</td>
+                    <td>Common web attacks pasun protection.</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+
+    <!-- SECTION 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. Django Chi Important Features</h2>
+
+        <h3>1. Open Source</h3>
+
+        <p>
+            Django free aahe. Tyacha source code available aahe.
+            Developers tyacha use web applications banavnyasathi karu shaktat.
+        </p>
+
+        <h3>2. Python Based</h3>
+
+        <p>
+            Django madhye backend development sathi Python programming
+            language vaprali jate.
+        </p>
+
+        <h3>3. Built-in Admin Panel</h3>
+
+        <p>
+            Django madhye admin panel aadhipasun available asto.
+            Tyatun database madhil records add, update ani delete karta yetat.
+        </p>
+
+        <h3>4. ORM (Object Relational Mapping)</h3>
+
+        <p>
+            ORM mule SQL queries direct lihinyayevaji Python code vaprun
+            database sobat work karta yete.
+        </p>
+
+        <h3>5. Authentication System</h3>
+
+        <p>
+            Django madhye user registration, login, logout ani permissions
+            sathi built-in authentication system aahe.
+        </p>
+
+        <h3>6. Security</h3>
+
+        <p>
+            Django madhye CSRF protection, SQL injection protection
+            ani XSS sambandhit kahi security protections built-in aahet.
+        </p>
+
+        <h3>7. Reusable Apps</h3>
+
+        <p>
+            Django madhye create kelele apps dusrya Django projects madhye
+            suddha reuse karta yetat.
+        </p>
+
+        <div class="important-box">
+
+            <strong>Important:</strong>
+
+            Django security features provide karte. Pan developer ne
+            te yogya prakare configure ani use karane suddha avashyak aahe.
+
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. Django Kuthe Vapartat?</h2>
+
+        <p>
+            Django cha use vegveglya prakarchya web applications
+            develop karnyasathi kela jato.
+        </p>
+
+        <ul>
+            <li>E-commerce Websites</li>
+            <li>College Management Systems</li>
+            <li>Library Management Systems</li>
+            <li>Blog Websites</li>
+            <li>Job Portal Websites</li>
+            <li>Social Media Applications</li>
+            <li>REST API Backends</li>
+        </ul>
+
+        <div class="example-box">
+
+            <h3>Practical Example – SmartTalkingPlant</h3>
+
+            <p>
+                SmartTalkingPlant project madhye Django vaprun
+                user accounts, plant information, sensor readings
+                ani backend logic manage karta yete.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. Django Request-Response Cycle</h2>
+
+        <p>
+            User browser madhye URL open karto tevha Django request
+            receive karte. Tyavar process karun response browser la pathavte.
+        </p>
+
+        <div class="flow-container">
+
+            <div class="flow-step">
+                <span class="flow-number">01</span>
+                <h3>User</h3>
+                <p>Browser madhye URL open karto.</p>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <span class="flow-number">02</span>
+                <h3>URL Dispatcher</h3>
+                <p>Konti URL match hote te check karto.</p>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <span class="flow-number">03</span>
+                <h3>View</h3>
+                <p>Backend logic execute karto.</p>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <span class="flow-number">04</span>
+                <h3>Model / Database</h3>
+                <p>Garaj asel tar data read kiwa save karto.</p>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <span class="flow-number">05</span>
+                <h3>Template</h3>
+                <p>Garaj asel tar HTML page tayar karto.</p>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step flow-success">
+                <span class="flow-number">06</span>
+                <h3>Response</h3>
+                <p>Browser la result milto.</p>
+            </div>
+
+        </div>
+
+        <div class="important-box">
+
+            <strong>Note:</strong>
+
+            Ha simplified request-response flow aahe.
+            Pratyek request madhye Model kiwa Template vaparlach pahije
+            ase nahi. Udaharanarth, view direct HttpResponse suddha deu shakto.
+
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. First Django Code Example</h2>
+
+        <p>
+            Aata ek simple example pahu. Browser madhye
+            <code>/hello/</code> URL open kelyavar
+            <strong>Hello, Django!</strong> message display karaycha aahe.
+        </p>
+
+
+        <h3>File 1: views.py</h3>
+
+        <pre class="code-block"><code>from django.http import HttpResponse
+
+
+def home(request):
+    return HttpResponse("Hello, Django!")</code></pre>
+
+
+        <h3>Code Explanation</h3>
+
+        <ul>
+
+            <li>
+                <code>HttpResponse</code> browser la response pathavnyasathi vapartat.
+            </li>
+
+            <li>
+                <code>home()</code> hi Django view function aahe.
+            </li>
+
+            <li>
+                <code>request</code> madhye browser kadun aleli request information aste.
+            </li>
+
+            <li>
+                <code>return</code> response browser la pathavto.
+            </li>
+
+        </ul>
+
+
+        <h3>File 2: urls.py</h3>
+
+        <pre class="code-block"><code>from django.urls import path
+from . import views
+
+urlpatterns = [
+    path("hello/", views.home, name="home"),
+]</code></pre>
+
+
+        <h3>Code Explanation</h3>
+
+        <ul>
+
+            <li>
+                <code>path()</code> URL define karto.
+            </li>
+
+            <li>
+                <code>"hello/"</code> ha URL cha path aahe.
+            </li>
+
+            <li>
+                <code>views.home</code> mhanje URL open zalyavar
+                konti view execute karaychi.
+            </li>
+
+            <li>
+                <code>name="home"</code> he URL che unique name aahe.
+            </li>
+
+        </ul>
+
+
+        <h3>Expected Output</h3>
+
+        <div class="output-box">
+
+            <div class="browser-bar">
+                <span></span>
+                <span></span>
+                <span></span>
+
+                <div class="browser-address">
+                    http://127.0.0.1:8000/hello/
+                </div>
+            </div>
+
+            <div class="browser-output">
+                Hello, Django!
+            </div>
+
+        </div>
+
+        <div class="important-box">
+
+            <strong>Important:</strong>
+
+            Ya example madhye <code>urls.py</code> ha app-level URL file aahe.
+            Project-level <code>urls.py</code> madhun app URLs include kele
+            aslyas ha path work karel. Ha connection pudhil topics madhye
+            detail madhye samjun gheu.
+
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. Important Terms – Revision</h2>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>Term</th>
+                    <th>Meaning</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Django</td>
+                    <td>Python Web Framework</td>
+                </tr>
+
+                <tr>
+                    <td>Framework</td>
+                    <td>Ready-made development structure</td>
+                </tr>
+
+                <tr>
+                    <td>Backend</td>
+                    <td>Server-side logic</td>
+                </tr>
+
+                <tr>
+                    <td>View</td>
+                    <td>Request handle karanara Python function kiwa class</td>
+                </tr>
+
+                <tr>
+                    <td>URL</td>
+                    <td>Website cha address kiwa path</td>
+                </tr>
+
+                <tr>
+                    <td>Model</td>
+                    <td>Database structure</td>
+                </tr>
+
+                <tr>
+                    <td>Template</td>
+                    <td>HTML presentation</td>
+                </tr>
+
+                <tr>
+                    <td>ORM</td>
+                    <td>Python madhun database operations</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+
+    <!-- SECTION 8 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>8. Practice Questions</h2>
+
+        <h3>Concept Questions</h3>
+
+        <ol>
+            <li>Django mhanje kay?</li>
+            <li>Framework mhanje kay?</li>
+            <li>Django kontya programming language var based aahe?</li>
+            <li>Django che konthehi 5 features sang.</li>
+            <li>Django Admin Panel cha use kay?</li>
+            <li>ORM mhanje kay?</li>
+            <li>Django madhye View che kam kay?</li>
+            <li>Request-Response Cycle mhanje kay?</li>
+        </ol>
+
+        <h3>Coding Practice</h3>
+
+        <ol>
+            <li>HttpResponse import kar.</li>
+            <li>home navachi view function create kar.</li>
+            <li>View madhun "Welcome to Django" message return kar.</li>
+            <li>Tyasathi hello/ URL create kar.</li>
+        </ol>
+
+    </section>
+
+
+    <!-- COMPLETION -->
+
+    <div class="completion-message">
+
+        <h2>Topic 01 Completed!</h2>
+
+        <p>
+            Aata Django mhanje kay, tyachi features,
+            uses ani basic request-response flow samajla asel.
+            Pudhil topic madhye Django installation practically karu.
+        </p>
+
+    </div>
+
+
+    <!-- NAVIGATION -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'django_index' %}" class="nav-button previous-button">
+            ← Django Home
+        </a>
+
+        <a href="{% url 'django_topic' 'installation' %}" class="nav-button next-button">
+            Next: Django Installation →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

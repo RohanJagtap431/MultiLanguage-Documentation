@@ -1,0 +1,511 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}
+Python Comments | Roman Marathi
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/python/comments.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Header -->
+    <div class="lesson-header">
+
+        <span class="lesson-label">PYTHON BASICS · LESSON 04</span>
+
+        <h1>Python Comments</h1>
+
+        <p>
+            Python code madhye comments kase lihayche,
+            comments cha upyog kay aahe ani code samjun ghenyasathi
+            te kase madat kartat he ya lesson madhye shiku.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 10–15 Minutes</span>
+        </div>
+
+    </div>
+
+
+    <!-- 1. What are Comments -->
+    <section class="lesson-section">
+
+        <h2>1. What are Comments?</h2>
+
+        <p>
+            Comment mhanje code madhye lihileli ashi information
+            ji programmer la code samjun ghenyasathi madat karte.
+        </p>
+
+        <p>
+            Python interpreter comment execute karat nahi.
+            Mhanje comment lihilyamule program chya output madhye
+            kahi badal hot nahi.
+        </p>
+
+        <div class="info-box">
+            <strong>Simple Real-Life Example:</strong>
+
+            <p>
+                Samja tu vahimadhye ek maths example solve kelas.
+                Tya example chya bajula "He addition che example aahe"
+                ase lihiles. Hi note tula example samjun ghenyasathi
+                madat karte.
+            </p>
+
+            <p>
+                Programming madhye asach kaam comments kartat.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- 2. Why Comments -->
+    <section class="lesson-section">
+
+        <h2>2. Why Do We Use Comments?</h2>
+
+        <p>
+            Programming kartana code motha hot jato.
+            Kahi divsanni swatacha code suddha samjun ghyayla
+            kathin jau shakto.
+        </p>
+
+        <p>
+            Ashya veli comments mule code madhil logic
+            samjun ghenyas madat hote.
+        </p>
+
+        <h3>Comments che uses:</h3>
+
+        <ul>
+            <li>Code kay kaam karto he explain karanyasathi.</li>
+
+            <li>Important information lihun thevanyasathi.</li>
+
+            <li>Complex logic samjun ghenyasathi.</li>
+
+            <li>Team madhil developers na code samjavnyasathi.</li>
+
+            <li>Testing kartana kahi code temporarily disable karanyasathi.</li>
+        </ul>
+
+    </section>
+
+
+    <!-- 3. Single Line Comments -->
+    <section class="lesson-section">
+
+        <h2>3. Single-Line Comments</h2>
+
+        <p>
+            Python madhye single-line comment lihinyasathi
+            hash symbol (#) vapartat.
+        </p>
+
+        <p>
+            # nantar tyach line var lihilela text comment mhanun
+            olakhla jato.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre><code># This is a comment</code></pre>
+
+        <h3>Example:</h3>
+
+        <pre><code># Display a welcome message
+print("Welcome to Python")</code></pre>
+
+        <h3>Output:</h3>
+
+        <pre class="output-box">Welcome to Python</pre>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li><strong>#</strong> he comment symbol aahe.</li>
+
+            <li><strong>Display a welcome message</strong> hi comment aahe.</li>
+
+            <li><strong>print()</strong> function message display karte.</li>
+        </ul>
+
+        <p>
+            Python comment execute karat nahi.
+            Mhanun output madhye fakt Welcome to Python disel.
+        </p>
+
+    </section>
+
+
+    <!-- 4. Inline Comments -->
+    <section class="lesson-section">
+
+        <h2>4. Inline Comments</h2>
+
+        <p>
+            Code chya tyach line var code nantar comment lihili,
+            tar tila inline comment mhantat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre><code>age = 20  # Store the user's age
+print(age)</code></pre>
+
+        <h3>Output:</h3>
+
+        <pre class="output-box">20</pre>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li><strong>age = 20</strong> variable madhye 20 store karto.</li>
+
+            <li><strong>#</strong> nantar cha text comment aahe.</li>
+
+            <li><strong>print(age)</strong> variable madhil value display karto.</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+
+            <p>
+                Inline comments lahan ani relevant thev.
+                Code madhye kay spashta aahe tyachi vinakaran
+                punha explanation deu naye.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- 5. Multiple Line Comments -->
+    <section class="lesson-section">
+
+        <h2>5. Multiple-Line Comments</h2>
+
+        <p>
+            Kahi vela aplyala ekapeksha jast lines madhye
+            comment lihaychi aste.
+        </p>
+
+        <p>
+            Python madhye pratyek line chya suruvatila #
+            vaprun multiple-line comment lihita yete.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre><code># This program displays
+# the student's name
+# and the student's age
+
+print("Rohan")
+print(20)</code></pre>
+
+        <h3>Output:</h3>
+
+        <pre class="output-box">Rohan
+20</pre>
+
+        <p>
+            Ya example madhye pahilya three lines comments aahet.
+            Tya execute hot nahit. Print statements execute hotat.
+        </p>
+
+    </section>
+
+
+    <!-- 6. Comments and Triple Quotes -->
+    <section class="lesson-section">
+
+        <h2>6. Triple Quotes and Comments</h2>
+
+        <p>
+            Python madhye triple quotes vaprun multi-line
+            string lihita yete.
+        </p>
+
+        <p>
+            Triple quotes mhanje three single quotes (''')
+            kiwa three double quotes (""").
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre><code>message = """
+Welcome to Python.
+Learn programming step by step.
+Keep practicing.
+"""
+
+print(message)</code></pre>
+
+        <h3>Output:</h3>
+
+        <pre class="output-box">Welcome to Python.
+Learn programming step by step.
+Keep practicing.</pre>
+
+        <div class="important-box">
+            <strong>Important Difference:</strong>
+
+            <p>
+                Triple quotes he comments nasun multi-line strings
+                tayar karanyasathi vapartat.
+            </p>
+
+            <p>
+                Function, class kiwa module chya suruvatila lihilelya
+                asha string la docstring mhantat.
+            </p>
+
+            <p>
+                Fakt code disable karanyasathi triple quotes vaprane
+                hi standard comment technique nahi.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- 7. Temporarily Disable Code -->
+    <section class="lesson-section">
+
+        <h2>7. Temporarily Disable Code</h2>
+
+        <p>
+            Testing kartana kahi vela aplyala ekhadhi code line
+            execute karaychi naste. Ashya veli tya line chya
+            suruvatila # lavun tila comment karu shakto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre><code>print("First Message")
+
+# print("This line is disabled")
+
+print("Third Message")</code></pre>
+
+        <h3>Output:</h3>
+
+        <pre class="output-box">First Message
+Third Message</pre>
+
+        <p>
+            Dusri line comment kelyamule ti execute hot nahi.
+            Urlele don print statements normal execute hotat.
+        </p>
+
+    </section>
+
+
+    <!-- 8. Good Practices -->
+    <section class="lesson-section">
+
+        <h2>8. Good Practices for Writing Comments</h2>
+
+        <ul>
+            <li>Comments short ani clear lihava.</li>
+
+            <li>Code kay karto he avashyak asel tevha explain karava.</li>
+
+            <li>Comment ani actual code yanchyat sambandh asava.</li>
+
+            <li>Code change kelyanantar sambandhit comment suddha update karava.</li>
+
+            <li>Pratyek line sathi unnecessary comment lihू naye.</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Professional Tip:</strong>
+
+            <p>
+                Changla code swatah barach kahi explain karto.
+                Comments cha upyog code madhil important logic
+                samjavnyasathi kara.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- 9. Common Mistakes -->
+    <section class="lesson-section">
+
+        <h2>9. Common Beginner Mistakes</h2>
+
+        <div class="error-card">
+
+            <h3>1. Hash Symbol Visarne</h3>
+
+            <pre class="error-box"><code>This is a comment</code></pre>
+
+            <p>
+                Solution: Comment chya suruvatila # vapra.
+            </p>
+
+            <pre><code># This is a comment</code></pre>
+
+        </div>
+
+        <div class="error-card">
+
+            <h3>2. Comment Execute Hoil Asa Samajne</h3>
+
+            <pre><code># print("Hello")</code></pre>
+
+            <p>
+                Ya line madhil print function execute honar nahi,
+                karan sampurna line comment aahe.
+            </p>
+
+        </div>
+
+        <div class="error-card">
+
+            <h3>3. Outdated Comment Thevane</h3>
+
+            <p>
+                Code madhil value badalali pan comment update keli nahi,
+                tar dusrya programmer la chukichi information milu shakte.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- 10. Quick Revision -->
+    <section class="lesson-section">
+
+        <h2>10. Quick Revision</h2>
+
+        <div class="table-wrapper">
+
+            <table class="lesson-table">
+
+                <thead>
+                    <tr>
+                        <th>Concept</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Comment</td>
+                        <td>Code explain karanyasathi lihileli note.</td>
+                    </tr>
+
+                    <tr>
+                        <td>#</td>
+                        <td>Single-line comment symbol.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Inline Comment</td>
+                        <td>Code chya tyach line var lihileli comment.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Multi-line Comment</td>
+                        <td>Anek lines madhye lihilelya comments.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Docstring</td>
+                        <td>Module, class kiwa function document karanyasathi vaparnari string.</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- 11. Practice -->
+    <section class="lesson-section practice-section">
+
+        <h2>11. Practice Questions</h2>
+
+        <p>
+            Khalil questions swatah solve karanyacha prayatna kar.
+        </p>
+
+        <ol>
+            <li>Python madhye comment mhanje kay?</li>
+
+            <li>Single-line comment lihinyasathi konthe symbol vapartat?</li>
+
+            <li>Comments cha upyog kay aahe?</li>
+
+            <li>Inline comment mhanje kay?</li>
+
+            <li>Multi-line comments kase lihita yetat?</li>
+
+            <li>Triple quotes ani comments yanchyat kay farak aahe?</li>
+
+            <li>Comments mule program chya output madhye badal hoto ka?</li>
+        </ol>
+
+        <div class="practice-task">
+
+            <strong>Practical Task:</strong>
+
+            <p>
+                VS Code madhye comments_practice.py navachi file create kar.
+                Tyat khalil tasks complete kar.
+            </p>
+
+            <ul>
+                <li>Ek single-line comment lih.</li>
+
+                <li>Ek inline comment lih.</li>
+
+                <li>Three lines madhye comments lih.</li>
+
+                <li>Ek print statement comment karun execute kar.</li>
+
+                <li>Ek program lihun tyat comments vaprun code explain kar.</li>
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+
+        <a href="{% url 'python_topic' 'syntax' %}"
+           class="nav-button back-button">
+            ← Previous: Syntax
+        </a>
+
+        <a href="{% url 'python_topic' 'variables' %}"
+           class="nav-button next-button">
+            Next: Variables →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

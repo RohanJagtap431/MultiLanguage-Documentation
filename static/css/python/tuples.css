@@ -1,0 +1,394 @@
+
+/* Python Tuples Lesson CSS */
+
+.lesson-container {
+    max-width: 1050px;
+    margin: 0 auto;
+    color: #1e293b;
+}
+
+/* Lesson Header */
+
+.lesson-header {
+    margin-bottom: 35px;
+}
+
+.lesson-label {
+    display: inline-block;
+    color: #2563eb;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.lesson-header h1 {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    color: #0f172a;
+}
+
+.lesson-header p {
+    color: #64748b;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.lesson-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-top: 18px;
+    color: #64748b;
+    font-size: 14px;
+}
+
+/* Lesson Sections */
+
+.lesson-section {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 28px;
+    margin-bottom: 22px;
+}
+
+.lesson-section h2 {
+    font-size: 23px;
+    color: #0f172a;
+    margin-bottom: 18px;
+}
+
+.lesson-section h3 {
+    font-size: 18px;
+    color: #1e40af;
+    margin-top: 24px;
+    margin-bottom: 12px;
+}
+
+.lesson-section p {
+    color: #475569;
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.lesson-section ul,
+.lesson-section ol {
+    padding-left: 25px;
+    margin-bottom: 18px;
+}
+
+.lesson-section li {
+    color: #475569;
+    line-height: 1.8;
+    margin-bottom: 8px;
+}
+
+.lesson-section code {
+    background: #eff6ff;
+    color: #1d4ed8;
+    padding: 3px 6px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Information Boxes */
+
+.info-box,
+.important-box,
+.tip-box,
+.warning-box {
+    padding: 16px 18px;
+    border-radius: 9px;
+    margin: 18px 0;
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+.info-box {
+    background: #eff6ff;
+    border-left: 4px solid #3b82f6;
+    color: #1e40af;
+}
+
+.important-box {
+    background: #fefce8;
+    border-left: 4px solid #eab308;
+    color: #854d0e;
+}
+
+.tip-box {
+    background: #f0fdf4;
+    border-left: 4px solid #22c55e;
+    color: #166534;
+}
+
+.warning-box {
+    background: #fff7ed;
+    border-left: 4px solid #f97316;
+    color: #9a3412;
+}
+
+/* Code Blocks */
+
+.lesson-section pre,
+.error-card pre {
+    background: #172033;
+    color: #e2e8f0;
+    padding: 20px;
+    border-radius: 10px;
+    overflow-x: auto;
+    margin: 16px 0;
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+.lesson-section pre code,
+.error-card pre code {
+    background: transparent;
+    color: inherit;
+    padding: 0;
+    font-size: inherit;
+}
+
+/* Output Box */
+
+.output-box {
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 9px;
+    padding: 16px;
+    margin: 15px 0 20px;
+    color: #166534;
+}
+
+.output-box strong {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.output-box pre {
+    background: transparent;
+    color: #166534;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    white-space: pre-wrap;
+}
+
+/* Error Box */
+
+.error-box {
+    background: #fff1f2;
+    border: 1px solid #fecaca;
+    border-radius: 9px;
+    padding: 16px;
+    margin: 15px 0;
+    color: #b91c1c;
+}
+
+.error-box strong {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.error-box pre {
+    background: transparent;
+    color: #b91c1c;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    white-space: pre-wrap;
+}
+
+/* Error Cards */
+
+.error-card {
+    background: #fff7f7;
+    border: 1px solid #fecaca;
+    border-radius: 10px;
+    padding: 18px;
+    margin: 16px 0;
+}
+
+.error-card h3 {
+    color: #b91c1c;
+    margin-top: 0;
+}
+
+.error-card p {
+    color: #7f1d1d;
+    line-height: 1.7;
+}
+
+/* Tables */
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin: 18px 0;
+}
+
+.lesson-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 450px;
+}
+
+.lesson-table th,
+.lesson-table td {
+    padding: 13px 15px;
+    border: 1px solid #e2e8f0;
+    text-align: left;
+    font-size: 14px;
+}
+
+.lesson-table th {
+    background: #eff6ff;
+    color: #1e40af;
+    font-weight: 700;
+}
+
+.lesson-table td {
+    color: #475569;
+}
+
+.lesson-table tr:nth-child(even) {
+    background: #f8fafc;
+}
+
+/* Practice Section */
+
+.practice-section {
+    background: #ffffff;
+    border: 1px solid #bfdbfe;
+    border-radius: 14px;
+    padding: 28px;
+    margin-bottom: 22px;
+}
+
+.practice-section h2 {
+    color: #0f172a;
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+
+.practice-section > p {
+    color: #64748b;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.practice-task {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 9px;
+    padding: 16px;
+    margin-bottom: 14px;
+}
+
+.practice-task h3 {
+    color: #2563eb;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.practice-task p {
+    color: #475569;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Lesson Navigation */
+
+.lesson-navigation {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.nav-button {
+    display: inline-block;
+    padding: 13px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.back-button {
+    background: #f1f5f9;
+    color: #334155;
+    border: 1px solid #e2e8f0;
+}
+
+.back-button:hover {
+    background: #e2e8f0;
+}
+
+.next-button {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+.next-button:hover {
+    background: #1d4ed8;
+}
+
+/* Responsive Design */
+
+@media (max-width: 700px) {
+
+    .lesson-container {
+        width: 100%;
+    }
+
+    .lesson-header h1 {
+        font-size: 28px;
+    }
+
+    .lesson-header p {
+        font-size: 14px;
+    }
+
+    .lesson-section,
+    .practice-section {
+        padding: 20px;
+    }
+
+    .lesson-section h2,
+    .practice-section h2 {
+        font-size: 20px;
+    }
+
+    .lesson-section h3 {
+        font-size: 17px;
+    }
+
+    .lesson-section p,
+    .practice-section > p {
+        font-size: 14px;
+    }
+
+    .lesson-section pre,
+    .error-card pre {
+        padding: 15px;
+        font-size: 13px;
+    }
+
+    .lesson-navigation {
+        flex-direction: column;
+    }
+
+    .nav-button {
+        text-align: center;
+    }
+
+    .lesson-meta {
+        gap: 10px;
+    }
+}

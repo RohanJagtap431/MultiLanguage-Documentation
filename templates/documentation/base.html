@@ -1,0 +1,152 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}MultiLanguage Documentation{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'css/documentation.css' %}">
+
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+
+        <div class="nav-left">
+
+            <button class="menu-toggle" id="menuToggle"
+                    aria-label="Toggle sidebar"
+                    aria-expanded="false">
+                ☰
+            </button>
+
+            <a href="{% url 'documentation_home' %}" class="brand">
+                <span class="brand-icon">M</span>
+                <span>MultiLanguage Documentation</span>
+            </a>
+
+        </div>
+
+        <div class="nav-right">
+            <div class="search-box">
+                <span>⌕</span>
+                <input type="search" placeholder="Search topics...">
+            </div>
+
+            <a href="{% url 'logout' %}" class="logout-btn">
+                Logout
+            </a>
+        </div>
+
+    </header>
+
+
+    <!-- Page Layout -->
+    <div class="page-layout">
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+
+            <div class="sidebar-heading">
+                <span>DOCUMENTATION</span>
+            </div>
+
+            <nav class="sidebar-nav">
+
+                <a href="{% url 'documentation_home' %}"
+                class="nav-item {% if request.resolver_match.url_name == 'documentation_home' %}active{% endif %}">
+                    <span>⌂</span>
+                    Overview
+                </a>
+
+                <div class="sidebar-section">
+                    PROGRAMMING LANGUAGES
+                </div>
+
+                
+                <a href="{% url 'html_index' %}"
+                class="nav-item {% if request.resolver_match.url_name == 'html_index' or request.resolver_match.url_name == 'html_topic' %}active{% endif %}">
+                    <span>🌐</span>
+                    HTML
+                </a>
+
+
+                
+                <a href="{% url 'css_index' %}"
+                class="nav-item {% if request.resolver_match.url_name == 'css_index' or request.resolver_match.url_name == 'css_topic' %}active{% endif %}">
+                    <span>🎨</span>
+                    CSS
+                </a>
+
+
+                <a href="{% url 'javascript_index' %}"
+                class="nav-item {% if request.resolver_match.url_name == 'javascript_index' or request.resolver_match.url_name == 'javascript_topic' %}active{% endif %}">
+                    <span>⚡</span>
+                    JavaScript
+                </a>
+
+                <a href="{% url 'python_index' %}"
+                class="nav-item {% if request.resolver_match.url_name == 'python_index' or request.resolver_match.url_name == 'python_topic' %}active{% endif %}">
+                    <span>🐍</span>
+                    Python
+                </a>
+
+                
+
+                <a href="{% url 'django_index' %}"
+                class="nav-item {% if request.resolver_match.url_name == 'django_index' or request.resolver_match.url_name == 'django_topic' %}active{% endif %}">
+
+                    <span>⚙</span>
+                    Django
+
+                </a>
+
+                
+
+                
+
+            </nav>
+
+            <div class="sidebar-footer">
+                <p>Learn. Practice. Build.</p>
+                <span>MultiLanguage Documentation</span>
+            </div>
+
+        </aside>
+
+
+        <!-- Mobile Overlay -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <div class="content-wrapper">
+
+                {% block content %}
+                {% endblock %}
+
+            </div>
+
+            <footer class="main-footer">
+                Created by Rohan Jagtap | © 2026
+                Roman Marathi Documentation
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <script src="{% static 'js/documentation.js' %}"></script>
+
+</body>
+</html>

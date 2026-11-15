@@ -1,0 +1,538 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Local Storage | JavaScript Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/javascript/local-storage.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">JAVASCRIPT DOCUMENTATION • PAGE 26</span>
+
+        <h1>JavaScript Local Storage</h1>
+
+        <p>
+            Ya lesson madhye browser madhye data permanently save karne,
+            read karne, update karne ani delete karne shikuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Beginner Level</span>
+            <span>30–35 Minutes</span>
+        </div>
+    </div>
+
+    <!-- Section 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What is Local Storage?</h2>
+
+        <p>
+            Local Storage hi browser madhil ek storage facility aahe.
+            Yachya madatine apan website cha data browser madhye save karu shakto.
+        </p>
+
+        <p>
+            Browser close kela kiwa page refresh kela tari save kelela data
+            rahato. To manually remove kareparyant kiwa browser data clear
+            kareparyant rahu shakto.
+        </p>
+
+        <div class="info-box">
+            <strong>Definition:</strong>
+            Local Storage is a browser storage feature used to store
+            key-value data on the user's device.
+        </div>
+
+        <h3>Examples:</h3>
+
+        <ul>
+            <li>Website theme preference save karne.</li>
+            <li>User settings store karne.</li>
+            <li>Simple notes save karne.</li>
+            <li>Shopping cart data store karne.</li>
+        </ul>
+
+    </section>
+
+    <!-- Section 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Local Storage Properties</h2>
+
+        <p>
+            Local Storage madhye data key-value pair format madhye store hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>localStorage.setItem("name", "Rohan");</code></pre>
+
+        <p>
+            Ya example madhye name hi key aahe ani Rohan hi value aahe.
+        </p>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Local Storage madhye keys ani values strings mhanun store hotat.
+            Object kiwa array save karaycha asel tar JSON.stringify() vapra.
+        </div>
+
+    </section>
+
+    <!-- Section 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. setItem() Method</h2>
+
+        <p>
+            setItem() cha use Local Storage madhye data save karnyasathi hoto.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>localStorage.setItem("key", "value");</code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>localStorage.setItem("username", "Rohan");
+
+console.log("Data Saved");</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Data Saved</pre>
+        </div>
+
+        <p>
+            Browser madhye Developer Tools open karun Application
+            section madhye Local Storage check karta yete.
+        </p>
+
+    </section>
+
+    <!-- Section 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. getItem() Method</h2>
+
+        <p>
+            getItem() cha use Local Storage madhun save kelela data
+            read karnyasathi hoto.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>localStorage.getItem("key");</code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>localStorage.setItem("username", "Rohan");
+
+const name = localStorage.getItem("username");
+
+console.log(name);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Rohan</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Remember:</strong>
+            getItem() madhye key dilyavar tyachi value milte.
+            Key nasel tar null milte.
+        </div>
+
+    </section>
+
+    <!-- Section 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. removeItem() Method</h2>
+
+        <p>
+            removeItem() cha use Local Storage madhun specific key
+            ani tyachi value delete karnyasathi hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>localStorage.setItem("username", "Rohan");
+
+localStorage.removeItem("username");
+
+console.log(localStorage.getItem("username"));</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>null</pre>
+        </div>
+
+    </section>
+
+    <!-- Section 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. clear() Method</h2>
+
+        <p>
+            clear() cha use Local Storage madhil sarv keys ani values
+            delete karnyasathi hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>localStorage.setItem("name", "Rohan");
+localStorage.setItem("course", "BSc CS");
+
+localStorage.clear();
+
+console.log(localStorage.getItem("name"));</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>null</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Warning:</strong>
+            clear() current website chya origin madhil Local Storage
+            madhil sarv data delete karto. Mhanun kalajipurvak vapra.
+        </div>
+
+    </section>
+
+    <!-- Section 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. Updating Local Storage Data</h2>
+
+        <p>
+            Same key sobat setItem() punha call kelyas existing value
+            replace hote.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>localStorage.setItem("city", "Pune");
+
+localStorage.setItem("city", "Kolhapur");
+
+console.log(localStorage.getItem("city"));</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Kolhapur</pre>
+        </div>
+
+        <p>
+            Ya example madhye city chi old value Pune hoti.
+            Navin value Kolhapur save zalyamule old value replace zali.
+        </p>
+
+    </section>
+
+    <!-- Section 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. JSON with Local Storage</h2>
+
+        <p>
+            Local Storage madhye direct JavaScript Object save hot nahi.
+            Object la string madhye convert karun save karava lagto.
+        </p>
+
+        <h3>Object Save Karne:</h3>
+
+        <pre class="code-block"><code>const student = {
+    name: "Rohan",
+    age: 20,
+    course: "BSc CS"
+};
+
+localStorage.setItem(
+    "student",
+    JSON.stringify(student)
+);</code></pre>
+
+        <h3>Object Read Karne:</h3>
+
+        <pre class="code-block"><code>const data = localStorage.getItem("student");
+
+const studentData = JSON.parse(data);
+
+console.log(studentData.name);
+console.log(studentData.course);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Rohan
+BSc CS</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Remember:</strong>
+            Object save kartana stringify() ani read kartana parse()
+            vapra.
+        </div>
+
+    </section>
+
+    <!-- Section 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Local Storage vs Session Storage</h2>
+
+        <p>
+            Browser madhye Local Storage ani Session Storage he don
+            storage options aahet.
+        </p>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Local Storage</th>
+                    <th>Session Storage</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Data browser sessions madhye tikto.</td>
+                    <td>Data current tab session purta asto.</td>
+                </tr>
+                <tr>
+                    <td>Browser restart nantarhi data rahu shakto.</td>
+                    <td>Tab close kelyavar data clear hoto.</td>
+                </tr>
+                <tr>
+                    <td>localStorage vapartat.</td>
+                    <td>sessionStorage vapartat.</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </section>
+
+    <!-- Section 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Practical Example – Notes Saving App</h2>
+
+        <p>
+            Ata ek simple Notes Saving App tayar karu.
+            Ya app madhye note save, read ani delete karta yeil.
+        </p>
+
+        <h3>HTML:</h3>
+
+        <pre class="code-block"><code>&lt;textarea id="noteInput"
+    placeholder="Write your note"&gt;&lt;/textarea&gt;
+
+&lt;button id="saveNote"&gt;Save Note&lt;/button&gt;
+&lt;button id="deleteNote"&gt;Delete Note&lt;/button&gt;
+
+&lt;p id="status"&gt;&lt;/p&gt;</code></pre>
+
+        <h3>JavaScript:</h3>
+
+        <pre class="code-block"><code>const noteInput = document.getElementById("noteInput");
+const saveButton = document.getElementById("saveNote");
+const deleteButton = document.getElementById("deleteNote");
+const status = document.getElementById("status");
+
+// Load saved note
+noteInput.value = localStorage.getItem("myNote") || "";
+
+// Save note
+saveButton.addEventListener("click", function() {
+    localStorage.setItem("myNote", noteInput.value);
+    status.textContent = "Note saved successfully!";
+});
+
+// Delete note
+deleteButton.addEventListener("click", function() {
+    localStorage.removeItem("myNote");
+    noteInput.value = "";
+    status.textContent = "Note deleted!";
+});</code></pre>
+
+        <h3>Working:</h3>
+
+        <ul>
+            <li>User textarea madhye note lihito.</li>
+            <li>Save Note click kelyavar note Local Storage madhye save hote.</li>
+            <li>Page refresh kelyavar saved note parat load hote.</li>
+            <li>Delete Note click kelyavar note delete hote.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Security Note:</strong>
+            Passwords, authentication tokens kiwa sensitive personal data
+            Local Storage madhye store karne talave. JavaScript madhun
+            Local Storage access karta yete.
+        </div>
+
+    </section>
+
+    <!-- Section 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Common Beginner Mistakes</h2>
+
+        <div class="mistake-card">
+            <strong>Mistake 1: Object direct save karne</strong>
+            <p>
+                Object save karnyapurvi JSON.stringify() vapra.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 2: JSON.parse() visarne</strong>
+            <p>
+                Stored JSON string object madhye convert karnyasathi parse() vapra.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 3: Wrong key vaprane</strong>
+            <p>
+                setItem() ani getItem() madhye key same asne avashyak aahe.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 4: clear() cha unnecessary use</strong>
+            <p>
+                Specific data delete karaycha asel tar removeItem() vapra.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 5: Local Storage la database samajne</strong>
+            <p>
+                Local Storage browser-based storage aahe. Te Django database
+                sarkhe server-side database nahi.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- Section 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Quick Revision</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>Local Storage browser madhye data save karte.</li>
+                <li>setItem() data save karte.</li>
+                <li>getItem() data read karte.</li>
+                <li>removeItem() specific data delete karte.</li>
+                <li>clear() sarv Local Storage data delete karte.</li>
+                <li>Same key var setItem() kelyas value update hote.</li>
+                <li>JSON.stringify() object la string madhye convert karte.</li>
+                <li>JSON.parse() string la JavaScript value madhye convert karte.</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <!-- Section 13 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>13. Practice Questions</h2>
+
+        <h3>Basic Questions</h3>
+
+        <ol>
+            <li>Local Storage mhanje kay?</li>
+            <li>Local Storage cha use kay aahe?</li>
+            <li>setItem() method kay karte?</li>
+            <li>getItem() method kay karte?</li>
+            <li>removeItem() ani clear() madhye difference kay aahe?</li>
+            <li>Local Storage madhye object kasa save karal?</li>
+            <li>Local Storage ani Session Storage madhye difference kay aahe?</li>
+            <li>Sensitive data Local Storage madhye ka store karu naye?</li>
+        </ol>
+
+        <h3>Practical Questions</h3>
+
+        <ol>
+            <li>Local Storage madhye username save kar.</li>
+            <li>getItem() vaprun username display kar.</li>
+            <li>removeItem() vaprun username delete kar.</li>
+            <li>Student object JSON sobat save kar ani read kar.</li>
+            <li>Local Storage vaprun simple Notes App tayar kar.</li>
+        </ol>
+
+        <div class="task-box">
+
+            <h3>Mini Task – Personal Notes Manager</h3>
+
+            <p>
+                Local Storage vaprun Personal Notes Manager tayar kar.
+            </p>
+
+            <ul>
+                <li>Textarea madhye note lihinyachi facility de.</li>
+                <li>Save button tayar kar.</li>
+                <li>Note Local Storage madhye save kar.</li>
+                <li>Page refresh kelyavar note load kar.</li>
+                <li>Delete button vaprun note remove kar.</li>
+                <li>Note nasel tar suitable message display kar.</li>
+            </ul>
+
+            <p>
+                File name: <strong>personal_notes_manager.js</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Navigation -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'javascript_topic' 'json' %}"
+           class="nav-button previous-button">
+            ← Previous: JSON
+        </a>
+
+        <a href="{% url 'javascript_topic' 'async-javascript' %}"
+           class="nav-button next-button">
+            Next: Async JavaScript →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

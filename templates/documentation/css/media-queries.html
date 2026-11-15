@@ -1,0 +1,484 @@
+
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}CSS Media Queries | Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/css/media-queries.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+    <div class="lesson-header">
+        <span class="lesson-label">CSS TUTORIAL</span>
+
+        <h1>CSS Media Queries</h1>
+
+        <p>
+            CSS Media Queries cha use screen size ani
+            device conditions nusar website cha layout
+            ani styling change karanyasathi hoto.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 25 Minutes</span>
+            <span>📄 Page 24</span>
+        </div>
+    </div>
+
+
+    <!-- Section 1 -->
+    <section class="lesson-section">
+
+        <h2>1. What are CSS Media Queries?</h2>
+
+        <p>
+            Media Queries hi CSS madhil technique aahe.
+            Tichya madatine screen width, height ani
+            device conditions check karun vegvegli CSS
+            apply karta yete.
+        </p>
+
+        <p>
+            Udaharanarth, desktop var heading cha font
+            size 36px thevu shakto ani mobile var 24px
+            karu shakto.
+        </p>
+
+        <div class="info-box">
+            <strong>Definition:</strong>
+            CSS Media Queries allow us to apply different
+            CSS styles based on device or screen conditions.
+        </div>
+
+        <h3>Why Media Queries?</h3>
+
+        <ul>
+            <li>Mobile responsive layout tayar karanyasathi.</li>
+            <li>Different screen sizes support karanyasathi.</li>
+            <li>Font size ani spacing adjust karanyasathi.</li>
+            <li>Navbar ani cards cha layout change karanyasathi.</li>
+        </ul>
+
+    </section>
+
+
+    <!-- Section 2 -->
+    <section class="lesson-section">
+
+        <h2>2. Media Query Syntax</h2>
+
+        <p>
+            Media Query lihinyasathi CSS madhye
+            @media rule vapartat.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <div class="code-block">
+            <pre><code>@media (condition) {
+
+    selector {
+        property: value;
+    }
+
+}</code></pre>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>h1 {
+    font-size: 36px;
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 24px;
+    }
+}</code></pre>
+        </div>
+
+        <p>
+            Ya example madhye screen width 600px kiwa
+            tyapeksha kami asel tar heading cha font size
+            24px hoil.
+        </p>
+
+    </section>
+
+
+    <!-- Section 3 -->
+    <section class="lesson-section">
+
+        <h2>3. max-width Media Query</h2>
+
+        <p>
+            max-width cha use maximum screen width
+            condition set karanyasathi hoto.
+        </p>
+
+        <p>
+            Screen width dilelya value peksha kami
+            kiwa saman asel tar Media Query madhil
+            CSS apply hote.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>@media (max-width: 600px) {
+
+    .box {
+        background: blue;
+        width: 100%;
+    }
+
+}</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li>600px kiwa tyapeksha kami width asel tar CSS apply hoil.</li>
+            <li>600px peksha mothi width asel tar hi CSS apply honar nahi.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            max-width: 600px mhanje screen width
+            600px kiwa tyapeksha kami asne.
+        </div>
+
+    </section>
+
+
+    <!-- Section 4 -->
+    <section class="lesson-section">
+
+        <h2>4. min-width Media Query</h2>
+
+        <p>
+            min-width cha use minimum screen width
+            condition set karanyasathi hoto.
+        </p>
+
+        <p>
+            Screen width dilelya value evadhi kiwa
+            tyapeksha mothi asel tar Media Query madhil
+            CSS apply hote.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>@media (min-width: 768px) {
+
+    .box {
+        width: 80%;
+        margin: auto;
+    }
+
+}</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li>768px kiwa tyapeksha mothi width asel tar CSS apply hoil.</li>
+            <li>768px peksha kami width asel tar hi CSS apply honar nahi.</li>
+        </ul>
+
+    </section>
+
+
+    <!-- Section 5 -->
+    <section class="lesson-section">
+
+        <h2>5. Using the and Operator</h2>
+
+        <p>
+            Ekach Media Query madhye don kiwa adhik
+            conditions check karanyasathi and operator vapartat.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>@media (min-width: 600px) and
+       (max-width: 900px) {
+
+    .box {
+        background: green;
+    }
+
+}</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <p>
+            Ya example madhye screen width 600px kiwa
+            tyapeksha jast ani 900px kiwa tyapeksha
+            kami asel tarch CSS apply hoil.
+        </p>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            and operator vaparlyavar dilelya sarva
+            conditions true asne avashyak aahe.
+        </div>
+
+    </section>
+
+
+    <!-- Section 6 -->
+    <section class="lesson-section">
+
+        <h2>6. Multiple Breakpoints</h2>
+
+        <p>
+            Website la mobile, tablet ani desktop
+            sathi vegvegli styling denyasathi multiple
+            Media Queries vaparta yetat.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>/* Mobile */
+
+@media (max-width: 599px) {
+    .container {
+        width: 100%;
+    }
+}
+
+/* Tablet */
+
+@media (min-width: 600px) and
+       (max-width: 991px) {
+    .container {
+        width: 90%;
+    }
+}
+
+/* Desktop */
+
+@media (min-width: 992px) {
+    .container {
+        width: 85%;
+        max-width: 1100px;
+    }
+}</code></pre>
+        </div>
+
+        <h3>Common Breakpoints</h3>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+
+                <thead>
+                    <tr>
+                        <th>Device</th>
+                        <th>Screen Width</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Mobile</td>
+                        <td>Up to 599px</td>
+                    </tr>
+
+                    <tr>
+                        <td>Tablet</td>
+                        <td>600px to 991px</td>
+                    </tr>
+
+                    <tr>
+                        <td>Desktop</td>
+                        <td>992px and above</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+        <div class="important-box">
+            <strong>Note:</strong>
+            He common example breakpoints aahet.
+            Pratyek website sathi hech breakpoints
+            vaprane compulsory nahi. Design chi garaj
+            baghun breakpoints tharavtat.
+        </div>
+
+    </section>
+
+
+    <!-- Section 7 -->
+    <section class="lesson-section">
+
+        <h2>7. Responsive Navbar Example</h2>
+
+        <p>
+            Ata Media Query vaprun ek simple navbar
+            responsive kasa karaycha te pahu.
+        </p>
+
+        <h3>HTML Code</h3>
+
+        <div class="code-block">
+            <pre><code>&lt;nav class="demo-navbar"&gt;
+
+    &lt;div class="logo"&gt;MyWebsite&lt;/div&gt;
+
+    &lt;div class="nav-links"&gt;
+        &lt;a href="#"&gt;Home&lt;/a&gt;
+        &lt;a href="#"&gt;About&lt;/a&gt;
+        &lt;a href="#"&gt;Services&lt;/a&gt;
+        &lt;a href="#"&gt;Contact&lt;/a&gt;
+    &lt;/div&gt;
+
+&lt;/nav&gt;</code></pre>
+        </div>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.demo-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px;
+    background: #172033;
+}
+
+.logo {
+    color: white;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .demo-navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box">
+
+            <nav class="demo-navbar">
+                <div class="logo">MyWebsite</div>
+
+                <div class="nav-links">
+                    <a href="#navbar-example">Home</a>
+                    <a href="#navbar-example">About</a>
+                    <a href="#navbar-example">Services</a>
+                    <a href="#navbar-example">Contact</a>
+                </div>
+            </nav>
+
+            <p class="demo-note">
+                Browser window chi width kami karun
+                navbar cha layout change hotana paha.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 8 -->
+    <section class="lesson-section">
+
+        <h2>8. Important Points</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>Media Queries responsive CSS sathi vapartat.</li>
+                <li>@media ha Media Query rule aahe.</li>
+                <li>max-width maximum width condition check karte.</li>
+                <li>min-width minimum width condition check karte.</li>
+                <li>and operator multiple conditions check karto.</li>
+                <li>Multiple breakpoints vaprun different layouts banavta yetat.</li>
+                <li>Breakpoints design nusar select karayche astat.</li>
+                <li>Media Queries madhye HTML change karanyachi garaj naste; CSS change karta yete.</li>
+            </ul>
+        </div>
+
+    </section>
+
+
+    <!-- Practice Section -->
+    <section class="practice-section">
+
+        <h2>9. Practice Task</h2>
+
+        <div class="task-box">
+
+            <h3>Task: Create a Responsive Navbar</h3>
+
+            <p>Ek webpage tayar kara ani:</p>
+
+            <ol>
+                <li>Navbar create kara.</li>
+                <li>Navbar madhye Logo ani 4 links add kara.</li>
+                <li>Desktop var links eka row madhye display kara.</li>
+                <li>Mobile var links vertical display kara.</li>
+                <li>max-width: 600px Media Query vapra.</li>
+                <li>min-width: 768px Media Query try kara.</li>
+                <li>Different screen sizes var layout test kara.</li>
+            </ol>
+
+        </div>
+
+    </section>
+
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+
+        <a href="{% url 'css_topic' 'responsive-design' %}"
+           class="nav-button previous">
+            ← Previous: Responsive Web Design
+        </a>
+
+        <a href="{% url 'css_topic' 'variables' %}"
+           class="nav-button next">
+            Next: CSS Variables →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

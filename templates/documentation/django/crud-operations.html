@@ -1,0 +1,1030 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Django CRUD Operations{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/django/crud-operations.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- HEADER -->
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO COURSE • TOPIC 13</span>
+        <h1>Django CRUD Operations</h1>
+        <p>
+            Learn how to Create, Read, Update and Delete
+            database records using Django.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 50–60 Minutes</span>
+        </div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <section class="lesson-section">
+        <h2>1. CRUD mhanje kay?</h2>
+
+        <p>
+            CRUD ha four basic database operations cha group aahe.
+            Ya operations cha use application madhil data manage
+            karnyasathi hoto.
+        </p>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Operation</th>
+                    <th>Meaning</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Create</td>
+                    <td>New record add karne.</td>
+                    <td>New Student add karne.</td>
+                </tr>
+                <tr>
+                    <td>Read</td>
+                    <td>Existing records display karne.</td>
+                    <td>Student list pahane.</td>
+                </tr>
+                <tr>
+                    <td>Update</td>
+                    <td>Existing record change karne.</td>
+                    <td>Student email update karne.</td>
+                </tr>
+                <tr>
+                    <td>Delete</td>
+                    <td>Record remove karne.</td>
+                    <td>Student delete karne.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            CRUD operations cha use almost every database-based
+            application madhye hoto.
+        </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section class="lesson-section">
+        <h2>2. CRUD Working Flow</h2>
+
+        <p>
+            User browser madhun request pathavto.
+            Django View request process karte ani ORM cha use
+            karun Database sobat communicate karte.
+        </p>
+
+        <div class="flow-container">
+
+            <div class="flow-box flow-user">
+                <strong>User</strong>
+                <span>Browser Request</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-box">
+                <strong>URL</strong>
+                <span>Request Routing</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-box">
+                <strong>View</strong>
+                <span>Business Logic</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-box">
+                <strong>Django ORM</strong>
+                <span>Database Query</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-box flow-success">
+                <strong>Database</strong>
+                <span>Store or Retrieve Data</span>
+            </div>
+
+        </div>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            Django ORM Python code madhun Database operations
+            perform karnyas madat karte.
+        </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section class="lesson-section">
+        <h2>3. Create Operation</h2>
+
+        <p>
+            Create operation cha use Database madhye new record
+            insert karnyasathi hoto.
+        </p>
+
+        <h3>Using create()</h3>
+
+        <pre class="code-block"><code>from .models import Student
+
+Student.objects.create(
+    name="Rohan",
+    email="rohan@example.com",
+    age=20,
+    course="Computer Science"
+)</code></pre>
+
+        <p>
+            Ya code madhye Student Model madhye new record create
+            hoto ani database madhye save hoto.
+        </p>
+
+        <h3>Using ModelForm</h3>
+
+        <pre class="code-block"><code>form = StudentForm(request.POST)
+
+if form.is_valid():
+
+    form.save()</code></pre>
+
+        <p>
+            ModelForm vaprun validated form data directly
+            database madhye save karta yeto.
+        </p>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            create() ani form.save() donhi new database record
+            create karnyasathi vaparta yetat.
+        </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section class="lesson-section">
+        <h2>4. Read Operation</h2>
+
+        <p>
+            Read operation cha use Database madhil records
+            retrieve ani display karnyasathi hoto.
+        </p>
+
+        <h3>Get All Records</h3>
+
+        <pre class="code-block"><code>students = Student.objects.all()</code></pre>
+
+        <h3>Get Specific Records</h3>
+
+        <pre class="code-block"><code>students = Student.objects.filter(
+    course="Computer Science"
+)</code></pre>
+
+        <h3>Get Single Record</h3>
+
+        <pre class="code-block"><code>student = Student.objects.get(id=1)</code></pre>
+
+        <h3>Display Records in View</h3>
+
+        <pre class="code-block"><code>def student_list(request):
+
+    students = Student.objects.all()
+
+    return render(
+        request,
+        "student_list.html",
+        {"students": students}
+    )</code></pre>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            all() multiple records return karte.
+            filter() matching records return karte.
+            get() ek matching record return karte.
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            get() la matching record sapadla nahi tar
+            DoesNotExist exception yeu shakto. Multiple records
+            match zalyas MultipleObjectsReturned exception yeu shakto.
+        </div>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section class="lesson-section">
+        <h2>5. Update Operation</h2>
+
+        <p>
+            Update operation cha use existing database record
+            madhil information change karnyasathi hoto.
+        </p>
+
+        <h3>Using save()</h3>
+
+        <pre class="code-block"><code>student = Student.objects.get(id=1)
+
+student.name = "Rohan Jagtap"
+
+student.save()</code></pre>
+
+        <p>
+            Ya code madhye ID 1 aslelya student cha name update
+            hoil ani save() database madhye changes save karte.
+        </p>
+
+        <h3>Using update()</h3>
+
+        <pre class="code-block"><code>Student.objects.filter(
+    id=1
+).update(
+    name="Rohan Jagtap"
+)</code></pre>
+
+        <p>
+            update() QuerySet madhil matching records directly
+            update karte.
+        </p>
+
+        <div class="important-box">
+            <strong>Difference:</strong>
+            save() Model instance var call karte.
+            QuerySet update() direct SQL UPDATE perform karte
+            ani Model save() method call karat nahi.
+        </div>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section class="lesson-section">
+        <h2>6. Delete Operation</h2>
+
+        <p>
+            Delete operation cha use Database madhun existing
+            record remove karnyasathi hoto.
+        </p>
+
+        <h3>Delete Single Record</h3>
+
+        <pre class="code-block"><code>student = Student.objects.get(id=1)
+
+student.delete()</code></pre>
+
+        <h3>Delete Multiple Records</h3>
+
+        <pre class="code-block"><code>Student.objects.filter(
+    course="Computer Science"
+).delete()</code></pre>
+
+        <p>
+            Ya code madhye Computer Science course aslele
+            matching records delete hotil.
+        </p>
+
+        <div class="important-box">
+            <strong>Warning:</strong>
+            delete() operation database madhil records remove karte.
+            Production application madhye user confirmation,
+            permissions ani proper authorization implement kara.
+        </div>
+    </section>
+
+    <!-- SECTION 7 -->
+    <section class="lesson-section">
+        <h2>7. CRUD Operations Summary</h2>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>CRUD</th>
+                    <th>Django ORM</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Create</td>
+                    <td>Student.objects.create()</td>
+                </tr>
+                <tr>
+                    <td>Read</td>
+                    <td>Student.objects.all()</td>
+                </tr>
+                <tr>
+                    <td>Update</td>
+                    <td>student.save()</td>
+                </tr>
+                <tr>
+                    <td>Delete</td>
+                    <td>student.delete()</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- SECTION 8 -->
+    <section class="lesson-section">
+        <h2>8. CRUD Using Django Views</h2>
+
+        <p>
+            Django Views madhye CRUD operations implement
+            karun browser requests handle karta yetat.
+        </p>
+
+        <h3>Create View</h3>
+
+        <pre class="code-block"><code>def add_student(request):
+
+    if request.method == "POST":
+
+        form = StudentForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+
+            return redirect("student_list")
+
+    else:
+        form = StudentForm()
+
+    return render(
+        request,
+        "student_form.html",
+        {"form": form}
+    )</code></pre>
+
+        <h3>Read View</h3>
+
+        <pre class="code-block"><code>def student_list(request):
+
+    students = Student.objects.all()
+
+    return render(
+        request,
+        "student_list.html",
+        {"students": students}
+    )</code></pre>
+
+        <h3>Update View</h3>
+
+        <pre class="code-block"><code>def update_student(request, pk):
+
+    student = get_object_or_404(
+        Student,
+        pk=pk
+    )
+
+    if request.method == "POST":
+
+        form = StudentForm(
+            request.POST,
+            instance=student
+        )
+
+        if form.is_valid():
+            form.save()
+
+            return redirect("student_list")
+
+    else:
+        form = StudentForm(instance=student)
+
+    return render(
+        request,
+        "student_form.html",
+        {"form": form}
+    )</code></pre>
+
+        <h3>Delete View</h3>
+
+        <pre class="code-block"><code>def delete_student(request, pk):
+
+    student = get_object_or_404(
+        Student,
+        pk=pk
+    )
+
+    if request.method == "POST":
+
+        student.delete()
+
+        return redirect("student_list")
+
+    return render(
+        request,
+        "confirm_delete.html",
+        {"student": student}
+    )</code></pre>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            get_object_or_404() matching object sapadla nahi tar
+            HTTP 404 response return karte.
+        </div>
+    </section>
+
+    <!-- SECTION 9 -->
+    <section class="lesson-section">
+        <h2>9. URL Routing</h2>
+
+        <p>
+            URL Routing cha use browser madhun yenarya request
+            specific View paryant pathavnyasathi hoto.
+        </p>
+
+        <h3>File: students/urls.py</h3>
+
+        <pre class="code-block"><code>from django.urls import path
+from . import views
+
+urlpatterns = [
+
+    path(
+        "students/",
+        views.student_list,
+        name="student_list"
+    ),
+
+    path(
+        "students/add/",
+        views.add_student,
+        name="add_student"
+    ),
+
+    path(
+        "students/update/&lt;int:pk&gt;/",
+        views.update_student,
+        name="update_student"
+    ),
+
+    path(
+        "students/delete/&lt;int:pk&gt;/",
+        views.delete_student,
+        name="delete_student"
+    ),
+]</code></pre>
+
+        <h3>URL Examples</h3>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>URL</th>
+                    <th>Operation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>/students/</td>
+                    <td>Read</td>
+                </tr>
+                <tr>
+                    <td>/students/add/</td>
+                    <td>Create</td>
+                </tr>
+                <tr>
+                    <td>/students/update/1/</td>
+                    <td>Update</td>
+                </tr>
+                <tr>
+                    <td>/students/delete/1/</td>
+                    <td>Delete Confirmation</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            students/urls.py project chya main urls.py madhye
+            include kele pahije.
+        </div>
+    </section>
+
+    <!-- SECTION 10 -->
+    <section class="lesson-section">
+        <h2>10. CRUD Practical – Student Management System</h2>
+
+        <p>
+            Ata apan complete Student Management System create karu.
+            Ya practical madhye Student add, list, update ani delete
+            karta yeil.
+        </p>
+
+        <h3>Step 1: Student Model</h3>
+
+        <p>File: students/models.py</p>
+
+        <pre class="code-block"><code>from django.db import models
+
+class Student(models.Model):
+
+    name = models.CharField(max_length=100)
+
+    email = models.EmailField(unique=True)
+
+    age = models.IntegerField()
+
+    course = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name</code></pre>
+
+        <p>
+            Ha Model already Topic 08 madhye create kela asel tar
+            punha duplicate Model create karu naka.
+        </p>
+
+        <h3>Step 2: Create ModelForm</h3>
+
+        <p>File: students/forms.py</p>
+
+        <pre class="code-block"><code>from django import forms
+from .models import Student
+
+class StudentForm(forms.ModelForm):
+
+    class Meta:
+        model = Student
+
+        fields = [
+            "name",
+            "email",
+            "age",
+            "course"
+        ]</code></pre>
+
+        <h3>Step 3: Create Views</h3>
+
+        <p>File: students/views.py</p>
+
+        <pre class="code-block"><code>from django.shortcuts import (
+    render,
+    redirect,
+    get_object_or_404
+)
+
+from .models import Student
+from .forms import StudentForm
+
+
+# CREATE AND READ
+
+def student_list(request):
+
+    if request.method == "POST":
+
+        form = StudentForm(request.POST)
+
+        if form.is_valid():
+
+            form.save()
+
+            return redirect("student_list")
+
+    else:
+        form = StudentForm()
+
+    students = Student.objects.all()
+
+    return render(
+        request,
+        "student_list.html",
+        {
+            "form": form,
+            "students": students
+        }
+    )
+
+
+# UPDATE
+
+def update_student(request, pk):
+
+    student = get_object_or_404(
+        Student,
+        pk=pk
+    )
+
+    if request.method == "POST":
+
+        form = StudentForm(
+            request.POST,
+            instance=student
+        )
+
+        if form.is_valid():
+
+            form.save()
+
+            return redirect("student_list")
+
+    else:
+        form = StudentForm(
+            instance=student
+        )
+
+    return render(
+        request,
+        "student_update.html",
+        {
+            "form": form,
+            "student": student
+        }
+    )
+
+
+# DELETE
+
+def delete_student(request, pk):
+
+    student = get_object_or_404(
+        Student,
+        pk=pk
+    )
+
+    if request.method == "POST":
+
+        student.delete()
+
+        return redirect("student_list")
+
+    return render(
+        request,
+        "student_confirm_delete.html",
+        {"student": student}
+    )</code></pre>
+
+        <h3>Step 4: Create URLs</h3>
+
+        <p>File: students/urls.py</p>
+
+        <pre class="code-block"><code>from django.urls import path
+from . import views
+
+urlpatterns = [
+
+    path(
+        "students/",
+        views.student_list,
+        name="student_list"
+    ),
+
+    path(
+        "students/update/&lt;int:pk&gt;/",
+        views.update_student,
+        name="update_student"
+    ),
+
+    path(
+        "students/delete/&lt;int:pk&gt;/",
+        views.delete_student,
+        name="delete_student"
+    ),
+]</code></pre>
+
+        <h3>Step 5: Include App URLs</h3>
+
+        <p>File: config/urls.py</p>
+
+        <pre class="code-block"><code>from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+
+    path("admin/", admin.site.urls),
+
+    path("", include("students.urls")),
+]</code></pre>
+
+        <p>
+            Project madhye existing URL patterns astil tar
+            te delete na karta students.urls include kara.
+        </p>
+
+        <h3>Step 6: Student List Template</h3>
+
+        <p>File: templates/student_list.html</p>
+
+        <pre class="code-block"><code>{% verbatim %}
+&lt;h1&gt;Student Management System&lt;/h1&gt;
+
+&lt;h2&gt;Add Student&lt;/h2&gt;
+
+&lt;form method="POST"&gt;
+
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    &lt;button type="submit"&gt;
+        Add Student
+    &lt;/button&gt;
+
+&lt;/form&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;Student List&lt;/h2&gt;
+
+&lt;table border="1"&gt;
+
+    &lt;tr&gt;
+        &lt;th&gt;Name&lt;/th&gt;
+        &lt;th&gt;Email&lt;/th&gt;
+        &lt;th&gt;Age&lt;/th&gt;
+        &lt;th&gt;Course&lt;/th&gt;
+        &lt;th&gt;Actions&lt;/th&gt;
+    &lt;/tr&gt;
+
+    {% for student in students %}
+
+    &lt;tr&gt;
+
+        &lt;td&gt;{{ student.name }}&lt;/td&gt;
+
+        &lt;td&gt;{{ student.email }}&lt;/td&gt;
+
+        &lt;td&gt;{{ student.age }}&lt;/td&gt;
+
+        &lt;td&gt;{{ student.course }}&lt;/td&gt;
+
+        &lt;td&gt;
+
+            &lt;a href="{% url 'update_student' student.pk %}"&gt;
+                Edit
+            &lt;/a&gt;
+
+            &lt;a href="{% url 'delete_student' student.pk %}"&gt;
+                Delete
+            &lt;/a&gt;
+
+        &lt;/td&gt;
+
+    &lt;/tr&gt;
+
+    {% empty %}
+
+    &lt;tr&gt;
+        &lt;td colspan="5"&gt;No students found.&lt;/td&gt;
+    &lt;/tr&gt;
+
+    {% endfor %}
+
+&lt;/table&gt;
+{% endverbatim %}</code></pre>
+
+        <h3>Step 7: Update Template</h3>
+
+        <p>File: templates/student_update.html</p>
+
+        <pre class="code-block"><code>{% verbatim %}
+&lt;h1&gt;Update Student&lt;/h1&gt;
+
+&lt;form method="POST"&gt;
+
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    &lt;button type="submit"&gt;
+        Update Student
+    &lt;/button&gt;
+
+&lt;/form&gt;
+
+&lt;a href="{% url 'student_list' %}"&gt;
+    Back to Student List
+&lt;/a&gt;
+{% endverbatim %}</code></pre>
+
+        <h3>Step 8: Delete Confirmation Template</h3>
+
+        <p>File: templates/student_confirm_delete.html</p>
+
+        <pre class="code-block"><code>{% verbatim %}
+&lt;h1&gt;Confirm Delete&lt;/h1&gt;
+
+&lt;p&gt;
+    Are you sure you want to delete
+    {{ student.name }}?
+&lt;/p&gt;
+
+&lt;form method="POST"&gt;
+
+    {% csrf_token %}
+
+    &lt;button type="submit"&gt;
+        Confirm Delete
+    &lt;/button&gt;
+
+&lt;/form&gt;
+
+&lt;a href="{% url 'student_list' %}"&gt;
+    Cancel
+&lt;/a&gt;
+{% endverbatim %}</code></pre>
+
+        <h3>Step 9: Run Server</h3>
+
+        <pre class="code-block"><code>python manage.py runserver</code></pre>
+
+        <h3>Step 10: Open Application</h3>
+
+        <pre class="output-code"><code>http://127.0.0.1:8000/students/</code></pre>
+
+        <h3>Expected Output</h3>
+
+        <div class="browser-preview">
+
+            <div class="browser-bar">
+                <span></span>
+                <span></span>
+                <span></span>
+                <div class="browser-address">
+                    127.0.0.1:8000/students/
+                </div>
+            </div>
+
+            <div class="crud-preview">
+
+                <h2>Student Management System</h2>
+
+                <div class="crud-preview-form">
+                    <h3>Add Student</h3>
+
+                    <div class="preview-field">
+                        <label>Name</label>
+                        <div>Rohan Jagtap</div>
+                    </div>
+
+                    <div class="preview-field">
+                        <label>Email</label>
+                        <div>rohan@example.com</div>
+                    </div>
+
+                    <div class="preview-field">
+                        <label>Age</label>
+                        <div>20</div>
+                    </div>
+
+                    <div class="preview-field">
+                        <label>Course</label>
+                        <div>BSc Computer Science</div>
+                    </div>
+
+                    <button type="button" class="demo-button">
+                        Add Student
+                    </button>
+                </div>
+
+                <h3>Student List</h3>
+
+                <div class="preview-student">
+                    <strong>Rohan Jagtap</strong>
+                    <span>rohan@example.com</span>
+                    <span>20 • BSc Computer Science</span>
+                    <div>
+                        <span class="preview-action">Edit</span>
+                        <span class="preview-action delete-action">Delete</span>
+                    </div>
+                </div>
+
+                <p class="preview-note">
+                    Illustrative preview. Actual application Django render karte.
+                </p>
+
+            </div>
+        </div>
+
+        <div class="info-box">
+            <strong>Practical Completed:</strong>
+            Ata Student Management System madhye Student Add,
+            View, Update ani Delete operations perform karta yetil.
+        </div>
+    </section>
+
+    <!-- SECTION 11 -->
+    <section class="lesson-section">
+        <h2>11. Common Mistakes</h2>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Problem</th>
+                    <th>Solution</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>DoesNotExist error</td>
+                    <td>get_object_or_404() vapra.</td>
+                </tr>
+                <tr>
+                    <td>Form not saving</td>
+                    <td>is_valid() ani form.save() check kara.</td>
+                </tr>
+                <tr>
+                    <td>Update creates new record</td>
+                    <td>instance parameter pass kara.</td>
+                </tr>
+                <tr>
+                    <td>Delete without confirmation</td>
+                    <td>POST confirmation form vapra.</td>
+                </tr>
+                <tr>
+                    <td>CSRF verification failed</td>
+                    <td>csrf_token add kara.</td>
+                </tr>
+                <tr>
+                    <td>Page not found</td>
+                    <td>URL patterns check kara.</td>
+                </tr>
+                <tr>
+                    <td>TemplateDoesNotExist</td>
+                    <td>Template path check kara.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- SECTION 12 -->
+    <section class="lesson-section">
+        <h2>12. Important Revision</h2>
+
+        <ol>
+            <li>CRUD means Create, Read, Update and Delete.</li>
+            <li>Create operation new records add karte.</li>
+            <li>Read operation records retrieve karte.</li>
+            <li>Update operation existing records change karte.</li>
+            <li>Delete operation records remove karte.</li>
+            <li>objects.create() new record create karte.</li>
+            <li>objects.all() all records return karte.</li>
+            <li>objects.filter() matching records return karte.</li>
+            <li>save() Model instance save karte.</li>
+            <li>delete() database record remove karte.</li>
+            <li>get_object_or_404() object nahi sapadlyas 404 dete.</li>
+            <li>POST request database changes sathi vapra.</li>
+        </ol>
+    </section>
+
+    <!-- PRACTICE -->
+    <section class="practice-section">
+
+        <h2>13. Practice Questions</h2>
+
+        <p>He questions swatah solve kar:</p>
+
+        <ol>
+            <li>CRUD mhanje kay? Explain all four operations.</li>
+            <li>Create operation sathi Django ORM code lih.</li>
+            <li>Read operation sathi all() ani filter() explain kar.</li>
+            <li>Update operation using save() lih.</li>
+            <li>Delete operation using delete() lih.</li>
+            <li>get_object_or_404() cha use sang.</li>
+            <li>Django CRUD Views create kar.</li>
+            <li>CRUD URL Routing implement kar.</li>
+            <li>Student Registration Form create kar.</li>
+            <li>Complete Student CRUD Application create kar.</li>
+        </ol>
+
+    </section>
+
+    <!-- COMPLETION -->
+    <div class="completion-message">
+        <h2>Topic 13 Completed!</h2>
+        <p>
+            Ata tumhala Django CRUD Operations,
+            ORM Queries, Views, URLs ani Templates samajle astil.
+        </p>
+    </div>
+
+    <!-- NAVIGATION -->
+    <div class="lesson-navigation">
+
+        <a href="{% url 'django_topic' 'modelforms' %}"
+           class="nav-button previous-button">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'django_topic' 'authentication' %}"
+           class="nav-button next-button">
+            Next Topic →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,914 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}
+HTML Audio and Video | Roman Marathi
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/html/audio-video.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+
+    <div class="lesson-header">
+
+        <span class="lesson-label">HTML DOCUMENTATION • PAGE 13</span>
+
+        <h1>HTML Audio and Video</h1>
+
+        <p>
+            HTML madhye audio ani video files website var
+            embed karne ani browser madhye play karne shikuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Beginner Level</span>
+            <span>35–40 Minutes</span>
+        </div>
+
+    </div>
+
+
+    <!-- Section 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What are HTML Audio and Video?</h2>
+
+        <p>
+            HTML madhye audio ani video elements cha use
+            webpage var multimedia content display ani
+            play karnyasathi hoto.
+        </p>
+
+        <h3>Audio Element</h3>
+
+        <p>
+            Audio element cha use music, voice recording,
+            podcast kiwa sound files play karnyasathi hoto.
+        </p>
+
+        <h3>Video Element</h3>
+
+        <p>
+            Video element cha use video files webpage var
+            play karnyasathi hoto.
+        </p>
+
+        <div class="info-box">
+            <strong>Simple Definition:</strong>
+            Audio element sound play karto ani Video
+            element video play karto.
+        </div>
+
+    </section>
+
+
+    <!-- Section 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. HTML Audio Element</h2>
+
+        <p>
+            HTML madhye &lt;audio&gt; element vaprun
+            webpage var audio file add karta yete.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>
+&lt;audio controls&gt;
+
+    &lt;source src="music.mp3" type="audio/mpeg"&gt;
+
+&lt;/audio&gt;
+        </code></pre>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>audio = Audio player create karto.</li>
+            <li>controls = Play, Pause ani Volume controls display karto.</li>
+            <li>source = Audio file cha path provide karto.</li>
+            <li>src = Audio file location specify karto.</li>
+            <li>type = Audio file cha media type specify karto.</li>
+        </ul>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;h2&gt;My Audio&lt;/h2&gt;
+
+&lt;audio controls&gt;
+
+    &lt;source src="music.mp3" type="audio/mpeg"&gt;
+
+    Your browser does not support audio.
+
+&lt;/audio&gt;
+        </code></pre>
+
+        <p>
+            Ya example madhye browser audio player display
+            karto. Music file available asel tar user ti
+            play karu shakto.
+        </p>
+
+    </section>
+
+
+    <!-- Section 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. Audio Controls</h2>
+
+        <p>
+            Audio element madhye different attributes vaprun
+            audio player cha behavior control karta yeto.
+        </p>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>Attribute</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>controls</td>
+                    <td>Audio player controls display karto.</td>
+                </tr>
+
+                <tr>
+                    <td>autoplay</td>
+                    <td>Audio automatically play karnyacha prayatna karto.</td>
+                </tr>
+
+                <tr>
+                    <td>loop</td>
+                    <td>Audio samplyavar punha play karto.</td>
+                </tr>
+
+                <tr>
+                    <td>muted</td>
+                    <td>Audio suruvatila mute thevto.</td>
+                </tr>
+
+                <tr>
+                    <td>preload</td>
+                    <td>Audio load karnyabaddal browser la hint deto.</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;audio controls loop&gt;
+
+    &lt;source src="music.mp3" type="audio/mpeg"&gt;
+
+&lt;/audio&gt;
+        </code></pre>
+
+        <p>
+            Ya example madhye audio play karta yeil ani
+            audio complete zalyavar to repeat hoil.
+        </p>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Modern browsers madhye sound aslela autoplay
+            normally block kela jau shakto. Autoplay
+            sathi browser policy ani user interaction
+            lakshat ghene important aahe.
+        </div>
+
+    </section>
+
+
+    <!-- Section 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. Audio File Formats</h2>
+
+        <p>
+            Audio files vegveglya formats madhye available astat.
+        </p>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>Format</th>
+                    <th>Description</th>
+                    <th>MIME Type</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>MP3</td>
+                    <td>Common compressed audio format.</td>
+                    <td>audio/mpeg</td>
+                </tr>
+
+                <tr>
+                    <td>WAV</td>
+                    <td>Usually uncompressed audio format.</td>
+                    <td>audio/wav</td>
+                </tr>
+
+                <tr>
+                    <td>OGG</td>
+                    <td>Open multimedia container format.</td>
+                    <td>audio/ogg</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;audio controls&gt;
+
+    &lt;source src="song.mp3" type="audio/mpeg"&gt;
+
+    &lt;source src="song.ogg" type="audio/ogg"&gt;
+
+    Your browser does not support audio.
+
+&lt;/audio&gt;
+        </code></pre>
+
+        <p>
+            Browser supported source format select
+            karun audio play karnyacha prayatna karto.
+        </p>
+
+    </section>
+
+
+    <!-- Section 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. Source Element</h2>
+
+        <p>
+            &lt;source&gt; element audio kiwa video
+            sathi media file cha path ani format
+            specify karnyasathi vaparto.
+        </p>
+
+        <p>
+            Ekach audio kiwa video sathi multiple
+            source elements provide karta yetat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;audio controls&gt;
+
+    &lt;source src="song.mp3" type="audio/mpeg"&gt;
+
+    &lt;source src="song.ogg" type="audio/ogg"&gt;
+
+&lt;/audio&gt;
+        </code></pre>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Multiple source formats provide kelyane
+            different browser support sathi madat hou shakte.
+        </div>
+
+    </section>
+
+
+    <!-- Section 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. HTML Video Element</h2>
+
+        <p>
+            HTML madhye &lt;video&gt; element vaprun
+            webpage var video file add karta yete.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>
+&lt;video controls width="500"&gt;
+
+    &lt;source src="movie.mp4" type="video/mp4"&gt;
+
+&lt;/video&gt;
+        </code></pre>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>video = Video player create karto.</li>
+            <li>controls = Video player controls display karto.</li>
+            <li>width = Video chi width set karto.</li>
+            <li>source = Video file cha path provide karto.</li>
+            <li>src = Video file location specify karto.</li>
+            <li>type = Video file cha media type specify karto.</li>
+        </ul>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;h2&gt;My Video&lt;/h2&gt;
+
+&lt;video controls width="500"&gt;
+
+    &lt;source src="movie.mp4" type="video/mp4"&gt;
+
+    Your browser does not support video.
+
+&lt;/video&gt;
+        </code></pre>
+
+        <p>
+            Ya example madhye browser video player
+            display karto.
+        </p>
+
+    </section>
+
+
+    <!-- Section 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. Video Controls</h2>
+
+        <p>
+            Video element madhye different attributes
+            vaprun video player control karta yeto.
+        </p>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>Attribute</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>controls</td>
+                    <td>Play, Pause, Volume ani other controls display karto.</td>
+                </tr>
+
+                <tr>
+                    <td>autoplay</td>
+                    <td>Video automatically play karnyacha prayatna karto.</td>
+                </tr>
+
+                <tr>
+                    <td>loop</td>
+                    <td>Video samplyavar punha play karto.</td>
+                </tr>
+
+                <tr>
+                    <td>muted</td>
+                    <td>Video cha sound mute thevto.</td>
+                </tr>
+
+                <tr>
+                    <td>poster</td>
+                    <td>Video play honyapurvi preview image display karto.</td>
+                </tr>
+
+                <tr>
+                    <td>width</td>
+                    <td>Video chi width set karto.</td>
+                </tr>
+
+                <tr>
+                    <td>height</td>
+                    <td>Video chi height set karto.</td>
+                </tr>
+
+                <tr>
+                    <td>preload</td>
+                    <td>Video loading baddal browser la hint deto.</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+
+    <!-- Section 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. Important Video Attributes</h2>
+
+        <h3>Autoplay</h3>
+
+        <p>
+            Autoplay attribute video automatically play
+            karnyacha prayatna karto.
+        </p>
+
+        <pre class="code-block"><code>
+&lt;video autoplay muted&gt;
+
+    &lt;source src="movie.mp4" type="video/mp4"&gt;
+
+&lt;/video&gt;
+        </code></pre>
+
+        <h3>Muted</h3>
+
+        <p>
+            Muted attribute video cha sound mute thevto.
+        </p>
+
+        <pre class="code-block"><code>
+&lt;video controls muted&gt;
+
+    &lt;source src="movie.mp4" type="video/mp4"&gt;
+
+&lt;/video&gt;
+        </code></pre>
+
+        <h3>Loop</h3>
+
+        <p>
+            Loop attribute video complete zalyavar
+            punha play karto.
+        </p>
+
+        <pre class="code-block"><code>
+&lt;video controls loop&gt;
+
+    &lt;source src="movie.mp4" type="video/mp4"&gt;
+
+&lt;/video&gt;
+        </code></pre>
+
+        <h3>Poster</h3>
+
+        <p>
+            Poster attribute video play honyapurvi
+            preview image display karto.
+        </p>
+
+        <pre class="code-block"><code>
+&lt;video controls
+       poster="thumbnail.jpg"&gt;
+
+    &lt;source src="movie.mp4" type="video/mp4"&gt;
+
+&lt;/video&gt;
+        </code></pre>
+
+        <h3>Preload</h3>
+
+        <p>
+            Preload browser la video data kiti load
+            karaycha yachi hint deto.
+        </p>
+
+        <pre class="code-block"><code>
+&lt;video controls preload="metadata"&gt;
+
+    &lt;source src="movie.mp4" type="video/mp4"&gt;
+
+&lt;/video&gt;
+        </code></pre>
+
+        <p>Preload values:</p>
+
+        <ul>
+            <li>none = Media data preload karu naye.</li>
+            <li>metadata = Basic media information load karne.</li>
+            <li>auto = Browser garjenusar media preload karu shakto.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Preload hi browser sathi hint aahe.
+            Browser network ani device conditions nusar
+            loading behavior decide karu shakto.
+        </div>
+
+    </section>
+
+
+    <!-- Section 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Video File Formats</h2>
+
+        <p>
+            Video files vegveglya formats madhye
+            available astat.
+        </p>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>Format</th>
+                    <th>MIME Type</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>MP4</td>
+                    <td>video/mp4</td>
+                    <td>Common video container format.</td>
+                </tr>
+
+                <tr>
+                    <td>WebM</td>
+                    <td>video/webm</td>
+                    <td>Web sathi use honara video format.</td>
+                </tr>
+
+                <tr>
+                    <td>OGG</td>
+                    <td>video/ogg</td>
+                    <td>Open multimedia container format.</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;video controls width="500"&gt;
+
+    &lt;source src="video.mp4" type="video/mp4"&gt;
+
+    &lt;source src="video.webm" type="video/webm"&gt;
+
+    Your browser does not support video.
+
+&lt;/video&gt;
+        </code></pre>
+
+        <p>
+            Different source formats provide kelyane
+            browser compatibility improve hou shakte.
+        </p>
+
+    </section>
+
+
+    <!-- Section 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Audio and Video Difference</h2>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>Audio</th>
+                    <th>Video</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Sound play karto.</td>
+                    <td>Moving visuals ani sound play karu shakto.</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;audio&gt; element vaparto.</td>
+                    <td>&lt;video&gt; element vaparto.</td>
+                </tr>
+
+                <tr>
+                    <td>Audio player display karto.</td>
+                    <td>Video player display karto.</td>
+                </tr>
+
+                <tr>
+                    <td>MP3, WAV, OGG formats.</td>
+                    <td>MP4, WebM, OGG formats.</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+
+    <!-- Section 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Practical Media Player</h2>
+
+        <p>
+            Ata audio ani video elements vaprun
+            ek simple Media Player section create karu.
+        </p>
+
+        <h3>HTML Code:</h3>
+
+        <pre class="code-block"><code>
+&lt;!DOCTYPE html&gt;
+
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+
+    &lt;meta charset="UTF-8"&gt;
+
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+
+    &lt;title&gt;Media Player&lt;/title&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;h1&gt;My Media Player&lt;/h1&gt;
+
+    &lt;h2&gt;My Audio&lt;/h2&gt;
+
+    &lt;audio controls&gt;
+
+        &lt;source src="music.mp3" type="audio/mpeg"&gt;
+
+        Your browser does not support audio.
+
+    &lt;/audio&gt;
+
+    &lt;h2&gt;My Video&lt;/h2&gt;
+
+    &lt;video controls width="500"
+           poster="thumbnail.jpg"&gt;
+
+        &lt;source src="movie.mp4" type="video/mp4"&gt;
+
+        Your browser does not support video.
+
+    &lt;/video&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+        </code></pre>
+
+        <h3>Folder Structure:</h3>
+
+        <pre class="code-block"><code>
+MediaPlayer/
+│
+├── index.html
+│
+├── music.mp3
+│
+├── movie.mp4
+│
+└── thumbnail.jpg
+        </code></pre>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            HTML file ani media files yogya folder madhye
+            asne necessary aahe. File path chukla tar
+            media play honar nahi.
+        </div>
+
+        <h3>Output Preview:</h3>
+
+        <div class="output-box media-demo">
+
+            <h3>My Media Player</h3>
+
+            <div class="media-placeholder">
+                <span>♫</span>
+                <p>Audio Player</p>
+                <small>music.mp3</small>
+            </div>
+
+            <div class="media-placeholder video-placeholder">
+                <span>▶</span>
+                <p>Video Player</p>
+                <small>movie.mp4</small>
+            </div>
+
+            <p class="demo-note">
+                Ha layout preview aahe. Actual media play
+                karnyasathi swatachya audio ani video files
+                HTML madhye add kar.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Common Beginner Mistakes</h2>
+
+        <div class="mistake-card">
+            <strong>Mistake 1: Controls attribute विसरणे</strong>
+            <p>
+                Controls naslyas user la browser cha
+                default player interface milnar nahi.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 2: Wrong File Path</strong>
+            <p>
+                Audio kiwa video file cha path correct
+                asne necessary aahe.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 3: Wrong MIME Type</strong>
+            <p>
+                Source element madhye file nusar
+                correct type specify kar.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 4: Autoplay nehmich work hoil ase samajne</strong>
+            <p>
+                Browser autoplay policies mule
+                sound aslela autoplay block hou shakto.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 5: Large Video Files Directly Load karne</strong>
+            <p>
+                Large files mule loading slow hou shakte.
+                File size ani hosting optimize kar.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 6: Only One Format Provide karne</strong>
+            <p>
+                Garjenusar multiple supported formats
+                provide karu shakto.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- Section 13 -->
+
+    <section class="lesson-section">
+
+        <h2>13. Quick Revision</h2>
+
+        <div class="revision-box">
+
+            <ul>
+                <li>audio = Audio player create karto.</li>
+                <li>video = Video player create karto.</li>
+                <li>source = Media file source specify karto.</li>
+                <li>controls = Player controls display karto.</li>
+                <li>autoplay = Automatic playback cha prayatna karto.</li>
+                <li>loop = Media repeat karto.</li>
+                <li>muted = Sound mute thevto.</li>
+                <li>poster = Video preview image display karto.</li>
+                <li>preload = Loading behavior sathi browser la hint deto.</li>
+                <li>MP3 = Common audio format.</li>
+                <li>MP4 = Common video container format.</li>
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 14 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>14. Practice Questions</h2>
+
+        <h3>Basic Questions</h3>
+
+        <ol>
+            <li>HTML Audio element mhanje kay?</li>
+            <li>HTML Video element mhanje kay?</li>
+            <li>Audio ani Video madhil difference lih.</li>
+            <li>Controls attribute cha use kay aahe?</li>
+            <li>Source element mhanje kay?</li>
+            <li>Autoplay ani Loop madhil difference lih.</li>
+            <li>Muted attribute cha use kay aahe?</li>
+            <li>Poster attribute mhanje kay?</li>
+            <li>Preload attribute cha use kay aahe?</li>
+            <li>Audio ani Video che file formats lih.</li>
+        </ol>
+
+        <h3>Practical Questions</h3>
+
+        <ol>
+            <li>HTML madhye Audio Player create kar.</li>
+            <li>Audio player madhye controls attribute add kar.</li>
+            <li>Loop attribute vaprun audio repeat kar.</li>
+            <li>HTML madhye Video Player create kar.</li>
+            <li>Video player madhye poster image add kar.</li>
+            <li>Muted ani Loop attributes vaprun video create kar.</li>
+            <li>Multiple source elements vaprun audio add kar.</li>
+            <li>Audio ani Video ekach webpage var display kar.</li>
+        </ol>
+
+        <div class="task-box">
+
+            <h3>Mini Task: Personal Media Page</h3>
+
+            <p>
+                HTML ani CSS vaprun Personal Media Page
+                create kar.
+            </p>
+
+            <ul>
+                <li>Website Title – My Media Gallery</li>
+                <li>Audio Section – Music Player</li>
+                <li>Video Section – Video Player</li>
+                <li>Video Thumbnail – Poster Image</li>
+                <li>Audio ani Video Controls</li>
+                <li>Responsive Design</li>
+            </ul>
+
+            <p>
+                File Name:
+                <strong>media_gallery.html</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Lesson Navigation -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'html_topic' 'semantic-html' %}"
+           class="nav-button previous-button">
+            ← Previous: Semantic HTML
+        </a>
+
+        <a href="{% url 'html_topic' 'iframes' %}"
+           class="nav-button next-button">
+            Next: HTML Iframes →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

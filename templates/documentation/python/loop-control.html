@@ -1,0 +1,718 @@
+
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}Python Loop Control | Roman Marathi Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/python/loop-control.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">PYTHON • LESSON 18</span>
+        <h1>Python Loop Control Statements</h1>
+        <p>
+            Loop Control Statements cha use loop cha normal execution
+            control karnyasathi hoto. break, continue ani pass he
+            important statements aahet.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Level: Beginner</span>
+            <span>⏱️ Time: 30–40 Minutes</span>
+        </div>
+    </div>
+
+    <!-- 1. Introduction -->
+    <section class="lesson-section">
+        <h2>1. What are Loop Control Statements?</h2>
+
+        <p>
+            Python madhye Loop Control Statements cha use loop
+            kasa execute hoil he control karnyasathi hoto.
+        </p>
+
+        <p>
+            Samja loop 1 te 10 numbers print kartoy. Pan aaplyala
+            specific number milalyavar loop stop karaycha asel,
+            kiwa kahi numbers skip karayche astil, tar Loop Control
+            Statements vapartat.
+        </p>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Statement</th>
+                        <th>Use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>break</td>
+                        <td>Loop completely stop karto.</td>
+                    </tr>
+                    <tr>
+                        <td>continue</td>
+                        <td>Current iteration skip karto.</td>
+                    </tr>
+                    <tr>
+                        <td>pass</td>
+                        <td>Kahi action na karta empty block maintain karto.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 2. Break -->
+    <section class="lesson-section">
+        <h2>2. break Statement</h2>
+
+        <p>
+            <code>break</code> statement cha use loop madhun
+            immediately baher padnyasathi hoto.
+        </p>
+
+        <p>
+            break execute zalyavar loop chi urleli iterations execute
+            hot nahit. Program loop nantaril code execute karto.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre><code>for item in sequence:
+    if condition:
+        break</code></pre>
+
+        <h3>Example 1 – Stop at 5</h3>
+
+        <pre><code>for i in range(1, 11):
+    if i == 5:
+        break
+
+    print(i)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>1
+2
+3
+4</pre>
+        </div>
+
+        <h3>Code Explanation</h3>
+
+        <ul>
+            <li>Loop 1 pasun start hoto.</li>
+            <li>1, 2, 3 ani 4 print hotat.</li>
+            <li>i chi value 5 zalyavar condition True hote.</li>
+            <li>break mule loop lagech stop hoto.</li>
+            <li>5 print hot nahi.</li>
+        </ul>
+
+        <h3>Example 2 – Search an Item</h3>
+
+        <pre><code>numbers = [10, 20, 30, 40, 50]
+
+for num in numbers:
+    if num == 30:
+        print("Number Found")
+        break
+
+    print(num)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>10
+20
+Number Found</pre>
+        </div>
+
+        <div class="info-box">
+            <strong>Samjun ghe:</strong>
+            30 sapadlyavar break execute hoto. Tyamule 40 ani 50
+            check kiwa print hot nahit.
+        </div>
+    </section>
+
+    <!-- 3. Continue -->
+    <section class="lesson-section">
+        <h2>3. continue Statement</h2>
+
+        <p>
+            <code>continue</code> statement cha use current iteration
+            skip karun loop chya next iteration la janyasathi hoto.
+        </p>
+
+        <p>
+            continue mule loop completely stop hot nahi.
+            Fakt current iteration madhil urlela code skip hoto.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre><code>for item in sequence:
+    if condition:
+        continue</code></pre>
+
+        <h3>Example 1 – Skip Number 5</h3>
+
+        <pre><code>for i in range(1, 11):
+    if i == 5:
+        continue
+
+    print(i)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>1
+2
+3
+4
+6
+7
+8
+9
+10</pre>
+        </div>
+
+        <h3>Code Explanation</h3>
+
+        <ul>
+            <li>Loop 1 pasun 10 paryant chalto.</li>
+            <li>1, 2, 3 ani 4 print hotat.</li>
+            <li>i chi value 5 zalyavar continue execute hoto.</li>
+            <li>5 print na hota pudhchi iteration suru hote.</li>
+            <li>6 te 10 print hotat.</li>
+        </ul>
+
+        <h3>Example 2 – Print Only Odd Numbers</h3>
+
+        <pre><code>for i in range(1, 11):
+    if i % 2 == 0:
+        continue
+
+    print(i)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>1
+3
+5
+7
+9</pre>
+        </div>
+
+        <div class="info-box">
+            <strong>Samjun ghe:</strong>
+            Number even asel tar continue mule print() skip hoto.
+            Mhanun fakt odd numbers print hotat.
+        </div>
+    </section>
+
+    <!-- 4. Pass -->
+    <section class="lesson-section">
+        <h2>4. pass Statement</h2>
+
+        <p>
+            <code>pass</code> statement cha use empty code block
+            temporary thevnyasathi hoto.
+        </p>
+
+        <p>
+            pass execute zalyavar kontihi action hot nahi.
+            Program error na deta pudhe continue hoto.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre><code>if condition:
+    pass</code></pre>
+
+        <h3>Example 1 – Empty if Block</h3>
+
+        <pre><code>age = 20
+
+if age >= 18:
+    pass
+
+print("Program Completed")</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Program Completed</pre>
+        </div>
+
+        <h3>Example 2 – pass in Loop</h3>
+
+        <pre><code>for i in range(1, 6):
+    if i == 3:
+        pass
+
+    print(i)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>1
+2
+3
+4
+5</pre>
+        </div>
+
+        <p>
+            Ya example madhye pass mule number skip hot nahi.
+            pass kahi action karat nahi, tyamule print() execute hoto.
+        </p>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            pass ani continue same nahit. pass kahi karat nahi,
+            tar continue current iteration madhil urlela code skip karto.
+        </div>
+    </section>
+
+    <!-- 5. Difference -->
+    <section class="lesson-section">
+        <h2>5. Difference Between break, continue and pass</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Statement</th>
+                        <th>Behavior</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>break</td>
+                        <td>Complete loop terminate karto.</td>
+                    </tr>
+                    <tr>
+                        <td>continue</td>
+                        <td>Current iteration skip karto.</td>
+                    </tr>
+                    <tr>
+                        <td>pass</td>
+                        <td>Kahi action na karta pudhe jato.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>One Example for All Three</h3>
+
+        <pre><code># break example
+for i in range(1, 6):
+    if i == 3:
+        break
+    print(i)
+
+# continue example
+for i in range(1, 6):
+    if i == 3:
+        continue
+    print(i)
+
+# pass example
+for i in range(1, 6):
+    if i == 3:
+        pass
+    print(i)</code></pre>
+
+        <div class="output-box">
+            <strong>break Output:</strong>
+            <pre>1
+2</pre>
+        </div>
+
+        <div class="output-box">
+            <strong>continue Output:</strong>
+            <pre>1
+2
+4
+5</pre>
+        </div>
+
+        <div class="output-box">
+            <strong>pass Output:</strong>
+            <pre>1
+2
+3
+4
+5</pre>
+        </div>
+    </section>
+
+    <!-- 6. While with Break -->
+    <section class="lesson-section">
+        <h2>6. break with while Loop</h2>
+
+        <p>
+            break statement while loop madhye suddha vaparta yete.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>i = 1
+
+while i <= 10:
+    if i == 6:
+        break
+
+    print(i)
+    i += 1</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>1
+2
+3
+4
+5</pre>
+        </div>
+
+        <p>
+            i chi value 6 zalyavar break execute hoto ani while loop stop hoto.
+        </p>
+    </section>
+
+    <!-- 7. While with Continue -->
+    <section class="lesson-section">
+        <h2>7. continue with while Loop</h2>
+
+        <p>
+            while loop madhye continue vapartana update statement
+            yogya jagi lihine important aahe.
+        </p>
+
+        <h3>Example – Skip Number 3</h3>
+
+        <pre><code>i = 0
+
+while i < 5:
+    i += 1
+
+    if i == 3:
+        continue
+
+    print(i)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>1
+2
+4
+5</pre>
+        </div>
+
+        <div class="warning-box">
+            <strong>Important Warning:</strong>
+            while loop madhye continue chya aadhi update statement
+            nasel tar infinite loop hou shakto. Ya example madhye
+            i += 1 he continue chya aadhi aahe.
+        </div>
+    </section>
+
+    <!-- 8. Nested Loops -->
+    <section class="lesson-section">
+        <h2>8. break in Nested Loops</h2>
+
+        <p>
+            Nested loop madhye break vaparlyas to fakt jya loop madhye
+            lihila aahe toch loop terminate karto.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>for i in range(1, 4):
+    for j in range(1, 4):
+        if j == 2:
+            break
+
+        print(i, j)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>1 1
+2 1
+3 1</pre>
+        </div>
+
+        <p>
+            Inner loop madhye j chi value 2 zalyavar inner loop stop hoto.
+            Outer loop matra pudhe chalu rahto.
+        </p>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Nested loops madhye break automatically outer loop terminate
+            karat nahi.
+        </div>
+    </section>
+
+    <!-- 9. Practical Example -->
+    <section class="lesson-section">
+        <h2>9. Practical Example – Search Student</h2>
+
+        <p>
+            Students chya list madhye specific student search kar.
+            Student sapadlyavar message print kar ani loop stop kar.
+        </p>
+
+        <pre><code>students = ["Amit", "Rohan", "Priya", "Sneha"]
+
+search_name = "Priya"
+
+for student in students:
+    if student == search_name:
+        print("Student Found:", student)
+        break
+else:
+    print("Student Not Found")</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Student Found: Priya</pre>
+        </div>
+
+        <p>
+            Ya example madhye student sapadlyavar break mule loop stop hoto.
+            Student sapadla nahi ani loop normal complete zala tar else execute hoto.
+        </p>
+    </section>
+
+    <!-- 10. Common Mistakes -->
+    <section class="lesson-section">
+        <h2>10. Common Beginner Mistakes</h2>
+
+        <div class="error-card">
+            <h3>Mistake 1: break Outside Loop</h3>
+
+            <pre><code>if True:
+    break</code></pre>
+
+            <p>
+                break ha loop chya baher vaparta yet nahi.
+                To for kiwa while loop chya aat asla pahije.
+            </p>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 2: Confusing break and continue</h3>
+
+            <pre><code>for i in range(1, 6):
+    if i == 3:
+        break
+    print(i)</code></pre>
+
+            <p>
+                Ya code madhye 3 skip hot nahi, tar loop completely stop hoto.
+                Fakt 3 skip karaycha asel tar continue vapra.
+            </p>
+
+            <pre><code>for i in range(1, 6):
+    if i == 3:
+        continue
+    print(i)</code></pre>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 3: Missing Update in while Loop</h3>
+
+            <pre><code>i = 1
+
+while i <= 5:
+    if i == 3:
+        continue
+
+    print(i)
+    i += 1</code></pre>
+
+            <p>
+                i chi value 3 zalyavar continue mule i += 1 skip hote.
+                Tyamule loop infinite hoto.
+            </p>
+
+            <pre><code>i = 0
+
+while i < 5:
+    i += 1
+
+    if i == 3:
+        continue
+
+    print(i)</code></pre>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 4: Expecting pass to Skip an Item</h3>
+
+            <pre><code>for i in range(1, 6):
+    if i == 3:
+        pass
+
+    print(i)</code></pre>
+
+            <p>
+                pass mule 3 skip hot nahi. Number skip karnyasathi
+                continue vaprayla pahije.
+            </p>
+        </div>
+    </section>
+
+    <!-- 11. Revision -->
+    <section class="lesson-section">
+        <h2>11. Quick Revision</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Concept</th>
+                        <th>Use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>break</td><td>Loop completely stop karto.</td></tr>
+                    <tr><td>continue</td><td>Current iteration skip karto.</td></tr>
+                    <tr><td>pass</td><td>Empty block maintain karto.</td></tr>
+                    <tr><td>break in while</td><td>while loop terminate karto.</td></tr>
+                    <tr><td>continue in while</td><td>Next iteration suru karto.</td></tr>
+                    <tr><td>break in nested loop</td><td>Fakt current inner loop stop karto.</td></tr>
+                    <tr><td>Loop else</td><td>Loop normal complete zalyavar execute hoto.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 12. Practice -->
+    <section class="practice-section">
+        <h2>12. Practice Questions</h2>
+
+        <p>
+            Khalil questions swatah code lihun solve kar.
+            break, continue ani pass yanchyatila difference
+            practical code madhun samjun ghe.
+        </p>
+
+        <div class="practice-task">
+            <h3>Question 1</h3>
+            <p>1 te 10 numbers print kar. Number 5 alyavar break vaprun loop stop kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 2</h3>
+            <p>1 te 10 madhil number 5 skip karun urlele numbers print kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 3</h3>
+            <p>1 te 20 madhil fakt even numbers print kar. Odd numbers skip karnyasathi continue vapra.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 4</h3>
+            <p>List madhye 30 sapadlyavar break vaprun searching stop kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 5</h3>
+            <p>while loop vaprun 1 te 10 numbers print kar ani 7 alyavar loop stop kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 6</h3>
+            <p>for loop madhye pass vaprun empty if block tayar kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 7</h3>
+            <p>Nested loop vaprun inner loop madhye break vapra.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 8</h3>
+            <p>List madhil negative numbers skip karun positive numbers print kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 9</h3>
+            <p>Student list madhye nav search kar. Nav sapadlyavar break vapra.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 10</h3>
+            <p>for-else vaprun number list madhye available aahe ki nahi te check kar.</p>
+        </div>
+    </section>
+
+    <!-- 13. Practical Task -->
+    <section class="lesson-section">
+        <h2>13. Practical Task – Number Search System</h2>
+
+        <p>
+            Ek numbers list tayar kar. User la search karaycha number
+            input ghe. Number sapadlyas message print karun loop stop kar.
+            Number sapadla nahi tar not found message print kar.
+        </p>
+
+        <pre><code>numbers = [10, 20, 30, 40, 50]
+
+search = int(input("Enter number to search: "))
+
+for num in numbers:
+    if num == search:
+        print("Number Found")
+        break
+else:
+    print("Number Not Found")</code></pre>
+
+        <h3>Example 1 – Number Available</h3>
+
+        <div class="output-box">
+            <strong>Input and Output:</strong>
+            <pre>Enter number to search: 30
+Number Found</pre>
+        </div>
+
+        <h3>Example 2 – Number Not Available</h3>
+
+        <div class="output-box">
+            <strong>Input and Output:</strong>
+            <pre>Enter number to search: 90
+Number Not Found</pre>
+        </div>
+
+        <p>
+            Ya practical madhye list, input(), int(), for loop,
+            if condition, break ani loop else vaparla aahe.
+        </p>
+
+        <div class="tip-box">
+            <strong>Practice Challenge:</strong>
+            Ya program madhye continue vaprun negative numbers skip kar
+            ani positive numbers madhye search kar.
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+        <a href="{% url 'python_topic' 'loops' %}" class="nav-button back-button">
+            ← Previous: Loops
+        </a>
+
+        <a href="{% url 'python_topic' 'functions' %}" class="nav-button next-button">
+            Next: Functions →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,890 @@
+
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}Python Dictionaries | Roman Marathi Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/python/dictionaries.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">PYTHON • LESSON 15</span>
+        <h1>Python Dictionaries</h1>
+        <p>
+            Dictionary cha use data Key-Value pairs madhye store
+            karnyasathi hoto. User details ani structured data manage
+            karnyasathi Dictionary useful aahe.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Level: Beginner</span>
+            <span>⏱️ Time: 35–45 Minutes</span>
+        </div>
+    </div>
+
+    <!-- 1. Introduction -->
+    <section class="lesson-section">
+        <h2>1. What is a Dictionary?</h2>
+
+        <p>
+            Python madhye Dictionary ha collection data type aahe.
+            Tyat data Key-Value pairs madhye store kela jato.
+        </p>
+
+        <p>
+            Pratyek Key la ek Value assign keli jate.
+            Key cha use karun aapan tyachi Value access karu shakto.
+        </p>
+
+        <pre><code>student = {
+    "name": "Rohan",
+    "age": 20,
+    "course": "Computer Science"
+}
+
+print(student)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>{'name': 'Rohan', 'age': 20, 'course': 'Computer Science'}</pre>
+        </div>
+
+        <div class="info-box">
+            <strong>Important:</strong>
+            Dictionary create karnyasathi curly brackets
+            <code>{}</code> vapartat. Pratyek Key ani Value madhye
+            colon <code>:</code> vapartat.
+        </div>
+    </section>
+
+    <!-- 2. Features -->
+    <section class="lesson-section">
+        <h2>2. Features of Dictionary</h2>
+
+        <ul>
+            <li><strong>Key-Value Pairs:</strong> Data Key ani Value format madhye store hoto.</li>
+            <li><strong>Ordered:</strong> Python 3.7 pasun insertion order maintain hoto.</li>
+            <li><strong>Mutable:</strong> Values add, update ani delete karta yetat.</li>
+            <li><strong>Unique Keys:</strong> Keys unique astat. Duplicate Key dilyas latest Value rahte.</li>
+            <li><strong>Different Data Types:</strong> Values madhye vegvegale data types store karta yetat.</li>
+        </ul>
+
+        <pre><code>student = {
+    "name": "Rohan",
+    "age": 20,
+    "marks": 85.5,
+    "is_passed": True
+}
+
+print(student)</code></pre>
+
+        <div class="output-box">
+            <strong>Example Output:</strong>
+            <pre>{'name': 'Rohan', 'age': 20, 'marks': 85.5, 'is_passed': True}</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Dictionary keys immutable ani hashable values asne avashyak aahe.
+            Strings, numbers ani tuples (tyatil values hashable aslyas)
+            Keys mhanun vaparta yetat.
+        </div>
+    </section>
+
+    <!-- 3. Creating Dictionary -->
+    <section class="lesson-section">
+        <h2>3. Creating a Dictionary</h2>
+
+        <h3>Example 1: Student Dictionary</h3>
+
+        <pre><code>student = {
+    "name": "Rohan",
+    "age": 20,
+    "course": "BSc Computer Science"
+}
+
+print(student)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>{'name': 'Rohan', 'age': 20, 'course': 'BSc Computer Science'}</pre>
+        </div>
+
+        <h3>Example 2: Empty Dictionary</h3>
+
+        <pre><code>data = {}
+
+print(data)
+print(type(data))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>{}
+&lt;class 'dict'&gt;</pre>
+        </div>
+
+        <h3>Example 3: Using dict()</h3>
+
+        <p>
+            Dictionary create karnyasathi <code>dict()</code>
+            function suddha vaparta yete.
+        </p>
+
+        <pre><code>student = dict(name="Rohan", age=20, course="Python")
+
+print(student)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>{'name': 'Rohan', 'age': 20, 'course': 'Python'}</pre>
+        </div>
+    </section>
+
+    <!-- 4. Accessing -->
+    <section class="lesson-section">
+        <h2>4. Accessing Dictionary Values</h2>
+
+        <p>
+            Dictionary madhil Value access karnyasathi Key vapartat.
+        </p>
+
+        <pre><code>student = {
+    "name": "Rohan",
+    "age": 20,
+    "course": "Python"
+}
+
+print(student["name"])
+print(student["age"])
+print(student["course"])</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Rohan
+20
+Python</pre>
+        </div>
+
+        <div class="warning-box">
+            <strong>Note:</strong>
+            Dictionary madhye non-existing Key square brackets madhye
+            access kelyas KeyError yeto.
+        </div>
+    </section>
+
+    <!-- 5. get -->
+    <section class="lesson-section">
+        <h2>5. get() Method</h2>
+
+        <p>
+            Dictionary madhil Value safely access karnyasathi
+            <code>get()</code> method vapartat.
+        </p>
+
+        <pre><code>student = {
+    "name": "Rohan",
+    "age": 20
+}
+
+print(student.get("name"))
+print(student.get("course"))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Rohan
+None</pre>
+        </div>
+
+        <p>
+            Key available nasel tar get() default value mhanun
+            None return karto.
+        </p>
+
+        <h3>Providing a Default Value</h3>
+
+        <pre><code>student = {
+    "name": "Rohan",
+    "age": 20
+}
+
+print(student.get("course", "Not Available"))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Not Available</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Difference:</strong>
+            student["course"] Key nasel tar KeyError deto.
+            student.get("course") Key nasel tar None return karto.
+        </div>
+    </section>
+
+    <!-- 6. Adding -->
+    <section class="lesson-section">
+        <h2>6. Adding New Items</h2>
+
+        <p>
+            Navin Key-Value pair add karnyasathi Dictionary madhye
+            new Key assign karu shakto.
+        </p>
+
+        <pre><code>student = {
+    "name": "Rohan",
+    "age": 20
+}
+
+student["course"] = "Python"
+
+print(student)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>{'name': 'Rohan', 'age': 20, 'course': 'Python'}</pre>
+        </div>
+
+        <h3>Using update()</h3>
+
+        <p>
+            Ek kiwa anek Key-Value pairs add kiwa update karnyasathi
+            <code>update()</code> vapartat.
+        </p>
+
+        <pre><code>student = {
+    "name": "Rohan",
+    "age": 20
+}
+
+student.update({
+    "course": "Python",
+    "city": "Kolhapur"
+})
+
+print(student)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>{'name': 'Rohan', 'age': 20, 'course': 'Python', 'city': 'Kolhapur'}</pre>
+        </div>
+    </section>
+
+    <!-- 7. Updating -->
+    <section class="lesson-section">
+        <h2>7. Updating Dictionary Values</h2>
+
+        <p>
+            Existing Key la navin Value assign karun aapan Value
+            update karu shakto.
+        </p>
+
+        <pre><code>student = {
+    "name": "Rohan",
+    "age": 20,
+    "course": "Python"
+}
+
+student["age"] = 21
+
+print(student)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>{'name': 'Rohan', 'age': 21, 'course': 'Python'}</pre>
+        </div>
+
+        <p>
+            update() method vaprun suddha existing Value update karta yete.
+        </p>
+
+        <pre><code>student = {
+    "name": "Rohan",
+    "age": 20
+}
+
+student.update({"age": 21})
+
+print(student)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>{'name': 'Rohan', 'age': 21}</pre>
+        </div>
+    </section>
+
+    <!-- 8. Removing -->
+    <section class="lesson-section">
+        <h2>8. Removing Dictionary Items</h2>
+
+        <h3>pop()</h3>
+
+        <p>
+            Specific Key remove karnyasathi <code>pop()</code>
+            vapartat. Ha removed Value return karto.
+        </p>
+
+        <pre><code>student = {
+    "name": "Rohan",
+    "age": 20,
+    "course": "Python"
+}
+
+removed = student.pop("age")
+
+print(removed)
+print(student)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>20
+{'name': 'Rohan', 'course': 'Python'}</pre>
+        </div>
+
+        <h3>popitem()</h3>
+
+        <p>
+            Dictionary madhil shevatcha inserted Key-Value pair
+            remove karnyasathi <code>popitem()</code> vapartat.
+        </p>
+
+        <pre><code>student = {
+    "name": "Rohan",
+    "age": 20,
+    "course": "Python"
+}
+
+removed = student.popitem()
+
+print(removed)
+print(student)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>('course', 'Python')
+{'name': 'Rohan', 'age': 20}</pre>
+        </div>
+
+        <h3>del Keyword</h3>
+
+        <p>
+            Specific Key delete karnyasathi <code>del</code> vapartat.
+        </p>
+
+        <pre><code>student = {
+    "name": "Rohan",
+    "age": 20
+}
+
+del student["age"]
+
+print(student)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>{'name': 'Rohan'}</pre>
+        </div>
+
+        <h3>clear()</h3>
+
+        <p>
+            Dictionary madhil sarva Key-Value pairs remove karnyasathi
+            <code>clear()</code> vapartat.
+        </p>
+
+        <pre><code>student = {
+    "name": "Rohan",
+    "age": 20
+}
+
+student.clear()
+
+print(student)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>{}</pre>
+        </div>
+    </section>
+
+    <!-- 9. Keys -->
+    <section class="lesson-section">
+        <h2>9. keys() Method</h2>
+
+        <p>
+            Dictionary madhil sarva Keys milavnyasathi
+            <code>keys()</code> method vapartat.
+        </p>
+
+        <pre><code>student = {
+    "name": "Rohan",
+    "age": 20,
+    "course": "Python"
+}
+
+print(student.keys())</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>dict_keys(['name', 'age', 'course'])</pre>
+        </div>
+
+        <p>
+            Keys var loop suddha chalvu shakto.
+        </p>
+
+        <pre><code>for key in student.keys():
+    print(key)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>name
+age
+course</pre>
+        </div>
+    </section>
+
+    <!-- 10. Values -->
+    <section class="lesson-section">
+        <h2>10. values() Method</h2>
+
+        <p>
+            Dictionary madhil sarva Values milavnyasathi
+            <code>values()</code> method vapartat.
+        </p>
+
+        <pre><code>student = {
+    "name": "Rohan",
+    "age": 20,
+    "course": "Python"
+}
+
+print(student.values())</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>dict_values(['Rohan', 20, 'Python'])</pre>
+        </div>
+
+        <p>Values var loop chalvnyasathi:</p>
+
+        <pre><code>for value in student.values():
+    print(value)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Rohan
+20
+Python</pre>
+        </div>
+    </section>
+
+    <!-- 11. Items -->
+    <section class="lesson-section">
+        <h2>11. items() Method</h2>
+
+        <p>
+            Dictionary madhil Key ani Value donhi ekatra milavnyasathi
+            <code>items()</code> method vapartat.
+        </p>
+
+        <pre><code>student = {
+    "name": "Rohan",
+    "age": 20,
+    "course": "Python"
+}
+
+print(student.items())</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>dict_items([('name', 'Rohan'), ('age', 20), ('course', 'Python')])</pre>
+        </div>
+
+        <h3>Using Loop</h3>
+
+        <pre><code>for key, value in student.items():
+    print(key, ":", value)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>name : Rohan
+age : 20
+course : Python</pre>
+        </div>
+    </section>
+
+    <!-- 12. Looping -->
+    <section class="lesson-section">
+        <h2>12. Looping Through a Dictionary</h2>
+
+        <p>
+            Dictionary madhil data access karnyasathi for loop vapru shakto.
+        </p>
+
+        <h3>Loop Through Keys</h3>
+
+        <pre><code>student = {
+    "name": "Rohan",
+    "age": 20
+}
+
+for key in student:
+    print(key)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>name
+age</pre>
+        </div>
+
+        <h3>Loop Through Values</h3>
+
+        <pre><code>for value in student.values():
+    print(value)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Rohan
+20</pre>
+        </div>
+
+        <h3>Loop Through Keys and Values</h3>
+
+        <pre><code>for key, value in student.items():
+    print(key, value)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>name Rohan
+age 20</pre>
+        </div>
+    </section>
+
+    <!-- 13. Nested Dictionary -->
+    <section class="lesson-section">
+        <h2>13. Nested Dictionaries</h2>
+
+        <p>
+            Ek Dictionary chya aat dusri Dictionary store keli asel
+            tar tila Nested Dictionary mhantat.
+        </p>
+
+        <pre><code>students = {
+    "student1": {
+        "name": "Rohan",
+        "age": 20
+    },
+    "student2": {
+        "name": "Amit",
+        "age": 21
+    }
+}
+
+print(students)</code></pre>
+
+        <h3>Accessing Nested Values</h3>
+
+        <pre><code>print(students["student1"]["name"])
+print(students["student2"]["age"])</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Rohan
+21</pre>
+        </div>
+    </section>
+
+    <!-- 14. Copy -->
+    <section class="lesson-section">
+        <h2>14. copy() Method</h2>
+
+        <p>
+            Dictionary chi shallow copy tayar karnyasathi
+            <code>copy()</code> method vapartat.
+        </p>
+
+        <pre><code>student = {
+    "name": "Rohan",
+    "age": 20
+}
+
+new_student = student.copy()
+
+new_student["age"] = 21
+
+print(student)
+print(new_student)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>{'name': 'Rohan', 'age': 20}
+{'name': 'Rohan', 'age': 21}</pre>
+        </div>
+
+        <div class="info-box">
+            <strong>Note:</strong>
+            copy() shallow copy banavto. Nested mutable objects aslyas
+            tyanchya changes cha effect donhi dictionaries madhye disu shakto.
+        </div>
+    </section>
+
+    <!-- 15. fromkeys -->
+    <section class="lesson-section">
+        <h2>15. fromkeys() Method</h2>
+
+        <p>
+            Dilelya Keys pasun navin Dictionary create karnyasathi
+            <code>fromkeys()</code> vapartat.
+        </p>
+
+        <pre><code>keys = ["name", "age", "course"]
+
+student = dict.fromkeys(keys, "Not Available")
+
+print(student)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>{'name': 'Not Available', 'age': 'Not Available', 'course': 'Not Available'}</pre>
+        </div>
+    </section>
+
+    <!-- 16. Practical Example -->
+    <section class="lesson-section">
+        <h2>16. Practical Example – Student Marks</h2>
+
+        <p>
+            Student chi nave ani tyanche marks Dictionary madhye store kar.
+            Nantar specific student che marks access kar.
+        </p>
+
+        <pre><code>marks = {
+    "Rohan": 85,
+    "Amit": 90,
+    "Priya": 95
+}
+
+print("Rohan Marks:", marks["Rohan"])
+
+marks["Rohan"] = 88
+
+print("Updated Marks:", marks["Rohan"])</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Rohan Marks: 85
+Updated Marks: 88</pre>
+        </div>
+    </section>
+
+    <!-- 17. Common Mistakes -->
+    <section class="lesson-section">
+        <h2>17. Common Beginner Mistakes</h2>
+
+        <div class="error-card">
+            <h3>Mistake 1: Missing Colon</h3>
+
+            <pre><code>student = {
+    "name" "Rohan",
+    "age": 20
+}</code></pre>
+
+            <p>
+                Key ani Value madhye colon dene avashyak aahe.
+            </p>
+
+            <pre><code>student = {
+    "name": "Rohan",
+    "age": 20
+}</code></pre>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 2: Wrong Key Access</h3>
+
+            <pre><code>student = {"name": "Rohan"}
+
+print(student["age"])</code></pre>
+
+            <p>
+                age Key available nahi, mhanun KeyError yeto.
+                get() vaprun safely access karu shakto.
+            </p>
+
+            <pre><code>print(student.get("age", "Not Available"))</code></pre>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 3: Duplicate Keys</h3>
+
+            <pre><code>student = {
+    "name": "Rohan",
+    "name": "Amit"
+}
+
+print(student)</code></pre>
+
+            <p>
+                Duplicate Keys allowed nahit. Latest Value rahte.
+            </p>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 4: Wrong Dictionary Syntax</h3>
+
+            <pre><code>student = {
+    "name" = "Rohan"
+}</code></pre>
+
+            <p>
+                Dictionary madhye assignment operator = nahi,
+                tar colon : vapartat.
+            </p>
+        </div>
+    </section>
+
+    <!-- 18. Revision -->
+    <section class="lesson-section">
+        <h2>18. Quick Revision</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Method / Operation</th>
+                        <th>Use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>get()</td><td>Value safely access karto.</td></tr>
+                    <tr><td>update()</td><td>Items add kiwa update karto.</td></tr>
+                    <tr><td>pop()</td><td>Specific Key remove karto.</td></tr>
+                    <tr><td>popitem()</td><td>Last inserted pair remove karto.</td></tr>
+                    <tr><td>clear()</td><td>Sarva items remove karto.</td></tr>
+                    <tr><td>keys()</td><td>Sarva Keys return karto.</td></tr>
+                    <tr><td>values()</td><td>Sarva Values return karto.</td></tr>
+                    <tr><td>items()</td><td>Key-Value pairs return karto.</td></tr>
+                    <tr><td>copy()</td><td>Shallow copy tayar karto.</td></tr>
+                    <tr><td>fromkeys()</td><td>Keys pasun navin Dictionary create karto.</td></tr>
+                    <tr><td>len()</td><td>Key-Value pairs chi sankhya return karto.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 19. Practice -->
+    <section class="practice-section">
+        <h2>19. Practice Questions</h2>
+
+        <p>
+            Khalil questions swatah code lihun solve kar.
+            Dictionary madhil Key-Value concept changla samjun ghe.
+        </p>
+
+        <div class="practice-task">
+            <h3>Question 1</h3>
+            <p>Name, age ani course store karnari Student Dictionary create kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 2</h3>
+            <p>Dictionary madhun specific Key chi Value access kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 3</h3>
+            <p>get() vaprun non-existing Key safely access kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 4</h3>
+            <p>Dictionary madhye navin Key-Value pair add kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 5</h3>
+            <p>Existing Value update kar ani output print kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 6</h3>
+            <p>pop() vaprun specific Key remove kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 7</h3>
+            <p>keys(), values() ani items() vaprun data display kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 8</h3>
+            <p>For loop vaprun Dictionary madhil sarva Keys ani Values print kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 9</h3>
+            <p>Nested Dictionary create kar ani tyatil specific Value access kar.</p>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Dictionary cha use real projects madhye kasa hoto he samjun
+            ghenyasathi Student Record ani User Profile examples practice kar.
+        </div>
+    </section>
+
+    <!-- 20. Practical Task -->
+    <section class="lesson-section">
+        <h2>20. Practical Task – User Profile Manager</h2>
+
+        <p>
+            User che name, email ani city Dictionary madhye store kar.
+            Nantar city update kar ani complete profile display kar.
+        </p>
+
+        <pre><code>user = {
+    "name": "Rohan",
+    "email": "rohan@example.com",
+    "city": "Kolhapur"
+}
+
+user["city"] = "Pune"
+
+print("User Profile:")
+
+for key, value in user.items():
+    print(key, ":", value)</code></pre>
+
+        <div class="output-box">
+            <strong>Example Output:</strong>
+            <pre>User Profile:
+name : Rohan
+email : rohan@example.com
+city : Pune</pre>
+        </div>
+
+        <p>
+            Ya practical madhye Dictionary creation, updating ani
+            items() vaprun looping kele aahe.
+        </p>
+    </section>
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+        <a href="{% url 'python_topic' 'sets' %}" class="nav-button back-button">
+            ← Previous: Sets
+        </a>
+
+        <a href="{% url 'python_topic' 'conditions' %}" class="nav-button next-button">
+            Next: Conditions →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

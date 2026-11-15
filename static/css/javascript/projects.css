@@ -1,0 +1,775 @@
+/* =====================================
+   JAVASCRIPT MINI PROJECTS
+===================================== */
+
+.lesson-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    color: #334155;
+    box-sizing: border-box;
+}
+
+/* HEADER */
+
+.lesson-header {
+    margin-bottom: 35px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.lesson-label {
+    display: inline-block;
+    color: #a16207;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    margin-bottom: 12px;
+}
+
+.lesson-header h1 {
+    color: #172033;
+    font-size: 36px;
+    font-weight: 750;
+    line-height: 1.3;
+    margin: 0 0 12px;
+}
+
+.lesson-header > p {
+    color: #64748b;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.lesson-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.lesson-meta span {
+    background: #fef9c3;
+    color: #854d0e;
+    padding: 7px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* SECTIONS */
+
+.lesson-section {
+    margin-bottom: 38px;
+}
+
+.lesson-section h2 {
+    color: #172033;
+    font-size: 23px;
+    font-weight: 700;
+    margin: 0 0 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.lesson-section h3 {
+    color: #1e293b;
+    font-size: 17px;
+    font-weight: 650;
+    margin: 22px 0 12px;
+}
+
+.lesson-section p {
+    color: #475569;
+    font-size: 14px;
+    line-height: 1.9;
+    margin: 0 0 14px;
+}
+
+.lesson-section ul,
+.lesson-section ol {
+    padding-left: 24px;
+    margin: 12px 0 18px;
+}
+
+.lesson-section li {
+    color: #475569;
+    font-size: 14px;
+    line-height: 1.9;
+    margin-bottom: 7px;
+}
+
+/* PROJECT HEADING */
+
+.project-section {
+    padding: 22px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    background: #ffffff;
+}
+
+.project-heading {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.project-heading h2 {
+    flex: 1;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.project-number {
+    color: #a16207;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.project-level {
+    background: #fef9c3;
+    color: #854d0e;
+    padding: 6px 10px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+/* CODE BLOCK */
+
+.code-block {
+    background: #111827;
+    color: #e5e7eb;
+    padding: 20px;
+    border-radius: 10px;
+    overflow-x: auto;
+    margin: 15px 0 22px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.code-block code {
+    color: #e5e7eb;
+    font-family: Consolas, monospace;
+    font-size: 13px;
+    line-height: 1.8;
+    white-space: pre;
+}
+
+/* INFO BOXES */
+
+.info-box,
+.important-box,
+.tip-box,
+.task-box {
+    padding: 16px 18px;
+    margin: 18px 0;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.info-box {
+    background: #fefce8;
+    border-left: 4px solid #eab308;
+    color: #854d0e;
+}
+
+.important-box {
+    background: #fff7ed;
+    border-left: 4px solid #f59e0b;
+    color: #9a3412;
+}
+
+.tip-box {
+    background: #f0fdf4;
+    border-left: 4px solid #16a34a;
+    color: #166534;
+}
+
+.task-box {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    color: #334155;
+}
+
+/* OUTPUT */
+
+.output-box {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+    padding: 20px;
+    margin: 15px 0 22px;
+    overflow: hidden;
+}
+
+.output-box h3 {
+    margin: 0 0 15px;
+    font-size: 18px;
+}
+
+.output-box p {
+    font-size: 13px;
+    margin: 10px 0 0;
+}
+
+/* COUNTER PREVIEW */
+
+.counter-preview {
+    text-align: center;
+}
+
+.preview-number {
+    color: #2563eb;
+    font-size: 48px;
+    font-weight: 700;
+    margin: 15px 0;
+}
+
+.preview-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* CALCULATOR PREVIEW */
+
+.calculator-preview {
+    max-width: 450px;
+}
+
+.calculator-preview .preview-buttons {
+    justify-content: flex-start;
+    margin: 12px 0;
+}
+
+/* TODO PREVIEW */
+
+.todo-preview {
+    max-width: 500px;
+}
+
+.todo-preview h3 {
+    text-align: center;
+}
+
+/* API PREVIEW */
+
+.api-preview h3 {
+    text-align: center;
+}
+
+/* TABLE */
+
+.lesson-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: white;
+    font-size: 14px;
+}
+
+.lesson-table th {
+    background: #172033;
+    color: white;
+    text-align: left;
+    padding: 13px 15px;
+}
+
+.lesson-table td {
+    color: #475569;
+    padding: 13px 15px;
+    border: 1px solid #e2e8f0;
+    line-height: 1.7;
+}
+
+.lesson-table tbody tr:nth-child(even) {
+    background: #f8fafc;
+}
+
+/* CHECKLIST */
+
+.checklist-box {
+    padding: 20px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 9px;
+}
+
+.checklist-box p {
+    font-weight: 600;
+    color: #172033;
+}
+
+.checklist {
+    list-style: none;
+    padding: 0 !important;
+}
+
+.checklist li {
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 10px;
+}
+
+.checklist li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #16a34a;
+    font-weight: 800;
+}
+
+/* PRACTICE */
+
+.practice-section {
+    padding: 22px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+}
+
+/* COMPLETION */
+
+.completion-message {
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 35px;
+    background: #fefce8;
+    border: 1px solid #fde68a;
+    border-radius: 12px;
+}
+
+.completion-message h2 {
+    color: #854d0e;
+    font-size: 23px;
+    margin: 0 0 12px;
+}
+
+.completion-message p {
+    color: #713f12;
+    font-size: 14px;
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* NAVIGATION */
+
+.lesson-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-top: 40px;
+    padding-top: 22px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.nav-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.previous-button {
+    color: #334155;
+    background: #f1f5f9;
+}
+
+.next-button {
+    color: white;
+    background: #ca8a04;
+}
+
+.previous-button:hover {
+    background: #e2e8f0;
+}
+
+.next-button:hover {
+    background: #a16207;
+}
+
+/* =====================================
+   LIVE INTERACTIVE DEMOS
+===================================== */
+
+.live-demo button {
+    border: none;
+    border-radius: 6px;
+    padding: 10px 14px;
+    background: #2563eb;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.live-demo button:hover {
+    background: #1d4ed8;
+}
+
+.live-demo button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.live-demo .demo-secondary {
+    background: #475569;
+}
+
+.live-demo .demo-secondary:hover {
+    background: #334155;
+}
+
+.live-demo .demo-danger {
+    background: #dc2626;
+}
+
+.live-demo .demo-danger:hover {
+    background: #b91c1c;
+}
+
+/* Counter Demo */
+
+.demo-actions {
+    align-items: center;
+}
+
+/* Calculator Demo */
+
+.demo-calculator-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.live-demo input:not([type="checkbox"]) {
+    width: 100%;
+    min-width: 0;
+    padding: 11px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    background: #ffffff;
+    color: #172033;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+#demo-calculator-result {
+    color: #166534;
+    font-weight: 700;
+}
+
+/* Status Messages */
+
+#demo-counter-message,
+#demo-task-status,
+#demo-api-status {
+    color: #64748b;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* To-Do Demo */
+
+.demo-todo-input {
+    display: flex;
+    gap: 10px;
+}
+
+.demo-todo-input input {
+    flex: 1;
+}
+
+.demo-task-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+}
+
+.demo-task-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 11px;
+    margin-bottom: 9px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 7px;
+}
+
+.demo-task-item input[type="checkbox"] {
+    width: 17px;
+    height: 17px;
+    flex: 0 0 auto;
+    accent-color: #16a34a;
+}
+
+.demo-task-item span {
+    flex: 1;
+    min-width: 0;
+    color: #334155;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.demo-task-item span.is-complete {
+    color: #94a3b8;
+    text-decoration: line-through;
+}
+
+/* API Demo */
+
+.demo-user-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.demo-user-card {
+    min-width: 0;
+    padding: 15px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow-wrap: anywhere;
+}
+
+.demo-user-card h4 {
+    margin: 0 0 8px;
+    color: #1d4ed8;
+    font-size: 14px;
+}
+
+.demo-user-card p {
+    margin: 6px 0 0;
+    color: #475569;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+/* =====================================
+   TABLET RESPONSIVE
+===================================== */
+
+@media (max-width: 900px) {
+
+    .lesson-container {
+        max-width: 100%;
+        padding: 0 20px;
+    }
+
+    .lesson-header h1 {
+        font-size: 30px;
+    }
+
+    .lesson-section h2 {
+        font-size: 21px;
+    }
+
+}
+
+/* =====================================
+   MOBILE RESPONSIVE
+===================================== */
+
+@media (max-width: 700px) {
+
+    .lesson-container {
+        width: 100%;
+        padding: 0 12px;
+    }
+
+    .lesson-header {
+        margin-bottom: 25px;
+        padding-bottom: 18px;
+    }
+
+    .lesson-header h1 {
+        font-size: 25px;
+    }
+
+    .lesson-header > p {
+        font-size: 13px;
+    }
+
+    .lesson-meta {
+        gap: 7px;
+    }
+
+    .lesson-meta span {
+        font-size: 10px;
+        padding: 6px 9px;
+    }
+
+    .lesson-section {
+        margin-bottom: 27px;
+    }
+
+    .lesson-section h2 {
+        font-size: 19px;
+    }
+
+    .lesson-section h3 {
+        font-size: 15px;
+    }
+
+    .lesson-section p,
+    .lesson-section li {
+        font-size: 13px;
+        line-height: 1.8;
+    }
+
+    .project-section {
+        padding: 15px;
+    }
+
+    .project-heading {
+        gap: 8px;
+    }
+
+    .project-heading h2 {
+        width: 100%;
+        flex-basis: 100%;
+        order: 2;
+    }
+
+    .project-number,
+    .project-level {
+        order: 1;
+    }
+
+    .code-block {
+        padding: 13px;
+        border-radius: 8px;
+    }
+
+    .code-block code {
+        font-size: 11px;
+        line-height: 1.7;
+    }
+
+    .info-box,
+    .important-box,
+    .tip-box,
+    .task-box {
+        padding: 13px 14px;
+        font-size: 13px;
+    }
+
+    .output-box {
+        padding: 14px;
+    }
+
+    .preview-number {
+        font-size: 40px;
+    }
+
+    .lesson-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        font-size: 12px;
+    }
+
+    .lesson-table th,
+    .lesson-table td {
+        padding: 10px 12px;
+    }
+
+    .checklist-box {
+        padding: 14px;
+    }
+
+    .practice-section {
+        padding: 15px;
+    }
+
+    .completion-message {
+        padding: 22px 15px;
+    }
+
+    .completion-message h2 {
+        font-size: 20px;
+    }
+
+    .lesson-navigation {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .nav-button {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 12px;
+    }
+
+    .demo-calculator-inputs,
+    .demo-user-list {
+        grid-template-columns: 1fr;
+    }
+
+    .demo-todo-input {
+        flex-direction: column;
+    }
+
+    .demo-todo-input button {
+        width: 100%;
+    }
+
+    .demo-task-item {
+        flex-wrap: wrap;
+    }
+
+}
+
+/* =====================================
+   SMALL MOBILE
+===================================== */
+
+@media (max-width: 380px) {
+
+    .lesson-container {
+        padding: 0 9px;
+    }
+
+    .lesson-header h1 {
+        font-size: 22px;
+    }
+
+    .lesson-section h2 {
+        font-size: 18px;
+    }
+
+    .project-section {
+        padding: 12px;
+    }
+
+    .code-block {
+        padding: 10px;
+    }
+
+    .code-block code {
+        font-size: 10px;
+    }
+
+    .output-box {
+        padding: 11px;
+    }
+
+}

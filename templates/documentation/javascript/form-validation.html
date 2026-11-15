@@ -1,0 +1,742 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}JavaScript Form Validation | Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/javascript/form-validation.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Header -->
+
+    <div class="lesson-header">
+        <span class="lesson-label">JAVASCRIPT DOCUMENTATION • PAGE 21</span>
+
+        <h1>JavaScript Form Validation</h1>
+
+        <p>
+            Ya lesson madhye form madhil user information validate karne,
+            errors display karne ani valid data submit karne shikuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Beginner Level</span>
+            <span>45–50 Minutes</span>
+        </div>
+    </div>
+
+    <!-- Section 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What is Form Validation?</h2>
+
+        <p>
+            Form Validation mhanje user ne form madhye bharleli
+            information yogya aahe ka te check karne.
+        </p>
+
+        <h3>Examples:</h3>
+
+        <ul>
+            <li>Name field empty nasava.</li>
+            <li>Email address yogya format madhye asava.</li>
+            <li>Password required length cha asava.</li>
+            <li>Confirm Password ani Password same asavet.</li>
+        </ul>
+
+        <div class="info-box">
+            <strong>Definition:</strong>
+            Form Validation is the process of checking user input
+            before accepting or submitting form data.
+        </div>
+
+        <p>
+            Validation mule chukichi kiwa incomplete information
+            submit honyapasun rokhta yete.
+        </p>
+
+    </section>
+
+    <!-- Section 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Required Fields</h2>
+
+        <p>
+            Required field mhanje asa input jyamadhye user ne value
+            bharne avashyak aste.
+        </p>
+
+        <h3>HTML Example:</h3>
+
+        <pre class="code-block"><code>&lt;form&gt;
+    &lt;input type="text" required&gt;
+
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>required attribute field bharne compulsory karte.</li>
+            <li>Field empty asel tar browser form submit hou det nahi.</li>
+            <li>HTML madhye basic validation sathi required vaparta yete.</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Remember:</strong>
+            HTML required attribute browser-level validation dete.
+            JavaScript vaprun apan custom validation suddha karu shakto.
+        </div>
+
+    </section>
+
+    <!-- Section 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. Checking Empty Fields</h2>
+
+        <p>
+            JavaScript madhye input field empty aahe ka te check
+            karnyasathi value ani trim() vaparta yete.
+        </p>
+
+        <h3>HTML:</h3>
+
+        <pre class="code-block"><code>&lt;input type="text" id="username"&gt;
+
+&lt;button id="checkButton"&gt;Check&lt;/button&gt;</code></pre>
+
+        <h3>JavaScript:</h3>
+
+        <pre class="code-block"><code>const username = document.getElementById("username");
+
+document.getElementById("checkButton").addEventListener("click", function() {
+
+    if (username.value.trim() === "") {
+        alert("Name is required");
+    } else {
+        alert("Valid Name");
+    }
+
+});</code></pre>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>value input madhil text milavte.</li>
+            <li>trim() suruvatila ani shevti aslele spaces remove karte.</li>
+            <li>Empty value asel tar error message display hoto.</li>
+            <li>Value asel tar valid message display hoto.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            User ne fakt spaces type kele tari trim() mule value
+            empty samajli jate.
+        </div>
+
+    </section>
+
+    <!-- Section 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. Email Validation</h2>
+
+        <p>
+            Email validation madhye user ne email yogya format madhye
+            enter kela aahe ka te check kele jate.
+        </p>
+
+        <h3>HTML:</h3>
+
+        <pre class="code-block"><code>&lt;input type="text" id="email"&gt;
+
+&lt;button id="emailButton"&gt;Check Email&lt;/button&gt;</code></pre>
+
+        <h3>JavaScript:</h3>
+
+        <pre class="code-block"><code>const email = document.getElementById("email");
+
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+if (emailPattern.test(email.value)) {
+    console.log("Valid Email");
+} else {
+    console.log("Invalid Email");
+}</code></pre>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>emailPattern madhye Regular Expression aahe.</li>
+            <li>test() method value pattern shi match hote ka te check karte.</li>
+            <li>Match zalyas true return hote.</li>
+            <li>Match naslyas false return hote.</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Note:</strong>
+            Hi basic email format check aahe. Email address kharach
+            exist karto ka he ya validation madhun samjat nahi.
+        </div>
+
+    </section>
+
+    <!-- Section 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. Password Validation</h2>
+
+        <p>
+            Password validation madhye password required rules follow
+            karto ka te check kele jate.
+        </p>
+
+        <h3>Example Rules:</h3>
+
+        <ul>
+            <li>Minimum 8 characters.</li>
+            <li>At least one uppercase letter.</li>
+            <li>At least one lowercase letter.</li>
+            <li>At least one number.</li>
+        </ul>
+
+        <h3>HTML:</h3>
+
+        <pre class="code-block"><code>&lt;input type="password" id="password"&gt;</code></pre>
+
+        <h3>JavaScript:</h3>
+
+        <pre class="code-block"><code>const password = document.getElementById("password").value;
+
+if (password.length &lt; 8) {
+    console.log("Password must be 8 characters");
+} else {
+    console.log("Password Length Valid");
+}</code></pre>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>length property password madhil characters mojte.</li>
+            <li>8 peksha kami characters aslyas error milto.</li>
+            <li>8 kiwa tyapeksha jast aslyas length condition pass hote.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Password length check mhanje complete password security nahi.
+            Actual applications madhye server-side validation ani
+            secure password hashing avashyak aste.
+        </div>
+
+    </section>
+
+    <!-- Section 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. Confirm Password</h2>
+
+        <p>
+            Confirm Password cha use user ne password don vela
+            same enter kela aahe ka te check karnyasathi hoto.
+        </p>
+
+        <h3>HTML:</h3>
+
+        <pre class="code-block"><code>&lt;input type="password" id="password"&gt;
+
+&lt;input type="password" id="confirmPassword"&gt;</code></pre>
+
+        <h3>JavaScript:</h3>
+
+        <pre class="code-block"><code>const password = document.getElementById("password").value;
+
+const confirmPassword =
+    document.getElementById("confirmPassword").value;
+
+if (password === confirmPassword) {
+    console.log("Password Matched");
+} else {
+    console.log("Password Does Not Match");
+}</code></pre>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>Donhi password values access kelya.</li>
+            <li>=== operator vaprun values compare kelya.</li>
+            <li>Donhi same aslyas password matched message milto.</li>
+            <li>Vegale aslyas error message milto.</li>
+        </ul>
+
+    </section>
+
+    <!-- Section 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. Displaying Error Messages</h2>
+
+        <p>
+            Validation fail zalyas user la kay chukle aahe te
+            message madhun sangta yete.
+        </p>
+
+        <h3>HTML:</h3>
+
+        <pre class="code-block"><code>&lt;input type="text" id="name"&gt;
+
+&lt;p id="error"&gt;&lt;/p&gt;</code></pre>
+
+        <h3>JavaScript:</h3>
+
+        <pre class="code-block"><code>const name = document.getElementById("name");
+const error = document.getElementById("error");
+
+if (name.value.trim() === "") {
+    error.textContent = "Name is required";
+} else {
+    error.textContent = "";
+}</code></pre>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>error paragraph select kela.</li>
+            <li>textContent vaprun error message display kela.</li>
+            <li>Value valid aslyas error message clear kela.</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Remember:</strong>
+            User input display kartana textContent vaprane
+            innerHTML peksha surakshit aahe.
+        </div>
+
+    </section>
+
+    <!-- Section 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. preventDefault() with Validation</h2>
+
+        <p>
+            Form submit hotana browser default action perform karto.
+            Validation fail zalyas form submission thambvayla
+            preventDefault() vaparto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>const form = document.getElementById("myForm");
+
+form.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    console.log("Validation Started");
+
+});</code></pre>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>submit event form submit hotana trigger hoto.</li>
+            <li>event.preventDefault() browser chi default action thambavte.</li>
+            <li>Tyachyanantar apan validation check karu shakto.</li>
+            <li>Valid data asel tar application madhil submission logic chalavta yete.</li>
+        </ul>
+
+    </section>
+
+    <!-- Section 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Complete Form Validation Example</h2>
+
+        <p>
+            Ata Name, Email, Password ani Confirm Password check
+            karanara complete practical example pahuya.
+        </p>
+
+        <h3>Live Demo:</h3>
+
+        <div class="output-box demo-output">
+
+            <form id="validation-demo-form" novalidate>
+
+                <div class="form-group">
+                    <label for="validation-name">Full Name</label>
+
+                    <input
+                        type="text"
+                        id="validation-name"
+                        class="demo-input"
+                        placeholder="Enter your name"
+                    >
+
+                    <small id="validation-name-error" class="error-message"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="validation-email">Email Address</label>
+
+                    <input
+                        type="text"
+                        id="validation-email"
+                        class="demo-input"
+                        placeholder="Enter your email"
+                    >
+
+                    <small id="validation-email-error" class="error-message"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="validation-password">Password</label>
+
+                    <input
+                        type="password"
+                        id="validation-password"
+                        class="demo-input"
+                        placeholder="Minimum 8 characters"
+                    >
+
+                    <small id="validation-password-error" class="error-message"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="validation-confirm-password">Confirm Password</label>
+
+                    <input
+                        type="password"
+                        id="validation-confirm-password"
+                        class="demo-input"
+                        placeholder="Re-enter your password"
+                    >
+
+                    <small id="validation-confirm-error" class="error-message"></small>
+                </div>
+
+                <button type="submit" class="demo-button">
+                    Register
+                </button>
+
+                <p id="validation-success" class="success-message"></p>
+
+            </form>
+
+        </div>
+
+        <h3>JavaScript Code:</h3>
+
+        <pre class="code-block"><code>const form = document.getElementById("validation-demo-form");
+
+form.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    // Get Values
+    const name = document.getElementById("validation-name").value.trim();
+    const email = document.getElementById("validation-email").value.trim();
+    const password = document.getElementById("validation-password").value;
+    const confirmPassword = document.getElementById("validation-confirm-password").value;
+
+    // Get Error Elements
+    const nameError = document.getElementById("validation-name-error");
+    const emailError = document.getElementById("validation-email-error");
+    const passwordError = document.getElementById("validation-password-error");
+    const confirmError = document.getElementById("validation-confirm-error");
+    const success = document.getElementById("validation-success");
+
+    // Clear Old Messages
+    nameError.textContent = "";
+    emailError.textContent = "";
+    passwordError.textContent = "";
+    confirmError.textContent = "";
+    success.textContent = "";
+
+    let isValid = true;
+
+    // Name Validation
+    if (name === "") {
+        nameError.textContent = "Name is required";
+        isValid = false;
+    }
+
+    // Email Validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailPattern.test(email)) {
+        emailError.textContent = "Enter a valid email";
+        isValid = false;
+    }
+
+    // Password Validation
+    if (password.length &lt; 8) {
+        passwordError.textContent = "Minimum 8 characters required";
+        isValid = false;
+    }
+
+    // Confirm Password
+    if (confirmPassword === "" || password !== confirmPassword) {
+        confirmError.textContent = "Passwords do not match";
+        isValid = false;
+    }
+
+    // Final Result
+    if (isValid) {
+        success.textContent = "Validation successful!";
+        form.reset();
+    }
+
+});</code></pre>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Ya demo madhye validation successful zalyavar form reset hoto.
+            Ha demo data Django server la save kiwa submit karat nahi.
+            Actual Django application madhye server-side validation
+            suddha karavi lagte.
+        </div>
+
+    </section>
+
+    <!-- Section 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Common Beginner Mistakes</h2>
+
+        <div class="mistake-card">
+            <strong>Mistake 1: trim() na vaprane</strong>
+            <p>
+                Fakt spaces enter kele tari input empty samajla jau shakto.
+                Mhanun text validation kartana trim() vapra.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 2: Password comparison na karne</strong>
+            <p>
+                Confirm Password ani Password donhi same aahet ka te check kara.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 3: preventDefault() visarne</strong>
+            <p>
+                Custom validation karaychi asel tar form submit event madhye
+                preventDefault() vapra.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 4: Error messages clear na karne</strong>
+            <p>
+                Navin validation suru kartana previous error messages clear kara.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 5: Fakt JavaScript validation var depend rahane</strong>
+            <p>
+                Client-side validation bypass hou shakte.
+                Backend madhye suddha validation avashyak aahe.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- Section 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Quick Revision</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>Form Validation user input check karte.</li>
+                <li>required attribute field compulsory karte.</li>
+                <li>trim() extra spaces remove karte.</li>
+                <li>length characters chi sankhya dete.</li>
+                <li>test() Regular Expression check karte.</li>
+                <li>=== don values compare karte.</li>
+                <li>textContent error message display karte.</li>
+                <li>preventDefault() default form action thambavte.</li>
+                <li>Backend validation suddha avashyak aahe.</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <!-- Section 12 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>12. Practice Questions</h2>
+
+        <h3>Basic Questions</h3>
+
+        <ol>
+            <li>Form Validation mhanje kay?</li>
+            <li>required attribute cha use kay aahe?</li>
+            <li>trim() method kay karte?</li>
+            <li>length property cha use kay aahe?</li>
+            <li>Regular Expression mhanje kay?</li>
+            <li>test() method kay return karte?</li>
+            <li>Confirm Password ka vapartat?</li>
+            <li>preventDefault() cha use kay aahe?</li>
+            <li>Client-side ani Server-side validation madhye kay difference aahe?</li>
+        </ol>
+
+        <h3>Practical Questions</h3>
+
+        <ol>
+            <li>Empty Name field check kar.</li>
+            <li>Email validation tayar kar.</li>
+            <li>Password minimum 8 characters check kar.</li>
+            <li>Confirm Password match kar.</li>
+            <li>Error messages display kar.</li>
+            <li>Form submit event handle kar.</li>
+        </ol>
+
+        <div class="task-box">
+
+            <h3>Mini Task: Student Registration Form</h3>
+
+            <p>
+                JavaScript Form Validation vaprun Student Registration
+                Form tayar kar.
+            </p>
+
+            <ul>
+                <li>Student Name field add kar.</li>
+                <li>Email field add kar.</li>
+                <li>Password ani Confirm Password fields add kar.</li>
+                <li>Name empty nasava he check kar.</li>
+                <li>Email format validate kar.</li>
+                <li>Password minimum 8 characters asava.</li>
+                <li>Donhi passwords match kar.</li>
+                <li>Errors field chya khali display kar.</li>
+                <li>Valid data asel tar success message display kar.</li>
+            </ul>
+
+            <p>
+                File name: <strong>student_registration.html</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Navigation -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'javascript_topic' 'events' %}"
+           class="nav-button previous-button">
+            ← Previous: JavaScript Events
+        </a>
+
+        <a href="{% url 'javascript_topic' 'es6' %}"
+           class="nav-button next-button">
+            Next: ES6 Features →
+        </a>
+
+    </div>
+
+</div>
+
+<script>
+    // Form Validation Demo
+
+    const validationForm = document.getElementById("validation-demo-form");
+
+    validationForm.addEventListener("submit", function (event) {
+
+        event.preventDefault();
+
+        // Get Input Values
+
+        const name = document.getElementById("validation-name").value.trim();
+        const email = document.getElementById("validation-email").value.trim();
+        const password = document.getElementById("validation-password").value;
+        const confirmPassword = document.getElementById("validation-confirm-password").value;
+
+        // Get Error Elements
+
+        const nameError = document.getElementById("validation-name-error");
+        const emailError = document.getElementById("validation-email-error");
+        const passwordError = document.getElementById("validation-password-error");
+        const confirmError = document.getElementById("validation-confirm-error");
+        const success = document.getElementById("validation-success");
+
+        // Clear Previous Messages
+
+        nameError.textContent = "";
+        emailError.textContent = "";
+        passwordError.textContent = "";
+        confirmError.textContent = "";
+        success.textContent = "";
+
+        let isValid = true;
+
+        // Name Validation
+
+        if (name === "") {
+            nameError.textContent = "Name is required.";
+            isValid = false;
+        }
+
+        // Email Validation
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailPattern.test(email)) {
+            emailError.textContent = "Please enter a valid email.";
+            isValid = false;
+        }
+
+        // Password Validation
+
+        if (password.length < 8) {
+            passwordError.textContent = "Password must contain at least 8 characters.";
+            isValid = false;
+        }
+
+        // Confirm Password Validation
+
+        if (confirmPassword === "") {
+            confirmError.textContent = "Please confirm your password.";
+            isValid = false;
+        } else if (password !== confirmPassword) {
+            confirmError.textContent = "Passwords do not match.";
+            isValid = false;
+        }
+
+        // Final Result
+
+        if (isValid) {
+            success.textContent = "Registration form validated successfully!";
+            validationForm.reset();
+        }
+
+    });
+</script>
+
+{% endblock %}

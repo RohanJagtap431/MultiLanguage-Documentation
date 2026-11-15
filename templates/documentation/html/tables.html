@@ -1,0 +1,1110 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}
+HTML Tables | Roman Marathi
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/html/tables.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+
+    <div class="lesson-header">
+
+        <span class="lesson-label">HTML DOCUMENTATION • PAGE 09</span>
+
+        <h1>HTML Tables</h1>
+
+        <p>
+            HTML Tables vaprun data rows ani columns madhye
+            व्यवस्थित display karayla shikuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Beginner Level</span>
+            <span>35–40 Minutes</span>
+        </div>
+
+    </div>
+
+
+    <!-- Section 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What are HTML Tables?</h2>
+
+        <p>
+            HTML Table cha use data rows ani columns chya
+            format madhye display karnyasathi hoto.
+        </p>
+
+        <p>
+            Table mule related information व्यवस्थित
+            organize hote ani data compare karne easy hote.
+        </p>
+
+        <h3>Examples:</h3>
+
+        <ul>
+            <li>Student Records</li>
+            <li>Employee Details</li>
+            <li>Product Prices</li>
+            <li>Exam Results</li>
+            <li>Attendance Records</li>
+        </ul>
+
+        <div class="info-box">
+            <strong>Simple Definition:</strong>
+            HTML Table mhanje data rows ani columns
+            madhye display karnyasathi vaparla janara
+            HTML structure.
+        </div>
+
+    </section>
+
+
+    <!-- Section 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. HTML Table Elements</h2>
+
+        <p>
+            HTML Table create karnyasathi different
+            elements vapartat.
+        </p>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>Element</th>
+                    <th>Meaning</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>&lt;table&gt;</td>
+                    <td>Table</td>
+                    <td>Complete table create karto.</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;tr&gt;</td>
+                    <td>Table Row</td>
+                    <td>Table madhye row create karto.</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;th&gt;</td>
+                    <td>Table Header</td>
+                    <td>Heading cell create karto.</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;td&gt;</td>
+                    <td>Table Data</td>
+                    <td>Data cell create karto.</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;caption&gt;</td>
+                    <td>Table Caption</td>
+                    <td>Table la title deto.</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;thead&gt;</td>
+                    <td>Table Head</td>
+                    <td>Header rows group karto.</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;tbody&gt;</td>
+                    <td>Table Body</td>
+                    <td>Main data rows group karto.</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;tfoot&gt;</td>
+                    <td>Table Footer</td>
+                    <td>Footer rows group karto.</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+
+    <!-- Section 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. Basic HTML Table</h2>
+
+        <p>
+            Table create karnyasathi sarvat aadhi
+            table element vapartat.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>
+&lt;table&gt;
+
+    &lt;tr&gt;
+        &lt;th&gt;Heading 1&lt;/th&gt;
+        &lt;th&gt;Heading 2&lt;/th&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt;Data 1&lt;/td&gt;
+        &lt;td&gt;Data 2&lt;/td&gt;
+    &lt;/tr&gt;
+
+&lt;/table&gt;
+        </code></pre>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>table = Complete table create karto.</li>
+            <li>tr = Table madhye ek row create karto.</li>
+            <li>th = Heading cell create karto.</li>
+            <li>td = Normal data cell create karto.</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Important:</strong>
+            Table madhye rows create karnyasathi tr
+            ani cells create karnyasathi th kiwa td vapartat.
+        </div>
+
+    </section>
+
+
+    <!-- Section 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. Table Row (tr)</h2>
+
+        <p>
+            tr element cha use HTML Table madhye
+            ek row create karnyasathi hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;table&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt;Rohan&lt;/td&gt;
+        &lt;td&gt;Computer Science&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt;Amit&lt;/td&gt;
+        &lt;td&gt;Mathematics&lt;/td&gt;
+    &lt;/tr&gt;
+
+&lt;/table&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <table class="demo-table">
+                <tr>
+                    <td>Rohan</td>
+                    <td>Computer Science</td>
+                </tr>
+                <tr>
+                    <td>Amit</td>
+                    <td>Mathematics</td>
+                </tr>
+            </table>
+
+        </div>
+
+        <p>
+            Ya example madhye two table rows create kele aahet.
+        </p>
+
+    </section>
+
+
+    <!-- Section 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. Table Heading (th)</h2>
+
+        <p>
+            th element cha use Table madhye heading
+            kiwa column title define karnyasathi hoto.
+        </p>
+
+        <p>
+            Browser normally th text bold ani center
+            aligned display karto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;table&gt;
+
+    &lt;tr&gt;
+        &lt;th&gt;Name&lt;/th&gt;
+        &lt;th&gt;Age&lt;/th&gt;
+        &lt;th&gt;Course&lt;/th&gt;
+    &lt;/tr&gt;
+
+&lt;/table&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <table class="demo-table">
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Course</th>
+                </tr>
+            </table>
+
+        </div>
+
+        <div class="info-box">
+            <strong>Note:</strong>
+            Table headings sathi th element vapr.
+            Normal data sathi td element vapr.
+        </div>
+
+    </section>
+
+
+    <!-- Section 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. Table Data (td)</h2>
+
+        <p>
+            td element cha use Table madhye actual
+            information kiwa data display karnyasathi hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;table&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt;Rohan&lt;/td&gt;
+        &lt;td&gt;20&lt;/td&gt;
+        &lt;td&gt;BSc CS&lt;/td&gt;
+    &lt;/tr&gt;
+
+&lt;/table&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <table class="demo-table">
+                <tr>
+                    <td>Rohan</td>
+                    <td>20</td>
+                    <td>BSc CS</td>
+                </tr>
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. Complete Student Table</h2>
+
+        <p>
+            Ata apan table, tr, th ani td vaprun
+            complete Student Records Table create karu.
+        </p>
+
+        <h3>HTML Code:</h3>
+
+        <pre class="code-block"><code>
+&lt;h2&gt;Student Records&lt;/h2&gt;
+
+&lt;table&gt;
+
+    &lt;tr&gt;
+        &lt;th&gt;ID&lt;/th&gt;
+        &lt;th&gt;Name&lt;/th&gt;
+        &lt;th&gt;Course&lt;/th&gt;
+        &lt;th&gt;Marks&lt;/th&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt;1&lt;/td&gt;
+        &lt;td&gt;Rohan&lt;/td&gt;
+        &lt;td&gt;BSc CS&lt;/td&gt;
+        &lt;td&gt;85&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt;2&lt;/td&gt;
+        &lt;td&gt;Amit&lt;/td&gt;
+        &lt;td&gt;BCA&lt;/td&gt;
+        &lt;td&gt;78&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt;3&lt;/td&gt;
+        &lt;td&gt;Priya&lt;/td&gt;
+        &lt;td&gt;BSc CS&lt;/td&gt;
+        &lt;td&gt;92&lt;/td&gt;
+    &lt;/tr&gt;
+
+&lt;/table&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <h2>Student Records</h2>
+
+            <table class="demo-table">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Course</th>
+                    <th>Marks</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Rohan</td>
+                    <td>BSc CS</td>
+                    <td>85</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Amit</td>
+                    <td>BCA</td>
+                    <td>78</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Priya</td>
+                    <td>BSc CS</td>
+                    <td>92</td>
+                </tr>
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. Table Border and CSS Styling</h2>
+
+        <p>
+            CSS vaprun Table la border, background color,
+            padding, text alignment ani spacing deta yete.
+        </p>
+
+        <h3>HTML Code:</h3>
+
+        <pre class="code-block"><code>
+&lt;table class="student-table"&gt;
+
+    &lt;tr&gt;
+        &lt;th&gt;Name&lt;/th&gt;
+        &lt;th&gt;Marks&lt;/th&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt;Rohan&lt;/td&gt;
+        &lt;td&gt;85&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt;Amit&lt;/td&gt;
+        &lt;td&gt;78&lt;/td&gt;
+    &lt;/tr&gt;
+
+&lt;/table&gt;
+        </code></pre>
+
+        <h3>CSS Code:</h3>
+
+        <pre class="code-block"><code>
+.student-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.student-table th,
+.student-table td {
+    border: 1px solid #ccc;
+    padding: 12px;
+    text-align: left;
+}
+
+.student-table th {
+    background: #2563eb;
+    color: white;
+}
+
+.student-table tr:nth-child(even) {
+    background: #f1f5f9;
+}
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <table class="styled-demo-table">
+                <tr>
+                    <th>Name</th>
+                    <th>Marks</th>
+                </tr>
+                <tr>
+                    <td>Rohan</td>
+                    <td>85</td>
+                </tr>
+                <tr>
+                    <td>Amit</td>
+                    <td>78</td>
+                </tr>
+            </table>
+
+        </div>
+
+        <h3>Important CSS Properties:</h3>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>Property</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>border</td>
+                    <td>Table cells la border dete.</td>
+                </tr>
+                <tr>
+                    <td>padding</td>
+                    <td>Cell chya aat spacing dete.</td>
+                </tr>
+                <tr>
+                    <td>text-align</td>
+                    <td>Text alignment set karte.</td>
+                </tr>
+                <tr>
+                    <td>width</td>
+                    <td>Table chi width set karte.</td>
+                </tr>
+                <tr>
+                    <td>border-collapse</td>
+                    <td>Adjacent cell borders combine karte.</td>
+                </tr>
+                <tr>
+                    <td>background</td>
+                    <td>Background color set karte.</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+    </section>
+
+
+    <!-- Section 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. colspan Attribute</h2>
+
+        <p>
+            colspan attribute cha use ek table cell
+            multiple columns madhye spread karnyasathi hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;table&gt;
+
+    &lt;tr&gt;
+        &lt;th colspan="2"&gt;Student Details&lt;/th&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt;Name&lt;/td&gt;
+        &lt;td&gt;Rohan&lt;/td&gt;
+    &lt;/tr&gt;
+
+&lt;/table&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <table class="demo-table">
+                <tr>
+                    <th colspan="2">Student Details</th>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td>Rohan</td>
+                </tr>
+            </table>
+
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            colspan="2" mhanje cell don columns chi
+            space cover karto.
+        </div>
+
+    </section>
+
+
+    <!-- Section 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. rowspan Attribute</h2>
+
+        <p>
+            rowspan attribute cha use ek table cell
+            multiple rows madhye spread karnyasathi hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;table&gt;
+
+    &lt;tr&gt;
+        &lt;th&gt;Name&lt;/th&gt;
+        &lt;th&gt;Subject&lt;/th&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td rowspan="2"&gt;Rohan&lt;/td&gt;
+        &lt;td&gt;Computer Science&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt;Mathematics&lt;/td&gt;
+    &lt;/tr&gt;
+
+&lt;/table&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <table class="demo-table">
+                <tr>
+                    <th>Name</th>
+                    <th>Subject</th>
+                </tr>
+                <tr>
+                    <td rowspan="2">Rohan</td>
+                    <td>Computer Science</td>
+                </tr>
+                <tr>
+                    <td>Mathematics</td>
+                </tr>
+            </table>
+
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            rowspan="2" mhanje cell don rows chi
+            space cover karto.
+        </div>
+
+    </section>
+
+
+    <!-- Section 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Table Sections</h2>
+
+        <p>
+            Large Tables व्यवस्थित organize karnyasathi
+            thead, tbody ani tfoot elements vapartat.
+        </p>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>Element</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>thead</td>
+                    <td>Table header rows group karto.</td>
+                </tr>
+                <tr>
+                    <td>tbody</td>
+                    <td>Main table data rows group karto.</td>
+                </tr>
+                <tr>
+                    <td>tfoot</td>
+                    <td>Table footer rows group karto.</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;table&gt;
+
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Product&lt;/th&gt;
+            &lt;th&gt;Price&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Laptop&lt;/td&gt;
+            &lt;td&gt;50000&lt;/td&gt;
+        &lt;/tr&gt;
+
+        &lt;tr&gt;
+            &lt;td&gt;Mouse&lt;/td&gt;
+            &lt;td&gt;500&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+
+    &lt;tfoot&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Total&lt;/td&gt;
+            &lt;td&gt;50500&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tfoot&gt;
+
+&lt;/table&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <table class="demo-table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Laptop</td>
+                        <td>50000</td>
+                    </tr>
+                    <tr>
+                        <td>Mouse</td>
+                        <td>500</td>
+                    </tr>
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <th>Total</th>
+                        <th>50500</th>
+                    </tr>
+                </tfoot>
+            </table>
+
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Large tables madhye data organize karnyasathi
+            thead, tbody ani tfoot useful aahet.
+        </div>
+
+    </section>
+
+
+    <!-- Section 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Table Caption</h2>
+
+        <p>
+            caption element cha use Table la title
+            kiwa description denyasathi hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;table&gt;
+
+    &lt;caption&gt;Student Marks&lt;/caption&gt;
+
+    &lt;tr&gt;
+        &lt;th&gt;Name&lt;/th&gt;
+        &lt;th&gt;Marks&lt;/th&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt;Rohan&lt;/td&gt;
+        &lt;td&gt;85&lt;/td&gt;
+    &lt;/tr&gt;
+
+&lt;/table&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <table class="demo-table">
+                <caption>Student Marks</caption>
+                <tr>
+                    <th>Name</th>
+                    <th>Marks</th>
+                </tr>
+                <tr>
+                    <td>Rohan</td>
+                    <td>85</td>
+                </tr>
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 13 -->
+
+    <section class="lesson-section">
+
+        <h2>13. Responsive Tables</h2>
+
+        <p>
+            Mobile devices madhye large table screen
+            peksha wide asu shakto. Ashya veli horizontal
+            scrolling provide karne useful aahe.
+        </p>
+
+        <h3>HTML Code:</h3>
+
+        <pre class="code-block"><code>
+&lt;div class="table-container"&gt;
+
+    &lt;table&gt;
+
+        &lt;tr&gt;
+            &lt;th&gt;ID&lt;/th&gt;
+            &lt;th&gt;Name&lt;/th&gt;
+            &lt;th&gt;Course&lt;/th&gt;
+            &lt;th&gt;Email&lt;/th&gt;
+        &lt;/tr&gt;
+
+        &lt;tr&gt;
+            &lt;td&gt;1&lt;/td&gt;
+            &lt;td&gt;Rohan&lt;/td&gt;
+            &lt;td&gt;BSc CS&lt;/td&gt;
+            &lt;td&gt;rohan@example.com&lt;/td&gt;
+        &lt;/tr&gt;
+
+    &lt;/table&gt;
+
+&lt;/div&gt;
+        </code></pre>
+
+        <h3>CSS Code:</h3>
+
+        <pre class="code-block"><code>
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.table-container table {
+    min-width: 600px;
+}
+        </code></pre>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Responsive table sathi table la wrapper div madhye
+            thevun overflow-x: auto vapru shakto.
+        </div>
+
+    </section>
+
+
+    <!-- Section 14 -->
+
+    <section class="lesson-section">
+
+        <h2>14. Table Accessibility</h2>
+
+        <p>
+            Table screen readers vaparnarya users sathi
+            suddha understandable asne important aahe.
+        </p>
+
+        <h3>Important Practices:</h3>
+
+        <ul>
+            <li>Table la meaningful caption de.</li>
+            <li>Column headings sathi th element vapr.</li>
+            <li>Heading cells sathi scope attribute vapr.</li>
+            <li>Table cha use tabular data sathi kar.</li>
+            <li>Mobile users sathi horizontal scrolling provide kar.</li>
+        </ul>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;table&gt;
+
+    &lt;caption&gt;Student Information&lt;/caption&gt;
+
+    &lt;tr&gt;
+        &lt;th scope="col"&gt;Name&lt;/th&gt;
+        &lt;th scope="col"&gt;Course&lt;/th&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt;Rohan&lt;/td&gt;
+        &lt;td&gt;BSc CS&lt;/td&gt;
+    &lt;/tr&gt;
+
+&lt;/table&gt;
+        </code></pre>
+
+        <p>
+            scope="col" mule heading ha column sathi aahe
+            he assistive technologies la samajnyas madat hote.
+        </p>
+
+    </section>
+
+
+    <!-- Section 15 -->
+
+    <section class="lesson-section">
+
+        <h2>15. Common Beginner Mistakes</h2>
+
+        <div class="mistake-card">
+            <strong>Mistake 1: tr element visarne</strong>
+            <p>
+                Table madhil cells properly row madhye
+                organize karnyasathi tr vapr.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 2: th ani td confuse karne</strong>
+            <p>
+                Headings sathi th ani normal data sathi td vapr.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 3: colspan ani rowspan confuse karne</strong>
+            <p>
+                colspan columns merge karto ani rowspan rows merge karto.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 4: Table madhye CSS na vaprane</strong>
+            <p>
+                CSS vaprun table readable ani attractive banav.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 5: Table cha use layout sathi karne</strong>
+            <p>
+                Website layout sathi modern CSS Flexbox kiwa Grid vapr.
+                HTML Tables cha use tabular data sathi kar.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 6: Responsive design ignore karne</strong>
+            <p>
+                Mobile screen var large tables overflow hou shaktat.
+                Table wrapper madhye horizontal scrolling provide kar.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- Section 16 -->
+
+    <section class="lesson-section">
+
+        <h2>16. Quick Revision</h2>
+
+        <div class="revision-box">
+
+            <ul>
+                <li>table element complete table create karto.</li>
+                <li>tr element table row create karto.</li>
+                <li>th element table heading create karto.</li>
+                <li>td element table data create karto.</li>
+                <li>caption element table la title deto.</li>
+                <li>thead header rows group karto.</li>
+                <li>tbody main data rows group karto.</li>
+                <li>tfoot footer rows group karto.</li>
+                <li>colspan multiple columns cover karto.</li>
+                <li>rowspan multiple rows cover karto.</li>
+                <li>CSS table la style karte.</li>
+                <li>overflow-x: auto horizontal scrolling provide karu shakto.</li>
+                <li>scope attribute heading cha sambandh specify karto.</li>
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 17 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>17. Practice Questions</h2>
+
+        <h3>Basic Questions</h3>
+
+        <ol>
+            <li>HTML Table mhanje kay?</li>
+            <li>HTML Table create karnyasathi konta element vapartat?</li>
+            <li>tr element cha use kay aahe?</li>
+            <li>th ani td madhil difference lih.</li>
+            <li>HTML Table madhye caption cha use kay aahe?</li>
+            <li>thead, tbody ani tfoot cha use kay aahe?</li>
+            <li>colspan attribute mhanje kay?</li>
+            <li>rowspan attribute mhanje kay?</li>
+            <li>Responsive Table mhanje kay?</li>
+            <li>scope attribute cha use kay aahe?</li>
+        </ol>
+
+        <h3>Practical Questions</h3>
+
+        <ol>
+            <li>Three rows ani three columns asleli Table create kar.</li>
+            <li>Student Records Table create kar.</li>
+            <li>Table madhye Name, Age ani Course headings add kar.</li>
+            <li>CSS vaprun Table la border ani padding de.</li>
+            <li>colspan vaprun two columns merge kar.</li>
+            <li>rowspan vaprun two rows merge kar.</li>
+            <li>thead, tbody ani tfoot vaprun Product Table create kar.</li>
+            <li>caption vaprun Table la title de.</li>
+            <li>Responsive Table create kar.</li>
+        </ol>
+
+        <div class="task-box">
+
+            <h3>Mini Task: Student Result Table</h3>
+
+            <p>
+                HTML ani CSS vaprun Student Result Table create kar.
+            </p>
+
+            <ul>
+                <li>Student ID</li>
+                <li>Student Name</li>
+                <li>Subject</li>
+                <li>Marks</li>
+                <li>Result</li>
+                <li>Minimum five student records</li>
+                <li>Table headings ani caption</li>
+                <li>CSS styling ani responsive scrolling</li>
+            </ul>
+
+            <p>
+                File Name: <strong>student_result.html</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Lesson Navigation -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'html_topic' 'lists' %}"
+           class="nav-button previous-button">
+            ← Previous: HTML Lists
+        </a>
+
+        <a href="{% url 'html_topic' 'forms' %}"
+           class="nav-button next-button">
+            Next: HTML Forms →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

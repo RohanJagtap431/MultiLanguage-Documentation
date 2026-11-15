@@ -1,0 +1,692 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}JavaScript Functions | Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/javascript/functions.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+
+    <div class="lesson-header">
+        <span class="lesson-label">JAVASCRIPT DOCUMENTATION • PAGE 10</span>
+
+        <h1>JavaScript Functions</h1>
+
+        <p>
+            Function cha use code reusable banavnyasathi hoto.
+            Ek function tayar karun tyala garjenusar anek vela
+            call karta yete.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Beginner Level</span>
+            <span>35–40 Minutes</span>
+        </div>
+    </div>
+
+    <!-- Section 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What is a Function?</h2>
+
+        <p>
+            Function ha code cha ek block asto jo specific task
+            perform karnyasathi tayar kela jato.
+        </p>
+
+        <p>
+            Function lihilyanantar to lagech execute hot nahi.
+            Function execute karnyasathi tyala call karave lagte.
+        </p>
+
+        <h3>Without Function:</h3>
+
+        <pre class="code-block"><code>console.log("Hello Rohan");
+console.log("Hello Rohan");
+console.log("Hello Rohan");</code></pre>
+
+        <h3>With Function:</h3>
+
+        <pre class="code-block"><code>function greet() {
+    console.log("Hello Rohan");
+}
+
+greet();
+greet();
+greet();</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Hello Rohan
+Hello Rohan
+Hello Rohan</pre>
+        </div>
+
+        <div class="info-box">
+            <strong>Simple Definition:</strong>
+            Specific task perform karanara reusable code block
+            mhanje Function.
+        </div>
+
+    </section>
+
+    <!-- Section 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Function Declaration</h2>
+
+        <p>
+            function keyword vaprun function tayar karnyachya
+            paddhatila Function Declaration mhantat.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>function functionName() {
+    // Code to execute
+}</code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>function welcome() {
+    console.log("Welcome to JavaScript");
+}
+
+welcome();</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Welcome to JavaScript</pre>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li><strong>function:</strong> Function declare karnyasathi keyword.</li>
+            <li><strong>welcome:</strong> Function che name.</li>
+            <li><strong>():</strong> Parameters lihinyasathi vapartat.</li>
+            <li><strong>{ }:</strong> Function cha code block.</li>
+            <li><strong>welcome():</strong> Function call karto.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Function declaration ani function call ya don veglya
+            goshti aahet. Function call kelyavarach function execute hoto.
+        </div>
+
+    </section>
+
+    <!-- Section 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. Function Parameters and Arguments</h2>
+
+        <p>
+            Function la external values dyaychya astil tar
+            parameters ani arguments vapartat.
+        </p>
+
+        <h3>Parameters:</h3>
+
+        <p>
+            Function declare kartana parentheses madhye lihilelya
+            variable names na Parameters mhantat.
+        </p>
+
+        <h3>Arguments:</h3>
+
+        <p>
+            Function call kartana pass kelelya actual values na
+            Arguments mhantat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>function greet(name) {
+    console.log("Hello " + name);
+}
+
+greet("Rohan");
+greet("Amit");</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Hello Rohan
+Hello Amit</pre>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>name ha parameter aahe.</li>
+            <li>"Rohan" hi pahili argument aahe.</li>
+            <li>"Amit" hi dusri argument aahe.</li>
+            <li>Pratyek call madhye vegli value pass karta yete.</li>
+        </ul>
+
+        <h3>Multiple Parameters Example:</h3>
+
+        <pre class="code-block"><code>function add(a, b) {
+    console.log(a + b);
+}
+
+add(10, 20);
+add(5, 15);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>30
+20</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Function parameters mule ekach function vegveglya
+            input values sobat use karta yeto.
+        </div>
+
+    </section>
+
+    <!-- Section 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. return Statement</h2>
+
+        <p>
+            return statement cha use function madhun result
+            parat pathavnyasathi hoto.
+        </p>
+
+        <p>
+            console.log() fakt output display karto, tar return
+            function madhun value parat deto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>function add(a, b) {
+    return a + b;
+}
+
+let result = add(10, 20);
+
+console.log(result);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>30</pre>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>add() function don values accept karto.</li>
+            <li>a + b calculate hote.</li>
+            <li>return mule result function chya baher pathavla jato.</li>
+            <li>To result variable madhye store hoto.</li>
+            <li>console.log() result display karto.</li>
+        </ul>
+
+        <h3>Another Example:</h3>
+
+        <pre class="code-block"><code>function calculateSquare(number) {
+    return number * number;
+}
+
+let answer = calculateSquare(5);
+
+console.log(answer);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>25</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            return execute zalyanantar function madhil pudhil
+            statements execute hot nahit.
+        </div>
+
+    </section>
+
+    <!-- Section 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. Default Parameters</h2>
+
+        <p>
+            Function call kartana argument dili nahi tar default
+            value use karnyasathi Default Parameters vapartat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>function greet(name = "Guest") {
+    console.log("Hello " + name);
+}
+
+greet("Rohan");
+greet();</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Hello Rohan
+Hello Guest</pre>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>name chi default value "Guest" aahe.</li>
+            <li>Pahilya call madhye "Rohan" pass kele.</li>
+            <li>Dusrya call madhye argument dili nahi.</li>
+            <li>Mhanun dusrya call madhye "Guest" use hoto.</li>
+        </ul>
+
+    </section>
+
+    <!-- Section 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. Function Expression</h2>
+
+        <p>
+            Function la variable madhye store karnyachya
+            paddhatila Function Expression mhantat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>const greet = function() {
+    console.log("Hello JavaScript");
+};
+
+greet();</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Hello JavaScript</pre>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>const vaprun greet variable tayar kela.</li>
+            <li>Function expression variable madhye store kele.</li>
+            <li>greet() vaprun function call kela.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Function expression la variable declare honyapurvi
+            call karta yet nahi. Function declaration madhye
+            hoisting mule vegle behavior aste.
+        </div>
+
+    </section>
+
+    <!-- Section 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. Anonymous Function</h2>
+
+        <p>
+            Jya function la swatach nav naste tyala Anonymous
+            Function mhantat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>const message = function() {
+    console.log("Learning JavaScript");
+};
+
+message();</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Learning JavaScript</pre>
+        </div>
+
+        <p>
+            Ya example madhye function la direct name nahi.
+            To message variable madhye store kela aahe.
+        </p>
+
+        <div class="tip-box">
+            <strong>Note:</strong>
+            Anonymous functions callbacks ani event handling madhye
+            suddha vapartat. Tyabaddal pudhil topics madhye shiku.
+        </div>
+
+    </section>
+
+    <!-- Section 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. Function Scope</h2>
+
+        <p>
+            Scope mhanje variable program madhye kuthe access
+            karta yeto he tharavnara niyam.
+        </p>
+
+        <h3>Global Scope:</h3>
+
+        <p>
+            Function chya baher declare kelela variable global
+            scope madhye asto. To function chya aat access karta yeto.
+        </p>
+
+        <pre class="code-block"><code>let name = "Rohan";
+
+function showName() {
+    console.log(name);
+}
+
+showName();</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Rohan</pre>
+        </div>
+
+        <h3>Local Scope:</h3>
+
+        <p>
+            Function chya aat declare kelela local variable
+            fakt tya function madhye access karta yeto.
+        </p>
+
+        <pre class="code-block"><code>function showAge() {
+    let age = 20;
+    console.log(age);
+}
+
+showAge();</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>20</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            showAge() chya baher age variable access karta yet nahi.
+            Local variables cha scope tyanchya function purta asto.
+        </div>
+
+    </section>
+
+    <!-- Section 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Function vs Function Expression</h2>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Function Declaration</th>
+                    <th>Function Expression</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>function keyword vaprun declare karto.</td>
+                    <td>Function variable madhye store karto.</td>
+                </tr>
+
+                <tr>
+                    <td>Function la nav aste.</td>
+                    <td>Function anonymous asu shakto.</td>
+                </tr>
+
+                <tr>
+                    <td>Declaration hoisting support karte.</td>
+                    <td>Variable declaration chya niyamanusar behavior aste.</td>
+                </tr>
+
+                <tr>
+                    <td>Function name ne call karto.</td>
+                    <td>Variable name ne call karto.</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </section>
+
+    <!-- Section 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Practical Example - Student Result Function</h2>
+
+        <p>
+            Ata marks accept karun Pass kiwa Fail result return
+            karanara function tayar karu.
+        </p>
+
+        <h3>JavaScript Code:</h3>
+
+        <pre class="code-block"><code>function checkResult(marks) {
+
+    if (marks >= 35) {
+        return "Pass";
+    } else {
+        return "Fail";
+    }
+
+}
+
+let result1 = checkResult(75);
+let result2 = checkResult(25);
+
+console.log(result1);
+console.log(result2);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Pass
+Fail</pre>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>checkResult() function marks accept karto.</li>
+            <li>if...else marks check karte.</li>
+            <li>35 kiwa tyapeksha jast marks aslyas Pass return hoto.</li>
+            <li>35 peksha kami marks aslyas Fail return hoto.</li>
+            <li>Donhi results vegveglya variables madhye store hotat.</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Backend Relevance:</strong>
+            Django madhye data process karne, calculations karne,
+            validation karne ani reusable business logic lihinyasathi
+            functions upyogi padtat.
+        </div>
+
+    </section>
+
+    <!-- Section 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Common Beginner Mistakes</h2>
+
+        <div class="mistake-card">
+            <strong>Mistake 1: Function call karayla visarne</strong>
+            <p>
+                Function declare kelyane to automatic execute hot nahi.
+                FunctionName() vaprun call kara.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 2: Parameter ani argument confuse karne</strong>
+            <p>
+                Function declaration madhil variable parameter asto.
+                Function call madhil actual value argument aste.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 3: return ani console.log confuse karne</strong>
+            <p>
+                console.log output display karto, tar return value
+                function madhun parat pathavto.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 4: return nantar code lihine</strong>
+            <p>
+                return execute zalyanantar tyach function madhil
+                pudhil statements execute hot nahit.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 5: Local variable baher access karne</strong>
+            <p>
+                Function chya aat declare kelela local variable
+                function chya baher access karta yet nahi.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- Section 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Quick Revision</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>Function reusable code block aahe.</li>
+                <li>function keyword vaprun function declare karto.</li>
+                <li>Function execute karnyasathi call karava lagto.</li>
+                <li>Parameters function input variables astat.</li>
+                <li>Arguments function la dilelya actual values astat.</li>
+                <li>return function madhun value parat pathavto.</li>
+                <li>Default Parameters default values detat.</li>
+                <li>Function Expression function variable madhye store karto.</li>
+                <li>Anonymous Function la swatach nav naste.</li>
+                <li>Global variable function chya aat access karta yeto.</li>
+                <li>Local variable fakt tyachya function madhye access karta yeto.</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <!-- Section 13 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>13. Practice Questions</h2>
+
+        <h3>Basic Questions</h3>
+
+        <ol>
+            <li>Function mhanje kay?</li>
+            <li>Function Declaration mhanje kay?</li>
+            <li>Function call mhanje kay?</li>
+            <li>Parameters ani Arguments madhye kay difference aahe?</li>
+            <li>return statement cha use kay aahe?</li>
+            <li>Default Parameters mhanje kay?</li>
+            <li>Function Expression mhanje kay?</li>
+            <li>Anonymous Function mhanje kay?</li>
+            <li>Global ani Local Scope madhye kay difference aahe?</li>
+            <li>return ani console.log() madhye kay difference aahe?</li>
+        </ol>
+
+        <h3>Practical Questions</h3>
+
+        <ol>
+            <li>greet() navacha function tayar karun message print kar.</li>
+            <li>Don numbers accept karun tyanchi addition kar.</li>
+            <li>Ek number accept karun tyacha square return kar.</li>
+            <li>Default parameter vaprun greeting function tayar kar.</li>
+            <li>Function vaprun number Even kiwa Odd check kar.</li>
+            <li>Function expression vaprun multiplication kar.</li>
+            <li>Function vaprun marks nusar Pass kiwa Fail return kar.</li>
+        </ol>
+
+        <div class="task-box">
+
+            <h3>Mini Task: Simple Calculator</h3>
+
+            <p>
+                Functions vaprun simple calculator tayar kar.
+            </p>
+
+            <ul>
+                <li>add(a, b) function tayar kar.</li>
+                <li>subtract(a, b) function tayar kar.</li>
+                <li>multiply(a, b) function tayar kar.</li>
+                <li>divide(a, b) function tayar kar.</li>
+                <li>Pratyek function madhye result return kar.</li>
+                <li>Function call karun results console madhye print kar.</li>
+                <li>Divide kartana zero ne division hou naye yachi kalji ghe.</li>
+            </ul>
+
+            <p>
+                File name: <strong>javascript_functions.js</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Navigation -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'javascript_topic' 'loops' %}"
+           class="nav-button previous-button">
+            ← Previous: JavaScript Loops
+        </a>
+
+        <a href="{% url 'javascript_topic' 'arrow-functions' %}"
+           class="nav-button next-button">
+            Next: Arrow Functions →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

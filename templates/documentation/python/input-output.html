@@ -1,0 +1,668 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Python Input and Output | Roman Marathi Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/python/input-output.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+    <div class="lesson-header">
+        <span class="lesson-label">PYTHON TUTORIAL</span>
+        <h1>08. Python Input and Output</h1>
+        <p>
+            Python madhye user kadun input kasa ghyaycha ani
+            screen var output kasa display karaycha he ya lesson madhye shikuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 20-25 Minutes</span>
+        </div>
+    </div>
+
+    <!-- Section 1 -->
+    <section class="lesson-section">
+        <h2>1. What is Input and Output?</h2>
+
+        <p>
+            Input mhanje user kadun program madhye data ghene.
+            Output mhanje program madhun result screen var display karne.
+        </p>
+
+        <p>
+            Udaharanarth, calculator madhye user don numbers enter karto.
+            Program tyanchi addition karto ani result display karto.
+        </p>
+
+        <div class="info-box">
+            <strong>Simple Definition:</strong>
+            Input means receiving data from the user.
+            Output means displaying information to the user.
+        </div>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>name = input("Enter your name: ")
+
+print("Hello", name)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Example Output:</strong>
+            <pre>Enter your name: Rohan
+Hello Rohan</pre>
+        </div>
+    </section>
+
+    <!-- Section 2 -->
+    <section class="lesson-section">
+        <h2>2. print() Function</h2>
+
+        <p>
+            Python madhye output display karanyasathi
+            <code>print()</code> function vapartat.
+        </p>
+
+        <p>
+            Aapan text, numbers, variables ani expressions
+            print() function vaprun display karu shakto.
+        </p>
+
+        <div class="code-box">
+            <div class="code-title">Example 1 – Printing Text</div>
+            <pre><code>print("Hello World!")
+print("Welcome to Python")</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Hello World!
+Welcome to Python</pre>
+        </div>
+
+        <h3>Printing Numbers</h3>
+
+        <div class="code-box">
+            <pre><code>print(100)
+print(25.5)
+print(10 + 20)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>100
+25.5
+30</pre>
+        </div>
+
+        <h3>Printing Variables</h3>
+
+        <div class="code-box">
+            <pre><code>name = "Rohan"
+age = 20
+
+print(name)
+print(age)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Rohan
+20</pre>
+        </div>
+    </section>
+
+    <!-- Section 3 -->
+    <section class="lesson-section">
+        <h2>3. input() Function</h2>
+
+        <p>
+            Python madhye user kadun data ghenyasathi
+            <code>input()</code> function vapartat.
+        </p>
+
+        <p>
+            Program input() function paryant alyavar user input
+            enter kareparyant wait karto.
+        </p>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>name = input("Enter your name: ")
+
+print("Your name is", name)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Example Output:</strong>
+            <pre>Enter your name: Rohan
+Your name is Rohan</pre>
+        </div>
+
+        <p>
+            Ithe user ne enter kelele name variable madhye store hote.
+            Nantar print() tyachi value display karto.
+        </p>
+    </section>
+
+    <!-- Section 4 -->
+    <section class="lesson-section">
+        <h2>4. input() Always Returns String</h2>
+
+        <p>
+            Python madhye input() function ne ghetleli value
+            default ne string data type madhye aste.
+        </p>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>age = input("Enter your age: ")
+
+print(age)
+print(type(age))</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Example Output:</strong>
+            <pre>Enter your age: 20
+20
+&lt;class 'str'&gt;</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            User ne 20 enter kele tari input() tyala string mhanun
+            store karto. Number mhanun calculation karayche asel
+            tar int() kiwa float() vapra.
+        </div>
+    </section>
+
+    <!-- Section 5 -->
+    <section class="lesson-section">
+        <h2>5. Taking Integer Input</h2>
+
+        <p>
+            User kadun integer number ghenyasathi input() sobat
+            <code>int()</code> function vapartat.
+        </p>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>age = int(input("Enter your age: "))
+
+print(age)
+print(type(age))</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Example Output:</strong>
+            <pre>Enter your age: 20
+20
+&lt;class 'int'&gt;</pre>
+        </div>
+    </section>
+
+    <!-- Section 6 -->
+    <section class="lesson-section">
+        <h2>6. Taking Float Input</h2>
+
+        <p>
+            User kadun decimal number ghenyasathi
+            <code>float()</code> function vapartat.
+        </p>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>marks = float(input("Enter your marks: "))
+
+print(marks)
+print(type(marks))</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Example Output:</strong>
+            <pre>Enter your marks: 85.5
+85.5
+&lt;class 'float'&gt;</pre>
+        </div>
+    </section>
+
+    <!-- Section 7 -->
+    <section class="lesson-section">
+        <h2>7. Taking Multiple Inputs</h2>
+
+        <p>
+            Program madhye user kadun ekapeksha jast inputs gheta yetat.
+            Pratyek input sathi vegala input() function vapru shakto.
+        </p>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>name = input("Enter your name: ")
+age = int(input("Enter your age: "))
+city = input("Enter your city: ")
+
+print("Name:", name)
+print("Age:", age)
+print("City:", city)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Example Output:</strong>
+            <pre>Enter your name: Rohan
+Enter your age: 20
+Enter your city: Kolhapur
+Name: Rohan
+Age: 20
+City: Kolhapur</pre>
+        </div>
+
+        <h3>Taking Two Inputs in One Line</h3>
+
+        <p>
+            <code>split()</code> function vaprun ekach line madhye
+            don kiwa adhik values gheta yetat.
+        </p>
+
+        <div class="code-box">
+            <pre><code>a, b = input("Enter two numbers: ").split()
+
+print(a)
+print(b)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Example Output:</strong>
+            <pre>Enter two numbers: 10 20
+10
+20</pre>
+        </div>
+
+        <div class="warning-box">
+            <strong>Remember:</strong>
+            split() ne milalelya values default ne strings astat.
+            Calculation sathi tyanna convert kara.
+        </div>
+
+        <h3>Multiple Integer Inputs in One Line</h3>
+
+        <div class="code-box">
+            <pre><code>a, b = map(int, input("Enter two numbers: ").split())
+
+print(a + b)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Example Output:</strong>
+            <pre>Enter two numbers: 10 20
+30</pre>
+        </div>
+    </section>
+
+    <!-- Section 8 -->
+    <section class="lesson-section">
+        <h2>8. sep Parameter in print()</h2>
+
+        <p>
+            <code>sep</code> parameter cha use print() madhil
+            multiple values madhye separator denyasathi hoto.
+        </p>
+
+        <p>
+            Default separator space asto. Aapan to change karu shakto.
+        </p>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>print("Python", "Java", "C++")
+
+print("Python", "Java", "C++", sep="-")</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Python Java C++
+Python-Java-C++</pre>
+        </div>
+
+        <h3>Another Example</h3>
+
+        <div class="code-box">
+            <pre><code>print(10, 20, 30, sep=" | ")</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>10 | 20 | 30</pre>
+        </div>
+    </section>
+
+    <!-- Section 9 -->
+    <section class="lesson-section">
+        <h2>9. end Parameter in print()</h2>
+
+        <p>
+            Default ne print() function output display kelyanantar
+            new line madhye jato.
+        </p>
+
+        <p>
+            <code>end</code> parameter vaprun print() nantar kay
+            display vhayla pahije te tharavta yete.
+        </p>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>print("Hello", end=" ")
+print("Rohan")</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Hello Rohan</pre>
+        </div>
+
+        <h3>Using end with Symbol</h3>
+
+        <div class="code-box">
+            <pre><code>print("Python", end=" - ")
+print("Programming")</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Python - Programming</pre>
+        </div>
+    </section>
+
+    <!-- Section 10 -->
+    <section class="lesson-section">
+        <h2>10. f-Strings in Python</h2>
+
+        <p>
+            f-string cha use string madhye variables ani expressions
+            easily display karanyasathi hoto.
+        </p>
+
+        <p>
+            f-string lihitana string chya suruvatila <code>f</code>
+            lihitat ani variable curly brackets madhye lihitat.
+        </p>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>name = "Rohan"
+age = 20
+
+print(f"My name is {name}")
+print(f"My age is {age}")</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>My name is Rohan
+My age is 20</pre>
+        </div>
+
+        <h3>Using Expressions in f-Strings</h3>
+
+        <div class="code-box">
+            <pre><code>a = 10
+b = 20
+
+print(f"Total is {a + b}")</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Total is 30</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Variables ani values ekatra display karanyasathi f-string
+            ha clean ani readable method aahe.
+        </div>
+    </section>
+
+    <!-- Section 11 -->
+    <section class="lesson-section">
+        <h2>11. Formatting Output</h2>
+
+        <p>
+            f-string vaprun decimal numbers kiti digits paryant
+            display karayche te tharavta yete.
+        </p>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>price = 99.5678
+
+print(f"Price: {price:.2f}")</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Price: 99.57</pre>
+        </div>
+
+        <p>
+            <code>:.2f</code> mule number decimal point nantar
+            don digits paryant display hoto.
+        </p>
+    </section>
+
+    <!-- Section 12 -->
+    <section class="lesson-section">
+        <h2>12. Practical Example – Simple Calculator</h2>
+
+        <p>
+            Ata input, type casting ani output ya concepts cha use
+            karun simple calculator banavuya.
+        </p>
+
+        <div class="code-box">
+            <div class="code-title">Complete Code</div>
+            <pre><code>num1 = float(input("Enter first number: "))
+num2 = float(input("Enter second number: "))
+
+addition = num1 + num2
+subtraction = num1 - num2
+multiplication = num1 * num2
+division = num1 / num2
+
+print(f"Addition: {addition}")
+print(f"Subtraction: {subtraction}")
+print(f"Multiplication: {multiplication}")
+print(f"Division: {division}")</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Example Output:</strong>
+            <pre>Enter first number: 20
+Enter second number: 10
+Addition: 30.0
+Subtraction: 10.0
+Multiplication: 200.0
+Division: 2.0</pre>
+        </div>
+
+        <div class="warning-box">
+            <strong>Important:</strong>
+            Division karanyapurvi second number zero nahi yachi
+            khatri kara. Zero ne division kelyas ZeroDivisionError yeto.
+        </div>
+    </section>
+
+    <!-- Section 13 -->
+    <section class="lesson-section">
+        <h2>13. Common Beginner Mistakes</h2>
+
+        <div class="error-card">
+            <h3>Mistake 1: Input la Integer madhye Convert na karne</h3>
+            <pre><code>a = input("Enter first number: ")
+b = input("Enter second number: ")
+
+print(a + b)</code></pre>
+            <p>
+                Input values strings aslyamule 10 ani 20 cha result
+                1020 asa yeu shakto.
+            </p>
+            <p>
+                Correct: <code>int()</code> kiwa <code>float()</code> vapra.
+            </p>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 2: f-string madhye f visarne</h3>
+            <pre><code>name = "Rohan"
+
+print("Hello {name}")</code></pre>
+            <p>
+                Output: Hello {name}
+            </p>
+            <p>
+                Correct: <code>print(f"Hello {name}")</code>
+            </p>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 3: Wrong Number of Values</h3>
+            <pre><code>a, b = input("Enter numbers: ").split()</code></pre>
+            <p>
+                Don variables sathi user ne don values enter karne
+                aavashyak aahe. Kami kiwa jast values dilyas error yeu shakto.
+            </p>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 4: Invalid Integer Input</h3>
+            <pre><code>age = int(input("Enter age: "))</code></pre>
+            <p>
+                User ne "hello" sarkha text enter kela tar ValueError yeil.
+                Integer madhye convert honari value enter karavi.
+            </p>
+        </div>
+    </section>
+
+    <!-- Section 14 -->
+    <section class="lesson-section">
+        <h2>14. Quick Revision</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Function / Parameter</th>
+                        <th>Use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>print()</td>
+                        <td>Output display karne</td>
+                    </tr>
+                    <tr>
+                        <td>input()</td>
+                        <td>User kadun input ghene</td>
+                    </tr>
+                    <tr>
+                        <td>int()</td>
+                        <td>Integer madhye convert karne</td>
+                    </tr>
+                    <tr>
+                        <td>float()</td>
+                        <td>Float madhye convert karne</td>
+                    </tr>
+                    <tr>
+                        <td>split()</td>
+                        <td>String che parts karne</td>
+                    </tr>
+                    <tr>
+                        <td>map()</td>
+                        <td>Pratyek value var function apply karne</td>
+                    </tr>
+                    <tr>
+                        <td>sep</td>
+                        <td>Values madhil separator set karne</td>
+                    </tr>
+                    <tr>
+                        <td>end</td>
+                        <td>print() nantarche ending set karne</td>
+                    </tr>
+                    <tr>
+                        <td>f-string</td>
+                        <td>String madhye variables display karne</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Practice -->
+    <section class="practice-section">
+        <h2>15. Practice Questions</h2>
+
+        <p>
+            Khalil questions swatah code lihun solve kara.
+        </p>
+
+        <ol>
+            <li>print() vaprun swatahche name display kara.</li>
+            <li>input() vaprun user kadun name ghya.</li>
+            <li>User kadun age gheun integer madhye convert kara.</li>
+            <li>User kadun don numbers gheun addition kara.</li>
+            <li>User kadun decimal number gheun float madhye convert kara.</li>
+            <li>Ekach line madhye don numbers input ghya.</li>
+            <li>sep parameter vaprun 3 subjects display kara.</li>
+            <li>end parameter vaprun don print statements ekach line madhye display kara.</li>
+            <li>f-string vaprun student information display kara.</li>
+            <li>f-string vaprun don numbers chi addition display kara.</li>
+        </ol>
+
+        <div class="practice-task">
+            <h3>Practical Task – Student Information Program</h3>
+
+            <p>
+                User kadun name, age, city ani percentage input ghya.
+                Yogya data types madhye values convert kara ani f-string
+                vaprun information display kara.
+            </p>
+
+            <div class="code-box">
+                <div class="code-title">Expected Output</div>
+                <pre><code>Enter name: Rohan
+Enter age: 20
+Enter city: Kolhapur
+Enter percentage: 85.5
+
+----- Student Details -----
+Name: Rohan
+Age: 20
+City: Kolhapur
+Percentage: 85.5</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+        <a href="{% url 'python_topic' 'type-casting' %}" class="nav-button back-button">
+            ← Previous: Type Casting
+        </a>
+
+        <a href="{% url 'python_topic' 'operators' %}" class="nav-button next-button">
+            Next: Operators →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

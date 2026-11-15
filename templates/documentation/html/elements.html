@@ -1,0 +1,933 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}
+HTML Elements and Tags | Roman Marathi
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/html/elements.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+
+    <div class="lesson-header">
+
+        <span class="lesson-label">HTML DOCUMENTATION • PAGE 03</span>
+
+        <h1>HTML Elements and Tags</h1>
+
+        <p>
+            HTML tags ani elements mhanje kay, tyanchi structure,
+            types, nesting ani webpage madhye tyanchya uses baddal
+            ya lesson madhye detail madhye shikuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Beginner Level</span>
+            <span>35–40 Minutes</span>
+        </div>
+
+    </div>
+
+
+    <!-- Section 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What are HTML Tags?</h2>
+
+        <p>
+            HTML Tags mhanje browser la webpage madhil content
+            kasa structure karaycha he sangnarya markup instructions.
+            HTML tags angle brackets madhye lihitat.
+        </p>
+
+        <p>
+            HTML tag chi suruvat less-than sign (&lt;) ne hote
+            ani tyacha shevat greater-than sign (&gt;) ne hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;h1&gt;
+        </code></pre>
+
+        <p>
+            Ithe h1 ha HTML tag aahe.
+            Ha tag webpage madhye main level heading define karto.
+        </p>
+
+        <h3>More HTML Tag Examples:</h3>
+
+        <pre class="code-block"><code>
+&lt;p&gt;          Paragraph tag
+
+&lt;h1&gt;         Heading tag
+
+&lt;a&gt;          Link tag
+
+&lt;img&gt;        Image tag
+
+&lt;div&gt;        Division tag
+
+&lt;button&gt;     Button tag
+        </code></pre>
+
+        <div class="info-box">
+            <strong>Definition:</strong>
+            HTML Tag mhanje angle brackets madhye lihileli
+            markup instruction ji browser la content cha
+            type kiwa structure samjavte.
+        </div>
+
+    </section>
+
+
+    <!-- Section 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Types of HTML Tags</h2>
+
+        <p>
+            HTML tags che common types mhanje opening tags,
+            closing tags ani void tags.
+        </p>
+
+        <h3>A. Opening Tag</h3>
+
+        <p>
+            Opening tag element chi suruvat karto.
+            Yala start tag suddha mhantat.
+        </p>
+
+        <pre class="code-block"><code>
+&lt;p&gt;
+        </code></pre>
+
+        <h3>B. Closing Tag</h3>
+
+        <p>
+            Closing tag element cha shevat karto.
+            Closing tag madhye tag name chya aadhi forward slash (/)
+            vapartat.
+        </p>
+
+        <pre class="code-block"><code>
+&lt;/p&gt;
+        </code></pre>
+
+        <h3>C. Void Tag</h3>
+
+        <p>
+            Void elements madhye content thevta yet nahi
+            ani tyanna closing tag nasato.
+        </p>
+
+        <pre class="code-block"><code>
+&lt;br&gt;
+&lt;hr&gt;
+&lt;img src="photo.jpg" alt="Photo"&gt;
+&lt;input type="text"&gt;
+        </code></pre>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Void elements na closing tag lihaycha nasato.
+            HTML madhye br, hr, img ani input he common
+            void elements aahet.
+        </div>
+
+    </section>
+
+
+    <!-- Section 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. What is an HTML Element?</h2>
+
+        <p>
+            HTML Element mhanje opening tag, content ani closing
+            tag yanchi combination.
+        </p>
+
+        <p>
+            Eka complete HTML element madhye tag ani tyachya
+            content cha samavesh hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;p&gt;Welcome to HTML&lt;/p&gt;
+        </code></pre>
+
+        <h3>Ya example madhil parts:</h3>
+
+        <div class="element-breakdown">
+
+            <div class="element-part opening">
+                <strong>&lt;p&gt;</strong>
+                <span>Opening Tag</span>
+            </div>
+
+            <div class="element-part content">
+                <strong>Welcome to HTML</strong>
+                <span>Content</span>
+            </div>
+
+            <div class="element-part closing">
+                <strong>&lt;/p&gt;</strong>
+                <span>Closing Tag</span>
+            </div>
+
+        </div>
+
+        <ul>
+            <li><strong>&lt;p&gt;:</strong> Paragraph chi suruvat.</li>
+            <li><strong>Welcome to HTML:</strong> Paragraph madhil content.</li>
+            <li><strong>&lt;/p&gt;:</strong> Paragraph cha shevat.</li>
+        </ul>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            Opening tag + Content + Closing tag = HTML Element.
+        </div>
+
+    </section>
+
+
+    <!-- Section 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. Difference Between HTML Tag and Element</h2>
+
+        <p>
+            Tag ani Element he don related concepts aahet,
+            pan doghancha meaning same nahi.
+        </p>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>HTML Tag</th>
+                    <th>HTML Element</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Markup instruction aste.</td>
+                    <td>Complete HTML structure aste.</td>
+                </tr>
+
+                <tr>
+                    <td>Opening kiwa closing tag asu shakto.</td>
+                    <td>Opening tag, content ani closing tag yanchi combination asu shakte.</td>
+                </tr>
+
+                <tr>
+                    <td>Example: &lt;p&gt;</td>
+                    <td>Example: &lt;p&gt;Hello&lt;/p&gt;</td>
+                </tr>
+
+                <tr>
+                    <td>Tag ha element cha ek part aahe.</td>
+                    <td>Element madhye tags ani content astat.</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+        <div class="example-box">
+            <strong>Example:</strong>
+
+            <pre class="small-code"><code>
+&lt;h1&gt;My Website&lt;/h1&gt;
+            </code></pre>
+
+            <p>
+                &lt;h1&gt; ha opening tag aahe.
+                &lt;/h1&gt; ha closing tag aahe.
+                Sampurna code ha HTML element aahe.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- Section 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. Empty and Void Elements</h2>
+
+        <p>
+            HTML madhye kahi elements na content kiwa closing
+            tag nasato. Ashya elements na void elements mhantat.
+        </p>
+
+        <p>
+            Beginners tyanna empty elements suddha mhantat,
+            pan HTML standard madhye void elements ha adhik
+            precise term aahe.
+        </p>
+
+        <h3>Common Void Elements:</h3>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>Element</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>&lt;br&gt;</td>
+                    <td>Line break denyasathi.</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;hr&gt;</td>
+                    <td>Thematic break kiwa divider denyasathi.</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;img&gt;</td>
+                    <td>Image display karnyasathi.</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;input&gt;</td>
+                    <td>User input ghenyasathi.</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;meta&gt;</td>
+                    <td>Document metadata denyasathi.</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;link&gt;</td>
+                    <td>External resource connect karnyasathi.</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;area&gt;</td>
+                    <td>Image map madhye clickable area define karnyasathi.</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;source&gt;</td>
+                    <td>Audio kiwa video sathi media source denyasathi.</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;p&gt;Hello&lt;br&gt;Welcome to HTML&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;img src="photo.jpg" alt="My Photo"&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <p>Hello<br>Welcome to HTML</p>
+            <hr>
+            <p>Image example: photo.jpg file available asel tar image display hoil.</p>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            HTML void elements la &lt;/br&gt; kiwa &lt;/img&gt;
+            ashe closing tags lihayche nahit.
+        </div>
+
+    </section>
+
+
+    <!-- Section 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. Nested HTML Elements</h2>
+
+        <p>
+            Eka HTML element chya aat dusra HTML element lihila,
+            tar tyala Nested Element mhantat.
+        </p>
+
+        <p>
+            Modern webpages madhye nesting khup common aahe.
+            Eka section madhye heading, paragraph, image ani
+            links asu shaktat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;div&gt;
+
+    &lt;h1&gt;My Website&lt;/h1&gt;
+
+    &lt;p&gt;
+        Welcome to my
+        &lt;strong&gt;Website&lt;/strong&gt;.
+    &lt;/p&gt;
+
+&lt;/div&gt;
+        </code></pre>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>&lt;div&gt; ha outer element aahe.</li>
+            <li>&lt;h1&gt; ha div chya aat aahe.</li>
+            <li>&lt;p&gt; ha suddha div chya aat aahe.</li>
+            <li>&lt;strong&gt; ha paragraph chya aat aahe.</li>
+        </ul>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <h1>My Website</h1>
+            <p>Welcome to my <strong>Website</strong>.</p>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            HTML elements nest kartana opening ani closing tags
+            yogya order madhye lihine important aahe.
+        </div>
+
+    </section>
+
+
+    <!-- Section 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. Parent and Child Elements</h2>
+
+        <p>
+            Nested HTML structure madhye outer element la
+            Parent Element mhantat ani tyachya aat asnarya
+            element la Child Element mhantat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;div&gt;
+
+    &lt;h2&gt;Student Details&lt;/h2&gt;
+
+    &lt;p&gt;Name: Rohan&lt;/p&gt;
+
+&lt;/div&gt;
+        </code></pre>
+
+        <h3>Relationship:</h3>
+
+        <div class="tree-structure">
+
+            <div class="tree-parent">
+                &lt;div&gt; - Parent Element
+            </div>
+
+            <div class="tree-children">
+
+                <div class="tree-child">
+                    &lt;h2&gt; - Child Element
+                </div>
+
+                <div class="tree-child">
+                    &lt;p&gt; - Child Element
+                </div>
+
+            </div>
+
+        </div>
+
+        <ul>
+            <li>&lt;div&gt; ha h2 ani p cha parent aahe.</li>
+            <li>&lt;h2&gt; ani &lt;p&gt; he div che children aahet.</li>
+        </ul>
+
+        <h3>Important Terms:</h3>
+
+        <ul>
+            <li>
+                <strong>Parent:</strong>
+                Jyachya aat dusra element asto.
+            </li>
+
+            <li>
+                <strong>Child:</strong>
+                Jo element parent chya direct aat asto.
+            </li>
+
+            <li>
+                <strong>Sibling:</strong>
+                Ekach parent che children aslele elements.
+            </li>
+
+            <li>
+                <strong>Descendant:</strong>
+                Parent chya aat direct kiwa indirectly asnara element.
+            </li>
+        </ul>
+
+    </section>
+
+
+    <!-- Section 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. Proper HTML Nesting</h2>
+
+        <p>
+            HTML elements ekmekanchya aat lihitana closing tags
+            yogya order madhye lihine avashyak aahe.
+            Ya process la proper nesting mhantat.
+        </p>
+
+        <h3>Correct Nesting:</h3>
+
+        <pre class="code-block"><code>
+&lt;p&gt;
+    This is
+    &lt;strong&gt;important&lt;/strong&gt;
+    text.
+&lt;/p&gt;
+        </code></pre>
+
+        <h3>Incorrect Nesting:</h3>
+
+        <pre class="code-block"><code>
+&lt;p&gt;
+    This is
+    &lt;strong&gt;important
+&lt;/p&gt;
+    &lt;/strong&gt;
+        </code></pre>
+
+        <div class="success-box">
+            <strong>Correct Rule:</strong>
+            Jo element shevti open kela aahe,
+            to sarvat aadhi close karaycha.
+            Tyala Last In, First Out order mhantat.
+        </div>
+
+        <h3>Another Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;div&gt;
+    &lt;p&gt;
+        &lt;strong&gt;Hello World&lt;/strong&gt;
+    &lt;/p&gt;
+&lt;/div&gt;
+        </code></pre>
+
+    </section>
+
+
+    <!-- Section 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Block-Level Elements</h2>
+
+        <p>
+            Block-level elements normally navin line pasun
+            suru hotat ani available horizontal space ghetat.
+            CSS ne tyanchi display behavior badalta yete.
+        </p>
+
+        <h3>Common Block-Level Elements:</h3>
+
+        <ul>
+            <li>&lt;div&gt; - General content container.</li>
+            <li>&lt;p&gt; - Paragraph.</li>
+            <li>&lt;h1&gt; to &lt;h6&gt; - Headings.</li>
+            <li>&lt;section&gt; - Page section.</li>
+            <li>&lt;article&gt; - Independent content.</li>
+            <li>&lt;ul&gt; - Unordered list.</li>
+            <li>&lt;ol&gt; - Ordered list.</li>
+            <li>&lt;header&gt; - Header section.</li>
+            <li>&lt;footer&gt; - Footer section.</li>
+        </ul>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;h2&gt;First Heading&lt;/h2&gt;
+
+&lt;p&gt;First Paragraph&lt;/p&gt;
+
+&lt;div&gt;First Division&lt;/div&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <h2>First Heading</h2>
+            <p>First Paragraph</p>
+            <div>First Division</div>
+        </div>
+
+        <p>
+            Ya example madhye pratyek block element normally
+            veglya line var display hoto.
+        </p>
+
+    </section>
+
+
+    <!-- Section 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Inline Elements</h2>
+
+        <p>
+            Inline elements normally tyanchya content purtich
+            space ghetat ani same line madhye display hotat.
+        </p>
+
+        <h3>Common Inline Elements:</h3>
+
+        <ul>
+            <li>&lt;span&gt; - Inline container.</li>
+            <li>&lt;a&gt; - Hyperlink.</li>
+            <li>&lt;strong&gt; - Strong importance.</li>
+            <li>&lt;em&gt; - Emphasis.</li>
+            <li>&lt;b&gt; - Attention sathi bold text.</li>
+            <li>&lt;i&gt; - Alternate voice kiwa mood text.</li>
+            <li>&lt;label&gt; - Form control label.</li>
+            <li>&lt;small&gt; - Small print.</li>
+        </ul>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;p&gt;
+    Welcome to
+    &lt;strong&gt;HTML&lt;/strong&gt;
+    and
+    &lt;em&gt;CSS&lt;/em&gt;.
+&lt;/p&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <p>
+                Welcome to
+                <strong>HTML</strong>
+                and
+                <em>CSS</em>.
+            </p>
+        </div>
+
+        <p>
+            Ya example madhye strong ani em he paragraph chya
+            same line madhye display hotat.
+        </p>
+
+    </section>
+
+
+    <!-- Section 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Block vs Inline Elements</h2>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>Block Elements</th>
+                    <th>Inline Elements</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Normally new line pasun start hotat.</td>
+                    <td>Normally same line madhye display hotat.</td>
+                </tr>
+
+                <tr>
+                    <td>Available width ghetat.</td>
+                    <td>Content purtich width ghetat.</td>
+                </tr>
+
+                <tr>
+                    <td>Example: div, p, h1.</td>
+                    <td>Example: span, a, strong.</td>
+                </tr>
+
+                <tr>
+                    <td>CSS display property ne behavior change karta yete.</td>
+                    <td>CSS display property ne behavior change karta yete.</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Block ani Inline he elements che traditional display
+            behavior samjnyasathi vaprale janare terms aahet.
+            CSS display property mule final layout badlu shakto.
+        </div>
+
+    </section>
+
+
+    <!-- Section 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Practical Example - Student Details</h2>
+
+        <p>
+            Ata apan HTML tags, elements, nesting,
+            block ani inline elements use karun ek simple
+            Student Details section tayar karu.
+        </p>
+
+        <h3>Code:</h3>
+
+        <pre class="code-block"><code>
+&lt;div&gt;
+
+    &lt;h2&gt;Student Details&lt;/h2&gt;
+
+    &lt;p&gt;Name: Rohan Jagtap&lt;/p&gt;
+
+    &lt;p&gt;Course: &lt;strong&gt;B.Sc Computer Science&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;Subject: &lt;span&gt;Computer Science&lt;/span&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <h2>Student Details</h2>
+            <p>Name: Rohan Jagtap</p>
+            <p>Course: <strong>B.Sc Computer Science</strong></p>
+            <p>Subject: <span>Computer Science</span></p>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>&lt;div&gt; complete content group karte.</li>
+            <li>&lt;h2&gt; student details chi heading dakhavte.</li>
+            <li>&lt;p&gt; student information display karte.</li>
+            <li>&lt;strong&gt; course la importance dete.</li>
+            <li>&lt;span&gt; inline content group karte.</li>
+        </ul>
+
+    </section>
+
+
+    <!-- Section 13 -->
+
+    <section class="lesson-section">
+
+        <h2>13. Common Beginner Mistakes</h2>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 1: Closing Tag visarne</strong>
+
+            <p>
+                Paragraph kiwa heading sarkhya elements che
+                closing tags yogya prakare lihayla havet.
+            </p>
+
+        </div>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 2: Incorrect Nesting</strong>
+
+            <p>
+                Elements open ani close kartana proper order
+                maintain karne avashyak aahe.
+            </p>
+
+        </div>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 3: Void Element la Closing Tag dene</strong>
+
+            <p>
+                img, br ani input sarkhya void elements na
+                closing tags nastat.
+            </p>
+
+        </div>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 4: Tag ani Element same samajne</strong>
+
+            <p>
+                Tag ha markup instruction aahe, tar element
+                hi complete HTML structure aahe.
+            </p>
+
+        </div>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 5: Block ani Inline madhil difference mahit nasne</strong>
+
+            <p>
+                Donhi elements chi normal display behavior
+                vegli aste. CSS ne ti change karta yete.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 14 -->
+
+    <section class="lesson-section">
+
+        <h2>14. Quick Revision</h2>
+
+        <div class="revision-box">
+
+            <ul>
+                <li>HTML tags angle brackets madhye lihitat.</li>
+                <li>Opening tag element chi suruvat karto.</li>
+                <li>Closing tag element cha shevat karto.</li>
+                <li>HTML element madhye tags ani content astat.</li>
+                <li>Void elements la closing tag nasto.</li>
+                <li>Nested elements eka element chya aat dusre element thevtat.</li>
+                <li>Parent element chya aat child elements astat.</li>
+                <li>Sibling elements cha parent same asto.</li>
+                <li>Proper nesting madhye tags yogya order ne close kartat.</li>
+                <li>Block elements normally new line pasun start hotat.</li>
+                <li>Inline elements normally same line madhye display hotat.</li>
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 15 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>15. Practice Questions</h2>
+
+        <h3>Basic Questions</h3>
+
+        <ol>
+            <li>HTML Tag mhanje kay?</li>
+            <li>HTML Element mhanje kay?</li>
+            <li>Opening ani Closing Tag madhil difference lih.</li>
+            <li>Void Element mhanje kay?</li>
+            <li>Char void elements chi nave lih.</li>
+            <li>Nested Elements mhanje kay?</li>
+            <li>Parent ani Child Elements mhanje kay?</li>
+            <li>Sibling Elements mhanje kay?</li>
+            <li>Block-level Element mhanje kay?</li>
+            <li>Inline Element mhanje kay?</li>
+            <li>Block ani Inline Elements madhil difference lih.</li>
+        </ol>
+
+        <h3>Practical Questions</h3>
+
+        <ol>
+            <li>Ek heading ani paragraph tayar kar.</li>
+            <li>Strong tag vaprun important text display kar.</li>
+            <li>Break tag vaprun text new line madhye display kar.</li>
+            <li>Div chya aat heading ani paragraph tayar kar.</li>
+            <li>Parent ani Child Elements cha example lih.</li>
+            <li>Block ani Inline elements che don examples lih.</li>
+            <li>Properly nested HTML structure tayar kar.</li>
+        </ol>
+
+        <div class="task-box">
+
+            <h3>Mini Task: Student Information Card</h3>
+
+            <p>
+                Fakt HTML tags vaprun ek Student Information
+                Card tayar kar.
+            </p>
+
+            <ul>
+                <li>div element vaprun main container tayar kar.</li>
+                <li>h2 element madhye Student Information heading lih.</li>
+                <li>p element madhye student name display kar.</li>
+                <li>strong element madhye course name highlight kar.</li>
+                <li>span element madhye favourite subject lih.</li>
+                <li>br element vaprun line break de.</li>
+                <li>hr element vaprun divider add kar.</li>
+            </ul>
+
+            <p>
+                File Name: <strong>student_card.html</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Lesson Navigation -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'html_topic' 'structure' %}"
+           class="nav-button previous-button">
+            ← Previous: HTML Structure
+        </a>
+
+        <a href="{% url 'html_topic' 'attributes' %}"
+           class="nav-button next-button">
+            Next: HTML Attributes →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

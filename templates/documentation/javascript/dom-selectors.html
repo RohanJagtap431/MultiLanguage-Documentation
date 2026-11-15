@@ -1,0 +1,571 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}DOM Selectors | JavaScript Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/javascript/dom-selectors.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Header -->
+
+    <div class="lesson-header">
+        <span class="lesson-label">JAVASCRIPT DOCUMENTATION • PAGE 18</span>
+
+        <h1>DOM Selectors</h1>
+
+        <p>
+            Ya lesson madhye JavaScript vaprun HTML elements select
+            kase karayche te shikuya. DOM Selectors mule apan
+            specific HTML elements access karu shakto.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Beginner Level</span>
+            <span>35–40 Minutes</span>
+        </div>
+    </div>
+
+    <!-- Section 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What are DOM Selectors?</h2>
+
+        <p>
+            DOM Selectors mhanje JavaScript madhil ase methods jyanchya
+            madatine HTML document madhil specific elements select karta yetat.
+        </p>
+
+        <p>
+            Element select kelyanantar apan tyacha text, style,
+            attributes ani itar properties access kiwa update karu shakto.
+        </p>
+
+        <div class="info-box">
+            <strong>Definition:</strong>
+            DOM Selectors are methods used to find and access HTML
+            elements from a document.
+        </div>
+
+        <h3>Common DOM Selectors:</h3>
+
+        <ul>
+            <li>getElementById()</li>
+            <li>getElementsByClassName()</li>
+            <li>getElementsByTagName()</li>
+            <li>querySelector()</li>
+            <li>querySelectorAll()</li>
+        </ul>
+
+    </section>
+
+    <!-- Section 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. getElementById()</h2>
+
+        <p>
+            getElementById() method cha use HTML madhil specific ID
+            asanara element select karnyasathi hoto.
+        </p>
+
+        <h3>HTML:</h3>
+
+        <pre class="code-block"><code>&lt;h1 id="heading"&gt;Hello World&lt;/h1&gt;</code></pre>
+
+        <h3>JavaScript:</h3>
+
+        <pre class="code-block"><code>const heading = document.getElementById("heading");
+
+console.log(heading);</code></pre>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>document HTML document access karte.</li>
+            <li>getElementById() ID vaprun element select karte.</li>
+            <li>heading variable madhye selected element store hoto.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            ID select kartana # symbol vapraycha nahi.
+            Fakt ID che name lihayche.
+        </div>
+
+    </section>
+
+    <!-- Section 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. getElementsByClassName()</h2>
+
+        <p>
+            Ya method cha use same class name asanare HTML elements
+            select karnyasathi hoto.
+        </p>
+
+        <h3>HTML:</h3>
+
+        <pre class="code-block"><code>&lt;p class="message"&gt;First Message&lt;/p&gt;
+&lt;p class="message"&gt;Second Message&lt;/p&gt;</code></pre>
+
+        <h3>JavaScript:</h3>
+
+        <pre class="code-block"><code>const messages =
+    document.getElementsByClassName("message");
+
+console.log(messages);
+console.log(messages[0]);
+console.log(messages[1]);</code></pre>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>Same class asanare elements select hotat.</li>
+            <li>Result HTMLCollection asto.</li>
+            <li>Index vaprun specific element access karta yeto.</li>
+            <li>Index 0 pasun suru hoto.</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Remember:</strong>
+            Class select kartana dot (.) vapraycha nahi.
+            Fakt class name lihayche.
+        </div>
+
+    </section>
+
+    <!-- Section 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. getElementsByTagName()</h2>
+
+        <p>
+            Ya method cha use specific HTML tag name asanare
+            sarva elements select karnyasathi hoto.
+        </p>
+
+        <h3>HTML:</h3>
+
+        <pre class="code-block"><code>&lt;p&gt;First Paragraph&lt;/p&gt;
+&lt;p&gt;Second Paragraph&lt;/p&gt;
+&lt;h1&gt;Welcome&lt;/h1&gt;</code></pre>
+
+        <h3>JavaScript:</h3>
+
+        <pre class="code-block"><code>const paragraphs =
+    document.getElementsByTagName("p");
+
+console.log(paragraphs);
+console.log(paragraphs[0]);</code></pre>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>Tag name vaprun elements select hotat.</li>
+            <li>Result HTMLCollection asto.</li>
+            <li>Fakt p elements select kele aahet.</li>
+        </ul>
+
+    </section>
+
+    <!-- Section 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. querySelector()</h2>
+
+        <p>
+            querySelector() method CSS selector vaprun element select karte.
+            Matching elements madhil fakt pahila element return hoto.
+        </p>
+
+        <h3>HTML:</h3>
+
+        <pre class="code-block"><code>&lt;h1 id="title"&gt;Welcome&lt;/h1&gt;
+
+&lt;p class="message"&gt;Hello Student&lt;/p&gt;
+
+&lt;p class="message"&gt;Learn JavaScript&lt;/p&gt;</code></pre>
+
+        <h3>JavaScript:</h3>
+
+        <pre class="code-block"><code>const title = document.querySelector("#title");
+
+const message = document.querySelector(".message");
+
+console.log(title);
+console.log(message);</code></pre>
+
+        <h3>Important CSS Selectors:</h3>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Selector</th>
+                    <th>Meaning</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>#title</td>
+                    <td>ID select karte.</td>
+                </tr>
+                <tr>
+                    <td>.message</td>
+                    <td>Class select karte.</td>
+                </tr>
+                <tr>
+                    <td>p</td>
+                    <td>Paragraph tag select karte.</td>
+                </tr>
+                <tr>
+                    <td>div p</td>
+                    <td>div madhil paragraph select karte.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            querySelector() matching elements madhil fakt pahila
+            element return karte. Element match nasel tar null milte.
+        </div>
+
+    </section>
+
+    <!-- Section 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. querySelectorAll()</h2>
+
+        <p>
+            querySelectorAll() method CSS selector vaprun matching
+            asanare sarva elements select karte.
+        </p>
+
+        <h3>HTML:</h3>
+
+        <pre class="code-block"><code>&lt;p class="message"&gt;First&lt;/p&gt;
+&lt;p class="message"&gt;Second&lt;/p&gt;
+&lt;p class="message"&gt;Third&lt;/p&gt;</code></pre>
+
+        <h3>JavaScript:</h3>
+
+        <pre class="code-block"><code>const messages =
+    document.querySelectorAll(".message");
+
+console.log(messages);
+console.log(messages[0]);
+console.log(messages[1]);</code></pre>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>Matching sarva elements select hotat.</li>
+            <li>Result NodeList asto.</li>
+            <li>Index vaprun element access karta yeto.</li>
+            <li>forEach() vaprun NodeList madhil elements var loop chalavta yeto.</li>
+        </ul>
+
+        <h3>Using forEach():</h3>
+
+        <pre class="code-block"><code>const messages =
+    document.querySelectorAll(".message");
+
+messages.forEach(function(message) {
+    console.log(message.textContent);
+});</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>First
+Second
+Third</pre>
+        </div>
+
+    </section>
+
+    <!-- Section 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. DOM Selectors Comparison</h2>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Method</th>
+                    <th>Returns</th>
+                    <th>Selection</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>getElementById()</td>
+                    <td>Single Element</td>
+                    <td>ID</td>
+                </tr>
+                <tr>
+                    <td>getElementsByClassName()</td>
+                    <td>HTMLCollection</td>
+                    <td>Class</td>
+                </tr>
+                <tr>
+                    <td>getElementsByTagName()</td>
+                    <td>HTMLCollection</td>
+                    <td>Tag</td>
+                </tr>
+                <tr>
+                    <td>querySelector()</td>
+                    <td>Single Element</td>
+                    <td>First CSS match</td>
+                </tr>
+                <tr>
+                    <td>querySelectorAll()</td>
+                    <td>NodeList</td>
+                    <td>All CSS matches</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="info-box">
+            <strong>Note:</strong>
+            HTMLCollection ani NodeList ya donhi collections madhye
+            anek elements asu shaktat. HTMLCollection live aste,
+            tar querySelectorAll() chi NodeList static aste.
+        </div>
+
+    </section>
+
+    <!-- Section 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. Practical Example – DOM Selectors</h2>
+
+        <p>
+            Khali dilelya example madhye apan ID, Class ani
+            querySelectorAll() vaprun elements select karu.
+        </p>
+
+        <h3>HTML:</h3>
+
+        <pre class="code-block"><code>&lt;h1 id="pageTitle"&gt;My Website&lt;/h1&gt;
+
+&lt;p class="info"&gt;Learn Python&lt;/p&gt;
+&lt;p class="info"&gt;Learn JavaScript&lt;/p&gt;
+
+&lt;button id="changeButton"&gt;Change Title&lt;/button&gt;</code></pre>
+
+        <h3>JavaScript:</h3>
+
+        <pre class="code-block"><code>const title = document.getElementById("pageTitle");
+
+const infos = document.querySelectorAll(".info");
+
+const button = document.querySelector("#changeButton");
+
+button.addEventListener("click", function() {
+    title.textContent = "Welcome to DOM Selectors!";
+
+    infos.forEach(function(item) {
+        item.textContent = "JavaScript Selected";
+    });
+});</code></pre>
+
+        <h3>Live Output:</h3>
+
+        <div class="output-box demo-output">
+            <h3 id="selector-demo-title">My Website</h3>
+
+            <p class="selector-demo-info">Learn Python</p>
+            <p class="selector-demo-info">Learn JavaScript</p>
+
+            <button type="button" id="selector-demo-button" class="demo-button">
+                Change Title
+            </button>
+        </div>
+
+        <p>
+            Button click kelyavar heading ani donhi paragraphs madhil
+            text change hoto.
+        </p>
+
+    </section>
+
+    <!-- Section 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Common Beginner Mistakes</h2>
+
+        <div class="mistake-card">
+            <strong>Mistake 1: ID select kartana # vaprane</strong>
+            <p>
+                getElementById() madhye fakt ID name lihayche.
+                querySelector() madhye # vapraycha.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 2: Class select kartana dot vaprane</strong>
+            <p>
+                getElementsByClassName() madhye dot vapraycha nahi.
+                querySelector() madhye . vapraycha.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 3: querySelector() sarva elements return karte ase samajne</strong>
+            <p>
+                querySelector() fakt pahila matching element return karte.
+                Sarva elements sathi querySelectorAll() vapra.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 4: Index 1 pasun suru samajne</strong>
+            <p>
+                JavaScript collection madhil index 0 pasun suru hoto.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 5: Missing element check na karne</strong>
+            <p>
+                Element match nasel tar kahi selectors null return kartat.
+                Element access karnyapurvi to available aahe ka te check kara.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- Section 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Quick Revision</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>DOM Selectors HTML elements select kartat.</li>
+                <li>getElementById() ID vaprun ek element select karte.</li>
+                <li>getElementsByClassName() class vaprun elements select karte.</li>
+                <li>getElementsByTagName() tag vaprun elements select karte.</li>
+                <li>querySelector() pahila matching element return karte.</li>
+                <li>querySelectorAll() sarva matching elements return karte.</li>
+                <li>HTMLCollection ani NodeList collections aahet.</li>
+                <li>JavaScript collection madhye index 0 pasun suru hoto.</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <!-- Section 11 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>11. Practice Questions</h2>
+
+        <h3>Basic Questions</h3>
+
+        <ol>
+            <li>DOM Selectors mhanje kay?</li>
+            <li>getElementById() cha use kay aahe?</li>
+            <li>getElementsByClassName() kay return karte?</li>
+            <li>getElementsByTagName() cha use kay aahe?</li>
+            <li>querySelector() ani querySelectorAll() madhye kay difference aahe?</li>
+            <li>HTMLCollection ani NodeList mhanje kay?</li>
+            <li>Index kontya number pasun suru hoto?</li>
+        </ol>
+
+        <h3>Practical Questions</h3>
+
+        <ol>
+            <li>ID vaprun h1 element select kar.</li>
+            <li>Class vaprun sarva paragraph elements select kar.</li>
+            <li>Tag name vaprun sarva h2 elements select kar.</li>
+            <li>querySelector() vaprun pahila paragraph select kar.</li>
+            <li>querySelectorAll() vaprun sarva list items select kar.</li>
+            <li>forEach() vaprun sarva selected paragraph cha text print kar.</li>
+        </ol>
+
+        <div class="task-box">
+
+            <h3>Mini Task: Student List Selector</h3>
+
+            <p>
+                Ek simple student list webpage tayar kar ani DOM
+                Selectors vaprun tyatil elements access kar.
+            </p>
+
+            <ul>
+                <li>Ek heading tayar kar ani tyala ID de.</li>
+                <li>Teen student names paragraph madhye lih.</li>
+                <li>Sarva paragraphs na same class de.</li>
+                <li>getElementById() vaprun heading select kar.</li>
+                <li>querySelectorAll() vaprun student names select kar.</li>
+                <li>forEach() vaprun sarva names console madhye print kar.</li>
+            </ul>
+
+            <p>
+                File name: <strong>javascript_dom_selectors.html</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Navigation -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'javascript_topic' 'dom' %}"
+           class="nav-button previous-button">
+            ← Previous: DOM Introduction
+        </a>
+
+        <a href="{% url 'javascript_topic' 'dom-manipulation' %}"
+           class="nav-button next-button">
+            Next: DOM Manipulation →
+        </a>
+
+    </div>
+
+</div>
+
+<script>
+    const selectorDemoTitle =
+        document.getElementById("selector-demo-title");
+
+    const selectorDemoInfos =
+        document.querySelectorAll(".selector-demo-info");
+
+    const selectorDemoButton =
+        document.querySelector("#selector-demo-button");
+
+    selectorDemoButton.addEventListener("click", function () {
+        selectorDemoTitle.textContent = "Welcome to DOM Selectors!";
+
+        selectorDemoInfos.forEach(function (item) {
+            item.textContent = "JavaScript Selected";
+        });
+    });
+</script>
+
+{% endblock %}

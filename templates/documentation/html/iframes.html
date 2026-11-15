@@ -1,0 +1,837 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}
+HTML Iframes | Roman Marathi
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/html/iframes.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+
+    <div class="lesson-header">
+
+        <span class="lesson-label">HTML DOCUMENTATION • PAGE 14</span>
+
+        <h1>HTML Iframes</h1>
+
+        <p>
+            Iframe vaprun eka webpage madhye dusra webpage,
+            YouTube video kiwa Google Maps embed karne shikuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Beginner Level</span>
+            <span>35–40 Minutes</span>
+        </div>
+
+    </div>
+
+
+    <!-- Section 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What is an Iframe?</h2>
+
+        <p>
+            Iframe mhanje Inline Frame. HTML madhye
+            &lt;iframe&gt; element cha use eka webpage madhye
+            dusra webpage kiwa external content display
+            karnyasathi hoto.
+        </p>
+
+        <h3>Examples:</h3>
+
+        <ul>
+            <li>Website madhye YouTube video display karne.</li>
+            <li>Website madhye Google Maps display karne.</li>
+            <li>External webpage embed karne.</li>
+            <li>Online documents kiwa other supported content display karne.</li>
+        </ul>
+
+        <div class="info-box">
+            <strong>Simple Definition:</strong>
+            Iframe mhanje eka webpage madhye dusra webpage
+            kiwa external content display karnyasathi
+            vaparla janara HTML element.
+        </div>
+
+    </section>
+
+
+    <!-- Section 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. HTML Iframe Element</h2>
+
+        <p>
+            Iframe create karnyasathi &lt;iframe&gt;
+            element vaparto.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>
+&lt;iframe src="https://example.com"&gt;
+
+&lt;/iframe&gt;
+        </code></pre>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>iframe = Inline Frame create karto.</li>
+            <li>src = Display karaychya webpage cha URL specify karto.</li>
+            <li>Closing iframe tag = Iframe element close karto.</li>
+        </ul>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;iframe
+    src="https://example.com"
+    title="Example Website"&gt;
+&lt;/iframe&gt;
+        </code></pre>
+
+        <p>
+            Ya example madhye browser example.com
+            webpage iframe madhye load karnyacha prayatna karto.
+        </p>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Pratyek website iframe madhye load hoilach ase nahi.
+            Website security settings mule embedding block
+            karu shakte.
+        </div>
+
+    </section>
+
+
+    <!-- Section 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. Iframe Width and Height</h2>
+
+        <p>
+            Iframe chi width ani height set karnyasathi
+            width ani height attributes vaparta yetat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;iframe
+    src="https://example.com"
+    width="600"
+    height="400"
+    title="Example Website"&gt;
+&lt;/iframe&gt;
+        </code></pre>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>width = Iframe chi width set karto.</li>
+            <li>height = Iframe chi height set karto.</li>
+        </ul>
+
+        <h3>Output Preview:</h3>
+
+        <div class="output-box">
+
+            <div class="iframe-preview">
+                <div class="iframe-preview-header">
+                    Example Website
+                </div>
+
+                <div class="iframe-preview-content">
+                    <span>Website Preview</span>
+                    <small>600 × 400</small>
+                </div>
+            </div>
+
+        </div>
+
+        <p>
+            Ha fakt visual preview aahe. Actual iframe
+            madhye external webpage load hoto.
+        </p>
+
+    </section>
+
+
+    <!-- Section 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. Iframe Important Attributes</h2>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>Attribute</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>src</td>
+                    <td>External content cha URL specify karto.</td>
+                </tr>
+
+                <tr>
+                    <td>title</td>
+                    <td>Iframe cha accessible description provide karto.</td>
+                </tr>
+
+                <tr>
+                    <td>width</td>
+                    <td>Iframe chi width set karto.</td>
+                </tr>
+
+                <tr>
+                    <td>height</td>
+                    <td>Iframe chi height set karto.</td>
+                </tr>
+
+                <tr>
+                    <td>loading</td>
+                    <td>Iframe loading behavior sathi hint deto.</td>
+                </tr>
+
+                <tr>
+                    <td>allow</td>
+                    <td>Iframe madhil content la specific features chi permission deto.</td>
+                </tr>
+
+                <tr>
+                    <td>sandbox</td>
+                    <td>Iframe madhil content var additional restrictions apply karto.</td>
+                </tr>
+
+                <tr>
+                    <td>referrerpolicy</td>
+                    <td>Referrer information kashi send karaychi te control karto.</td>
+                </tr>
+
+                <tr>
+                    <td>allowfullscreen</td>
+                    <td>Iframe content la fullscreen mode allow karto.</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+
+    <!-- Section 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. YouTube Video Embed</h2>
+
+        <p>
+            Website madhye YouTube video display karnyasathi
+            iframe vaparta yeto.
+        </p>
+
+        <h3>Step 1: YouTube Video Open Kar</h3>
+
+        <p>
+            YouTube var video open kar ani Share option madhun
+            Embed option select kar.
+        </p>
+
+        <h3>Step 2: Embed URL Samjun Ghe</h3>
+
+        <p>
+            YouTube embed URL cha format asa asto:
+        </p>
+
+        <pre class="code-block"><code>
+https://www.youtube.com/embed/VIDEO_ID
+        </code></pre>
+
+        <p>
+            VIDEO_ID chya jagi actual YouTube video ID
+            specify karaychi aste.
+        </p>
+
+        <h3>Step 3: HTML Code</h3>
+
+        <pre class="code-block"><code>
+&lt;iframe
+    width="560"
+    height="315"
+    src="https://www.youtube.com/embed/VIDEO_ID"
+    title="YouTube Video Player"
+    allowfullscreen&gt;
+&lt;/iframe&gt;
+        </code></pre>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            YouTube video chi normal watch URL ani embed URL
+            vegli asu shakte. Embed karnyasathi YouTube cha
+            Embed option vaprane best aahe.
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            VIDEO_ID replace karun actual video ID tak.
+            Video owner ne embedding allow keli nasel tar
+            video iframe madhye play honar nahi.
+        </div>
+
+    </section>
+
+
+    <!-- Section 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. Google Maps Embed</h2>
+
+        <p>
+            Website madhye location kiwa address display
+            karnyasathi Google Maps iframe embed karta yeto.
+        </p>
+
+        <h3>Step 1: Google Maps Open Kar</h3>
+
+        <p>
+            Google Maps madhye required location search kar.
+        </p>
+
+        <h3>Step 2: Share Option Select Kar</h3>
+
+        <p>
+            Share option madhye Embed a map select kar.
+            Tyanantar HTML embed code copy kar.
+        </p>
+
+        <h3>Step 3: HTML Code</h3>
+
+        <pre class="code-block"><code>
+&lt;iframe
+    src="GOOGLE_MAPS_EMBED_URL"
+    width="600"
+    height="450"
+    title="Google Maps Location"
+    loading="lazy"&gt;
+&lt;/iframe&gt;
+        </code></pre>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Google Maps cha actual embed URL use kar.
+            Fakt normal Google Maps link iframe madhye
+            taklyane map display hoilach ase nahi.
+        </div>
+
+    </section>
+
+
+    <!-- Section 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. Loading Attribute</h2>
+
+        <p>
+            Loading attribute iframe browser madhye
+            kevha load karaycha yachi hint provide karto.
+        </p>
+
+        <h3>Loading Lazy:</h3>
+
+        <p>
+            loading="lazy" vaparlyas iframe viewport chya
+            javal alyavar load honyas madat hote.
+        </p>
+
+        <pre class="code-block"><code>
+&lt;iframe
+    src="https://example.com"
+    title="Example Website"
+    loading="lazy"&gt;
+&lt;/iframe&gt;
+        </code></pre>
+
+        <h3>Loading Eager:</h3>
+
+        <p>
+            loading="eager" vaparlyas iframe lavkar load
+            karnyacha browser prayatna karto.
+        </p>
+
+        <pre class="code-block"><code>
+&lt;iframe
+    src="https://example.com"
+    title="Example Website"
+    loading="eager"&gt;
+&lt;/iframe&gt;
+        </code></pre>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            Lazy loading mule initial page loading madhye
+            unnecessary external content load karne kami hou shakte.
+        </div>
+
+    </section>
+
+
+    <!-- Section 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. Allow Attribute</h2>
+
+        <p>
+            Allow attribute iframe madhil content la
+            specific browser features use karnyachi
+            permission denyasathi vaparto.
+        </p>
+
+        <p>
+            Udaharanarth autoplay, fullscreen kiwa
+            picture-in-picture.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;iframe
+    src="VIDEO_EMBED_URL"
+    title="Video Player"
+    allow="fullscreen; picture-in-picture"
+    allowfullscreen&gt;
+&lt;/iframe&gt;
+        </code></pre>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Allow attribute permission specify karto.
+            Pan browser settings, user permissions ani
+            iframe provider restrictions suddha apply hotat.
+        </div>
+
+    </section>
+
+
+    <!-- Section 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Sandbox Attribute</h2>
+
+        <p>
+            Sandbox attribute iframe madhil content var
+            additional restrictions apply karnyasathi vaparto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;iframe
+    src="https://example.com"
+    title="Restricted Content"
+    sandbox&gt;
+&lt;/iframe&gt;
+        </code></pre>
+
+        <p>
+            Sandbox attribute without permissions vaparlyas
+            iframe madhil content var strict restrictions
+            apply hotat.
+        </p>
+
+        <h3>Common Sandbox Permissions:</h3>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>Permission</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>allow-scripts</td>
+                    <td>Iframe madhil scripts execute karu deto.</td>
+                </tr>
+
+                <tr>
+                    <td>allow-forms</td>
+                    <td>Forms submit karu deto.</td>
+                </tr>
+
+                <tr>
+                    <td>allow-popups</td>
+                    <td>Popups open karnyas permission deto.</td>
+                </tr>
+
+                <tr>
+                    <td>allow-downloads</td>
+                    <td>Downloads allow karto.</td>
+                </tr>
+
+                <tr>
+                    <td>allow-same-origin</td>
+                    <td>Content la tyacha normal origin retain karu deto.</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <h3>Example with Permissions:</h3>
+
+        <pre class="code-block"><code>
+&lt;iframe
+    src="https://example.com"
+    title="Sandbox Example"
+    sandbox="allow-scripts allow-forms"&gt;
+&lt;/iframe&gt;
+        </code></pre>
+
+        <div class="important-box">
+            <strong>Security Note:</strong>
+            Sandbox permissions vicharpurvak vapr.
+            allow-scripts ani allow-same-origin ekatra
+            same-origin content sathi vaparlyas sandbox
+            protection kamjor hou shakte.
+        </div>
+
+    </section>
+
+
+    <!-- Section 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Referrer Policy</h2>
+
+        <p>
+            Referrerpolicy attribute external website
+            kade request jatana referrer information
+            kashi send karaychi te control karto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;iframe
+    src="https://example.com"
+    title="Example Website"
+    referrerpolicy="strict-origin-when-cross-origin"&gt;
+&lt;/iframe&gt;
+        </code></pre>
+
+        <p>
+            Ya example madhye browser cross-origin request
+            sathi full URL path share na karta policy nusar
+            referrer information handle karto.
+        </p>
+
+    </section>
+
+
+    <!-- Section 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Responsive Iframe Design</h2>
+
+        <p>
+            Website mobile, tablet ani desktop var properly
+            display honyasathi iframe responsive banavne important aahe.
+        </p>
+
+        <h3>HTML Code:</h3>
+
+        <pre class="code-block"><code>
+&lt;div class="iframe-container"&gt;
+
+    &lt;iframe
+        src="VIDEO_EMBED_URL"
+        title="Responsive Video"
+        allowfullscreen&gt;
+    &lt;/iframe&gt;
+
+&lt;/div&gt;
+        </code></pre>
+
+        <h3>CSS Code:</h3>
+
+        <pre class="code-block"><code>
+.iframe-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+}
+
+.iframe-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+        </code></pre>
+
+        <h3>Output Preview:</h3>
+
+        <div class="output-box">
+
+            <div class="responsive-iframe-preview">
+                <div class="responsive-iframe-content">
+                    <span>▶</span>
+                    <p>Responsive Video Preview</p>
+                    <small>16:9 Aspect Ratio</small>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            aspect-ratio: 16 / 9 vaparlyane video
+            container cha proportion maintain karne easy hote.
+        </div>
+
+    </section>
+
+
+    <!-- Section 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Iframe Security and Permissions</h2>
+
+        <p>
+            Iframe madhye external website load hot aslyamule
+            security ani privacy lakshat ghene important aahe.
+        </p>
+
+        <ul>
+            <li>
+                Trusted websites cha content embed kar.
+            </li>
+
+            <li>
+                Garjenusar sandbox attribute vapr.
+            </li>
+
+            <li>
+                Iframe la meaningful title provide kar.
+            </li>
+
+            <li>
+                Unnecessary permissions allow karu naye.
+            </li>
+
+            <li>
+                External content cha loading carefully handle kar.
+            </li>
+
+            <li>
+                Sensitive information iframe madhye
+                expose karu naye.
+            </li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Iframe content third-party website control karte.
+            Tya website cha content, privacy ani security
+            policies suddha lakshat ghe.
+        </div>
+
+    </section>
+
+
+    <!-- Section 13 -->
+
+    <section class="lesson-section">
+
+        <h2>13. Common Beginner Mistakes</h2>
+
+        <div class="mistake-card">
+            <strong>Mistake 1: Wrong URL</strong>
+            <p>
+                Iframe madhye correct webpage kiwa embed URL
+                provide karne necessary aahe.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 2: Title Attribute विसरणे</strong>
+            <p>
+                Accessibility sathi iframe la meaningful
+                title provide kar.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 3: Every Website Embed Hoil Ase Samajne</strong>
+            <p>
+                Website security policies mule iframe
+                embedding block hou shakte.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 4: Responsive Design Ignore Karne</strong>
+            <p>
+                Fixed width mule mobile layout madhye
+                horizontal scrolling hou shakte.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 5: Unnecessary Permissions Denе</strong>
+            <p>
+                Allow ani sandbox attributes vicharpurvak vapr.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 6: Wrong Embed URL</strong>
+            <p>
+                YouTube ani Google Maps sathi tyanchya
+                official embed options madhun URL ghe.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- Section 14 -->
+
+    <section class="lesson-section">
+
+        <h2>14. Quick Revision</h2>
+
+        <div class="revision-box">
+
+            <ul>
+                <li>iframe = Inline Frame.</li>
+                <li>src = External content cha URL.</li>
+                <li>title = Iframe description.</li>
+                <li>width = Iframe chi width.</li>
+                <li>height = Iframe chi height.</li>
+                <li>loading = Loading behavior hint.</li>
+                <li>allow = Specific features chi permission.</li>
+                <li>sandbox = Additional security restrictions.</li>
+                <li>referrerpolicy = Referrer information control.</li>
+                <li>allowfullscreen = Fullscreen permission.</li>
+                <li>aspect-ratio = Responsive proportions maintain karne.</li>
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 15 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>15. Practice Questions</h2>
+
+        <h3>Basic Questions</h3>
+
+        <ol>
+            <li>Iframe mhanje kay?</li>
+            <li>HTML madhye iframe element cha use kay aahe?</li>
+            <li>src ani title attributes cha use lih.</li>
+            <li>Iframe madhye width ani height kasa set kartat?</li>
+            <li>YouTube video iframe madhye kasa embed kartat?</li>
+            <li>Google Maps iframe madhye kasa embed kartat?</li>
+            <li>Loading lazy attribute mhanje kay?</li>
+            <li>Allow attribute cha use kay aahe?</li>
+            <li>Sandbox attribute mhanje kay?</li>
+            <li>Responsive iframe mhanje kay?</li>
+            <li>Iframe security sathi konti kalji ghyavi?</li>
+        </ol>
+
+        <h3>Practical Questions</h3>
+
+        <ol>
+            <li>Simple iframe create kar.</li>
+            <li>Iframe madhye width ani height set kar.</li>
+            <li>Title attribute vaprun iframe create kar.</li>
+            <li>YouTube video embed kar.</li>
+            <li>Google Maps location embed kar.</li>
+            <li>Loading lazy attribute vaprun iframe create kar.</li>
+            <li>Sandbox attribute vaprun iframe create kar.</li>
+            <li>CSS vaprun responsive iframe create kar.</li>
+        </ol>
+
+        <div class="task-box">
+
+            <h3>Mini Task: My Learning Resources Page</h3>
+
+            <p>
+                HTML ani CSS vaprun Learning Resources
+                webpage create kar.
+            </p>
+
+            <ul>
+                <li>Header – My Learning Resources</li>
+                <li>Section – YouTube Tutorial Embed</li>
+                <li>Section – Google Maps Embed</li>
+                <li>Section – External Learning Website</li>
+                <li>Iframe Title Attributes</li>
+                <li>Responsive Iframe Design</li>
+            </ul>
+
+            <p>
+                File Name:
+                <strong>learning_resources.html</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Lesson Navigation -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'html_topic' 'audio-video' %}"
+           class="nav-button previous-button">
+            ← Previous: Audio and Video
+        </a>
+
+        <a href="{% url 'html_topic' 'html-entities' %}"
+           class="nav-button next-button">
+            Next: HTML Entities →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,473 @@
+
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}CSS Margin and Padding | Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/css/margin-padding.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+    <div class="lesson-header">
+        <span class="lesson-label">CSS TUTORIAL</span>
+
+        <h1>CSS Margin and Padding</h1>
+
+        <p>
+            CSS Margin and Padding cha use HTML elements
+            madhil spacing control karanyasathi hoto.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 20 Minutes</span>
+            <span>📄 Page 10</span>
+        </div>
+    </div>
+
+
+    <!-- Section 1 -->
+    <section class="lesson-section">
+
+        <h2>1. Introduction</h2>
+
+        <p>
+            Website design kartana elements madhye yogya
+            spacing thevne mahatvache aste.
+            CSS madhye spacing sathi Margin ani Padding
+            ya don properties vapartat.
+        </p>
+
+        <div class="info-box">
+            <strong>Definition:</strong>
+            Margin is the space outside an element's border,
+            while Padding is the space between the content
+            and the border.
+        </div>
+
+    </section>
+
+
+    <!-- Section 2 -->
+    <section class="lesson-section">
+
+        <h2>2. CSS Margin</h2>
+
+        <p>
+            <strong>margin</strong> property cha use
+            HTML element chya border chya baher space
+            denyasathi hoto.
+        </p>
+
+        <p>
+            Margin mule don HTML elements madhye
+            antar tayar karta yete.
+        </p>
+
+        <h3>Margin Properties</h3>
+
+        <ul>
+            <li>margin-top – Varil bajula space dete.</li>
+            <li>margin-bottom – Khalil bajula space dete.</li>
+            <li>margin-left – Davya bajula space dete.</li>
+            <li>margin-right – Ujvya bajula space dete.</li>
+        </ul>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    margin-left: 15px;
+    margin-right: 15px;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box margin-output">
+            <div class="margin-demo">
+                CSS Box
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Section 3 -->
+    <section class="lesson-section">
+
+        <h2>3. Margin Shorthand</h2>
+
+        <p>
+            Margin shorthand cha use charhi bajunchya
+            margin values ekach line madhye set
+            karanyasathi hoto.
+        </p>
+
+        <h3>Four Values</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    margin: 10px 20px 30px 40px;
+}</code></pre>
+        </div>
+
+        <ul>
+            <li>1st value – Top</li>
+            <li>2nd value – Right</li>
+            <li>3rd value – Bottom</li>
+            <li>4th value – Left</li>
+        </ul>
+
+        <h3>Other Shorthand Examples</h3>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>CSS Code</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>margin: 20px;</td>
+                        <td>All four sides 20px.</td>
+                    </tr>
+
+                    <tr>
+                        <td>margin: 10px 20px;</td>
+                        <td>Top/Bottom 10px, Left/Right 20px.</td>
+                    </tr>
+
+                    <tr>
+                        <td>margin: 10px 20px 30px;</td>
+                        <td>Top 10px, Left/Right 20px, Bottom 30px.</td>
+                    </tr>
+
+                    <tr>
+                        <td>margin: 10px 20px 30px 40px;</td>
+                        <td>Top, Right, Bottom, Left.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tip-box">
+            <strong>Shortcut Lakshat Thev:</strong>
+            Four values cha order Top → Right → Bottom → Left
+            asa asto.
+        </div>
+
+    </section>
+
+
+    <!-- Section 4 -->
+    <section class="lesson-section">
+
+        <h2>4. Margin Auto</h2>
+
+        <p>
+            <strong>margin: auto;</strong> cha use
+            fixed kiwa maximum width aslelya block element la
+            horizontal direction madhye center karanyasathi
+            karta yeto.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    width: 200px;
+    margin: 0 auto;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box auto-output">
+            <div class="auto-demo">
+                Centered Box
+            </div>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            margin: auto mule element vertical direction
+            madhye automatically center hot nahi.
+            Ya example madhye horizontal centering hote.
+        </div>
+
+    </section>
+
+
+    <!-- Section 5 -->
+    <section class="lesson-section">
+
+        <h2>5. CSS Padding</h2>
+
+        <p>
+            <strong>padding</strong> property cha use
+            content ani border yanchya madhye space
+            denyasathi hoto.
+        </p>
+
+        <p>
+            Padding mule element madhil content la
+            border pasun antar milte.
+        </p>
+
+        <h3>Padding Properties</h3>
+
+        <ul>
+            <li>padding-top – Varil bajula internal space dete.</li>
+            <li>padding-bottom – Khalil bajula internal space dete.</li>
+            <li>padding-left – Davya bajula internal space dete.</li>
+            <li>padding-right – Ujvya bajula internal space dete.</li>
+        </ul>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box padding-output">
+            <div class="padding-demo">
+                CSS Padding Example
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Section 6 -->
+    <section class="lesson-section">
+
+        <h2>6. Padding Shorthand</h2>
+
+        <p>
+            Padding shorthand cha use charhi bajunchya
+            padding values ekach declaration madhye
+            set karanyasathi hoto.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    padding: 10px 20px 30px 40px;
+}</code></pre>
+        </div>
+
+        <ul>
+            <li>1st value – Top</li>
+            <li>2nd value – Right</li>
+            <li>3rd value – Bottom</li>
+            <li>4th value – Left</li>
+        </ul>
+
+        <h3>Other Shorthand Examples</h3>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>CSS Code</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>padding: 20px;</td>
+                        <td>All four sides 20px.</td>
+                    </tr>
+
+                    <tr>
+                        <td>padding: 10px 20px;</td>
+                        <td>Top/Bottom 10px, Left/Right 20px.</td>
+                    </tr>
+
+                    <tr>
+                        <td>padding: 10px 20px 30px;</td>
+                        <td>Top 10px, Left/Right 20px, Bottom 30px.</td>
+                    </tr>
+
+                    <tr>
+                        <td>padding: 10px 20px 30px 40px;</td>
+                        <td>Top, Right, Bottom, Left.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+
+    <!-- Section 7 -->
+    <section class="lesson-section">
+
+        <h2>7. Difference Between Margin and Padding</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+
+                <thead>
+                    <tr>
+                        <th>Margin</th>
+                        <th>Padding</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Element chya baher space dete.</td>
+                        <td>Content ani border madhye space dete.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Elements madhye antar tayar karte.</td>
+                        <td>Content chya around internal space dete.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Background element chya border-box paryant asto.</td>
+                        <td>Background padding area madhyehi disato.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Margin negative asu shakto.</td>
+                        <td>Padding negative asu shakat nahi.</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+    </section>
+
+
+    <!-- Section 8 -->
+    <section class="lesson-section">
+
+        <h2>8. Practical Example</h2>
+
+        <p>
+            Khali dilelya example madhye aapan margin,
+            padding ani border vaprun ek simple card
+            tayar karanar aahot.
+        </p>
+
+        <h3>HTML Code</h3>
+
+        <div class="code-block">
+            <pre><code>&lt;div class="card"&gt;
+    &lt;h2&gt;CSS Learning&lt;/h2&gt;
+    &lt;p&gt;Learn Margin and Padding.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.card {
+    width: 300px;
+    padding: 20px;
+    margin: 30px auto;
+    border: 1px solid #ccc;
+    background-color: #f0f4ff;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box practical-output">
+            <div class="demo-card">
+                <h3>CSS Learning</h3>
+                <p>Learn Margin and Padding.</p>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Section 9 -->
+    <section class="lesson-section">
+
+        <h2>9. Important Points</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>Margin element chya baher space dete.</li>
+                <li>Padding content ani border madhye space dete.</li>
+                <li>Margin madhye char directional properties astat.</li>
+                <li>Padding madhyehi char directional properties astat.</li>
+                <li>Shorthand mule charhi values ekach line madhye set karta yetat.</li>
+                <li>margin: auto horizontal centering sathi upyogi aahe.</li>
+                <li>Negative margin possible aahe, pan negative padding allowed nahi.</li>
+            </ul>
+        </div>
+
+    </section>
+
+
+    <!-- Practice -->
+    <section class="practice-section">
+
+        <h2>10. Practice Task</h2>
+
+        <div class="task-box">
+
+            <h3>Task: Create a Styled Card</h3>
+
+            <p>Ek HTML card tayar kara ani tyamadhye:</p>
+
+            <ol>
+                <li>Card chi width 300px set kara.</li>
+                <li>Padding 25px dya.</li>
+                <li>Margin 30px auto dya.</li>
+                <li>Border 1px solid black dya.</li>
+                <li>Background color set kara.</li>
+                <li>Margin shorthand vaprun paha.</li>
+                <li>Padding shorthand vaprun paha.</li>
+            </ol>
+
+        </div>
+
+    </section>
+
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+
+        <a href="{% url 'css_topic' 'box-model' %}"
+           class="nav-button previous">
+            ← Previous: CSS Box Model
+        </a>
+
+        <a href="{% url 'css_topic' 'borders-outlines' %}"
+           class="nav-button next">
+            Next: Borders and Outlines →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

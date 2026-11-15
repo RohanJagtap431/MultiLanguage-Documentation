@@ -1,0 +1,85 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Register | MultiLanguage Documentation</title>
+
+    <link rel="stylesheet" href="{% static 'css/auth.css' %}">
+</head>
+<body>
+
+    <main class="auth-container">
+
+        <section class="auth-card">
+
+            <div class="brand">
+                <div class="brand-icon">M</div>
+                <span>MultiLanguage Documentation</span>
+            </div>
+
+            <div class="heading">
+                <h1>Create Account</h1>
+                <p>Register to access programming documentation.</p>
+            </div>
+
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="message {{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            <form method="POST">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Enter your full name"
+                        maxlength="100"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="mobile_number">Mobile Number</label>
+                    <input
+                        type="tel"
+                        id="mobile_number"
+                        name="mobile_number"
+                        placeholder="Enter your mobile number"
+                        pattern="[0-9]{10,15}"
+                        maxlength="15"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="register-btn">
+                    Create Account
+                </button>
+
+            </form>
+
+            <div class="auth-footer">
+                <p>Already registered? <a href="{% url 'login' %}">Login here</a></p>
+            </div>
+
+        </section>
+
+        <footer>
+            © 2026 MultiLanguage Documentation. All rights reserved.
+        </footer>
+
+    </main>
+
+</body>
+</html>

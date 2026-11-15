@@ -1,0 +1,1009 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}
+HTML Accessibility | HTML Documentation
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/html/accessibility.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+
+    <div class="lesson-header">
+
+        <span class="lesson-label">HTML DOCUMENTATION • PAGE 18</span>
+
+        <h1>HTML Accessibility</h1>
+
+        <p>
+            Website sarva users sathi accessible,
+            understandable ani easy to use kashi banvaychi
+            te shikuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Beginner Level</span>
+            <span>35–40 Minutes</span>
+        </div>
+
+    </div>
+
+
+    <!-- Section 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What is Web Accessibility?</h2>
+
+        <p>
+            Web Accessibility mhanje website ashi design
+            ani develop karne ki sarva lokanna website
+            access ani use karta yeil.
+        </p>
+
+        <p>
+            Yat visual, hearing, physical kiwa
+            cognitive difficulties aslelya users cha
+            suddha vichar kela jato.
+        </p>
+
+        <h3>Examples:</h3>
+
+        <ul>
+            <li>Blind users screen readers use karu shaktat.</li>
+            <li>Hearing difficulties aslelya users sathi captions.</li>
+            <li>Keyboard vaprun website navigate karta yene.</li>
+            <li>Text readable ani clear asne.</li>
+            <li>Images sathi alternative text provide karne.</li>
+        </ul>
+
+        <div class="info-box">
+            <strong>Simple Definition:</strong>
+            Web Accessibility mhanje website sarva users
+            sathi accessible ani usable banavne.
+        </div>
+
+    </section>
+
+
+    <!-- Section 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Importance of Accessibility</h2>
+
+        <p>
+            Accessibility mule website jast users sathi
+            usable bante.
+        </p>
+
+        <h3>Benefits:</h3>
+
+        <ul>
+            <li>More users website use karu shaktat.</li>
+            <li>Screen reader users na content samajto.</li>
+            <li>Keyboard navigation improve hote.</li>
+            <li>Forms use karne sope hote.</li>
+            <li>Website cha overall user experience improve hoto.</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Remember:</strong>
+            Accessibility hi website development madhil
+            important requirement aahe.
+        </div>
+
+    </section>
+
+
+    <!-- Section 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. Alt Attribute</h2>
+
+        <p>
+            Alt attribute image cha text description
+            provide karto.
+        </p>
+
+        <p>
+            Screen reader image cha alt text read karu shakto.
+            Image load zali nahi tari description useful tharte.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;img src="student.jpg"
+     alt="Student studying computer science"&gt;
+        </code></pre>
+
+        <h3>Decorative Image:</h3>
+
+        <p>
+            Image fakt decoration sathi asel ani
+            additional information det nasel tar
+            empty alt attribute vapru shakto.
+        </p>
+
+        <pre class="code-block"><code>
+&lt;img src="decoration.png" alt=""&gt;
+        </code></pre>
+
+        <h3>Important Points:</h3>
+
+        <ul>
+            <li>Image cha meaning describe kara.</li>
+            <li>Meaningful alt text liha.</li>
+            <li>Unnecessary keywords add karu naka.</li>
+            <li>Decorative images sathi alt="" vapra.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Alt text image chya purpose nusar asava.
+            Fakt image cha filename alt madhye deu naka.
+        </div>
+
+    </section>
+
+
+    <!-- Section 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. Labels and Form Accessibility</h2>
+
+        <p>
+            Form madhil input fields sathi proper
+            label use karne important aahe.
+        </p>
+
+        <p>
+            Label mule screen reader users la input
+            field cha purpose samajto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;label for="username"&gt;
+    Username:
+&lt;/label&gt;
+
+&lt;input type="text"
+       id="username"
+       name="username"&gt;
+        </code></pre>
+
+        <h3>Important Points:</h3>
+
+        <ul>
+            <li>Label cha for attribute input chya id shi match asava.</li>
+            <li>Pratyek important input la label dya.</li>
+            <li>Placeholder ha label cha replacement nahi.</li>
+            <li>Error messages clear ani understandable theva.</li>
+        </ul>
+
+        <h3>Output:</h3>
+
+        <div class="output-box form-output">
+
+            <form>
+                <label for="demoUsername">Username:</label>
+
+                <input type="text"
+                       id="demoUsername"
+                       name="username"
+                       placeholder="Enter username">
+
+                <label for="demoEmail">Email:</label>
+
+                <input type="email"
+                       id="demoEmail"
+                       name="email"
+                       placeholder="Enter email">
+
+                <button type="button">Submit</button>
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. Semantic HTML and Accessibility</h2>
+
+        <p>
+            Semantic HTML elements webpage madhil
+            content cha meaning define kartat.
+        </p>
+
+        <p>
+            Screen readers ani assistive technologies
+            semantic elements cha use karun webpage
+            structure samjun gheu shaktat.
+        </p>
+
+        <h3>Important Elements:</h3>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>Element</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>&lt;header&gt;</td>
+                    <td>Header section define karto.</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;nav&gt;</td>
+                    <td>Navigation area define karto.</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;main&gt;</td>
+                    <td>Main content define karto.</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;article&gt;</td>
+                    <td>Independent content define karto.</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;section&gt;</td>
+                    <td>Thematic section define karto.</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;footer&gt;</td>
+                    <td>Footer information define karto.</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;header&gt;
+    &lt;h1&gt;My Website&lt;/h1&gt;
+&lt;/header&gt;
+
+&lt;nav aria-label="Main navigation"&gt;
+    &lt;a href="/"&gt;Home&lt;/a&gt;
+    &lt;a href="/about/"&gt;About&lt;/a&gt;
+&lt;/nav&gt;
+
+&lt;main&gt;
+    &lt;article&gt;
+        &lt;h2&gt;About HTML&lt;/h2&gt;
+        &lt;p&gt;HTML creates webpage structure.&lt;/p&gt;
+    &lt;/article&gt;
+&lt;/main&gt;
+
+&lt;footer&gt;
+    &lt;p&gt;Copyright 2026&lt;/p&gt;
+&lt;/footer&gt;
+        </code></pre>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Semantic HTML vaparlyane unnecessary
+            generic div elements cha use kami hoto
+            ani document structure clear hote.
+        </div>
+
+    </section>
+
+
+    <!-- Section 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. Keyboard Navigation</h2>
+
+        <p>
+            Kahi users mouse aivaji keyboard vaprun
+            website operate kartat.
+        </p>
+
+        <p>
+            Keyboard navigation mule user webpage madhil
+            links, buttons ani form controls access karu shakto.
+        </p>
+
+        <h3>Important Keyboard Keys:</h3>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>Key</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Tab</td>
+                    <td>Next focusable element var jate.</td>
+                </tr>
+
+                <tr>
+                    <td>Shift + Tab</td>
+                    <td>Previous focusable element var jate.</td>
+                </tr>
+
+                <tr>
+                    <td>Enter</td>
+                    <td>Focused link kiwa button activate karto.</td>
+                </tr>
+
+                <tr>
+                    <td>Space</td>
+                    <td>Button activate karto.</td>
+                </tr>
+
+                <tr>
+                    <td>Arrow Keys</td>
+                    <td>Kahi controls madhye navigation kartat.</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;a href="/home/"&gt;Home&lt;/a&gt;
+
+&lt;button type="button"&gt;
+    Click Me
+&lt;/button&gt;
+
+&lt;input type="text" placeholder="Enter name"&gt;
+        </code></pre>
+
+        <div class="info-box">
+            <strong>Practical Test:</strong>
+            Mouse use na karta Tab key press karun
+            webpage madhil interactive elements navigate kar.
+        </div>
+
+    </section>
+
+
+    <!-- Section 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. tabindex Attribute</h2>
+
+        <p>
+            tabindex attribute element keyboard focus
+            order madhye include karayla kiwa focus
+            programmatically set karayla use hoto.
+        </p>
+
+        <h3>Important Values:</h3>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>Value</th>
+                    <th>Meaning</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>tabindex="0"</td>
+                    <td>Normal keyboard tab order madhye include hoto.</td>
+                </tr>
+
+                <tr>
+                    <td>tabindex="-1"</td>
+                    <td>Tab key ne normally focus hot nahi, pan script ne focus karta yeto.</td>
+                </tr>
+
+                <tr>
+                    <td>tabindex="1"</td>
+                    <td>Positive tab order create karto.</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;div tabindex="0"&gt;
+    This element can receive keyboard focus.
+&lt;/div&gt;
+
+&lt;div tabindex="-1"&gt;
+    This element can receive programmatic focus.
+&lt;/div&gt;
+        </code></pre>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Positive tabindex values generally avoid kara.
+            Te natural keyboard navigation order
+            confusing banvu shaktat.
+        </div>
+
+    </section>
+
+
+    <!-- Section 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. ARIA Attributes</h2>
+
+        <p>
+            ARIA cha full form Accessible Rich Internet
+            Applications aahe.
+        </p>
+
+        <p>
+            ARIA attributes assistive technologies la
+            elements cha role, state ani additional
+            information samjun ghenyas madat kartat.
+        </p>
+
+        <h3>Important ARIA Attributes:</h3>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>Attribute</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>aria-label</td>
+                    <td>Element la accessible name provide karto.</td>
+                </tr>
+
+                <tr>
+                    <td>aria-labelledby</td>
+                    <td>Dusrya element cha text label mhanun use karto.</td>
+                </tr>
+
+                <tr>
+                    <td>aria-describedby</td>
+                    <td>Additional description connect karto.</td>
+                </tr>
+
+                <tr>
+                    <td>aria-hidden</td>
+                    <td>Assistive technology pasun content hide karto.</td>
+                </tr>
+
+                <tr>
+                    <td>aria-expanded</td>
+                    <td>Expandable content chi state sangto.</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <h3>Example 1: aria-label</h3>
+
+        <pre class="code-block"><code>
+&lt;button aria-label="Close menu"&gt;
+    X
+&lt;/button&gt;
+        </code></pre>
+
+        <h3>Example 2: aria-describedby</h3>
+
+        <pre class="code-block"><code>
+&lt;label for="password"&gt;
+    Password:
+&lt;/label&gt;
+
+&lt;input type="password"
+       id="password"
+       aria-describedby="passwordHelp"&gt;
+
+&lt;p id="passwordHelp"&gt;
+    Password must contain at least 8 characters.
+&lt;/p&gt;
+        </code></pre>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Native HTML elements first prefer kara.
+            ARIA mule missing accessibility features
+            provide karta yetat, pan ARIA semantic
+            HTML cha replacement nahi.
+        </div>
+
+    </section>
+
+
+    <!-- Section 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Accessible HTML Tables</h2>
+
+        <p>
+            Table madhil data samjun ghenyasathi
+            proper table headings ani structure use karne
+            important aahe.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;table&gt;
+
+    &lt;caption&gt;Student Marks&lt;/caption&gt;
+
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th scope="col"&gt;Name&lt;/th&gt;
+            &lt;th scope="col"&gt;Marks&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;th scope="row"&gt;Rohan&lt;/th&gt;
+            &lt;td&gt;85&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+
+&lt;/table&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <table class="demo-table">
+
+                <caption>Student Marks</caption>
+
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Marks</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <th scope="row">Rohan</th>
+                        <td>85</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <h3>Important Points:</h3>
+
+        <ul>
+            <li>Table sathi caption provide kara.</li>
+            <li>Column headings sathi th use kara.</li>
+            <li>scope attribute cha proper use kara.</li>
+            <li>Table layout sathi nahi, tabular data sathi use kara.</li>
+        </ul>
+
+    </section>
+
+
+    <!-- Section 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Color Contrast and Readability</h2>
+
+        <p>
+            Website madhil text ani background madhye
+            sufficient color contrast asne important aahe.
+        </p>
+
+        <p>
+            Low contrast mule kahi users na text
+            vachne difficult hou shakte.
+        </p>
+
+        <h3>Good Contrast Example:</h3>
+
+        <div class="contrast-good">
+            This text is easy to read.
+        </div>
+
+        <h3>Poor Contrast Example:</h3>
+
+        <div class="contrast-poor">
+            This text is difficult to read.
+        </div>
+
+        <h3>Important Points:</h3>
+
+        <ul>
+            <li>Text readable color madhye theva.</li>
+            <li>Text ani background madhye contrast theva.</li>
+            <li>Fakt color vaprun information deu naka.</li>
+            <li>Text size ani spacing proper theva.</li>
+        </ul>
+
+        <div class="info-box">
+            <strong>WCAG Reference:</strong>
+            WCAG 2.2 AA madhye normal text sathi
+            generally 4.5:1 contrast ratio ani
+            large text sathi 3:1 ratio required aahe.
+        </div>
+
+    </section>
+
+
+    <!-- Section 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Complete Accessible HTML Form</h2>
+
+        <p>
+            Ata apan labels, fieldset, legend,
+            required ani aria-describedby vaprun
+            accessible registration form create karu.
+        </p>
+
+        <h3>HTML Code:</h3>
+
+        <pre class="code-block"><code>
+&lt;!DOCTYPE html&gt;
+
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+
+    &lt;meta charset="UTF-8"&gt;
+
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+
+    &lt;title&gt;Accessible Registration Form&lt;/title&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;main&gt;
+
+        &lt;h1&gt;Registration Form&lt;/h1&gt;
+
+        &lt;form&gt;
+
+            &lt;fieldset&gt;
+
+                &lt;legend&gt;Personal Information&lt;/legend&gt;
+
+                &lt;label for="name"&gt;
+                    Full Name:
+                &lt;/label&gt;
+
+                &lt;input type="text"
+                       id="name"
+                       name="name"
+                       required&gt;
+
+                &lt;label for="email"&gt;
+                    Email:
+                &lt;/label&gt;
+
+                &lt;input type="email"
+                       id="email"
+                       name="email"
+                       required&gt;
+
+                &lt;label for="password"&gt;
+                    Password:
+                &lt;/label&gt;
+
+                &lt;input type="password"
+                       id="password"
+                       name="password"
+                       aria-describedby="passwordHelp"
+                       required&gt;
+
+                &lt;p id="passwordHelp"&gt;
+                    Password must contain at least 8 characters.
+                &lt;/p&gt;
+
+                &lt;button type="submit"&gt;
+                    Register
+                &lt;/button&gt;
+
+            &lt;/fieldset&gt;
+
+        &lt;/form&gt;
+
+    &lt;/main&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box accessible-form">
+
+            <h3>Registration Form</h3>
+
+            <form>
+
+                <fieldset>
+
+                    <legend>Personal Information</legend>
+
+                    <label for="accessName">Full Name:</label>
+
+                    <input type="text"
+                           id="accessName"
+                           name="name"
+                           required>
+
+                    <label for="accessEmail">Email:</label>
+
+                    <input type="email"
+                           id="accessEmail"
+                           name="email"
+                           required>
+
+                    <label for="accessPassword">Password:</label>
+
+                    <input type="password"
+                           id="accessPassword"
+                           name="password"
+                           aria-describedby="accessPasswordHelp"
+                           required>
+
+                    <p id="accessPasswordHelp">
+                        Password must contain at least 8 characters.
+                    </p>
+
+                    <button type="button">Register</button>
+
+                </fieldset>
+
+            </form>
+
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Fieldset related form fields group karto
+            ani legend tya group cha title provide karto.
+        </div>
+
+    </section>
+
+
+    <!-- Section 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Common Accessibility Mistakes</h2>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 1: Missing Alt Text</strong>
+
+            <p>
+                Meaningful images sathi appropriate
+                alt description provide na karne.
+            </p>
+
+        </div>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 2: Missing Form Labels</strong>
+
+            <p>
+                Input fields la proper label connect na karne.
+            </p>
+
+        </div>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 3: Poor Color Contrast</strong>
+
+            <p>
+                Text ani background madhye insufficient
+                contrast thevne.
+            </p>
+
+        </div>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 4: Keyboard Navigation Block Karne</strong>
+
+            <p>
+                Website mouse shivay use karta na yene.
+            </p>
+
+        </div>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 5: Unnecessary ARIA</strong>
+
+            <p>
+                Native HTML element available asatana
+                unnecessary ARIA attributes use karne.
+            </p>
+
+        </div>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 6: Removing Focus Indicator</strong>
+
+            <p>
+                Keyboard user la current focused element
+                samajnyasathi visual indication nasne.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 13 -->
+
+    <section class="lesson-section">
+
+        <h2>13. Quick Revision</h2>
+
+        <div class="revision-box">
+
+            <ul>
+                <li>Accessibility = Website sarva users sathi usable banavne.</li>
+                <li>Alt Attribute = Image description.</li>
+                <li>Label = Form input cha purpose.</li>
+                <li>Semantic HTML = Meaningful webpage structure.</li>
+                <li>Tab Key = Next focusable element.</li>
+                <li>tabindex = Keyboard focus control.</li>
+                <li>ARIA = Assistive technology sathi additional information.</li>
+                <li>Caption = Table cha title.</li>
+                <li>scope = Table heading cha scope.</li>
+                <li>Color Contrast = Text readability improve karte.</li>
+                <li>Fieldset = Related form fields group karto.</li>
+                <li>Legend = Fieldset cha title.</li>
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 14 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>14. Practice Questions</h2>
+
+        <h3>Basic Questions</h3>
+
+        <ol>
+            <li>Web Accessibility mhanje kay?</li>
+            <li>Accessibility important ka aahe?</li>
+            <li>Alt attribute cha use kay aahe?</li>
+            <li>Form madhye label ka vapartat?</li>
+            <li>Semantic HTML accessibility sathi kasa useful aahe?</li>
+            <li>Keyboard Navigation mhanje kay?</li>
+            <li>tabindex attribute explain kar.</li>
+            <li>ARIA cha full form kay aahe?</li>
+            <li>aria-label cha use kay aahe?</li>
+            <li>Accessible HTML Table kasa create karaycha?</li>
+            <li>Color Contrast mhanje kay?</li>
+            <li>Fieldset ani Legend madhil difference lih.</li>
+        </ol>
+
+        <h3>Practical Questions</h3>
+
+        <ol>
+            <li>Image with proper alt text create kar.</li>
+            <li>Label connected registration form create kar.</li>
+            <li>Semantic HTML webpage create kar.</li>
+            <li>Keyboard navigation test kar.</li>
+            <li>tabindex vaprun focusable element create kar.</li>
+            <li>aria-label vaprun accessible button create kar.</li>
+            <li>Caption ani scope vaprun accessible table create kar.</li>
+            <li>Fieldset ani Legend vaprun form create kar.</li>
+        </ol>
+
+        <div class="task-box">
+
+            <h3>Mini Task: Accessible Registration Page</h3>
+
+            <p>
+                Ek registration webpage create kar
+                ani khalil features implement kar.
+            </p>
+
+            <ul>
+                <li>Semantic HTML Structure</li>
+                <li>Proper Form Labels</li>
+                <li>Required Input Fields</li>
+                <li>Meaningful Image Alt Text</li>
+                <li>Keyboard Navigation</li>
+                <li>Readable Color Contrast</li>
+                <li>Accessible Table</li>
+            </ul>
+
+            <p>
+                File Name:
+                <strong>accessible-registration.html</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Lesson Navigation -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'html_topic' 'seo-basics' %}"
+           class="nav-button previous-button">
+            ← Previous: SEO Basics
+        </a>
+
+        <a href="{% url 'html_topic' 'projects' %}"
+           class="nav-button next-button">
+            Next: HTML Projects →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,1364 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}
+HTML Input Types | Roman Marathi
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/html/input-types.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+
+    <div class="lesson-header">
+
+        <span class="lesson-label">HTML DOCUMENTATION • PAGE 11</span>
+
+        <h1>HTML Input Types</h1>
+
+        <p>
+            HTML input element madhil different types vaprun
+            user kadun different formats madhye information
+            receive karayla shikuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Beginner Level</span>
+            <span>40–45 Minutes</span>
+        </div>
+
+    </div>
+
+
+    <!-- Section 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What are HTML Input Types?</h2>
+
+        <p>
+            HTML madhye input element cha type attribute
+            input field cha behavior ani purpose define karto.
+        </p>
+
+        <p>
+            Type change kelyavar browser vegvegale input
+            controls display karto.
+        </p>
+
+        <h3>Examples:</h3>
+
+        <ul>
+            <li>Text field</li>
+            <li>Password field</li>
+            <li>Email field</li>
+            <li>Number field</li>
+            <li>Date picker</li>
+            <li>Radio button</li>
+            <li>Checkbox</li>
+            <li>File upload</li>
+        </ul>
+
+        <div class="info-box">
+            <strong>Simple Definition:</strong>
+            Input Types mhanje input element cha type
+            attribute vaprun different types che form
+            controls create karne.
+        </div>
+
+    </section>
+
+
+    <!-- Section 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Text Input</h2>
+
+        <p>
+            type="text" cha use user kadun normal
+            single-line text receive karnyasathi hoto.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>
+&lt;input type="text"&gt;
+        </code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;label for="username"&gt;Username:&lt;/label&gt;
+
+&lt;input
+    type="text"
+    id="username"
+    name="username"
+    placeholder="Enter username"&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <label for="demo-text">Username:</label>
+
+            <input type="text"
+                   id="demo-text"
+                   placeholder="Enter username">
+
+        </div>
+
+        <p>
+            Ya field madhye user name, city, address
+            kiwa other normal text enter karu shakto.
+        </p>
+
+    </section>
+
+
+    <!-- Section 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. Password Input</h2>
+
+        <p>
+            type="password" cha use password enter
+            karnyasathi hoto.
+        </p>
+
+        <p>
+            Browser madhye password characters normally
+            masked format madhye display hotat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;label for="password"&gt;Password:&lt;/label&gt;
+
+&lt;input
+    type="password"
+    id="password"
+    name="password"
+    placeholder="Enter password"&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <label for="demo-password">Password:</label>
+
+            <input type="password"
+                   id="demo-password"
+                   placeholder="Enter password">
+
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Password input characters mask karto.
+            Pan fakt type="password" vaparlyane data
+            secure hot nahi. HTTPS ani secure backend
+            processing suddha required aahe.
+        </div>
+
+    </section>
+
+
+    <!-- Section 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. Email Input</h2>
+
+        <p>
+            type="email" cha use email address
+            receive karnyasathi hoto.
+        </p>
+
+        <p>
+            Browser basic email format validation
+            provide karto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;label for="email"&gt;Email:&lt;/label&gt;
+
+&lt;input
+    type="email"
+    id="email"
+    name="email"
+    placeholder="Enter email"&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <label for="demo-email">Email:</label>
+
+            <input type="email"
+                   id="demo-email"
+                   placeholder="Enter email">
+
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Registration ani Login Forms madhye
+            email input useful aahe.
+        </div>
+
+    </section>
+
+
+    <!-- Section 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. Number Input</h2>
+
+        <p>
+            type="number" cha use numeric values
+            enter karnyasathi hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;label for="age"&gt;Age:&lt;/label&gt;
+
+&lt;input
+    type="number"
+    id="age"
+    name="age"
+    min="1"
+    max="100"&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <label for="demo-age">Age:</label>
+
+            <input type="number"
+                   id="demo-age"
+                   min="1"
+                   max="100"
+                   placeholder="Enter age">
+
+        </div>
+
+        <h3>Important Attributes:</h3>
+
+        <ul>
+            <li>min = Minimum allowed value.</li>
+            <li>max = Maximum allowed value.</li>
+            <li>step = Allowed increment interval.</li>
+        </ul>
+
+        <h3>Step Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;input
+    type="number"
+    min="0"
+    max="100"
+    step="5"&gt;
+        </code></pre>
+
+        <p>
+            Ya example madhye 5 chya intervals ne
+            number select karta yetat.
+        </p>
+
+    </section>
+
+
+    <!-- Section 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. Telephone Input</h2>
+
+        <p>
+            type="tel" cha use telephone number
+            receive karnyasathi hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;label for="mobile"&gt;Mobile Number:&lt;/label&gt;
+
+&lt;input
+    type="tel"
+    id="mobile"
+    name="mobile"
+    placeholder="Enter mobile number"&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <label for="demo-mobile">Mobile Number:</label>
+
+            <input type="tel"
+                   id="demo-mobile"
+                   placeholder="Enter mobile number">
+
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            type="tel" automatically mobile number
+            validate karat nahi. Required format check
+            karnyasathi pattern kiwa server-side validation
+            vapru shakto.
+        </div>
+
+    </section>
+
+
+    <!-- Section 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. URL Input</h2>
+
+        <p>
+            type="url" cha use website URL receive
+            karnyasathi hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;label for="website"&gt;Website:&lt;/label&gt;
+
+&lt;input
+    type="url"
+    id="website"
+    name="website"
+    placeholder="https://example.com"&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <label for="demo-url">Website:</label>
+
+            <input type="url"
+                   id="demo-url"
+                   placeholder="https://example.com">
+
+        </div>
+
+        <p>
+            Browser URL format chi basic validation
+            karu shakto.
+        </p>
+
+    </section>
+
+
+    <!-- Section 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. Date Input</h2>
+
+        <p>
+            type="date" cha use user kadun date
+            select karun ghenyasathi hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;label for="dob"&gt;Date of Birth:&lt;/label&gt;
+
+&lt;input
+    type="date"
+    id="dob"
+    name="dob"&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <label for="demo-date">Date of Birth:</label>
+
+            <input type="date" id="demo-date">
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Time Input</h2>
+
+        <p>
+            type="time" cha use user kadun time
+            select karun ghenyasathi hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;label for="meeting"&gt;Meeting Time:&lt;/label&gt;
+
+&lt;input
+    type="time"
+    id="meeting"
+    name="meeting"&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <label for="demo-time">Meeting Time:</label>
+
+            <input type="time" id="demo-time">
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Datetime-local Input</h2>
+
+        <p>
+            type="datetime-local" cha use date ani time
+            ekatra select karnyasathi hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;label for="event"&gt;Event Date and Time:&lt;/label&gt;
+
+&lt;input
+    type="datetime-local"
+    id="event"
+    name="event"&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <label for="demo-datetime">Event Date and Time:</label>
+
+            <input type="datetime-local" id="demo-datetime">
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Radio Input</h2>
+
+        <p>
+            type="radio" cha use multiple options madhun
+            ek option select karnyasathi hoto.
+        </p>
+
+        <p>
+            Ekach group madhil radio buttons sathi
+            same name attribute asne important aahe.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;p&gt;Select Gender:&lt;/p&gt;
+
+&lt;input
+    type="radio"
+    id="male"
+    name="gender"
+    value="male"&gt;
+
+&lt;label for="male"&gt;Male&lt;/label&gt;
+
+&lt;input
+    type="radio"
+    id="female"
+    name="gender"
+    value="female"&gt;
+
+&lt;label for="female"&gt;Female&lt;/label&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <p>Select Gender:</p>
+
+            <div class="choice-group">
+
+                <label>
+                    <input type="radio"
+                           name="demo-gender"
+                           value="male">
+                    Male
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="demo-gender"
+                           value="female">
+                    Female
+                </label>
+
+            </div>
+
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Ekach group madhun ekach option select
+            karaycha asel tar Radio Button vapr.
+        </div>
+
+    </section>
+
+
+    <!-- Section 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Checkbox Input</h2>
+
+        <p>
+            type="checkbox" cha use multiple options
+            select karnyasathi hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;p&gt;Select Skills:&lt;/p&gt;
+
+&lt;input
+    type="checkbox"
+    id="python"
+    name="skills"
+    value="python"&gt;
+
+&lt;label for="python"&gt;Python&lt;/label&gt;
+
+&lt;input
+    type="checkbox"
+    id="django"
+    name="skills"
+    value="django"&gt;
+
+&lt;label for="django"&gt;Django&lt;/label&gt;
+
+&lt;input
+    type="checkbox"
+    id="html"
+    name="skills"
+    value="html"&gt;
+
+&lt;label for="html"&gt;HTML&lt;/label&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <p>Select Skills:</p>
+
+            <div class="choice-group">
+
+                <label>
+                    <input type="checkbox" value="python">
+                    Python
+                </label>
+
+                <label>
+                    <input type="checkbox" value="django">
+                    Django
+                </label>
+
+                <label>
+                    <input type="checkbox" value="html">
+                    HTML
+                </label>
+
+            </div>
+
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Multiple skills, hobbies kiwa interests
+            select karnyasathi Checkbox useful aahe.
+        </div>
+
+    </section>
+
+
+    <!-- Section 13 -->
+
+    <section class="lesson-section">
+
+        <h2>13. File Input</h2>
+
+        <p>
+            type="file" cha use user kadun files
+            upload karun ghenyasathi hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;label for="resume"&gt;Upload Resume:&lt;/label&gt;
+
+&lt;input
+    type="file"
+    id="resume"
+    name="resume"&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <label for="demo-file">Upload Resume:</label>
+
+            <input type="file" id="demo-file">
+
+        </div>
+
+        <h3>Multiple Files:</h3>
+
+        <pre class="code-block"><code>
+&lt;input
+    type="file"
+    name="documents"
+    multiple&gt;
+        </code></pre>
+
+        <h3>Accept Attribute:</h3>
+
+        <pre class="code-block"><code>
+&lt;input
+    type="file"
+    name="photo"
+    accept="image/*"&gt;
+        </code></pre>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            File upload form madhye method="post" ani
+            enctype="multipart/form-data" vaprane required aahe.
+            Django madhye uploaded files request.FILES madhun
+            access karta yetat.
+        </div>
+
+    </section>
+
+
+    <!-- Section 14 -->
+
+    <section class="lesson-section">
+
+        <h2>14. Hidden Input</h2>
+
+        <p>
+            type="hidden" cha use form sobat additional
+            data submit karnyasathi hoto, jo normal
+            webpage var visible nasto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;input
+    type="hidden"
+    name="user_id"
+    value="101"&gt;
+        </code></pre>
+
+        <p>
+            Hidden input user la normal form field
+            mhanun visible hot nahi.
+        </p>
+
+        <div class="important-box">
+            <strong>Security Note:</strong>
+            Hidden input madhil data secure kiwa secret nasto.
+            User browser madhye to inspect ani modify karu shakto.
+            Sensitive information hidden input madhye thevu naye.
+        </div>
+
+    </section>
+
+
+    <!-- Section 15 -->
+
+    <section class="lesson-section">
+
+        <h2>15. Range Input</h2>
+
+        <p>
+            type="range" cha use specified range madhun
+            value select karnyasathi hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;label for="volume"&gt;Volume:&lt;/label&gt;
+
+&lt;input
+    type="range"
+    id="volume"
+    name="volume"
+    min="0"
+    max="100"
+    value="50"&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <label for="demo-range">Volume:</label>
+
+            <input type="range"
+                   id="demo-range"
+                   min="0"
+                   max="100"
+                   value="50">
+
+        </div>
+
+        <p>
+            min, max ani value attributes vaprun
+            range control configure karta yeto.
+        </p>
+
+    </section>
+
+
+    <!-- Section 16 -->
+
+    <section class="lesson-section">
+
+        <h2>16. Color Input</h2>
+
+        <p>
+            type="color" cha use user kadun color
+            select karun ghenyasathi hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;label for="favcolor"&gt;Choose Color:&lt;/label&gt;
+
+&lt;input
+    type="color"
+    id="favcolor"
+    name="favcolor"
+    value="#2563eb"&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <label for="demo-color">Choose Color:</label>
+
+            <input type="color"
+                   id="demo-color"
+                   value="#2563eb">
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 17 -->
+
+    <section class="lesson-section">
+
+        <h2>17. Submit, Reset and Button Inputs</h2>
+
+        <p>
+            He input types form madhye different
+            button actions provide kartat.
+        </p>
+
+        <h3>Submit:</h3>
+
+        <p>
+            type="submit" cha use form submit karnyasathi hoto.
+        </p>
+
+        <pre class="code-block"><code>
+&lt;input type="submit" value="Submit Form"&gt;
+        </code></pre>
+
+        <h3>Reset:</h3>
+
+        <p>
+            type="reset" cha use form fields default
+            values var reset karnyasathi hoto.
+        </p>
+
+        <pre class="code-block"><code>
+&lt;input type="reset" value="Reset Form"&gt;
+        </code></pre>
+
+        <h3>Button:</h3>
+
+        <p>
+            type="button" general clickable button create karto.
+            Tyala action denyasathi JavaScript vapru shakto.
+        </p>
+
+        <pre class="code-block"><code>
+&lt;input type="button" value="Click Me"&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <form onsubmit="return false;">
+
+                <label for="demo-button-name">Name:</label>
+
+                <input type="text"
+                       id="demo-button-name"
+                       placeholder="Enter name">
+
+                <input type="button" value="Click Me">
+
+                <input type="submit" value="Submit">
+
+                <input type="reset" value="Reset">
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 18 -->
+
+    <section class="lesson-section">
+
+        <h2>18. Input Validation Attributes</h2>
+
+        <p>
+            Input fields madhye user kadun योग्य data
+            receive karnyasathi validation attributes
+            vaparta yetat.
+        </p>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>Attribute</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>required</td>
+                    <td>Field compulsory karte.</td>
+                </tr>
+
+                <tr>
+                    <td>min</td>
+                    <td>Minimum value specify karte.</td>
+                </tr>
+
+                <tr>
+                    <td>max</td>
+                    <td>Maximum value specify karte.</td>
+                </tr>
+
+                <tr>
+                    <td>minlength</td>
+                    <td>Minimum text length specify karte.</td>
+                </tr>
+
+                <tr>
+                    <td>maxlength</td>
+                    <td>Maximum text length specify karte.</td>
+                </tr>
+
+                <tr>
+                    <td>pattern</td>
+                    <td>Regular expression pattern specify karte.</td>
+                </tr>
+
+                <tr>
+                    <td>step</td>
+                    <td>Allowed numeric increment specify karte.</td>
+                </tr>
+
+                <tr>
+                    <td>multiple</td>
+                    <td>Multiple values kiwa files allow karte,
+                        supported input type nusar.</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;form&gt;
+
+    &lt;input
+        type="text"
+        name="username"
+        minlength="3"
+        maxlength="15"
+        required&gt;
+
+    &lt;input
+        type="number"
+        name="age"
+        min="18"
+        max="60"
+        required&gt;
+
+    &lt;button type="submit"&gt;
+        Submit
+    &lt;/button&gt;
+
+&lt;/form&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <form onsubmit="return false;">
+
+                <label for="valid-name">Username (3–15 characters):</label>
+
+                <input type="text"
+                       id="valid-name"
+                       minlength="3"
+                       maxlength="15"
+                       required>
+
+                <label for="valid-age">Age (18–60):</label>
+
+                <input type="number"
+                       id="valid-age"
+                       min="18"
+                       max="60"
+                       required>
+
+                <button type="submit">Submit</button>
+
+            </form>
+
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            HTML validation browser madhye hote.
+            Security ani correct data sathi backend madhye
+            suddha validation karne necessary aahe.
+        </div>
+
+    </section>
+
+
+    <!-- Section 19 -->
+
+    <section class="lesson-section">
+
+        <h2>19. Complete Registration Form</h2>
+
+        <p>
+            Ata different Input Types vaprun
+            Student Registration Form create karu.
+        </p>
+
+        <h3>HTML Code:</h3>
+
+        <pre class="code-block"><code>
+&lt;h1&gt;Student Registration&lt;/h1&gt;
+
+&lt;form action="/register/" method="post"&gt;
+
+    &lt;label for="name"&gt;Full Name:&lt;/label&gt;
+    &lt;input type="text"
+           id="name"
+           name="name"
+           required&gt;
+
+    &lt;label for="email"&gt;Email:&lt;/label&gt;
+    &lt;input type="email"
+           id="email"
+           name="email"
+           required&gt;
+
+    &lt;label for="password"&gt;Password:&lt;/label&gt;
+    &lt;input type="password"
+           id="password"
+           name="password"
+           required&gt;
+
+    &lt;label for="age"&gt;Age:&lt;/label&gt;
+    &lt;input type="number"
+           id="age"
+           name="age"
+           min="1"
+           max="100"&gt;
+
+    &lt;label for="dob"&gt;Date of Birth:&lt;/label&gt;
+    &lt;input type="date"
+           id="dob"
+           name="dob"&gt;
+
+    &lt;p&gt;Gender:&lt;/p&gt;
+
+    &lt;input type="radio"
+           id="male"
+           name="gender"
+           value="male"&gt;
+    &lt;label for="male"&gt;Male&lt;/label&gt;
+
+    &lt;input type="radio"
+           id="female"
+           name="gender"
+           value="female"&gt;
+    &lt;label for="female"&gt;Female&lt;/label&gt;
+
+    &lt;p&gt;Skills:&lt;/p&gt;
+
+    &lt;input type="checkbox"
+           id="python"
+           name="skills"
+           value="python"&gt;
+    &lt;label for="python"&gt;Python&lt;/label&gt;
+
+    &lt;input type="checkbox"
+           id="django"
+           name="skills"
+           value="django"&gt;
+    &lt;label for="django"&gt;Django&lt;/label&gt;
+
+    &lt;label for="resume"&gt;Upload Resume:&lt;/label&gt;
+    &lt;input type="file"
+           id="resume"
+           name="resume"
+           accept=".pdf"&gt;
+
+    &lt;button type="submit"&gt;Register&lt;/button&gt;
+    &lt;button type="reset"&gt;Reset&lt;/button&gt;
+
+&lt;/form&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <h2>Student Registration</h2>
+
+            <form onsubmit="return false;">
+
+                <label for="reg-name">Full Name:</label>
+                <input type="text"
+                       id="reg-name"
+                       placeholder="Enter full name"
+                       required>
+
+                <label for="reg-email">Email:</label>
+                <input type="email"
+                       id="reg-email"
+                       placeholder="Enter email"
+                       required>
+
+                <label for="reg-pass">Password:</label>
+                <input type="password"
+                       id="reg-pass"
+                       placeholder="Enter password"
+                       required>
+
+                <label for="reg-age">Age:</label>
+                <input type="number"
+                       id="reg-age"
+                       min="1"
+                       max="100">
+
+                <label for="reg-dob">Date of Birth:</label>
+                <input type="date" id="reg-dob">
+
+                <p>Gender:</p>
+
+                <div class="choice-group">
+                    <label>
+                        <input type="radio" name="reg-gender">
+                        Male
+                    </label>
+
+                    <label>
+                        <input type="radio" name="reg-gender">
+                        Female
+                    </label>
+                </div>
+
+                <p>Skills:</p>
+
+                <div class="choice-group">
+                    <label>
+                        <input type="checkbox">
+                        Python
+                    </label>
+
+                    <label>
+                        <input type="checkbox">
+                        Django
+                    </label>
+                </div>
+
+                <label for="reg-resume">Upload Resume:</label>
+                <input type="file" id="reg-resume" accept=".pdf">
+
+                <button type="button">Register</button>
+                <button type="reset">Reset</button>
+
+            </form>
+
+            <p class="demo-note">
+                Ha demonstration form aahe. Data server kade
+                submit hot nahi.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 20 -->
+
+    <section class="lesson-section">
+
+        <h2>20. Common Beginner Mistakes</h2>
+
+        <div class="mistake-card">
+            <strong>Mistake 1: Radio Buttons la different name dene</strong>
+            <p>
+                Ekach group madhil radio buttons sathi
+                same name vapr.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 2: Checkbox ani Radio confuse karne</strong>
+            <p>
+                Ek option sathi Radio ani multiple options
+                sathi Checkbox vapr.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 3: File Upload madhye enctype विसरणे</strong>
+            <p>
+                File upload form sathi
+                enctype="multipart/form-data" vapr.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 4: Number validation ignore karne</strong>
+            <p>
+                Garjenusar min, max ani step attributes vapr.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 5: Hidden Input la secure samajne</strong>
+            <p>
+                Hidden input user inspect karu shakto.
+                Sensitive data tyat store karu naye.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 6: Fakt browser validation var depend rahane</strong>
+            <p>
+                Backend madhye suddha input validation kar.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- Section 21 -->
+
+    <section class="lesson-section">
+
+        <h2>21. Quick Revision</h2>
+
+        <div class="revision-box">
+
+            <ul>
+                <li>text = Normal text input.</li>
+                <li>password = Masked password input.</li>
+                <li>email = Email address input.</li>
+                <li>number = Numeric input.</li>
+                <li>tel = Telephone input.</li>
+                <li>url = Website URL input.</li>
+                <li>date = Date selection.</li>
+                <li>time = Time selection.</li>
+                <li>datetime-local = Date ani time selection.</li>
+                <li>radio = Ek option select karne.</li>
+                <li>checkbox = Multiple options select karne.</li>
+                <li>file = File upload.</li>
+                <li>hidden = Invisible form field.</li>
+                <li>range = Range madhun value select karne.</li>
+                <li>color = Color selection.</li>
+                <li>submit = Form submit karne.</li>
+                <li>reset = Form reset karne.</li>
+                <li>button = General clickable button.</li>
+                <li>required = Field compulsory karne.</li>
+                <li>min ani max = Value limits set karne.</li>
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 22 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>22. Practice Questions</h2>
+
+        <h3>Basic Questions</h3>
+
+        <ol>
+            <li>HTML Input Types mhanje kay?</li>
+            <li>Text ani Password Input madhil difference lih.</li>
+            <li>Email Input cha use kay aahe?</li>
+            <li>Number Input madhye min ani max cha use kay aahe?</li>
+            <li>Radio Button mhanje kay?</li>
+            <li>Checkbox mhanje kay?</li>
+            <li>Radio ani Checkbox madhil difference lih.</li>
+            <li>File Input cha use kay aahe?</li>
+            <li>Hidden Input mhanje kay?</li>
+            <li>Range ani Color Input cha use kay aahe?</li>
+            <li>date ani time Input madhil difference lih.</li>
+            <li>Input validation attributes konte aahet?</li>
+        </ol>
+
+        <h3>Practical Questions</h3>
+
+        <ol>
+            <li>Text ani Email input fields create kar.</li>
+            <li>Password field create kar.</li>
+            <li>Number input madhye min ani max set kar.</li>
+            <li>Date ani Time fields create kar.</li>
+            <li>Gender selection sathi Radio Buttons create kar.</li>
+            <li>Skills selection sathi Checkboxes create kar.</li>
+            <li>Resume upload sathi File Input create kar.</li>
+            <li>Color ani Range inputs create kar.</li>
+            <li>required attribute vaprun Registration Form create kar.</li>
+            <li>All important input types vaprun Student Form create kar.</li>
+        </ol>
+
+        <div class="task-box">
+
+            <h3>Mini Task: Job Application Form</h3>
+
+            <p>
+                HTML ani CSS vaprun Job Application Form create kar.
+            </p>
+
+            <ul>
+                <li>Full Name – Text</li>
+                <li>Email – Email</li>
+                <li>Mobile – Tel</li>
+                <li>Password – Password</li>
+                <li>Date of Birth – Date</li>
+                <li>Experience – Number</li>
+                <li>Gender – Radio</li>
+                <li>Skills – Checkbox</li>
+                <li>Resume – File</li>
+                <li>Expected Salary – Number</li>
+                <li>Submit ani Reset Buttons</li>
+            </ul>
+
+            <p>
+                File Name: <strong>job_application.html</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Lesson Navigation -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'html_topic' 'forms' %}"
+           class="nav-button previous-button">
+            ← Previous: HTML Forms
+        </a>
+
+        <a href="{% url 'html_topic' 'semantic-html' %}"
+           class="nav-button next-button">
+            Next: Semantic HTML →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

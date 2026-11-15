@@ -1,0 +1,1004 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Django Forms{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/django/forms.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- HEADER -->
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO COURSE • TOPIC 11</span>
+        <h1>Django Forms</h1>
+        <p>
+            Learn how to create forms, accept user input,
+            validate data and save form information.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 45–55 Minutes</span>
+        </div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <section class="lesson-section">
+        <h2>1. Django Forms mhanje kay?</h2>
+
+        <p>
+            Django Forms cha use user kadun information
+            collect karnyasathi ani tyachi validation
+            karnyasathi hoto.
+        </p>
+
+        <p>
+            Udaharanarth, Registration Form madhun
+            user cha Name, Email ani Password gheta yeto.
+        </p>
+
+        <div class="example-box">
+            <h3>Common Form Examples</h3>
+            <ul>
+                <li>Registration Form – New user registration.</li>
+                <li>Login Form – User authentication.</li>
+                <li>Contact Form – User messages collect karne.</li>
+                <li>Feedback Form – User feedback collect karne.</li>
+                <li>Search Form – Information search karne.</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            Django Forms user input handle karne ani
+            server-side validation karnyas madat kartat.
+        </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section class="lesson-section">
+        <h2>2. HTML Forms vs Django Forms</h2>
+
+        <p>
+            HTML Forms browser madhye form structure tayar kartat.
+            Django Forms Python madhye form fields ani validation
+            rules define karu detat.
+        </p>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>HTML Forms</th>
+                    <th>Django Forms</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>HTML madhye create hotat.</td>
+                    <td>Python madhye create hotat.</td>
+                </tr>
+                <tr>
+                    <td>Basic form structure.</td>
+                    <td>Form fields ani validation support.</td>
+                </tr>
+                <tr>
+                    <td>Validation manually karavi lagte.</td>
+                    <td>Built-in validation available aahe.</td>
+                </tr>
+                <tr>
+                    <td>Server processing swatah handle karavi lagte.</td>
+                    <td>Django form processing simplify karte.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section class="lesson-section">
+        <h2>3. Create Django Form</h2>
+
+        <p>
+            Django madhye forms create karnyasathi app madhye
+            forms.py file create karu shakto.
+        </p>
+
+        <h3>Folder Structure</h3>
+
+        <pre class="code-block"><code>students/
+│
+├── migrations/
+├── __init__.py
+├── admin.py
+├── apps.py
+├── models.py
+├── forms.py
+├── views.py
+└── urls.py</code></pre>
+
+        <h3>File: students/forms.py</h3>
+
+        <pre class="code-block"><code>from django import forms
+
+class StudentForm(forms.Form):
+
+    name = forms.CharField(max_length=100)
+
+    email = forms.EmailField()
+
+    age = forms.IntegerField()
+
+    course = forms.CharField(max_length=100)</code></pre>
+
+        <p>Ya Form madhye:</p>
+
+        <ul>
+            <li><code>forms.Form</code> – Django Form class cha base class.</li>
+            <li><code>CharField</code> – Text input ghenyasathi.</li>
+            <li><code>EmailField</code> – Email input validate karnyasathi.</li>
+            <li><code>IntegerField</code> – Integer value ghenyasathi.</li>
+        </ul>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            forms.py madhye form fields ani validation rules define kartat.
+        </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section class="lesson-section">
+        <h2>4. Django Form Fields</h2>
+
+        <p>
+            Django madhye vegveglya types cha user input
+            ghenyasathi multiple form fields available aahet.
+        </p>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Form Field</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>CharField</td>
+                    <td>Text input.</td>
+                </tr>
+                <tr>
+                    <td>EmailField</td>
+                    <td>Email address.</td>
+                </tr>
+                <tr>
+                    <td>IntegerField</td>
+                    <td>Integer number.</td>
+                </tr>
+                <tr>
+                    <td>FloatField</td>
+                    <td>Decimal number.</td>
+                </tr>
+                <tr>
+                    <td>BooleanField</td>
+                    <td>True or False.</td>
+                </tr>
+                <tr>
+                    <td>DateField</td>
+                    <td>Date input.</td>
+                </tr>
+                <tr>
+                    <td>ChoiceField</td>
+                    <td>Select from given choices.</td>
+                </tr>
+                <tr>
+                    <td>MultipleChoiceField</td>
+                    <td>Select multiple choices.</td>
+                </tr>
+                <tr>
+                    <td>URLField</td>
+                    <td>Website URL.</td>
+                </tr>
+                <tr>
+                    <td>FileField</td>
+                    <td>File upload.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Example</h3>
+
+        <pre class="code-block"><code>from django import forms
+
+class ExampleForm(forms.Form):
+
+    name = forms.CharField()
+
+    email = forms.EmailField()
+
+    age = forms.IntegerField()
+
+    birth_date = forms.DateField()
+
+    website = forms.URLField()</code></pre>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section class="lesson-section">
+        <h2>5. Form Field Options</h2>
+
+        <p>
+            Form Field Options cha use input field che rules,
+            labels ani default values define karnyasathi hoto.
+        </p>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Option</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>required</td>
+                    <td>Field required aahe ka te define karte.</td>
+                </tr>
+                <tr>
+                    <td>max_length</td>
+                    <td>Maximum text length.</td>
+                </tr>
+                <tr>
+                    <td>min_length</td>
+                    <td>Minimum text length.</td>
+                </tr>
+                <tr>
+                    <td>label</td>
+                    <td>Field cha display name.</td>
+                </tr>
+                <tr>
+                    <td>initial</td>
+                    <td>Initial value set karte.</td>
+                </tr>
+                <tr>
+                    <td>help_text</td>
+                    <td>Field sathi extra information.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Example</h3>
+
+        <pre class="code-block"><code>from django import forms
+
+class StudentForm(forms.Form):
+
+    name = forms.CharField(
+        max_length=100,
+        min_length=3,
+        label="Student Name",
+        required=True,
+        help_text="Enter your full name"
+    )
+
+    email = forms.EmailField(
+        label="Email Address",
+        required=True
+    )
+
+    age = forms.IntegerField(
+        min_value=16,
+        max_value=60
+    )</code></pre>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section class="lesson-section">
+        <h2>6. Django Form Widgets</h2>
+
+        <p>
+            Widgets cha use browser madhye form field kasa
+            display hoil te control karnyasathi hoto.
+        </p>
+
+        <h3>Common Widgets</h3>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Widget</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>TextInput</td>
+                    <td>Text input box.</td>
+                </tr>
+                <tr>
+                    <td>EmailInput</td>
+                    <td>Email input box.</td>
+                </tr>
+                <tr>
+                    <td>PasswordInput</td>
+                    <td>Password input box.</td>
+                </tr>
+                <tr>
+                    <td>Textarea</td>
+                    <td>Multi-line text box.</td>
+                </tr>
+                <tr>
+                    <td>Select</td>
+                    <td>Dropdown list.</td>
+                </tr>
+                <tr>
+                    <td>CheckboxInput</td>
+                    <td>Checkbox input.</td>
+                </tr>
+                <tr>
+                    <td>DateInput</td>
+                    <td>Date picker input.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Example</h3>
+
+        <pre class="code-block"><code>from django import forms
+
+class StudentForm(forms.Form):
+
+    name = forms.CharField(
+        widget=forms.TextInput(
+            attrs={"placeholder": "Enter name"}
+        )
+    )
+
+    email = forms.EmailField(
+        widget=forms.EmailInput(
+            attrs={"placeholder": "Enter email"}
+        )
+    )
+
+    address = forms.CharField(
+        widget=forms.Textarea(
+            attrs={"rows": 4}
+        )
+    )</code></pre>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            Field data type define karte, tar Widget browser madhil
+            input element cha appearance ani behavior control karte.
+        </div>
+    </section>
+
+    <!-- SECTION 7 -->
+    <section class="lesson-section">
+        <h2>7. Display Form in Template</h2>
+
+        <p>
+            View madhun Form object template madhye pass karun
+            HTML page var display karta yeto.
+        </p>
+
+        <h3>File: students/views.py</h3>
+
+        <pre class="code-block"><code>from django.shortcuts import render
+from .forms import StudentForm
+
+def student_form(request):
+
+    form = StudentForm()
+
+    return render(
+        request,
+        "student_form.html",
+        {"form": form}
+    )</code></pre>
+
+        <h3>File: templates/student_form.html</h3>
+
+        <pre class="code-block"><code>{% verbatim %}
+&lt;h1&gt;Student Registration&lt;/h1&gt;
+
+&lt;form method="POST"&gt;
+
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    &lt;button type="submit"&gt;
+        Submit
+    &lt;/button&gt;
+
+&lt;/form&gt;
+{% endverbatim %}</code></pre>
+
+        <h3>Form Display Methods</h3>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Method</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>form.as_p</td>
+                    <td>Fields paragraph format madhye display hotat.</td>
+                </tr>
+                <tr>
+                    <td>form.as_table</td>
+                    <td>Fields table row format madhye display hotat.</td>
+                </tr>
+                <tr>
+                    <td>form.as_div</td>
+                    <td>Fields div elements madhye display hotat.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- SECTION 8 -->
+    <section class="lesson-section">
+        <h2>8. GET and POST Methods</h2>
+
+        <p>
+            Django madhye GET ani POST he HTTP request methods
+            form handling sathi commonly vapartat.
+        </p>
+
+        <h3>GET Method</h3>
+
+        <p>
+            GET method cha use server kadun information retrieve
+            karnyasathi hoto.
+        </p>
+
+        <pre class="code-block"><code>&lt;form method="GET"&gt;
+    &lt;input type="text" name="search"&gt;
+    &lt;button type="submit"&gt;Search&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+        <h3>POST Method</h3>
+
+        <p>
+            POST method cha use server la data submit karnyasathi
+            hoto. Registration ani login forms sathi POST commonly vapartat.
+        </p>
+
+        <pre class="code-block"><code>{% verbatim %}
+&lt;form method="POST"&gt;
+    {% csrf_token %}
+    &lt;input type="text" name="name"&gt;
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+{% endverbatim %}</code></pre>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>GET</th>
+                    <th>POST</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Data URL madhye pathavla jato.</td>
+                    <td>Data request body madhye pathavla jato.</td>
+                </tr>
+                <tr>
+                    <td>Retrieving information sathi.</td>
+                    <td>Submitting information sathi.</td>
+                </tr>
+                <tr>
+                    <td>Search sathi useful.</td>
+                    <td>Registration sathi useful.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            POST request sobat Django template madhye csrf_token
+            vaprane garjeche aahe.
+        </div>
+    </section>
+
+    <!-- SECTION 9 -->
+    <section class="lesson-section">
+        <h2>9. Form Validation</h2>
+
+        <p>
+            Form Validation cha use user ne enter kelela data
+            correct aahe ka te check karnyasathi hoto.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre class="code-block"><code>from django import forms
+
+class StudentForm(forms.Form):
+
+    name = forms.CharField(
+        min_length=3,
+        max_length=100
+    )
+
+    email = forms.EmailField()
+
+    age = forms.IntegerField(
+        min_value=16,
+        max_value=60
+    )</code></pre>
+
+        <p>Ya validation madhye:</p>
+
+        <ul>
+            <li>Name minimum 3 characters asne required aahe.</li>
+            <li>Email valid email format madhye asava.</li>
+            <li>Age 16 te 60 madhye asava.</li>
+        </ul>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            Django built-in validation invalid data form madhye
+            accept honyapasun prevent karte.
+        </div>
+    </section>
+
+    <!-- SECTION 10 -->
+    <section class="lesson-section">
+        <h2>10. is_valid() and cleaned_data</h2>
+
+        <p>
+            is_valid() method cha use submitted form data
+            valid aahe ka te check karnyasathi hoto.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre class="code-block"><code>form = StudentForm(request.POST)
+
+if form.is_valid():
+
+    name = form.cleaned_data["name"]
+    email = form.cleaned_data["email"]
+    age = form.cleaned_data["age"]</code></pre>
+
+        <h3>cleaned_data</h3>
+
+        <p>
+            cleaned_data madhye validated ani converted form
+            field values dictionary format madhye available astat.
+        </p>
+
+        <h3>Example Output</h3>
+
+        <pre class="output-code"><code>{
+    'name': 'Rohan',
+    'email': 'rohan@example.com',
+    'age': 20
+}</code></pre>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            cleaned_data access karnyapurvi form.is_valid()
+            True asne required aahe.
+        </div>
+    </section>
+
+    <!-- SECTION 11 -->
+    <section class="lesson-section">
+        <h2>11. Display Form Errors</h2>
+
+        <p>
+            User ne invalid data submit kelyas Django form errors
+            provide karte. Te template madhye display karta yetat.
+        </p>
+
+        <h3>Example: views.py</h3>
+
+        <pre class="code-block"><code>def student_form(request):
+
+    if request.method == "POST":
+
+        form = StudentForm(request.POST)
+
+        if form.is_valid():
+            print(form.cleaned_data)
+
+    else:
+        form = StudentForm()
+
+    return render(
+        request,
+        "student_form.html",
+        {"form": form}
+    )</code></pre>
+
+        <h3>Example: student_form.html</h3>
+
+        <pre class="code-block"><code>{% verbatim %}
+&lt;form method="POST"&gt;
+
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    {% if form.errors %}
+        &lt;p&gt;Please correct the errors.&lt;/p&gt;
+    {% endif %}
+
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+
+&lt;/form&gt;
+{% endverbatim %}</code></pre>
+
+        <p>
+            form.as_p field-level errors suddha render karte.
+            More control sathi field errors ani non-field errors
+            separately display karta yetat.
+        </p>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            Invalid form parat render kelyavar entered values ani
+            validation errors user la display karta yetat.
+        </div>
+    </section>
+
+    <!-- SECTION 12 -->
+    <section class="lesson-section">
+        <h2>12. Custom Form Validation</h2>
+
+        <p>
+            Built-in validation sobat custom rules define
+            karnyasathi clean_fieldname() method vapartat.
+        </p>
+
+        <h3>Example: Validate Name</h3>
+
+        <pre class="code-block"><code>from django import forms
+
+class StudentForm(forms.Form):
+
+    name = forms.CharField(max_length=100)
+
+    def clean_name(self):
+
+        name = self.cleaned_data["name"]
+
+        if name.isdigit():
+            raise forms.ValidationError(
+                "Name cannot contain only numbers."
+            )
+
+        return name</code></pre>
+
+        <p>
+            Ya example madhye name madhye fakt numbers aslyas
+            custom validation error display hoil.
+        </p>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            clean_name() method name field sathi custom validation
+            perform karte. Cleaned value return karavi lagte.
+        </div>
+    </section>
+
+    <!-- SECTION 13 -->
+    <section class="lesson-section">
+        <h2>13. Complete Practical – Student Registration Form</h2>
+
+        <p>
+            Ata Django Form vaprun Student Registration Form
+            create karu ani valid information database madhye save karu.
+        </p>
+
+        <h3>Step 1: Model</h3>
+
+        <p>File: students/models.py</p>
+
+        <pre class="code-block"><code>from django.db import models
+
+class Student(models.Model):
+
+    name = models.CharField(max_length=100)
+
+    email = models.EmailField(unique=True)
+
+    age = models.IntegerField()
+
+    course = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name</code></pre>
+
+        <h3>Step 2: Create Form</h3>
+
+        <p>File: students/forms.py</p>
+
+        <pre class="code-block"><code>from django import forms
+
+class StudentForm(forms.Form):
+
+    name = forms.CharField(
+        max_length=100,
+        min_length=3,
+        label="Student Name"
+    )
+
+    email = forms.EmailField(
+        label="Email Address"
+    )
+
+    age = forms.IntegerField(
+        min_value=16,
+        max_value=60
+    )
+
+    course = forms.CharField(
+        max_length=100
+    )</code></pre>
+
+        <h3>Step 3: Create View</h3>
+
+        <p>File: students/views.py</p>
+
+        <pre class="code-block"><code>from django.shortcuts import render, redirect
+from .forms import StudentForm
+from .models import Student
+
+def register_student(request):
+
+    if request.method == "POST":
+
+        form = StudentForm(request.POST)
+
+        if form.is_valid():
+
+            Student.objects.create(
+                name=form.cleaned_data["name"],
+                email=form.cleaned_data["email"],
+                age=form.cleaned_data["age"],
+                course=form.cleaned_data["course"]
+            )
+
+            return redirect("register_student")
+
+    else:
+        form = StudentForm()
+
+    return render(
+        request,
+        "register_student.html",
+        {"form": form}
+    )</code></pre>
+
+        <h3>Step 4: Create URL</h3>
+
+        <p>File: students/urls.py</p>
+
+        <pre class="code-block"><code>from django.urls import path
+from . import views
+
+urlpatterns = [
+    path(
+        "register/",
+        views.register_student,
+        name="register_student"
+    ),
+]</code></pre>
+
+        <h3>Step 5: Create Template</h3>
+
+        <p>File: templates/register_student.html</p>
+
+        <pre class="code-block"><code>{% verbatim %}
+&lt;h1&gt;Student Registration&lt;/h1&gt;
+
+&lt;form method="POST"&gt;
+
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    &lt;button type="submit"&gt;
+        Register
+    &lt;/button&gt;
+
+&lt;/form&gt;
+{% endverbatim %}</code></pre>
+
+        <h3>Step 6: Run Migrations</h3>
+
+        <pre class="code-block"><code>python manage.py makemigrations
+python manage.py migrate</code></pre>
+
+        <p>
+            Student Model madhye changes kele astil tarch
+            navin migration create hoil.
+        </p>
+
+        <h3>Step 7: Run Server</h3>
+
+        <pre class="code-block"><code>python manage.py runserver</code></pre>
+
+        <h3>Step 8: Open Registration Page</h3>
+
+        <pre class="output-code"><code>http://127.0.0.1:8000/register/</code></pre>
+
+        <h3>Expected Output</h3>
+
+        <div class="browser-preview">
+            <div class="browser-bar">
+                <span></span>
+                <span></span>
+                <span></span>
+                <div class="browser-address">127.0.0.1:8000/register/</div>
+            </div>
+
+            <div class="form-preview">
+                <h2>Student Registration</h2>
+
+                <div class="preview-field">
+                    <label>Student Name</label>
+                    <div>Rohan Jagtap</div>
+                </div>
+
+                <div class="preview-field">
+                    <label>Email Address</label>
+                    <div>rohan@example.com</div>
+                </div>
+
+                <div class="preview-field">
+                    <label>Age</label>
+                    <div>20</div>
+                </div>
+
+                <div class="preview-field">
+                    <label>Course</label>
+                    <div>BSc Computer Science</div>
+                </div>
+
+                <button type="button" class="demo-button">
+                    Register
+                </button>
+
+                <p class="preview-note">
+                    Illustrative form preview. Actual page Django render karte.
+                </p>
+            </div>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Email unique aahe. Same email punha submit kelyas
+            database IntegrityError yeu shakto. Real application madhye
+            email uniqueness form validation madhye check kara kiwa
+            ModelForm vapra.
+        </div>
+
+        <div class="info-box">
+            <strong>Practical Completed:</strong>
+            Ata Django Form madhun student information validate
+            karun Student Database madhye save karta yeil.
+        </div>
+    </section>
+
+    <!-- SECTION 14 -->
+    <section class="lesson-section">
+        <h2>14. Common Mistakes</h2>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Problem</th>
+                    <th>Solution</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>CSRF verification failed</td>
+                    <td>POST form madhye csrf_token add kara.</td>
+                </tr>
+                <tr>
+                    <td>Form data not received</td>
+                    <td>Form(request.POST) vapra.</td>
+                </tr>
+                <tr>
+                    <td>is_valid() False</td>
+                    <td>Form errors check kara.</td>
+                </tr>
+                <tr>
+                    <td>cleaned_data error</td>
+                    <td>is_valid() True aslyanantar access kara.</td>
+                </tr>
+                <tr>
+                    <td>Form not displaying</td>
+                    <td>View madhun form context pass kara.</td>
+                </tr>
+                <tr>
+                    <td>Duplicate email error</td>
+                    <td>Unique email validation kara.</td>
+                </tr>
+                <tr>
+                    <td>TemplateDoesNotExist</td>
+                    <td>Template file path check kara.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- SECTION 15 -->
+    <section class="lesson-section">
+        <h2>15. Important Revision</h2>
+
+        <ol>
+            <li>Django Forms user input collect karnyasathi vapartat.</li>
+            <li>forms.py madhye Form classes define kartat.</li>
+            <li>forms.Form ha base Form class aahe.</li>
+            <li>CharField text input ghenyasathi vapartat.</li>
+            <li>EmailField email validation karte.</li>
+            <li>Widgets HTML input elements control kartat.</li>
+            <li>GET information retrieve karnyasathi vapartat.</li>
+            <li>POST server la data submit karnyasathi vapartat.</li>
+            <li>csrf_token POST form protect karnyas madat karto.</li>
+            <li>is_valid() form data validate karte.</li>
+            <li>cleaned_data validated values dete.</li>
+            <li>ValidationError custom error display karte.</li>
+        </ol>
+    </section>
+
+    <!-- PRACTICE -->
+    <section class="practice-section">
+        <h2>16. Practice Questions</h2>
+
+        <p>He questions swatah solve kar:</p>
+
+        <ol>
+            <li>Django Forms mhanje kay?</li>
+            <li>HTML Forms ani Django Forms madhil difference lih.</li>
+            <li>Django Form Class create kar.</li>
+            <li>CharField ani EmailField cha use sang.</li>
+            <li>Widgets mhanje kay? Examples de.</li>
+            <li>GET ani POST madhil difference lih.</li>
+            <li>is_valid() ani cleaned_data explain kar.</li>
+            <li>Form Validation example create kar.</li>
+            <li>Custom clean_name() method create kar.</li>
+            <li>Student Registration Form create karun database madhye data save kar.</li>
+        </ol>
+    </section>
+
+    <!-- COMPLETION -->
+    <div class="completion-message">
+        <h2>Topic 11 Completed!</h2>
+        <p>
+            Ata tumhala Django Forms, Form Fields, Widgets,
+            Validation ani Form Submission samajle astil.
+        </p>
+    </div>
+
+    <!-- NAVIGATION -->
+    <div class="lesson-navigation">
+        <a href="{% url 'django_topic' 'migrations' %}"
+           class="nav-button previous-button">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'django_topic' 'modelforms' %}"
+           class="nav-button next-button">
+            Next Topic →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

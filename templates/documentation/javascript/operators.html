@@ -1,0 +1,993 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}JavaScript Operators | Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/javascript/operators.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">JAVASCRIPT DOCUMENTATION • PAGE 06</span>
+
+        <h1>JavaScript Operators</h1>
+
+        <p>
+            JavaScript madhye calculation, comparison,
+            conditions ani values assign karnyasathi operators
+            kase vapartat he practical examples sahit shikuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Beginner Level</span>
+            <span>40–45 Minutes</span>
+        </div>
+    </div>
+
+    <!-- Section 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What are Operators?</h2>
+
+        <p>
+            Operator mhanje ek symbol kiwa keyword jo values
+            kiwa variables var specific operation perform karto.
+        </p>
+
+        <p>
+            Udaharanarth, don numbers add karnyasathi +
+            operator vapartat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let a = 10;
+let b = 5;
+
+let result = a + b;
+
+console.log(result);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>15</pre>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li><strong>a ani b:</strong> Values store karnare variables.</li>
+            <li><strong>+:</strong> Don values add karnara operator.</li>
+            <li><strong>result:</strong> Addition cha result store karto.</li>
+        </ul>
+
+        <div class="info-box">
+            <strong>Simple Definition:</strong>
+            Values var calculation kiwa dusri operation
+            perform karnyasathi operators vapartat.
+        </div>
+
+    </section>
+
+    <!-- Section 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Types of JavaScript Operators</h2>
+
+        <p>
+            JavaScript madhye vegveglya operations sathi
+            vegvegale operators vapartat.
+        </p>
+
+        <div class="operator-list">
+            <div class="operator-card">
+                <strong>Arithmetic</strong>
+                <span>Calculation karnyasathi</span>
+            </div>
+
+            <div class="operator-card">
+                <strong>Assignment</strong>
+                <span>Value assign karnyasathi</span>
+            </div>
+
+            <div class="operator-card">
+                <strong>Comparison</strong>
+                <span>Values compare karnyasathi</span>
+            </div>
+
+            <div class="operator-card">
+                <strong>Logical</strong>
+                <span>Conditions combine karnyasathi</span>
+            </div>
+
+            <div class="operator-card">
+                <strong>String</strong>
+                <span>Strings jodnyasathi</span>
+            </div>
+
+            <div class="operator-card">
+                <strong>Ternary</strong>
+                <span>Short condition lihinyasathi</span>
+            </div>
+
+            <div class="operator-card">
+                <strong>Type</strong>
+                <span>Data type check karnyasathi</span>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Section 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. Arithmetic Operators</h2>
+
+        <p>
+            Arithmetic operators cha use mathematical
+            calculations karnyasathi hoto.
+        </p>
+
+        <h3>Arithmetic Operators Table:</h3>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Operator</th>
+                    <th>Name</th>
+                    <th>Use</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>+</td>
+                    <td>Addition</td>
+                    <td>Don values add karto.</td>
+                </tr>
+
+                <tr>
+                    <td>-</td>
+                    <td>Subtraction</td>
+                    <td>Ek value dusryatun kami karto.</td>
+                </tr>
+
+                <tr>
+                    <td>*</td>
+                    <td>Multiplication</td>
+                    <td>Don values multiply karto.</td>
+                </tr>
+
+                <tr>
+                    <td>/</td>
+                    <td>Division</td>
+                    <td>Bhagakar karto.</td>
+                </tr>
+
+                <tr>
+                    <td>%</td>
+                    <td>Modulus</td>
+                    <td>Bhagakarachi remainder value deto.</td>
+                </tr>
+
+                <tr>
+                    <td>**</td>
+                    <td>Exponentiation</td>
+                    <td>Power calculate karto.</td>
+                </tr>
+
+                <tr>
+                    <td>++</td>
+                    <td>Increment</td>
+                    <td>Value madhye 1 add karto.</td>
+                </tr>
+
+                <tr>
+                    <td>--</td>
+                    <td>Decrement</td>
+                    <td>Value madhun 1 kami karto.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let a = 10;
+let b = 3;
+
+console.log(a + b);
+console.log(a - b);
+console.log(a * b);
+console.log(a / b);
+console.log(a % b);
+console.log(a ** b);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>13
+7
+30
+3.3333333333333335
+1
+1000</pre>
+        </div>
+
+        <h3>Modulus Operator (%)</h3>
+
+        <p>
+            Modulus operator division kelyanantar urleli
+            remainder value return karto.
+        </p>
+
+        <pre class="code-block"><code>let number = 10;
+
+console.log(number % 2);
+console.log(number % 3);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>0
+1</pre>
+        </div>
+
+        <p>
+            10 la 2 ne divide kelyavar remainder 0 yeto.
+            10 la 3 ne divide kelyavar remainder 1 yeto.
+        </p>
+
+        <h3>Increment and Decrement:</h3>
+
+        <pre class="code-block"><code>let count = 5;
+
+count++;
+
+console.log(count);
+
+count--;
+
+console.log(count);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>6
+5</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            count++ mhanje count = count + 1.
+            count-- mhanje count = count - 1.
+        </div>
+
+    </section>
+
+    <!-- Section 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. Assignment Operators</h2>
+
+        <p>
+            Assignment operators cha use variable madhye
+            value assign karnyasathi kiwa tyachi value
+            update karnyasathi hoto.
+        </p>
+
+        <h3>Assignment Operators Table:</h3>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Operator</th>
+                    <th>Example</th>
+                    <th>Meaning</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>=</td>
+                    <td>x = 10</td>
+                    <td>x madhye 10 assign karto.</td>
+                </tr>
+
+                <tr>
+                    <td>+=</td>
+                    <td>x += 5</td>
+                    <td>x = x + 5</td>
+                </tr>
+
+                <tr>
+                    <td>-=</td>
+                    <td>x -= 5</td>
+                    <td>x = x - 5</td>
+                </tr>
+
+                <tr>
+                    <td>*=</td>
+                    <td>x *= 5</td>
+                    <td>x = x * 5</td>
+                </tr>
+
+                <tr>
+                    <td>/=</td>
+                    <td>x /= 5</td>
+                    <td>x = x / 5</td>
+                </tr>
+
+                <tr>
+                    <td>%=</td>
+                    <td>x %= 5</td>
+                    <td>x = x % 5</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let x = 10;
+
+x += 5;
+console.log(x);
+
+x -= 3;
+console.log(x);
+
+x *= 2;
+console.log(x);
+
+x /= 4;
+console.log(x);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>15
+12
+24
+6</pre>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li><strong>x += 5:</strong> 10 + 5 = 15</li>
+            <li><strong>x -= 3:</strong> 15 - 3 = 12</li>
+            <li><strong>x *= 2:</strong> 12 × 2 = 24</li>
+            <li><strong>x /= 4:</strong> 24 ÷ 4 = 6</li>
+        </ul>
+
+    </section>
+
+    <!-- Section 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. Comparison Operators</h2>
+
+        <p>
+            Comparison operators cha use don values compare
+            karnyasathi hoto. Comparison cha result Boolean
+            mhanje true kiwa false asto.
+        </p>
+
+        <h3>Comparison Operators Table:</h3>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Operator</th>
+                    <th>Name</th>
+                    <th>Meaning</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>==</td>
+                    <td>Equal</td>
+                    <td>Values equal aahet ka te check karto.</td>
+                </tr>
+
+                <tr>
+                    <td>===</td>
+                    <td>Strict Equal</td>
+                    <td>Value ani data type donhi check karto.</td>
+                </tr>
+
+                <tr>
+                    <td>!=</td>
+                    <td>Not Equal</td>
+                    <td>Values equal nahit ka te check karto.</td>
+                </tr>
+
+                <tr>
+                    <td>!==</td>
+                    <td>Strict Not Equal</td>
+                    <td>Value kiwa data type vegla aahe ka te check karto.</td>
+                </tr>
+
+                <tr>
+                    <td>&gt;</td>
+                    <td>Greater Than</td>
+                    <td>Mothi value check karto.</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;</td>
+                    <td>Less Than</td>
+                    <td>Lahan value check karto.</td>
+                </tr>
+
+                <tr>
+                    <td>&gt;=</td>
+                    <td>Greater Than or Equal</td>
+                    <td>Mothi kiwa equal value check karto.</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;=</td>
+                    <td>Less Than or Equal</td>
+                    <td>Lahan kiwa equal value check karto.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let a = 10;
+let b = 5;
+
+console.log(a == b);
+console.log(a > b);
+console.log(a < b);
+console.log(a >= b);
+console.log(a != b);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>false
+true
+false
+true
+true</pre>
+        </div>
+
+        <h3>Difference Between == and ===</h3>
+
+        <p>
+            == operator comparison kartana garaj padlyas
+            data type convert karu shakto.
+            === operator value ani data type donhi check karto.
+        </p>
+
+        <pre class="code-block"><code>let a = 10;
+let b = "10";
+
+console.log(a == b);
+console.log(a === b);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>true
+false</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Modern JavaScript code madhye comparison sathi
+            shakya asel tithe === ani !== vapra.
+            Tyamule unexpected type conversion talta yete.
+        </div>
+
+    </section>
+
+    <!-- Section 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. Logical Operators</h2>
+
+        <p>
+            Logical operators cha use multiple conditions
+            combine karnyasathi kiwa condition cha result
+            reverse karnyasathi hoto.
+        </p>
+
+        <h3>Logical Operators Table:</h3>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Operator</th>
+                    <th>Name</th>
+                    <th>Meaning</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>&amp;&amp;</td>
+                    <td>AND</td>
+                    <td>Donhi conditions true asne avashyak.</td>
+                </tr>
+
+                <tr>
+                    <td>||</td>
+                    <td>OR</td>
+                    <td>Kamitate ek condition true asne avashyak.</td>
+                </tr>
+
+                <tr>
+                    <td>!</td>
+                    <td>NOT</td>
+                    <td>Boolean result reverse karto.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>A. AND Operator (&&)</h3>
+
+        <pre class="code-block"><code>let age = 20;
+let hasID = true;
+
+console.log(age >= 18 && hasID === true);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>true</pre>
+        </div>
+
+        <p>
+            Donhi conditions true aslyamule final result true aahe.
+        </p>
+
+        <h3>B. OR Operator (||)</h3>
+
+        <pre class="code-block"><code>let hasEmail = false;
+let hasPhone = true;
+
+console.log(hasEmail || hasPhone);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>true</pre>
+        </div>
+
+        <p>
+            Ek tari condition true aslyamule result true aahe.
+        </p>
+
+        <h3>C. NOT Operator (!)</h3>
+
+        <pre class="code-block"><code>let isLoggedIn = true;
+
+console.log(!isLoggedIn);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>false</pre>
+        </div>
+
+        <p>
+            ! operator true la false ani false la true karto.
+        </p>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Login, registration, eligibility ani form validation
+            madhye logical operators khup upyogi aahet.
+        </div>
+
+    </section>
+
+    <!-- Section 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. String Operator</h2>
+
+        <p>
+            JavaScript madhye + operator cha use strings
+            ekatra jodnyasathi suddha hoto.
+            Yala string concatenation mhantat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let firstName = "Rohan";
+let lastName = "Jagtap";
+
+let fullName = firstName + " " + lastName;
+
+console.log(fullName);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Rohan Jagtap</pre>
+        </div>
+
+        <h3>String and Number:</h3>
+
+        <pre class="code-block"><code>let result = "Age: " + 20;
+
+console.log(result);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Age: 20</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            String sobat + vaparlyas value concatenate hou shakate.
+            Mhanun calculation kartana data types check kara.
+        </div>
+
+    </section>
+
+    <!-- Section 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. Ternary Operator</h2>
+
+        <p>
+            Ternary operator ha short condition lihinyasathi
+            vaparla jato. To condition true kiwa false
+            aslyavar vegvegli value return karto.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>condition ? valueIfTrue : valueIfFalse;</code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let age = 20;
+
+let result = age >= 18 ? "Adult" : "Minor";
+
+console.log(result);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Adult</pre>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li><strong>age >= 18:</strong> Condition check karte.</li>
+            <li><strong>?:</strong> True aslyas pahili value nivadte.</li>
+            <li><strong>:</strong> False aslyas dusri value nivadte.</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Simple if-else condition sathi ternary operator upyogi aahe.
+            Khup complex conditions sathi if-else vaprane adhik readable aste.
+        </div>
+
+    </section>
+
+    <!-- Section 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Type Operators</h2>
+
+        <p>
+            Type operators cha use value cha data type
+            check karnyasathi kiwa object cha type
+            relationship check karnyasathi hoto.
+        </p>
+
+        <h3>A. typeof Operator</h3>
+
+        <p>
+            typeof operator value cha data type return karto.
+        </p>
+
+        <pre class="code-block"><code>let name = "Rohan";
+let age = 20;
+
+console.log(typeof name);
+console.log(typeof age);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>string
+number</pre>
+        </div>
+
+        <h3>B. instanceof Operator</h3>
+
+        <p>
+            instanceof operator object specific constructor
+            chya prototype chain madhye yeto ka te check karto.
+        </p>
+
+        <pre class="code-block"><code>let fruits = ["Apple", "Mango"];
+
+console.log(fruits instanceof Array);
+console.log(fruits instanceof Object);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>true
+true</pre>
+        </div>
+
+    </section>
+
+    <!-- Section 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Operator Precedence</h2>
+
+        <p>
+            Ekach expression madhye anek operators astil tar
+            konti operation aadhi perform honar he operator
+            precedence tharavte.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let result = 10 + 5 * 2;
+
+console.log(result);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>20</pre>
+        </div>
+
+        <p>
+            Multiplication chi precedence addition peksha
+            jast aahe. Mhanun 5 * 2 aadhi calculate hote.
+        </p>
+
+        <h3>Using Parentheses:</h3>
+
+        <pre class="code-block"><code>let result = (10 + 5) * 2;
+
+console.log(result);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>30</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Complex calculation madhye parentheses () vapra.
+            Tyamule code vachayla ani samjayla sopa hoto.
+        </div>
+
+    </section>
+
+    <!-- Section 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Practical Example - Student Result</h2>
+
+        <p>
+            Ata operators vaprun student cha result
+            calculate karu.
+        </p>
+
+        <h3>JavaScript Code:</h3>
+
+        <pre class="code-block"><code>let maths = 80;
+let science = 75;
+let english = 85;
+
+let total = maths + science + english;
+
+let percentage = total / 3;
+
+let isPassed = maths >= 35 &&
+               science >= 35 &&
+               english >= 35;
+
+let result = isPassed ? "Pass" : "Fail";
+
+console.log("Total:", total);
+console.log("Percentage:", percentage);
+console.log("Result:", result);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Total: 240
+Percentage: 80
+Result: Pass</pre>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li><strong>+:</strong> Tin subjects che marks add kele.</li>
+            <li><strong>/:</strong> Average percentage calculate keli.</li>
+            <li><strong>&gt;=:</strong> Pratyek subject madhye passing marks check kele.</li>
+            <li><strong>&amp;&amp;:</strong> Tinhi subjects pass asne avashyak thevle.</li>
+            <li><strong>?:</strong> Pass kiwa Fail result nivadla.</li>
+        </ul>
+
+    </section>
+
+    <!-- Section 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Common Beginner Mistakes</h2>
+
+        <div class="mistake-card">
+            <strong>Mistake 1: = ani == madhye confusion</strong>
+            <p>
+                = value assign karto, tar == values compare karto.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 2: == ani === same samajne</strong>
+            <p>
+                === value ani data type donhi check karto.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 3: % operator cha result samjun na ghene</strong>
+            <p>
+                % remainder return karto, percentage calculate karat nahi.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 4: && ani || madhye confusion</strong>
+            <p>
+                && sathi donhi conditions true pahijet.
+                || sathi kamitate ek condition true pahije.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 5: String ani Number ekatra add karne</strong>
+            <p>
+                "10" + 5 cha result "105" yeu shakto.
+                Calculation aadhi data type check kara.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- Section 13 -->
+
+    <section class="lesson-section">
+
+        <h2>13. Quick Revision</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>Operators values var operations perform kartat.</li>
+                <li>Arithmetic operators calculation sathi vapartat.</li>
+                <li>Assignment operators values assign kiwa update kartat.</li>
+                <li>Comparison operators true kiwa false return kartat.</li>
+                <li>=== value ani data type donhi compare karto.</li>
+                <li>Logical operators conditions combine kartat.</li>
+                <li>+ operator strings jodnyasathi suddha vapartat.</li>
+                <li>Ternary operator short condition lihinyasathi vapartat.</li>
+                <li>typeof data type check karto.</li>
+                <li>instanceof object chi prototype relationship check karto.</li>
+                <li>Operator precedence operation cha order tharavte.</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <!-- Section 14 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>14. Practice Questions</h2>
+
+        <h3>Basic Questions</h3>
+
+        <ol>
+            <li>Operator mhanje kay?</li>
+            <li>Arithmetic operators konthe aahet?</li>
+            <li>Modulus operator cha use kay aahe?</li>
+            <li>Assignment operator mhanje kay?</li>
+            <li>= ani == madhye kay difference aahe?</li>
+            <li>== ani === madhye kay difference aahe?</li>
+            <li>Logical AND operator kasa work karto?</li>
+            <li>Logical OR operator kasa work karto?</li>
+            <li>Ternary operator mhanje kay?</li>
+            <li>typeof operator cha use kay aahe?</li>
+        </ol>
+
+        <h3>Practical Questions</h3>
+
+        <ol>
+            <li>Don numbers add, subtract, multiply ani divide kar.</li>
+            <li>Modulus operator vaprun even kiwa odd number check kar.</li>
+            <li>Assignment operators vaprun variable chi value update kar.</li>
+            <li>Don numbers compare karun output display kar.</li>
+            <li>AND operator vaprun age ani ID condition check kar.</li>
+            <li>Ternary operator vaprun Pass kiwa Fail result display kar.</li>
+            <li>typeof vaprun vegveglya values che data types check kar.</li>
+        </ol>
+
+        <div class="task-box">
+
+            <h3>Mini Task: Simple Calculator</h3>
+
+            <p>
+                JavaScript vaprun ek simple calculator tayar kar.
+            </p>
+
+            <ul>
+                <li>number1 ani number2 navache don variables tayar kar.</li>
+                <li>Donhi variables madhye Number values store kar.</li>
+                <li>Addition cha result calculate kar.</li>
+                <li>Subtraction cha result calculate kar.</li>
+                <li>Multiplication cha result calculate kar.</li>
+                <li>Division cha result calculate kar.</li>
+                <li>Modulus cha result calculate kar.</li>
+                <li>Sarv results console madhye display kar.</li>
+            </ul>
+
+            <p>
+                File name: <strong>javascript_operators.js</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Navigation -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'javascript_topic' 'data-types' %}"
+           class="nav-button previous-button">
+            ← Previous: JavaScript Data Types
+        </a>
+
+        <a href="{% url 'javascript_topic' 'input-output' %}"
+           class="nav-button next-button">
+            Next: JavaScript Input and Output →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

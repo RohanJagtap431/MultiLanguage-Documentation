@@ -1,0 +1,715 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}JavaScript Objects | Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/javascript/objects.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Header -->
+
+    <div class="lesson-header">
+        <span class="lesson-label">JAVASCRIPT DOCUMENTATION • PAGE 15</span>
+
+        <h1>JavaScript Objects</h1>
+
+        <p>
+            Object cha use related information key-value pairs madhye
+            store karnyasathi hoto. Ya lesson madhye object creation,
+            properties, access ani modification shikuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Beginner Level</span>
+            <span>35–45 Minutes</span>
+        </div>
+    </div>
+
+    <!-- Section 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What is an Object?</h2>
+
+        <p>
+            JavaScript madhye Object ha data structure aahe.
+            Tyat information key-value pairs chya format madhye store hote.
+        </p>
+
+        <p>
+            Pratyek key la property name mhantat ani tyachyashi
+            sambandhit data la value mhantat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let student = {
+    name: "Rohan",
+    age: 20,
+    course: "BSc Computer Science"
+};
+
+console.log(student);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>{
+  name: "Rohan",
+  age: 20,
+  course: "BSc Computer Science"
+}</pre>
+        </div>
+
+        <div class="info-box">
+            <strong>Simple Definition:</strong>
+            Object mhanje related data key-value pairs madhye
+            store karanari structure.
+        </div>
+
+    </section>
+
+    <!-- Section 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Object Properties</h2>
+
+        <p>
+            Object madhil key-value pair la property mhantat.
+            Ekach object madhye anek properties asu shaktat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let student = {
+    name: "Rohan",
+    age: 20,
+    city: "Kolhapur",
+    isActive: true
+};</code></pre>
+
+        <h3>Properties:</h3>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Key</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>name</td>
+                    <td>"Rohan"</td>
+                </tr>
+
+                <tr>
+                    <td>age</td>
+                    <td>20</td>
+                </tr>
+
+                <tr>
+                    <td>city</td>
+                    <td>"Kolhapur"</td>
+                </tr>
+
+                <tr>
+                    <td>isActive</td>
+                    <td>true</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="tip-box">
+            <strong>Remember:</strong>
+            Object madhye String, Number, Boolean, Array ani
+            dusre Objects suddha store karta yetat.
+        </div>
+
+    </section>
+
+    <!-- Section 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. Creating an Object</h2>
+
+        <p>
+            Object create karnyasathi curly brackets
+            <code>{}</code> vapartat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let car = {
+    brand: "Tata",
+    model: "Nexon",
+    year: 2025
+};
+
+console.log(car);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>{
+  brand: "Tata",
+  model: "Nexon",
+  year: 2025
+}</pre>
+        </div>
+
+        <p>
+            Ithe car ha object aahe ani brand, model, year
+            ya tyachya properties aahet.
+        </p>
+
+    </section>
+
+    <!-- Section 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. Accessing Object Properties</h2>
+
+        <p>
+            Object madhil value access karnyasathi dot notation
+            kiwa bracket notation vapartat.
+        </p>
+
+        <h3>1. Dot Notation</h3>
+
+        <pre class="code-block"><code>let student = {
+    name: "Rohan",
+    age: 20
+};
+
+console.log(student.name);
+console.log(student.age);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Rohan
+20</pre>
+        </div>
+
+        <h3>2. Bracket Notation</h3>
+
+        <pre class="code-block"><code>let student = {
+    name: "Rohan",
+    age: 20
+};
+
+console.log(student["name"]);
+console.log(student["age"]);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Rohan
+20</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Difference:</strong>
+            Dot notation madhye property name direct lihitat.
+            Bracket notation madhye property name String madhye lihitat.
+        </div>
+
+    </section>
+
+    <!-- Section 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. Adding New Properties</h2>
+
+        <p>
+            Existing object madhye new property add karta yete.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let student = {
+    name: "Rohan",
+    age: 20
+};
+
+student.city = "Kolhapur";
+student.course = "BSc CS";
+
+console.log(student);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>{
+  name: "Rohan",
+  age: 20,
+  city: "Kolhapur",
+  course: "BSc CS"
+}</pre>
+        </div>
+
+    </section>
+
+    <!-- Section 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. Updating Object Properties</h2>
+
+        <p>
+            Existing property chi value navin value assign karun
+            update karta yete.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let student = {
+    name: "Rohan",
+    age: 20
+};
+
+student.age = 21;
+
+console.log(student.age);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>21</pre>
+        </div>
+
+    </section>
+
+    <!-- Section 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. Deleting Object Properties</h2>
+
+        <p>
+            Object madhil property remove karnyasathi
+            delete operator vapartat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let student = {
+    name: "Rohan",
+    age: 20,
+    city: "Kolhapur"
+};
+
+delete student.city;
+
+console.log(student);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>{
+  name: "Rohan",
+  age: 20
+}</pre>
+        </div>
+
+    </section>
+
+    <!-- Section 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. Nested Objects</h2>
+
+        <p>
+            Eka object madhye dusra object store kela asel
+            tar tyala Nested Object mhantat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let student = {
+    name: "Rohan",
+
+    address: {
+        city: "Kolhapur",
+        state: "Maharashtra"
+    }
+};
+
+console.log(student.address.city);
+console.log(student.address.state);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Kolhapur
+Maharashtra</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Remember:</strong>
+            Nested object access karnyasathi multiple dot notation
+            vaparta yete.
+        </div>
+
+    </section>
+
+    <!-- Section 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Objects with Arrays</h2>
+
+        <p>
+            Object madhye Array store karta yete.
+            Ekach object madhye vegveglya type cha data asu shakto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let student = {
+    name: "Rohan",
+    skills: ["Python", "Django", "JavaScript"]
+};
+
+console.log(student.skills);
+console.log(student.skills[0]);
+console.log(student.skills[1]);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>["Python", "Django", "JavaScript"]
+Python
+Django</pre>
+        </div>
+
+    </section>
+
+    <!-- Section 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Object Methods</h2>
+
+        <p>
+            Object madhil property chi value function asel
+            tar tya function la Method mhantat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let student = {
+    name: "Rohan",
+
+    greet: function() {
+        return "Hello " + this.name;
+    }
+};
+
+console.log(student.greet());</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Hello Rohan</pre>
+        </div>
+
+        <p>
+            Ithe greet hi method aahe ani this.name
+            current object madhil name property access karte.
+        </p>
+
+    </section>
+
+    <!-- Section 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Object.keys(), values() and entries()</h2>
+
+        <h3>Object.keys()</h3>
+
+        <p>
+            Object madhil sarva property names chi Array return karte.
+        </p>
+
+        <pre class="code-block"><code>let student = {
+    name: "Rohan",
+    age: 20,
+    city: "Kolhapur"
+};
+
+console.log(Object.keys(student));</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>["name", "age", "city"]</pre>
+        </div>
+
+        <h3>Object.values()</h3>
+
+        <p>
+            Object madhil sarva property values chi Array return karte.
+        </p>
+
+        <pre class="code-block"><code>let student = {
+    name: "Rohan",
+    age: 20
+};
+
+console.log(Object.values(student));</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>["Rohan", 20]</pre>
+        </div>
+
+        <h3>Object.entries()</h3>
+
+        <p>
+            Object madhil key-value pairs chi Array return karte.
+        </p>
+
+        <pre class="code-block"><code>let student = {
+    name: "Rohan",
+    age: 20
+};
+
+console.log(Object.entries(student));</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>[["name", "Rohan"], ["age", 20]]</pre>
+        </div>
+
+    </section>
+
+    <!-- Section 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Checking Object Properties</h2>
+
+        <p>
+            Object madhye specific property aahe ka te check
+            karnyasathi in operator vaparta yeto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let student = {
+    name: "Rohan",
+    age: 20
+};
+
+console.log("name" in student);
+console.log("city" in student);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>true
+false</pre>
+        </div>
+
+    </section>
+
+    <!-- Section 13 -->
+
+    <section class="lesson-section">
+
+        <h2>13. Object vs Array</h2>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Object</th>
+                    <th>Array</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Key-value pairs madhye data store karto.</td>
+                    <td>Ordered list madhye data store karto.</td>
+                </tr>
+
+                <tr>
+                    <td>Properties access karnyasathi keys vapartat.</td>
+                    <td>Elements access karnyasathi index vapartat.</td>
+                </tr>
+
+                <tr>
+                    <td>Example: student.name</td>
+                    <td>Example: numbers[0]</td>
+                </tr>
+
+                <tr>
+                    <td>Curly brackets {} vapartat.</td>
+                    <td>Square brackets [] vapartat.</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </section>
+
+    <!-- Section 14 -->
+
+    <section class="lesson-section">
+
+        <h2>14. Common Beginner Mistakes</h2>
+
+        <div class="mistake-card">
+            <strong>Mistake 1: Property name chukicha lihine</strong>
+            <p>
+                Object madhye je property name aahe tech access kartana vapra.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 2: Dot notation madhye quotes vaprane</strong>
+            <p>
+                student.name ase lihayche. student."name" ase nahi.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 3: Bracket notation madhye quotes visarne</strong>
+            <p>
+                student["name"] ase lihayche.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 4: Object ani JSON same samajne</strong>
+            <p>
+                JavaScript Object ani JSON ya related pan veglya formats aahet.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- Section 15 -->
+
+    <section class="lesson-section">
+
+        <h2>15. Quick Revision</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>Object data key-value pairs madhye store karto.</li>
+                <li>Object create karnyasathi {} vapartat.</li>
+                <li>Dot notation ne properties access karta yetat.</li>
+                <li>Bracket notation ne suddha properties access karta yetat.</li>
+                <li>New properties add karta yetat.</li>
+                <li>Existing properties update karta yetat.</li>
+                <li>delete operator property remove karto.</li>
+                <li>Nested object madhye object store karta yeto.</li>
+                <li>Object madhye Arrays store karta yetat.</li>
+                <li>Object.keys() keys return karte.</li>
+                <li>Object.values() values return karte.</li>
+                <li>Object.entries() key-value pairs return karte.</li>
+                <li>in operator property check karto.</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <!-- Section 16 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>16. Practice Questions</h2>
+
+        <h3>Basic Questions</h3>
+
+        <ol>
+            <li>JavaScript Object mhanje kay?</li>
+            <li>Object madhil property mhanje kay?</li>
+            <li>Object create kasa kartat?</li>
+            <li>Dot notation ani bracket notation madhye kay difference aahe?</li>
+            <li>Object madhye new property add kashi karaychi?</li>
+            <li>Object property update kashi karaychi?</li>
+            <li>delete operator cha use kay aahe?</li>
+            <li>Nested Object mhanje kay?</li>
+            <li>Object.keys() ani Object.values() kay kartat?</li>
+            <li>Object ani Array madhye kay difference aahe?</li>
+        </ol>
+
+        <h3>Practical Questions</h3>
+
+        <ol>
+            <li>Student navacha object create kar.</li>
+            <li>Student cha name, age ani course store kar.</li>
+            <li>Dot notation vaprun name print kar.</li>
+            <li>Bracket notation vaprun age print kar.</li>
+            <li>Object madhye city property add kar.</li>
+            <li>Age update kar.</li>
+            <li>Ek property delete kar.</li>
+            <li>Nested address object create kar.</li>
+            <li>Object madhil sarva keys print kar.</li>
+            <li>Object madhye property present aahe ka check kar.</li>
+        </ol>
+
+        <div class="task-box">
+
+            <h3>Mini Task: Developer Profile</h3>
+
+            <p>
+                Developer chi information Object madhye store kar.
+            </p>
+
+            <ul>
+                <li>developer navacha object create kar.</li>
+                <li>name, age ani role properties add kar.</li>
+                <li>skills navachi Array add kar.</li>
+                <li>address navacha Nested Object add kar.</li>
+                <li>Dot notation vaprun name ani role print kar.</li>
+                <li>Object.keys() vaprun sarva property names print kar.</li>
+                <li>Object madhye experience property add kar.</li>
+                <li>Role update kar.</li>
+            </ul>
+
+            <p>
+                File name: <strong>javascript_objects.js</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Navigation -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'javascript_topic' 'strings' %}"
+           class="nav-button previous-button">
+            ← Previous: Strings
+        </a>
+
+        <a href="{% url 'javascript_topic' 'object-methods' %}"
+           class="nav-button next-button">
+            Next: Object Methods and Destructuring →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,666 @@
+
+/* =====================================
+   CSS DOCUMENTATION - MINI PROJECTS
+===================================== */
+
+
+/* Main Container */
+
+.lesson-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    color: #334155;
+}
+
+
+/* Lesson Header */
+
+.lesson-header {
+    margin-bottom: 35px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.lesson-label {
+    display: inline-block;
+    color: #2563eb;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    margin-bottom: 12px;
+}
+
+.lesson-header h1 {
+    color: #172033;
+    font-size: 36px;
+    font-weight: 750;
+    margin: 0 0 12px;
+}
+
+.lesson-header > p {
+    color: #64748b;
+    font-size: 15px;
+    line-height: 1.8;
+    max-width: 850px;
+    margin: 0;
+}
+
+.lesson-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.lesson-meta span {
+    background: #eff6ff;
+    color: #2563eb;
+    padding: 7px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* Lesson Sections */
+
+.lesson-section {
+    margin-bottom: 35px;
+}
+
+.lesson-section h2 {
+    color: #172033;
+    font-size: 23px;
+    font-weight: 700;
+    margin: 0 0 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.lesson-section h3 {
+    color: #1e293b;
+    font-size: 17px;
+    font-weight: 650;
+    margin: 22px 0 12px;
+}
+
+.lesson-section p {
+    color: #475569;
+    font-size: 14px;
+    line-height: 1.9;
+    margin: 0 0 14px;
+}
+
+.lesson-section ul,
+.lesson-section ol {
+    padding-left: 24px;
+    margin: 12px 0 18px;
+}
+
+.lesson-section li {
+    color: #475569;
+    font-size: 14px;
+    line-height: 1.9;
+    margin-bottom: 7px;
+}
+
+
+/* Information Boxes */
+
+.info-box,
+.important-box,
+.tip-box,
+.task-box {
+    padding: 17px 19px;
+    margin: 20px 0;
+    border-radius: 9px;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.info-box {
+    background: #eff6ff;
+    border-left: 4px solid #2563eb;
+    color: #1e40af;
+}
+
+.important-box {
+    background: #fff7ed;
+    border-left: 4px solid #f59e0b;
+    color: #9a3412;
+}
+
+.tip-box {
+    background: #f0fdf4;
+    border-left: 4px solid #16a34a;
+    color: #166534;
+}
+
+
+/* Code Block */
+
+.code-block {
+    background: #111827;
+    color: #e5e7eb;
+    padding: 20px;
+    border-radius: 10px;
+    overflow-x: auto;
+    margin: 15px 0 20px;
+}
+
+.code-block pre {
+    margin: 0;
+}
+
+.code-block code {
+    color: #e5e7eb;
+    font-family: Consolas, monospace;
+    font-size: 14px;
+    line-height: 1.8;
+    white-space: pre;
+}
+
+
+/* Output Box */
+
+.output-box {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 25px;
+    margin: 15px 0 20px;
+}
+
+
+/* Project 1 - Profile Card */
+
+.profile-output {
+    display: flex;
+    justify-content: center;
+}
+
+.profile-card {
+    width: 280px;
+    max-width: 100%;
+    padding: 25px;
+    box-sizing: border-box;
+    margin: 20px auto;
+    text-align: center;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px #00000015;
+}
+
+.profile-avatar {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #2563eb;
+    color: white;
+    border-radius: 50%;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.profile-card h2 {
+    margin: 10px 0;
+    color: #172033;
+    font-size: 20px;
+}
+
+.profile-role {
+    color: #2563eb;
+    font-size: 14px;
+}
+
+.profile-description {
+    color: #64748b;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.profile-button {
+    padding: 10px 20px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+
+/* Project 2 - Navigation Bar */
+
+.navbar-output {
+    overflow: hidden;
+}
+
+.project-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 18px 25px;
+    background: #172033;
+    border-radius: 8px;
+}
+
+.project-logo {
+    color: white;
+    margin: 0;
+    font-size: 20px;
+}
+
+.project-nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.project-nav-links a {
+    color: white;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.project-nav-links a:hover {
+    color: #93c5fd;
+}
+
+
+/* Project 3 - Login Form */
+
+.login-output {
+    display: flex;
+    justify-content: center;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 350px;
+    margin: 20px auto;
+    padding: 25px;
+    box-sizing: border-box;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px #00000015;
+}
+
+.login-card h2 {
+    color: #172033;
+    font-size: 22px;
+    margin: 0 0 8px;
+}
+
+.login-card p {
+    color: #64748b;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.login-card label {
+    display: block;
+    margin: 12px 0 6px;
+    color: #334155;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.login-card input {
+    width: 100%;
+    padding: 11px;
+    box-sizing: border-box;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    outline: none;
+    font-size: 13px;
+}
+
+.login-card input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px #2563eb15;
+}
+
+.login-card button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+
+/* Project 4 - Product Card */
+
+.product-output {
+    display: flex;
+    justify-content: center;
+}
+
+.product-card {
+    width: 250px;
+    max-width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+    margin: 20px auto;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px #00000015;
+}
+
+.product-image {
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #eff6ff;
+    color: #2563eb;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.product-card h2 {
+    font-size: 18px;
+    color: #172033;
+    margin: 15px 0 10px;
+}
+
+.product-price {
+    color: #16a34a;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.product-card button {
+    width: 100%;
+    padding: 11px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+
+/* Project 5 - Pricing Card */
+
+.pricing-output {
+    display: flex;
+    justify-content: center;
+}
+
+.pricing-card {
+    width: 260px;
+    max-width: 100%;
+    padding: 25px;
+    box-sizing: border-box;
+    margin: 20px auto;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.pricing-card h2 {
+    color: #172033;
+    font-size: 21px;
+}
+
+.pricing-card h3 {
+    color: #2563eb;
+    font-size: 23px;
+    margin: 18px 0;
+}
+
+.pricing-card ul {
+    padding-left: 20px;
+    text-align: left;
+    color: #475569;
+    line-height: 2;
+}
+
+.pricing-card button {
+    width: 100%;
+    padding: 11px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+
+/* Project 6 - Responsive Gallery */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.gallery-item {
+    min-height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #dbeafe;
+    color: #1e40af;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* Project Summary Table */
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.lesson-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: #ffffff;
+    font-size: 14px;
+}
+
+.lesson-table th {
+    background: #172033;
+    color: #ffffff;
+    text-align: left;
+    padding: 13px 15px;
+    font-weight: 600;
+}
+
+.lesson-table td {
+    color: #475569;
+    padding: 13px 15px;
+    border: 1px solid #e2e8f0;
+    line-height: 1.7;
+}
+
+.lesson-table tbody tr:nth-child(even) {
+    background: #f8fafc;
+}
+
+
+/* Practice Section */
+
+.practice-section {
+    padding: 22px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+}
+
+.practice-section h2 {
+    color: #172033;
+}
+
+.task-box {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+}
+
+.task-box h3 {
+    color: #1d4ed8;
+    margin-top: 0;
+}
+
+
+/* Lesson Navigation */
+
+.lesson-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-top: 40px;
+    padding-top: 22px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.nav-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.nav-button.previous {
+    color: #334155;
+    background: #f1f5f9;
+}
+
+.nav-button.next {
+    color: #ffffff;
+    background: #2563eb;
+}
+
+.nav-button.previous:hover {
+    background: #e2e8f0;
+}
+
+.nav-button.next:hover {
+    background: #1d4ed8;
+}
+
+
+/* Tablet Responsive */
+
+@media (max-width: 900px) {
+
+    .lesson-header h1 {
+        font-size: 30px;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* Mobile Responsive */
+
+@media (max-width: 700px) {
+
+    .lesson-header h1 {
+        font-size: 27px;
+    }
+
+    .lesson-section h2 {
+        font-size: 20px;
+    }
+
+    .lesson-section h3 {
+        font-size: 16px;
+    }
+
+    .lesson-section p,
+    .lesson-section li {
+        font-size: 13px;
+    }
+
+    .code-block {
+        padding: 15px;
+    }
+
+    .code-block code {
+        font-size: 12px;
+    }
+
+    .output-box {
+        padding: 15px;
+    }
+
+    .project-navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .project-nav-links {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .practice-section {
+        padding: 16px;
+    }
+
+    .lesson-navigation {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .nav-button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+}
+
+
+/* Extra Small Mobile */
+
+@media (max-width: 380px) {
+
+    .lesson-header h1 {
+        font-size: 24px;
+    }
+
+    .lesson-section h2 {
+        font-size: 18px;
+    }
+
+    .lesson-meta span {
+        font-size: 11px;
+    }
+
+    .profile-card,
+    .product-card,
+    .pricing-card {
+        width: 100%;
+    }
+
+}

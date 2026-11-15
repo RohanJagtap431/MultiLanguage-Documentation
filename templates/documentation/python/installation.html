@@ -1,0 +1,470 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}
+Python Installation | Roman Marathi
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/python/installation.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Header -->
+    <div class="lesson-header">
+
+        <span class="lesson-label">PYTHON BASICS · LESSON 02</span>
+
+        <h1>Python Installation</h1>
+
+        <p>
+            Ya lesson madhye apan Windows laptop var Python
+            download ani install karayla shiknar aahot.
+            Tasech Python properly install zale aahe ki nahi
+            he suddha check karu.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 15–20 Minutes</span>
+        </div>
+
+    </div>
+
+
+    <!-- 1. What is Installation -->
+    <section class="lesson-section">
+
+        <h2>1. What is Python Installation?</h2>
+
+        <p>
+            Python installation mhanje aplya computer madhye
+            Python language run karanyasathi avashyak software
+            install karne.
+        </p>
+
+        <p>
+            Python install kelyanantar apan computer var
+            Python code lihू shakto ani execute karu shakto.
+        </p>
+
+        <div class="info-box">
+            <strong>Simple Example:</strong>
+
+            <p>
+                Jase mobile madhye app vaprayche asel tar
+                te app install karave lagte, tasech computer
+                madhye Python programs run karanyasathi
+                Python install karave lagte.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- 2. Requirements -->
+    <section class="lesson-section">
+
+        <h2>2. Requirements Before Installation</h2>
+
+        <p>
+            Python install karanyapurvi khalil goshti
+            aplyakade asne avashyak aahe.
+        </p>
+
+        <ul>
+            <li>Windows laptop kiwa computer.</li>
+            <li>Internet connection.</li>
+            <li>Python download karanyasathi web browser.</li>
+            <li>Installation sathi purashi disk space.</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            <p>
+                Python shiknyasathi expensive laptop chi garaj nahi.
+                Normal Windows computer var suddha Python shikta yete.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- 3. Download -->
+    <section class="lesson-section">
+
+        <h2>3. Download Python</h2>
+
+        <p>
+            Python download karanyasathi apan Python chi
+            official website vaparnar aahot.
+        </p>
+
+        <h3>Step 1: Official Website Open Kara</h3>
+
+        <p>
+            Browser open kara ani khalil website la visit kara.
+        </p>
+
+        <a href="https://www.python.org/downloads/"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="resource-link">
+            Download Python – Official Website ↗
+        </a>
+
+        <h3>Step 2: Python Download Kara</h3>
+
+        <p>
+            Website var tumchya Windows system sathi
+            available Python release download kara.
+            Installer download hoil.
+        </p>
+
+        <div class="warning-box">
+            <strong>Important:</strong>
+            <p>
+                Python fakt official python.org website varunach
+                download kara. Unknown websites varun installer
+                download karu naka.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- 4. Install -->
+    <section class="lesson-section">
+
+        <h2>4. Install Python on Windows</h2>
+
+        <p>
+            Python installer download zalyanantar
+            khalil steps follow kara.
+        </p>
+
+        <h3>Step 1: Installer Open Kara</h3>
+
+        <p>
+            Downloads folder madhye ja.
+            Download keleli Python installer file
+            double-click karun open kara.
+        </p>
+
+        <h3>Step 2: Add Python to PATH</h3>
+
+        <p>
+            Installer chya suruvatichya screen var
+            <strong>Add python.exe to PATH</strong>
+            asa checkbox disel.
+        </p>
+
+        <div class="important-box">
+            <strong>Ha checkbox select karne mahatvache aahe.</strong>
+
+            <p>
+                PATH mule Windows Command Prompt kiwa
+                PowerShell madhun Python command access karu shakto.
+            </p>
+        </div>
+
+        <h3>Step 3: Install Now</h3>
+
+        <p>
+            Ata <strong>Install Now</strong> button var click kara.
+            Installation process suru hoil.
+        </p>
+
+        <h3>Step 4: Installation Complete</h3>
+
+        <p>
+            Installation complete zalyavar successful installation
+            cha message disel. Ata Close button var click kara.
+        </p>
+
+        <div class="success-box">
+            <strong>Python Installed!</strong>
+
+            <p>
+                Tumchya Windows computer madhye Python install zale aahe.
+                Ata tyachi installation verify karuya.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- 5. Verify -->
+    <section class="lesson-section">
+
+        <h2>5. Verify Python Installation</h2>
+
+        <p>
+            Python properly install zale aahe ki nahi he
+            check karanyasathi apan PowerShell vaparnar aahot.
+        </p>
+
+        <h3>Step 1: PowerShell Open Kara</h3>
+
+        <p>
+            Windows Start menu madhye PowerShell search kara
+            ani open kara.
+        </p>
+
+        <h3>Step 2: Python Version Check Kara</h3>
+
+        <p>
+            Khalil command type karun Enter press kara.
+        </p>
+
+        <pre><code>python --version</code></pre>
+
+        <h3>Output Example:</h3>
+
+        <pre class="output-box">Python 3.14.5</pre>
+
+        <p>
+            Tumchya computer var install kelelya version nusar
+            output vegla asu shakto.
+        </p>
+
+        <h3>Alternative Command:</h3>
+
+        <p>
+            Jar python command work hot nasel tar
+            Windows Python Launcher vaprun check kara.
+        </p>
+
+        <pre><code>py --version</code></pre>
+
+        <h3>Check pip Version:</h3>
+
+        <p>
+            pip he Python package installer aahe.
+            Tyachya madatine apan Python libraries install karu shakto.
+        </p>
+
+        <pre><code>python -m pip --version</code></pre>
+
+    </section>
+
+
+    <!-- 6. VS Code -->
+    <section class="lesson-section">
+
+        <h2>6. Setup Python in VS Code</h2>
+
+        <p>
+            VS Code he code lihinyasathi vaparnare code editor aahe.
+            Python code lihinyasathi apan VS Code vaparu shakto.
+        </p>
+
+        <h3>Step 1: VS Code Install Kara</h3>
+
+        <p>
+            VS Code install nasel tar official website varun download kara.
+        </p>
+
+        <a href="https://code.visualstudio.com/"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="resource-link">
+            Download Visual Studio Code ↗
+        </a>
+
+        <h3>Step 2: Python Extension Install Kara</h3>
+
+        <ol>
+            <li>VS Code open kara.</li>
+            <li>Left side la Extensions icon var click kara.</li>
+            <li>Search box madhye Python search kara.</li>
+            <li>Microsoft chi Python extension install kara.</li>
+        </ol>
+
+        <h3>Step 3: Python File Create Kara</h3>
+
+        <p>
+            VS Code madhye folder open kara ani
+            <strong>first.py</strong> navachi file create kara.
+        </p>
+
+        <h3>Step 4: Code Write Kara</h3>
+
+        <pre><code>print("Hello Python!")</code></pre>
+
+        <h3>Step 5: Run the Program</h3>
+
+        <p>
+            File save kara. VS Code madhil
+            Run Python File button vaprun program execute kara.
+        </p>
+
+        <h3>Output:</h3>
+
+        <pre class="output-box">Hello Python!</pre>
+
+    </section>
+
+
+    <!-- 7. Common Errors -->
+    <section class="lesson-section">
+
+        <h2>7. Common Installation Problems</h2>
+
+        <h3>Problem 1: Python is not recognized</h3>
+
+        <p>
+            Command Prompt madhye Python command run kartana
+            ha error yeu shakto.
+        </p>
+
+        <pre class="error-box">'python' is not recognized as an internal or external command</pre>
+
+        <strong>Solution:</strong>
+
+        <ul>
+            <li>Python installation madhye PATH checkbox select zala hota ka check kara.</li>
+            <li>PowerShell close karun punha open kara.</li>
+            <li>python --version punha run kara.</li>
+            <li>Garaj asel tar Python installer madhun Modify kiwa reinstall karun PATH setup kara.</li>
+        </ul>
+
+        <h3>Problem 2: Python command opens Microsoft Store</h3>
+
+        <p>
+            Kahi Windows systems madhye python command
+            Microsoft Store open karu shakto.
+        </p>
+
+        <strong>Solution:</strong>
+
+        <p>
+            Adhi <strong>py --version</strong> command try kara.
+            Python Launcher available asel tar version display hoil.
+            Nantar Windows App Execution Aliases settings madhye
+            python aliases check kara.
+        </p>
+
+    </section>
+
+
+    <!-- 8. Important Terms -->
+    <section class="lesson-section">
+
+        <h2>8. Important Terms</h2>
+
+        <div class="table-wrapper">
+
+            <table class="lesson-table">
+
+                <thead>
+                    <tr>
+                        <th>Term</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Installer</td>
+                        <td>Software install karanyasathi vaparnari file.</td>
+                    </tr>
+
+                    <tr>
+                        <td>PATH</td>
+                        <td>Windows la executable programs kuthe aahet he shodhayla madat karanara environment variable.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Terminal</td>
+                        <td>Commands type karun execute karanyachi jagah.</td>
+                    </tr>
+
+                    <tr>
+                        <td>pip</td>
+                        <td>Python packages install karanyasathi vaparnare tool.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Extension</td>
+                        <td>VS Code madhye additional features add karanara component.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Version</td>
+                        <td>Software chi specific release.</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- 9. Practice -->
+    <section class="lesson-section practice-section">
+
+        <h2>9. Practice Questions</h2>
+
+        <p>
+            Khalil questions swatah solve karanyacha prayatna kara.
+        </p>
+
+        <ol>
+            <li>Python installation mhanje kay?</li>
+
+            <li>Python chi official download website konti aahe?</li>
+
+            <li>Add Python to PATH checkbox ka select karava?</li>
+
+            <li>Python version check karanyasathi konti command vapartat?</li>
+
+            <li>pip mhanje kay?</li>
+
+            <li>VS Code madhye Python extension ka install kartat?</li>
+        </ol>
+
+        <div class="practice-task">
+
+            <strong>Practical Task:</strong>
+
+            <p>
+                Swatah khalil tasks complete kara:
+            </p>
+
+            <ul>
+                <li>Python install kara.</li>
+                <li>PowerShell madhye Python version check kara.</li>
+                <li>VS Code madhye first.py file create kara.</li>
+                <li>Hello Python! message print kara.</li>
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+
+        <a href="{% url 'python_topic' 'introduction' %}"
+           class="nav-button back-button">
+            ← Previous: Introduction
+        </a>
+
+        <a href="{% url 'python_topic' 'syntax' %}"
+           class="nav-button next-button">
+            Next: Python Syntax →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,1221 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}
+HTML Lists | Roman Marathi
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/html/lists.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+
+    <div class="lesson-header">
+
+        <span class="lesson-label">HTML DOCUMENTATION • PAGE 08</span>
+
+        <h1>HTML Lists</h1>
+
+        <p>
+            HTML madhye information points madhye display karne,
+            ordered ani unordered lists create karne,
+            nested lists ani description lists vaprane
+            ya lesson madhye shikuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Beginner Level</span>
+            <span>35–40 Minutes</span>
+        </div>
+
+    </div>
+
+
+    <!-- Section 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What are HTML Lists?</h2>
+
+        <p>
+            HTML Lists cha use related information kiwa items
+            ekatra group karun व्यवस्थित display karnyasathi hoto.
+        </p>
+
+        <p>
+            Lists mule webpage madhil content vachayla
+            ani samjayla easy hoto.
+        </p>
+
+        <h3>Examples:</h3>
+
+        <ul>
+            <li>Shopping list</li>
+            <li>Student subjects</li>
+            <li>Website navigation menu</li>
+            <li>Programming languages</li>
+            <li>Step-by-step instructions</li>
+        </ul>
+
+        <div class="info-box">
+            <strong>Simple Definition:</strong>
+            HTML Lists cha use related items la group karun
+            webpage madhye व्यवस्थित display karnyasathi hoto.
+        </div>
+
+    </section>
+
+
+    <!-- Section 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Types of HTML Lists</h2>
+
+        <p>
+            HTML madhye mainly three types of lists aahet.
+        </p>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>List Type</th>
+                    <th>Element</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Ordered List</td>
+                    <td>&lt;ol&gt;</td>
+                    <td>Number kiwa sequence madhye items display karne.</td>
+                </tr>
+
+                <tr>
+                    <td>Unordered List</td>
+                    <td>&lt;ul&gt;</td>
+                    <td>Bullet points madhye items display karne.</td>
+                </tr>
+
+                <tr>
+                    <td>Description List</td>
+                    <td>&lt;dl&gt;</td>
+                    <td>Terms ani tyanchi descriptions display karne.</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+
+    <!-- Section 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. Ordered List (ol)</h2>
+
+        <p>
+            Ordered List cha use items specific order kiwa
+            sequence madhye display karnyasathi hoto.
+        </p>
+
+        <p>
+            Browser normally ordered list madhil items
+            numbers vaprun display karto.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>
+&lt;ol&gt;
+
+    &lt;li&gt;First Item&lt;/li&gt;
+
+    &lt;li&gt;Second Item&lt;/li&gt;
+
+    &lt;li&gt;Third Item&lt;/li&gt;
+
+&lt;/ol&gt;
+        </code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;h2&gt;My Subjects&lt;/h2&gt;
+
+&lt;ol&gt;
+
+    &lt;li&gt;Computer Science&lt;/li&gt;
+
+    &lt;li&gt;Mathematics&lt;/li&gt;
+
+    &lt;li&gt;Physics&lt;/li&gt;
+
+    &lt;li&gt;English&lt;/li&gt;
+
+&lt;/ol&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <h2>My Subjects</h2>
+
+            <ol>
+                <li>Computer Science</li>
+                <li>Mathematics</li>
+                <li>Physics</li>
+                <li>English</li>
+            </ol>
+
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>ol = Ordered List element.</li>
+            <li>li = List Item element.</li>
+            <li>Pratyek item sathi separate li element vapartat.</li>
+            <li>Browser normally numbers display karto.</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Steps, instructions kiwa ranking sathi
+            Ordered List useful aahe.
+        </div>
+
+    </section>
+
+
+    <!-- Section 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. Unordered List (ul)</h2>
+
+        <p>
+            Unordered List cha use items specific sequence
+            shivay display karnyasathi hoto.
+        </p>
+
+        <p>
+            Browser normally unordered list madhil items
+            bullet points vaprun display karto.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>
+&lt;ul&gt;
+
+    &lt;li&gt;First Item&lt;/li&gt;
+
+    &lt;li&gt;Second Item&lt;/li&gt;
+
+    &lt;li&gt;Third Item&lt;/li&gt;
+
+&lt;/ul&gt;
+        </code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;h2&gt;Programming Languages&lt;/h2&gt;
+
+&lt;ul&gt;
+
+    &lt;li&gt;Python&lt;/li&gt;
+
+    &lt;li&gt;JavaScript&lt;/li&gt;
+
+    &lt;li&gt;C++&lt;/li&gt;
+
+    &lt;li&gt;Java&lt;/li&gt;
+
+&lt;/ul&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <h2>Programming Languages</h2>
+
+            <ul>
+                <li>Python</li>
+                <li>JavaScript</li>
+                <li>C++</li>
+                <li>Java</li>
+            </ul>
+
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Shopping items, skills ani features display
+            karnyasathi Unordered List useful aahe.
+        </div>
+
+    </section>
+
+
+    <!-- Section 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. List Item (li)</h2>
+
+        <p>
+            li element cha use Ordered List kiwa Unordered List
+            madhil individual item define karnyasathi hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;ul&gt;
+
+    &lt;li&gt;HTML&lt;/li&gt;
+
+    &lt;li&gt;CSS&lt;/li&gt;
+
+    &lt;li&gt;JavaScript&lt;/li&gt;
+
+&lt;/ul&gt;
+        </code></pre>
+
+        <p>
+            Ya example madhye HTML, CSS ani JavaScript
+            he three separate list items aahet.
+        </p>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            li element normally ol kiwa ul list chya
+            direct child mhanun vapartat.
+        </div>
+
+    </section>
+
+
+    <!-- Section 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. Ordered List Types</h2>
+
+        <p>
+            Ordered List madhye type attribute vaprun
+            numbering style specify karta yete.
+        </p>
+
+        <h3>Available Types:</h3>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Display Style</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>1</td>
+                    <td>1, 2, 3, 4...</td>
+                </tr>
+
+                <tr>
+                    <td>A</td>
+                    <td>A, B, C, D...</td>
+                </tr>
+
+                <tr>
+                    <td>a</td>
+                    <td>a, b, c, d...</td>
+                </tr>
+
+                <tr>
+                    <td>I</td>
+                    <td>I, II, III, IV...</td>
+                </tr>
+
+                <tr>
+                    <td>i</td>
+                    <td>i, ii, iii, iv...</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <h3>Example 1: Numbers</h3>
+
+        <pre class="code-block"><code>
+&lt;ol type="1"&gt;
+    &lt;li&gt;HTML&lt;/li&gt;
+    &lt;li&gt;CSS&lt;/li&gt;
+    &lt;li&gt;JavaScript&lt;/li&gt;
+&lt;/ol&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <ol type="1">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+            </ol>
+        </div>
+
+        <h3>Example 2: Capital Letters</h3>
+
+        <pre class="code-block"><code>
+&lt;ol type="A"&gt;
+    &lt;li&gt;Python&lt;/li&gt;
+    &lt;li&gt;Java&lt;/li&gt;
+    &lt;li&gt;C++&lt;/li&gt;
+&lt;/ol&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <ol type="A">
+                <li>Python</li>
+                <li>Java</li>
+                <li>C++</li>
+            </ol>
+        </div>
+
+        <h3>Example 3: Small Letters</h3>
+
+        <pre class="code-block"><code>
+&lt;ol type="a"&gt;
+    &lt;li&gt;Python&lt;/li&gt;
+    &lt;li&gt;Java&lt;/li&gt;
+    &lt;li&gt;C++&lt;/li&gt;
+&lt;/ol&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <ol type="a">
+                <li>Python</li>
+                <li>Java</li>
+                <li>C++</li>
+            </ol>
+        </div>
+
+        <h3>Example 4: Roman Numbers</h3>
+
+        <pre class="code-block"><code>
+&lt;ol type="I"&gt;
+    &lt;li&gt;Introduction&lt;/li&gt;
+    &lt;li&gt;Installation&lt;/li&gt;
+    &lt;li&gt;Practice&lt;/li&gt;
+&lt;/ol&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <ol type="I">
+                <li>Introduction</li>
+                <li>Installation</li>
+                <li>Practice</li>
+            </ol>
+        </div>
+
+    </section>
+
+
+    <!-- Section 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. Unordered List Styles</h2>
+
+        <p>
+            Unordered List madhye CSS cha list-style-type
+            property vaprun bullet style change karta yete.
+        </p>
+
+        <h3>Common Styles:</h3>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>Value</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>disc</td>
+                    <td>Filled circular bullets.</td>
+                </tr>
+
+                <tr>
+                    <td>circle</td>
+                    <td>Hollow circular bullets.</td>
+                </tr>
+
+                <tr>
+                    <td>square</td>
+                    <td>Square bullets.</td>
+                </tr>
+
+                <tr>
+                    <td>none</td>
+                    <td>Bullet markers remove karne.</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <h3>Example 1: Disc</h3>
+
+        <pre class="code-block"><code>
+&lt;ul style="list-style-type: disc;"&gt;
+    &lt;li&gt;HTML&lt;/li&gt;
+    &lt;li&gt;CSS&lt;/li&gt;
+&lt;/ul&gt;
+        </code></pre>
+
+        <div class="output-box">
+            <ul style="list-style-type: disc;">
+                <li>HTML</li>
+                <li>CSS</li>
+            </ul>
+        </div>
+
+        <h3>Example 2: Circle</h3>
+
+        <pre class="code-block"><code>
+&lt;ul style="list-style-type: circle;"&gt;
+    &lt;li&gt;Python&lt;/li&gt;
+    &lt;li&gt;Django&lt;/li&gt;
+&lt;/ul&gt;
+        </code></pre>
+
+        <div class="output-box">
+            <ul style="list-style-type: circle;">
+                <li>Python</li>
+                <li>Django</li>
+            </ul>
+        </div>
+
+        <h3>Example 3: Square</h3>
+
+        <pre class="code-block"><code>
+&lt;ul style="list-style-type: square;"&gt;
+    &lt;li&gt;MySQL&lt;/li&gt;
+    &lt;li&gt;PostgreSQL&lt;/li&gt;
+&lt;/ul&gt;
+        </code></pre>
+
+        <div class="output-box">
+            <ul style="list-style-type: square;">
+                <li>MySQL</li>
+                <li>PostgreSQL</li>
+            </ul>
+        </div>
+
+        <h3>Example 4: None</h3>
+
+        <pre class="code-block"><code>
+&lt;ul style="list-style-type: none;"&gt;
+    &lt;li&gt;Home&lt;/li&gt;
+    &lt;li&gt;About&lt;/li&gt;
+&lt;/ul&gt;
+        </code></pre>
+
+        <div class="output-box">
+            <ul style="list-style-type: none;">
+                <li>Home</li>
+                <li>About</li>
+            </ul>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Real websites madhye bullet styles change karnyasathi
+            inline style peksha external CSS vaprane changle.
+        </div>
+
+    </section>
+
+
+    <!-- Section 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. Nested Lists</h2>
+
+        <p>
+            Eka list chya aat dusri list create karnyala
+            Nested List mhantat.
+        </p>
+
+        <p>
+            Nested lists cha use categories ani subcategories
+            व्यवस्थित display karnyasathi hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;ul&gt;
+
+    &lt;li&gt;Frontend Development
+
+        &lt;ul&gt;
+            &lt;li&gt;HTML&lt;/li&gt;
+            &lt;li&gt;CSS&lt;/li&gt;
+            &lt;li&gt;JavaScript&lt;/li&gt;
+        &lt;/ul&gt;
+
+    &lt;/li&gt;
+
+    &lt;li&gt;Backend Development
+
+        &lt;ul&gt;
+            &lt;li&gt;Python&lt;/li&gt;
+            &lt;li&gt;Django&lt;/li&gt;
+            &lt;li&gt;MySQL&lt;/li&gt;
+        &lt;/ul&gt;
+
+    &lt;/li&gt;
+
+&lt;/ul&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <ul>
+                <li>
+                    Frontend Development
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                    </ul>
+                </li>
+
+                <li>
+                    Backend Development
+                    <ul>
+                        <li>Python</li>
+                        <li>Django</li>
+                        <li>MySQL</li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Nested list ha parent li element chya aat
+            place karaycha asto.
+        </div>
+
+    </section>
+
+
+    <!-- Section 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Description List (dl)</h2>
+
+        <p>
+            Description List cha use terms ani tyanchya
+            descriptions display karnyasathi hoto.
+        </p>
+
+        <p>
+            Description List madhye three elements vapartat:
+        </p>
+
+        <ul>
+            <li>dl = Description List container.</li>
+            <li>dt = Description Term.</li>
+            <li>dd = Description Details.</li>
+        </ul>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>
+&lt;dl&gt;
+
+    &lt;dt&gt;HTML&lt;/dt&gt;
+
+    &lt;dd&gt;HyperText Markup Language&lt;/dd&gt;
+
+&lt;/dl&gt;
+        </code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;h2&gt;Web Technologies&lt;/h2&gt;
+
+&lt;dl&gt;
+
+    &lt;dt&gt;HTML&lt;/dt&gt;
+    &lt;dd&gt;Structure of a webpage.&lt;/dd&gt;
+
+    &lt;dt&gt;CSS&lt;/dt&gt;
+    &lt;dd&gt;Styling of a webpage.&lt;/dd&gt;
+
+    &lt;dt&gt;JavaScript&lt;/dt&gt;
+    &lt;dd&gt;Behavior of a webpage.&lt;/dd&gt;
+
+&lt;/dl&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <h2>Web Technologies</h2>
+
+            <dl>
+                <dt>HTML</dt>
+                <dd>Structure of a webpage.</dd>
+
+                <dt>CSS</dt>
+                <dd>Styling of a webpage.</dd>
+
+                <dt>JavaScript</dt>
+                <dd>Behavior of a webpage.</dd>
+            </dl>
+
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Glossary, dictionary terms ani definitions
+            display karnyasathi Description List useful aahe.
+        </div>
+
+    </section>
+
+
+    <!-- Section 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. start Attribute</h2>
+
+        <p>
+            Ordered List madhye start attribute vaprun
+            numbering kontya number pasun suru honar
+            he specify karta yete.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;ol start="5"&gt;
+
+    &lt;li&gt;Python&lt;/li&gt;
+
+    &lt;li&gt;Django&lt;/li&gt;
+
+    &lt;li&gt;MySQL&lt;/li&gt;
+
+&lt;/ol&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <ol start="5">
+                <li>Python</li>
+                <li>Django</li>
+                <li>MySQL</li>
+            </ol>
+
+        </div>
+
+        <p>
+            Ya example madhye numbering 5 pasun suru hote.
+        </p>
+
+    </section>
+
+
+    <!-- Section 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. reversed Attribute</h2>
+
+        <p>
+            reversed attribute vaprun Ordered List madhil
+            numbering descending order madhye display karta yete.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;ol reversed&gt;
+
+    &lt;li&gt;First&lt;/li&gt;
+
+    &lt;li&gt;Second&lt;/li&gt;
+
+    &lt;li&gt;Third&lt;/li&gt;
+
+&lt;/ol&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <ol reversed>
+                <li>First</li>
+                <li>Second</li>
+                <li>Third</li>
+            </ol>
+
+        </div>
+
+        <p>
+            Ithe list madhil total items nusar numbering
+            3, 2, 1 ashi display hote.
+        </p>
+
+    </section>
+
+
+    <!-- Section 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. value Attribute</h2>
+
+        <p>
+            Ordered List madhil specific li element sathi
+            value attribute vaprun numbering override karta yete.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;ol&gt;
+
+    &lt;li&gt;HTML&lt;/li&gt;
+
+    &lt;li&gt;CSS&lt;/li&gt;
+
+    &lt;li value="10"&gt;JavaScript&lt;/li&gt;
+
+    &lt;li&gt;Python&lt;/li&gt;
+
+&lt;/ol&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <ol>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li value="10">JavaScript</li>
+                <li>Python</li>
+            </ol>
+
+        </div>
+
+        <p>
+            Ya example madhye third item chi numbering 10 hote
+            ani pudhil item 11 hoto.
+        </p>
+
+    </section>
+
+
+    <!-- Section 13 -->
+
+    <section class="lesson-section">
+
+        <h2>13. Lists with CSS</h2>
+
+        <p>
+            CSS cha use karun HTML Lists che colors,
+            spacing, background ani bullet styles customize
+            karta yetat.
+        </p>
+
+        <h3>HTML Code:</h3>
+
+        <pre class="code-block"><code>
+&lt;ul class="skill-list"&gt;
+
+    &lt;li&gt;Python&lt;/li&gt;
+
+    &lt;li&gt;Django&lt;/li&gt;
+
+    &lt;li&gt;HTML&lt;/li&gt;
+
+    &lt;li&gt;CSS&lt;/li&gt;
+
+&lt;/ul&gt;
+        </code></pre>
+
+        <h3>CSS Code:</h3>
+
+        <pre class="code-block"><code>
+.skill-list {
+    background: #f1f5f9;
+    padding: 20px 40px;
+    border-radius: 8px;
+}
+
+.skill-list li {
+    color: #2563eb;
+    margin-bottom: 10px;
+}
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <ul class="skill-list-demo">
+                <li>Python</li>
+                <li>Django</li>
+                <li>HTML</li>
+                <li>CSS</li>
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 14 -->
+
+    <section class="lesson-section">
+
+        <h2>14. Practical Example – Student Subjects</h2>
+
+        <p>
+            Ata apan Ordered List, Unordered List ani
+            Nested List vaprun Student Subjects section
+            tayar karu.
+        </p>
+
+        <h3>HTML Code:</h3>
+
+        <pre class="code-block"><code>
+&lt;h1&gt;Student Information&lt;/h1&gt;
+
+&lt;h2&gt;Semester Subjects&lt;/h2&gt;
+
+&lt;ol&gt;
+
+    &lt;li&gt;Computer Science&lt;/li&gt;
+
+    &lt;li&gt;Mathematics&lt;/li&gt;
+
+    &lt;li&gt;Physics&lt;/li&gt;
+
+&lt;/ol&gt;
+
+&lt;h2&gt;Programming Skills&lt;/h2&gt;
+
+&lt;ul&gt;
+
+    &lt;li&gt;Python&lt;/li&gt;
+
+    &lt;li&gt;C++&lt;/li&gt;
+
+    &lt;li&gt;JavaScript&lt;/li&gt;
+
+&lt;/ul&gt;
+
+&lt;h2&gt;Web Development&lt;/h2&gt;
+
+&lt;ul&gt;
+
+    &lt;li&gt;Frontend
+        &lt;ul&gt;
+            &lt;li&gt;HTML&lt;/li&gt;
+            &lt;li&gt;CSS&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+
+    &lt;li&gt;Backend
+        &lt;ul&gt;
+            &lt;li&gt;Python&lt;/li&gt;
+            &lt;li&gt;Django&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+
+&lt;/ul&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <h1>Student Information</h1>
+
+            <h2>Semester Subjects</h2>
+
+            <ol>
+                <li>Computer Science</li>
+                <li>Mathematics</li>
+                <li>Physics</li>
+            </ol>
+
+            <h2>Programming Skills</h2>
+
+            <ul>
+                <li>Python</li>
+                <li>C++</li>
+                <li>JavaScript</li>
+            </ul>
+
+            <h2>Web Development</h2>
+
+            <ul>
+                <li>
+                    Frontend
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                    </ul>
+                </li>
+
+                <li>
+                    Backend
+                    <ul>
+                        <li>Python</li>
+                        <li>Django</li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 15 -->
+
+    <section class="lesson-section">
+
+        <h2>15. Common Beginner Mistakes</h2>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 1: ol ani ul confuse karne</strong>
+
+            <p>
+                Sequence important asel tar ol ani sequence
+                important nasel tar ul vapr.
+            </p>
+
+        </div>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 2: li element विसरणे</strong>
+
+            <p>
+                List madhil pratyek item sathi li element vapr.
+            </p>
+
+        </div>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 3: Nested List wrong place madhye lihine</strong>
+
+            <p>
+                Nested list parent li element chya aat place kar.
+            </p>
+
+        </div>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 4: Description List confuse karne</strong>
+
+            <p>
+                dl, dt ani dd elements cha correct purpose lakshat thev.
+            </p>
+
+        </div>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 5: start Attribute wrong element la dene</strong>
+
+            <p>
+                start attribute ol element var vapartat.
+                Specific item chi numbering change karnyasathi
+                li var value attribute vapartat.
+            </p>
+
+        </div>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 6: Unnecessary Nested Lists</strong>
+
+            <p>
+                Garaj nasatana khup deep nested lists create karu naye.
+                Content simple ani readable thev.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 16 -->
+
+    <section class="lesson-section">
+
+        <h2>16. Quick Revision</h2>
+
+        <div class="revision-box">
+
+            <ul>
+                <li>HTML Lists related items group kartat.</li>
+                <li>ol Ordered List create karto.</li>
+                <li>ul Unordered List create karto.</li>
+                <li>li List Item define karto.</li>
+                <li>dl Description List create karto.</li>
+                <li>dt Description Term define karto.</li>
+                <li>dd Description Details define karto.</li>
+                <li>ol madhil type numbering style change karto.</li>
+                <li>start attribute starting number specify karto.</li>
+                <li>reversed attribute numbering descending karto.</li>
+                <li>li madhil value attribute specific numbering set karto.</li>
+                <li>Nested List mhanje eka list madhye dusri list.</li>
+                <li>CSS list-style-type bullet style change karte.</li>
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 17 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>17. Practice Questions</h2>
+
+        <h3>Basic Questions</h3>
+
+        <ol>
+            <li>HTML Lists mhanje kay?</li>
+            <li>HTML madhye kiti main list types aahet?</li>
+            <li>Ordered List mhanje kay?</li>
+            <li>Unordered List mhanje kay?</li>
+            <li>li element cha use kay aahe?</li>
+            <li>Ordered ani Unordered List madhil difference lih.</li>
+            <li>Nested List mhanje kay?</li>
+            <li>Description List mhanje kay?</li>
+            <li>dl, dt ani dd madhil difference lih.</li>
+            <li>Ordered List madhil type attribute cha use kay aahe?</li>
+            <li>start ani reversed attributes cha use kay aahe?</li>
+            <li>value attribute cha use kay aahe?</li>
+            <li>CSS list-style-type property mhanje kay?</li>
+        </ol>
+
+        <h3>Practical Questions</h3>
+
+        <ol>
+            <li>Five programming languages chi Unordered List create kar.</li>
+            <li>Five subjects chi Ordered List create kar.</li>
+            <li>type="A" vaprun Ordered List create kar.</li>
+            <li>type="I" vaprun Roman numbering create kar.</li>
+            <li>start="5" vaprun list create kar.</li>
+            <li>reversed attribute vaprun list create kar.</li>
+            <li>Nested list vaprun Frontend ani Backend skills display kar.</li>
+            <li>Description List vaprun HTML, CSS ani JavaScript define kar.</li>
+            <li>CSS vaprun Unordered List chi bullet style square kar.</li>
+        </ol>
+
+        <div class="task-box">
+
+            <h3>Mini Task: Student Skills Page</h3>
+
+            <p>
+                HTML Lists vaprun ek Student Skills webpage tayar kar.
+            </p>
+
+            <ul>
+                <li>Page la h1 heading de.</li>
+                <li>Programming Languages chi Ordered List create kar.</li>
+                <li>Technical Skills chi Unordered List create kar.</li>
+                <li>Frontend ani Backend sathi Nested Lists vapr.</li>
+                <li>Technologies chi Description List create kar.</li>
+                <li>Ordered List madhye start attribute vapr.</li>
+                <li>CSS vaprun lists style kar.</li>
+            </ul>
+
+            <p>
+                File Name: <strong>student_skills.html</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Lesson Navigation -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'html_topic' 'images' %}"
+           class="nav-button previous-button">
+            ← Previous: HTML Images
+        </a>
+
+        <a href="{% url 'html_topic' 'tables' %}"
+           class="nav-button next-button">
+            Next: HTML Tables →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

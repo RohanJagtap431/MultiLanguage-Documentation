@@ -1,0 +1,1576 @@
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}JavaScript Mini Projects | Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/javascript/projects.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">JAVASCRIPT DOCUMENTATION • PAGE 30</span>
+        <h1>JavaScript Mini Projects</h1>
+
+        <p>
+            Ya lesson madhye apan JavaScript concepts vaprun practical
+            projects banavnar aahot. Pratyek project swatah code karun
+            practice kar.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Practical Level</span>
+            <span>4 Projects</span>
+            <span>Final Lesson</span>
+        </div>
+    </div>
+
+    <!-- INTRODUCTION -->
+
+    <section class="lesson-section">
+
+        <h2>1. Before Starting Projects</h2>
+
+        <p>
+            Projects suru karnyapurvi VS Code madhye ek folder tayar kar.
+        </p>
+
+        <pre class="code-block"><code>JavaScript-Projects/
+│
+├── counter-app/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+│
+├── calculator/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+│
+├── todo-list/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+│
+└── api-user-viewer/
+    ├── index.html
+    ├── style.css
+    └── script.js</code></pre>
+
+        <div class="tip-box">
+            <strong>Important:</strong>
+            Pratyek project madhye HTML, CSS ani JavaScript vegveglya
+            files madhye lihaycha. HTML file browser madhye open karun
+            project test kar.
+        </div>
+
+    </section>
+
+    <!-- PROJECT 1 -->
+
+    <section class="lesson-section project-section">
+
+        <div class="project-heading">
+            <span class="project-number">PROJECT 01</span>
+            <h2>Counter App</h2>
+            <span class="project-level">Beginner</span>
+        </div>
+
+        <p>
+            Counter App madhye button click kelyavar number increase,
+            decrease ani reset karta yeto.
+        </p>
+
+        <h3>Concepts Used</h3>
+
+        <ul>
+            <li>Variables</li>
+            <li>Functions</li>
+            <li>DOM Selectors</li>
+            <li>Events</li>
+            <li>Conditions</li>
+        </ul>
+
+        <h3>Features</h3>
+
+        <ul>
+            <li>Increment button</li>
+            <li>Decrement button</li>
+            <li>Reset button</li>
+            <li>Zero peksha kami number hou naye.</li>
+        </ul>
+
+        <h3>File: index.html</h3>
+
+        <pre class="code-block"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Counter App&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;div class="container"&gt;
+        &lt;h1&gt;Counter App&lt;/h1&gt;
+
+        &lt;h2 id="count"&gt;0&lt;/h2&gt;
+
+        &lt;div class="buttons"&gt;
+            &lt;button id="decrease"&gt;Decrease&lt;/button&gt;
+            &lt;button id="reset"&gt;Reset&lt;/button&gt;
+            &lt;button id="increase"&gt;Increase&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+        <h3>File: style.css</h3>
+
+        <pre class="code-block"><code>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f1f5f9;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 90%;
+    max-width: 400px;
+    padding: 35px 20px;
+    text-align: center;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px #00000015;
+}
+
+h1 {
+    margin-bottom: 25px;
+    color: #172033;
+}
+
+#count {
+    font-size: 55px;
+    margin-bottom: 25px;
+    color: #2563eb;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+button {
+    padding: 12px 16px;
+    border: none;
+    border-radius: 6px;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1d4ed8;
+}</code></pre>
+
+        <h3>File: script.js</h3>
+
+        <pre class="code-block"><code>let count = 0;
+
+const countDisplay = document.getElementById("count");
+
+const increaseButton = document.getElementById("increase");
+const decreaseButton = document.getElementById("decrease");
+const resetButton = document.getElementById("reset");
+
+function updateCount() {
+    countDisplay.textContent = count;
+}
+
+increaseButton.addEventListener("click", function () {
+    count++;
+    updateCount();
+});
+
+decreaseButton.addEventListener("click", function () {
+    if (count > 0) {
+        count--;
+    }
+
+    updateCount();
+});
+
+resetButton.addEventListener("click", function () {
+    count = 0;
+    updateCount();
+});</code></pre>
+
+        <h3>Expected Output</h3>
+
+        <div class="output-box live-demo counter-preview">
+            <h3>Try Counter App</h3>
+            <div id="demo-counter-value" class="preview-number">0</div>
+
+            <div class="preview-buttons demo-actions">
+                <button type="button" id="demo-counter-decrease">Decrease</button>
+                <button type="button" id="demo-counter-reset" class="demo-secondary">Reset</button>
+                <button type="button" id="demo-counter-increase">Increase</button>
+            </div>
+
+            <p id="demo-counter-message" aria-live="polite">Counter ready.</p>
+        </div>
+
+        <h3>Code Explanation</h3>
+
+        <ul>
+            <li><code>count</code> madhye current number store hoto.</li>
+            <li><code>getElementById()</code> HTML elements select karto.</li>
+            <li><code>addEventListener()</code> button click detect karto.</li>
+            <li><code>count++</code> number ekane increase karto.</li>
+            <li><code>textContent</code> HTML madhye number display karto.</li>
+        </ul>
+
+        <div class="task-box">
+            <strong>Extra Challenge:</strong>
+            Counter madhye maximum value 100 set kar ani number 100
+            zalyavar Increase button disable kar.
+        </div>
+
+    </section>
+
+    <!-- PROJECT 2 -->
+
+    <section class="lesson-section project-section">
+
+        <div class="project-heading">
+            <span class="project-number">PROJECT 02</span>
+            <h2>Calculator</h2>
+            <span class="project-level">Beginner</span>
+        </div>
+
+        <p>
+            Calculator madhye don numbers gheun addition, subtraction,
+            multiplication ani division karta yeil.
+        </p>
+
+        <h3>Concepts Used</h3>
+
+        <ul>
+            <li>Variables and Data Types</li>
+            <li>Functions</li>
+            <li>Input and Output</li>
+            <li>Conditions</li>
+            <li>Operators</li>
+        </ul>
+
+        <h3>Features</h3>
+
+        <ul>
+            <li>Don numbers input ghete.</li>
+            <li>Four basic mathematical operations.</li>
+            <li>Division by zero error handle karte.</li>
+            <li>Result display karte.</li>
+        </ul>
+
+        <h3>File: index.html</h3>
+
+        <pre class="code-block"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Calculator&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;div class="calculator"&gt;
+        &lt;h1&gt;Calculator&lt;/h1&gt;
+
+        &lt;input type="number" id="num1" placeholder="First number"&gt;
+
+        &lt;input type="number" id="num2" placeholder="Second number"&gt;
+
+        &lt;div class="buttons"&gt;
+            &lt;button data-operation="add"&gt;+&lt;/button&gt;
+            &lt;button data-operation="subtract"&gt;-&lt;/button&gt;
+            &lt;button data-operation="multiply"&gt;×&lt;/button&gt;
+            &lt;button data-operation="divide"&gt;÷&lt;/button&gt;
+        &lt;/div&gt;
+
+        &lt;h2 id="result"&gt;Result: 0&lt;/h2&gt;
+    &lt;/div&gt;
+
+    &lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+        <h3>File: style.css</h3>
+
+        <pre class="code-block"><code>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f1f5f9;
+    font-family: Arial, sans-serif;
+}
+
+.calculator {
+    width: 90%;
+    max-width: 380px;
+    padding: 25px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px #00000015;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 10px 0 20px;
+}
+
+button {
+    padding: 13px;
+    border: none;
+    border-radius: 6px;
+    background: #2563eb;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+#result {
+    text-align: center;
+    color: #166534;
+    font-size: 20px;
+}</code></pre>
+
+        <h3>File: script.js</h3>
+
+        <pre class="code-block"><code>const num1Input = document.getElementById("num1");
+const num2Input = document.getElementById("num2");
+const resultDisplay = document.getElementById("result");
+
+const operationButtons = document.querySelectorAll(
+    "[data-operation]"
+);
+
+function calculate(operation) {
+    const num1 = Number(num1Input.value);
+    const num2 = Number(num2Input.value);
+
+    if (num1Input.value.trim() === "" ||
+        num2Input.value.trim() === "") {
+        resultDisplay.textContent = "Enter both numbers";
+        return;
+    }
+
+    let result;
+
+    if (operation === "add") {
+        result = num1 + num2;
+
+    } else if (operation === "subtract") {
+        result = num1 - num2;
+
+    } else if (operation === "multiply") {
+        result = num1 * num2;
+
+    } else if (operation === "divide") {
+        if (num2 === 0) {
+            resultDisplay.textContent = "Cannot divide by zero";
+            return;
+        }
+
+        result = num1 / num2;
+    }
+
+    resultDisplay.textContent = "Result: " + result;
+}
+
+operationButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+        calculate(button.dataset.operation);
+    });
+});</code></pre>
+
+        <h3>Expected Output</h3>
+
+        <div class="output-box live-demo calculator-preview">
+            <h3>Try Calculator</h3>
+
+            <div class="demo-calculator-inputs">
+                <input type="number" id="demo-num1" placeholder="First number">
+                <input type="number" id="demo-num2" placeholder="Second number">
+            </div>
+
+            <div class="preview-buttons demo-actions">
+                <button type="button" data-demo-operation="add">+</button>
+                <button type="button" data-demo-operation="subtract">−</button>
+                <button type="button" data-demo-operation="multiply">×</button>
+                <button type="button" data-demo-operation="divide">÷</button>
+            </div>
+
+            <p id="demo-calculator-result" aria-live="polite">Result: 0</p>
+        </div>
+
+        <h3>Code Explanation</h3>
+
+        <ul>
+            <li><code>Number()</code> input string la number madhye convert karto.</li>
+            <li><code>querySelectorAll()</code> sarva operation buttons select karto.</li>
+            <li><code>dataset.operation</code> button chi operation value deto.</li>
+            <li><code>if...else</code> yogya calculation select karte.</li>
+            <li><code>return</code> error asel tar function pudhe execute hou det nahi.</li>
+        </ul>
+
+        <div class="task-box">
+            <strong>Extra Challenge:</strong>
+            Calculator madhye percentage (%) ani clear button add kar.
+        </div>
+
+    </section>
+
+    <!-- PROJECT 3 -->
+
+    <section class="lesson-section project-section">
+
+        <div class="project-heading">
+            <span class="project-number">PROJECT 03</span>
+            <h2>To-Do List App</h2>
+            <span class="project-level">Intermediate</span>
+        </div>
+
+        <p>
+            To-Do List madhye daily tasks add, complete ani delete karta yetat.
+            Tasks browser madhye Local Storage vaprun save hotat.
+        </p>
+
+        <h3>Concepts Used</h3>
+
+        <ul>
+            <li>Arrays and Objects</li>
+            <li>Array Methods</li>
+            <li>DOM Manipulation</li>
+            <li>Events</li>
+            <li>Local Storage</li>
+            <li>JSON.stringify() and JSON.parse()</li>
+        </ul>
+
+        <h3>Features</h3>
+
+        <ul>
+            <li>New task add karane.</li>
+            <li>Task complete mark karane.</li>
+            <li>Task delete karane.</li>
+            <li>Page refresh zalyavar tasks tikun rahane.</li>
+            <li>Empty task add hou naye.</li>
+        </ul>
+
+        <h3>File: index.html</h3>
+
+        <pre class="code-block"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;To-Do List&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;div class="todo-container"&gt;
+        &lt;h1&gt;My To-Do List&lt;/h1&gt;
+
+        &lt;div class="input-area"&gt;
+            &lt;input type="text" id="task-input"
+                   placeholder="Enter your task"&gt;
+
+            &lt;button id="add-button"&gt;Add&lt;/button&gt;
+        &lt;/div&gt;
+
+        &lt;ul id="task-list"&gt;&lt;/ul&gt;
+    &lt;/div&gt;
+
+    &lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+        <h3>File: style.css</h3>
+
+        <pre class="code-block"><code>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f1f5f9;
+    font-family: Arial, sans-serif;
+}
+
+.todo-container {
+    width: 90%;
+    max-width: 500px;
+    padding: 25px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px #00000015;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input-area {
+    display: flex;
+    gap: 10px;
+}
+
+input {
+    flex: 1;
+    min-width: 0;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+}
+
+button {
+    padding: 11px 16px;
+    border: none;
+    border-radius: 6px;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+}
+
+#task-list {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    margin-bottom: 10px;
+    background: #f8fafc;
+    border-radius: 7px;
+}
+
+.task-text {
+    flex: 1;
+    overflow-wrap: anywhere;
+}
+
+.task-item.completed .task-text {
+    text-decoration: line-through;
+    color: #94a3b8;
+}
+
+.delete-button {
+    background: #dc2626;
+}
+
+@media (max-width: 400px) {
+    .todo-container {
+        padding: 16px;
+    }
+
+    .input-area {
+        flex-direction: column;
+    }
+
+    .input-area button {
+        width: 100%;
+    }
+}</code></pre>
+
+        <h3>File: script.js</h3>
+
+        <pre class="code-block"><code>const taskInput = document.getElementById("task-input");
+const addButton = document.getElementById("add-button");
+const taskList = document.getElementById("task-list");
+
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+function saveTasks() {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+function renderTasks() {
+    taskList.innerHTML = "";
+
+    tasks.forEach(function (task) {
+        const li = document.createElement("li");
+        li.className = "task-item";
+
+        if (task.completed) {
+            li.classList.add("completed");
+        }
+
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.checked = task.completed;
+
+        const text = document.createElement("span");
+        text.className = "task-text";
+        text.textContent = task.text;
+
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "Delete";
+        deleteButton.className = "delete-button";
+
+        checkbox.addEventListener("change", function () {
+            task.completed = checkbox.checked;
+            saveTasks();
+            renderTasks();
+        });
+
+        deleteButton.addEventListener("click", function () {
+            tasks = tasks.filter(function (item) {
+                return item.id !== task.id;
+            });
+
+            saveTasks();
+            renderTasks();
+        });
+
+        li.append(checkbox, text, deleteButton);
+        taskList.appendChild(li);
+    });
+}
+
+function addTask() {
+    const taskText = taskInput.value.trim();
+
+    if (taskText === "") {
+        alert("Please enter a task");
+        return;
+    }
+
+    const newTask = {
+        id: Date.now(),
+        text: taskText,
+        completed: false
+    };
+
+    tasks.push(newTask);
+
+    saveTasks();
+    renderTasks();
+
+    taskInput.value = "";
+}
+
+addButton.addEventListener("click", addTask);
+
+taskInput.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+        addTask();
+    }
+});
+
+renderTasks();</code></pre>
+
+        <h3>Expected Output – Live Demo</h3>
+
+        <div class="output-box live-demo todo-preview">
+
+            <h3>Try To-Do List</h3>
+
+            <div class="demo-todo-input">
+                <input
+                    type="text"
+                    id="demo-task-input"
+                    placeholder="Enter your task"
+                >
+
+                <button type="button" id="demo-task-add">
+                    Add
+                </button>
+            </div>
+
+            <p id="demo-task-status" aria-live="polite">
+                Tasks browser madhye save hotil.
+            </p>
+
+            <ul id="demo-task-list" class="demo-task-list"></ul>
+
+            <button
+                type="button"
+                id="demo-task-clear"
+                class="demo-danger"
+            >
+                Clear All
+            </button>
+
+        </div>
+
+        <h3>Code Explanation</h3>
+
+        <ul>
+            <li><code>localStorage.getItem()</code> saved tasks gheto.</li>
+            <li><code>JSON.parse()</code> JSON string la JavaScript array madhye convert karto.</li>
+            <li><code>tasks.push()</code> navin task add karto.</li>
+            <li><code>filter()</code> delete karaycha task remove karun navin array deto.</li>
+            <li><code>JSON.stringify()</code> array la JSON string madhye convert karto.</li>
+            <li><code>renderTasks()</code> screen var tasks display karto.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Security Note:</strong>
+            User input display kartana textContent vaparla aahe.
+            User ne dilela text direct innerHTML madhye taklela nahi.
+        </div>
+
+        <div class="task-box">
+            <strong>Extra Challenge:</strong>
+            Completed tasks chi count display kar ani Clear All button add kar.
+        </div>
+
+    </section>
+
+
+    <!-- PROJECT 4 -->
+
+    <section class="lesson-section project-section">
+
+        <div class="project-heading">
+            <span class="project-number">PROJECT 04</span>
+            <h2>API User Viewer</h2>
+            <span class="project-level">Intermediate</span>
+        </div>
+
+        <p>
+            Ya project madhye external API madhun users chi information
+            gheun website var display karaychi aahe.
+        </p>
+
+        <h3>Concepts Used</h3>
+
+        <ul>
+            <li>Fetch API</li>
+            <li>Async/Await</li>
+            <li>Promises</li>
+            <li>Try...Catch</li>
+            <li>DOM Manipulation</li>
+            <li>Array forEach()</li>
+        </ul>
+
+        <h3>Features</h3>
+
+        <ul>
+            <li>Load Users button.</li>
+            <li>API madhun users milavane.</li>
+            <li>Name, email ani city display karane.</li>
+            <li>Loading message display karane.</li>
+            <li>Error message display karane.</li>
+        </ul>
+
+        <h3>File: index.html</h3>
+
+        <pre class="code-block"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;API User Viewer&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;div class="container"&gt;
+        &lt;h1&gt;API User Viewer&lt;/h1&gt;
+
+        &lt;button id="load-users"&gt;Load Users&lt;/button&gt;
+
+        &lt;p id="status"&gt;&lt;/p&gt;
+
+        &lt;div id="user-list" class="user-list"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+        <h3>File: style.css</h3>
+
+        <pre class="code-block"><code>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    padding: 30px 15px;
+    background: #f1f5f9;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #172033;
+}
+
+#load-users {
+    display: block;
+    margin: 0 auto 20px;
+    padding: 12px 22px;
+    border: none;
+    border-radius: 6px;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+}
+
+#load-users:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#status {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #475569;
+}
+
+.user-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.user-card {
+    padding: 18px;
+    background: white;
+    border-radius: 9px;
+    box-shadow: 0 3px 12px #00000010;
+}
+
+.user-card h3 {
+    margin-bottom: 10px;
+    color: #1d4ed8;
+}
+
+.user-card p {
+    margin-top: 7px;
+    color: #475569;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 600px) {
+    .user-list {
+        grid-template-columns: 1fr;
+    }
+}</code></pre>
+
+        <h3>File: script.js</h3>
+
+        <pre class="code-block"><code>const loadButton = document.getElementById("load-users");
+const statusMessage = document.getElementById("status");
+const userList = document.getElementById("user-list");
+
+async function loadUsers() {
+    loadButton.disabled = true;
+    statusMessage.textContent = "Loading users...";
+    userList.replaceChildren();
+
+    try {
+        const response = await fetch(
+            "https://jsonplaceholder.typicode.com/users"
+        );
+
+        if (!response.ok) {
+            throw new Error("Unable to load users");
+        }
+
+        const users = await response.json();
+
+        users.forEach(function (user) {
+            const card = document.createElement("div");
+            card.className = "user-card";
+
+            const name = document.createElement("h3");
+            name.textContent = user.name;
+
+            const email = document.createElement("p");
+            email.textContent = "Email: " + user.email;
+
+            const city = document.createElement("p");
+            city.textContent = "City: " + user.address.city;
+
+            card.append(name, email, city);
+            userList.appendChild(card);
+        });
+
+        statusMessage.textContent =
+            users.length + " users loaded successfully.";
+
+    } catch (error) {
+        statusMessage.textContent = error.message;
+
+    } finally {
+        loadButton.disabled = false;
+    }
+}
+
+loadButton.addEventListener("click", loadUsers);</code></pre>
+
+        <h3>Expected Output – Live Demo</h3>
+
+        <div class="output-box live-demo api-preview">
+
+            <h3>Try API User Viewer</h3>
+
+            <p>Internet connection required.</p>
+
+            <button type="button" id="demo-load-users">
+                Load Users
+            </button>
+
+            <p id="demo-api-status" aria-live="polite">
+                Users not loaded yet.
+            </p>
+
+            <div id="demo-user-list" class="demo-user-list"></div>
+
+        </div>
+
+        <h3>Code Explanation</h3>
+
+        <ul>
+            <li><code>async function</code> asynchronous function tayar karto.</li>
+            <li><code>fetch()</code> API la request pathavto.</li>
+            <li><code>await</code> Promise settle honyachi wait karto.</li>
+            <li><code>response.ok</code> HTTP success status check karto.</li>
+            <li><code>response.json()</code> JSON response parse karto.</li>
+            <li><code>forEach()</code> pratyek user sathi card tayar karto.</li>
+            <li><code>finally</code> success kiwa failure nantar button enable karto.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Note:</strong>
+            Ya project sathi internet connection avashyak aahe.
+            JSONPlaceholder hi demo API aahe. Production project madhye
+            swatacha Django REST Framework backend vaparta yeil.
+        </div>
+
+        <div class="task-box">
+            <strong>Extra Challenge:</strong>
+            User cards madhye phone number ani company name suddha display kar.
+        </div>
+
+    </section>
+
+
+    <!-- FINAL PROJECT CHECKLIST -->
+
+    <section class="lesson-section">
+
+        <h2>5. Project Completion Checklist</h2>
+
+        <div class="checklist-box">
+            <p>Pratyek project swatah complete kelyanantar check kar:</p>
+
+            <ul class="checklist">
+                <li>HTML structure swatah lihili.</li>
+                <li>CSS styling swatah keli.</li>
+                <li>JavaScript logic samjun lihila.</li>
+                <li>Buttons ani events test kele.</li>
+                <li>Browser Console madhil errors check kele.</li>
+                <li>Mobile screen var layout check kela.</li>
+                <li>GitHub var project upload kela.</li>
+                <li>README.md madhye project information lihili.</li>
+            </ul>
+        </div>
+
+    </section>
+
+
+    <!-- GITHUB -->
+
+    <section class="lesson-section">
+
+        <h2>6. Upload Projects to GitHub</h2>
+
+        <p>
+            Projects complete zalyanantar GitHub var upload kar.
+            Tyamule tuzha practical work portfolio madhye dakhavta yeil.
+        </p>
+
+        <h3>Basic Git Commands:</h3>
+
+        <pre class="code-block"><code>git init
+
+git add .
+
+git commit -m "Add JavaScript mini projects"
+
+git branch -M main
+
+git remote add origin YOUR_GITHUB_REPOSITORY_URL
+
+git push -u origin main</code></pre>
+
+        <div class="important-box">
+            <strong>Remember:</strong>
+            GitHub var API keys, passwords kiwa private credentials upload karu nako.
+        </div>
+
+    </section>
+
+
+    <!-- FINAL REVISION -->
+
+    <section class="lesson-section">
+
+        <h2>7. JavaScript Final Revision</h2>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Topic</th>
+                    <th>Important Concepts</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Basics</td>
+                    <td>Syntax, Variables, Data Types, Operators</td>
+                </tr>
+                <tr>
+                    <td>Logic</td>
+                    <td>Conditions, Loops, Functions</td>
+                </tr>
+                <tr>
+                    <td>Data Handling</td>
+                    <td>Arrays, Objects, Methods</td>
+                </tr>
+                <tr>
+                    <td>DOM</td>
+                    <td>Selectors, Manipulation, Events</td>
+                </tr>
+                <tr>
+                    <td>Modern JavaScript</td>
+                    <td>ES6, Spread, Rest, Destructuring</td>
+                </tr>
+                <tr>
+                    <td>Browser Storage</td>
+                    <td>JSON, Local Storage</td>
+                </tr>
+                <tr>
+                    <td>Asynchronous JS</td>
+                    <td>Promises, Async/Await, Fetch API</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </section>
+
+
+    <!-- BACKEND DEVELOPER -->
+
+    <section class="lesson-section">
+
+        <h2>8. JavaScript for Backend Developers</h2>
+
+        <p>
+            Python/Django Backend Developer banayche asel tar JavaScript
+            madhil pratyek advanced frontend concept shikne avashyak nahi.
+            Pan khalil concepts changlya prakare samjun ghe.
+        </p>
+
+        <ul>
+            <li>Variables, Data Types and Functions</li>
+            <li>Arrays and Objects</li>
+            <li>Array Methods</li>
+            <li>JSON and Destructuring</li>
+            <li>Promises and Async/Await</li>
+            <li>Fetch API and HTTP Methods</li>
+            <li>DOM and Events basics</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Next Learning Step:</strong>
+            JavaScript basics complete zalyanantar Django REST Framework,
+            REST APIs, Authentication, HTTP methods ani Database integration
+            yanchya practical learning var focus kar.
+        </div>
+
+    </section>
+
+
+    <!-- FINAL PRACTICE -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>9. Final Practice Questions</h2>
+
+        <h3>Concept Questions</h3>
+
+        <ol>
+            <li>JavaScript madhye DOM mhanje kay?</li>
+            <li>addEventListener() cha use kay aahe?</li>
+            <li>map() ani filter() madhye difference kay?</li>
+            <li>Local Storage mhanje kay?</li>
+            <li>JSON.stringify() ani JSON.parse() kay kartat?</li>
+            <li>Promise chya states kontya aahet?</li>
+            <li>async ani await kay kartat?</li>
+            <li>Fetch API cha use kay aahe?</li>
+            <li>GET ani POST madhye difference kay?</li>
+            <li>try...catch cha use kay aahe?</li>
+        </ol>
+
+        <h3>Coding Practice</h3>
+
+        <ol>
+            <li>Array madhil even numbers find kar.</li>
+            <li>Student marks madhun highest marks find kar.</li>
+            <li>Object madhun student details display kar.</li>
+            <li>Button click kelyavar heading change kar.</li>
+            <li>Form madhil empty fields validate kar.</li>
+            <li>Local Storage madhye user notes save kar.</li>
+            <li>Fetch API vaprun users display kar.</li>
+        </ol>
+
+    </section>
+
+
+    <!-- NAVIGATION -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'javascript_topic' 'fetch-api' %}"
+           class="nav-button previous-button">
+            ← Previous: Fetch API
+        </a>
+
+        <a href="{% url 'javascript_index' %}"
+           class="nav-button next-button">
+            JavaScript Course Home
+        </a>
+
+    </div>
+
+
+    <div class="completion-message">
+        <h2>JavaScript Course Completed!</h2>
+
+        <p>
+            30 topics complete kar. Concepts samjun ghe, projects swatah
+            build kar ani regular coding practice kar.
+        </p>
+    </div>
+
+</div>
+
+
+<!-- LIVE DEMO JAVASCRIPT -->
+
+<script>
+
+/* =====================================
+   PROJECT 1: COUNTER DEMO
+===================================== */
+
+(function () {
+
+    const display = document.getElementById("demo-counter-value");
+    const message = document.getElementById("demo-counter-message");
+
+    const increase = document.getElementById("demo-counter-increase");
+    const decrease = document.getElementById("demo-counter-decrease");
+    const reset = document.getElementById("demo-counter-reset");
+
+    if (!display || !message || !increase || !decrease || !reset) return;
+
+    let count = 0;
+
+    function update() {
+        display.textContent = count;
+        message.textContent = "Current count: " + count;
+    }
+
+    increase.addEventListener("click", function () {
+        count++;
+        update();
+    });
+
+    decrease.addEventListener("click", function () {
+        if (count > 0) {
+            count--;
+            update();
+        } else {
+            message.textContent = "Counter cannot go below zero.";
+        }
+    });
+
+    reset.addEventListener("click", function () {
+        count = 0;
+        update();
+    });
+
+})();
+
+
+/* =====================================
+   PROJECT 2: CALCULATOR DEMO
+===================================== */
+
+(function () {
+
+    const first = document.getElementById("demo-num1");
+    const second = document.getElementById("demo-num2");
+
+    const output = document.getElementById("demo-calculator-result");
+
+    const buttons = document.querySelectorAll(
+        "[data-demo-operation]"
+    );
+
+    if (!first || !second || !output || !buttons.length) return;
+
+    buttons.forEach(function (button) {
+
+        button.addEventListener("click", function () {
+
+            if (
+                first.value.trim() === "" ||
+                second.value.trim() === ""
+            ) {
+                output.textContent = "Enter both numbers.";
+                return;
+            }
+
+            const a = Number(first.value);
+            const b = Number(second.value);
+
+            const operation = button.dataset.demoOperation;
+
+            let answer;
+
+            if (operation === "add") {
+                answer = a + b;
+
+            } else if (operation === "subtract") {
+                answer = a - b;
+
+            } else if (operation === "multiply") {
+                answer = a * b;
+
+            } else if (operation === "divide") {
+
+                if (b === 0) {
+                    output.textContent = "Cannot divide by zero.";
+                    return;
+                }
+
+                answer = a / b;
+            }
+
+            output.textContent = "Result: " + answer;
+
+        });
+
+    });
+
+})();
+
+
+/* =====================================
+   PROJECT 3: TO-DO LIST DEMO
+===================================== */
+
+(function () {
+
+    const input = document.getElementById("demo-task-input");
+    const addButton = document.getElementById("demo-task-add");
+    const clearButton = document.getElementById("demo-task-clear");
+
+    const list = document.getElementById("demo-task-list");
+    const status = document.getElementById("demo-task-status");
+
+    if (!input || !addButton || !clearButton || !list || !status) return;
+
+    const storageKey = "javascript-documentation-demo-tasks";
+
+    let tasks = [];
+
+    try {
+        const saved = JSON.parse(
+            localStorage.getItem(storageKey) || "[]"
+        );
+
+        tasks = Array.isArray(saved) ? saved : [];
+
+    } catch (error) {
+        tasks = [];
+    }
+
+    function saveTasks() {
+        localStorage.setItem(
+            storageKey,
+            JSON.stringify(tasks)
+        );
+    }
+
+    function renderTasks() {
+
+        list.replaceChildren();
+
+        tasks.forEach(function (task) {
+
+            const item = document.createElement("li");
+            item.className = "demo-task-item";
+
+            const checkbox = document.createElement("input");
+
+            checkbox.type = "checkbox";
+            checkbox.checked = Boolean(task.completed);
+
+            const text = document.createElement("span");
+
+            text.textContent = task.text;
+
+            if (task.completed) {
+                text.classList.add("is-complete");
+            }
+
+            const remove = document.createElement("button");
+
+            remove.type = "button";
+            remove.textContent = "Delete";
+            remove.className = "demo-danger";
+
+            checkbox.addEventListener("change", function () {
+
+                task.completed = checkbox.checked;
+
+                saveTasks();
+                renderTasks();
+
+            });
+
+            remove.addEventListener("click", function () {
+
+                tasks = tasks.filter(function (entry) {
+                    return entry.id !== task.id;
+                });
+
+                saveTasks();
+                renderTasks();
+
+            });
+
+            item.append(checkbox, text, remove);
+
+            list.appendChild(item);
+
+        });
+
+        const completed = tasks.filter(function (task) {
+            return task.completed;
+        }).length;
+
+        status.textContent =
+            tasks.length + " task(s), " +
+            completed + " completed. Saved in this browser.";
+
+    }
+
+    function addTask() {
+
+        const value = input.value.trim();
+
+        if (value === "") {
+
+            status.textContent = "Please enter a task first.";
+
+            input.focus();
+
+            return;
+        }
+
+        tasks.push({
+
+            id: Date.now() + Math.random(),
+
+            text: value,
+
+            completed: false
+
+        });
+
+        saveTasks();
+
+        renderTasks();
+
+        input.value = "";
+
+        input.focus();
+
+    }
+
+    addButton.addEventListener("click", addTask);
+
+    input.addEventListener("keydown", function (event) {
+
+        if (event.key === "Enter") {
+            addTask();
+        }
+
+    });
+
+    clearButton.addEventListener("click", function () {
+
+        tasks = [];
+
+        saveTasks();
+
+        renderTasks();
+
+        status.textContent = "All tasks cleared.";
+
+    });
+
+    renderTasks();
+
+})();
+
+
+/* =====================================
+   PROJECT 4: API USER VIEWER DEMO
+===================================== */
+
+(function () {
+
+    const button = document.getElementById("demo-load-users");
+
+    const status = document.getElementById("demo-api-status");
+
+    const list = document.getElementById("demo-user-list");
+
+    if (!button || !status || !list) return;
+
+    button.addEventListener("click", async function () {
+
+        button.disabled = true;
+
+        status.textContent = "Loading users...";
+
+        list.replaceChildren();
+
+        try {
+
+            const response = await fetch(
+                "https://jsonplaceholder.typicode.com/users"
+            );
+
+            if (!response.ok) {
+                throw new Error("Unable to load users.");
+            }
+
+            const users = await response.json();
+
+            users.forEach(function (user) {
+
+                const card = document.createElement("article");
+
+                card.className = "demo-user-card";
+
+                const name = document.createElement("h4");
+
+                name.textContent = user.name;
+
+                const email = document.createElement("p");
+
+                email.textContent = "Email: " + user.email;
+
+                const city = document.createElement("p");
+
+                city.textContent = "City: " + user.address.city;
+
+                card.append(name, email, city);
+
+                list.appendChild(card);
+
+            });
+
+            status.textContent =
+                users.length + " users loaded successfully.";
+
+        } catch (error) {
+
+            status.textContent = "Error: " + error.message;
+
+        } finally {
+
+            button.disabled = false;
+
+        }
+
+    });
+
+})();
+
+</script>
+
+{% endblock %}

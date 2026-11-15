@@ -1,0 +1,719 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}JavaScript Syntax | Roman Marathi{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/javascript/syntax.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+
+    <div class="lesson-header">
+        <span class="lesson-label">JAVASCRIPT DOCUMENTATION • PAGE 02</span>
+
+        <h1>JavaScript Syntax</h1>
+
+        <p>
+            JavaScript code lihinyache basic rules, statements,
+            comments, case sensitivity ani code blocks kase lihayche
+            he ya lesson madhye shikuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Beginner Level</span>
+            <span>30–35 Minutes</span>
+        </div>
+    </div>
+
+    <!-- Section 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What is JavaScript Syntax?</h2>
+
+        <p>
+            Syntax mhanje programming language madhye code
+            lihinyache rules.
+        </p>
+
+        <p>
+            Jase English language madhye sentence lihinyache
+            kahi rules astat, tasech JavaScript madhye code
+            lihinyache rules astat.
+        </p>
+
+        <p>
+            JavaScript code lihitana proper keywords, brackets,
+            quotes ani operators vaprane avashyak aste.
+        </p>
+
+        <div class="info-box">
+            <strong>Simple Definition:</strong>
+            JavaScript Syntax mhanje JavaScript code lihinyasathi
+            follow karave laganare rules.
+        </div>
+
+        <div class="example-box">
+            <strong>Example:</strong>
+            <pre class="code-block"><code>console.log("Hello World");</code></pre>
+            Ya code madhye console.log() he message display
+            karnyasathi vaprale aahe.
+        </div>
+
+    </section>
+
+    <!-- Section 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. JavaScript Statements</h2>
+
+        <p>
+            JavaScript statement mhanje browser kiwa JavaScript
+            engine la dileli ek instruction.
+        </p>
+
+        <p>
+            Ek program anek statements pasun tayar hoto.
+            Pratyek statement ek specific task perform karte.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let name = "Rohan";
+let age = 20;
+
+console.log(name);
+console.log(age);</code></pre>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>
+                <strong>let name = "Rohan";</strong>
+                Name variable madhye Rohan value store keli.
+            </li>
+
+            <li>
+                <strong>let age = 20;</strong>
+                Age variable madhye 20 value store keli.
+            </li>
+
+            <li>
+                <strong>console.log(name);</strong>
+                Name chi value console madhye display keli.
+            </li>
+
+            <li>
+                <strong>console.log(age);</strong>
+                Age chi value console madhye display keli.
+            </li>
+        </ul>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Rohan
+20</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            JavaScript madhye ek statement ekach line madhye
+            lihine compulsory nahi. Pan suruvatila pratyek
+            statement veglya line madhye lihinyachi savay thev.
+        </div>
+
+    </section>
+
+    <!-- Section 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. Semicolon ( ; )</h2>
+
+        <p>
+            JavaScript madhye semicolon (;) statement cha end
+            dakhavnyasathi vaparla jato.
+        </p>
+
+        <h3>Example with Semicolon:</h3>
+
+        <pre class="code-block"><code>let name = "Rohan";
+let city = "Kolhapur";
+
+console.log(name);
+console.log(city);</code></pre>
+
+        <h3>Example without Semicolon:</h3>
+
+        <pre class="code-block"><code>let name = "Rohan"
+let city = "Kolhapur"
+
+console.log(name)
+console.log(city)</code></pre>
+
+        <p>
+            JavaScript madhye anek statements semicolon shivay
+            suddha chalu shaktat. JavaScript Automatic Semicolon
+            Insertion (ASI) vaprun kahi thikani semicolon
+            automatically insert karte.
+        </p>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Suruvatila pratyek statement nantar semicolon (;)
+            vaprane changli savay aahe. Pan pratyek situation madhye
+            semicolon optional aahe ase samju naye.
+        </div>
+
+    </section>
+
+    <!-- Section 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. JavaScript Comments</h2>
+
+        <p>
+            Comments mhanje code madhye lihilelya notes.
+            Comments cha use code samjavnyasathi hoto.
+        </p>
+
+        <p>
+            JavaScript comments execute karat nahi.
+            Mhanje comments madhil text program cha output badalat nahi.
+        </p>
+
+        <h3>JavaScript madhye 2 types che comments astat:</h3>
+
+        <h3>A. Single-line Comment</h3>
+
+        <p>
+            Single-line comment lihinyasathi double slash (//)
+            vapartat.
+        </p>
+
+        <pre class="code-block"><code>// This is a single-line comment
+
+console.log("Hello Rohan");</code></pre>
+
+        <h3>B. Multi-line Comment</h3>
+
+        <p>
+            Multiple lines madhye comment lihinyasathi
+            /* ani */ vapartat.
+        </p>
+
+        <pre class="code-block"><code>/*
+This is a
+multi-line comment
+*/
+
+console.log("Learning JavaScript");</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Hello Rohan
+Learning JavaScript</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Code madhye important logic samjavnyasathi comments
+            vapra. Pratyek line la unnecessary comment lihinyachi
+            garaj nahi.
+        </div>
+
+    </section>
+
+    <!-- Section 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. Case Sensitivity</h2>
+
+        <p>
+            JavaScript hi case-sensitive language aahe.
+            Mhanje capital letters ani small letters yanna
+            vegvegale samajle jate.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let name = "Rohan";
+
+console.log(name);</code></pre>
+
+        <p>
+            Varil code madhye name variable tayar kela aahe.
+            Tyamule console.log(name) barobar aahe.
+        </p>
+
+        <h3>Wrong Example:</h3>
+
+        <pre class="code-block"><code>let name = "Rohan";
+
+console.log(Name);</code></pre>
+
+        <div class="important-box">
+            <strong>Why Error?</strong>
+            name ani Name hi don vegvegli nave aahet.
+            Name navacha variable create kelela naslyamule
+            ReferenceError yeu shakto.
+        </div>
+
+        <h3>More Examples:</h3>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Code</th>
+                    <th>Same or Different?</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>name / Name</td>
+                    <td>Different</td>
+                </tr>
+
+                <tr>
+                    <td>age / Age</td>
+                    <td>Different</td>
+                </tr>
+
+                <tr>
+                    <td>city / City</td>
+                    <td>Different</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </section>
+
+    <!-- Section 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. JavaScript Identifiers</h2>
+
+        <p>
+            Identifier mhanje JavaScript madhye variable,
+            function kiwa itar element la dilele name.
+        </p>
+
+        <p>
+            Udaharanarth, name, age, total ani studentName
+            hi identifiers chi examples aahet.
+        </p>
+
+        <h3>Identifier lihinyache Rules:</h3>
+
+        <ul>
+            <li>Identifier madhye letters vaparta yetat.</li>
+            <li>Numbers vaparta yetat, pan first character number nasava.</li>
+            <li>Underscore (_) ani dollar sign ($) vaparta yetat.</li>
+            <li>Spaces vaparta yet nahit.</li>
+            <li>JavaScript reserved keywords identifier mhanun vaparta yet nahit.</li>
+            <li>Identifiers case-sensitive astat.</li>
+        </ul>
+
+        <h3>Valid Identifiers:</h3>
+
+        <pre class="code-block"><code>let name = "Rohan";
+let studentAge = 20;
+let total_marks = 450;
+let $price = 100;
+let _count = 5;</code></pre>
+
+        <h3>Invalid Identifiers:</h3>
+
+        <pre class="code-block"><code>// Invalid examples
+
+let 1name = "Rohan";
+let student name = "Rohan";
+let let = 10;</code></pre>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Varil invalid examples code madhye run karu naye.
+            Tyamule syntax errors yeu shaktat.
+        </div>
+
+    </section>
+
+    <!-- Section 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. Strings and Quotes</h2>
+
+        <p>
+            JavaScript madhye text value la String mhantat.
+            String lihinyasathi single quotes (' '),
+            double quotes (" ") kiwa backticks (` `)
+            vaparta yetat.
+        </p>
+
+        <h3>A. Single Quotes</h3>
+
+        <pre class="code-block"><code>let name = 'Rohan';
+
+console.log(name);</code></pre>
+
+        <h3>B. Double Quotes</h3>
+
+        <pre class="code-block"><code>let city = "Kolhapur";
+
+console.log(city);</code></pre>
+
+        <h3>C. Backticks</h3>
+
+        <pre class="code-block"><code>let name = "Rohan";
+let age = 20;
+
+console.log(`My name is ${name}`);
+console.log(`My age is ${age}`);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>My name is Rohan
+My age is 20</pre>
+        </div>
+
+        <p>
+            Backticks madhye ${ } vaprun variable chi value
+            string madhye insert karta yete.
+            Ya feature la Template Literal mhantat.
+        </p>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Backticks cha use pudhe dynamic messages,
+            API data ani HTML content tayar kartana suddha hoil.
+        </div>
+
+    </section>
+
+    <!-- Section 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. JavaScript Code Blocks</h2>
+
+        <p>
+            Curly brackets { } madhye lihilelya statements
+            chya group la code block mhantat.
+        </p>
+
+        <p>
+            Code blocks cha use functions, conditions ani loops
+            madhye hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>if (true) {
+    console.log("Condition is true");
+}</code></pre>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li><strong>if:</strong> Condition check karte.</li>
+            <li><strong>(true):</strong> Condition true aahe.</li>
+            <li><strong>{ }:</strong> Code block chi suruvat ani shevat dakhavtat.</li>
+            <li><strong>console.log():</strong> Message display karte.</li>
+        </ul>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Condition is true</pre>
+        </div>
+
+    </section>
+
+    <!-- Section 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. JavaScript Indentation and Spacing</h2>
+
+        <p>
+            Indentation mhanje code lihitana spaces vaprun
+            statements vyavasthit lihine.
+        </p>
+
+        <p>
+            Indentation mule code vachayla ani samjayla sopa hoto.
+            JavaScript madhye indentation compulsory nasle tari
+            clean code sathi ti important aahe.
+        </p>
+
+        <h3>Without Proper Indentation:</h3>
+
+        <pre class="code-block"><code>function greet(){
+let name="Rohan";
+if(name){
+console.log("Hello "+name);
+}
+}</code></pre>
+
+        <h3>With Proper Indentation:</h3>
+
+        <pre class="code-block"><code>function greet() {
+    let name = "Rohan";
+
+    if (name) {
+        console.log("Hello " + name);
+    }
+}</code></pre>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            VS Code madhye Shift + Alt + F shortcut vaprun
+            code format karta yeto.
+        </div>
+
+    </section>
+
+    <!-- Section 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Complete Practical Example</h2>
+
+        <p>
+            Ata apan HTML, CSS ani JavaScript ekatra vaprun
+            ek simple greeting card tayar karu.
+        </p>
+
+        <h3>Step 1: HTML Code</h3>
+
+        <pre class="code-block"><code>&lt;div class="card"&gt;
+    &lt;h2 id="heading"&gt;Hello!&lt;/h2&gt;
+
+    &lt;p id="message"&gt;Welcome to my page.&lt;/p&gt;
+
+    &lt;button onclick="showMessage()"&gt;
+        Click Me
+    &lt;/button&gt;
+&lt;/div&gt;</code></pre>
+
+        <h3>Step 2: CSS Code</h3>
+
+        <pre class="code-block"><code>.card {
+    max-width: 350px;
+    padding: 25px;
+    margin: 20px auto;
+    text-align: center;
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+}
+
+.card button {
+    padding: 10px 18px;
+    background: #ca8a04;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}</code></pre>
+
+        <h3>Step 3: JavaScript Code</h3>
+
+        <pre class="code-block"><code>function showMessage() {
+    document.getElementById("heading").innerText =
+        "Welcome Rohan!";
+
+    document.getElementById("message").innerText =
+        "You are learning JavaScript.";
+}</code></pre>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>
+                <strong>function showMessage():</strong>
+                showMessage navacha function tayar karto.
+            </li>
+
+            <li>
+                <strong>getElementById():</strong>
+                HTML madhil id vaprun element select karto.
+            </li>
+
+            <li>
+                <strong>innerText:</strong>
+                Element madhil text change karto.
+            </li>
+
+            <li>
+                <strong>onclick:</strong>
+                Button click zalyavar function call karto.
+            </li>
+        </ul>
+
+        <div class="info-box">
+            <strong>Backend Connection:</strong>
+            Pudhe JavaScript madhil Fetch API vaprun Django
+            backend kadun data gheta yeil. Tyasathi HTML madhil
+            elements select karne ani JavaScript syntax samajne
+            upayogi tharel.
+        </div>
+
+    </section>
+
+    <!-- Section 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Common Beginner Mistakes</h2>
+
+        <div class="mistake-card">
+            <strong>Mistake 1: Variable name madhye capital-small letters chukavne</strong>
+            <p>
+                name ani Name vegvegale identifiers aahet.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 2: String la quotes na dene</strong>
+            <p>
+                Text value lihitana single quotes, double quotes
+                kiwa backticks vapra.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 3: Brackets close karayla visarne</strong>
+            <p>
+                Opening bracket sobat yogya closing bracket
+                vaprane avashyak aahe.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 4: Code indentation ignore karne</strong>
+            <p>
+                Code neat format madhye lihilyas errors shodhne sope hote.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- Section 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Quick Revision</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>Syntax mhanje code lihinyache rules.</li>
+                <li>Statement mhanje JavaScript instruction.</li>
+                <li>Semicolon (;) statement cha end dakhavto.</li>
+                <li>// single-line comment sathi vapartat.</li>
+                <li>/* */ multi-line comment sathi vapartat.</li>
+                <li>JavaScript hi case-sensitive language aahe.</li>
+                <li>Identifier mhanje variable kiwa function che name.</li>
+                <li>String sathi quotes vapartat.</li>
+                <li>Curly brackets { } code block tayar kartat.</li>
+                <li>Indentation mule code readable hoto.</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <!-- Section 13 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>13. Practice Questions</h2>
+
+        <p>
+            Khali dilele questions swatah solve kar.
+            Fakt code vachun thambu nakos. VS Code madhye
+            code lihun run kar.
+        </p>
+
+        <h3>Basic Questions</h3>
+
+        <ol>
+            <li>JavaScript Syntax mhanje kay?</li>
+            <li>JavaScript Statement mhanje kay?</li>
+            <li>Semicolon cha use kay aahe?</li>
+            <li>Single-line comment kasa lihitat?</li>
+            <li>Multi-line comment kasa lihitat?</li>
+            <li>JavaScript case-sensitive aahe ka?</li>
+            <li>Identifier mhanje kay?</li>
+            <li>String lihinyasathi kontya quotes vapartat?</li>
+            <li>Code block mhanje kay?</li>
+        </ol>
+
+        <h3>Practical Questions</h3>
+
+        <ol>
+            <li>Console madhye tuzhe nav display kar.</li>
+            <li>Don variables tayar karun tyanchi values display kar.</li>
+            <li>Single-line ani multi-line comments lih.</li>
+            <li>Backticks vaprun tuzhe nav ani vay display kar.</li>
+            <li>if statement vaprun ek message display kar.</li>
+        </ol>
+
+        <div class="task-box">
+
+            <h3>Mini Task: Personal Introduction</h3>
+
+            <p>
+                JavaScript vaprun ek simple personal introduction
+                tayar kar.
+            </p>
+
+            <ul>
+                <li>name navacha variable tayar kar.</li>
+                <li>city navacha variable tayar kar.</li>
+                <li>course navacha variable tayar kar.</li>
+                <li>Backticks vaprun introduction display kar.</li>
+                <li>Code madhye ek single-line comment lih.</li>
+            </ul>
+
+            <p>
+                File name: <strong>javascript_syntax.js</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Lesson Navigation -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'javascript_topic' 'introduction' %}"
+           class="nav-button previous-button">
+            ← Previous: Introduction
+        </a>
+
+        <a href="{% url 'javascript_topic' 'ways-to-add-javascript' %}"
+           class="nav-button next-button">
+            Next: Ways to Add JavaScript →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,901 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}JavaScript Data Types | Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/javascript/data-types.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+
+    <div class="lesson-header">
+        <span class="lesson-label">JAVASCRIPT DOCUMENTATION • PAGE 05</span>
+
+        <h1>JavaScript Data Types</h1>
+
+        <p>
+            JavaScript madhye data che vegvegale types astat.
+            String, Number, Boolean, Object ani itar data types
+            kase vapartat he examples sahit shikuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Beginner Level</span>
+            <span>35–40 Minutes</span>
+        </div>
+    </div>
+
+    <!-- Section 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What are Data Types?</h2>
+
+        <p>
+            Data Type mhanje variable madhye kontya prakarcha
+            data store aahe he sangnara type.
+        </p>
+
+        <p>
+            Udaharanarth, aplyala student che name, age,
+            result ani address store karayche asel tar
+            pratyek value cha data type vegla asu shakto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let studentName = "Rohan";
+let age = 20;
+let isPassed = true;
+
+console.log(studentName);
+console.log(age);
+console.log(isPassed);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Rohan
+20
+true</pre>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li><strong>"Rohan":</strong> String data type.</li>
+            <li><strong>20:</strong> Number data type.</li>
+            <li><strong>true:</strong> Boolean data type.</li>
+        </ul>
+
+        <div class="info-box">
+            <strong>Simple Definition:</strong>
+            Data Type aplyala variable madhye kontya prakarcha
+            data aahe he samjun ghenyas madat karto.
+        </div>
+
+    </section>
+
+    <!-- Section 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Types of JavaScript Data Types</h2>
+
+        <p>
+            JavaScript madhye data types che don main groups aahet.
+        </p>
+
+        <div class="type-group">
+            <div class="type-card">
+                <h3>Primitive Data Types</h3>
+                <p>String, Number, Boolean, Undefined, Null, BigInt, Symbol</p>
+            </div>
+
+            <div class="type-card">
+                <h3>Non-Primitive Data Type</h3>
+                <p>Object. Arrays ani functions suddha object-related structures aahet.</p>
+            </div>
+        </div>
+
+        <div class="tip-box">
+            <strong>Important:</strong>
+            JavaScript madhye 7 primitive data types aahet.
+            Object ha non-primitive category madhye yeto.
+        </div>
+
+    </section>
+
+    <!-- Section 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. String Data Type</h2>
+
+        <p>
+            String cha use text kiwa characters store karnyasathi hoto.
+            String value single quotes, double quotes kiwa backticks
+            madhye lihili jate.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let firstName = "Rohan";
+let city = 'Kolhapur';
+let course = `Computer Science`;
+
+console.log(firstName);
+console.log(city);
+console.log(course);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Rohan
+Kolhapur
+Computer Science</pre>
+        </div>
+
+        <h3>String Concatenation:</h3>
+
+        <p>
+            Don kiwa adhik strings ekatra jodnyasathi
+            + operator vaparta yeto.
+        </p>
+
+        <pre class="code-block"><code>let firstName = "Rohan";
+let lastName = "Jagtap";
+
+let fullName = firstName + " " + lastName;
+
+console.log(fullName);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Rohan Jagtap</pre>
+        </div>
+
+        <h3>Template Literals:</h3>
+
+        <p>
+            Backticks vaprun string madhye variable chi value
+            direct insert karta yete. Yala template literal mhantat.
+        </p>
+
+        <pre class="code-block"><code>let name = "Rohan";
+let age = 20;
+
+console.log(`My name is ${name} and my age is ${age}.`);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>My name is Rohan and my age is 20.</pre>
+        </div>
+
+    </section>
+
+    <!-- Section 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. Number Data Type</h2>
+
+        <p>
+            Number cha use numerical values store karnyasathi hoto.
+            JavaScript madhye integer ani decimal values donhi
+            Number type madhye yetat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let age = 20;
+let price = 99.50;
+let temperature = -5;
+
+console.log(age);
+console.log(price);
+console.log(temperature);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>20
+99.5
+-5</pre>
+        </div>
+
+        <h3>Mathematical Operations:</h3>
+
+        <pre class="code-block"><code>let a = 10;
+let b = 5;
+
+console.log(a + b);
+console.log(a - b);
+console.log(a * b);
+console.log(a / b);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>15
+5
+50
+2</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            JavaScript madhye 10 ani 10.5 ya donhi values
+            Number data type madhye yetat.
+        </div>
+
+    </section>
+
+    <!-- Section 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. Boolean Data Type</h2>
+
+        <p>
+            Boolean data type madhye fakt don values astat:
+            true kiwa false.
+        </p>
+
+        <p>
+            Conditions, login status, result ani yes/no type
+            decisions ghenyasathi Boolean vapartat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let isLoggedIn = true;
+let isPassed = false;
+
+console.log(isLoggedIn);
+console.log(isPassed);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>true
+false</pre>
+        </div>
+
+        <h3>Practical Example:</h3>
+
+        <pre class="code-block"><code>let marks = 75;
+
+let isPassed = marks >= 35;
+
+console.log(isPassed);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>true</pre>
+        </div>
+
+        <p>
+            Marks 35 kiwa tyapeksha jast aslyamule
+            condition true zali.
+        </p>
+
+    </section>
+
+    <!-- Section 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. Undefined Data Type</h2>
+
+        <p>
+            Variable declare kela pan tyala value assign keli nahi
+            tar tyachi value undefined aste.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let studentName;
+
+console.log(studentName);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>undefined</pre>
+        </div>
+
+        <h3>Assigning a Value:</h3>
+
+        <pre class="code-block"><code>let age;
+
+age = 20;
+
+console.log(age);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>20</pre>
+        </div>
+
+        <div class="info-box">
+            <strong> लक्षात ठेव:</strong>
+            undefined mhanje variable declare zala aahe,
+            pan tyala ajun value assign kelel nahi.
+        </div>
+
+    </section>
+
+    <!-- Section 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. Null Data Type</h2>
+
+        <p>
+            Null cha use janivpurvak empty kiwa absent value
+            dakhavnyasathi hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let selectedUser = null;
+
+console.log(selectedUser);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>null</pre>
+        </div>
+
+        <h3>Undefined vs Null:</h3>
+
+        <pre class="code-block"><code>let a;
+
+let b = null;
+
+console.log(a);
+console.log(b);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>undefined
+null</pre>
+        </div>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Undefined</th>
+                    <th>Null</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Value assign kelel naste.</td>
+                    <td>Janivpurvak empty value dili aste.</td>
+                </tr>
+
+                <tr>
+                    <td>JavaScript default value dete.</td>
+                    <td>Programmer null assign karto.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            typeof null cha result "object" yeto.
+            Hi JavaScript madhil ek juna historical behavior aahe.
+            Null ha primitive data type aahe.
+        </div>
+
+    </section>
+
+    <!-- Section 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. BigInt Data Type</h2>
+
+        <p>
+            BigInt cha use khup mothya integer numbers
+            represent karnyasathi hoto.
+        </p>
+
+        <p>
+            Normal Number type madhye safe integer limit aste.
+            Tyapeksha mothya integers sathi BigInt upyogi aahe.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let bigNumber = 12345678901234567890n;
+
+console.log(bigNumber);
+console.log(typeof bigNumber);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>12345678901234567890n
+bigint</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            BigInt value chya shevati n lihitat.
+            BigInt ani Number yanchi direct arithmetic
+            operation karta yet nahi.
+        </div>
+
+    </section>
+
+    <!-- Section 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Symbol Data Type</h2>
+
+        <p>
+            Symbol ha unique identifier tayar karnyasathi
+            vaparla janara primitive data type aahe.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let id1 = Symbol("id");
+let id2 = Symbol("id");
+
+console.log(id1 === id2);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>false</pre>
+        </div>
+
+        <p>
+            Donhi symbols madhye same description asle tari
+            pratyek Symbol value unique aste.
+        </p>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Symbol cha advanced JavaScript madhye object
+            properties sathi unique keys tayar karnyasathi
+            use hou shakto.
+        </div>
+
+    </section>
+
+    <!-- Section 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Object Data Type</h2>
+
+        <p>
+            Object madhye related data key-value pairs chya
+            format madhye store karta yeto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>const student = {
+    name: "Rohan",
+    age: 20,
+    city: "Kolhapur"
+};
+
+console.log(student);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>{
+  name: "Rohan",
+  age: 20,
+  city: "Kolhapur"
+}</pre>
+        </div>
+
+        <h3>Access Object Properties:</h3>
+
+        <pre class="code-block"><code>console.log(student.name);
+console.log(student.age);
+console.log(student.city);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Rohan
+20
+Kolhapur</pre>
+        </div>
+
+        <h3>Array Example:</h3>
+
+        <p>
+            Array madhye ekach variable madhye anek values
+            store karta yetat. JavaScript madhye array ha
+            object cha ek special type aahe.
+        </p>
+
+        <pre class="code-block"><code>const fruits = ["Apple", "Mango", "Banana"];
+
+console.log(fruits);
+console.log(fruits[0]);
+console.log(fruits[1]);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>["Apple", "Mango", "Banana"]
+Apple
+Mango</pre>
+        </div>
+
+        <div class="info-box">
+            <strong>Note:</strong>
+            Object, Array ani Function he vegvegale structures
+            aahet. Function sathi typeof operator "function"
+            return karto, tar Array sathi "object" return karto.
+        </div>
+
+    </section>
+
+    <!-- Section 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. typeof Operator</h2>
+
+        <p>
+            typeof operator cha use variable kiwa value cha
+            data type check karnyasathi hoto.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>typeof value;</code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let name = "Rohan";
+let age = 20;
+let isPassed = true;
+let city;
+
+console.log(typeof name);
+console.log(typeof age);
+console.log(typeof isPassed);
+console.log(typeof city);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>string
+number
+boolean
+undefined</pre>
+        </div>
+
+        <h3>More Examples:</h3>
+
+        <pre class="code-block"><code>console.log(typeof null);
+console.log(typeof []);
+console.log(typeof {});
+console.log(typeof function() {});</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>object
+object
+object
+function</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            typeof null ani typeof array donhi "object"
+            return kartat. Array check karnyasathi
+            Array.isArray() vapra.
+        </div>
+
+        <h3>Array Check Example:</h3>
+
+        <pre class="code-block"><code>const fruits = ["Apple", "Mango"];
+
+console.log(Array.isArray(fruits));</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>true</pre>
+        </div>
+
+    </section>
+
+    <!-- Section 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Dynamic Typing</h2>
+
+        <p>
+            JavaScript hi dynamically typed language aahe.
+            Mhanje ekach variable madhye vegveglya veli
+            vegveglya data types chya values assign karta yetat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let value = "Hello";
+
+console.log(typeof value);
+
+value = 100;
+
+console.log(typeof value);
+
+value = true;
+
+console.log(typeof value);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>string
+number
+boolean</pre>
+        </div>
+
+        <p>
+            Suruvatila value String hoti. Nantar Number
+            ani shevati Boolean zali.
+        </p>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            JavaScript madhye variable cha data type
+            value nusar badlu shakto. Mhanun variable madhye
+            konti value aahe he lakshat thevne mahatvache aahe.
+        </div>
+
+    </section>
+
+    <!-- Section 13 -->
+
+    <section class="lesson-section">
+
+        <h2>13. Type Conversion</h2>
+
+        <p>
+            Ek data type dusrya data type madhye convert
+            karnyala Type Conversion mhantat.
+        </p>
+
+        <h3>String to Number:</h3>
+
+        <pre class="code-block"><code>let age = "20";
+
+let result = Number(age);
+
+console.log(result);
+console.log(typeof result);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>20
+number</pre>
+        </div>
+
+        <h3>Number to String:</h3>
+
+        <pre class="code-block"><code>let price = 100;
+
+let result = String(price);
+
+console.log(result);
+console.log(typeof result);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>100
+string</pre>
+        </div>
+
+        <h3>Value to Boolean:</h3>
+
+        <pre class="code-block"><code>let value = 1;
+
+let result = Boolean(value);
+
+console.log(result);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>true</pre>
+        </div>
+
+        <div class="info-box">
+            <strong> लक्षात ठेव:</strong>
+            Number(), String() ani Boolean() ya functions cha
+            use explicit type conversion sathi hoto.
+        </div>
+
+    </section>
+
+    <!-- Section 14 -->
+
+    <section class="lesson-section">
+
+        <h2>14. Common Beginner Mistakes</h2>
+
+        <div class="mistake-card">
+            <strong>Mistake 1: Number ani String madhil difference na samajne</strong>
+            <p>
+                "20" hi String aahe, tar 20 ha Number aahe.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 2: true ani false la quotes madhye lihine</strong>
+            <p>
+                true he Boolean aahe, pan "true" hi String aahe.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 3: Undefined ani Null same samajne</strong>
+            <p>
+                Undefined hi value assign na zalyamule yete.
+                Null hi janivpurvak assign kelel empty value aahe.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 4: Array cha type number kiwa array aahe ase samajne</strong>
+            <p>
+                typeof array cha result "object" yeto.
+                Array.isArray() vaprun array check kara.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 5: typeof null cha result null asel ase samajne</strong>
+            <p>
+                typeof null cha result "object" yeto.
+                Ha JavaScript madhil historical behavior aahe.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- Section 15 -->
+
+    <section class="lesson-section">
+
+        <h2>15. Quick Revision</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>Data Type value cha prakaar sangto.</li>
+                <li>String text store karnyasathi vapartat.</li>
+                <li>Number numerical values sathi vapartat.</li>
+                <li>Boolean madhye true ani false ya values astat.</li>
+                <li>Undefined mhanje value assign kelel nahi.</li>
+                <li>Null mhanje janivpurvak empty value.</li>
+                <li>BigInt mothya integer values sathi vapartat.</li>
+                <li>Symbol unique identifiers tayar karto.</li>
+                <li>Object madhye key-value pairs store karta yetat.</li>
+                <li>typeof operator data type check karto.</li>
+                <li>Array check karnyasathi Array.isArray() vapartat.</li>
+                <li>Type conversion mhanje data type change karne.</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <!-- Section 16 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>16. Practice Questions</h2>
+
+        <h3>Basic Questions</h3>
+
+        <ol>
+            <li>Data Type mhanje kay?</li>
+            <li>JavaScript madhye kiti primitive data types aahet?</li>
+            <li>String ani Number madhye kay difference aahe?</li>
+            <li>Boolean madhye kontya don values astat?</li>
+            <li>Undefined mhanje kay?</li>
+            <li>Null ani Undefined madhye kay difference aahe?</li>
+            <li>BigInt cha use kashasathi hoto?</li>
+            <li>Symbol mhanje kay?</li>
+            <li>Object madhye data kasa store hoto?</li>
+            <li>typeof operator cha use kay aahe?</li>
+            <li>Dynamic Typing mhanje kay?</li>
+            <li>Type Conversion mhanje kay?</li>
+        </ol>
+
+        <h3>Practical Questions</h3>
+
+        <ol>
+            <li>name variable madhye tuzhe nav String mhanun store kar.</li>
+            <li>age variable madhye Number value store kar.</li>
+            <li>isStudent variable madhye Boolean value store kar.</li>
+            <li>Ek variable declare karun tyachi value undefined check kar.</li>
+            <li>typeof vaprun 5 vegveglya values che types check kar.</li>
+            <li>String value la Number madhye convert kar.</li>
+            <li>Ek student Object tayar karun tyache name ani age display kar.</li>
+        </ol>
+
+        <div class="task-box">
+
+            <h3>Mini Task: Student Data Program</h3>
+
+            <p>
+                Vegveglya data types cha use karun student information
+                program tayar kar.
+            </p>
+
+            <ul>
+                <li>studentName – String</li>
+                <li>age – Number</li>
+                <li>isStudent – Boolean</li>
+                <li>selectedCourse – Null</li>
+                <li>marks – Number</li>
+            </ul>
+
+            <p>
+                Sarv variables cha data type typeof vaprun check kar.
+                Shevati student chi mahiti console madhye display kar.
+            </p>
+
+            <p>
+                File name: <strong>javascript_data_types.js</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Lesson Navigation -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'javascript_topic' 'variables' %}"
+           class="nav-button previous-button">
+            ← Previous: JavaScript Variables
+        </a>
+
+        <a href="{% url 'javascript_topic' 'operators' %}"
+           class="nav-button next-button">
+            Next: JavaScript Operators →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

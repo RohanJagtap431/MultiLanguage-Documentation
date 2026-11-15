@@ -1,0 +1,1007 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}
+HTML Entities | Roman Marathi
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/html/html-entities.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+
+    <div class="lesson-header">
+
+        <span class="lesson-label">HTML DOCUMENTATION • PAGE 15</span>
+
+        <h1>HTML Entities</h1>
+
+        <p>
+            HTML madhye special characters, symbols ani
+            reserved characters display karnyasathi
+            HTML Entities kasa vapraycha te shikuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Beginner Level</span>
+            <span>30–35 Minutes</span>
+        </div>
+
+    </div>
+
+
+    <!-- Section 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What are HTML Entities?</h2>
+
+        <p>
+            HTML Entities mhanje special characters kiwa
+            reserved symbols webpage var display karnyasathi
+            vaparlya janarya special codes.
+        </p>
+
+        <p>
+            HTML madhye kahi characters la special meaning
+            aste. Tyamule te direct use karnyapeksha
+            tyanchi entity vaprane necessary aste.
+        </p>
+
+        <h3>Examples:</h3>
+
+        <ul>
+            <li>&amp;lt; = Less Than (&lt;)</li>
+            <li>&amp;gt; = Greater Than (&gt;)</li>
+            <li>&amp;amp; = Ampersand (&amp;)</li>
+            <li>&amp;copy; = Copyright (©)</li>
+            <li>&amp;nbsp; = Non-Breaking Space</li>
+        </ul>
+
+        <div class="info-box">
+            <strong>Simple Definition:</strong>
+            HTML Entities mhanje special characters
+            display karnyasathi vaparlya janarya
+            character codes.
+        </div>
+
+    </section>
+
+
+    <!-- Section 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Why HTML Entities are Used?</h2>
+
+        <p>
+            HTML madhye kahi characters reserved astat.
+            Tyanna normal text mhanun display karnyasathi
+            HTML Entities vapartat.
+        </p>
+
+        <h3>Reasons:</h3>
+
+        <ul>
+            <li>Reserved characters display karnyasathi.</li>
+            <li>Special symbols display karnyasathi.</li>
+            <li>Currency symbols display karnyasathi.</li>
+            <li>Mathematical symbols display karnyasathi.</li>
+            <li>Copyright ani trademark symbols display karnyasathi.</li>
+            <li>Non-breaking spaces create karnyasathi.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            HTML madhye less-than (&lt;) ani greater-than (&gt;)
+            characters tags define karnyasathi vapartat.
+            Tyanna normal text mhanun display karnyasathi
+            entities vaprane important aahe.
+        </div>
+
+    </section>
+
+
+    <!-- Section 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. HTML Entity Syntax</h2>
+
+        <p>
+            HTML Entities lihinyasathi mainly don formats
+            vaparta yetat.
+        </p>
+
+        <h3>1. Entity Name</h3>
+
+        <pre class="code-block"><code>
+&amp;entity_name;
+        </code></pre>
+
+        <h3>2. Entity Number</h3>
+
+        <pre class="code-block"><code>
+&amp;#entity_number;
+        </code></pre>
+
+        <p>
+            Numeric entities madhye decimal character
+            code vapartat.
+        </p>
+
+        <h3>3. Hexadecimal Entity Number</h3>
+
+        <pre class="code-block"><code>
+&amp;#xhexadecimal_number;
+        </code></pre>
+
+        <p>
+            Hexadecimal entity madhye number chya aadhi
+            x vapartat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;p&gt;&amp;copy;&lt;/p&gt;
+
+&lt;p&gt;&amp;#169;&lt;/p&gt;
+
+&lt;p&gt;&amp;#xA9;&lt;/p&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box entity-output">
+            <p>©</p>
+            <p>©</p>
+            <p>©</p>
+        </div>
+
+        <p>
+            Tinhihi examples madhye same copyright symbol
+            display hoto.
+        </p>
+
+    </section>
+
+
+    <!-- Section 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. Reserved HTML Characters</h2>
+
+        <p>
+            HTML madhye kahi characters special purpose
+            sathi reserved astat.
+        </p>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>Entity</th>
+                    <th>Character</th>
+                    <th>Meaning</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>&amp;lt;</td>
+                    <td>&lt;</td>
+                    <td>Less Than</td>
+                </tr>
+
+                <tr>
+                    <td>&amp;gt;</td>
+                    <td>&gt;</td>
+                    <td>Greater Than</td>
+                </tr>
+
+                <tr>
+                    <td>&amp;amp;</td>
+                    <td>&amp;</td>
+                    <td>Ampersand</td>
+                </tr>
+
+                <tr>
+                    <td>&amp;quot;</td>
+                    <td>&quot;</td>
+                    <td>Double Quote</td>
+                </tr>
+
+                <tr>
+                    <td>&amp;apos;</td>
+                    <td>&apos;</td>
+                    <td>Apostrophe</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;p&gt;5 &amp;lt; 10&lt;/p&gt;
+
+&lt;p&gt;10 &amp;gt; 5&lt;/p&gt;
+
+&lt;p&gt;HTML &amp;amp; CSS&lt;/p&gt;
+
+&lt;p&gt;He said &amp;quot;Hello&amp;quot;&lt;/p&gt;
+
+&lt;p&gt;It&amp;apos;s my website.&lt;/p&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box entity-output">
+            <p>5 &lt; 10</p>
+            <p>10 &gt; 5</p>
+            <p>HTML &amp; CSS</p>
+            <p>He said "Hello"</p>
+            <p>It's my website.</p>
+        </div>
+
+    </section>
+
+
+    <!-- Section 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. Copyright and Trademark Symbols</h2>
+
+        <p>
+            HTML Entities vaprun copyright, trademark
+            ani registered symbols display karta yetat.
+        </p>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>Entity</th>
+                    <th>Symbol</th>
+                    <th>Meaning</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>&amp;copy;</td>
+                    <td>©</td>
+                    <td>Copyright</td>
+                </tr>
+
+                <tr>
+                    <td>&amp;reg;</td>
+                    <td>®</td>
+                    <td>Registered Trademark</td>
+                </tr>
+
+                <tr>
+                    <td>&amp;trade;</td>
+                    <td>™</td>
+                    <td>Trademark</td>
+                </tr>
+
+                <tr>
+                    <td>&amp;deg;</td>
+                    <td>°</td>
+                    <td>Degree</td>
+                </tr>
+
+                <tr>
+                    <td>&amp;hellip;</td>
+                    <td>…</td>
+                    <td>Ellipsis</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;p&gt;Copyright &amp;copy; 2026&lt;/p&gt;
+
+&lt;p&gt;My Brand &amp;trade;&lt;/p&gt;
+
+&lt;p&gt;Registered Brand &amp;reg;&lt;/p&gt;
+
+&lt;p&gt;Temperature: 30&amp;deg;C&lt;/p&gt;
+
+&lt;p&gt;Loading&amp;hellip;&lt;/p&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box entity-output">
+            <p>Copyright © 2026</p>
+            <p>My Brand ™</p>
+            <p>Registered Brand ®</p>
+            <p>Temperature: 30°C</p>
+            <p>Loading…</p>
+        </div>
+
+    </section>
+
+
+    <!-- Section 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. Non-Breaking Space</h2>
+
+        <p>
+            &amp;nbsp; mhanje Non-Breaking Space.
+            Yacha use don words madhye space denyasathi
+            hoto, pan browser la tya space var line break
+            karu det nahi.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;p&gt;Rohan&amp;nbsp;Jagtap&lt;/p&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box entity-output">
+            <p>Rohan&nbsp;Jagtap</p>
+        </div>
+
+        <p>
+            Ya example madhye Rohan ani Jagtap ya don
+            words madhye non-breaking space aahe.
+        </p>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Normal spacing ani layout design sathi
+            CSS vaprane better aahe. &amp;nbsp; cha
+            use specific non-breaking space garjesathi kar.
+        </div>
+
+    </section>
+
+
+    <!-- Section 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. Currency Symbols</h2>
+
+        <p>
+            HTML Entities vaprun different currency
+            symbols display karta yetat.
+        </p>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>Entity</th>
+                    <th>Symbol</th>
+                    <th>Currency</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>&amp;#8377;</td>
+                    <td>₹</td>
+                    <td>Indian Rupee</td>
+                </tr>
+
+                <tr>
+                    <td>&amp;dollar;</td>
+                    <td>$</td>
+                    <td>Dollar</td>
+                </tr>
+
+                <tr>
+                    <td>&amp;euro;</td>
+                    <td>€</td>
+                    <td>Euro</td>
+                </tr>
+
+                <tr>
+                    <td>&amp;pound;</td>
+                    <td>£</td>
+                    <td>Pound</td>
+                </tr>
+
+                <tr>
+                    <td>&amp;yen;</td>
+                    <td>¥</td>
+                    <td>Yen</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;p&gt;Price: &amp;#8377;500&lt;/p&gt;
+
+&lt;p&gt;Price: &amp;dollar;50&lt;/p&gt;
+
+&lt;p&gt;Price: &amp;euro;40&lt;/p&gt;
+
+&lt;p&gt;Price: &amp;pound;30&lt;/p&gt;
+
+&lt;p&gt;Price: &amp;yen;1000&lt;/p&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box entity-output">
+            <p>Price: ₹500</p>
+            <p>Price: $50</p>
+            <p>Price: €40</p>
+            <p>Price: £30</p>
+            <p>Price: ¥1000</p>
+        </div>
+
+    </section>
+
+
+    <!-- Section 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. Mathematical Symbols</h2>
+
+        <p>
+            HTML Entities vaprun mathematical ani
+            comparison symbols suddha display karta yetat.
+        </p>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>Entity</th>
+                    <th>Symbol</th>
+                    <th>Meaning</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>&amp;plusmn;</td>
+                    <td>±</td>
+                    <td>Plus Minus</td>
+                </tr>
+
+                <tr>
+                    <td>&amp;times;</td>
+                    <td>×</td>
+                    <td>Multiplication</td>
+                </tr>
+
+                <tr>
+                    <td>&amp;divide;</td>
+                    <td>÷</td>
+                    <td>Division</td>
+                </tr>
+
+                <tr>
+                    <td>&amp;ne;</td>
+                    <td>≠</td>
+                    <td>Not Equal</td>
+                </tr>
+
+                <tr>
+                    <td>&amp;le;</td>
+                    <td>≤</td>
+                    <td>Less Than or Equal</td>
+                </tr>
+
+                <tr>
+                    <td>&amp;ge;</td>
+                    <td>≥</td>
+                    <td>Greater Than or Equal</td>
+                </tr>
+
+                <tr>
+                    <td>&amp;infin;</td>
+                    <td>∞</td>
+                    <td>Infinity</td>
+                </tr>
+
+                <tr>
+                    <td>&amp;radic;</td>
+                    <td>√</td>
+                    <td>Square Root</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;p&gt;10 &amp;plusmn; 2&lt;/p&gt;
+
+&lt;p&gt;5 &amp;times; 4 = 20&lt;/p&gt;
+
+&lt;p&gt;10 &amp;divide; 2 = 5&lt;/p&gt;
+
+&lt;p&gt;5 &amp;ne; 10&lt;/p&gt;
+
+&lt;p&gt;5 &amp;le; 10&lt;/p&gt;
+
+&lt;p&gt;10 &amp;ge; 5&lt;/p&gt;
+
+&lt;p&gt;Infinity: &amp;infin;&lt;/p&gt;
+
+&lt;p&gt;Square Root: &amp;radic;25 = 5&lt;/p&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box entity-output">
+            <p>10 ± 2</p>
+            <p>5 × 4 = 20</p>
+            <p>10 ÷ 2 = 5</p>
+            <p>5 ≠ 10</p>
+            <p>5 ≤ 10</p>
+            <p>10 ≥ 5</p>
+            <p>Infinity: ∞</p>
+            <p>Square Root: √25 = 5</p>
+        </div>
+
+    </section>
+
+
+    <!-- Section 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Other Useful HTML Entities</h2>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>Entity</th>
+                    <th>Symbol</th>
+                    <th>Meaning</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>&amp;cent;</td>
+                    <td>¢</td>
+                    <td>Cent</td>
+                </tr>
+
+                <tr>
+                    <td>&amp;sect;</td>
+                    <td>§</td>
+                    <td>Section</td>
+                </tr>
+
+                <tr>
+                    <td>&amp;para;</td>
+                    <td>¶</td>
+                    <td>Paragraph</td>
+                </tr>
+
+                <tr>
+                    <td>&amp;middot;</td>
+                    <td>·</td>
+                    <td>Middle Dot</td>
+                </tr>
+
+                <tr>
+                    <td>&amp;bull;</td>
+                    <td>•</td>
+                    <td>Bullet</td>
+                </tr>
+
+                <tr>
+                    <td>&amp;laquo;</td>
+                    <td>«</td>
+                    <td>Left Double Angle Quote</td>
+                </tr>
+
+                <tr>
+                    <td>&amp;raquo;</td>
+                    <td>»</td>
+                    <td>Right Double Angle Quote</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;p&gt;100 &amp;cent;&lt;/p&gt;
+
+&lt;p&gt;Section &amp;sect; 2&lt;/p&gt;
+
+&lt;p&gt;Paragraph &amp;para;&lt;/p&gt;
+
+&lt;p&gt;Item &amp;bull; Item&lt;/p&gt;
+
+&lt;p&gt;&amp;laquo; Hello &amp;raquo;&lt;/p&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box entity-output">
+            <p>100 ¢</p>
+            <p>Section § 2</p>
+            <p>Paragraph ¶</p>
+            <p>Item • Item</p>
+            <p>« Hello »</p>
+        </div>
+
+    </section>
+
+
+    <!-- Section 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. HTML Entity Names vs Entity Numbers</h2>
+
+        <p>
+            Ekach character display karnyasathi entity
+            name kiwa numeric entity donhi vaparta yetat.
+        </p>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>Entity Name</th>
+                    <th>Entity Number</th>
+                    <th>Output</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>&amp;copy;</td>
+                    <td>&amp;#169;</td>
+                    <td>©</td>
+                </tr>
+
+                <tr>
+                    <td>&amp;reg;</td>
+                    <td>&amp;#174;</td>
+                    <td>®</td>
+                </tr>
+
+                <tr>
+                    <td>&amp;trade;</td>
+                    <td>&amp;#8482;</td>
+                    <td>™</td>
+                </tr>
+
+                <tr>
+                    <td>&amp;lt;</td>
+                    <td>&amp;#60;</td>
+                    <td>&lt;</td>
+                </tr>
+
+                <tr>
+                    <td>&amp;gt;</td>
+                    <td>&amp;#62;</td>
+                    <td>&gt;</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;p&gt;&amp;copy;&lt;/p&gt;
+
+&lt;p&gt;&amp;#169;&lt;/p&gt;
+
+&lt;p&gt;&amp;#xA9;&lt;/p&gt;
+        </code></pre>
+
+        <p>
+            Tinhihi methods ne copyright symbol display hoto.
+        </p>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Entity names lakshat thevne generally easy aste.
+            Pan kahi characters sathi numeric entities
+            suddha vaparta yetat.
+        </div>
+
+    </section>
+
+
+    <!-- Section 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Complete Practical Example</h2>
+
+        <p>
+            Ata different HTML Entities vaprun ek
+            simple information webpage create karu.
+        </p>
+
+        <h3>HTML Code:</h3>
+
+        <pre class="code-block"><code>
+&lt;!DOCTYPE html&gt;
+
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+
+    &lt;meta charset="UTF-8"&gt;
+
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+
+    &lt;title&gt;HTML Entities Example&lt;/title&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;h1&gt;HTML Entities Demo&lt;/h1&gt;
+
+    &lt;h2&gt;Reserved Characters&lt;/h2&gt;
+
+    &lt;p&gt;5 &amp;lt; 10&lt;/p&gt;
+
+    &lt;p&gt;10 &amp;gt; 5&lt;/p&gt;
+
+    &lt;p&gt;HTML &amp;amp; CSS&lt;/p&gt;
+
+    &lt;h2&gt;Special Symbols&lt;/h2&gt;
+
+    &lt;p&gt;Copyright &amp;copy; 2026&lt;/p&gt;
+
+    &lt;p&gt;Brand &amp;trade;&lt;/p&gt;
+
+    &lt;p&gt;Registered &amp;reg;&lt;/p&gt;
+
+    &lt;h2&gt;Currency&lt;/h2&gt;
+
+    &lt;p&gt;Price: &amp;#8377;500&lt;/p&gt;
+
+    &lt;p&gt;Price: &amp;euro;50&lt;/p&gt;
+
+    &lt;h2&gt;Mathematical Symbols&lt;/h2&gt;
+
+    &lt;p&gt;5 &amp;times; 4 = 20&lt;/p&gt;
+
+    &lt;p&gt;10 &amp;divide; 2 = 5&lt;/p&gt;
+
+    &lt;p&gt;Infinity: &amp;infin;&lt;/p&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box practical-output">
+
+            <h2>HTML Entities Demo</h2>
+
+            <h3>Reserved Characters</h3>
+            <p>5 &lt; 10</p>
+            <p>10 &gt; 5</p>
+            <p>HTML &amp; CSS</p>
+
+            <h3>Special Symbols</h3>
+            <p>Copyright © 2026</p>
+            <p>Brand ™</p>
+            <p>Registered ®</p>
+
+            <h3>Currency</h3>
+            <p>Price: ₹500</p>
+            <p>Price: €50</p>
+
+            <h3>Mathematical Symbols</h3>
+            <p>5 × 4 = 20</p>
+            <p>10 ÷ 2 = 5</p>
+            <p>Infinity: ∞</p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Common Beginner Mistakes</h2>
+
+        <div class="mistake-card">
+            <strong>Mistake 1: Less Than Character Directly Use Karne</strong>
+            <p>
+                Normal text madhye less-than symbol display
+                karnyasathi &amp;lt; vapr.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 2: Entity Semicolon Visarne</strong>
+            <p>
+                Entity name lihilyanantar normally
+                semicolon vapr. Udaharan: &amp;copy;
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 3: Wrong Entity Name</strong>
+            <p>
+                Entity name exact lih. Spelling chuklyas
+                expected character display honar nahi.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 4: Normal Space Sathi Khup NBSP Vap rane</strong>
+            <p>
+                Layout spacing sathi CSS vapr.
+                Non-breaking space fakt garjenusar vapr.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 5: Entity Name Ani Number Confuse Karne</strong>
+            <p>
+                Entity name ani numeric entity yanchi
+                syntax vegli aste. Donhi formats yogya vapr.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- Section 13 -->
+
+    <section class="lesson-section">
+
+        <h2>13. Quick Revision</h2>
+
+        <div class="revision-box">
+
+            <ul>
+                <li>HTML Entities = Special character codes.</li>
+                <li>&amp;lt; = Less Than (&lt;).</li>
+                <li>&amp;gt; = Greater Than (&gt;).</li>
+                <li>&amp;amp; = Ampersand (&amp;).</li>
+                <li>&amp;quot; = Double Quote.</li>
+                <li>&amp;apos; = Apostrophe.</li>
+                <li>&amp;copy; = Copyright (©).</li>
+                <li>&amp;reg; = Registered (®).</li>
+                <li>&amp;trade; = Trademark (™).</li>
+                <li>&amp;nbsp; = Non-Breaking Space.</li>
+                <li>&amp;euro; = Euro (€).</li>
+                <li>&amp;times; = Multiplication (×).</li>
+                <li>&amp;divide; = Division (÷).</li>
+                <li>&amp;infin; = Infinity (∞).</li>
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 14 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>14. Practice Questions</h2>
+
+        <h3>Basic Questions</h3>
+
+        <ol>
+            <li>HTML Entities mhanje kay?</li>
+            <li>HTML Entities ka vapartat?</li>
+            <li>HTML Entity Name syntax lih.</li>
+            <li>HTML Entity Number syntax lih.</li>
+            <li>&amp;lt; ani &amp;gt; cha use kay aahe?</li>
+            <li>&amp;amp; entity cha use kay aahe?</li>
+            <li>Copyright ani Trademark symbols sathi entities lih.</li>
+            <li>Non-Breaking Space mhanje kay?</li>
+            <li>Currency symbols display karnyasathi entities kasha vapartat?</li>
+            <li>Entity Name ani Entity Number madhil difference lih.</li>
+        </ol>
+
+        <h3>Practical Questions</h3>
+
+        <ol>
+            <li>HTML madhye less-than ani greater-than symbols display kar.</li>
+            <li>Copyright symbol display kar.</li>
+            <li>Trademark ani Registered symbols display kar.</li>
+            <li>Indian Rupee symbol display kar.</li>
+            <li>Euro ani Pound symbols display kar.</li>
+            <li>Multiplication ani Division symbols display kar.</li>
+            <li>Infinity ani Square Root symbols display kar.</li>
+            <li>HTML Entities vaprun ek information webpage create kar.</li>
+        </ol>
+
+        <div class="task-box">
+
+            <h3>Mini Task: Symbols Information Page</h3>
+
+            <p>
+                HTML Entities vaprun ek Symbols Information
+                webpage create kar.
+            </p>
+
+            <ul>
+                <li>Reserved Characters Section</li>
+                <li>Copyright and Trademark Section</li>
+                <li>Currency Symbols Section</li>
+                <li>Mathematical Symbols Section</li>
+                <li>Entity Names ani Entity Numbers</li>
+            </ul>
+
+            <p>
+                File Name:
+                <strong>symbols.html</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Lesson Navigation -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'html_topic' 'iframes' %}"
+           class="nav-button previous-button">
+            ← Previous: HTML Iframes
+        </a>
+
+        <a href="{% url 'html_topic' 'html5-features' %}"
+           class="nav-button next-button">
+            Next: HTML5 Features →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

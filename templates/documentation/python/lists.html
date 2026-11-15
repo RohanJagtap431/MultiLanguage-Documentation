@@ -1,0 +1,901 @@
+
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}Python Lists | Roman Marathi Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/python/lists.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">PYTHON • LESSON 12</span>
+        <h1>Python Lists</h1>
+        <p>
+            List cha use karun aapan multiple values ekach variable madhye
+            store, access, update ani manage karu shakto.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Level: Beginner</span>
+            <span>⏱️ Time: 35–45 Minutes</span>
+        </div>
+    </div>
+
+    <!-- 1. Introduction -->
+    <section class="lesson-section">
+        <h2>1. What is a List?</h2>
+
+        <p>
+            Python madhye List ha data type aahe. List cha use multiple
+            values ekach variable madhye store karnyasathi hoto.
+        </p>
+
+        <p>
+            Udaharanarth, aaplyala 5 students chi nave store karaychi astil,
+            tar pratyek navasathi vegla variable banavnyachi garaj nahi.
+            Aapan ekach list vapru shakto.
+        </p>
+
+        <pre><code>students = ["Rohan", "Amit", "Priya", "Sneha", "Rahul"]
+
+print(students)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>['Rohan', 'Amit', 'Priya', 'Sneha', 'Rahul']</pre>
+        </div>
+
+        <div class="info-box">
+            <strong>Important:</strong>
+            Python madhye List square brackets <code>[]</code> madhye
+            lihitat. Pratyek element comma ne separate karto.
+        </div>
+    </section>
+
+    <!-- 2. Features -->
+    <section class="lesson-section">
+        <h2>2. Features of List</h2>
+
+        <p>Python List chi important features:</p>
+
+        <ul>
+            <li><strong>Ordered:</strong> Elements cha order maintain hoto.</li>
+            <li><strong>Mutable:</strong> List madhil elements change karta yetat.</li>
+            <li><strong>Duplicates:</strong> Same value multiple times store karta yete.</li>
+            <li><strong>Different Data Types:</strong> Ekach list madhye vegvegale data types thevta yetat.</li>
+            <li><strong>Dynamic:</strong> List madhye elements add ani remove karta yetat.</li>
+        </ul>
+
+        <pre><code>data = ["Rohan", 21, 85.5, True, "Rohan"]
+
+print(data)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>['Rohan', 21, 85.5, True, 'Rohan']</pre>
+        </div>
+    </section>
+
+    <!-- 3. Creating List -->
+    <section class="lesson-section">
+        <h2>3. Creating a List</h2>
+
+        <p>
+            List create karnyasathi square brackets <code>[]</code>
+            vapartat.
+        </p>
+
+        <h3>Example 1: String List</h3>
+
+        <pre><code>fruits = ["Apple", "Mango", "Banana"]
+
+print(fruits)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>['Apple', 'Mango', 'Banana']</pre>
+        </div>
+
+        <h3>Example 2: Number List</h3>
+
+        <pre><code>numbers = [10, 20, 30, 40, 50]
+
+print(numbers)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>[10, 20, 30, 40, 50]</pre>
+        </div>
+
+        <h3>Example 3: Empty List</h3>
+
+        <pre><code>items = []
+
+print(items)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>[]</pre>
+        </div>
+
+        <h3>Example 4: Mixed Data Types</h3>
+
+        <pre><code>student = ["Rohan", 20, 85.5, True]
+
+print(student)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>['Rohan', 20, 85.5, True]</pre>
+        </div>
+    </section>
+
+    <!-- 4. Indexing -->
+    <section class="lesson-section">
+        <h2>4. List Indexing</h2>
+
+        <p>
+            List madhil pratyek element la ek index number asto.
+            Indexing 0 pasun start hote.
+        </p>
+
+        <pre><code>fruits = ["Apple", "Mango", "Banana", "Orange"]
+
+print(fruits[0])
+print(fruits[1])
+print(fruits[2])
+print(fruits[3])</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Apple
+Mango
+Banana
+Orange</pre>
+        </div>
+
+        <h3>Index Position Table</h3>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Element</th>
+                        <th>Positive Index</th>
+                        <th>Negative Index</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Apple</td><td>0</td><td>-4</td></tr>
+                    <tr><td>Mango</td><td>1</td><td>-3</td></tr>
+                    <tr><td>Banana</td><td>2</td><td>-2</td></tr>
+                    <tr><td>Orange</td><td>3</td><td>-1</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Negative Indexing</h3>
+
+        <p>
+            Negative indexing madhye last element cha index -1 asto.
+            Tithun ultya direction ne counting hote.
+        </p>
+
+        <pre><code>fruits = ["Apple", "Mango", "Banana", "Orange"]
+
+print(fruits[-1])
+print(fruits[-2])</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Orange
+Banana</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Positive index left pasun start hoto ani negative index
+            right pasun start hoto.
+        </div>
+    </section>
+
+    <!-- 5. Slicing -->
+    <section class="lesson-section">
+        <h2>5. List Slicing</h2>
+
+        <p>
+            List madhun ekapeksha jast elements select karnyasathi
+            slicing vapartat.
+        </p>
+
+        <p><strong>Syntax:</strong></p>
+
+        <pre><code>list_name[start : stop : step]</code></pre>
+
+        <ul>
+            <li><strong>start:</strong> Kontya index pasun suru karayche.</li>
+            <li><strong>stop:</strong> Kontya index chya aadhi thambayche.</li>
+            <li><strong>step:</strong> Kiti index pudhe jayche.</li>
+        </ul>
+
+        <h3>Example 1: Basic Slicing</h3>
+
+        <pre><code>numbers = [10, 20, 30, 40, 50]
+
+print(numbers[1:4])</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>[20, 30, 40]</pre>
+        </div>
+
+        <h3>Example 2: Start Omitted</h3>
+
+        <pre><code>numbers = [10, 20, 30, 40, 50]
+
+print(numbers[:3])</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>[10, 20, 30]</pre>
+        </div>
+
+        <h3>Example 3: Stop Omitted</h3>
+
+        <pre><code>numbers = [10, 20, 30, 40, 50]
+
+print(numbers[2:])</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>[30, 40, 50]</pre>
+        </div>
+
+        <h3>Example 4: Step</h3>
+
+        <pre><code>numbers = [10, 20, 30, 40, 50, 60]
+
+print(numbers[::2])</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>[10, 30, 50]</pre>
+        </div>
+
+        <h3>Example 5: Reverse List Using Slicing</h3>
+
+        <pre><code>numbers = [10, 20, 30, 40, 50]
+
+print(numbers[::-1])</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>[50, 40, 30, 20, 10]</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Slicing madhye stop index include hot nahi.
+            numbers[1:4] madhye index 1, 2 ani 3 che elements yetat.
+        </div>
+    </section>
+
+    <!-- 6. Updating -->
+    <section class="lesson-section">
+        <h2>6. Updating List Elements</h2>
+
+        <p>
+            List mutable aslyamule aapan existing element chi value
+            change karu shakto.
+        </p>
+
+        <pre><code>fruits = ["Apple", "Mango", "Banana"]
+
+fruits[1] = "Orange"
+
+print(fruits)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>['Apple', 'Orange', 'Banana']</pre>
+        </div>
+
+        <p>
+            Yethe index 1 varil Mango replace karun Orange thevla aahe.
+        </p>
+    </section>
+
+    <!-- 7. Adding -->
+    <section class="lesson-section">
+        <h2>7. Adding Elements to a List</h2>
+
+        <h3>append()</h3>
+
+        <p>
+            List chya shevati ek element add karnyasathi
+            <code>append()</code> vapartat.
+        </p>
+
+        <pre><code>fruits = ["Apple", "Mango"]
+
+fruits.append("Banana")
+
+print(fruits)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>['Apple', 'Mango', 'Banana']</pre>
+        </div>
+
+        <h3>insert()</h3>
+
+        <p>
+            Specific index position var element add karnyasathi
+            <code>insert()</code> vapartat.
+        </p>
+
+        <pre><code>fruits = ["Apple", "Banana"]
+
+fruits.insert(1, "Mango")
+
+print(fruits)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>['Apple', 'Mango', 'Banana']</pre>
+        </div>
+
+        <h3>extend()</h3>
+
+        <p>
+            Dusrya iterable madhil elements list chya shevati add
+            karnyasathi <code>extend()</code> vapartat.
+        </p>
+
+        <pre><code>fruits = ["Apple", "Mango"]
+more_fruits = ["Banana", "Orange"]
+
+fruits.extend(more_fruits)
+
+print(fruits)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>['Apple', 'Mango', 'Banana', 'Orange']</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Difference:</strong>
+            append() ek object add karto. extend() iterable madhil
+            elements ek-ek karun add karto.
+        </div>
+    </section>
+
+    <!-- 8. Removing -->
+    <section class="lesson-section">
+        <h2>8. Removing Elements from a List</h2>
+
+        <h3>remove()</h3>
+
+        <p>
+            Specific value remove karnyasathi <code>remove()</code>
+            vapartat. Value sapadli nahi tar ValueError yeto.
+        </p>
+
+        <pre><code>fruits = ["Apple", "Mango", "Banana"]
+
+fruits.remove("Mango")
+
+print(fruits)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>['Apple', 'Banana']</pre>
+        </div>
+
+        <h3>pop()</h3>
+
+        <p>
+            pop() specific index varil element remove karto ani
+            removed element return karto. Index na dilyas last element
+            remove karto.
+        </p>
+
+        <pre><code>fruits = ["Apple", "Mango", "Banana"]
+
+removed = fruits.pop(1)
+
+print(removed)
+print(fruits)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Mango
+['Apple', 'Banana']</pre>
+        </div>
+
+        <h3>del</h3>
+
+        <p>
+            Specific index kiwa list madhil range delete karnyasathi
+            <code>del</code> keyword vapartat.
+        </p>
+
+        <pre><code>numbers = [10, 20, 30, 40]
+
+del numbers[1]
+
+print(numbers)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>[10, 30, 40]</pre>
+        </div>
+
+        <h3>clear()</h3>
+
+        <p>
+            List madhil sarva elements remove karnyasathi
+            <code>clear()</code> vapartat.
+        </p>
+
+        <pre><code>numbers = [10, 20, 30]
+
+numbers.clear()
+
+print(numbers)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>[]</pre>
+        </div>
+    </section>
+
+    <!-- 9. List methods -->
+    <section class="lesson-section">
+        <h2>9. Important List Methods</h2>
+
+        <h3>sort()</h3>
+
+        <p>
+            List madhil elements ascending order madhye arrange
+            karnyasathi <code>sort()</code> vapartat.
+        </p>
+
+        <pre><code>numbers = [40, 10, 30, 20]
+
+numbers.sort()
+
+print(numbers)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>[10, 20, 30, 40]</pre>
+        </div>
+
+        <p>Descending order sathi:</p>
+
+        <pre><code>numbers = [40, 10, 30, 20]
+
+numbers.sort(reverse=True)
+
+print(numbers)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>[40, 30, 20, 10]</pre>
+        </div>
+
+        <h3>reverse()</h3>
+
+        <p>
+            List madhil current order reverse karnyasathi
+            <code>reverse()</code> vapartat.
+        </p>
+
+        <pre><code>numbers = [10, 20, 30, 40]
+
+numbers.reverse()
+
+print(numbers)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>[40, 30, 20, 10]</pre>
+        </div>
+
+        <h3>index()</h3>
+
+        <p>
+            Specific value cha pahila index shodhnayasathi
+            <code>index()</code> vapartat.
+        </p>
+
+        <pre><code>fruits = ["Apple", "Mango", "Banana"]
+
+print(fruits.index("Mango"))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>1</pre>
+        </div>
+
+        <h3>count()</h3>
+
+        <p>
+            Specific value list madhye kiti vela aahe he mojnyasathi
+            <code>count()</code> vapartat.
+        </p>
+
+        <pre><code>numbers = [10, 20, 10, 30, 10]
+
+print(numbers.count(10))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>3</pre>
+        </div>
+
+        <h3>copy()</h3>
+
+        <p>
+            List chi shallow copy tayar karnyasathi
+            <code>copy()</code> vapartat.
+        </p>
+
+        <pre><code>original = [10, 20, 30]
+
+new_list = original.copy()
+
+new_list.append(40)
+
+print(original)
+print(new_list)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>[10, 20, 30]
+[10, 20, 30, 40]</pre>
+        </div>
+    </section>
+
+    <!-- 10. len -->
+    <section class="lesson-section">
+        <h2>10. len() Function</h2>
+
+        <p>
+            List madhye kiti elements aahet he count karnyasathi
+            <code>len()</code> function vapartat.
+        </p>
+
+        <pre><code>fruits = ["Apple", "Mango", "Banana", "Orange"]
+
+print(len(fruits))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>4</pre>
+        </div>
+
+        <div class="info-box">
+            <strong>Note:</strong>
+            len() hi built-in function aahe. Ti list method nahi.
+        </div>
+    </section>
+
+    <!-- 11. Looping -->
+    <section class="lesson-section">
+        <h2>11. Looping Through a List</h2>
+
+        <p>
+            List madhil pratyek element ek-ek karun access karnyasathi
+            <code>for</code> loop vapru shakto.
+        </p>
+
+        <pre><code>fruits = ["Apple", "Mango", "Banana"]
+
+for fruit in fruits:
+    print(fruit)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Apple
+Mango
+Banana</pre>
+        </div>
+
+        <h3>Using range() and len()</h3>
+
+        <p>
+            Index cha use karun suddha list madhil elements access karta yetat.
+        </p>
+
+        <pre><code>fruits = ["Apple", "Mango", "Banana"]
+
+for i in range(len(fruits)):
+    print(i, fruits[i])</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>0 Apple
+1 Mango
+2 Banana</pre>
+        </div>
+    </section>
+
+    <!-- 12. Membership -->
+    <section class="lesson-section">
+        <h2>12. Membership Operators in List</h2>
+
+        <p>
+            List madhye specific element present aahe ka he check
+            karnyasathi <code>in</code> ani <code>not in</code>
+            operators vapartat.
+        </p>
+
+        <pre><code>fruits = ["Apple", "Mango", "Banana"]
+
+print("Mango" in fruits)
+print("Orange" not in fruits)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>True
+True</pre>
+        </div>
+    </section>
+
+    <!-- 13. Nested List -->
+    <section class="lesson-section">
+        <h2>13. Nested Lists</h2>
+
+        <p>
+            Ek list dusrya list madhye store keli asel tar tila
+            Nested List mhantat.
+        </p>
+
+        <pre><code>students = [
+    ["Rohan", 85],
+    ["Amit", 90],
+    ["Priya", 95]
+]
+
+print(students[0])
+print(students[0][0])
+print(students[0][1])</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>['Rohan', 85]
+Rohan
+85</pre>
+        </div>
+
+        <p>
+            students[0] pahili inner list access karte.
+            students[0][0] tya list madhil pahile element access karte.
+        </p>
+    </section>
+
+    <!-- 14. Common mistakes -->
+    <section class="lesson-section">
+        <h2>14. Common Beginner Mistakes</h2>
+
+        <div class="error-card">
+            <h3>Mistake 1: Wrong Index</h3>
+
+            <pre><code>fruits = ["Apple", "Mango"]
+
+print(fruits[5])</code></pre>
+
+            <p>
+                List madhye index 5 available nahi.
+                Mhanun IndexError yeto.
+            </p>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 2: append() la multiple arguments dene</h3>
+
+            <pre><code>numbers = [10, 20]
+
+numbers.append(30, 40)</code></pre>
+
+            <p>
+                append() ekach object accept karto.
+            </p>
+
+            <pre><code>numbers.extend([30, 40])</code></pre>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 3: sort() result variable madhye save karne</h3>
+
+            <pre><code>numbers = [30, 10, 20]
+
+result = numbers.sort()
+
+print(result)</code></pre>
+
+            <p>
+                sort() list la in-place sort karto ani None return karto.
+                Sorted list numbers madhyech aste.
+            </p>
+
+            <pre><code>numbers.sort()
+
+print(numbers)</code></pre>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 4: remove() madhye index dene</h3>
+
+            <pre><code>numbers = [10, 20, 30]
+
+numbers.remove(1)</code></pre>
+
+            <p>
+                remove() index nahi, value remove karto.
+                Index varil element remove karnyasathi pop() kiwa del vapra.
+            </p>
+        </div>
+    </section>
+
+    <!-- 15. Revision -->
+    <section class="lesson-section">
+        <h2>15. Quick Revision</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Method / Function</th>
+                        <th>Use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>append()</td><td>Shevati ek object add karto.</td></tr>
+                    <tr><td>insert()</td><td>Specific index var object add karto.</td></tr>
+                    <tr><td>extend()</td><td>Iterable madhil elements add karto.</td></tr>
+                    <tr><td>remove()</td><td>Specific value remove karto.</td></tr>
+                    <tr><td>pop()</td><td>Index varil element remove karun return karto.</td></tr>
+                    <tr><td>clear()</td><td>Sarva elements remove karto.</td></tr>
+                    <tr><td>sort()</td><td>List sort karto.</td></tr>
+                    <tr><td>reverse()</td><td>Current order reverse karto.</td></tr>
+                    <tr><td>index()</td><td>Value cha index return karto.</td></tr>
+                    <tr><td>count()</td><td>Value kiti vela aahe te mojto.</td></tr>
+                    <tr><td>copy()</td><td>Shallow copy tayar karto.</td></tr>
+                    <tr><td>len()</td><td>Elements chi sankhya return karto.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 16. Practice -->
+    <section class="practice-section">
+        <h2>16. Practice Questions</h2>
+
+        <p>
+            Khalil questions swatah code lihun solve kar.
+            Pratyek question cha output suddha check kar.
+        </p>
+
+        <div class="practice-task">
+            <h3>Question 1</h3>
+            <p>
+                5 fruits chi list create kar ani ti print kar.
+            </p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 2</h3>
+            <p>
+                [10, 20, 30, 40, 50] ya list madhun 30 access kar.
+            </p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 3</h3>
+            <p>
+                List madhil second element update kar.
+            </p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 4</h3>
+            <p>
+                append() vaprun list madhye ek navin element add kar.
+            </p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 5</h3>
+            <p>
+                remove() vaprun list madhun specific element delete kar.
+            </p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 6</h3>
+            <p>
+                Numbers chi list ascending ani descending order madhye sort kar.
+            </p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 7</h3>
+            <p>
+                For loop vaprun list madhil sarva elements print kar.
+            </p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 8</h3>
+            <p>
+                List madhil even ani odd numbers vegveglya lists madhye store kar.
+            </p>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Pratyek question swatah solve kar. Code copy karun
+            lihinyapeksha logic samjun ghene jast important aahe.
+        </div>
+    </section>
+
+    <!-- 17. Practical Task -->
+    <section class="lesson-section">
+        <h2>17. Practical Task – Student Marks Manager</h2>
+
+        <p>
+            Students che marks list madhye store kar.
+            Tyavarun total, highest marks, lowest marks ani average
+            calculate kar.
+        </p>
+
+        <pre><code>marks = [75, 85, 90, 65, 80]
+
+total = sum(marks)
+highest = max(marks)
+lowest = min(marks)
+average = total / len(marks)
+
+print("Total:", total)
+print("Highest:", highest)
+print("Lowest:", lowest)
+print("Average:", average)</code></pre>
+
+        <div class="output-box">
+            <strong>Example Output:</strong>
+            <pre>Total: 395
+Highest: 90
+Lowest: 65
+Average: 79.0</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Note:</strong>
+            sum(), max() ani min() ya Python built-in functions aahet.
+            Tyanchya madatine list var calculation karta yete.
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+        <a href="{% url 'python_topic' 'string-methods' %}" class="nav-button back-button">
+            ← Previous: String Methods
+        </a>
+
+        <a href="{% url 'python_topic' 'tuples' %}" class="nav-button next-button">
+            Next: Tuples →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

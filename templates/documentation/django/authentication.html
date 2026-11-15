@@ -1,0 +1,940 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Django Authentication{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/django/authentication.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- HEADER -->
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO COURSE • TOPIC 14</span>
+        <h1>Django Authentication</h1>
+        <p>
+            Learn how to register users, authenticate login requests,
+            manage sessions and protect pages using Django.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 50–60 Minutes</span>
+        </div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <section class="lesson-section">
+        <h2>1. Authentication mhanje kay?</h2>
+
+        <p>
+            Authentication mhanje user chi identity verify karne.
+            User kharach valid aahe ka te check karnyasathi
+            Authentication system vapartat.
+        </p>
+
+        <p>
+            Udaharanarth, user website var Login kartana
+            Username ani Password enter karto. Django tyachi
+            information verify karte.
+        </p>
+
+        <div class="example-box">
+            <h3>Common Authentication Features</h3>
+            <ul>
+                <li>User Registration – New account create karne.</li>
+                <li>User Login – Existing account madhye login karne.</li>
+                <li>User Logout – Account madhun logout karne.</li>
+                <li>Password Management – Password change kiwa reset karne.</li>
+                <li>Session Management – User login status maintain karne.</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            Django built-in authentication system user accounts
+            ani login management handle karte.
+        </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section class="lesson-section">
+        <h2>2. Authentication vs Authorization</h2>
+
+        <p>
+            Authentication ani Authorization ya donhi security
+            concepts aahet. Pan tyanchya purpose madhye difference aahe.
+        </p>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Authentication</th>
+                    <th>Authorization</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>User kon aahe te verify karte.</td>
+                    <td>User la kay access aahe te check karte.</td>
+                </tr>
+                <tr>
+                    <td>Identity verification.</td>
+                    <td>Permission verification.</td>
+                </tr>
+                <tr>
+                    <td>Username and Password.</td>
+                    <td>Roles and Permissions.</td>
+                </tr>
+                <tr>
+                    <td>Login process.</td>
+                    <td>Access control.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="example-box">
+            <h3>Example</h3>
+            <p>
+                Student login karto, he Authentication aahe.
+                Student la Admin Panel access milto ka nahi,
+                he Authorization aahe.
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section class="lesson-section">
+        <h2>3. Django User Model</h2>
+
+        <p>
+            Django madhye built-in User Model available aahe.
+            Ya Model cha use application madhil user information
+            store karnyasathi hoto.
+        </p>
+
+        <h3>Import User Model</h3>
+
+        <pre class="code-block"><code>from django.contrib.auth.models import User</code></pre>
+
+        <h3>Common User Fields</h3>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>username</td>
+                    <td>User cha unique username.</td>
+                </tr>
+                <tr>
+                    <td>password</td>
+                    <td>Hashed password store hoto.</td>
+                </tr>
+                <tr>
+                    <td>email</td>
+                    <td>User cha email address.</td>
+                </tr>
+                <tr>
+                    <td>first_name</td>
+                    <td>User cha first name.</td>
+                </tr>
+                <tr>
+                    <td>last_name</td>
+                    <td>User cha last name.</td>
+                </tr>
+                <tr>
+                    <td>is_active</td>
+                    <td>User account active aahe ka.</td>
+                </tr>
+                <tr>
+                    <td>is_staff</td>
+                    <td>User Admin Site access karu shakto ka.</td>
+                </tr>
+                <tr>
+                    <td>is_superuser</td>
+                    <td>User la all permissions aahet ka.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Create User</h3>
+
+        <pre class="code-block"><code>from django.contrib.auth.models import User
+
+user = User.objects.create_user(
+    username="rohan",
+    email="rohan@example.com",
+    password="StrongPassword123"
+)</code></pre>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Password direct User.objects.create() vaprun set karu naka.
+            create_user() password hash karun save karte.
+        </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section class="lesson-section">
+        <h2>4. User Registration</h2>
+
+        <p>
+            User Registration cha use new user account create
+            karnyasathi hoto.
+        </p>
+
+        <p>
+            Django madhye UserCreationForm built-in form available aahe.
+            Ha form username, password ani password confirmation
+            handle karto.
+        </p>
+
+        <h3>Import UserCreationForm</h3>
+
+        <pre class="code-block"><code>from django.contrib.auth.forms import UserCreationForm</code></pre>
+
+        <h3>Create Registration Form</h3>
+
+        <pre class="code-block"><code>form = UserCreationForm()</code></pre>
+
+        <h3>Register User</h3>
+
+        <pre class="code-block"><code>form = UserCreationForm(request.POST)
+
+if form.is_valid():
+
+    user = form.save()</code></pre>
+
+        <p>
+            Ya code madhye valid information aslyas new user
+            account database madhye create hoto.
+        </p>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            UserCreationForm password validation ani password
+            confirmation handle karte.
+        </div>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section class="lesson-section">
+        <h2>5. User Login</h2>
+
+        <p>
+            Login process madhye user username ani password
+            enter karto. Django tyachi identity verify karte.
+        </p>
+
+        <h3>authenticate() Function</h3>
+
+        <p>
+            authenticate() function username ani password
+            verify karte. Credentials valid aslyas User object
+            return hoto, nahi tar None return hoto.
+        </p>
+
+        <pre class="code-block"><code>from django.contrib.auth import authenticate
+
+user = authenticate(
+    username="rohan",
+    password="StrongPassword123"
+)</code></pre>
+
+        <h3>login() Function</h3>
+
+        <p>
+            login() function authenticated user la current
+            session sobat connect karte.
+        </p>
+
+        <pre class="code-block"><code>from django.contrib.auth import login
+
+login(request, user)</code></pre>
+
+        <h3>Login Flow Example</h3>
+
+        <pre class="code-block"><code>user = authenticate(
+    request,
+    username=username,
+    password=password
+)
+
+if user is not None:
+
+    login(request, user)</code></pre>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            authenticate() user verify karte, tar login()
+            user chi session create karte.
+        </div>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section class="lesson-section">
+        <h2>6. User Logout</h2>
+
+        <p>
+            Logout cha use current user chi login session
+            terminate karnyasathi hoto.
+        </p>
+
+        <h3>Import logout</h3>
+
+        <pre class="code-block"><code>from django.contrib.auth import logout</code></pre>
+
+        <h3>Logout Example</h3>
+
+        <pre class="code-block"><code>def user_logout(request):
+
+    logout(request)
+
+    return redirect("login")</code></pre>
+
+        <p>
+            Ya code madhye logout() current session madhil
+            authentication information clear karte.
+        </p>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Logout operation POST request madhun karne changli
+            security practice aahe. GET request madhun logout
+            trigger karu naye.
+        </div>
+    </section>
+
+    <!-- SECTION 7 -->
+    <section class="lesson-section">
+        <h2>7. Password Hashing</h2>
+
+        <p>
+            Password Hashing mhanje original password la
+            one-way cryptographic hash format madhye convert karne.
+        </p>
+
+        <p>
+            Django user password plain text madhye store karat nahi.
+            Django password hashing system vaprun password securely
+            database madhye store karte.
+        </p>
+
+        <h3>Set Password</h3>
+
+        <pre class="code-block"><code>user.set_password("NewPassword123")
+
+user.save()</code></pre>
+
+        <h3>Check Password</h3>
+
+        <pre class="code-block"><code>user.check_password("NewPassword123")</code></pre>
+
+        <h3>Example Output</h3>
+
+        <pre class="output-code"><code>True</code></pre>
+
+        <p>
+            Password correct aslyas check_password() True return karte.
+            Wrong password aslyas False return karte.
+        </p>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Password manually hash karun store karu naka.
+            Django che set_password(), create_user() ani
+            authentication functions vapra.
+        </div>
+    </section>
+
+    <!-- SECTION 8 -->
+    <section class="lesson-section">
+        <h2>8. login_required Decorator</h2>
+
+        <p>
+            login_required decorator cha use specific page
+            fakt authenticated users sathi available
+            thevnyasathi hoto.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre class="code-block"><code>from django.contrib.auth.decorators import login_required
+
+@login_required
+def dashboard(request):
+
+    return render(
+        request,
+        "dashboard.html"
+    )</code></pre>
+
+        <p>
+            User login nasel tar Django tyala login page kade
+            redirect karte.
+        </p>
+
+        <h3>Settings Configuration</h3>
+
+        <pre class="code-block"><code>LOGIN_URL = "login"</code></pre>
+
+        <p>
+            settings.py madhye LOGIN_URL set kelyas
+            login_required decorator ya URL var redirect karte.
+        </p>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            login_required decorator function-based views
+            protect karnyasathi vapartat.
+        </div>
+    </section>
+
+    <!-- SECTION 9 -->
+    <section class="lesson-section">
+        <h2>9. Check User Login Status</h2>
+
+        <p>
+            Django template madhye user.is_authenticated vaprun
+            current user login aahe ka te check karta yete.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre class="code-block"><code>{% verbatim %}
+{% if user.is_authenticated %}
+
+    &lt;h2&gt;Welcome {{ user.username }}&lt;/h2&gt;
+
+{% else %}
+
+    &lt;p&gt;Please Login&lt;/p&gt;
+
+{% endif %}
+{% endverbatim %}</code></pre>
+
+        <p>
+            User authenticated aslyas tyacha username display hoil.
+            Nahi tar Please Login message display hoil.
+        </p>
+    </section>
+
+    <!-- SECTION 10 -->
+    <section class="lesson-section">
+        <h2>10. Authentication Working Flow</h2>
+
+        <div class="flow-container">
+
+            <div class="flow-box flow-user">
+                <strong>User</strong>
+                <span>Enter Username and Password</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-box">
+                <strong>Login Form</strong>
+                <span>Submit Credentials</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-box">
+                <strong>authenticate()</strong>
+                <span>Verify Credentials</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-box">
+                <strong>login()</strong>
+                <span>Create User Session</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-box flow-success">
+                <strong>Dashboard</strong>
+                <span>Authenticated User Access</span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 11 -->
+    <section class="lesson-section">
+        <h2>11. Practical – Complete Authentication System</h2>
+
+        <p>
+            Ata Django built-in authentication system vaprun
+            Registration, Login, Logout ani Protected Dashboard
+            create karu.
+        </p>
+
+        <h3>Step 1: Create App</h3>
+
+        <pre class="code-block"><code>python manage.py startapp accounts</code></pre>
+
+        <p>
+            App settings.py madhil INSTALLED_APPS madhye add kara.
+        </p>
+
+        <pre class="code-block"><code>INSTALLED_APPS = [
+
+    # Existing Django Apps
+
+    "accounts",
+]</code></pre>
+
+        <h3>Step 2: Create Views</h3>
+
+        <p>File: accounts/views.py</p>
+
+        <pre class="code-block"><code>from django.shortcuts import (
+    render,
+    redirect
+)
+
+from django.contrib.auth import (
+    login,
+    logout
+)
+
+from django.contrib.auth.forms import (
+    UserCreationForm,
+    AuthenticationForm
+)
+
+from django.contrib.auth.decorators import login_required
+
+
+# Registration
+
+def register_view(request):
+
+    if request.method == "POST":
+
+        form = UserCreationForm(request.POST)
+
+        if form.is_valid():
+
+            user = form.save()
+
+            login(request, user)
+
+            return redirect("dashboard")
+
+    else:
+        form = UserCreationForm()
+
+    return render(
+        request,
+        "accounts/register.html",
+        {"form": form}
+    )
+
+
+# Login
+
+def login_view(request):
+
+    if request.method == "POST":
+
+        form = AuthenticationForm(
+            request,
+            data=request.POST
+        )
+
+        if form.is_valid():
+
+            user = form.get_user()
+
+            login(request, user)
+
+            return redirect("dashboard")
+
+    else:
+        form = AuthenticationForm()
+
+    return render(
+        request,
+        "accounts/login.html",
+        {"form": form}
+    )
+
+
+# Dashboard
+
+@login_required
+def dashboard(request):
+
+    return render(
+        request,
+        "accounts/dashboard.html"
+    )
+
+
+# Logout
+
+@login_required
+def logout_view(request):
+
+    if request.method == "POST":
+
+        logout(request)
+
+        return redirect("login")
+
+    return redirect("dashboard")</code></pre>
+
+        <h3>Step 3: Create URLs</h3>
+
+        <p>File: accounts/urls.py</p>
+
+        <pre class="code-block"><code>from django.urls import path
+from . import views
+
+urlpatterns = [
+
+    path(
+        "register/",
+        views.register_view,
+        name="register"
+    ),
+
+    path(
+        "login/",
+        views.login_view,
+        name="login"
+    ),
+
+    path(
+        "dashboard/",
+        views.dashboard,
+        name="dashboard"
+    ),
+
+    path(
+        "logout/",
+        views.logout_view,
+        name="logout"
+    ),
+]</code></pre>
+
+        <h3>Step 4: Include URLs</h3>
+
+        <p>File: config/urls.py</p>
+
+        <pre class="code-block"><code>from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+
+    path("admin/", admin.site.urls),
+
+    path("accounts/", include("accounts.urls")),
+]</code></pre>
+
+        <p>
+            Project madhye existing URLs astil tar tyanna delete
+            na karta accounts.urls include kara.
+        </p>
+
+        <h3>Step 5: Configure Login URL</h3>
+
+        <p>File: config/settings.py</p>
+
+        <pre class="code-block"><code>LOGIN_URL = "login"
+
+LOGIN_REDIRECT_URL = "dashboard"
+
+LOGOUT_REDIRECT_URL = "login"</code></pre>
+
+        <h3>Step 6: Registration Template</h3>
+
+        <p>File: templates/accounts/register.html</p>
+
+        <pre class="code-block"><code>{% verbatim %}
+&lt;h1&gt;User Registration&lt;/h1&gt;
+
+&lt;form method="POST"&gt;
+
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    &lt;button type="submit"&gt;
+        Register
+    &lt;/button&gt;
+
+&lt;/form&gt;
+
+&lt;a href="{% url 'login' %}"&gt;
+    Already have an account? Login
+&lt;/a&gt;
+{% endverbatim %}</code></pre>
+
+        <h3>Step 7: Login Template</h3>
+
+        <p>File: templates/accounts/login.html</p>
+
+        <pre class="code-block"><code>{% verbatim %}
+&lt;h1&gt;User Login&lt;/h1&gt;
+
+&lt;form method="POST"&gt;
+
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    &lt;button type="submit"&gt;
+        Login
+    &lt;/button&gt;
+
+&lt;/form&gt;
+
+&lt;a href="{% url 'register' %}"&gt;
+    Create New Account
+&lt;/a&gt;
+{% endverbatim %}</code></pre>
+
+        <h3>Step 8: Dashboard Template</h3>
+
+        <p>File: templates/accounts/dashboard.html</p>
+
+        <pre class="code-block"><code>{% verbatim %}
+&lt;h1&gt;Welcome to Dashboard&lt;/h1&gt;
+
+&lt;p&gt;
+    Hello {{ user.username }}
+&lt;/p&gt;
+
+&lt;form method="POST" action="{% url 'logout' %}"&gt;
+
+    {% csrf_token %}
+
+    &lt;button type="submit"&gt;
+        Logout
+    &lt;/button&gt;
+
+&lt;/form&gt;
+{% endverbatim %}</code></pre>
+
+        <h3>Step 9: Run Migrations</h3>
+
+        <pre class="code-block"><code>python manage.py migrate</code></pre>
+
+        <p>
+            Django default authentication tables create
+            karnyasathi migrations apply karne required aahe.
+        </p>
+
+        <h3>Step 10: Run Server</h3>
+
+        <pre class="code-block"><code>python manage.py runserver</code></pre>
+
+        <h3>Step 11: Open Pages</h3>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Page</th>
+                    <th>URL</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Registration</td>
+                    <td>/accounts/register/</td>
+                </tr>
+                <tr>
+                    <td>Login</td>
+                    <td>/accounts/login/</td>
+                </tr>
+                <tr>
+                    <td>Dashboard</td>
+                    <td>/accounts/dashboard/</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Expected Output</h3>
+
+        <div class="browser-preview">
+
+            <div class="browser-bar">
+                <span></span>
+                <span></span>
+                <span></span>
+                <div class="browser-address">
+                    127.0.0.1:8000/accounts/login/
+                </div>
+            </div>
+
+            <div class="auth-preview">
+
+                <h2>User Login</h2>
+
+                <div class="preview-field">
+                    <label>Username</label>
+                    <div>Enter username</div>
+                </div>
+
+                <div class="preview-field">
+                    <label>Password</label>
+                    <div>Enter password</div>
+                </div>
+
+                <button type="button" class="demo-button">
+                    Login
+                </button>
+
+                <p class="auth-link">
+                    Create New Account
+                </p>
+
+                <p class="preview-note">
+                    Illustrative preview. Actual page Django render karte.
+                </p>
+
+            </div>
+        </div>
+
+        <div class="info-box">
+            <strong>Practical Completed:</strong>
+            Ata user register karu shakto, login karu shakto,
+            protected dashboard access karu shakto ani logout karu shakto.
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Ha practical default Django User Model vaparto.
+            Project madhye custom AUTH_USER_MODEL already configure
+            asel tar built-in UserCreationForm ani AuthenticationForm
+            direct vaparnyapurvi custom user requirements nusar
+            forms adapt karave lagtil.
+        </div>
+    </section>
+
+    <!-- SECTION 12 -->
+    <section class="lesson-section">
+        <h2>12. Common Mistakes</h2>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Problem</th>
+                    <th>Solution</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Login not working</td>
+                    <td>Username ani Password verify kara.</td>
+                </tr>
+                <tr>
+                    <td>User not created</td>
+                    <td>form.is_valid() ani form.errors check kara.</td>
+                </tr>
+                <tr>
+                    <td>Dashboard redirects to login</td>
+                    <td>User login aahe ka check kara.</td>
+                </tr>
+                <tr>
+                    <td>CSRF verification failed</td>
+                    <td>POST form madhye csrf_token add kara.</td>
+                </tr>
+                <tr>
+                    <td>Login URL not found</td>
+                    <td>LOGIN_URL ani URL name check kara.</td>
+                </tr>
+                <tr>
+                    <td>Authentication tables missing</td>
+                    <td>python manage.py migrate run kara.</td>
+                </tr>
+                <tr>
+                    <td>Logout not working</td>
+                    <td>POST request ani csrf_token check kara.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- SECTION 13 -->
+    <section class="lesson-section">
+        <h2>13. Important Revision</h2>
+
+        <ol>
+            <li>Authentication user identity verify karte.</li>
+            <li>Authorization user permissions check karte.</li>
+            <li>Django built-in User Model provide karte.</li>
+            <li>UserCreationForm registration sathi vapartat.</li>
+            <li>AuthenticationForm login sathi vapartat.</li>
+            <li>authenticate() credentials verify karte.</li>
+            <li>login() user session create karte.</li>
+            <li>logout() current user session clear karte.</li>
+            <li>Django passwords hashed format madhye store karte.</li>
+            <li>set_password() password securely set karte.</li>
+            <li>check_password() password verify karte.</li>
+            <li>login_required protected pages sathi vapartat.</li>
+        </ol>
+    </section>
+
+    <!-- PRACTICE -->
+    <section class="practice-section">
+
+        <h2>14. Practice Questions</h2>
+
+        <p>He questions swatah solve kar:</p>
+
+        <ol>
+            <li>Authentication mhanje kay?</li>
+            <li>Authentication ani Authorization madhil difference lih.</li>
+            <li>Django User Model explain kar.</li>
+            <li>UserCreationForm cha use sang.</li>
+            <li>authenticate() ani login() madhil difference lih.</li>
+            <li>logout() function explain kar.</li>
+            <li>Password Hashing mhanje kay?</li>
+            <li>login_required decorator cha use sang.</li>
+            <li>is_authenticated cha use kay aahe?</li>
+            <li>Complete Registration and Login System create kar.</li>
+        </ol>
+
+    </section>
+
+    <!-- COMPLETION -->
+    <div class="completion-message">
+        <h2>Topic 14 Completed!</h2>
+        <p>
+            Ata tumhala Django Authentication, User Registration,
+            Login, Logout, Password Hashing ani Protected Views samajle astil.
+        </p>
+    </div>
+
+    <!-- NAVIGATION -->
+    <div class="lesson-navigation">
+
+        <a href="{% url 'django_topic' 'crud-operations' %}"
+           class="nav-button previous-button">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'django_topic' 'login-logout' %}"
+           class="nav-button next-button">
+            Next Topic →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

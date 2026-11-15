@@ -1,0 +1,215 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}
+JavaScript Documentation | Roman Marathi
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/javascript/index.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<div class="page-heading">
+
+    <span class="section-label">WEB DEVELOPMENT</span>
+
+    <h1>JavaScript Documentation</h1>
+
+    <p>
+        JavaScript programming basic pasun advanced paryant
+        soprya Roman Marathi madhye shika.
+        Pratyek topic sobat explanation, syntax,
+        code examples ani output dile aahet.
+    </p>
+
+</div>
+
+<div class="topic-list">
+
+    <a href="{% url 'javascript_topic' 'introduction' %}" class="topic-card">
+        <span class="topic-number">01</span>
+        <span class="topic-name">Introduction to JavaScript</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'javascript_topic' 'syntax' %}" class="topic-card">
+        <span class="topic-number">02</span>
+        <span class="topic-name">JavaScript Syntax</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'javascript_topic' 'ways-to-add-javascript' %}" class="topic-card">
+        <span class="topic-number">03</span>
+        <span class="topic-name">Ways to Add JavaScript</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'javascript_topic' 'variables' %}" class="topic-card">
+        <span class="topic-number">04</span>
+        <span class="topic-name">JavaScript Variables (var, let, const)</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'javascript_topic' 'data-types' %}" class="topic-card">
+        <span class="topic-number">05</span>
+        <span class="topic-name">JavaScript Data Types</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'javascript_topic' 'operators' %}" class="topic-card">
+        <span class="topic-number">06</span>
+        <span class="topic-name">JavaScript Operators</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'javascript_topic' 'input-output' %}" class="topic-card">
+        <span class="topic-number">07</span>
+        <span class="topic-name">JavaScript Input and Output</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'javascript_topic' 'conditions' %}" class="topic-card">
+        <span class="topic-number">08</span>
+        <span class="topic-name">Conditional Statements</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'javascript_topic' 'loops' %}" class="topic-card">
+        <span class="topic-number">09</span>
+        <span class="topic-name">JavaScript Loops</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'javascript_topic' 'functions' %}" class="topic-card">
+        <span class="topic-number">10</span>
+        <span class="topic-name">JavaScript Functions</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'javascript_topic' 'arrow-functions' %}" class="topic-card">
+        <span class="topic-number">11</span>
+        <span class="topic-name">Arrow Functions</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'javascript_topic' 'arrays' %}" class="topic-card">
+        <span class="topic-number">12</span>
+        <span class="topic-name">JavaScript Arrays</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'javascript_topic' 'array-methods' %}" class="topic-card">
+        <span class="topic-number">13</span>
+        <span class="topic-name">JavaScript Array Methods</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'javascript_topic' 'strings' %}" class="topic-card">
+        <span class="topic-number">14</span>
+        <span class="topic-name">Strings and String Methods</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'javascript_topic' 'objects' %}" class="topic-card">
+        <span class="topic-number">15</span>
+        <span class="topic-name">JavaScript Objects</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'javascript_topic' 'object-methods' %}" class="topic-card">
+        <span class="topic-number">16</span>
+        <span class="topic-name">Object Methods and Destructuring</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'javascript_topic' 'dom' %}" class="topic-card">
+        <span class="topic-number">17</span>
+        <span class="topic-name">DOM Introduction</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'javascript_topic' 'dom-selectors' %}" class="topic-card">
+        <span class="topic-number">18</span>
+        <span class="topic-name">DOM Selectors</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'javascript_topic' 'dom-manipulation' %}" class="topic-card">
+        <span class="topic-number">19</span>
+        <span class="topic-name">DOM Manipulation</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'javascript_topic' 'events' %}" class="topic-card">
+        <span class="topic-number">20</span>
+        <span class="topic-name">JavaScript Events</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'javascript_topic' 'form-validation' %}" class="topic-card">
+        <span class="topic-number">21</span>
+        <span class="topic-name">Form Validation</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'javascript_topic' 'es6' %}" class="topic-card">
+        <span class="topic-number">22</span>
+        <span class="topic-name">ES6 Features</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'javascript_topic' 'spread-rest' %}" class="topic-card">
+        <span class="topic-number">23</span>
+        <span class="topic-name">Spread and Rest Operators</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'javascript_topic' 'higher-order-methods' %}" class="topic-card">
+        <span class="topic-number">24</span>
+        <span class="topic-name">Array Higher Order Methods</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'javascript_topic' 'json' %}" class="topic-card">
+        <span class="topic-number">25</span>
+        <span class="topic-name">JavaScript JSON</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'javascript_topic' 'local-storage' %}" class="topic-card">
+        <span class="topic-number">26</span>
+        <span class="topic-name">JavaScript Local Storage</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'javascript_topic' 'async-javascript' %}" class="topic-card">
+        <span class="topic-number">27</span>
+        <span class="topic-name">Asynchronous JavaScript</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'javascript_topic' 'promises' %}" class="topic-card">
+        <span class="topic-number">28</span>
+        <span class="topic-name">Promises and Async/Await</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'javascript_topic' 'fetch-api' %}" class="topic-card">
+        <span class="topic-number">29</span>
+        <span class="topic-name">JavaScript Fetch API</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'javascript_topic' 'projects' %}" class="topic-card">
+        <span class="topic-number">30</span>
+        <span class="topic-name">JavaScript Mini Projects and Practice</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+</div>
+
+{% endblock %}

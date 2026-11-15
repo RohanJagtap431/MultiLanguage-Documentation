@@ -1,0 +1,508 @@
+
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}CSS Variables | Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/css/variables.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+    <div class="lesson-header">
+        <span class="lesson-label">CSS TUTORIAL</span>
+
+        <h1>CSS Variables</h1>
+
+        <p>
+            CSS Variables cha use CSS madhil values store
+            karanyasathi ani tya values punha-punha
+            reuse karanyasathi hoto.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 25 Minutes</span>
+            <span>📄 Page 25</span>
+        </div>
+    </div>
+
+
+    <!-- Section 1 -->
+    <section class="lesson-section">
+
+        <h2>1. What are CSS Variables?</h2>
+
+        <p>
+            CSS Variables mhanje CSS madhye values store
+            karanyachi paddhat. Ya values la variable name
+            dile jate ani nantar tya variable cha use
+            vegveglya CSS properties madhye karta yeto.
+        </p>
+
+        <p>
+            Udaharanarth, website madhye ekach blue color
+            anek elements sathi vapraycha asel tar to
+            variable madhye store karu shakto.
+        </p>
+
+        <div class="info-box">
+            <strong>Definition:</strong>
+            CSS Variables are reusable values that can be
+            stored and used in different CSS properties.
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>:root {
+    --main-color: blue;
+}
+
+h1 {
+    color: var(--main-color);
+}
+
+p {
+    color: var(--main-color);
+}</code></pre>
+        </div>
+
+        <p>
+            Ya example madhye --main-color variable madhye
+            blue value store keli aahe. Hich value heading
+            ani paragraph sathi vaprali aahe.
+        </p>
+
+    </section>
+
+
+    <!-- Section 2 -->
+    <section class="lesson-section">
+
+        <h2>2. Why CSS Variables are Useful?</h2>
+
+        <p>
+            CSS Variables mule code maintain karne ani
+            values update karne sope hote.
+        </p>
+
+        <h3>Advantages</h3>
+
+        <ul>
+            <li>Same value anek thikani reuse karta yete.</li>
+            <li>Code madhil repetition kami hote.</li>
+            <li>Color ani spacing change karne sope hote.</li>
+            <li>CSS code maintain karne sope hote.</li>
+            <li>Website cha design consistent thevta yeto.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Variable chi value ekda change keli ki
+            tya variable cha use karanarya CSS rules
+            madhye updated value apply hote.
+        </div>
+
+    </section>
+
+
+    <!-- Section 3 -->
+    <section class="lesson-section">
+
+        <h2>3. CSS Variables Syntax</h2>
+
+        <p>
+            CSS Variable declare kartana variable name
+            chya suruvatila double hyphen (--) vapartat.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <div class="code-block">
+            <pre><code>selector {
+    --variable-name: value;
+}</code></pre>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>:root {
+    --primary-color: #2563eb;
+    --font-size: 18px;
+    --main-padding: 20px;
+}</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li>--primary-color ha variable name aahe.</li>
+            <li>#2563eb hi tyachi value aahe.</li>
+            <li>--font-size madhye 18px store kele aahe.</li>
+            <li>--main-padding madhye 20px store kele aahe.</li>
+        </ul>
+
+    </section>
+
+
+    <!-- Section 4 -->
+    <section class="lesson-section">
+
+        <h2>4. :root Selector</h2>
+
+        <p>
+            :root ha CSS pseudo-class selector aahe.
+            To document chya root element la select karto.
+            HTML document madhye ha normally html element
+            la represent karto.
+        </p>
+
+        <p>
+            Global CSS Variables declare karanyasathi
+            :root selector cha commonly use kela jato.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>:root {
+    --primary-color: #2563eb;
+    --secondary-color: #16a34a;
+    --text-color: #334155;
+}</code></pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            :root madhye declare kelelya variables
+            normally sampurna document madhye access
+            karta yetat.
+        </div>
+
+    </section>
+
+
+    <!-- Section 5 -->
+    <section class="lesson-section">
+
+        <h2>5. var() Function</h2>
+
+        <p>
+            CSS Variable madhil value use karanyasathi
+            var() function vapartat.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <div class="code-block">
+            <pre><code>property: var(--variable-name);</code></pre>
+        </div>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>:root {
+    --main-color: #2563eb;
+}
+
+h1 {
+    color: var(--main-color);
+}
+
+button {
+    background-color: var(--main-color);
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box variable-output">
+            <h3 class="variable-heading">CSS Variables</h3>
+
+            <p>
+                Same variable value heading ani button
+                donhi thikani use keli aahe.
+            </p>
+
+            <button type="button" class="variable-button">
+                Click Me
+            </button>
+        </div>
+
+    </section>
+
+
+    <!-- Section 6 -->
+    <section class="lesson-section">
+
+        <h2>6. Global CSS Variables</h2>
+
+        <p>
+            Global Variables ase variables astat je
+            document madhil anek selectors madhye
+            access karta yetat.
+        </p>
+
+        <p>
+            Global Variables sathi normally :root
+            selector vapartat.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>:root {
+    --primary-color: #2563eb;
+    --background-color: #eff6ff;
+}
+
+h1 {
+    color: var(--primary-color);
+}
+
+.card {
+    background: var(--background-color);
+}
+
+button {
+    background: var(--primary-color);
+}</code></pre>
+        </div>
+
+        <p>
+            Ya example madhye ekach variables vegveglya
+            selectors madhye reuse kele aahet.
+        </p>
+
+    </section>
+
+
+    <!-- Section 7 -->
+    <section class="lesson-section">
+
+        <h2>7. Local CSS Variables</h2>
+
+        <p>
+            Local Variables he specific selector madhye
+            declare kele jatat. Te tya selector chya
+            scope madhye ani tyachya child elements madhye
+            access karta yetat.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.card {
+    --card-color: #16a34a;
+
+    border-color: var(--card-color);
+    color: var(--card-color);
+}</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li>--card-color variable .card madhye declare kele aahe.</li>
+            <li>Te .card ani tyachya descendants madhye access karta yete.</li>
+            <li>Unrelated elements madhye te normally available naste.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Local Variable cha scope selector var depend
+            karto. Child elements parent madhil inherited
+            custom property access karu shaktat.
+        </div>
+
+    </section>
+
+
+    <!-- Section 8 -->
+    <section class="lesson-section">
+
+        <h2>8. CSS Variable Fallback Value</h2>
+
+        <p>
+            Variable available nasel kiwa valid value
+            nasel tar fallback value cha use karta yeto.
+        </p>
+
+        <p>
+            Fallback value hi var() function madhye
+            comma nantar lihitat.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <div class="code-block">
+            <pre><code>property: var(--variable-name, fallback-value);</code></pre>
+        </div>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>h1 {
+    color: var(--heading-color, blue);
+}</code></pre>
+        </div>
+
+        <p>
+            Jar --heading-color variable available nasel
+            tar heading cha color blue hoil.
+        </p>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Fallback value mule variable available
+            naslyas alternative value use karta yete.
+        </div>
+
+    </section>
+
+
+    <!-- Section 9 -->
+    <section class="lesson-section">
+
+        <h2>9. Practical Example - Theme Colors</h2>
+
+        <p>
+            Ata CSS Variables vaprun ek simple card
+            design karu. Ya example madhye colors ani
+            spacing variables madhye store kele aahet.
+        </p>
+
+        <h3>HTML Code</h3>
+
+        <div class="code-block">
+            <pre><code>&lt;div class="theme-card"&gt;
+
+    &lt;h2&gt;My Website&lt;/h2&gt;
+
+    &lt;p&gt;
+        Learning CSS Variables.
+    &lt;/p&gt;
+
+    &lt;button&gt;Explore&lt;/button&gt;
+
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>:root {
+    --primary-color: #2563eb;
+    --card-background: #eff6ff;
+    --card-padding: 20px;
+}
+
+.theme-card {
+    background: var(--card-background);
+    padding: var(--card-padding);
+    border-radius: 10px;
+}
+
+.theme-card h2 {
+    color: var(--primary-color);
+}
+
+.theme-card button {
+    background: var(--primary-color);
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box theme-output">
+            <div class="theme-card">
+                <h2>My Website</h2>
+
+                <p>
+                    Learning CSS Variables.
+                </p>
+
+                <button type="button">
+                    Explore
+                </button>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Section 10 -->
+    <section class="lesson-section">
+
+        <h2>10. Important Points</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>CSS Variables values store karatat.</li>
+                <li>Variable name chya suruvatila -- vapartat.</li>
+                <li>:root madhye global variables declare karatat.</li>
+                <li>var() function variable value access karte.</li>
+                <li>Local Variables specific selector madhye declare hotat.</li>
+                <li>Variables child elements madhye inherit hou shaktat.</li>
+                <li>Fallback value alternative value dete.</li>
+                <li>CSS Variables mule code maintain karne sope hote.</li>
+            </ul>
+        </div>
+
+    </section>
+
+
+    <!-- Practice Section -->
+    <section class="practice-section">
+
+        <h2>11. Practice Task</h2>
+
+        <div class="task-box">
+
+            <h3>Task: Create a CSS Variables Card</h3>
+
+            <p>Ek simple card tayar kara ani:</p>
+
+            <ol>
+                <li>:root madhye primary color variable declare kara.</li>
+                <li>Background color variable declare kara.</li>
+                <li>Padding variable declare kara.</li>
+                <li>Card madhye variables use kara.</li>
+                <li>Button la primary color dya.</li>
+                <li>Primary color variable change karun output observe kara.</li>
+                <li>Ek fallback value suddha try kara.</li>
+            </ol>
+
+        </div>
+
+    </section>
+
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+
+        <a href="{% url 'css_topic' 'media-queries' %}"
+           class="nav-button previous">
+            ← Previous: Media Queries
+        </a>
+
+        <a href="{% url 'css_topic' 'specificity-inheritance' %}"
+           class="nav-button next">
+            Next: Specificity and Inheritance →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

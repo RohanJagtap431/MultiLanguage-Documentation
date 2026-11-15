@@ -1,0 +1,786 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Python Data Types | Roman Marathi Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/python/data-types.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+    <div class="lesson-header">
+        <span class="lesson-label">PYTHON TUTORIAL</span>
+        <h1>06. Python Data Types</h1>
+        <p>
+            Python madhye data che vegvegale types kontya astat
+            ani te kase use kartat he ya lesson madhye shikuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 20-25 Minutes</span>
+        </div>
+    </div>
+
+    <!-- Section 1 -->
+    <section class="lesson-section">
+        <h2>1. What are Data Types?</h2>
+
+        <p>
+            Data Type mhanje variable madhye kontya prakarcha data
+            store aahe he sangnara type.
+        </p>
+
+        <p>
+            Udaharanarth, aaplyala student che name, age, percentage
+            ani pass/fail status store karaycha asel tar pratyek
+            value cha data type vegala asu shakto.
+        </p>
+
+        <div class="info-box">
+            <strong>Simple Definition:</strong>
+            Data Type defines the type of value stored in a variable.
+        </div>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>name = "Rohan"
+age = 20
+marks = 85.5
+is_passed = True
+
+print(name)
+print(age)
+print(marks)
+print(is_passed)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Rohan
+20
+85.5
+True</pre>
+        </div>
+    </section>
+
+    <!-- Section 2 -->
+    <section class="lesson-section">
+        <h2>2. Types of Data Types in Python</h2>
+
+        <p>
+            Python madhye commonly use honare built-in data types
+            khalil pramane aahet.
+        </p>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Data Type</th>
+                        <th>Use</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>int</td>
+                        <td>Whole numbers</td>
+                        <td>10, 50, -5</td>
+                    </tr>
+                    <tr>
+                        <td>float</td>
+                        <td>Decimal numbers</td>
+                        <td>10.5, 25.75</td>
+                    </tr>
+                    <tr>
+                        <td>complex</td>
+                        <td>Complex numbers</td>
+                        <td>2 + 3j</td>
+                    </tr>
+                    <tr>
+                        <td>str</td>
+                        <td>Text data</td>
+                        <td>"Python"</td>
+                    </tr>
+                    <tr>
+                        <td>bool</td>
+                        <td>True or False</td>
+                        <td>True</td>
+                    </tr>
+                    <tr>
+                        <td>list</td>
+                        <td>Collection of items</td>
+                        <td>[10, 20, 30]</td>
+                    </tr>
+                    <tr>
+                        <td>tuple</td>
+                        <td>Ordered collection</td>
+                        <td>(10, 20, 30)</td>
+                    </tr>
+                    <tr>
+                        <td>set</td>
+                        <td>Unique items</td>
+                        <td>{10, 20, 30}</td>
+                    </tr>
+                    <tr>
+                        <td>dict</td>
+                        <td>Key-value data</td>
+                        <td>{"name": "Rohan"}</td>
+                    </tr>
+                    <tr>
+                        <td>NoneType</td>
+                        <td>No value</td>
+                        <td>None</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Section 3 -->
+    <section class="lesson-section">
+        <h2>3. Integer (int)</h2>
+
+        <p>
+            Integer data type cha use whole numbers store karanyasathi
+            hoto. Mhanje jyamadhye decimal point nasto ase numbers.
+        </p>
+
+        <p>Examples: 10, 25, 100, -5, 0</p>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>age = 20
+marks = 85
+temperature = -5
+
+print(age)
+print(marks)
+print(temperature)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>20
+85
+-5</pre>
+        </div>
+    </section>
+
+    <!-- Section 4 -->
+    <section class="lesson-section">
+        <h2>4. Float (float)</h2>
+
+        <p>
+            Float data type cha use decimal numbers store karanyasathi
+            hoto.
+        </p>
+
+        <p>Examples: 10.5, 25.75, 99.99</p>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>price = 99.50
+percentage = 85.75
+height = 5.8
+
+print(price)
+print(percentage)
+print(height)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>99.5
+85.75
+5.8</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Decimal value lihitana Python kahi vela trailing zero
+            display karat nahi. Udaharanarth 99.50 cha output 99.5
+            asa yeu shakto.
+        </div>
+    </section>
+
+    <!-- Section 5 -->
+    <section class="lesson-section">
+        <h2>5. Complex (complex)</h2>
+
+        <p>
+            Complex data type cha use complex numbers store
+            karanyasathi hoto. Complex number madhye real ani
+            imaginary part astat.
+        </p>
+
+        <p>
+            Python madhye imaginary part sathi <code>j</code>
+            vapartat.
+        </p>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>number = 2 + 3j
+
+print(number)
+print(type(number))</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>(2+3j)
+&lt;class 'complex'&gt;</pre>
+        </div>
+    </section>
+
+    <!-- Section 6 -->
+    <section class="lesson-section">
+        <h2>6. String (str)</h2>
+
+        <p>
+            String data type cha use text store karanyasathi hoto.
+            String madhye letters, words, numbers as text ani symbols
+            store karta yetat.
+        </p>
+
+        <p>
+            String create karanyasathi single quotes (' ') kiwa
+            double quotes (" ") vapartat.
+        </p>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>name = "Rohan"
+city = 'Kolhapur'
+language = "Python"
+
+print(name)
+print(city)
+print(language)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Rohan
+Kolhapur
+Python</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            <code>age = 20</code> ha integer aahe, pan
+            <code>age = "20"</code> ha string aahe.
+            Quotes mule data type change hoto.
+        </div>
+    </section>
+
+    <!-- Section 7 -->
+    <section class="lesson-section">
+        <h2>7. Boolean (bool)</h2>
+
+        <p>
+            Boolean data type madhye fakt don values astat:
+            <code>True</code> ani <code>False</code>.
+        </p>
+
+        <p>
+            Boolean cha use conditions, comparisons ani decision
+            making madhye hoto.
+        </p>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>is_student = True
+is_married = False
+
+print(is_student)
+print(is_married)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>True
+False</pre>
+        </div>
+
+        <div class="warning-box">
+            <strong>Remember:</strong>
+            Python madhye <code>True</code> ani <code>False</code>
+            yanche pahile letter capital aste.
+        </div>
+    </section>
+
+    <!-- Section 8 -->
+    <section class="lesson-section">
+        <h2>8. List (list)</h2>
+
+        <p>
+            List cha use ekach variable madhye anek values store
+            karanyasathi hoto.
+        </p>
+
+        <p>
+            List square brackets <code>[]</code> madhye lihitat.
+            List madhil values change karta yetat.
+        </p>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>fruits = ["Apple", "Banana", "Mango"]
+
+print(fruits)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>['Apple', 'Banana', 'Mango']</pre>
+        </div>
+
+        <h3>Accessing List Items</h3>
+
+        <p>
+            List madhil item access karanyasathi index vapartat.
+            Python madhye index 0 pasun suru hoto.
+        </p>
+
+        <div class="code-box">
+            <pre><code>fruits = ["Apple", "Banana", "Mango"]
+
+print(fruits[0])
+print(fruits[1])</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Apple
+Banana</pre>
+        </div>
+
+        <h3>Changing List Items</h3>
+
+        <div class="code-box">
+            <pre><code>fruits = ["Apple", "Banana", "Mango"]
+
+fruits[1] = "Orange"
+
+print(fruits)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>['Apple', 'Orange', 'Mango']</pre>
+        </div>
+    </section>
+
+    <!-- Section 9 -->
+    <section class="lesson-section">
+        <h2>9. Tuple (tuple)</h2>
+
+        <p>
+            Tuple ha suddha anek values store karanyasathi use hoto.
+            Tuple madhye values parentheses <code>()</code> madhye lihitat.
+        </p>
+
+        <p>
+            List peksha Tuple madhil ek important difference mhanje
+            tuple create kelyanantar tyatil items change karta yet nahit.
+        </p>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>colors = ("Red", "Green", "Blue")
+
+print(colors)
+print(colors[0])</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>('Red', 'Green', 'Blue')
+Red</pre>
+        </div>
+
+        <div class="warning-box">
+            <strong>Important:</strong>
+            Tuple madhil item change karanyacha prayatna kelyas
+            TypeError yeu shakto.
+        </div>
+    </section>
+
+    <!-- Section 10 -->
+    <section class="lesson-section">
+        <h2>10. Set (set)</h2>
+
+        <p>
+            Set cha use unique values store karanyasathi hoto.
+            Set madhye duplicate values store hot nahit.
+        </p>
+
+        <p>
+            Set create karanyasathi curly brackets <code>{}</code>
+            vapartat.
+        </p>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>numbers = {10, 20, 30, 20, 10}
+
+print(numbers)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>{10, 20, 30}</pre>
+        </div>
+
+        <p>
+            Ithe 10 ani 20 ya values duplicate hotya. Set ne tyanchi
+            duplicate entries remove kelya.
+        </p>
+
+        <div class="important-box">
+            <strong>Remember:</strong>
+            Set madhye order fixed nasto. Mhanun output madhil values
+            veglya order madhye disu shaktat.
+        </div>
+    </section>
+
+    <!-- Section 11 -->
+    <section class="lesson-section">
+        <h2>11. Dictionary (dict)</h2>
+
+        <p>
+            Dictionary madhye data key-value pairs madhye store hoto.
+            Pratyek value la ek key aste.
+        </p>
+
+        <p>
+            Dictionary curly brackets <code>{}</code> madhye lihitat.
+        </p>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>student = {
+    "name": "Rohan",
+    "age": 20,
+    "city": "Kolhapur"
+}
+
+print(student)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>{'name': 'Rohan', 'age': 20, 'city': 'Kolhapur'}</pre>
+        </div>
+
+        <h3>Accessing Dictionary Values</h3>
+
+        <div class="code-box">
+            <pre><code>student = {
+    "name": "Rohan",
+    "age": 20
+}
+
+print(student["name"])
+print(student["age"])</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Rohan
+20</pre>
+        </div>
+    </section>
+
+    <!-- Section 12 -->
+    <section class="lesson-section">
+        <h2>12. NoneType</h2>
+
+        <p>
+            Python madhye <code>None</code> cha use value available
+            nasel kiwa sadhya kahi value dyaychi nasel tevha hoto.
+        </p>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>result = None
+
+print(result)
+print(type(result))</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>None
+&lt;class 'NoneType'&gt;</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            None mhanje zero kiwa empty string nahi.
+            To value naslyache represent karto.
+        </div>
+    </section>
+
+    <!-- Section 13 -->
+    <section class="lesson-section">
+        <h2>13. Checking Data Type Using type()</h2>
+
+        <p>
+            Variable cha data type check karanyasathi Python madhye
+            <code>type()</code> function vapartat.
+        </p>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>name = "Rohan"
+age = 20
+marks = 85.5
+is_passed = True
+
+print(type(name))
+print(type(age))
+print(type(marks))
+print(type(is_passed))</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>&lt;class 'str'&gt;
+&lt;class 'int'&gt;
+&lt;class 'float'&gt;
+&lt;class 'bool'&gt;</pre>
+        </div>
+
+        <p>
+            <code>type()</code> function variable cha data type return karto.
+        </p>
+    </section>
+
+    <!-- Section 14 -->
+    <section class="lesson-section">
+        <h2>14. Mutable and Immutable Data Types</h2>
+
+        <p>
+            Python madhye kahi data types madhil values create kelyanantar
+            change karta yetat, tar kahi data types madhil values change
+            karta yet nahit.
+        </p>
+
+        <h3>Mutable Data Types</h3>
+
+        <p>
+            Mutable mhanje object create kelyanantar tyatil data change
+            karta yeto.
+        </p>
+
+        <p>Examples: list, dict, set</p>
+
+        <div class="code-box">
+            <pre><code>numbers = [10, 20, 30]
+
+numbers[0] = 100
+
+print(numbers)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>[100, 20, 30]</pre>
+        </div>
+
+        <h3>Immutable Data Types</h3>
+
+        <p>
+            Immutable mhanje object create kelyanantar tyatil value
+            directly change karta yet nahi.
+        </p>
+
+        <p>Examples: int, float, bool, str, tuple</p>
+
+        <div class="code-box">
+            <pre><code>name = "Python"
+
+name[0] = "J"
+
+print(name)</code></pre>
+        </div>
+
+        <div class="error-box">
+            <strong>Error:</strong>
+            TypeError: 'str' object does not support item assignment
+        </div>
+
+        <p>
+            String immutable aslyamule tyatil character directly
+            change karta yet nahi.
+        </p>
+    </section>
+
+    <!-- Section 15 -->
+    <section class="lesson-section">
+        <h2>15. Common Beginner Mistakes</h2>
+
+        <div class="error-card">
+            <h3>Mistake 1: Number la String samajne</h3>
+            <pre><code>age = "20"
+print(type(age))</code></pre>
+            <p>
+                Output: <code>&lt;class 'str'&gt;</code>
+            </p>
+            <p>
+                Quotes aslyamule 20 ha string aahe, integer nahi.
+            </p>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 2: List ani Tuple madhil difference visarne</h3>
+            <pre><code>numbers = (10, 20, 30)
+numbers[0] = 100</code></pre>
+            <p>
+                Tuple immutable aslyamule item change karta yet nahi.
+            </p>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 3: Dictionary madhye wrong key use karne</h3>
+            <pre><code>student = {"name": "Rohan"}
+
+print(student["age"])</code></pre>
+            <p>
+                Dictionary madhye age key naslyamule KeyError yeil.
+            </p>
+        </div>
+    </section>
+
+    <!-- Section 16 -->
+    <section class="lesson-section">
+        <h2>16. Quick Revision</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Data Type</th>
+                        <th>Example</th>
+                        <th>Main Use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>int</td>
+                        <td>20</td>
+                        <td>Whole numbers</td>
+                    </tr>
+                    <tr>
+                        <td>float</td>
+                        <td>20.5</td>
+                        <td>Decimal numbers</td>
+                    </tr>
+                    <tr>
+                        <td>complex</td>
+                        <td>2 + 3j</td>
+                        <td>Complex numbers</td>
+                    </tr>
+                    <tr>
+                        <td>str</td>
+                        <td>"Python"</td>
+                        <td>Text</td>
+                    </tr>
+                    <tr>
+                        <td>bool</td>
+                        <td>True</td>
+                        <td>True / False</td>
+                    </tr>
+                    <tr>
+                        <td>list</td>
+                        <td>[10, 20]</td>
+                        <td>Mutable collection</td>
+                    </tr>
+                    <tr>
+                        <td>tuple</td>
+                        <td>(10, 20)</td>
+                        <td>Immutable collection</td>
+                    </tr>
+                    <tr>
+                        <td>set</td>
+                        <td>{10, 20}</td>
+                        <td>Unique items</td>
+                    </tr>
+                    <tr>
+                        <td>dict</td>
+                        <td>{"name": "Rohan"}</td>
+                        <td>Key-value pairs</td>
+                    </tr>
+                    <tr>
+                        <td>NoneType</td>
+                        <td>None</td>
+                        <td>No value</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Practice -->
+    <section class="practice-section">
+        <h2>17. Practice Questions</h2>
+
+        <p>
+            Khali dilele questions swatah Python madhye code lihun solve kara.
+        </p>
+
+        <ol>
+            <li>Integer type cha variable create kara ani tyacha type check kara.</li>
+            <li>Float type madhye percentage store kara.</li>
+            <li>String madhye swatahche nav store kara.</li>
+            <li>Boolean madhye is_student variable create kara.</li>
+            <li>5 fruits chi list create kara ani second fruit print kara.</li>
+            <li>3 colors chi tuple create kara.</li>
+            <li>Duplicate numbers aslela set create kara.</li>
+            <li>Student chi information dictionary madhye store kara.</li>
+            <li>type() function vaprun 5 variables che data types check kara.</li>
+            <li>List ani Tuple madhil difference code lihun samjun ghya.</li>
+        </ol>
+
+        <div class="practice-task">
+            <h3>Practical Task – Student Information</h3>
+
+            <p>
+                Student Information Program tayar kara. Vegveglya
+                data types cha use karun student chi information store kara.
+            </p>
+
+            <div class="code-box">
+                <div class="code-title">Expected Output</div>
+                <pre><code>Name: Rohan
+Age: 20
+Percentage: 85.5
+Is Student: True
+Subjects: ['Python', 'C++', 'Java']</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+        <a href="{% url 'python_topic' 'variables' %}" class="nav-button back-button">
+            ← Previous: Variables
+        </a>
+
+        <a href="{% url 'python_topic' 'type-casting' %}" class="nav-button next-button">
+            Next: Type Casting →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

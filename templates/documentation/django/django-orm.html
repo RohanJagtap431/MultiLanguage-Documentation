@@ -1,0 +1,770 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Django ORM{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/django/django-orm.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- HEADER -->
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO COURSE • TOPIC 09</span>
+        <h1>Django ORM</h1>
+        <p>
+            Learn how to create, retrieve, filter, update and delete
+            database records using Django ORM.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 45–55 Minutes</span>
+        </div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <section class="lesson-section">
+        <h2>1. ORM mhanje kay?</h2>
+
+        <p>
+            ORM cha full form Object Relational Mapper aahe.
+            ORM cha use Python objects ani relational database
+            yanchyamadhye interaction karnyasathi hoto.
+        </p>
+
+        <p>
+            Django ORM mule SQL queries manually na lihita
+            Python code vaprun database operations karta yetat.
+        </p>
+
+        <div class="example-box">
+            <h3>Example</h3>
+            <p><strong>Without ORM:</strong> SQL query lihavi lagte.</p>
+            <p><strong>With ORM:</strong> Python methods vaparta yetat.</p>
+        </div>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            Django ORM Python code la database operations madhye
+            translate karnyas madat karto.
+        </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section class="lesson-section">
+        <h2>2. Django ORM kase work karte?</h2>
+
+        <p>
+            Django ORM Model ani Database yanchyamadhye bridge
+            mhanun work karte.
+        </p>
+
+        <h3>ORM Working Flow</h3>
+
+        <div class="flow-container">
+            <div class="flow-box">Python Code</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-box">Django ORM</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-box">SQL Query</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-success">Database</div>
+        </div>
+
+        <p>
+            Example: Python madhye Student.objects.all() lihilyavar
+            Django ORM database madhun student records retrieve karte.
+        </p>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section class="lesson-section">
+        <h2>3. Import Model</h2>
+
+        <p>
+            ORM operations karnyasathi sarvat aadhi model import
+            karava lagto.
+        </p>
+
+        <h3>Example: students/views.py</h3>
+
+        <pre class="code-block"><code>from django.shortcuts import render
+from .models import Student</code></pre>
+
+        <p>
+            Ya code madhye Student model import kela aahe.
+            Ata apan Student model var ORM methods use karu shakto.
+        </p>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section class="lesson-section">
+        <h2>4. Create Record</h2>
+
+        <p>
+            create() method cha use database madhye new record
+            insert karnyasathi hoto.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre class="code-block"><code>Model.objects.create(field=value)</code></pre>
+
+        <h3>Example</h3>
+
+        <pre class="code-block"><code>from .models import Student
+
+Student.objects.create(
+    name="Rohan",
+    email="rohan@example.com",
+    age=20,
+    course="BSc Computer Science"
+)</code></pre>
+
+        <h3>Expected Database Record</h3>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Age</th>
+                    <th>Course</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Rohan</td>
+                    <td>rohan@example.com</td>
+                    <td>20</td>
+                    <td>BSc Computer Science</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            create() method record create karte ani save karte.
+        </div>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section class="lesson-section">
+        <h2>5. Retrieve All Records</h2>
+
+        <p>
+            all() method cha use database madhil sarv records
+            retrieve karnyasathi hoto.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre class="code-block"><code>Model.objects.all()</code></pre>
+
+        <h3>Example</h3>
+
+        <pre class="code-block"><code>students = Student.objects.all()
+
+for student in students:
+    print(student.name)</code></pre>
+
+        <h3>Expected Output</h3>
+
+        <pre class="output-code"><code>Rohan
+Rahul
+Priya</code></pre>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            all() method QuerySet return karte. QuerySet madhye
+            multiple database records astat.
+        </div>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section class="lesson-section">
+        <h2>6. Filter Records</h2>
+
+        <p>
+            filter() method cha use specific condition match
+            honare records retrieve karnyasathi hoto.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre class="code-block"><code>Model.objects.filter(condition)</code></pre>
+
+        <h3>Example 1: Filter by Name</h3>
+
+        <pre class="code-block"><code>students = Student.objects.filter(
+    name="Rohan"
+)</code></pre>
+
+        <h3>Example 2: Filter by Age</h3>
+
+        <pre class="code-block"><code>students = Student.objects.filter(
+    age=20
+)</code></pre>
+
+        <h3>Example 3: Greater Than</h3>
+
+        <pre class="code-block"><code>students = Student.objects.filter(
+    age__gt=18
+)</code></pre>
+
+        <h3>Common Field Lookups</h3>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Lookup</th>
+                    <th>Meaning</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>exact</td>
+                    <td>Exact match.</td>
+                </tr>
+                <tr>
+                    <td>contains</td>
+                    <td>Text contains value.</td>
+                </tr>
+                <tr>
+                    <td>icontains</td>
+                    <td>Case-insensitive contains.</td>
+                </tr>
+                <tr>
+                    <td>gt</td>
+                    <td>Greater than.</td>
+                </tr>
+                <tr>
+                    <td>gte</td>
+                    <td>Greater than or equal to.</td>
+                </tr>
+                <tr>
+                    <td>lt</td>
+                    <td>Less than.</td>
+                </tr>
+                <tr>
+                    <td>lte</td>
+                    <td>Less than or equal to.</td>
+                </tr>
+                <tr>
+                    <td>in</td>
+                    <td>Value list madhye aahe ka te check karte.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Example: Contains</h3>
+
+        <pre class="code-block"><code>students = Student.objects.filter(
+    name__icontains="ro"
+)</code></pre>
+    </section>
+
+    <!-- SECTION 7 -->
+    <section class="lesson-section">
+        <h2>7. Get Single Record</h2>
+
+        <p>
+            get() method cha use specific condition match honara
+            ek record retrieve karnyasathi hoto.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre class="code-block"><code>Model.objects.get(condition)</code></pre>
+
+        <h3>Example</h3>
+
+        <pre class="code-block"><code>student = Student.objects.get(
+    id=1
+)
+
+print(student.name)</code></pre>
+
+        <h3>Important Difference</h3>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>filter()</th>
+                    <th>get()</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>QuerySet return karte.</td>
+                    <td>Single object return karte.</td>
+                </tr>
+                <tr>
+                    <td>Zero records allowed.</td>
+                    <td>Zero records asel tar DoesNotExist error.</td>
+                </tr>
+                <tr>
+                    <td>Multiple records allowed.</td>
+                    <td>Multiple records asel tar MultipleObjectsReturned error.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            get() vapartana condition unique asne kiwa fakt ekach
+            record match hone garjeche aahe.
+        </div>
+    </section>
+
+    <!-- SECTION 8 -->
+    <section class="lesson-section">
+        <h2>8. Exclude Records</h2>
+
+        <p>
+            exclude() method cha use specific condition match
+            honare records sodun baki records retrieve karnyasathi hoto.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre class="code-block"><code>students = Student.objects.exclude(
+    age=20
+)</code></pre>
+
+        <p>
+            Ya example madhye age 20 aslele records exclude hotil.
+            Baki records return hotil.
+        </p>
+    </section>
+
+    <!-- SECTION 9 -->
+    <section class="lesson-section">
+        <h2>9. Update Record</h2>
+
+        <p>
+            update() method cha use database madhil existing
+            records update karnyasathi hoto.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre class="code-block"><code>Student.objects.filter(
+    id=1
+).update(
+    age=21
+)</code></pre>
+
+        <p>
+            Ya example madhye id 1 aslelya student cha age 21 hoil.
+        </p>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            update() QuerySet var call karatat. To matching records
+            direct database madhye update karto ani affected rows
+            chi sankhya return karto.
+        </div>
+
+        <h3>Alternative: Save Method</h3>
+
+        <pre class="code-block"><code>student = Student.objects.get(id=1)
+
+student.age = 21
+
+student.save()</code></pre>
+    </section>
+
+    <!-- SECTION 10 -->
+    <section class="lesson-section">
+        <h2>10. Delete Record</h2>
+
+        <p>
+            delete() method cha use database madhil records
+            delete karnyasathi hoto.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre class="code-block"><code>Student.objects.filter(
+    id=1
+).delete()</code></pre>
+
+        <p>
+            Ya code mule id 1 aslela student record delete hoil.
+        </p>
+
+        <h3>Delete Single Object</h3>
+
+        <pre class="code-block"><code>student = Student.objects.get(id=2)
+
+student.delete()</code></pre>
+
+        <div class="important-box">
+            <strong>Warning:</strong>
+            delete() operation database madhil data delete karte.
+            Real project madhye delete karnyapurvi confirmation ani
+            permissions check kara.
+        </div>
+    </section>
+
+    <!-- SECTION 11 -->
+    <section class="lesson-section">
+        <h2>11. Order By</h2>
+
+        <p>
+            order_by() method cha use records ascending kiwa
+            descending order madhye sort karnyasathi hoto.
+        </p>
+
+        <h3>Ascending Order</h3>
+
+        <pre class="code-block"><code>students = Student.objects.order_by("name")</code></pre>
+
+        <h3>Descending Order</h3>
+
+        <pre class="code-block"><code>students = Student.objects.order_by("-age")</code></pre>
+
+        <h3>Examples</h3>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Code</th>
+                    <th>Sorting</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>order_by("name")</td>
+                    <td>Name A to Z.</td>
+                </tr>
+                <tr>
+                    <td>order_by("-name")</td>
+                    <td>Name Z to A.</td>
+                </tr>
+                <tr>
+                    <td>order_by("age")</td>
+                    <td>Age low to high.</td>
+                </tr>
+                <tr>
+                    <td>order_by("-age")</td>
+                    <td>Age high to low.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- SECTION 12 -->
+    <section class="lesson-section">
+        <h2>12. Count and Exists</h2>
+
+        <h3>Count Method</h3>
+
+        <p>
+            count() method cha use matching records chi total
+            number count karnyasathi hoto.
+        </p>
+
+        <pre class="code-block"><code>total = Student.objects.count()
+
+print(total)</code></pre>
+
+        <h3>Exists Method</h3>
+
+        <p>
+            exists() method matching records available aahet
+            ka te check karte.
+        </p>
+
+        <pre class="code-block"><code>result = Student.objects.filter(
+    age=20
+).exists()
+
+print(result)</code></pre>
+
+        <h3>Expected Output</h3>
+
+        <pre class="output-code"><code>3
+True</code></pre>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            count() integer return karte, tar exists() True kiwa
+            False return karte.
+        </div>
+    </section>
+
+    <!-- SECTION 13 -->
+    <section class="lesson-section">
+        <h2>13. QuerySet Chaining</h2>
+
+        <p>
+            Multiple ORM methods ekach query madhye combine
+            karnyas QuerySet Chaining mhantat.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre class="code-block"><code>students = Student.objects.filter(
+    age__gte=18
+).exclude(
+    course="BCA"
+).order_by("name")</code></pre>
+
+        <p>
+            Ya example madhye:
+        </p>
+
+        <ol>
+            <li>Age 18 kiwa tyapeksha jast aslele records select hotil.</li>
+            <li>BCA course aslele records exclude hotil.</li>
+            <li>Remaining records name nusar sort hotil.</li>
+        </ol>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            QuerySet methods combine karun readable database queries
+            tayar karta yetat.
+        </div>
+    </section>
+
+    <!-- SECTION 14 -->
+    <section class="lesson-section">
+        <h2>14. Complete Practical – Student CRUD</h2>
+
+        <p>
+            Ata Django ORM vaprun Student records create,
+            read, update ani delete karu.
+        </p>
+
+        <h3>Step 1: Model</h3>
+
+        <p>File: students/models.py</p>
+
+        <pre class="code-block"><code>from django.db import models
+
+class Student(models.Model):
+
+    name = models.CharField(max_length=100)
+    email = models.EmailField(unique=True)
+    age = models.IntegerField()
+    course = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name</code></pre>
+
+        <h3>Step 2: Create Records</h3>
+
+        <p>File: students/views.py</p>
+
+        <pre class="code-block"><code>from django.shortcuts import render
+from .models import Student
+
+def create_student(request):
+
+    Student.objects.create(
+        name="Rohan",
+        email="rohan@example.com",
+        age=20,
+        course="BSc Computer Science"
+    )
+
+    return render(request, "success.html")</code></pre>
+
+        <h3>Step 3: Read Records</h3>
+
+        <pre class="code-block"><code>def student_list(request):
+
+    students = Student.objects.all()
+
+    return render(
+        request,
+        "student_list.html",
+        {"students": students}
+    )</code></pre>
+
+        <h3>Step 4: Update Record</h3>
+
+        <pre class="code-block"><code>def update_student(request):
+
+    Student.objects.filter(
+        id=1
+    ).update(
+        age=21
+    )
+
+    return render(request, "success.html")</code></pre>
+
+        <h3>Step 5: Delete Record</h3>
+
+        <pre class="code-block"><code>def delete_student(request):
+
+    Student.objects.filter(
+        id=1
+    ).delete()
+
+    return render(request, "success.html")</code></pre>
+
+        <h3>Step 6: URL Configuration</h3>
+
+        <p>File: students/urls.py</p>
+
+        <pre class="code-block"><code>from django.urls import path
+from . import views
+
+urlpatterns = [
+    path("create/", views.create_student, name="create_student"),
+    path("students/", views.student_list, name="student_list"),
+    path("update/", views.update_student, name="update_student"),
+    path("delete/", views.delete_student, name="delete_student"),
+]</code></pre>
+
+        <h3>Step 7: Student List Template</h3>
+
+        <p>File: templates/student_list.html</p>
+
+        <pre class="code-block"><code>{% verbatim %}
+&lt;h1&gt;Student List&lt;/h1&gt;
+
+{% for student in students %}
+
+    &lt;div&gt;
+        &lt;h3&gt;{{ student.name }}&lt;/h3&gt;
+        &lt;p&gt;Email: {{ student.email }}&lt;/p&gt;
+        &lt;p&gt;Age: {{ student.age }}&lt;/p&gt;
+        &lt;p&gt;Course: {{ student.course }}&lt;/p&gt;
+    &lt;/div&gt;
+
+{% empty %}
+    &lt;p&gt;No students found.&lt;/p&gt;
+{% endfor %}
+{% endverbatim %}</code></pre>
+
+        <h3>Step 8: Browser URLs</h3>
+
+        <pre class="output-code"><code>http://127.0.0.1:8000/create/
+http://127.0.0.1:8000/students/
+http://127.0.0.1:8000/update/
+http://127.0.0.1:8000/delete/</code></pre>
+
+        <div class="important-box">
+            <strong>Practical Note:</strong>
+            Ha basic learning example aahe. Create, update ani delete
+            views GET requests ne data change kartat. Real application
+            madhye POST requests, forms, CSRF protection ani permissions
+            vapra. Create URL punha open kelyas duplicate email error
+            yeu shakto, karan email unique aahe.
+        </div>
+    </section>
+
+    <!-- SECTION 15 -->
+    <section class="lesson-section">
+        <h2>15. Common Mistakes</h2>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Problem</th>
+                    <th>Solution</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Student is not defined</td>
+                    <td>Student model import kara.</td>
+                </tr>
+                <tr>
+                    <td>DoesNotExist</td>
+                    <td>Record database madhye aahe ka check kara.</td>
+                </tr>
+                <tr>
+                    <td>MultipleObjectsReturned</td>
+                    <td>get() sathi unique condition vapra.</td>
+                </tr>
+                <tr>
+                    <td>UNIQUE constraint failed</td>
+                    <td>Duplicate unique field value vapru naka.</td>
+                </tr>
+                <tr>
+                    <td>No such table</td>
+                    <td>makemigrations ani migrate run kara.</td>
+                </tr>
+                <tr>
+                    <td>QuerySet not displayed</td>
+                    <td>View madhun context template la pass kara.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- SECTION 16 -->
+    <section class="lesson-section">
+        <h2>16. Important Revision</h2>
+
+        <ol>
+            <li>ORM cha full form Object Relational Mapper.</li>
+            <li>Django ORM Python code madhun database operations karte.</li>
+            <li>create() new record create karte.</li>
+            <li>all() sarv records retrieve karte.</li>
+            <li>filter() matching records retrieve karte.</li>
+            <li>get() single object retrieve karte.</li>
+            <li>exclude() matching records sodun baki records dete.</li>
+            <li>update() existing records update karte.</li>
+            <li>delete() records delete karte.</li>
+            <li>order_by() records sort karte.</li>
+            <li>count() records count karte.</li>
+            <li>exists() records exist aahet ka te check karte.</li>
+        </ol>
+    </section>
+
+    <!-- PRACTICE -->
+    <section class="practice-section">
+        <h2>17. Practice Questions</h2>
+
+        <p>He questions swatah solve kar:</p>
+
+        <ol>
+            <li>ORM mhanje kay?</li>
+            <li>Django ORM kase work karte?</li>
+            <li>create() ani all() methods cha use sang.</li>
+            <li>filter() ani get() madhil difference lih.</li>
+            <li>exclude() method example sah explain kar.</li>
+            <li>update() ani delete() methods cha use sang.</li>
+            <li>order_by() method vaprun records sort kar.</li>
+            <li>count() ani exists() madhil difference lih.</li>
+            <li>Age 18 peksha jast aslele students filter kar.</li>
+            <li>Student CRUD operations perform kar.</li>
+        </ol>
+    </section>
+
+    <!-- COMPLETION -->
+    <div class="completion-message">
+        <h2>Topic 09 Completed!</h2>
+        <p>
+            Ata tumhala Django ORM vaprun Create, Read,
+            Update ani Delete operations karta yetil.
+        </p>
+    </div>
+
+    <!-- NAVIGATION -->
+    <div class="lesson-navigation">
+        <a href="{% url 'django_topic' 'models' %}"
+           class="nav-button previous-button">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'django_topic' 'migrations' %}"
+           class="nav-button next-button">
+            Next Topic →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

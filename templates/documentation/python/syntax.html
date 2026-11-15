@@ -1,0 +1,556 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}
+Python Syntax | Roman Marathi
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/python/syntax.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Header -->
+    <div class="lesson-header">
+
+        <span class="lesson-label">PYTHON BASICS · LESSON 03</span>
+
+        <h1>Python Syntax</h1>
+
+        <p>
+            Python madhye code kasa lihaycha, tyache rules kay aahet
+            ani Python program kasa samjun gheto he ya lesson madhye shiku.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 15–20 Minutes</span>
+        </div>
+
+    </div>
+
+
+    <!-- 1. What is Syntax -->
+    <section class="lesson-section">
+
+        <h2>1. What is Python Syntax?</h2>
+
+        <p>
+            Syntax mhanje programming language madhye code
+            lihinyache rules.
+        </p>
+
+        <p>
+            Jase English language madhye sentence lihitana
+            kahi grammar rules follow karave lagtat,
+            tasech Python madhye program lihitana syntax rules
+            follow karave lagtat.
+        </p>
+
+        <div class="info-box">
+            <strong>Simple Example:</strong>
+
+            <p>
+                Apan computer la Hello display karayla sangnar asu,
+                tar Python madhye khalil code lihito:
+            </p>
+
+            <pre><code>print("Hello")</code></pre>
+
+            <p>
+                Ha Python cha valid syntax aahe.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- 2. First Syntax Rule -->
+    <section class="lesson-section">
+
+        <h2>2. Writing Your First Statement</h2>
+
+        <p>
+            Python madhye ek instruction lihili tar tila
+            statement mhantat.
+        </p>
+
+        <p>
+            Khalil example madhye print() he statement aahe.
+            Yachya madatine apan screen var message display karu shakto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre><code>print("Welcome to Python")
+print("I am learning programming")</code></pre>
+
+        <h3>Output:</h3>
+
+        <pre class="output-box">Welcome to Python
+I am learning programming</pre>
+
+        <p>
+            Python madhye statements sadharanpane navin line var
+            lihitat. Varil code madhye don statements aahet,
+            mhanun donhi messages vegveglya lines var display hotat.
+        </p>
+
+    </section>
+
+
+    <!-- 3. Indentation -->
+    <section class="lesson-section">
+
+        <h2>3. Indentation in Python</h2>
+
+        <p>
+            Indentation mhanje code chya suruvatila dileli space.
+            Python madhye indentation cha vapar code blocks
+            olakhnyasathi hoto.
+        </p>
+
+        <p>
+            Code block mhanje ekach group madhye yenarya
+            statements cha group.
+        </p>
+
+        <h3>Correct Example:</h3>
+
+        <pre><code>if 10 > 5:
+    print("10 is greater than 5")
+    print("Condition is True")</code></pre>
+
+        <h3>Output:</h3>
+
+        <pre class="output-box">10 is greater than 5
+Condition is True</pre>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li><strong>if</strong> condition check karanyasathi vapartat.</li>
+
+            <li><strong>10 > 5</strong> hi condition aahe.</li>
+
+            <li><strong>:</strong> colon sangto ki pudhe code block suru honar aahe.</li>
+
+            <li>Donhi print statements chya suruvatila spaces aahet. Mhanun tya if block madhye yetat.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important Rule:</strong>
+
+            <p>
+                Python madhye indentation mahatvache aahe.
+                Sadharanpane eka block sathi 4 spaces vapartat.
+                Ekach block madhil statements chi indentation
+                saman asavi.
+            </p>
+        </div>
+
+        <h3>Incorrect Example:</h3>
+
+        <pre class="error-box"><code>if 10 > 5:
+print("Hello")</code></pre>
+
+        <p>
+            Ya code madhye print statement la indentation dileli nahi.
+            Mhanun Python IndentationError deu shakto.
+        </p>
+
+    </section>
+
+
+    <!-- 4. Case Sensitivity -->
+    <section class="lesson-section">
+
+        <h2>4. Python is Case-Sensitive</h2>
+
+        <p>
+            Case-sensitive mhanje capital letters ani small letters
+            yanna vegvegale samajle jate.
+        </p>
+
+        <p>
+            Python madhye print ani Print he don vegale names aahet.
+        </p>
+
+        <h3>Correct Example:</h3>
+
+        <pre><code>print("Hello Python")</code></pre>
+
+        <h3>Output:</h3>
+
+        <pre class="output-box">Hello Python</pre>
+
+        <h3>Incorrect Example:</h3>
+
+        <pre class="error-box"><code>Print("Hello Python")</code></pre>
+
+        <p>
+            Print he Python madhil built-in print function che
+            barobar nav nahi. Mhanun ha code NameError deu shakto.
+        </p>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+
+            <p>
+                Python madhye function, variable ani keywords
+                lihitana capital ani small letters kalajipurvak vapra.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- 5. Strings and Quotes -->
+    <section class="lesson-section">
+
+        <h2>5. Using Quotation Marks</h2>
+
+        <p>
+            Python madhye text lihinyasathi quotation marks vapartat.
+            Text la programming madhye string mhantat.
+        </p>
+
+        <p>
+            String lihinyasathi single quotes (' ') kiwa
+            double quotes (" ") vaparta yetat.
+        </p>
+
+        <h3>Example 1: Double Quotes</h3>
+
+        <pre><code>print("Hello World")</code></pre>
+
+        <h3>Example 2: Single Quotes</h3>
+
+        <pre><code>print('Hello World')</code></pre>
+
+        <h3>Output:</h3>
+
+        <pre class="output-box">Hello World
+Hello World</pre>
+
+        <p>
+            Donhi examples valid aahet. Fakt opening ani closing
+            quotation marks julale pahijet.
+        </p>
+
+        <div class="warning-box">
+            <strong>Common Mistake:</strong>
+
+            <p>
+                String suru kartana double quote ani shevti
+                single quote vaparlyas syntax error yeu shakto.
+            </p>
+
+            <pre class="error-box"><code>print("Hello World')</code></pre>
+        </div>
+
+    </section>
+
+
+    <!-- 6. Colon -->
+    <section class="lesson-section">
+
+        <h2>6. Use of Colon (:)</h2>
+
+        <p>
+            Python madhye kahi statements nantar colon (:) vapartat.
+            Colon mule pudhe ek code block suru honar aahe he samajte.
+        </p>
+
+        <p>
+            Udaharanarth if, for, while ani function definition
+            yanchya nantar colon vapartat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre><code>if 5 > 2:
+    print("Five is greater")</code></pre>
+
+        <h3>Output:</h3>
+
+        <pre class="output-box">Five is greater</pre>
+
+        <p>
+            Ya example madhye if condition nantar colon aahe.
+            Tyachyanantar indentation dilela print statement
+            if block madhye execute hoto.
+        </p>
+
+    </section>
+
+
+    <!-- 7. Multiple Statements -->
+    <section class="lesson-section">
+
+        <h2>7. Multiple Statements</h2>
+
+        <p>
+            Python madhye ekach program madhye anek statements
+            lihita yetat.
+        </p>
+
+        <p>
+            Beginner sathi pratyek statement vegveglya line var
+            lihine hi changli paddhat aahe.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre><code>print("My Name is Rohan")
+print("I am learning Python")
+print("My Goal is Backend Developer")</code></pre>
+
+        <h3>Output:</h3>
+
+        <pre class="output-box">My Name is Rohan
+I am learning Python
+My Goal is Backend Developer</pre>
+
+    </section>
+
+
+    <!-- 8. Semicolon -->
+    <section class="lesson-section">
+
+        <h2>8. Semicolon in Python</h2>
+
+        <p>
+            Python madhye semicolon (;) vaprun ekach line var
+            don statements lihita yetat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre><code>print("Hello"); print("Python")</code></pre>
+
+        <h3>Output:</h3>
+
+        <pre class="output-box">Hello
+Python</pre>
+
+        <p>
+            Pan beginner ne pratyek statement vegveglya line var
+            lihava. Yamule code vachayla ani samjayla sopa hoto.
+        </p>
+
+        <div class="tip-box">
+            <strong>Remember:</strong>
+
+            <p>
+                Python madhye semicolon bahutek normal programs madhye
+                avashyak nasto.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- 9. Common Errors -->
+    <section class="lesson-section">
+
+        <h2>9. Common Syntax Errors</h2>
+
+        <p>
+            Code lihitana rules follow kele nahi tar Python error
+            dakhavu shakto. Ashya errors na syntax-related errors
+            mhantat.
+        </p>
+
+        <div class="error-card">
+
+            <h3>1. Missing Closing Bracket</h3>
+
+            <pre class="error-box"><code>print("Hello"</code></pre>
+
+            <p>
+                Solution: Opening bracket la matching closing
+                bracket dya.
+            </p>
+
+        </div>
+
+        <div class="error-card">
+
+            <h3>2. Missing Quotation Mark</h3>
+
+            <pre class="error-box"><code>print("Hello)</code></pre>
+
+            <p>
+                Solution: String cha closing quotation mark lava.
+            </p>
+
+        </div>
+
+        <div class="error-card">
+
+            <h3>3. Missing Colon</h3>
+
+            <pre class="error-box"><code>if 10 > 5
+    print("True")</code></pre>
+
+            <p>
+                Solution: if condition chya shevti colon lava.
+            </p>
+
+        </div>
+
+        <div class="error-card">
+
+            <h3>4. Incorrect Indentation</h3>
+
+            <pre class="error-box"><code>if 10 > 5:
+print("True")</code></pre>
+
+            <p>
+                Solution: Code block madhil statement la
+                yogya indentation dya.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- 10. Quick Revision -->
+    <section class="lesson-section">
+
+        <h2>10. Quick Revision</h2>
+
+        <div class="table-wrapper">
+
+            <table class="lesson-table">
+
+                <thead>
+                    <tr>
+                        <th>Concept</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Syntax</td>
+                        <td>Code lihinyache rules.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Statement</td>
+                        <td>Python la dileli instruction.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Indentation</td>
+                        <td>Code chya suruvatila dileli space.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Case-Sensitive</td>
+                        <td>Capital ani small letters vegale samajne.</td>
+                    </tr>
+
+                    <tr>
+                        <td>String</td>
+                        <td>Quotation marks madhye lihilela text.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Colon (:)</td>
+                        <td>Code block suru honyachi khun.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Syntax Error</td>
+                        <td>Code madhil syntax rules chuklyamule yenari error.</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- 11. Practice -->
+    <section class="lesson-section practice-section">
+
+        <h2>11. Practice Questions</h2>
+
+        <p>
+            Ata swatah code lihun khalil questions solve kar.
+        </p>
+
+        <ol>
+            <li>Python Syntax mhanje kay?</li>
+
+            <li>Indentation mhanje kay? Python madhye ti ka mahatvachi aahe?</li>
+
+            <li>Python case-sensitive aahe mhanje kay?</li>
+
+            <li>Python madhye string lihinyasathi kontya quotation marks vapartat?</li>
+
+            <li>Colon (:) cha upyog kuthe hoto?</li>
+
+            <li>Python madhye print() function cha upyog kay aahe?</li>
+
+            <li>Syntax error mhanje kay?</li>
+        </ol>
+
+        <div class="practice-task">
+
+            <strong>Practical Task:</strong>
+
+            <p>
+                VS Code madhye syntax_practice.py navachi file create kar
+                ani khalil program swatah type kar.
+            </p>
+
+            <pre><code>print("My Name is Rohan")
+print("I am learning Python")
+
+if 10 > 5:
+    print("10 is greater than 5")
+
+print('Python is easy to learn')</code></pre>
+
+            <p>
+                Program run kar ani output swatah check kar.
+                Nantar indentation kadhun bagh ani kay error yeto
+                te observe kar.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+
+        <a href="{% url 'python_topic' 'installation' %}"
+           class="nav-button back-button">
+            ← Previous: Installation
+        </a>
+
+        <a href="{% url 'python_topic' 'comments' %}"
+           class="nav-button next-button">
+            Next: Comments →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

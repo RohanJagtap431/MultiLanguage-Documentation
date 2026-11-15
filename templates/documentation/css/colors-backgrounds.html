@@ -1,0 +1,598 @@
+
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}CSS Colors and Backgrounds | Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/css/colors-backgrounds.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+    <div class="lesson-header">
+        <span class="lesson-label">CSS TUTORIAL</span>
+
+        <h1>CSS Colors and Backgrounds</h1>
+
+        <p>
+            Learn how to change text colors and apply
+            different background styles using CSS.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 20 Minutes</span>
+            <span>📄 Page 05</span>
+        </div>
+    </div>
+
+
+    <!-- Section 1 -->
+    <section class="lesson-section">
+
+        <h2>1. Introduction to CSS Colors</h2>
+
+        <p>
+            CSS madhye colors cha use text, background,
+            borders ani itar elements la color denyasathi hoto.
+        </p>
+
+        <p>
+            CSS madhye color specify karanyasathi vegveglya
+            methods vaparta yetat.
+        </p>
+
+        <div class="info-box">
+            <strong>Definition:</strong>
+            CSS Color properties are used to set the color
+            of text and other HTML elements.
+        </div>
+
+    </section>
+
+
+    <!-- Section 2 -->
+    <section class="lesson-section">
+
+        <h2>2. Color Property</h2>
+
+        <p>
+            <strong>color</strong> property cha use HTML
+            element madhil text cha color change karanyasathi hoto.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <div class="code-block">
+            <pre><code>selector {
+    color: value;
+}</code></pre>
+        </div>
+
+        <h3>HTML Code</h3>
+
+        <div class="code-block">
+            <pre><code>&lt;h1&gt;Welcome to CSS&lt;/h1&gt;
+&lt;p&gt;Learning CSS is easy.&lt;/p&gt;</code></pre>
+        </div>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>h1 {
+    color: blue;
+}
+
+p {
+    color: green;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box color-output">
+            <h1>Welcome to CSS</h1>
+            <p>Learning CSS is easy.</p>
+        </div>
+
+        <div class="tip-box">
+            <strong>Lakshat Thev:</strong>
+            color property fakt text cha color change karte.
+            Background color change karanyasathi
+            background-color property vapartat.
+        </div>
+
+    </section>
+
+
+    <!-- Section 3 -->
+    <section class="lesson-section">
+
+        <h2>3. Background Color</h2>
+
+        <p>
+            <strong>background-color</strong> property cha
+            use HTML element chya background la color
+            denyasathi hoto.
+        </p>
+
+        <h3>HTML Code</h3>
+
+        <div class="code-block">
+            <pre><code>&lt;div class="box"&gt;
+    Welcome to CSS
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    background-color: lightblue;
+    padding: 20px;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box background-output">
+            <div>Welcome to CSS</div>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            color ani background-color ya donhi properties
+            vegvegale kaam kartat.
+        </div>
+
+    </section>
+
+
+    <!-- Section 4 -->
+    <section class="lesson-section">
+
+        <h2>4. Different Ways to Write Colors</h2>
+
+        <p>
+            CSS madhye colors lihinyachya kahi common
+            methods aahet.
+        </p>
+
+        <h3>1. Color Names</h3>
+
+        <p>
+            Aapan color che direct names vapru shakto.
+            Udaharanarth: red, blue, green, black ani white.
+        </p>
+
+        <div class="code-block">
+            <pre><code>h1 {
+    color: red;
+}
+
+p {
+    color: blue;
+}</code></pre>
+        </div>
+
+        <h3>2. HEX Colors</h3>
+
+        <p>
+            HEX mhanje Hexadecimal Color Code.
+            Ha color lihinyacha ek common format aahe.
+        </p>
+
+        <p>
+            HEX code madhye # symbol nantar 6 hexadecimal
+            characters astat.
+        </p>
+
+        <div class="code-block">
+            <pre><code>h1 {
+    color: #ff0000;
+}
+
+p {
+    color: #0000ff;
+}
+
+div {
+    background-color: #f0f0f0;
+}</code></pre>
+        </div>
+
+        <h3>3. RGB Colors</h3>
+
+        <p>
+            RGB cha full form Red, Green, Blue asa aahe.
+            Ya tin colors chya values vaprun vegvegale
+            colors tayar karta yetat.
+        </p>
+
+        <p>
+            Pratyek RGB value 0 te 255 ya range madhye aste.
+        </p>
+
+        <div class="code-block">
+            <pre><code>h1 {
+    color: rgb(255, 0, 0);
+}
+
+p {
+    color: rgb(0, 0, 255);
+}
+
+div {
+    background-color: rgb(0, 255, 0);
+}</code></pre>
+        </div>
+
+        <h3>4. RGBA Colors</h3>
+
+        <p>
+            RGBA madhye A mhanje Alpha.
+            Alpha value color chi transparency control karte.
+        </p>
+
+        <p>
+            Alpha value 0 te 1 ya range madhye aste.
+            0 mhanje transparent ani 1 mhanje fully visible.
+        </p>
+
+        <div class="code-block">
+            <pre><code>.box {
+    background-color: rgba(255, 0, 0, 0.5);
+}</code></pre>
+        </div>
+
+        <h3>Color Examples</h3>
+
+        <div class="color-palette">
+
+            <div class="color-item">
+                <div class="color-swatch red-swatch"></div>
+                <strong>Red</strong>
+                <span>#ff0000</span>
+            </div>
+
+            <div class="color-item">
+                <div class="color-swatch blue-swatch"></div>
+                <strong>Blue</strong>
+                <span>#0000ff</span>
+            </div>
+
+            <div class="color-item">
+                <div class="color-swatch green-swatch"></div>
+                <strong>Green</strong>
+                <span>#008000</span>
+            </div>
+
+            <div class="color-item">
+                <div class="color-swatch black-swatch"></div>
+                <strong>Black</strong>
+                <span>#000000</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 5 -->
+    <section class="lesson-section">
+
+        <h2>5. Background Image</h2>
+
+        <p>
+            <strong>background-image</strong> property cha
+            use HTML element chya background madhye image
+            lavanyasathi hoto.
+        </p>
+
+        <p>
+            Image cha path url() madhye lihava lagto.
+        </p>
+
+        <h3>HTML Code</h3>
+
+        <div class="code-block">
+            <pre><code>&lt;div class="image-box"&gt;
+    Welcome to My Website
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.image-box {
+    background-image: url("background.jpg");
+    background-size: cover;
+    background-position: center;
+}</code></pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            background.jpg hi image CSS file chya relative
+            path nusar yogya location var theva. Image load
+            zali nahi tar path check kara.
+        </div>
+
+    </section>
+
+
+    <!-- Section 6 -->
+    <section class="lesson-section">
+
+        <h2>6. Background Repeat</h2>
+
+        <p>
+            background-repeat property image background
+            madhye repeat karaychi ki nahi he tharavte.
+        </p>
+
+        <h3>Common Values</h3>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>repeat</td>
+                        <td>Image repeat hote.</td>
+                    </tr>
+
+                    <tr>
+                        <td>no-repeat</td>
+                        <td>Image repeat hot nahi.</td>
+                    </tr>
+
+                    <tr>
+                        <td>repeat-x</td>
+                        <td>Image horizontal direction madhye repeat hote.</td>
+                    </tr>
+
+                    <tr>
+                        <td>repeat-y</td>
+                        <td>Image vertical direction madhye repeat hote.</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+        <h3>CSS Example</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    background-image: url("pattern.png");
+    background-repeat: no-repeat;
+}</code></pre>
+        </div>
+
+    </section>
+
+
+    <!-- Section 7 -->
+    <section class="lesson-section">
+
+        <h2>7. Background Position</h2>
+
+        <p>
+            background-position property background image
+            element madhye kuthe disavi he tharavte.
+        </p>
+
+        <h3>Common Values</h3>
+
+        <ul>
+            <li>center – Image madhye diste.</li>
+            <li>top – Image varchya bajula diste.</li>
+            <li>bottom – Image khalchya bajula diste.</li>
+            <li>left – Image davya bajula diste.</li>
+            <li>right – Image ujvya bajula diste.</li>
+        </ul>
+
+        <h3>CSS Example</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    background-image: url("background.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+}</code></pre>
+        </div>
+
+    </section>
+
+
+    <!-- Section 8 -->
+    <section class="lesson-section">
+
+        <h2>8. Background Size</h2>
+
+        <p>
+            background-size property background image
+            cha size control karte.
+        </p>
+
+        <h3>Common Values</h3>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>cover</td>
+                        <td>Element purnapane cover hoto; image cha kahi bhag crop hou shakto.</td>
+                    </tr>
+
+                    <tr>
+                        <td>contain</td>
+                        <td>Purn image element madhye fit hote; rikami jaga rahu shakte.</td>
+                    </tr>
+
+                    <tr>
+                        <td>100% 100%</td>
+                        <td>Image element chya width ani height pramane stretch hote.</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+        <h3>CSS Example</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    background-image: url("background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}</code></pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            cover vaparlyas image cha kahi bhag crop hou shakto.
+            contain vaparlyas purn image diste, pan element
+            madhye rikami jaga rahu shakte.
+        </div>
+
+    </section>
+
+
+    <!-- Section 9 -->
+    <section class="lesson-section">
+
+        <h2>9. Common Mistakes</h2>
+
+        <div class="mistake-card">
+            <strong>Mistake 1: Using color for Background</strong>
+
+            <div class="code-block">
+                <pre><code>.box {
+    color: yellow;
+}</code></pre>
+            </div>
+
+            <p>
+                color property text cha color change karte.
+                Background sathi background-color vapra.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 2: Incorrect Image Path</strong>
+
+            <div class="code-block">
+                <pre><code>.box {
+    background-image: url("wrong.jpg");
+}</code></pre>
+            </div>
+
+            <p>
+                Image cha file path chukla tar background
+                image load honar nahi.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 3: Missing URL Function</strong>
+
+            <div class="code-block">
+                <pre><code>.box {
+    background-image: "image.jpg";
+}</code></pre>
+            </div>
+
+            <p>
+                Background image sathi url() function vapra.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- Section 10 -->
+    <section class="lesson-section">
+
+        <h2>10. Important Points</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>color property text cha color change karte.</li>
+                <li>background-color property background color set karte.</li>
+                <li>CSS madhye Color Names, HEX, RGB ani RGBA vaparta yetat.</li>
+                <li>RGBA madhil Alpha transparency control karte.</li>
+                <li>background-image image set karte.</li>
+                <li>background-repeat image repeat control karte.</li>
+                <li>background-position image chi position tharavte.</li>
+                <li>background-size image cha size control karte.</li>
+            </ul>
+        </div>
+
+    </section>
+
+
+    <!-- Practice -->
+    <section class="practice-section">
+
+        <h2>11. Practice Task</h2>
+
+        <div class="task-box">
+
+            <h3>Task: Create a Colorful Web Page</h3>
+
+            <p>Ek simple HTML page tayar kara:</p>
+
+            <ol>
+                <li>Ek heading tayar kara ani tyala red color dya.</li>
+                <li>Paragraph la blue color dya.</li>
+                <li>Ek div tayar karun background-color dya.</li>
+                <li>HEX ani RGB colors vaprun paha.</li>
+                <li>Ek background image add kara.</li>
+                <li>background-size: cover vaprun paha.</li>
+            </ol>
+
+        </div>
+
+    </section>
+
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+
+        <a href="{% url 'css_topic' 'selectors' %}"
+           class="nav-button previous">
+            ← Previous: CSS Selectors
+        </a>
+
+        <a href="{% url 'css_topic' 'text-properties' %}"
+           class="nav-button next">
+            Next: CSS Text Properties →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

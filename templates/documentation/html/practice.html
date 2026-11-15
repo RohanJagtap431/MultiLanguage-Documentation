@@ -1,0 +1,927 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}HTML Practice Questions | HTML Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/html/practice.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Header -->
+
+    <div class="lesson-header">
+        <span class="lesson-label">HTML DOCUMENTATION • PAGE 20</span>
+
+        <h1>HTML Practice Questions</h1>
+
+        <p>
+            Practice important HTML questions, understand
+            concepts and test your HTML knowledge.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Practice Level</span>
+            <span>60–90 Minutes</span>
+        </div>
+    </div>
+
+
+    <!-- Introduction -->
+
+    <section class="lesson-section">
+
+        <h2>1. Introduction</h2>
+
+        <p>
+            HTML shiklyanantar tyacha regular practice karne
+            important aahe. Practice mule HTML tags,
+            attributes, forms, tables ani semantic elements
+            changlya prakare samajtat.
+        </p>
+
+        <p>
+            Ya page madhye basic questions pasun practical
+            coding questions paryant sarv practice dileli aahe.
+        </p>
+
+        <div class="info-box">
+            <strong>Practice Tip:</strong>
+            Pahile question swatah solve kar.
+            Jamla nahi tarach answer bagh.
+        </div>
+
+    </section>
+
+
+    <!-- Basic Questions -->
+
+    <section class="lesson-section">
+
+        <h2>2. HTML Basics Questions</h2>
+
+        <div class="question-card">
+            <h3>Q1. What is HTML?</h3>
+            <p>
+                HTML stands for HyperText Markup Language.
+                It is used to create the structure of web pages.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <h3>Q2. Is HTML a programming language?</h3>
+            <p>
+                No. HTML is a markup language, not a programming
+                language.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <h3>Q3. What is the full form of HTML?</h3>
+            <p>HyperText Markup Language.</p>
+        </div>
+
+        <div class="question-card">
+            <h3>Q4. What is the use of DOCTYPE?</h3>
+            <p>
+                DOCTYPE tells the browser that the document
+                uses HTML5.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <h3>Q5. What is the use of the title tag?</h3>
+            <p>
+                The title tag defines the title displayed
+                in the browser tab.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <h3>Q6. What is the difference between HTML and CSS?</h3>
+            <p>
+                HTML creates the structure of a webpage,
+                while CSS controls its appearance and design.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- Structure Questions -->
+
+    <section class="lesson-section">
+
+        <h2>3. HTML Document Structure Questions</h2>
+
+        <div class="question-card">
+            <h3>Q1. What is the root element of an HTML document?</h3>
+            <p>The html element is the root element.</p>
+        </div>
+
+        <div class="question-card">
+            <h3>Q2. What is the use of the head tag?</h3>
+            <p>
+                It contains document information such as
+                title, metadata and linked resources.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <h3>Q3. What is the use of the body tag?</h3>
+            <p>
+                It contains the content displayed on
+                the webpage.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <h3>Q4. What is the use of meta charset?</h3>
+            <p>
+                It defines the character encoding of
+                the HTML document.
+            </p>
+        </div>
+
+        <h3>Basic HTML Structure</h3>
+
+        <pre class="code-block"><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;My Webpage&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;h1&gt;Hello World&lt;/h1&gt;
+    &lt;p&gt;Welcome to HTML.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+        </code></pre>
+
+    </section>
+
+
+    <!-- Elements and Attributes -->
+
+    <section class="lesson-section">
+
+        <h2>4. Elements and Attributes Questions</h2>
+
+        <div class="question-card">
+            <h3>Q1. What is an HTML element?</h3>
+            <p>
+                An HTML element generally consists of an opening
+                tag, content and a closing tag.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <h3>Q2. What are void elements?</h3>
+            <p>
+                Void elements do not have closing tags
+                or child content.
+            </p>
+            <p>Examples: img, br, hr, input and meta.</p>
+        </div>
+
+        <div class="question-card">
+            <h3>Q3. What are HTML attributes?</h3>
+            <p>
+                Attributes provide additional information
+                about HTML elements.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <h3>Q4. What is the use of the id attribute?</h3>
+            <p>
+                The id attribute gives a unique identifier
+                to an HTML element within a document.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <h3>Q5. What is the difference between id and class?</h3>
+            <p>
+                An id identifies a particular element,
+                while a class can be shared by multiple elements.
+            </p>
+        </div>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;h1 id="heading"&gt;Welcome&lt;/h1&gt;
+
+&lt;p class="description"&gt;
+    Learn HTML step by step.
+&lt;/p&gt;
+        </code></pre>
+
+    </section>
+
+
+    <!-- Headings Links Images Lists -->
+
+    <section class="lesson-section">
+
+        <h2>5. Headings, Links, Images and Lists</h2>
+
+        <div class="question-card">
+            <h3>Q1. How many heading tags are available in HTML?</h3>
+            <p>There are six heading tags, from h1 to h6.</p>
+        </div>
+
+        <div class="question-card">
+            <h3>Q2. Which tag is used to create a hyperlink?</h3>
+            <p>The anchor tag (a) is used to create hyperlinks.</p>
+        </div>
+
+        <div class="question-card">
+            <h3>Q3. Which attribute is used to specify a link?</h3>
+            <p>The href attribute is used.</p>
+        </div>
+
+        <div class="question-card">
+            <h3>Q4. Which tag is used to display an image?</h3>
+            <p>The img tag is used to display images.</p>
+        </div>
+
+        <div class="question-card">
+            <h3>Q5. What is the difference between ul and ol?</h3>
+            <p>
+                ul creates an unordered list, while ol
+                creates an ordered list.
+            </p>
+        </div>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;h1&gt;My Skills&lt;/h1&gt;
+
+&lt;ul&gt;
+    &lt;li&gt;Python&lt;/li&gt;
+    &lt;li&gt;Django&lt;/li&gt;
+    &lt;li&gt;HTML&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;a href="https://example.com"&gt;
+    Visit Website
+&lt;/a&gt;
+
+&lt;img src="photo.jpg" alt="My Photo"&gt;
+        </code></pre>
+
+    </section>
+
+
+    <!-- Tables and Forms -->
+
+    <section class="lesson-section">
+
+        <h2>6. Tables and Forms Questions</h2>
+
+        <div class="question-card">
+            <h3>Q1. Which tag creates an HTML table?</h3>
+            <p>The table tag creates an HTML table.</p>
+        </div>
+
+        <div class="question-card">
+            <h3>Q2. What is the use of tr?</h3>
+            <p>tr defines a table row.</p>
+        </div>
+
+        <div class="question-card">
+            <h3>Q3. What is the difference between th and td?</h3>
+            <p>
+                th defines a header cell, while td defines
+                a normal data cell.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <h3>Q4. What is the use of the form tag?</h3>
+            <p>
+                The form tag collects and submits user data.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <h3>Q5. What is the difference between GET and POST?</h3>
+            <p>
+                GET sends form data through URL parameters.
+                POST sends data in the request body.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <h3>Q6. Why is the name attribute important in forms?</h3>
+            <p>
+                The name attribute identifies form fields
+                when their data is submitted.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <h3>Q7. What is the use of required?</h3>
+            <p>
+                It makes a form field mandatory before
+                normal form submission.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- Semantic HTML -->
+
+    <section class="lesson-section">
+
+        <h2>7. Semantic HTML Questions</h2>
+
+        <div class="question-card">
+            <h3>Q1. What is Semantic HTML?</h3>
+            <p>
+                Semantic HTML uses meaningful elements
+                that describe the purpose of content.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <h3>Q2. What is the use of header?</h3>
+            <p>
+                It represents introductory content
+                or a section header.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <h3>Q3. What is the use of nav?</h3>
+            <p>
+                It represents a section containing
+                important navigation links.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <h3>Q4. What is the use of main?</h3>
+            <p>
+                It represents the main content of
+                the webpage.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <h3>Q5. What is the use of article?</h3>
+            <p>
+                It represents independent and
+                self-contained content.
+            </p>
+        </div>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;header&gt;
+    &lt;h1&gt;My Website&lt;/h1&gt;
+&lt;/header&gt;
+
+&lt;nav&gt;
+    &lt;a href="#home"&gt;Home&lt;/a&gt;
+    &lt;a href="#about"&gt;About&lt;/a&gt;
+&lt;/nav&gt;
+
+&lt;main&gt;
+    &lt;article&gt;
+        &lt;h2&gt;HTML Tutorial&lt;/h2&gt;
+        &lt;p&gt;Learn HTML basics.&lt;/p&gt;
+    &lt;/article&gt;
+&lt;/main&gt;
+
+&lt;footer&gt;
+    &lt;p&gt;Copyright 2026&lt;/p&gt;
+&lt;/footer&gt;
+        </code></pre>
+
+    </section>
+
+
+    <!-- HTML5 -->
+
+    <section class="lesson-section">
+
+        <h2>8. HTML5 Features Questions</h2>
+
+        <div class="question-card">
+            <h3>Q1. What is HTML5?</h3>
+            <p>
+                HTML5 is a major revision of HTML that introduced
+                features such as semantic elements and native
+                audio and video support.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <h3>Q2. Which tag is used to play audio?</h3>
+            <p>The audio tag is used.</p>
+        </div>
+
+        <div class="question-card">
+            <h3>Q3. Which tag is used to play video?</h3>
+            <p>The video tag is used.</p>
+        </div>
+
+        <div class="question-card">
+            <h3>Q4. What is the use of canvas?</h3>
+            <p>
+                Canvas provides a drawing area that can
+                be controlled using JavaScript.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <h3>Q5. What is the difference between localStorage and sessionStorage?</h3>
+            <p>
+                localStorage stores data across browser sessions,
+                while sessionStorage stores data for a page session.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- SEO and Accessibility -->
+
+    <section class="lesson-section">
+
+        <h2>9. SEO and Accessibility Questions</h2>
+
+        <div class="question-card">
+            <h3>Q1. What is SEO?</h3>
+            <p>
+                SEO stands for Search Engine Optimization.
+                It helps improve a website's visibility
+                in search engine results.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <h3>Q2. What is the use of meta description?</h3>
+            <p>
+                It provides a short description of
+                a webpage for search engines.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <h3>Q3. What is the use of alt attribute?</h3>
+            <p>
+                It provides alternative text for an image.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <h3>Q4. What is Web Accessibility?</h3>
+            <p>
+                Accessibility means making websites usable
+                for people with different abilities.
+            </p>
+        </div>
+
+        <div class="question-card">
+            <h3>Q5. Why are labels important in forms?</h3>
+            <p>
+                Labels identify form controls and help
+                users understand their purpose.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- Output Based -->
+
+    <section class="lesson-section">
+
+        <h2>10. Output-Based Questions</h2>
+
+        <div class="output-question">
+
+            <h3>Question 1</h3>
+
+            <p>What will be the output?</p>
+
+            <pre class="code-block"><code>
+&lt;h1&gt;Hello HTML&lt;/h1&gt;
+&lt;p&gt;Welcome to Web Development.&lt;/p&gt;
+            </code></pre>
+
+            <h3>Answer:</h3>
+
+            <div class="output-box">
+                <h1>Hello HTML</h1>
+                <p>Welcome to Web Development.</p>
+            </div>
+
+        </div>
+
+
+        <div class="output-question">
+
+            <h3>Question 2</h3>
+
+            <p>What will be the output?</p>
+
+            <pre class="code-block"><code>
+&lt;ol&gt;
+    &lt;li&gt;Python&lt;/li&gt;
+    &lt;li&gt;Java&lt;/li&gt;
+    &lt;li&gt;C++&lt;/li&gt;
+&lt;/ol&gt;
+            </code></pre>
+
+            <h3>Answer:</h3>
+
+            <div class="output-box">
+                <ol>
+                    <li>Python</li>
+                    <li>Java</li>
+                    <li>C++</li>
+                </ol>
+            </div>
+
+        </div>
+
+
+        <div class="output-question">
+
+            <h3>Question 3</h3>
+
+            <p>What will be the output?</p>
+
+            <pre class="code-block"><code>
+&lt;a href="https://example.com"&gt;
+    Open Website
+&lt;/a&gt;
+            </code></pre>
+
+            <h3>Answer:</h3>
+
+            <div class="output-box">
+                <a href="https://example.com">Open Website</a>
+            </div>
+
+        </div>
+
+
+        <div class="output-question">
+
+            <h3>Question 4</h3>
+
+            <p>What will be the output?</p>
+
+            <pre class="code-block"><code>
+&lt;table border="1"&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Name&lt;/th&gt;
+        &lt;th&gt;Age&lt;/th&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt;Rohan&lt;/td&gt;
+        &lt;td&gt;20&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+            </code></pre>
+
+            <h3>Answer:</h3>
+
+            <div class="output-box">
+                <table class="demo-table">
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                    </tr>
+                    <tr>
+                        <td>Rohan</td>
+                        <td>20</td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Practical Coding -->
+
+    <section class="lesson-section">
+
+        <h2>11. Practical Coding Questions</h2>
+
+        <p>
+            Khalil questions swatah HTML code lihun solve kar.
+        </p>
+
+        <div class="practical-card">
+            <span>01</span>
+            <div>
+                <h3>Personal Introduction Page</h3>
+                <p>
+                    Name, photo, education, skills ani
+                    hobbies display kar.
+                </p>
+            </div>
+        </div>
+
+        <div class="practical-card">
+            <span>02</span>
+            <div>
+                <h3>Student Registration Form</h3>
+                <p>
+                    Name, email, age, gender ani course
+                    fields use kar.
+                </p>
+            </div>
+        </div>
+
+        <div class="practical-card">
+            <span>03</span>
+            <div>
+                <h3>Student Result Table</h3>
+                <p>
+                    Student name, subject marks ani total
+                    marks display kar.
+                </p>
+            </div>
+        </div>
+
+        <div class="practical-card">
+            <span>04</span>
+            <div>
+                <h3>Navigation Menu</h3>
+                <p>
+                    Home, About, Services ani Contact
+                    pages connect kar.
+                </p>
+            </div>
+        </div>
+
+        <div class="practical-card">
+            <span>05</span>
+            <div>
+                <h3>Developer Portfolio</h3>
+                <p>
+                    About, Skills, Projects ani Contact
+                    sections create kar.
+                </p>
+            </div>
+        </div>
+
+        <div class="practical-card">
+            <span>06</span>
+            <div>
+                <h3>Restaurant Menu</h3>
+                <p>
+                    Food categories, items ani prices
+                    display kar.
+                </p>
+            </div>
+        </div>
+
+        <div class="practical-card">
+            <span>07</span>
+            <div>
+                <h3>Blog Article Page</h3>
+                <p>
+                    Article title, author, date ani
+                    paragraph create kar.
+                </p>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Mini Mock Test -->
+
+    <section class="lesson-section mock-test">
+
+        <h2>12. HTML Mini Mock Test</h2>
+
+        <p>
+            Khalil 10 questions solve kar.
+            Pratyek question sathi ek mark aahe.
+        </p>
+
+        <div class="test-question">
+            <h3>Q1. HTML stands for:</h3>
+            <p>A. HyperText Markup Language</p>
+            <p>B. HighText Machine Language</p>
+            <p>C. Hyper Transfer Markup Language</p>
+            <p>D. Home Tool Markup Language</p>
+            <p class="correct-answer">Correct Answer: A</p>
+        </div>
+
+        <div class="test-question">
+            <h3>Q2. Which tag creates the largest default heading?</h3>
+            <p>A. h6</p>
+            <p>B. h1</p>
+            <p>C. p</p>
+            <p>D. head</p>
+            <p class="correct-answer">Correct Answer: B</p>
+        </div>
+
+        <div class="test-question">
+            <h3>Q3. Which tag creates a hyperlink?</h3>
+            <p>A. link</p>
+            <p>B. href</p>
+            <p>C. a</p>
+            <p>D. url</p>
+            <p class="correct-answer">Correct Answer: C</p>
+        </div>
+
+        <div class="test-question">
+            <h3>Q4. Which attribute specifies an image path?</h3>
+            <p>A. href</p>
+            <p>B. src</p>
+            <p>C. alt</p>
+            <p>D. link</p>
+            <p class="correct-answer">Correct Answer: B</p>
+        </div>
+
+        <div class="test-question">
+            <h3>Q5. Which tag creates an ordered list?</h3>
+            <p>A. ul</p>
+            <p>B. li</p>
+            <p>C. ol</p>
+            <p>D. dl</p>
+            <p class="correct-answer">Correct Answer: C</p>
+        </div>
+
+        <div class="test-question">
+            <h3>Q6. Which tag creates a table row?</h3>
+            <p>A. td</p>
+            <p>B. tr</p>
+            <p>C. th</p>
+            <p>D. table-row</p>
+            <p class="correct-answer">Correct Answer: B</p>
+        </div>
+
+        <div class="test-question">
+            <h3>Q7. Which input type is used for email?</h3>
+            <p>A. text</p>
+            <p>B. mail</p>
+            <p>C. email</p>
+            <p>D. message</p>
+            <p class="correct-answer">Correct Answer: C</p>
+        </div>
+
+        <div class="test-question">
+            <h3>Q8. Which tag is used to play video?</h3>
+            <p>A. media</p>
+            <p>B. movie</p>
+            <p>C. audio</p>
+            <p>D. video</p>
+            <p class="correct-answer">Correct Answer: D</p>
+        </div>
+
+        <div class="test-question">
+            <h3>Q9. Which element represents the main content?</h3>
+            <p>A. main</p>
+            <p>B. footer</p>
+            <p>C. aside</p>
+            <p>D. nav</p>
+            <p class="correct-answer">Correct Answer: A</p>
+        </div>
+
+        <div class="test-question">
+            <h3>Q10. Which attribute provides alternative text for images?</h3>
+            <p>A. title</p>
+            <p>B. href</p>
+            <p>C. alt</p>
+            <p>D. name</p>
+            <p class="correct-answer">Correct Answer: C</p>
+        </div>
+
+    </section>
+
+
+    <!-- Final Task -->
+
+    <section class="lesson-section">
+
+        <h2>13. Final HTML Challenge</h2>
+
+        <div class="task-box">
+
+            <h3>Create Your Own Complete Website</h3>
+
+            <p>
+                Ata paryant shiklele HTML concepts use karun
+                ek complete multi-section website create kar.
+            </p>
+
+            <h3>Required Sections:</h3>
+
+            <ul>
+                <li>Header and Navigation</li>
+                <li>About Me</li>
+                <li>Education</li>
+                <li>Skills</li>
+                <li>Projects</li>
+                <li>Contact Form</li>
+                <li>Footer</li>
+            </ul>
+
+            <h3>Required HTML Concepts:</h3>
+
+            <ul>
+                <li>HTML Document Structure</li>
+                <li>Headings and Paragraphs</li>
+                <li>Links and Images</li>
+                <li>Lists and Tables</li>
+                <li>Forms and Input Types</li>
+                <li>Semantic HTML</li>
+            </ul>
+
+            <p>
+                <strong>File Name:</strong> index.html
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Final Revision -->
+
+    <section class="lesson-section">
+
+        <h2>14. Final HTML Revision Checklist</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>HTML Introduction</li>
+                <li>Document Structure</li>
+                <li>Elements and Tags</li>
+                <li>Attributes</li>
+                <li>Headings and Paragraphs</li>
+                <li>Links and Images</li>
+                <li>Lists and Tables</li>
+                <li>Forms and Input Types</li>
+                <li>Semantic HTML</li>
+                <li>Audio and Video</li>
+                <li>Iframes and Entities</li>
+                <li>HTML5 Features</li>
+                <li>SEO Basics</li>
+                <li>Accessibility</li>
+                <li>HTML Projects</li>
+                <li>Practice Questions</li>
+            </ul>
+        </div>
+
+        <div class="success-box">
+            <h3>HTML Documentation Completed!</h3>
+            <p>
+                Tu HTML che 20 topics complete kele aahet.
+                Ata HTML concepts use karun practical
+                webpages create karaychi practice kar.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- Navigation -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'html_topic' 'projects' %}"
+           class="nav-button previous-button">
+            ← Previous: HTML Projects
+        </a>
+
+        <a href="{% url 'html_index' %}"
+           class="nav-button next-button">
+            HTML Topics Home →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

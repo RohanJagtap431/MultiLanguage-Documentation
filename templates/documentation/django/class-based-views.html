@@ -1,0 +1,478 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Django Class-Based Views{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/django/class-based-views.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <header class="lesson-header">
+        <span class="lesson-label">DJANGO COURSE • TOPIC 20</span>
+        <h1>Django Class-Based Views (CBV)</h1>
+        <p>Learn how to create reusable views using Python classes in Django.</p>
+        <div class="lesson-meta">
+            <span>Intermediate Level</span>
+            <span>60–75 Minutes</span>
+        </div>
+    </header>
+
+    <section class="lesson-section">
+        <h2>1. Class-Based Views mhanje kay?</h2>
+        <p>Class-Based Views (CBV) mhanje Django madhye views create karnyasathi Python Classes cha use karne.</p>
+        <p>FBV madhye function vaparto, tar CBV madhye class vaparto.</p>
+
+        <h3>Function-Based View</h3>
+        <pre class="code-block"><code>from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("Welcome to Django")</code></pre>
+
+        <h3>Class-Based View</h3>
+        <pre class="code-block"><code>from django.views import View
+from django.http import HttpResponse
+
+class HomeView(View):
+
+    def get(self, request):
+        return HttpResponse("Welcome to Django")</code></pre>
+
+        <div class="info-box">CBV mule code reusable ani organized thevta yeto.</div>
+    </section>
+
+    <section class="lesson-section">
+        <h2>2. FBV vs CBV</h2>
+        <table class="lesson-table">
+            <thead><tr><th>FBV</th><th>CBV</th></tr></thead>
+            <tbody>
+                <tr><td>Function vaparto.</td><td>Class vaparto.</td></tr>
+                <tr><td>Simple structure.</td><td>Structured approach.</td></tr>
+                <tr><td>def vaparto.</td><td>class vaparto.</td></tr>
+                <tr><td>if madhun request handle karu shakto.</td><td>get(), post() methods vaparto.</td></tr>
+                <tr><td>Small views sathi useful.</td><td>Complex ani reusable views sathi useful.</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="lesson-section">
+        <h2>3. Django View Class</h2>
+        <p>View hi Django madhil base class aahe. Tichya madatine swatahche CBV create karta yetat.</p>
+        <pre class="code-block"><code>from django.views import View
+from django.http import HttpResponse
+
+class HomeView(View):
+
+    def get(self, request):
+        return HttpResponse("Home Page")
+
+    def post(self, request):
+        return HttpResponse("POST Request")</code></pre>
+
+        <ul>
+            <li>get() – GET request handle karte.</li>
+            <li>post() – POST request handle karte.</li>
+        </ul>
+
+        <h3>URL Configuration</h3>
+        <pre class="code-block"><code>path("home/", HomeView.as_view())</code></pre>
+    </section>
+
+    <section class="lesson-section">
+        <h2>4. TemplateView</h2>
+        <p>TemplateView cha use HTML template display karnyasathi hoto.</p>
+        <h3>views.py</h3>
+        <pre class="code-block"><code>from django.views.generic import TemplateView
+
+class HomeView(TemplateView):
+
+    template_name = "home.html"</code></pre>
+
+        <h3>urls.py</h3>
+        <pre class="code-block"><code>path(
+    "home/",
+    HomeView.as_view(),
+    name="home"
+)</code></pre>
+        <p>Simple page display karnyasathi vegla get() method lihinyachi garaj naste.</p>
+    </section>
+
+    <section class="lesson-section">
+        <h2>5. ListView</h2>
+        <p>ListView cha use database madhil multiple records display karnyasathi hoto.</p>
+        <h3>views.py</h3>
+        <pre class="code-block"><code>from django.views.generic import ListView
+from .models import Student
+
+class StudentListView(ListView):
+
+    model = Student
+
+    template_name = "students/list.html"
+
+    context_object_name = "students"</code></pre>
+
+        <h3>urls.py</h3>
+        <pre class="code-block"><code>path(
+    "students/",
+    StudentListView.as_view(),
+    name="student_list"
+)</code></pre>
+
+        <h3>list.html</h3>
+        <pre class="code-block"><code>{% verbatim %}
+{% for student in students %}
+    &lt;h3&gt;{{ student.name }}&lt;/h3&gt;
+    &lt;p&gt;{{ student.email }}&lt;/p&gt;
+{% empty %}
+    &lt;p&gt;No students found.&lt;/p&gt;
+{% endfor %}
+{% endverbatim %}</code></pre>
+        <p>context_object_name mule template madhye students navane records access karta yetat.</p>
+    </section>
+
+    <section class="lesson-section">
+        <h2>6. DetailView</h2>
+        <p>DetailView cha use eka specific record chi information display karnyasathi hoto.</p>
+        <h3>views.py</h3>
+        <pre class="code-block"><code>from django.views.generic import DetailView
+
+class StudentDetailView(DetailView):
+
+    model = Student
+
+    template_name = "students/detail.html"
+
+    context_object_name = "student"</code></pre>
+
+        <h3>urls.py</h3>
+        <pre class="code-block"><code>path(
+    "students/&lt;int:pk&gt;/",
+    StudentDetailView.as_view(),
+    name="student_detail"
+)</code></pre>
+
+        <h3>detail.html</h3>
+        <pre class="code-block"><code>{% verbatim %}
+&lt;h2&gt;{{ student.name }}&lt;/h2&gt;
+&lt;p&gt;{{ student.email }}&lt;/p&gt;
+&lt;p&gt;{{ student.age }}&lt;/p&gt;
+&lt;p&gt;{{ student.course }}&lt;/p&gt;
+{% endverbatim %}</code></pre>
+        <div class="info-box">pk mhanje Primary Key. Tyachya madatine specific record shodhla jato.</div>
+    </section>
+
+    <section class="lesson-section">
+        <h2>7. CreateView</h2>
+        <p>CreateView cha use database madhye navin record create karnyasathi hoto.</p>
+        <h3>views.py</h3>
+        <pre class="code-block"><code>from django.views.generic import CreateView
+from django.urls import reverse_lazy
+from .models import Student
+
+class StudentCreateView(CreateView):
+
+    model = Student
+
+    fields = ["name", "email", "age", "course"]
+
+    template_name = "students/student_form.html"
+
+    success_url = reverse_lazy("student_list")</code></pre>
+
+        <h3>urls.py</h3>
+        <pre class="code-block"><code>path(
+    "students/add/",
+    StudentCreateView.as_view(),
+    name="student_add"
+)</code></pre>
+
+        <p>fields madhye form madhye konti model fields dakhvaychi te define karto.</p>
+        <p>success_url record successfully create zalyavar kuthe redirect karayche te sangte.</p>
+    </section>
+
+    <section class="lesson-section">
+        <h2>8. UpdateView</h2>
+        <p>UpdateView cha use existing database record update karnyasathi hoto.</p>
+        <h3>views.py</h3>
+        <pre class="code-block"><code>from django.views.generic import UpdateView
+
+class StudentUpdateView(UpdateView):
+
+    model = Student
+
+    fields = ["name", "email", "age", "course"]
+
+    template_name = "students/student_form.html"
+
+    success_url = reverse_lazy("student_list")</code></pre>
+
+        <h3>urls.py</h3>
+        <pre class="code-block"><code>path(
+    "students/&lt;int:pk&gt;/edit/",
+    StudentUpdateView.as_view(),
+    name="student_update"
+)</code></pre>
+
+        <p>UpdateView URL madhil pk vaprun existing record shodhte ani tyacha form display karte.</p>
+    </section>
+
+    <section class="lesson-section">
+        <h2>9. DeleteView</h2>
+        <p>DeleteView cha use database madhil record delete karnyasathi hoto.</p>
+        <h3>views.py</h3>
+        <pre class="code-block"><code>from django.views.generic import DeleteView
+
+class StudentDeleteView(DeleteView):
+
+    model = Student
+
+    template_name = "students/student_confirm_delete.html"
+
+    success_url = reverse_lazy("student_list")</code></pre>
+
+        <h3>urls.py</h3>
+        <pre class="code-block"><code>path(
+    "students/&lt;int:pk&gt;/delete/",
+    StudentDeleteView.as_view(),
+    name="student_delete"
+)</code></pre>
+
+        <h3>Confirmation Template</h3>
+        <pre class="code-block"><code>{% verbatim %}
+&lt;h2&gt;Are you sure you want to delete this student?&lt;/h2&gt;
+
+&lt;form method="POST"&gt;
+    {% csrf_token %}
+    &lt;button type="submit"&gt;Confirm Delete&lt;/button&gt;
+&lt;/form&gt;
+{% endverbatim %}</code></pre>
+
+        <div class="important-box">DeleteView madhye GET request var confirmation page display hote. Actual deletion POST request ne hote.</div>
+    </section>
+
+    <section class="lesson-section">
+        <h2>10. Complete Practical – Student Management System</h2>
+        <p>Topic 08 madhil existing Student model vapra. Navin Student model create karu naka.</p>
+
+        <h3>Step 1: Create Views</h3>
+        <p>File: students/views.py</p>
+        <pre class="code-block"><code>from django.views.generic import (
+    ListView, DetailView, CreateView,
+    UpdateView, DeleteView
+)
+
+from django.urls import reverse_lazy
+from .models import Student
+
+
+class StudentListView(ListView):
+    model = Student
+    template_name = "students/list.html"
+    context_object_name = "students"
+
+
+class StudentDetailView(DetailView):
+    model = Student
+    template_name = "students/detail.html"
+    context_object_name = "student"
+
+
+class StudentCreateView(CreateView):
+    model = Student
+    fields = ["name", "email", "age", "course"]
+    template_name = "students/student_form.html"
+    success_url = reverse_lazy("student_list")
+
+
+class StudentUpdateView(UpdateView):
+    model = Student
+    fields = ["name", "email", "age", "course"]
+    template_name = "students/student_form.html"
+    success_url = reverse_lazy("student_list")
+
+
+class StudentDeleteView(DeleteView):
+    model = Student
+    template_name = "students/student_confirm_delete.html"
+    success_url = reverse_lazy("student_list")</code></pre>
+
+        <h3>Step 2: Create URLs</h3>
+        <p>File: students/urls.py</p>
+        <pre class="code-block"><code>from django.urls import path
+from . import views
+
+urlpatterns = [
+    path("students/", views.StudentListView.as_view(),
+         name="student_list"),
+
+    path("students/&lt;int:pk&gt;/",
+         views.StudentDetailView.as_view(),
+         name="student_detail"),
+
+    path("students/add/",
+         views.StudentCreateView.as_view(),
+         name="student_add"),
+
+    path("students/&lt;int:pk&gt;/edit/",
+         views.StudentUpdateView.as_view(),
+         name="student_update"),
+
+    path("students/&lt;int:pk&gt;/delete/",
+         views.StudentDeleteView.as_view(),
+         name="student_delete"),
+]</code></pre>
+
+        <h3>Step 3: Create Templates</h3>
+        <p>Folder structure:</p>
+        <pre class="output-code"><code>templates/
+    students/
+        list.html
+        detail.html
+        student_form.html
+        student_confirm_delete.html</code></pre>
+
+        <h3>list.html</h3>
+        <pre class="code-block"><code>{% verbatim %}
+&lt;h1&gt;Student List&lt;/h1&gt;
+
+&lt;a href="{% url 'student_add' %}"&gt;Add Student&lt;/a&gt;
+
+{% for student in students %}
+
+    &lt;h3&gt;{{ student.name }}&lt;/h3&gt;
+
+    &lt;a href="{% url 'student_detail' student.pk %}"&gt;View&lt;/a&gt;
+
+    &lt;a href="{% url 'student_update' student.pk %}"&gt;Edit&lt;/a&gt;
+
+    &lt;a href="{% url 'student_delete' student.pk %}"&gt;Delete&lt;/a&gt;
+
+{% empty %}
+    &lt;p&gt;No students found.&lt;/p&gt;
+{% endfor %}
+{% endverbatim %}</code></pre>
+
+        <h3>detail.html</h3>
+        <pre class="code-block"><code>{% verbatim %}
+&lt;h1&gt;Student Details&lt;/h1&gt;
+
+&lt;p&gt;Name: {{ student.name }}&lt;/p&gt;
+&lt;p&gt;Email: {{ student.email }}&lt;/p&gt;
+&lt;p&gt;Age: {{ student.age }}&lt;/p&gt;
+&lt;p&gt;Course: {{ student.course }}&lt;/p&gt;
+
+&lt;a href="{% url 'student_list' %}"&gt;Back&lt;/a&gt;
+{% endverbatim %}</code></pre>
+
+        <h3>student_form.html</h3>
+        <pre class="code-block"><code>{% verbatim %}
+&lt;h1&gt;Student Form&lt;/h1&gt;
+
+&lt;form method="POST"&gt;
+    {% csrf_token %}
+    {{ form.as_p }}
+    &lt;button type="submit"&gt;Save Student&lt;/button&gt;
+&lt;/form&gt;
+{% endverbatim %}</code></pre>
+
+        <h3>student_confirm_delete.html</h3>
+        <pre class="code-block"><code>{% verbatim %}
+&lt;h1&gt;Delete Student&lt;/h1&gt;
+
+&lt;p&gt;Are you sure you want to delete {{ object.name }}?&lt;/p&gt;
+
+&lt;form method="POST"&gt;
+    {% csrf_token %}
+    &lt;button type="submit"&gt;Confirm Delete&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;a href="{% url 'student_list' %}"&gt;Cancel&lt;/a&gt;
+{% endverbatim %}</code></pre>
+
+        <h3>Step 4: Run Project</h3>
+        <pre class="code-block"><code>python manage.py runserver</code></pre>
+
+        <h3>Step 5: URLs</h3>
+        <table class="lesson-table">
+            <thead><tr><th>Operation</th><th>URL</th></tr></thead>
+            <tbody>
+                <tr><td>Student List</td><td>/students/students/</td></tr>
+                <tr><td>Student Detail</td><td>/students/students/1/</td></tr>
+                <tr><td>Add Student</td><td>/students/students/add/</td></tr>
+                <tr><td>Edit Student</td><td>/students/students/1/edit/</td></tr>
+                <tr><td>Delete Student</td><td>/students/students/1/delete/</td></tr>
+            </tbody>
+        </table>
+
+        <div class="important-box">Project madhye students/ app prefix already include kela asel tar app URLs madhil duplicate students/ prefix kadha.</div>
+    </section>
+
+    <section class="lesson-section">
+        <h2>11. Common Mistakes</h2>
+        <table class="lesson-table">
+            <thead><tr><th>Problem</th><th>Solution</th></tr></thead>
+            <tbody>
+                <tr><td>as_view() missing</td><td>Class URL madhye .as_view() vapra.</td></tr>
+                <tr><td>Template not found</td><td>template_name path check kara.</td></tr>
+                <tr><td>Record not found</td><td>URL madhil pk check kara.</td></tr>
+                <tr><td>Form fields not showing</td><td>fields madhye correct model fields dya.</td></tr>
+                <tr><td>Redirect error</td><td>success_url check kara.</td></tr>
+                <tr><td>Delete hot nahi</td><td>POST ani CSRF token vapra.</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="lesson-section">
+        <h2>12. Important Revision</h2>
+        <ol>
+            <li>CBV madhye Python Classes vapartat.</li>
+            <li>View hi base class aahe.</li>
+            <li>TemplateView HTML template display karte.</li>
+            <li>ListView multiple records display karte.</li>
+            <li>DetailView ek record display karte.</li>
+            <li>CreateView navin record create karte.</li>
+            <li>UpdateView existing record update karte.</li>
+            <li>DeleteView record delete karte.</li>
+            <li>as_view() class la URL sobat connect karte.</li>
+            <li>reverse_lazy() success URL define karnyasathi vaparta yete.</li>
+        </ol>
+    </section>
+
+    <section class="practice-section">
+        <h2>13. Practice Questions</h2>
+        <ol>
+            <li>Class-Based View mhanje kay?</li>
+            <li>FBV ani CBV madhil farak lih.</li>
+            <li>Django madhye View class cha use kay?</li>
+            <li>TemplateView explain kar.</li>
+            <li>ListView ani DetailView madhil farak lih.</li>
+            <li>CreateView cha use kay?</li>
+            <li>UpdateView kasa work karto?</li>
+            <li>DeleteView madhye POST request ka vapartat?</li>
+            <li>as_view() mhanje kay?</li>
+            <li>Student Management System CBV vaprun tayar kar.</li>
+        </ol>
+    </section>
+
+    <div class="completion-message">
+        <h2>Topic 20 Completed!</h2>
+        <p>Ata tumhala Django madhil Class-Based Views ani CRUD operations samajle astil.</p>
+    </div>
+
+    <div class="lesson-navigation">
+        <a href="{% url 'django_topic' 'file-image-upload' %}" class="nav-button previous-button">
+            ← Previous Topic
+        </a>
+        <a href="{% url 'django_topic' 'middleware' %}" class="nav-button next-button">
+            Next Topic →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

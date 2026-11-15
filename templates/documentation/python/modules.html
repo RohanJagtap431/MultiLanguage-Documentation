@@ -1,0 +1,816 @@
+
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}Python Modules | Roman Marathi Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/python/modules.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">PYTHON • LESSON 22</span>
+        <h1>Python Modules</h1>
+        <p>
+            Python modules cha use code vegveglya files madhye organize
+            karnyasathi ani reusable banvnyasathi hoto.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Level: Beginner</span>
+            <span>⏱️ Time: 40–50 Minutes</span>
+        </div>
+    </div>
+
+    <!-- 1. Introduction -->
+    <section class="lesson-section">
+        <h2>1. What are Modules?</h2>
+
+        <p>
+            Module mhanje ek Python file jyamadhye functions, variables
+            ani classes lihilele astat.
+        </p>
+
+        <p>
+            Aapan dusrya Python file madhil code aaplya program madhye
+            use karu shakto. Tyasathi import statement vapartat.
+        </p>
+
+        <h3>Example</h3>
+
+        <p>
+            Samja aaplyakade don Python files aahet:
+        </p>
+
+        <pre><code>math_operations.py
+main.py</code></pre>
+
+        <p>
+            math_operations.py madhye function lihun te main.py madhye
+            import karun use karta yete.
+        </p>
+
+        <div class="info-box">
+            <strong>Samjun ghe:</strong>
+            Module mhanje code lihileli Python file.
+            Tya file madhil code dusrya file madhye reuse karta yeto.
+        </div>
+    </section>
+
+    <!-- 2. Advantages -->
+    <section class="lesson-section">
+        <h2>2. Advantages of Modules</h2>
+
+        <ul>
+            <li><strong>Code Reusability:</strong> Ekach code vegveglya programs madhye use karta yeto.</li>
+            <li><strong>Organization:</strong> Code vegveglya files madhye divide karta yeto.</li>
+            <li><strong>Easy Maintenance:</strong> Code update ani manage karne sope hote.</li>
+            <li><strong>Less Repetition:</strong> Same function punha lihava lagat nahi.</li>
+            <li><strong>Easy Testing:</strong> Specific module separately test karta yeto.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Large applications madhye modules mule project cha code
+            organized ani manageable rahto.
+        </div>
+    </section>
+
+    <!-- 3. Types -->
+    <section class="lesson-section">
+        <h2>3. Types of Python Modules</h2>
+
+        <p>Python madhye modules che kahi important types aahet:</p>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Built-in Modules</td>
+                        <td>Python sobat already available aslele modules.</td>
+                    </tr>
+                    <tr>
+                        <td>Third-party Modules</td>
+                        <td>External packages madhun install kele janare modules.</td>
+                    </tr>
+                    <tr>
+                        <td>User-defined Modules</td>
+                        <td>Programmer swatah create karto te modules.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 4. Import -->
+    <section class="lesson-section">
+        <h2>4. import Statement</h2>
+
+        <p>
+            Dusra module aaplya Python program madhye use karnyasathi
+            <code>import</code> keyword vapartat.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre><code>import module_name</code></pre>
+
+        <h3>Example – math Module</h3>
+
+        <pre><code>import math
+
+print(math.sqrt(25))
+print(math.pi)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>5.0
+3.141592653589793</pre>
+        </div>
+
+        <p>
+            Yethe math module import kela aahe.
+            sqrt() ani pi use karnyasathi math dot notation vaparla aahe.
+        </p>
+    </section>
+
+    <!-- 5. Specific Import -->
+    <section class="lesson-section">
+        <h2>5. Import Specific Functions</h2>
+
+        <p>
+            Purn module import karnyapeksha tyatil specific function
+            kiwa variable import karta yeto.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre><code>from module_name import function_name</code></pre>
+
+        <h3>Example</h3>
+
+        <pre><code>from math import sqrt
+
+print(sqrt(36))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>6.0</pre>
+        </div>
+
+        <p>
+            Ya example madhye fakt sqrt function import kela aahe.
+            Mhanun function call kartana math.sqrt() lihinyachi garaj nahi.
+        </p>
+
+        <h3>Import Multiple Functions</h3>
+
+        <pre><code>from math import sqrt, factorial
+
+print(sqrt(49))
+print(factorial(5))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>7.0
+120</pre>
+        </div>
+    </section>
+
+    <!-- 6. Import All -->
+    <section class="lesson-section">
+        <h2>6. Import All Functions</h2>
+
+        <p>
+            Module madhil available public names import karnyasathi
+            star symbol (*) vaparta yeto.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>from math import *
+
+print(sqrt(64))
+print(factorial(4))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>8.0
+24</pre>
+        </div>
+
+        <div class="warning-box">
+            <strong>Note:</strong>
+            from module import * he mothya projects madhye talave.
+            Karan konti names kutheun aali he samajne kathin hou shakte.
+            Specific functions import karne jast changle.
+        </div>
+    </section>
+
+    <!-- 7. Alias -->
+    <section class="lesson-section">
+        <h2>7. as Keyword (Alias)</h2>
+
+        <p>
+            Module kiwa imported function la short name denyasathi
+            <code>as</code> keyword vapartat.
+            Ya navala alias mhantat.
+        </p>
+
+        <h3>Module Alias Example</h3>
+
+        <pre><code>import math as m
+
+print(m.sqrt(81))
+print(m.pi)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>9.0
+3.141592653589793</pre>
+        </div>
+
+        <h3>Function Alias Example</h3>
+
+        <pre><code>from math import factorial as fact
+
+print(fact(5))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>120</pre>
+        </div>
+    </section>
+
+    <!-- 8. Math -->
+    <section class="lesson-section">
+        <h2>8. Python math Module</h2>
+
+        <p>
+            math ha Python cha built-in module aahe.
+            Mathematical calculations sathi tyacha use hoto.
+        </p>
+
+        <h3>Important math Functions</h3>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Function / Constant</th>
+                        <th>Use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>math.sqrt()</td><td>Square root calculate karto.</td></tr>
+                    <tr><td>math.pow()</td><td>Power calculate karto.</td></tr>
+                    <tr><td>math.factorial()</td><td>Factorial calculate karto.</td></tr>
+                    <tr><td>math.ceil()</td><td>Next greater kiwa equal integer deto.</td></tr>
+                    <tr><td>math.floor()</td><td>Next smaller kiwa equal integer deto.</td></tr>
+                    <tr><td>math.pi</td><td>Pi constant deto.</td></tr>
+                    <tr><td>math.fabs()</td><td>Absolute floating-point value deto.</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Example</h3>
+
+        <pre><code>import math
+
+print(math.sqrt(100))
+print(math.pow(2, 3))
+print(math.factorial(5))
+print(math.ceil(4.2))
+print(math.floor(4.8))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>10.0
+8.0
+120
+5
+4</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            math module madhil functions use kartana module import karayla visru nakos.
+        </div>
+    </section>
+
+    <!-- 9. Random -->
+    <section class="lesson-section">
+        <h2>9. Python random Module</h2>
+
+        <p>
+            random ha built-in module aahe.
+            Random values generate karnyasathi tyacha use hoto.
+        </p>
+
+        <h3>Important Functions</h3>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Function</th>
+                        <th>Use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>random.random()</td><td>0.0 te 1.0 madhil random float deto.</td></tr>
+                    <tr><td>random.randint()</td><td>Inclusive range madhil random integer deto.</td></tr>
+                    <tr><td>random.choice()</td><td>Sequence madhun ek random item select karto.</td></tr>
+                    <tr><td>random.shuffle()</td><td>Mutable sequence madhil items shuffle karto.</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Example – Random Number</h3>
+
+        <pre><code>import random
+
+number = random.randint(1, 10)
+
+print(number)</code></pre>
+
+        <div class="output-box">
+            <strong>Possible Output:</strong>
+            <pre>7</pre>
+            <small>Output pratyek run madhye badlu shakto.</small>
+        </div>
+
+        <h3>Example – Random Choice</h3>
+
+        <pre><code>import random
+
+colors = ["Red", "Blue", "Green", "Yellow"]
+
+result = random.choice(colors)
+
+print(result)</code></pre>
+
+        <div class="output-box">
+            <strong>Possible Output:</strong>
+            <pre>Green</pre>
+        </div>
+
+        <h3>Example – Shuffle List</h3>
+
+        <pre><code>import random
+
+numbers = [1, 2, 3, 4, 5]
+
+random.shuffle(numbers)
+
+print(numbers)</code></pre>
+
+        <div class="output-box">
+            <strong>Possible Output:</strong>
+            <pre>[3, 1, 5, 2, 4]</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            randint(a, b) madhye donhi boundary values include hotat.
+            shuffle() original list madhyech changes karto ani None return karto.
+        </div>
+    </section>
+
+    <!-- 10. Datetime -->
+    <section class="lesson-section">
+        <h2>10. Python datetime Module</h2>
+
+        <p>
+            datetime module cha use date ani time handle karnyasathi hoto.
+        </p>
+
+        <h3>Example – Current Date and Time</h3>
+
+        <pre><code>import datetime
+
+current = datetime.datetime.now()
+
+print(current)</code></pre>
+
+        <div class="output-box">
+            <strong>Possible Output:</strong>
+            <pre>2026-11-15 10:30:25.123456</pre>
+            <small>Actual output tumchya system chya date ani time nusar asel.</small>
+        </div>
+
+        <h3>Example – Current Date</h3>
+
+        <pre><code>import datetime
+
+today = datetime.date.today()
+
+print(today)</code></pre>
+
+        <div class="output-box">
+            <strong>Possible Output:</strong>
+            <pre>2026-11-15</pre>
+        </div>
+
+        <h3>Example – Formatting Date</h3>
+
+        <pre><code>import datetime
+
+today = datetime.date.today()
+
+formatted = today.strftime("%d-%m-%Y")
+
+print(formatted)</code></pre>
+
+        <div class="output-box">
+            <strong>Possible Output:</strong>
+            <pre>15-11-2026</pre>
+        </div>
+
+        <h3>Important Format Codes</h3>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>%d</td><td>Day</td></tr>
+                    <tr><td>%m</td><td>Month</td></tr>
+                    <tr><td>%Y</td><td>Four-digit Year</td></tr>
+                    <tr><td>%H</td><td>Hour (24-hour format)</td></tr>
+                    <tr><td>%M</td><td>Minute</td></tr>
+                    <tr><td>%S</td><td>Second</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 11. Own Module -->
+    <section class="lesson-section">
+        <h2>11. Creating Your Own Module</h2>
+
+        <p>
+            Aapan swatah Python module create karu shakto.
+            Tyasathi ek Python file create karun tyat functions kiwa variables lihayche.
+        </p>
+
+        <h3>Step 1 – Create a Python File</h3>
+
+        <p>
+            Ek folder create kar ani tyat don files banav:
+        </p>
+
+        <pre><code>my_project/
+│
+├── mymodule.py
+└── main.py</code></pre>
+
+        <h3>Step 2 – Write Code in mymodule.py</h3>
+
+        <pre><code>def greet(name):
+    print("Hello", name)
+
+
+def add(a, b):
+    return a + b
+
+
+college = "Computer Science"</code></pre>
+
+        <h3>Step 3 – Import Module in main.py</h3>
+
+        <pre><code>import mymodule
+
+mymodule.greet("Rohan")
+
+result = mymodule.add(10, 20)
+
+print(result)
+print(mymodule.college)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Hello Rohan
+30
+Computer Science</pre>
+        </div>
+
+        <div class="info-box">
+            <strong>Samjun ghe:</strong>
+            mymodule.py madhil function ani variable aapan main.py madhye
+            import karun use kele. Ha User-defined Module aahe.
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Donhi files same folder madhye aslyamule ha simple import work karto.
+            Dusrya folder madhil modules sathi package ani import path che rules
+            samjun ghyave lagtat.
+        </div>
+    </section>
+
+    <!-- 12. Module vs Package -->
+    <section class="lesson-section">
+        <h2>12. Difference Between Module and Package</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Module</th>
+                        <th>Package</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ek Python file aste.</td>
+                        <td>Related modules organize karnara structure asto.</td>
+                    </tr>
+                    <tr>
+                        <td>Example: math_operations.py</td>
+                        <td>Example: mypackage/</td>
+                    </tr>
+                    <tr>
+                        <td>Functions, variables ani classes astat.</td>
+                        <td>Multiple modules contain karu shakto.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Example Package Structure</h3>
+
+        <pre><code>mypackage/
+│
+├── __init__.py
+├── calculations.py
+└── messages.py</code></pre>
+
+        <p>
+            Package mule related Python modules ekach folder madhye
+            organize karta yetat.
+        </p>
+    </section>
+
+    <!-- 13. Third Party -->
+    <section class="lesson-section">
+        <h2>13. Third-party Modules</h2>
+
+        <p>
+            Python sobat default available naslele kahi modules
+            external packages madhun install karave lagtat.
+            Tyanna third-party packages mhantat.
+        </p>
+
+        <h3>Install using pip</h3>
+
+        <pre><code>python -m pip install requests</code></pre>
+
+        <h3>Use the Installed Package</h3>
+
+        <pre><code>import requests
+
+response = requests.get("https://example.com")
+
+print(response.status_code)</code></pre>
+
+        <p>
+            Ya example madhye requests package HTTP request pathavnyasathi
+            vaparla aahe. Ha code run karnyasathi internet connection
+            ani requests package installed asne avashyak aahe.
+        </p>
+
+        <div class="warning-box">
+            <strong>Note:</strong>
+            Built-in modules sathi generally pip install karaychi garaj naste.
+            Third-party package install karnyasathi pip vapartat.
+        </div>
+    </section>
+
+    <!-- 14. Common Mistakes -->
+    <section class="lesson-section">
+        <h2>14. Common Beginner Mistakes</h2>
+
+        <div class="error-card">
+            <h3>Mistake 1: Forgetting to Import</h3>
+
+            <pre><code>print(math.sqrt(25))</code></pre>
+
+            <p>
+                math import kela nasel tar NameError yeu shakto.
+            </p>
+
+            <pre><code>import math
+
+print(math.sqrt(25))</code></pre>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 2: Wrong Function Name</h3>
+
+            <pre><code>import math
+
+print(math.sqroot(25))</code></pre>
+
+            <p>
+                math module madhye sqroot() navacha function nahi.
+                Correct function sqrt() aahe.
+            </p>
+
+            <pre><code>print(math.sqrt(25))</code></pre>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 3: File Name Conflict</h3>
+
+            <pre><code>math.py
+random.py</code></pre>
+
+            <p>
+                Swatahchya Python file la built-in module che same nav dilyas
+                import conflict hou shakto.
+            </p>
+
+            <p>
+                Swatahchya files sathi meaningful vegli nave vapra.
+                Udaharanarth, my_math_tools.py.
+            </p>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 4: Wrong Module Location</h3>
+
+            <p>
+                Import karaychi file Python la expected location madhye
+                sapadli nahi tar ModuleNotFoundError yeu shakto.
+            </p>
+
+            <p>
+                File location, folder structure ani import path check kar.
+            </p>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 5: Using pip for Built-in Modules</h3>
+
+            <pre><code>pip install math</code></pre>
+
+            <p>
+                math ha Python cha built-in module aahe.
+                Tyasathi pip install karaychi garaj nahi.
+            </p>
+
+            <pre><code>import math</code></pre>
+        </div>
+    </section>
+
+    <!-- 15. Revision -->
+    <section class="lesson-section">
+        <h2>15. Quick Revision</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Concept</th>
+                        <th>Use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Module</td><td>Python code asleli file.</td></tr>
+                    <tr><td>import</td><td>Module use karnyasathi.</td></tr>
+                    <tr><td>from import</td><td>Specific names import karnyasathi.</td></tr>
+                    <tr><td>as</td><td>Alias name denyasathi.</td></tr>
+                    <tr><td>math</td><td>Mathematical calculations.</td></tr>
+                    <tr><td>random</td><td>Random values generate karnyasathi.</td></tr>
+                    <tr><td>datetime</td><td>Date ani time handle karnyasathi.</td></tr>
+                    <tr><td>pip</td><td>Third-party packages install karnyasathi.</td></tr>
+                    <tr><td>Package</td><td>Related modules organize karnyasathi.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 16. Practice -->
+    <section class="practice-section">
+        <h2>16. Practice Questions</h2>
+
+        <p>
+            Khalil questions swatah code lihun solve kar.
+            Pratyek program run karun output check kar.
+        </p>
+
+        <div class="practice-task">
+            <h3>Question 1</h3>
+            <p>math module import karun 144 cha square root find kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 2</h3>
+            <p>math.factorial() vaprun 6 cha factorial calculate kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 3</h3>
+            <p>math.ceil() ani math.floor() madhil difference example sahit samjun ghe.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 4</h3>
+            <p>random module vaprun 1 te 100 madhil random number generate kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 5</h3>
+            <p>random.choice() vaprun list madhun random color select kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 6</h3>
+            <p>datetime module vaprun current date ani time display kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 7</h3>
+            <p>from math import sqrt vaprun square root calculate kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 8</h3>
+            <p>math module la m ya alias ne import kar ani m.sqrt() use kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 9</h3>
+            <p>mycalculator.py navacha module create kar ani tyat addition ani subtraction functions lih.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 10</h3>
+            <p>main.py madhye mycalculator module import karun donhi functions use kar.</p>
+        </div>
+    </section>
+
+    <!-- 17. Practical -->
+    <section class="lesson-section">
+        <h2>17. Practical Task – Random Number Guessing</h2>
+
+        <p>
+            Computer ek random number select karel.
+            User ne to number guess karaycha aahe.
+        </p>
+
+        <pre><code>import random
+
+secret_number = random.randint(1, 10)
+
+guess = int(input("Guess a number between 1 and 10: "))
+
+if guess == secret_number:
+    print("Correct Guess!")
+else:
+    print("Wrong Guess!")
+    print("Correct Number:", secret_number)</code></pre>
+
+        <div class="output-box">
+            <strong>Possible Output:</strong>
+            <pre>Guess a number between 1 and 10: 5
+Wrong Guess!
+Correct Number: 8</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Practice Challenge:</strong>
+            Ya program madhye user la 3 attempts de.
+            Number guess zala tar game stop kar ani success message display kar.
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+        <a href="{% url 'python_topic' 'lambda' %}" class="nav-button back-button">
+            ← Previous: Lambda Functions
+        </a>
+
+        <a href="{% url 'python_topic' 'exceptions' %}" class="nav-button next-button">
+            Next: Exception Handling →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

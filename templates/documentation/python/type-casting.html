@@ -1,0 +1,649 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Python Type Casting | Roman Marathi Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/python/type-casting.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+    <div class="lesson-header">
+        <span class="lesson-label">PYTHON TUTORIAL</span>
+        <h1>07. Python Type Casting</h1>
+        <p>
+            Python madhye eka data type madhil value dusrya data type
+            madhye convert kashi karaychi he ya lesson madhye shikuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 15-20 Minutes</span>
+        </div>
+    </div>
+
+    <!-- Section 1 -->
+    <section class="lesson-section">
+        <h2>1. What is Type Casting?</h2>
+
+        <p>
+            Type Casting mhanje eka data type madhil value dusrya
+            data type madhye convert karne.
+        </p>
+
+        <p>
+            Udaharanarth, aaplyakade integer value aahe ani ti string
+            madhye convert karaychi aahe. Ashya veli Type Casting
+            vapartat.
+        </p>
+
+        <div class="info-box">
+            <strong>Simple Definition:</strong>
+            Type Casting is the process of converting one data type
+            into another data type.
+        </div>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>number = 100
+
+text = str(number)
+
+print(text)
+print(type(text))</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>100
+&lt;class 'str'&gt;</pre>
+        </div>
+
+        <p>
+            Ithe suruvatila number ha integer hota. <code>str()</code>
+            vaprun tyala string madhye convert kele.
+        </p>
+    </section>
+
+    <!-- Section 2 -->
+    <section class="lesson-section">
+        <h2>2. Types of Type Casting</h2>
+
+        <p>
+            Python madhye Type Casting che don main types aahet.
+        </p>
+
+        <h3>1. Implicit Type Casting</h3>
+
+        <p>
+            Python swatah ek data type dusrya compatible data type
+            madhye convert karto. Ya process la Implicit Type Casting
+            mhantat.
+        </p>
+
+        <h3>2. Explicit Type Casting</h3>
+
+        <p>
+            Programmer swatah conversion function vaprun data type
+            convert karto. Ya process la Explicit Type Casting
+            mhantat.
+        </p>
+
+        <div class="important-box">
+            <strong>Remember:</strong>
+            Implicit conversion Python swatah karto, tar Explicit
+            conversion programmer karto.
+        </div>
+    </section>
+
+    <!-- Section 3 -->
+    <section class="lesson-section">
+        <h2>3. Implicit Type Casting</h2>
+
+        <p>
+            Implicit Type Casting madhye Python compatible data types
+            automatically convert karto.
+        </p>
+
+        <p>
+            Udaharanarth, integer ani float ekatra add kele tar Python
+            integer la float madhye convert karu shakto.
+        </p>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>a = 10
+b = 5.5
+
+result = a + b
+
+print(result)
+print(type(result))</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>15.5
+&lt;class 'float'&gt;</pre>
+        </div>
+
+        <p>
+            Ithe <code>a</code> integer aahe ani <code>b</code> float aahe.
+            Addition kartana Python ne result float madhye dila.
+        </p>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Implicit conversion madhye Python swatah compatible conversion
+            karto. Pratyek data type madhye automatic conversion hot nahi.
+        </div>
+    </section>
+
+    <!-- Section 4 -->
+    <section class="lesson-section">
+        <h2>4. Explicit Type Casting</h2>
+
+        <p>
+            Explicit Type Casting madhye aapan conversion functions
+            vaprun data type manually convert karto.
+        </p>
+
+        <p>
+            Python madhye commonly use honare functions:
+        </p>
+
+        <ul>
+            <li><code>int()</code> – Integer madhye convert karte.</li>
+            <li><code>float()</code> – Float madhye convert karte.</li>
+            <li><code>str()</code> – String madhye convert karte.</li>
+            <li><code>bool()</code> – Boolean madhye convert karte.</li>
+            <li><code>list()</code> – List madhye convert karte.</li>
+            <li><code>tuple()</code> – Tuple madhye convert karte.</li>
+            <li><code>set()</code> – Set madhye convert karte.</li>
+        </ul>
+    </section>
+
+    <!-- Section 5 -->
+    <section class="lesson-section">
+        <h2>5. int() Function</h2>
+
+        <p>
+            <code>int()</code> function cha use value integer madhye
+            convert karanyasathi hoto.
+        </p>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>number = "100"
+
+result = int(number)
+
+print(result)
+print(type(result))</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>100
+&lt;class 'int'&gt;</pre>
+        </div>
+
+        <h3>Float to Integer</h3>
+
+        <div class="code-box">
+            <pre><code>number = 25.8
+
+result = int(number)
+
+print(result)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>25</pre>
+        </div>
+
+        <div class="warning-box">
+            <strong>Important:</strong>
+            Float la int madhye convert kartana decimal part remove hoto.
+            Python nearest number round karat nahi.
+        </div>
+    </section>
+
+    <!-- Section 6 -->
+    <section class="lesson-section">
+        <h2>6. float() Function</h2>
+
+        <p>
+            <code>float()</code> function cha use value decimal number
+            madhye convert karanyasathi hoto.
+        </p>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>number = "50"
+
+result = float(number)
+
+print(result)
+print(type(result))</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>50.0
+&lt;class 'float'&gt;</pre>
+        </div>
+
+        <h3>Integer to Float</h3>
+
+        <div class="code-box">
+            <pre><code>number = 25
+
+result = float(number)
+
+print(result)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>25.0</pre>
+        </div>
+    </section>
+
+    <!-- Section 7 -->
+    <section class="lesson-section">
+        <h2>7. str() Function</h2>
+
+        <p>
+            <code>str()</code> function cha use value string madhye
+            convert karanyasathi hoto.
+        </p>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>age = 20
+
+result = str(age)
+
+print(result)
+print(type(result))</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>20
+&lt;class 'str'&gt;</pre>
+        </div>
+
+        <h3>Combining String and Integer</h3>
+
+        <p>
+            String ani integer directly concatenate karta yet nahit.
+            Integer la string madhye convert karun concatenate karta yete.
+        </p>
+
+        <div class="code-box">
+            <pre><code>age = 20
+
+message = "My age is " + str(age)
+
+print(message)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>My age is 20</pre>
+        </div>
+    </section>
+
+    <!-- Section 8 -->
+    <section class="lesson-section">
+        <h2>8. bool() Function</h2>
+
+        <p>
+            <code>bool()</code> function cha use value Boolean madhye
+            convert karanyasathi hoto.
+        </p>
+
+        <p>
+            Boolean madhye fakt don values astat: True ani False.
+        </p>
+
+        <div class="code-box">
+            <div class="code-title">Example 1</div>
+            <pre><code>print(bool(1))
+print(bool(0))
+print(bool(100))</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>True
+False
+True</pre>
+        </div>
+
+        <h3>String to Boolean</h3>
+
+        <div class="code-box">
+            <div class="code-title">Example 2</div>
+            <pre><code>print(bool("Python"))
+print(bool(""))</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>True
+False</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Remember:</strong>
+            Empty string, zero ani None he Boolean madhye False hotat.
+            Non-empty string ani non-zero numbers True hotat.
+        </div>
+    </section>
+
+    <!-- Section 9 -->
+    <section class="lesson-section">
+        <h2>9. list(), tuple() and set() Functions</h2>
+
+        <p>
+            He functions collection data types ekmekanmadhye convert
+            karanyasathi use hotat.
+        </p>
+
+        <h3>list() Function</h3>
+
+        <p>
+            Tuple kiwa itar iterable madhun list create karanyasathi
+            <code>list()</code> vapartat.
+        </p>
+
+        <div class="code-box">
+            <pre><code>numbers = (10, 20, 30)
+
+result = list(numbers)
+
+print(result)
+print(type(result))</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>[10, 20, 30]
+&lt;class 'list'&gt;</pre>
+        </div>
+
+        <h3>tuple() Function</h3>
+
+        <div class="code-box">
+            <pre><code>numbers = [10, 20, 30]
+
+result = tuple(numbers)
+
+print(result)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>(10, 20, 30)</pre>
+        </div>
+
+        <h3>set() Function</h3>
+
+        <p>
+            <code>set()</code> function cha use iterable madhil unique
+            values cha set create karanyasathi hoto.
+        </p>
+
+        <div class="code-box">
+            <pre><code>numbers = [10, 20, 10, 30, 20]
+
+result = set(numbers)
+
+print(result)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>{10, 20, 30}</pre>
+        </div>
+    </section>
+
+    <!-- Section 10 -->
+    <section class="lesson-section">
+        <h2>10. Type Casting with input()</h2>
+
+        <p>
+            Python madhye <code>input()</code> function ne user kadun
+            value ghetli tar ti default ne string aste.
+        </p>
+
+        <p>
+            User kadun number ghyaycha asel tar tyala int() kiwa
+            float() vaprun convert karave lagte.
+        </p>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>age = input("Enter your age: ")
+
+print(type(age))</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Example Output:</strong>
+            <pre>Enter your age: 20
+&lt;class 'str'&gt;</pre>
+        </div>
+
+        <h3>Correct Way – Convert Input to Integer</h3>
+
+        <div class="code-box">
+            <pre><code>age = int(input("Enter your age: "))
+
+print(age)
+print(type(age))</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Example Output:</strong>
+            <pre>Enter your age: 20
+20
+&lt;class 'int'&gt;</pre>
+        </div>
+
+        <h3>Practical Example – Addition</h3>
+
+        <div class="code-box">
+            <pre><code>num1 = int(input("Enter first number: "))
+num2 = int(input("Enter second number: "))
+
+total = num1 + num2
+
+print("Total:", total)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Example Output:</strong>
+            <pre>Enter first number: 10
+Enter second number: 20
+Total: 30</pre>
+        </div>
+
+        <div class="warning-box">
+            <strong>Important:</strong>
+            User ne integer madhye convert na honari value dili tar
+            ValueError yeu shakto. Udaharanarth int("hello").
+        </div>
+    </section>
+
+    <!-- Section 11 -->
+    <section class="lesson-section">
+        <h2>11. Common Type Casting Errors</h2>
+
+        <div class="error-card">
+            <h3>Mistake 1: Invalid String to Integer</h3>
+            <pre><code>number = int("Python")
+
+print(number)</code></pre>
+            <p>
+                <strong>Error:</strong> ValueError
+            </p>
+            <p>
+                "Python" madhye integer number naslyamule int() conversion
+                successful honar nahi.
+            </p>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 2: Decimal String to Integer</h3>
+            <pre><code>number = int("10.5")
+
+print(number)</code></pre>
+            <p>
+                <strong>Error:</strong> ValueError
+            </p>
+            <p>
+                Decimal string direct int() madhye convert hot nahi.
+                Pahile float() vapra.
+            </p>
+            <pre><code>number = int(float("10.5"))
+
+print(number)</code></pre>
+            <p>Output: <code>10</code></p>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 3: Adding String and Integer</h3>
+            <pre><code>age = 20
+
+print("Age: " + age)</code></pre>
+            <p>
+                <strong>Error:</strong> TypeError
+            </p>
+            <p>
+                Correct:
+            </p>
+            <pre><code>print("Age: " + str(age))</code></pre>
+        </div>
+    </section>
+
+    <!-- Section 12 -->
+    <section class="lesson-section">
+        <h2>12. Quick Revision</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Function</th>
+                        <th>Conversion</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>int()</td>
+                        <td>Integer</td>
+                        <td>int("10")</td>
+                    </tr>
+                    <tr>
+                        <td>float()</td>
+                        <td>Float</td>
+                        <td>float("10.5")</td>
+                    </tr>
+                    <tr>
+                        <td>str()</td>
+                        <td>String</td>
+                        <td>str(100)</td>
+                    </tr>
+                    <tr>
+                        <td>bool()</td>
+                        <td>Boolean</td>
+                        <td>bool(1)</td>
+                    </tr>
+                    <tr>
+                        <td>list()</td>
+                        <td>List</td>
+                        <td>list((1, 2))</td>
+                    </tr>
+                    <tr>
+                        <td>tuple()</td>
+                        <td>Tuple</td>
+                        <td>tuple([1, 2])</td>
+                    </tr>
+                    <tr>
+                        <td>set()</td>
+                        <td>Set</td>
+                        <td>set([1, 2])</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Practice -->
+    <section class="practice-section">
+        <h2>13. Practice Questions</h2>
+
+        <p>
+            Khalil questions swatah code lihun solve kara.
+        </p>
+
+        <ol>
+            <li>String "100" la integer madhye convert kara.</li>
+            <li>Integer 50 la float madhye convert kara.</li>
+            <li>Integer 25 la string madhye convert kara.</li>
+            <li>0 ani 1 la Boolean madhye convert kara.</li>
+            <li>Tuple la list madhye convert kara.</li>
+            <li>List la tuple madhye convert kara.</li>
+            <li>Duplicate values asleli list set madhye convert kara.</li>
+            <li>input() vaprun user kadun don numbers ghya ani addition kara.</li>
+            <li>Implicit Type Casting che example lihun output check kara.</li>
+            <li>Implicit ani Explicit Type Casting madhil difference samjun ghya.</li>
+        </ol>
+
+        <div class="practice-task">
+            <h3>Practical Task – Simple Calculator</h3>
+
+            <p>
+                User kadun don numbers input ghya. Tyanna float madhye
+                convert kara ani tyanchi addition, subtraction,
+                multiplication ani division calculate kara.
+            </p>
+
+            <div class="code-box">
+                <div class="code-title">Expected Output</div>
+                <pre><code>Enter first number: 20
+Enter second number: 10
+
+Addition: 30.0
+Subtraction: 10.0
+Multiplication: 200.0
+Division: 2.0</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+        <a href="{% url 'python_topic' 'data-types' %}" class="nav-button back-button">
+            ← Previous: Data Types
+        </a>
+
+        <a href="{% url 'python_topic' 'input-output' %}" class="nav-button next-button">
+            Next: Input and Output →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

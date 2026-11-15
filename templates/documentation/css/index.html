@@ -1,0 +1,209 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}
+CSS Documentation | Roman Marathi
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/css/index.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<div class="page-heading">
+
+    <span class="section-label">WEB DEVELOPMENT</span>
+
+    <h1>CSS Documentation</h1>
+
+    <p>
+        CSS web designing basic pasun advanced paryant
+        soprya Roman Marathi madhye shika.
+        Pratyek topic sobat explanation, syntax,
+        code examples ani output dile aahet.
+    </p>
+
+</div>
+
+<div class="topic-list">
+
+    <a href="{% url 'css_topic' 'introduction' %}" class="topic-card">
+        <span class="topic-number">01</span>
+        <span class="topic-name">Introduction to CSS</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'css_topic' 'syntax' %}" class="topic-card">
+        <span class="topic-number">02</span>
+        <span class="topic-name">CSS Syntax and Rules</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'css_topic' 'ways-to-add-css' %}" class="topic-card">
+        <span class="topic-number">03</span>
+        <span class="topic-name">Ways to Add CSS</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'css_topic' 'selectors' %}" class="topic-card">
+        <span class="topic-number">04</span>
+        <span class="topic-name">CSS Selectors</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'css_topic' 'colors-backgrounds' %}" class="topic-card">
+        <span class="topic-number">05</span>
+        <span class="topic-name">Colors and Backgrounds</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'css_topic' 'text-properties' %}" class="topic-card">
+        <span class="topic-number">06</span>
+        <span class="topic-name">CSS Text Properties</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'css_topic' 'fonts' %}" class="topic-card">
+        <span class="topic-number">07</span>
+        <span class="topic-name">CSS Fonts</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'css_topic' 'units' %}" class="topic-card">
+        <span class="topic-number">08</span>
+        <span class="topic-name">CSS Units</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'css_topic' 'box-model' %}" class="topic-card">
+        <span class="topic-number">09</span>
+        <span class="topic-name">CSS Box Model</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'css_topic' 'margin-padding' %}" class="topic-card">
+        <span class="topic-number">10</span>
+        <span class="topic-name">Margin and Padding</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'css_topic' 'borders-outlines' %}" class="topic-card">
+        <span class="topic-number">11</span>
+        <span class="topic-name">Borders and Outlines</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'css_topic' 'width-height' %}" class="topic-card">
+        <span class="topic-number">12</span>
+        <span class="topic-name">Width, Height and Max-Width</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'css_topic' 'display' %}" class="topic-card">
+        <span class="topic-number">13</span>
+        <span class="topic-name">CSS Display Property</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'css_topic' 'position' %}" class="topic-card">
+        <span class="topic-number">14</span>
+        <span class="topic-name">CSS Position Property</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'css_topic' 'flexbox' %}" class="topic-card">
+        <span class="topic-number">15</span>
+        <span class="topic-name">CSS Flexbox</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'css_topic' 'grid' %}" class="topic-card">
+        <span class="topic-number">16</span>
+        <span class="topic-name">CSS Grid</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'css_topic' 'pseudo-classes' %}" class="topic-card">
+        <span class="topic-number">17</span>
+        <span class="topic-name">CSS Pseudo-Classes</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'css_topic' 'pseudo-elements' %}" class="topic-card">
+        <span class="topic-number">18</span>
+        <span class="topic-name">CSS Pseudo-Elements</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'css_topic' 'transitions-transforms' %}" class="topic-card">
+        <span class="topic-number">19</span>
+        <span class="topic-name">CSS Transitions and Transforms</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'css_topic' 'animations' %}" class="topic-card">
+        <span class="topic-number">20</span>
+        <span class="topic-name">CSS Animations</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'css_topic' 'shadows-gradients' %}" class="topic-card">
+        <span class="topic-number">21</span>
+        <span class="topic-name">CSS Shadows and Gradients</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'css_topic' 'overflow-z-index' %}" class="topic-card">
+        <span class="topic-number">22</span>
+        <span class="topic-name">Overflow and Z-Index</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'css_topic' 'responsive-design' %}" class="topic-card">
+        <span class="topic-number">23</span>
+        <span class="topic-name">Responsive Web Design</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'css_topic' 'media-queries' %}" class="topic-card">
+        <span class="topic-number">24</span>
+        <span class="topic-name">CSS Media Queries</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'css_topic' 'variables' %}" class="topic-card">
+        <span class="topic-number">25</span>
+        <span class="topic-name">CSS Variables</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'css_topic' 'specificity-inheritance' %}" class="topic-card">
+        <span class="topic-number">26</span>
+        <span class="topic-name">CSS Specificity and Inheritance</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'css_topic' 'best-practices' %}" class="topic-card">
+        <span class="topic-number">27</span>
+        <span class="topic-name">CSS Best Practices</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'css_topic' 'projects' %}" class="topic-card">
+        <span class="topic-number">28</span>
+        <span class="topic-name">CSS Mini Projects</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'css_topic' 'practice' %}" class="topic-card">
+        <span class="topic-number">29</span>
+        <span class="topic-name">CSS Practice Questions</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+</div>
+
+{% endblock %}

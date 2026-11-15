@@ -1,0 +1,603 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}JavaScript Events | Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/javascript/events.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Header -->
+
+    <div class="lesson-header">
+        <span class="lesson-label">JAVASCRIPT DOCUMENTATION • PAGE 20</span>
+
+        <h1>JavaScript Events</h1>
+
+        <p>
+            Ya lesson madhye user webpage sobat interact karto tevha
+            JavaScript events kase work kartat te shikuya.
+            Button click, input, change ani form submit yanche examples pahuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Beginner Level</span>
+            <span>40–45 Minutes</span>
+        </div>
+    </div>
+
+    <!-- Section 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What are JavaScript Events?</h2>
+
+        <p>
+            Event mhanje webpage var ghadnari ek action kiwa activity.
+            User kiwa browser kahi action karto tevha event trigger hou shakto.
+        </p>
+
+        <h3>Examples:</h3>
+
+        <ul>
+            <li>Button click karne.</li>
+            <li>Input madhye text type karne.</li>
+            <li>Dropdown madhil option change karne.</li>
+            <li>Form submit karne.</li>
+            <li>Webpage load hone.</li>
+            <li>Keyboard madhil key press karne.</li>
+        </ul>
+
+        <div class="info-box">
+            <strong>Definition:</strong>
+            JavaScript Events are actions or occurrences that happen
+            in the browser and can be handled using JavaScript.
+        </div>
+
+    </section>
+
+    <!-- Section 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. addEventListener()</h2>
+
+        <p>
+            addEventListener() method cha use HTML element var
+            specific event listen karnyasathi ani event ghadlyavar
+            function execute karnyasathi hoto.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>element.addEventListener("event", function() {
+    // Code to execute
+});</code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>const button = document.getElementById("myButton");
+
+button.addEventListener("click", function() {
+    console.log("Button Clicked!");
+});</code></pre>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>button variable madhye HTML button select hoto.</li>
+            <li>addEventListener() event listen karte.</li>
+            <li>"click" ha event type aahe.</li>
+            <li>Click zalyavar function execute hote.</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Remember:</strong>
+            addEventListener() vaparlyamule HTML ani JavaScript
+            code vegale thevta yetat.
+        </div>
+
+    </section>
+
+    <!-- Section 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. Click Event</h2>
+
+        <p>
+            click event tevha trigger hoto jevha user HTML element var
+            click karto.
+        </p>
+
+        <h3>HTML:</h3>
+
+        <pre class="code-block"><code>&lt;button id="clickButton"&gt;Click Me&lt;/button&gt;
+
+&lt;p id="message"&gt;Waiting...&lt;/p&gt;</code></pre>
+
+        <h3>JavaScript:</h3>
+
+        <pre class="code-block"><code>const button = document.getElementById("clickButton");
+const message = document.getElementById("message");
+
+button.addEventListener("click", function() {
+    message.textContent = "Button Clicked!";
+});</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Button click kelyavar:
+Button Clicked!</pre>
+        </div>
+
+        <p>
+            Button click kelyavar paragraph madhil text change hoto.
+        </p>
+
+    </section>
+
+    <!-- Section 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. Input Event</h2>
+
+        <p>
+            input event tevha trigger hoto jevha user input field madhil
+            value type karto kiwa change karto.
+        </p>
+
+        <h3>HTML:</h3>
+
+        <pre class="code-block"><code>&lt;input type="text" id="nameInput"&gt;
+
+&lt;p id="result"&gt;&lt;/p&gt;</code></pre>
+
+        <h3>JavaScript:</h3>
+
+        <pre class="code-block"><code>const nameInput = document.getElementById("nameInput");
+const result = document.getElementById("result");
+
+nameInput.addEventListener("input", function() {
+    result.textContent = nameInput.value;
+});</code></pre>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>input field select kele.</li>
+            <li>input event listen kela.</li>
+            <li>nameInput.value madhun current value milte.</li>
+            <li>Result paragraph madhye value display hote.</li>
+        </ul>
+
+        <h3>Live Example:</h3>
+
+        <div class="output-box demo-output">
+            <label for="event-name-input">Enter Your Name:</label>
+
+            <input
+                type="text"
+                id="event-name-input"
+                class="demo-input"
+                placeholder="Type your name"
+            >
+
+            <p id="event-name-result" class="demo-result">
+                Your name will appear here.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- Section 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. Change Event</h2>
+
+        <p>
+            change event tevha trigger hoto jevha input, select kiwa
+            checkbox chi value change hote ani ti change confirm hote.
+        </p>
+
+        <h3>HTML:</h3>
+
+        <pre class="code-block"><code>&lt;select id="course"&gt;
+    &lt;option value="Python"&gt;Python&lt;/option&gt;
+    &lt;option value="JavaScript"&gt;JavaScript&lt;/option&gt;
+&lt;/select&gt;
+
+&lt;p id="selectedCourse"&gt;&lt;/p&gt;</code></pre>
+
+        <h3>JavaScript:</h3>
+
+        <pre class="code-block"><code>const course = document.getElementById("course");
+const selectedCourse = document.getElementById("selectedCourse");
+
+course.addEventListener("change", function() {
+    selectedCourse.textContent = course.value;
+});</code></pre>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>Dropdown madhil value select keli jate.</li>
+            <li>Value change zalyavar change event trigger hoto.</li>
+            <li>Selected value paragraph madhye display hote.</li>
+        </ul>
+
+        <h3>Live Example:</h3>
+
+        <div class="output-box demo-output">
+            <label for="event-course">Select Your Course:</label>
+
+            <select id="event-course" class="demo-input">
+                <option value="">Choose Course</option>
+                <option value="Python">Python</option>
+                <option value="Django">Django</option>
+                <option value="JavaScript">JavaScript</option>
+            </select>
+
+            <p id="event-course-result" class="demo-result">
+                Selected course will appear here.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- Section 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. Submit Event</h2>
+
+        <p>
+            submit event tevha trigger hoto jevha user form submit karto.
+            Form submit button click karun kiwa keyboard madhil Enter
+            key vaprun suddha hou shakto.
+        </p>
+
+        <h3>HTML:</h3>
+
+        <pre class="code-block"><code>&lt;form id="myForm"&gt;
+    &lt;input type="text" id="username"&gt;
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+        <h3>JavaScript:</h3>
+
+        <pre class="code-block"><code>const form = document.getElementById("myForm");
+
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    console.log("Form Submitted!");
+});</code></pre>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>Form element select kele.</li>
+            <li>submit event listen kela.</li>
+            <li>event.preventDefault() default form submission thambavte.</li>
+            <li>Tyachyanantar custom JavaScript code execute hoto.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            preventDefault() vaparlyane browser chi default action thambte.
+            Form data server la pathvaycha asel tar tyasathi vegli
+            submission logic lihavi lagte.
+        </div>
+
+        <h3>Live Example:</h3>
+
+        <div class="output-box demo-output">
+            <form id="event-demo-form">
+
+                <label for="event-username">Enter Username:</label>
+
+                <input
+                    type="text"
+                    id="event-username"
+                    class="demo-input"
+                    placeholder="Enter username"
+                    required
+                >
+
+                <button type="submit" class="demo-button">
+                    Submit Form
+                </button>
+
+            </form>
+
+            <p id="event-form-result" class="demo-result">
+                Form submit status will appear here.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- Section 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. Event Object</h2>
+
+        <p>
+            Event trigger zalyavar browser event handler function la
+            event object provide karto. Ya object madhye event baddal
+            information aste.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>const button = document.getElementById("myButton");
+
+button.addEventListener("click", function(event) {
+    console.log(event.type);
+    console.log(event.target);
+});</code></pre>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li><strong>event.type:</strong> Event cha type sangte.</li>
+            <li><strong>event.target:</strong> Event jya element var trigger zala to element dete.</li>
+            <li><strong>event.preventDefault():</strong> Default browser action thambavte.</li>
+        </ul>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>click
+&lt;button id="myButton"&gt;Click Me&lt;/button&gt;</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Remember:</strong>
+            Event handler madhye event parameter cha nav badlu shakta.
+            Udaharanarth e kiwa event.
+        </div>
+
+    </section>
+
+    <!-- Section 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. Common JavaScript Events</h2>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Event</th>
+                    <th>Use</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>click</td>
+                    <td>Element click kelyavar.</td>
+                </tr>
+                <tr>
+                    <td>input</td>
+                    <td>Input value badaltana.</td>
+                </tr>
+                <tr>
+                    <td>change</td>
+                    <td>Value change confirm zalyavar.</td>
+                </tr>
+                <tr>
+                    <td>submit</td>
+                    <td>Form submit kelyavar.</td>
+                </tr>
+                <tr>
+                    <td>mouseover</td>
+                    <td>Mouse element var gelyavar.</td>
+                </tr>
+                <tr>
+                    <td>keydown</td>
+                    <td>Keyboard key press kelyavar.</td>
+                </tr>
+                <tr>
+                    <td>load</td>
+                    <td>Page kiwa resource load zalyavar.</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </section>
+
+    <!-- Section 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Common Beginner Mistakes</h2>
+
+        <div class="mistake-card">
+            <strong>Mistake 1: addEventListener() madhye brackets lavne</strong>
+            <p>
+                Function reference dyaycha asto. Function call karun
+                tyacha result pass karu naye.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 2: Event name wrong lihine</strong>
+            <p>
+                addEventListener() madhye "onclick" aivaji "click"
+                event name vapra.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 3: Form submit mule page reload hone</strong>
+            <p>
+                Default submission thambvaychi asel tar
+                event.preventDefault() vapra.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 4: input ani change madhil difference na samajne</strong>
+            <p>
+                input event value type kartana trigger hoto.
+                change event value change confirm zalyavar trigger hoto.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 5: Event object la function parameter na dene</strong>
+            <p>
+                Event details access karayche astil tar function madhye
+                event parameter ghya.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- Section 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Quick Revision</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>Event mhanje webpage var ghadnari action.</li>
+                <li>addEventListener() event listen karte.</li>
+                <li>click event button click kelyavar trigger hoto.</li>
+                <li>input event value type kartana trigger hoto.</li>
+                <li>change event value change confirm zalyavar trigger hoto.</li>
+                <li>submit event form submit kelyavar trigger hoto.</li>
+                <li>Event object event baddal information deto.</li>
+                <li>preventDefault() default browser action thambavte.</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <!-- Section 11 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>11. Practice Questions</h2>
+
+        <h3>Basic Questions</h3>
+
+        <ol>
+            <li>JavaScript Event mhanje kay?</li>
+            <li>addEventListener() cha use kay aahe?</li>
+            <li>Click event mhanje kay?</li>
+            <li>Input ani Change event madhye kay difference aahe?</li>
+            <li>Submit event kevha trigger hoto?</li>
+            <li>Event Object mhanje kay?</li>
+            <li>preventDefault() cha use kay aahe?</li>
+        </ol>
+
+        <h3>Practical Questions</h3>
+
+        <ol>
+            <li>Button click kelyavar message display kar.</li>
+            <li>Input event vaprun type kelela text display kar.</li>
+            <li>Change event vaprun selected course display kar.</li>
+            <li>Form submit event handle kar.</li>
+            <li>preventDefault() vaprun page reload thambav.</li>
+            <li>event.target vaprun clicked element console madhye print kar.</li>
+        </ol>
+
+        <div class="task-box">
+
+            <h3>Mini Task: Student Registration Form</h3>
+
+            <p>
+                JavaScript Events vaprun ek simple Student Registration
+                Form tayar kar.
+            </p>
+
+            <ul>
+                <li>Name ani Email input fields tayar kar.</li>
+                <li>Course selection dropdown add kar.</li>
+                <li>Submit button add kar.</li>
+                <li>input event vaprun name display kar.</li>
+                <li>change event vaprun selected course display kar.</li>
+                <li>submit event vaprun form handle kar.</li>
+                <li>preventDefault() vaprun page reload thambav.</li>
+            </ul>
+
+            <p>
+                File name: <strong>javascript_events.html</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Navigation -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'javascript_topic' 'dom-manipulation' %}"
+           class="nav-button previous-button">
+            ← Previous: DOM Manipulation
+        </a>
+
+        <a href="{% url 'javascript_topic' 'form-validation' %}"
+           class="nav-button next-button">
+            Next: Form Validation →
+        </a>
+
+    </div>
+
+</div>
+
+<script>
+    // Input Event Demo
+
+    const eventNameInput = document.getElementById("event-name-input");
+    const eventNameResult = document.getElementById("event-name-result");
+
+    eventNameInput.addEventListener("input", function () {
+        const value = eventNameInput.value.trim();
+
+        eventNameResult.textContent = value
+            ? "Hello, " + value + "!"
+            : "Your name will appear here.";
+    });
+
+    // Change Event Demo
+
+    const eventCourse = document.getElementById("event-course");
+    const eventCourseResult = document.getElementById("event-course-result");
+
+    eventCourse.addEventListener("change", function () {
+        eventCourseResult.textContent = eventCourse.value
+            ? "Selected Course: " + eventCourse.value
+            : "Selected course will appear here.";
+    });
+
+    // Submit Event Demo
+
+    const eventDemoForm = document.getElementById("event-demo-form");
+    const eventUsername = document.getElementById("event-username");
+    const eventFormResult = document.getElementById("event-form-result");
+
+    eventDemoForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        eventFormResult.textContent =
+            "Form submitted successfully for " + eventUsername.value.trim() + "!";
+    });
+</script>
+
+{% endblock %}

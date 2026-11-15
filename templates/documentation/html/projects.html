@@ -1,0 +1,1239 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}HTML Projects | HTML Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/html/projects.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">HTML DOCUMENTATION • PAGE 19</span>
+        <h1>HTML Projects</h1>
+        <p>HTML concepts cha practical use karun real-world webpages create karayla shikuya.</p>
+
+        <div class="lesson-meta">
+            <span>Practical Level</span>
+            <span>60–90 Minutes</span>
+        </div>
+    </div>
+
+    <!-- Introduction -->
+
+    <section class="lesson-section">
+        <h2>1. Introduction to HTML Projects</h2>
+
+        <p>
+            HTML projects mule aplyala HTML tags, attributes,
+            forms, tables, links ani semantic elements
+            practically use karta yetat.
+        </p>
+
+        <p>
+            Projects complete kelyane coding practice,
+            problem-solving ani webpage structure
+            samjun ghenyas madat hote.
+        </p>
+
+        <div class="info-box">
+            <strong>Important:</strong>
+            Ya projects madhye apan HTML use karnaar aahot.
+            Website attractive karnyasathi CSS ani
+            interactive features sathi JavaScript lagel.
+        </div>
+    </section>
+
+
+    <!-- Project 1 -->
+
+    <section class="lesson-section project-section">
+
+        <span class="project-number">PROJECT 01</span>
+        <h2>2. Personal Profile Webpage</h2>
+
+        <h3>Objective:</h3>
+        <p>Swatachi basic information display karnyasathi personal profile webpage create karne.</p>
+
+        <h3>HTML Elements Used:</h3>
+        <ul>
+            <li>h1, h2, p</li>
+            <li>img</li>
+            <li>ul, li</li>
+            <li>a</li>
+            <li>header, main, footer</li>
+        </ul>
+
+        <h3>Complete HTML Code:</h3>
+
+        <pre class="code-block"><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;My Profile&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;header&gt;
+        &lt;h1&gt;My Profile&lt;/h1&gt;
+    &lt;/header&gt;
+
+    &lt;main&gt;
+
+        &lt;h2&gt;Hello, I am Rohan&lt;/h2&gt;
+
+        &lt;p&gt;I am a Computer Science student.&lt;/p&gt;
+
+        &lt;h2&gt;My Skills&lt;/h2&gt;
+
+        &lt;ul&gt;
+            &lt;li&gt;Python&lt;/li&gt;
+            &lt;li&gt;Django&lt;/li&gt;
+            &lt;li&gt;HTML&lt;/li&gt;
+            &lt;li&gt;CSS&lt;/li&gt;
+        &lt;/ul&gt;
+
+        &lt;h2&gt;Contact Me&lt;/h2&gt;
+
+        &lt;a href="mailto:example@gmail.com"&gt;
+            Send Email
+        &lt;/a&gt;
+
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;My Personal Website&lt;/p&gt;
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+        </code></pre>
+
+        <h3>Expected Output:</h3>
+
+        <div class="output-box">
+            <h2>My Profile</h2>
+            <h3>Hello, I am Rohan</h3>
+            <p>I am a Computer Science student.</p>
+            <h3>My Skills</h3>
+            <ul>
+                <li>Python</li>
+                <li>Django</li>
+                <li>HTML</li>
+                <li>CSS</li>
+            </ul>
+            <h3>Contact Me</h3>
+            <a href="mailto:example@gmail.com">Send Email</a>
+            <p>My Personal Website</p>
+        </div>
+
+    </section>
+
+
+    <!-- Project 2 -->
+
+    <section class="lesson-section project-section">
+
+        <span class="project-number">PROJECT 02</span>
+        <h2>3. Student Registration Form</h2>
+
+        <h3>Objective:</h3>
+        <p>Student chi personal information collect karnyasathi registration form create karne.</p>
+
+        <h3>HTML Elements Used:</h3>
+        <ul>
+            <li>form, label, input</li>
+            <li>select, option</li>
+            <li>textarea</li>
+            <li>button, fieldset, legend</li>
+        </ul>
+
+        <h3>Complete HTML Code:</h3>
+
+        <pre class="code-block"><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Student Registration&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;h1&gt;Student Registration Form&lt;/h1&gt;
+
+    &lt;form action="#" method="post"&gt;
+
+        &lt;fieldset&gt;
+
+            &lt;legend&gt;Student Details&lt;/legend&gt;
+
+            &lt;label for="name"&gt;Full Name:&lt;/label&gt;
+            &lt;input type="text" id="name"
+                   name="name" required&gt;
+
+            &lt;br&gt;&lt;br&gt;
+
+            &lt;label for="email"&gt;Email:&lt;/label&gt;
+            &lt;input type="email" id="email"
+                   name="email" required&gt;
+
+            &lt;br&gt;&lt;br&gt;
+
+            &lt;label for="age"&gt;Age:&lt;/label&gt;
+            &lt;input type="number" id="age"
+                   name="age" min="1" required&gt;
+
+            &lt;br&gt;&lt;br&gt;
+
+            &lt;label for="course"&gt;Course:&lt;/label&gt;
+
+            &lt;select id="course" name="course"&gt;
+                &lt;option value="bsc"&gt;B.Sc. CS&lt;/option&gt;
+                &lt;option value="bca"&gt;BCA&lt;/option&gt;
+                &lt;option value="bcom"&gt;B.Com&lt;/option&gt;
+            &lt;/select&gt;
+
+            &lt;br&gt;&lt;br&gt;
+
+            &lt;label for="address"&gt;Address:&lt;/label&gt;
+            &lt;textarea id="address"
+                      name="address"&gt;&lt;/textarea&gt;
+
+            &lt;br&gt;&lt;br&gt;
+
+            &lt;button type="submit"&gt;Register&lt;/button&gt;
+
+        &lt;/fieldset&gt;
+
+    &lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+        </code></pre>
+
+        <h3>Expected Output:</h3>
+
+        <div class="output-box form-output">
+            <h3>Student Registration Form</h3>
+            <form>
+                <label>Full Name:</label>
+                <input type="text" placeholder="Enter full name">
+                <label>Email:</label>
+                <input type="email" placeholder="Enter email">
+                <label>Age:</label>
+                <input type="number" placeholder="Enter age">
+                <label>Course:</label>
+                <select>
+                    <option>B.Sc. CS</option>
+                    <option>BCA</option>
+                    <option>B.Com</option>
+                </select>
+                <label>Address:</label>
+                <textarea rows="3"></textarea>
+                <button type="button">Register</button>
+            </form>
+        </div>
+
+    </section>
+
+
+    <!-- Project 3 -->
+
+    <section class="lesson-section project-section">
+
+        <span class="project-number">PROJECT 03</span>
+        <h2>4. Student Result Table</h2>
+
+        <h3>Objective:</h3>
+        <p>Students che marks ani result table format madhye display karne.</p>
+
+        <h3>HTML Elements Used:</h3>
+        <ul>
+            <li>table, caption</li>
+            <li>thead, tbody, tfoot</li>
+            <li>tr, th, td</li>
+        </ul>
+
+        <h3>Complete HTML Code:</h3>
+
+        <pre class="code-block"><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Student Result&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;h1&gt;Student Result&lt;/h1&gt;
+
+    &lt;table border="1"&gt;
+
+        &lt;caption&gt;Examination Results&lt;/caption&gt;
+
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Name&lt;/th&gt;
+                &lt;th&gt;Python&lt;/th&gt;
+                &lt;th&gt;HTML&lt;/th&gt;
+                &lt;th&gt;Total&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+
+        &lt;tbody&gt;
+            &lt;tr&gt;
+                &lt;td&gt;Rohan&lt;/td&gt;
+                &lt;td&gt;85&lt;/td&gt;
+                &lt;td&gt;90&lt;/td&gt;
+                &lt;td&gt;175&lt;/td&gt;
+            &lt;/tr&gt;
+
+            &lt;tr&gt;
+                &lt;td&gt;Amit&lt;/td&gt;
+                &lt;td&gt;78&lt;/td&gt;
+                &lt;td&gt;82&lt;/td&gt;
+                &lt;td&gt;160&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+
+    &lt;/table&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+        </code></pre>
+
+        <h3>Expected Output:</h3>
+
+        <div class="output-box">
+            <table class="demo-table">
+                <caption>Examination Results</caption>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Python</th>
+                        <th>HTML</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Rohan</td>
+                        <td>85</td>
+                        <td>90</td>
+                        <td>175</td>
+                    </tr>
+                    <tr>
+                        <td>Amit</td>
+                        <td>78</td>
+                        <td>82</td>
+                        <td>160</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+
+    <!-- Project 4 -->
+
+    <section class="lesson-section project-section">
+
+        <span class="project-number">PROJECT 04</span>
+        <h2>5. Online Course Website</h2>
+
+        <h3>Objective:</h3>
+        <p>Online courses ani tyanchi information display karnyasathi simple webpage create karne.</p>
+
+        <h3>HTML Elements Used:</h3>
+        <ul>
+            <li>header, nav, main, section</li>
+            <li>article, h1, h2, p</li>
+            <li>a, footer</li>
+        </ul>
+
+        <h3>Complete HTML Code:</h3>
+
+        <pre class="code-block"><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Online Courses&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;header&gt;
+        &lt;h1&gt;Learn Online&lt;/h1&gt;
+    &lt;/header&gt;
+
+    &lt;nav&gt;
+        &lt;a href="#courses"&gt;Courses&lt;/a&gt;
+        &lt;a href="#about"&gt;About&lt;/a&gt;
+    &lt;/nav&gt;
+
+    &lt;main&gt;
+
+        &lt;section id="courses"&gt;
+
+            &lt;h2&gt;Our Courses&lt;/h2&gt;
+
+            &lt;article&gt;
+                &lt;h3&gt;Python Programming&lt;/h3&gt;
+                &lt;p&gt;Learn Python from basics.&lt;/p&gt;
+                &lt;a href="#python"&gt;View Course&lt;/a&gt;
+            &lt;/article&gt;
+
+            &lt;article&gt;
+                &lt;h3&gt;Web Development&lt;/h3&gt;
+                &lt;p&gt;Learn HTML and CSS.&lt;/p&gt;
+                &lt;a href="#web"&gt;View Course&lt;/a&gt;
+            &lt;/article&gt;
+
+        &lt;/section&gt;
+
+        &lt;section id="about"&gt;
+            &lt;h2&gt;About Us&lt;/h2&gt;
+            &lt;p&gt;We provide online learning resources.&lt;/p&gt;
+        &lt;/section&gt;
+
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;Copyright 2026&lt;/p&gt;
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+        </code></pre>
+
+        <h3>Expected Output:</h3>
+
+        <div class="output-box course-output">
+            <h2>Learn Online</h2>
+            <nav>
+                <a href="#courses">Courses</a>
+                <a href="#about">About</a>
+            </nav>
+            <h3>Our Courses</h3>
+            <div class="mini-card">
+                <strong>Python Programming</strong>
+                <p>Learn Python from basics.</p>
+                <a href="#python">View Course</a>
+            </div>
+            <div class="mini-card">
+                <strong>Web Development</strong>
+                <p>Learn HTML and CSS.</p>
+                <a href="#web">View Course</a>
+            </div>
+            <h3>About Us</h3>
+            <p>We provide online learning resources.</p>
+            <p>Copyright 2026</p>
+        </div>
+
+    </section>
+
+
+    <!-- Project 5 -->
+
+    <section class="lesson-section project-section">
+
+        <span class="project-number">PROJECT 05</span>
+        <h2>6. Restaurant Menu Page</h2>
+
+        <h3>Objective:</h3>
+        <p>Restaurant madhil food items ani tyanchya prices display karnyasathi menu page create karne.</p>
+
+        <h3>HTML Elements Used:</h3>
+        <ul>
+            <li>header, main, section</li>
+            <li>h1, h2, h3, p</li>
+            <li>ul, li</li>
+        </ul>
+
+        <h3>Complete HTML Code:</h3>
+
+        <pre class="code-block"><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Restaurant Menu&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;header&gt;
+        &lt;h1&gt;Food Corner&lt;/h1&gt;
+        &lt;p&gt;Welcome to our restaurant&lt;/p&gt;
+    &lt;/header&gt;
+
+    &lt;main&gt;
+
+        &lt;section&gt;
+            &lt;h2&gt;Main Course&lt;/h2&gt;
+
+            &lt;ul&gt;
+                &lt;li&gt;Veg Thali - ₹150&lt;/li&gt;
+                &lt;li&gt;Paneer Masala - ₹180&lt;/li&gt;
+                &lt;li&gt;Veg Biryani - ₹120&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/section&gt;
+
+        &lt;section&gt;
+            &lt;h2&gt;Drinks&lt;/h2&gt;
+
+            &lt;ul&gt;
+                &lt;li&gt;Tea - ₹15&lt;/li&gt;
+                &lt;li&gt;Coffee - ₹30&lt;/li&gt;
+                &lt;li&gt;Lemon Juice - ₹40&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/section&gt;
+
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;Thank You! Visit Again.&lt;/p&gt;
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+        </code></pre>
+
+        <h3>Expected Output:</h3>
+
+        <div class="output-box menu-output">
+            <h2>Food Corner</h2>
+            <p>Welcome to our restaurant</p>
+            <h3>Main Course</h3>
+            <ul>
+                <li>Veg Thali - ₹150</li>
+                <li>Paneer Masala - ₹180</li>
+                <li>Veg Biryani - ₹120</li>
+            </ul>
+            <h3>Drinks</h3>
+            <ul>
+                <li>Tea - ₹15</li>
+                <li>Coffee - ₹30</li>
+                <li>Lemon Juice - ₹40</li>
+            </ul>
+            <p>Thank You! Visit Again.</p>
+        </div>
+
+    </section>
+
+
+    <!-- Project 6 -->
+
+    <section class="lesson-section project-section">
+
+        <span class="project-number">PROJECT 06</span>
+        <h2>7. Portfolio Website</h2>
+
+        <h3>Objective:</h3>
+        <p>Developer chi information, skills ani projects display karnyasathi portfolio webpage create karne.</p>
+
+        <h3>HTML Elements Used:</h3>
+        <ul>
+            <li>header, nav, main, section, footer</li>
+            <li>h1, h2, p</li>
+            <li>ul, li, a</li>
+        </ul>
+
+        <h3>Complete HTML Code:</h3>
+
+        <pre class="code-block"><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Developer Portfolio&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;header&gt;
+        &lt;h1&gt;My Portfolio&lt;/h1&gt;
+
+        &lt;nav&gt;
+            &lt;a href="#about"&gt;About&lt;/a&gt;
+            &lt;a href="#skills"&gt;Skills&lt;/a&gt;
+            &lt;a href="#projects"&gt;Projects&lt;/a&gt;
+            &lt;a href="#contact"&gt;Contact&lt;/a&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+
+    &lt;main&gt;
+
+        &lt;section id="about"&gt;
+            &lt;h2&gt;About Me&lt;/h2&gt;
+            &lt;p&gt;I am a Python Django Backend Developer.&lt;/p&gt;
+        &lt;/section&gt;
+
+        &lt;section id="skills"&gt;
+            &lt;h2&gt;My Skills&lt;/h2&gt;
+
+            &lt;ul&gt;
+                &lt;li&gt;Python&lt;/li&gt;
+                &lt;li&gt;Django&lt;/li&gt;
+                &lt;li&gt;MySQL&lt;/li&gt;
+                &lt;li&gt;HTML and CSS&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/section&gt;
+
+        &lt;section id="projects"&gt;
+            &lt;h2&gt;My Projects&lt;/h2&gt;
+
+            &lt;article&gt;
+                &lt;h3&gt;SmartTalkingPlant&lt;/h3&gt;
+                &lt;p&gt;Plant Monitoring Application&lt;/p&gt;
+            &lt;/article&gt;
+
+            &lt;article&gt;
+                &lt;h3&gt;Typing Speed Test&lt;/h3&gt;
+                &lt;p&gt;Typing Practice Application&lt;/p&gt;
+            &lt;/article&gt;
+        &lt;/section&gt;
+
+        &lt;section id="contact"&gt;
+            &lt;h2&gt;Contact Me&lt;/h2&gt;
+            &lt;a href="mailto:example@gmail.com"&gt;Email Me&lt;/a&gt;
+        &lt;/section&gt;
+
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;My Portfolio 2026&lt;/p&gt;
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+        </code></pre>
+
+        <h3>Expected Output:</h3>
+
+        <div class="output-box portfolio-output">
+            <h2>My Portfolio</h2>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <h3>About Me</h3>
+            <p>I am a Python Django Backend Developer.</p>
+            <h3>My Skills</h3>
+            <ul>
+                <li>Python</li>
+                <li>Django</li>
+                <li>MySQL</li>
+                <li>HTML and CSS</li>
+            </ul>
+            <h3>My Projects</h3>
+            <p>SmartTalkingPlant – Plant Monitoring Application</p>
+            <p>Typing Speed Test – Typing Practice Application</p>
+            <h3>Contact Me</h3>
+            <a href="mailto:example@gmail.com">Email Me</a>
+        </div>
+
+    </section>
+
+
+    <!-- Project 7 -->
+
+    <section class="lesson-section project-section">
+
+        <span class="project-number">PROJECT 07</span>
+        <h2>8. Blog Webpage</h2>
+
+        <h3>Objective:</h3>
+        <p>Blog articles ani related information display karnyasathi webpage create karne.</p>
+
+        <h3>HTML Elements Used:</h3>
+        <ul>
+            <li>article, header, main, footer</li>
+            <li>h1, h2, p</li>
+            <li>time, a</li>
+        </ul>
+
+        <h3>Complete HTML Code:</h3>
+
+        <pre class="code-block"><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;My Tech Blog&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;header&gt;
+        &lt;h1&gt;My Tech Blog&lt;/h1&gt;
+    &lt;/header&gt;
+
+    &lt;main&gt;
+
+        &lt;article&gt;
+
+            &lt;h2&gt;Introduction to Python&lt;/h2&gt;
+
+            &lt;p&gt;
+                Published on
+                &lt;time datetime="2026-11-15"&gt;
+                    November 15, 2026
+                &lt;/time&gt;
+            &lt;/p&gt;
+
+            &lt;p&gt;
+                Python is a popular programming language.
+                It is used in web development and automation.
+            &lt;/p&gt;
+
+            &lt;a href="#read-more"&gt;Read More&lt;/a&gt;
+
+        &lt;/article&gt;
+
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;My Tech Blog&lt;/p&gt;
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+        </code></pre>
+
+        <h3>Expected Output:</h3>
+
+        <div class="output-box blog-output">
+            <h2>My Tech Blog</h2>
+            <article>
+                <h3>Introduction to Python</h3>
+                <p>Published on November 15, 2026</p>
+                <p>Python is a popular programming language. It is used in web development and automation.</p>
+                <a href="#read-more">Read More</a>
+            </article>
+        </div>
+
+    </section>
+
+
+    <!-- Project 8 -->
+
+    <section class="lesson-section project-section">
+
+        <span class="project-number">PROJECT 08</span>
+        <h2>9. Product Landing Page</h2>
+
+        <h3>Objective:</h3>
+        <p>Ek product chi information, features ani contact details display karnyasathi landing page create karne.</p>
+
+        <h3>HTML Elements Used:</h3>
+        <ul>
+            <li>header, main, section</li>
+            <li>img, h1, h2, p</li>
+            <li>ul, li, a</li>
+        </ul>
+
+        <h3>Complete HTML Code:</h3>
+
+        <pre class="code-block"><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Product Landing Page&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;header&gt;
+        &lt;h1&gt;Smart Watch&lt;/h1&gt;
+    &lt;/header&gt;
+
+    &lt;main&gt;
+
+        &lt;section&gt;
+
+            &lt;h2&gt;Introducing Smart Watch&lt;/h2&gt;
+
+            &lt;p&gt;
+                A smart device for your daily activities.
+            &lt;/p&gt;
+
+            &lt;h3&gt;Features&lt;/h3&gt;
+
+            &lt;ul&gt;
+                &lt;li&gt;Fitness Tracking&lt;/li&gt;
+                &lt;li&gt;Heart Rate Monitoring&lt;/li&gt;
+                &lt;li&gt;Notification Support&lt;/li&gt;
+                &lt;li&gt;Long Battery Life&lt;/li&gt;
+            &lt;/ul&gt;
+
+            &lt;p&gt;Price: ₹2,999&lt;/p&gt;
+
+            &lt;a href="mailto:sales@example.com"&gt;
+                Contact for Purchase
+            &lt;/a&gt;
+
+        &lt;/section&gt;
+
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;Product Information Page&lt;/p&gt;
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+        </code></pre>
+
+        <h3>Expected Output:</h3>
+
+        <div class="output-box product-output">
+            <h2>Smart Watch</h2>
+            <h3>Introducing Smart Watch</h3>
+            <p>A smart device for your daily activities.</p>
+            <h3>Features</h3>
+            <ul>
+                <li>Fitness Tracking</li>
+                <li>Heart Rate Monitoring</li>
+                <li>Notification Support</li>
+                <li>Long Battery Life</li>
+            </ul>
+            <p><strong>Price: ₹2,999</strong></p>
+            <a href="mailto:sales@example.com">Contact for Purchase</a>
+        </div>
+
+    </section>
+
+
+    <!-- Project 9 -->
+
+    <section class="lesson-section project-section">
+
+        <span class="project-number">PROJECT 09</span>
+        <h2>10. Contact Us Page</h2>
+
+        <h3>Objective:</h3>
+        <p>Website visitors kadun contact information ani messages collect karnyasathi form create karne.</p>
+
+        <h3>HTML Elements Used:</h3>
+        <ul>
+            <li>form, label, input</li>
+            <li>textarea, button</li>
+            <li>fieldset, legend</li>
+        </ul>
+
+        <h3>Complete HTML Code:</h3>
+
+        <pre class="code-block"><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Contact Us&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;h1&gt;Contact Us&lt;/h1&gt;
+
+    &lt;form action="#" method="post"&gt;
+
+        &lt;label for="name"&gt;Name:&lt;/label&gt;
+        &lt;input type="text"
+               id="name"
+               name="name"
+               required&gt;
+
+        &lt;br&gt;&lt;br&gt;
+
+        &lt;label for="email"&gt;Email:&lt;/label&gt;
+        &lt;input type="email"
+               id="email"
+               name="email"
+               required&gt;
+
+        &lt;br&gt;&lt;br&gt;
+
+        &lt;label for="subject"&gt;Subject:&lt;/label&gt;
+        &lt;input type="text"
+               id="subject"
+               name="subject"&gt;
+
+        &lt;br&gt;&lt;br&gt;
+
+        &lt;label for="message"&gt;Message:&lt;/label&gt;
+        &lt;textarea id="message"
+                  name="message"
+                  required&gt;&lt;/textarea&gt;
+
+        &lt;br&gt;&lt;br&gt;
+
+        &lt;button type="submit"&gt;Send Message&lt;/button&gt;
+
+    &lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+        </code></pre>
+
+        <h3>Expected Output:</h3>
+
+        <div class="output-box form-output">
+            <h3>Contact Us</h3>
+            <form>
+                <label>Name:</label>
+                <input type="text" placeholder="Enter name">
+                <label>Email:</label>
+                <input type="email" placeholder="Enter email">
+                <label>Subject:</label>
+                <input type="text" placeholder="Enter subject">
+                <label>Message:</label>
+                <textarea rows="4" placeholder="Write your message"></textarea>
+                <button type="button">Send Message</button>
+            </form>
+        </div>
+
+    </section>
+
+
+    <!-- Project 10 -->
+
+    <section class="lesson-section project-section">
+
+        <span class="project-number">PROJECT 10</span>
+        <h2>11. Complete Multi-Page Website</h2>
+
+        <h3>Objective:</h3>
+        <p>Multiple HTML pages ekmekanshi links vaprun connect karun simple website create karne.</p>
+
+        <h3>Project Folder Structure:</h3>
+
+        <pre class="code-block"><code>
+MyWebsite/
+│
+├── index.html
+├── about.html
+├── services.html
+└── contact.html
+        </code></pre>
+
+        <h3>File 1: index.html</h3>
+
+        <pre class="code-block"><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Home&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;h1&gt;Welcome to My Website&lt;/h1&gt;
+
+    &lt;nav&gt;
+        &lt;a href="index.html"&gt;Home&lt;/a&gt;
+        &lt;a href="about.html"&gt;About&lt;/a&gt;
+        &lt;a href="services.html"&gt;Services&lt;/a&gt;
+        &lt;a href="contact.html"&gt;Contact&lt;/a&gt;
+    &lt;/nav&gt;
+
+    &lt;p&gt;This is my home page.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+        </code></pre>
+
+        <h3>File 2: about.html</h3>
+
+        <pre class="code-block"><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;About&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;h1&gt;About Us&lt;/h1&gt;
+
+    &lt;a href="index.html"&gt;Home&lt;/a&gt;
+
+    &lt;p&gt;We provide learning resources.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+        </code></pre>
+
+        <h3>File 3: services.html</h3>
+
+        <pre class="code-block"><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Services&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;h1&gt;Our Services&lt;/h1&gt;
+
+    &lt;a href="index.html"&gt;Home&lt;/a&gt;
+
+    &lt;ul&gt;
+        &lt;li&gt;Web Development&lt;/li&gt;
+        &lt;li&gt;Website Design&lt;/li&gt;
+        &lt;li&gt;Online Support&lt;/li&gt;
+    &lt;/ul&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+        </code></pre>
+
+        <h3>File 4: contact.html</h3>
+
+        <pre class="code-block"><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Contact&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;h1&gt;Contact Us&lt;/h1&gt;
+
+    &lt;a href="index.html"&gt;Home&lt;/a&gt;
+
+    &lt;p&gt;Email: example@gmail.com&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+        </code></pre>
+
+        <h3>Expected Output:</h3>
+
+        <div class="output-box multi-output">
+            <h2>Welcome to My Website</h2>
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <p>This is my home page.</p>
+            <div class="mini-card">
+                <strong>About</strong>
+                <p>We provide learning resources.</p>
+            </div>
+            <div class="mini-card">
+                <strong>Services</strong>
+                <p>Web Development, Website Design, Online Support</p>
+            </div>
+            <div class="mini-card">
+                <strong>Contact</strong>
+                <p>Email: example@gmail.com</p>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Practice Steps -->
+
+    <section class="lesson-section">
+
+        <h2>12. How to Practice These Projects?</h2>
+
+        <ol>
+            <li>VS Code open kar.</li>
+            <li>New project folder create kar.</li>
+            <li>HTML file create kar.</li>
+            <li>Code swatah type kar.</li>
+            <li>Browser madhye output check kar.</li>
+            <li>Errors fix kar.</li>
+            <li>GitHub var project upload kar.</li>
+        </ol>
+
+        <div class="info-box">
+            <strong>Learning Advice:</strong>
+            Code copy-paste karnyapeksha pahilyanda
+            swatah type kar. Nantar code madhye changes
+            karun output kasa change hoto te observe kar.
+        </div>
+
+    </section>
+
+
+    <!-- Mistakes -->
+
+    <section class="lesson-section">
+
+        <h2>13. Common Beginner Mistakes</h2>
+
+        <div class="mistake-card">
+            <strong>Mistake 1: Missing HTML Structure</strong>
+            <p>DOCTYPE, html, head ani body tags properly use na karne.</p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 2: Incorrect File Names</strong>
+            <p>Links madhye HTML files chi incorrect names kiwa paths use karne.</p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 3: Missing Form Labels</strong>
+            <p>Input fields sathi labels provide na karne.</p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 4: Improper Nesting</strong>
+            <p>HTML tags incorrect order madhye close karne.</p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 5: Expecting HTML to Save Data</strong>
+            <p>HTML form automatically database madhye data save karat nahi. Backend necessary aahe.</p>
+        </div>
+
+    </section>
+
+
+    <!-- Revision -->
+
+    <section class="lesson-section">
+
+        <h2>14. Quick Revision</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>Personal Profile = Personal information webpage.</li>
+                <li>Registration Form = User information collect karne.</li>
+                <li>Result Table = Student marks display karne.</li>
+                <li>Course Website = Courses information display karne.</li>
+                <li>Restaurant Menu = Food items ani prices.</li>
+                <li>Portfolio = Developer skills ani projects.</li>
+                <li>Blog = Articles ani posts.</li>
+                <li>Landing Page = Product information.</li>
+                <li>Contact Page = User messages collect karne.</li>
+                <li>Multi-Page Website = Multiple connected HTML pages.</li>
+            </ul>
+        </div>
+
+    </section>
+
+
+    <!-- Practice Questions -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>15. Practice Questions</h2>
+
+        <h3>Basic Questions</h3>
+
+        <ol>
+            <li>HTML project mhanje kay?</li>
+            <li>Personal Profile Webpage madhye konthe elements use hotat?</li>
+            <li>Registration Form madhye fieldset cha use kay?</li>
+            <li>Student Result Table kasa create karaycha?</li>
+            <li>Semantic elements website madhye ka use kartat?</li>
+            <li>Portfolio website madhye konthe sections astat?</li>
+            <li>Landing Page mhanje kay?</li>
+            <li>Multi-Page Website mhanje kay?</li>
+        </ol>
+
+        <h3>Practical Questions</h3>
+
+        <ol>
+            <li>Personal Profile Webpage create kar.</li>
+            <li>Student Registration Form create kar.</li>
+            <li>Student Result Table create kar.</li>
+            <li>Online Course Website create kar.</li>
+            <li>Restaurant Menu Page create kar.</li>
+            <li>Developer Portfolio create kar.</li>
+            <li>Blog Webpage create kar.</li>
+            <li>Product Landing Page create kar.</li>
+            <li>Contact Us Page create kar.</li>
+            <li>Four HTML pages connect karun website create kar.</li>
+        </ol>
+
+        <div class="task-box">
+            <h3>Final HTML Project Challenge</h3>
+
+            <p>
+                Ek complete personal portfolio website
+                swatah create kar.
+            </p>
+
+            <ul>
+                <li>Home Section</li>
+                <li>About Me Section</li>
+                <li>Skills Section</li>
+                <li>Projects Section</li>
+                <li>Contact Form</li>
+                <li>Navigation Links</li>
+                <li>Semantic HTML Structure</li>
+            </ul>
+
+            <p>File Name: <strong>index.html</strong></p>
+        </div>
+
+    </section>
+
+
+    <!-- Navigation -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'html_topic' 'accessibility' %}"
+           class="nav-button previous-button">
+            ← Previous: Accessibility
+        </a>
+
+        <a href="{% url 'html_topic' 'practice' %}"
+           class="nav-button next-button">
+            Next: HTML Practice →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

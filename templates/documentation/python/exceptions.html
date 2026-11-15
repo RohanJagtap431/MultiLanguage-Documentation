@@ -1,0 +1,884 @@
+
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}Python Exception Handling | Roman Marathi Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/python/exceptions.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">PYTHON • LESSON 23</span>
+        <h1>Python Exception Handling</h1>
+        <p>
+            Program madhye runtime errors alyas te safely handle
+            karnyasathi Exception Handling vapartat.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Level: Beginner</span>
+            <span>⏱️ Time: 45–55 Minutes</span>
+        </div>
+    </div>
+
+    <!-- 1. Introduction -->
+    <section class="lesson-section">
+        <h2>1. What are Exceptions?</h2>
+
+        <p>
+            Program execute hot astana kahi unexpected problems yeu shaktat.
+            Ya problems mule program cha normal execution stop hou shakto.
+        </p>
+
+        <p>
+            Python madhye runtime la yenarya errors na generally
+            Exceptions mhantat.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>number = 10
+result = number / 0
+
+print(result)</code></pre>
+
+        <div class="error-box">
+            <strong>Error:</strong>
+            <pre>ZeroDivisionError: division by zero</pre>
+        </div>
+
+        <p>
+            Ya example madhye number la zero ne divide karnyacha prayatna
+            kela aahe. Python madhye zero ne division allowed nahi.
+        </p>
+
+        <div class="info-box">
+            <strong>Samjun ghe:</strong>
+            Exception mhanje program execute hotana yenari unexpected
+            problem. Exception Handling mule ashi problem handle karta yete.
+        </div>
+    </section>
+
+    <!-- 2. Need -->
+    <section class="lesson-section">
+        <h2>2. Why Exception Handling?</h2>
+
+        <p>Exception Handling vaparnyache fayde:</p>
+
+        <ul>
+            <li>Program achanak terminate honyapasun vachavta yeto.</li>
+            <li>User la meaningful error message dakhavta yeto.</li>
+            <li>Program cha normal flow maintain karta yeto.</li>
+            <li>Unexpected situations handle karta yetat.</li>
+            <li>Application reliable banvnyas madat hote.</li>
+        </ul>
+
+        <h3>Without Exception Handling</h3>
+
+        <pre><code>print("Program Started")
+
+number = 10 / 0
+
+print("Program Completed")</code></pre>
+
+        <div class="error-box">
+            <strong>Output:</strong>
+            <pre>Program Started
+ZeroDivisionError: division by zero</pre>
+            <p>Last print statement execute hot nahi.</p>
+        </div>
+
+        <h3>With Exception Handling</h3>
+
+        <pre><code>print("Program Started")
+
+try:
+    number = 10 / 0
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+
+print("Program Completed")</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Program Started
+Cannot divide by zero
+Program Completed</pre>
+        </div>
+    </section>
+
+    <!-- 3. Errors vs Exceptions -->
+    <section class="lesson-section">
+        <h2>3. Errors vs Exceptions</h2>
+
+        <p>
+            Python madhye errors ha broad term aahe.
+            Syntax errors ani runtime exceptions he vegvegale problems aahet.
+        </p>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Syntax Error</th>
+                        <th>Exception</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Code cha syntax chukicha asto.</td>
+                        <td>Program execute hotana problem yete.</td>
+                    </tr>
+                    <tr>
+                        <td>Program run honyapurvi detect hoto.</td>
+                        <td>Runtime madhye raise hoto.</td>
+                    </tr>
+                    <tr>
+                        <td>Example: Missing colon.</td>
+                        <td>Example: ZeroDivisionError.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Syntax Error Example</h3>
+
+        <pre><code>if 10 > 5
+    print("Yes")</code></pre>
+
+        <div class="error-box">
+            <strong>Error:</strong>
+            <pre>SyntaxError: expected ':'</pre>
+        </div>
+
+        <h3>Exception Example</h3>
+
+        <pre><code>number = int("hello")</code></pre>
+
+        <div class="error-box">
+            <strong>Error:</strong>
+            <pre>ValueError: invalid literal for int()</pre>
+        </div>
+    </section>
+
+    <!-- 4. Common Exceptions -->
+    <section class="lesson-section">
+        <h2>4. Common Python Exceptions</h2>
+
+        <p>
+            Python madhye vegveglya situations sathi vegveglya
+            built-in exceptions available aahet.
+        </p>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Exception</th>
+                        <th>When it occurs</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ZeroDivisionError</td>
+                        <td>Zero ne divide kelyas.</td>
+                    </tr>
+                    <tr>
+                        <td>ValueError</td>
+                        <td>Value cha type barobar asla tari value invalid aslyas.</td>
+                    </tr>
+                    <tr>
+                        <td>TypeError</td>
+                        <td>Incompatible data types vaparlyas.</td>
+                    </tr>
+                    <tr>
+                        <td>NameError</td>
+                        <td>Undefined variable use kelyas.</td>
+                    </tr>
+                    <tr>
+                        <td>IndexError</td>
+                        <td>List madhil invalid index access kelyas.</td>
+                    </tr>
+                    <tr>
+                        <td>KeyError</td>
+                        <td>Dictionary madhil missing key access kelyas.</td>
+                    </tr>
+                    <tr>
+                        <td>FileNotFoundError</td>
+                        <td>File sapadli nahi tar.</td>
+                    </tr>
+                    <tr>
+                        <td>AttributeError</td>
+                        <td>Object madhye unavailable attribute access kelyas.</td>
+                    </tr>
+                    <tr>
+                        <td>ImportError</td>
+                        <td>Required import karta ala nahi tar.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 5. try -->
+    <section class="lesson-section">
+        <h2>5. try Statement</h2>
+
+        <p>
+            <code>try</code> block madhye asa code lihitat jyamadhye
+            exception yenayachi possibility aste.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre><code>try:
+    # Risky code</code></pre>
+
+        <h3>Example</h3>
+
+        <pre><code>try:
+    number = 10 / 2
+    print(number)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>5.0</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            try block ekta vaparta yet nahi.
+            Tyachyasobat except kiwa finally block asne avashyak aahe.
+        </div>
+    </section>
+
+    <!-- 6. except -->
+    <section class="lesson-section">
+        <h2>6. except Statement</h2>
+
+        <p>
+            <code>except</code> block cha use try block madhye yenari
+            specific exception handle karnyasathi hoto.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre><code>try:
+    # Risky code
+
+except ExceptionName:
+    # Error handling code</code></pre>
+
+        <h3>Example</h3>
+
+        <pre><code>try:
+    number = 10 / 0
+
+except ZeroDivisionError:
+    print("Zero ne divide karta yet nahi")</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Zero ne divide karta yet nahi</pre>
+        </div>
+
+        <p>
+            ZeroDivisionError alyamule tyach exception sathi aslela
+            except block execute zala.
+        </p>
+    </section>
+
+    <!-- 7. Multiple except -->
+    <section class="lesson-section">
+        <h2>7. Multiple except Blocks</h2>
+
+        <p>
+            Ekach try block madhye vegveglya exceptions yeu shaktat.
+            Tyanna handle karnyasathi multiple except blocks vapartat.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>try:
+    number = int(input("Enter a number: "))
+    result = 100 / number
+
+    print("Result:", result)
+
+except ValueError:
+    print("Please enter a valid integer")
+
+except ZeroDivisionError:
+    print("Number cannot be zero")</code></pre>
+
+        <div class="output-box">
+            <strong>Possible Output 1:</strong>
+            <pre>Enter a number: abc
+Please enter a valid integer</pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Possible Output 2:</strong>
+            <pre>Enter a number: 0
+Number cannot be zero</pre>
+        </div>
+
+        <div class="info-box">
+            <strong>Samjun ghe:</strong>
+            Input conversion madhye ValueError yeu shakto.
+            Division madhye ZeroDivisionError yeu shakto.
+            Donhi errors vegveglya except blocks madhye handle kele aahet.
+        </div>
+    </section>
+
+    <!-- 8. Generic except -->
+    <section class="lesson-section">
+        <h2>8. Generic except Block</h2>
+
+        <p>
+            Specific exception mahit nasel tar generic except block vaparta yeto.
+            Pan शक्य asel tithe specific exception handle karne changle.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>try:
+    number = int("hello")
+
+except Exception:
+    print("Something went wrong")</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Something went wrong</pre>
+        </div>
+
+        <div class="warning-box">
+            <strong>Important:</strong>
+            Generic except mule exact problem samajne kathin hou shakte.
+            Mhanun specific exception classes vaprane prefer kar.
+            KeyboardInterrupt ani SystemExit sarkhe BaseException exceptions
+            unnecessarily catch karu naye.
+        </div>
+    </section>
+
+    <!-- 9. else -->
+    <section class="lesson-section">
+        <h2>9. else Block</h2>
+
+        <p>
+            <code>else</code> block fakt try block madhye exception
+            raise zali nahi tar execute hoto.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre><code>try:
+    # Risky code
+
+except ExceptionName:
+    # Error handling
+
+else:
+    # No exception code</code></pre>
+
+        <h3>Example</h3>
+
+        <pre><code>try:
+    number = int(input("Enter number: "))
+
+except ValueError:
+    print("Invalid input")
+
+else:
+    print("Your number is:", number)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Enter number: 25
+Your number is: 25</pre>
+        </div>
+
+        <p>
+            Input valid aslyamule exception aali nahi ani else block execute zala.
+        </p>
+    </section>
+
+    <!-- 10. finally -->
+    <section class="lesson-section">
+        <h2>10. finally Block</h2>
+
+        <p>
+            <code>finally</code> block cha use cleanup code execute
+            karnyasathi hoto.
+        </p>
+
+        <p>
+            Normal exception flow madhye exception aali kiwa nahi,
+            tari finally block execute hoto.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre><code>try:
+    # Risky code
+
+except ExceptionName:
+    # Error handling
+
+finally:
+    # Cleanup code</code></pre>
+
+        <h3>Example</h3>
+
+        <pre><code>try:
+    number = 10 / 2
+    print(number)
+
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+
+finally:
+    print("Program finished")</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>5.0
+Program finished</pre>
+        </div>
+
+        <h3>Example with Exception</h3>
+
+        <pre><code>try:
+    number = 10 / 0
+
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+
+finally:
+    print("Cleanup completed")</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Cannot divide by zero
+Cleanup completed</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            File close karne, resources release karne kiwa cleanup tasks
+            sathi finally useful aahe. File handling madhye with statement
+            suddha resource management sathi commonly vapartat.
+        </div>
+    </section>
+
+    <!-- 11. Full flow -->
+    <section class="lesson-section">
+        <h2>11. Complete try-except-else-finally</h2>
+
+        <p>
+            try, except, else ani finally he char blocks ekatra
+            suddha use karta yetat.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>try:
+    number = int(input("Enter a number: "))
+    result = 100 / number
+
+except ValueError:
+    print("Please enter an integer")
+
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+
+else:
+    print("Result:", result)
+
+finally:
+    print("Execution completed")</code></pre>
+
+        <div class="output-box">
+            <strong>Possible Output:</strong>
+            <pre>Enter a number: 20
+Result: 5.0
+Execution completed</pre>
+        </div>
+
+        <h3>Block Responsibilities</h3>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Block</th>
+                        <th>When it executes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>try</td><td>Risky code execute karto.</td></tr>
+                    <tr><td>except</td><td>Matching exception raise zalyas execute hoto.</td></tr>
+                    <tr><td>else</td><td>try madhye exception raise zali nahi tar execute hoto.</td></tr>
+                    <tr><td>finally</td><td>Normal exception flow madhye cleanup sathi execute hoto.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 12. Exception as -->
+    <section class="lesson-section">
+        <h2>12. Exception Message using as</h2>
+
+        <p>
+            Exception object madhil error message access karnyasathi
+            <code>as</code> keyword vaparta yeto.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>try:
+    number = int("hello")
+
+except ValueError as error:
+    print("Error:", error)</code></pre>
+
+        <div class="output-box">
+            <strong>Possible Output:</strong>
+            <pre>Error: invalid literal for int() with base 10: 'hello'</pre>
+        </div>
+
+        <p>
+            Ya example madhye error ha exception object reference aahe.
+            Tyatun error message display kela aahe.
+        </p>
+    </section>
+
+    <!-- 13. raise -->
+    <section class="lesson-section">
+        <h2>13. raise Keyword</h2>
+
+        <p>
+            <code>raise</code> keyword cha use manually exception
+            raise karnyasathi hoto.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre><code>raise ExceptionName("Error message")</code></pre>
+
+        <h3>Example</h3>
+
+        <pre><code>age = 15
+
+if age < 18:
+    raise ValueError("You must be 18 or older")
+
+print("Access granted")</code></pre>
+
+        <div class="error-box">
+            <strong>Error:</strong>
+            <pre>ValueError: You must be 18 or older</pre>
+        </div>
+
+        <p>
+            Age 18 peksha kami aslyamule manually ValueError raise zala.
+            Tyamule pudhil print statement execute hot nahi.
+        </p>
+
+        <h3>Handling Raised Exception</h3>
+
+        <pre><code>age = 15
+
+try:
+    if age < 18:
+        raise ValueError("Age must be 18 or above")
+
+    print("Access granted")
+
+except ValueError as error:
+    print("Error:", error)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Error: Age must be 18 or above</pre>
+        </div>
+    </section>
+
+    <!-- 14. Custom Exception -->
+    <section class="lesson-section">
+        <h2>14. Custom Exceptions</h2>
+
+        <p>
+            Aaplyala application sathi swatachi exception class create karta yete.
+            Ashya exception la Custom Exception mhantat.
+        </p>
+
+        <p>
+            Custom exception create karnyasathi generally Exception class
+            inherit kartat.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre><code>class CustomError(Exception):
+    pass</code></pre>
+
+        <h3>Example – Invalid Age</h3>
+
+        <pre><code>class InvalidAgeError(Exception):
+    pass
+
+
+age = 15
+
+try:
+    if age < 18:
+        raise InvalidAgeError("Age is not valid")
+
+    print("Registration successful")
+
+except InvalidAgeError as error:
+    print("Error:", error)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Error: Age is not valid</pre>
+        </div>
+
+        <p>
+            InvalidAgeError hi aapli custom exception class aahe.
+            Age 18 peksha kami aslyas hi exception raise hote.
+        </p>
+    </section>
+
+    <!-- 15. Practical -->
+    <section class="lesson-section">
+        <h2>15. Practical Example – Safe Calculator</h2>
+
+        <p>
+            User kadun don numbers ghe.
+            Addition, subtraction, multiplication ani division perform kar.
+            Invalid input ani zero division handle kar.
+        </p>
+
+        <pre><code>try:
+    num1 = float(input("Enter first number: "))
+    num2 = float(input("Enter second number: "))
+
+    result = num1 / num2
+
+except ValueError:
+    print("Please enter valid numbers")
+
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+
+else:
+    print("Division Result:", result)
+
+finally:
+    print("Calculator completed")</code></pre>
+
+        <div class="output-box">
+            <strong>Possible Output:</strong>
+            <pre>Enter first number: 20
+Enter second number: 5
+Division Result: 4.0
+Calculator completed</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Practice Challenge:</strong>
+            Ya calculator madhye addition, subtraction ani multiplication
+            suddha add kar. User ne invalid operator dila tar custom error
+            message display kar.
+        </div>
+    </section>
+
+    <!-- 16. Common Mistakes -->
+    <section class="lesson-section">
+        <h2>16. Common Beginner Mistakes</h2>
+
+        <div class="error-card">
+            <h3>Mistake 1: Wrong Exception Name</h3>
+
+            <pre><code>try:
+    number = 10 / 0
+
+except ValueError:
+    print("Error handled")</code></pre>
+
+            <p>
+                Yethe ZeroDivisionError apekshit aahe.
+                ValueError block tyala handle karat nahi.
+            </p>
+
+            <pre><code>except ZeroDivisionError:
+    print("Cannot divide by zero")</code></pre>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 2: Empty except Block</h3>
+
+            <pre><code>try:
+    number = 10 / 0
+
+except:
+    pass</code></pre>
+
+            <p>
+                Ashya code mule error silently ignore hou shakto.
+                Debugging kathin hote. Specific exception handle kar.
+            </p>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 3: Wrong Block Order</h3>
+
+            <pre><code>try:
+    print(10 / 2)
+
+else:
+    print("Success")
+
+except ZeroDivisionError:
+    print("Error")</code></pre>
+
+            <p>
+                else block ha except block nantar lihaycha asto.
+            </p>
+
+            <pre><code>try:
+    print(10 / 2)
+
+except ZeroDivisionError:
+    print("Error")
+
+else:
+    print("Success")</code></pre>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 4: Not Handling Invalid Input</h3>
+
+            <pre><code>age = int(input("Enter age: "))</code></pre>
+
+            <p>
+                User ne letters enter kele tar ValueError yeu shakto.
+                Input conversion try block madhye handle kar.
+            </p>
+
+            <pre><code>try:
+    age = int(input("Enter age: "))
+
+except ValueError:
+    print("Enter a valid age")</code></pre>
+        </div>
+    </section>
+
+    <!-- 17. Revision -->
+    <section class="lesson-section">
+        <h2>17. Quick Revision</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Concept</th>
+                        <th>Use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Exception</td><td>Runtime madhye yenari problem.</td></tr>
+                    <tr><td>try</td><td>Risky code lihinyasathi.</td></tr>
+                    <tr><td>except</td><td>Exception handle karnyasathi.</td></tr>
+                    <tr><td>else</td><td>Exception nasel tar execute hoto.</td></tr>
+                    <tr><td>finally</td><td>Cleanup code sathi.</td></tr>
+                    <tr><td>raise</td><td>Manually exception raise karto.</td></tr>
+                    <tr><td>as</td><td>Exception object la variable name deto.</td></tr>
+                    <tr><td>Custom Exception</td><td>Swatachi exception class create karto.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 18. Practice -->
+    <section class="practice-section">
+        <h2>18. Practice Questions</h2>
+
+        <p>
+            Khalil questions swatah solve kar.
+            Pratyek program madhye yogya exception handle kar.
+        </p>
+
+        <div class="practice-task">
+            <h3>Question 1</h3>
+            <p>10 la zero ne divide kar ani ZeroDivisionError handle kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 2</h3>
+            <p>User kadun integer input ghe ani invalid input aslyas ValueError handle kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 3</h3>
+            <p>List madhil invalid index access karun IndexError handle kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 4</h3>
+            <p>Dictionary madhil missing key access karun KeyError handle kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 5</h3>
+            <p>Multiple except blocks vaprun ValueError ani ZeroDivisionError handle kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 6</h3>
+            <p>try-except-else vaprun valid number chi square calculate kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 7</h3>
+            <p>finally block vaprun program completed message display kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 8</h3>
+            <p>raise vaprun age 18 peksha kami aslyas ValueError raise kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 9</h3>
+            <p>InvalidAgeError navachi custom exception create kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 10</h3>
+            <p>Exception Handling vaprun safe division calculator create kar.</p>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+        <a href="{% url 'python_topic' 'modules' %}" class="nav-button back-button">
+            ← Previous: Python Modules
+        </a>
+
+        <a href="{% url 'python_topic' 'file-handling' %}" class="nav-button next-button">
+            Next: File Handling →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

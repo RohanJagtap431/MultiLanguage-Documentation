@@ -1,0 +1,487 @@
+
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}CSS Best Practices | Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/css/best-practices.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+    <div class="lesson-header">
+        <span class="lesson-label">CSS TUTORIAL</span>
+
+        <h1>CSS Best Practices</h1>
+
+        <p>
+            CSS Best Practices mule code clean, readable,
+            reusable ani maintainable thevta yete.
+            Professional website development sathi
+            ya practices useful aahet.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 25 Minutes</span>
+            <span>📄 Page 27</span>
+        </div>
+    </div>
+
+
+    <!-- Section 1 -->
+    <section class="lesson-section">
+
+        <h2>1. Write Clean CSS Code</h2>
+
+        <p>
+            CSS code lihitana proper indentation,
+            spacing ani formatting vaprane mahatvache aahe.
+            Yamule code vachne ani samajne sope hote.
+        </p>
+
+        <h3>Bad Practice</h3>
+
+        <div class="code-block">
+            <pre><code>.card{background:white;padding:20px;color:black;border-radius:8px;}</code></pre>
+        </div>
+
+        <h3>Good Practice</h3>
+
+        <div class="code-block">
+            <pre><code>.card {
+    background: white;
+    padding: 20px;
+    color: black;
+    border-radius: 8px;
+}</code></pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Pratyek CSS property veglya line var liha
+            ani consistent indentation maintain kara.
+        </div>
+
+    </section>
+
+
+    <!-- Section 2 -->
+    <section class="lesson-section">
+
+        <h2>2. Use Proper Naming Conventions</h2>
+
+        <p>
+            CSS classes ani IDs la meaningful names dya.
+            Name vachun tya element cha purpose samajla pahije.
+        </p>
+
+        <h3>Bad Practice</h3>
+
+        <div class="code-block">
+            <pre><code>.box1 {
+    color: blue;
+}
+
+.x {
+    padding: 20px;
+}</code></pre>
+        </div>
+
+        <h3>Good Practice</h3>
+
+        <div class="code-block">
+            <pre><code>.profile-card {
+    color: blue;
+}
+
+.login-button {
+    padding: 20px;
+}</code></pre>
+        </div>
+
+        <p>
+            Meaningful names mule mothya project madhye
+            specific CSS rules shodhne sope hote.
+        </p>
+
+    </section>
+
+
+    <!-- Section 3 -->
+    <section class="lesson-section">
+
+        <h2>3. Avoid Duplicate CSS</h2>
+
+        <p>
+            Ekach CSS rule anek thikani unnecessary
+            repeat karu naye. Common styles ekatra
+            lihun reuse karavet.
+        </p>
+
+        <h3>Bad Practice</h3>
+
+        <div class="code-block">
+            <pre><code>.heading {
+    color: blue;
+}
+
+.title {
+    color: blue;
+}
+
+.name {
+    color: blue;
+}</code></pre>
+        </div>
+
+        <h3>Good Practice</h3>
+
+        <div class="code-block">
+            <pre><code>.heading,
+.title,
+.name {
+    color: blue;
+}</code></pre>
+        </div>
+
+        <div class="info-box">
+            <strong>Definition:</strong>
+            CSS Grouping Selector allows multiple
+            selectors to share the same CSS rules.
+        </div>
+
+    </section>
+
+
+    <!-- Section 4 -->
+    <section class="lesson-section">
+
+        <h2>4. Use External CSS</h2>
+
+        <p>
+            CSS code separate .css file madhye lihine
+            hi recommended practice aahe.
+        </p>
+
+        <h3>HTML Code</h3>
+
+        <div class="code-block">
+            <pre><code>&lt;head&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;</code></pre>
+        </div>
+
+        <h3>CSS File - style.css</h3>
+
+        <div class="code-block">
+            <pre><code>body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: blue;
+}</code></pre>
+        </div>
+
+        <h3>Advantages</h3>
+
+        <ul>
+            <li>HTML ani CSS separate rahtat.</li>
+            <li>Code maintain karne sope hote.</li>
+            <li>Ek CSS file multiple HTML pages madhye reuse karta yete.</li>
+            <li>Project structure organized rahte.</li>
+        </ul>
+
+    </section>
+
+
+    <!-- Section 5 -->
+    <section class="lesson-section">
+
+        <h2>5. Use CSS Variables</h2>
+
+        <p>
+            Same colors, spacing ani font values
+            vegveglya selectors madhye vaprayche astil
+            tar CSS Variables useful thartat.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>:root {
+    --primary-color: #2563eb;
+    --text-color: #334155;
+    --main-padding: 20px;
+}
+
+button {
+    background: var(--primary-color);
+}
+
+p {
+    color: var(--text-color);
+}
+
+.card {
+    padding: var(--main-padding);
+}</code></pre>
+        </div>
+
+        <p>
+            Variable chi value ekda change keli ki
+            tya variable cha use karanarya rules madhye
+            updated value apply hote.
+        </p>
+
+    </section>
+
+
+    <!-- Section 6 -->
+    <section class="lesson-section">
+
+        <h2>6. Write Responsive CSS</h2>
+
+        <p>
+            Website mobile, tablet ani desktop ya
+            vegveglya screen sizes var properly disli pahije.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 100%;
+    }
+}</code></pre>
+        </div>
+
+        <h3>Important Points</h3>
+
+        <ul>
+            <li>Relative units cha yogya use kara.</li>
+            <li>Media Queries vapra.</li>
+            <li>Flexible images vapra.</li>
+            <li>Different screen sizes var testing kara.</li>
+        </ul>
+
+    </section>
+
+
+    <!-- Section 7 -->
+    <section class="lesson-section">
+
+        <h2>7. Avoid Excessive !important</h2>
+
+        <p>
+            !important mule CSS declaration la special
+            priority milte. Pan tyacha unnecessary use
+            kelyas CSS conflicts solve karne kathin hote.
+        </p>
+
+        <h3>Bad Practice</h3>
+
+        <div class="code-block">
+            <pre><code>.button {
+    background: blue !important;
+    color: white !important;
+    padding: 15px !important;
+}</code></pre>
+        </div>
+
+        <h3>Good Practice</h3>
+
+        <div class="code-block">
+            <pre><code>.button {
+    background: blue;
+    color: white;
+    padding: 15px;
+}</code></pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            CSS specificity ani cascade samjun ghya.
+            !important cha use fakt kharach garaj
+            asel tevhach kara.
+        </div>
+
+    </section>
+
+
+    <!-- Section 8 -->
+    <section class="lesson-section">
+
+        <h2>8. Use CSS Comments</h2>
+
+        <p>
+            CSS Comments mule code madhil vegveglya
+            sections cha purpose samajnyas madat hote.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>/* Main Container */
+
+.container {
+    width: 90%;
+    margin: auto;
+}
+
+/* Heading Style */
+
+h1 {
+    color: blue;
+}</code></pre>
+        </div>
+
+        <p>
+            CSS comment browser madhye display hot nahi.
+            To developers sathi asto.
+        </p>
+
+    </section>
+
+
+    <!-- Section 9 -->
+    <section class="lesson-section">
+
+        <h2>9. Organize CSS Code</h2>
+
+        <p>
+            CSS file madhil properties ani selectors
+            proper order madhye organize kara.
+        </p>
+
+        <h3>Recommended Order</h3>
+
+        <div class="organization-list">
+
+            <div class="organization-item">
+                <span>01</span>
+                <p>Reset and Global Styles</p>
+            </div>
+
+            <div class="organization-item">
+                <span>02</span>
+                <p>Typography</p>
+            </div>
+
+            <div class="organization-item">
+                <span>03</span>
+                <p>Layout and Containers</p>
+            </div>
+
+            <div class="organization-item">
+                <span>04</span>
+                <p>Components and Cards</p>
+            </div>
+
+            <div class="organization-item">
+                <span>05</span>
+                <p>Responsive Media Queries</p>
+            </div>
+
+        </div>
+
+        <h3>Example CSS Structure</h3>
+
+        <div class="code-block">
+            <pre><code>/* Global Styles */
+
+/* Typography */
+
+/* Layout */
+
+/* Components */
+
+/* Buttons */
+
+/* Responsive Design */</code></pre>
+        </div>
+
+    </section>
+
+
+    <!-- Section 10 -->
+    <section class="lesson-section">
+
+        <h2>10. Best Practices Checklist</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>Clean ani readable CSS code liha.</li>
+                <li>Meaningful class names vapra.</li>
+                <li>Duplicate CSS avoid kara.</li>
+                <li>External CSS file vapra.</li>
+                <li>CSS Variables cha use kara.</li>
+                <li>Responsive design maintain kara.</li>
+                <li>Unnecessary !important avoid kara.</li>
+                <li>CSS comments lihun code organize kara.</li>
+                <li>Unused CSS rules remove kara.</li>
+                <li>Different screen sizes var testing kara.</li>
+            </ul>
+        </div>
+
+    </section>
+
+
+    <!-- Practice Section -->
+    <section class="practice-section">
+
+        <h2>11. Practice Task</h2>
+
+        <div class="task-box">
+
+            <h3>Task: Write Clean and Organized CSS</h3>
+
+            <p>
+                Ek simple profile card website tayar kara ani:
+            </p>
+
+            <ol>
+                <li>HTML ani CSS separate files madhye liha.</li>
+                <li>Meaningful class names vapra.</li>
+                <li>CSS Variables declare kara.</li>
+                <li>Duplicate CSS rules avoid kara.</li>
+                <li>Code comments add kara.</li>
+                <li>Mobile responsive design tayar kara.</li>
+                <li>Unnecessary !important vapru naka.</li>
+            </ol>
+
+        </div>
+
+    </section>
+
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+
+        <a href="{% url 'css_topic' 'specificity-inheritance' %}"
+           class="nav-button previous">
+            ← Previous: Specificity and Inheritance
+        </a>
+
+        <a href="{% url 'css_topic' 'projects' %}"
+           class="nav-button next">
+            Next: CSS Mini Projects →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

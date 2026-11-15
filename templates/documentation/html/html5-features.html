@@ -1,0 +1,1208 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}
+HTML5 Features | Roman Marathi
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/html/html5-features.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+
+    <div class="lesson-header">
+
+        <span class="lesson-label">HTML DOCUMENTATION • PAGE 16</span>
+
+        <h1>HTML5 Features</h1>
+
+        <p>
+            HTML5 madhil modern elements, multimedia,
+            forms ani browser APIs yanchi mahiti gheuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Beginner Level</span>
+            <span>40–45 Minutes</span>
+        </div>
+
+    </div>
+
+
+    <!-- Section 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What is HTML5?</h2>
+
+        <p>
+            HTML5 hi HTML chi modern version aahe.
+            Webpages create karnyasathi HTML5 madhye
+            semantic elements, audio-video support,
+            improved forms ani anek navin features
+            introduce kele gele.
+        </p>
+
+        <p>
+            HTML5 mule multimedia ani interactive
+            webpages create karne sope zale.
+        </p>
+
+        <h3>HTML5 Features:</h3>
+
+        <ul>
+            <li>Semantic Elements</li>
+            <li>Audio and Video Support</li>
+            <li>New Form Input Types</li>
+            <li>Canvas and SVG Graphics</li>
+            <li>Web Storage</li>
+            <li>Geolocation API</li>
+            <li>Drag and Drop API</li>
+        </ul>
+
+        <div class="info-box">
+            <strong>Simple Definition:</strong>
+            HTML5 hi HTML chi modern version aahe,
+            ji webpages madhye structure, multimedia
+            ani interactive features support karte.
+        </div>
+
+    </section>
+
+
+    <!-- Section 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. HTML4 vs HTML5</h2>
+
+        <p>
+            HTML4 ani HTML5 madhye kahi important
+            differences aahet.
+        </p>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>HTML4</th>
+                    <th>HTML5</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Older HTML standard</td>
+                    <td>Modern HTML standard</td>
+                </tr>
+
+                <tr>
+                    <td>Multimedia sathi plugins commonly lagat</td>
+                    <td>Native audio-video elements</td>
+                </tr>
+
+                <tr>
+                    <td>Limited semantic elements</td>
+                    <td>header, nav, main, footer etc.</td>
+                </tr>
+
+                <tr>
+                    <td>Limited form input types</td>
+                    <td>New input types such as email, date</td>
+                </tr>
+
+                <tr>
+                    <td>Canvas built-in navhata</td>
+                    <td>Canvas element available</td>
+                </tr>
+
+                <tr>
+                    <td>Doctype declaration lamb hoti</td>
+                    <td>Simple DOCTYPE declaration</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <h3>HTML5 DOCTYPE:</h3>
+
+        <pre class="code-block"><code>
+&lt;!DOCTYPE html&gt;
+        </code></pre>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            HTML5 sathi simple DOCTYPE declaration vapartat.
+            Browser la document HTML standard nusar
+            interpret karayla madat hote.
+        </div>
+
+    </section>
+
+
+    <!-- Section 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. HTML5 Semantic Elements</h2>
+
+        <p>
+            Semantic elements webpage madhil content
+            cha meaning browser ani developers la
+            samjun ghenyas madat kartat.
+        </p>
+
+        <h3>Important Semantic Elements:</h3>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>Element</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>&lt;header&gt;</td>
+                    <td>Page kiwa section cha header</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;nav&gt;</td>
+                    <td>Navigation links</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;main&gt;</td>
+                    <td>Main page content</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;section&gt;</td>
+                    <td>Thematic content section</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;article&gt;</td>
+                    <td>Independent content</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;aside&gt;</td>
+                    <td>Related side content</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;footer&gt;</td>
+                    <td>Footer information</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;header&gt;
+    &lt;h1&gt;My Website&lt;/h1&gt;
+&lt;/header&gt;
+
+&lt;nav&gt;
+    &lt;a href="/"&gt;Home&lt;/a&gt;
+    &lt;a href="/about/"&gt;About&lt;/a&gt;
+&lt;/nav&gt;
+
+&lt;main&gt;
+
+    &lt;section&gt;
+        &lt;h2&gt;About Us&lt;/h2&gt;
+        &lt;p&gt;Welcome to our website.&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;article&gt;
+        &lt;h2&gt;Latest News&lt;/h2&gt;
+        &lt;p&gt;This is a news article.&lt;/p&gt;
+    &lt;/article&gt;
+
+&lt;/main&gt;
+
+&lt;footer&gt;
+    &lt;p&gt;Copyright 2026&lt;/p&gt;
+&lt;/footer&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box semantic-output">
+
+            <header>
+                <h2>My Website</h2>
+            </header>
+
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+            </nav>
+
+            <main>
+                <section>
+                    <h3>About Us</h3>
+                    <p>Welcome to our website.</p>
+                </section>
+
+                <article>
+                    <h3>Latest News</h3>
+                    <p>This is a news article.</p>
+                </article>
+            </main>
+
+            <footer>
+                <p>Copyright 2026</p>
+            </footer>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. Audio and Video Support</h2>
+
+        <p>
+            HTML5 madhye audio ani video play karnyasathi
+            built-in elements available aahet.
+            External plugins chi normally garaj naste.
+        </p>
+
+        <h3>Audio Element:</h3>
+
+        <pre class="code-block"><code>
+&lt;audio controls&gt;
+
+    &lt;source src="music.mp3" type="audio/mpeg"&gt;
+
+    Your browser does not support audio.
+
+&lt;/audio&gt;
+        </code></pre>
+
+        <h3>Video Element:</h3>
+
+        <pre class="code-block"><code>
+&lt;video width="400" controls&gt;
+
+    &lt;source src="video.mp4" type="video/mp4"&gt;
+
+    Your browser does not support video.
+
+&lt;/video&gt;
+        </code></pre>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            controls attribute mule play, pause ani
+            volume sarkhe controls display hotat.
+        </div>
+
+    </section>
+
+
+    <!-- Section 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. HTML5 Form Enhancements</h2>
+
+        <p>
+            HTML5 madhye forms sathi navin input types
+            ani validation attributes add kele gele.
+        </p>
+
+        <h3>Important Input Types:</h3>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>Input Type</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>email</td>
+                    <td>Email address input</td>
+                </tr>
+
+                <tr>
+                    <td>date</td>
+                    <td>Date selection</td>
+                </tr>
+
+                <tr>
+                    <td>number</td>
+                    <td>Numeric input</td>
+                </tr>
+
+                <tr>
+                    <td>range</td>
+                    <td>Value slider</td>
+                </tr>
+
+                <tr>
+                    <td>color</td>
+                    <td>Color selection</td>
+                </tr>
+
+                <tr>
+                    <td>url</td>
+                    <td>Website URL input</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;form&gt;
+
+    &lt;label&gt;Email:&lt;/label&gt;
+
+    &lt;input type="email" required&gt;
+
+    &lt;label&gt;Date:&lt;/label&gt;
+
+    &lt;input type="date"&gt;
+
+    &lt;label&gt;Age:&lt;/label&gt;
+
+    &lt;input type="number" min="18" max="60"&gt;
+
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+
+&lt;/form&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box form-output">
+
+            <form>
+                <label>Email:</label>
+                <input type="email" placeholder="Enter email" required>
+
+                <label>Date:</label>
+                <input type="date">
+
+                <label>Age:</label>
+                <input type="number" min="18" max="60" placeholder="Enter age">
+
+                <button type="submit">Submit</button>
+            </form>
+
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Browser validation hi backend validation cha
+            replacement nahi. Django madhye suddha
+            server-side validation karne necessary aahe.
+        </div>
+
+    </section>
+
+
+    <!-- Section 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. HTML5 Canvas Element</h2>
+
+        <p>
+            &lt;canvas&gt; element cha use webpage var
+            graphics, shapes, animations ani drawings
+            create karnyasathi hoto.
+        </p>
+
+        <p>
+            Canvas var graphics draw karnyasathi
+            JavaScript chi garaj aste.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;canvas id="myCanvas"
+        width="300"
+        height="150"&gt;
+&lt;/canvas&gt;
+
+&lt;script&gt;
+
+    const canvas = document.getElementById("myCanvas");
+
+    const ctx = canvas.getContext("2d");
+
+    ctx.fillStyle = "blue";
+
+    ctx.fillRect(30, 30, 150, 80);
+
+&lt;/script&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box canvas-output">
+
+            <canvas id="html5DemoCanvas"
+                    width="300"
+                    height="150">
+            </canvas>
+
+        </div>
+
+        <p>
+            Ya example madhye JavaScript cha use karun
+            blue rectangle draw kela aahe.
+        </p>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            Canvas he bitmap-based drawing surface aahe.
+            Drawing create karnyasathi JavaScript vapartat.
+        </div>
+
+    </section>
+
+
+    <!-- Section 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. SVG Basics</h2>
+
+        <p>
+            SVG mhanje Scalable Vector Graphics.
+            SVG cha use webpage var shapes, icons,
+            diagrams ani vector graphics display
+            karnyasathi hoto.
+        </p>
+
+        <p>
+            SVG graphics size change kelyavar generally
+            quality loss hot nahi.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;svg width="300" height="150"&gt;
+
+    &lt;circle cx="100"
+            cy="75"
+            r="50"
+            fill="blue" /&gt;
+
+&lt;/svg&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box svg-output">
+
+            <svg width="300" height="150"
+                 viewBox="0 0 300 150"
+                 role="img"
+                 aria-label="Blue circle">
+
+                <circle cx="100"
+                        cy="75"
+                        r="50"
+                        fill="#2563eb"/>
+
+            </svg>
+
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Canvas ani SVG donhi graphics sathi useful aahet.
+            Canvas pixel-based drawing sathi, tar SVG
+            vector-based graphics sathi vapartat.
+        </div>
+
+    </section>
+
+
+    <!-- Section 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. HTML5 Web Storage</h2>
+
+        <p>
+            Web Storage API browser madhye data store
+            karnyasathi use hote.
+        </p>
+
+        <p>
+            Web Storage che don main types aahet.
+        </p>
+
+        <h3>1. Local Storage</h3>
+
+        <p>
+            Local Storage madhye data browser madhye
+            store hoto ani normally browser close
+            kelyanantar suddha available rahto.
+        </p>
+
+        <pre class="code-block"><code>
+// Store Data
+
+localStorage.setItem("username", "Rohan");
+
+// Get Data
+
+let name = localStorage.getItem("username");
+
+// Remove Data
+
+localStorage.removeItem("username");
+        </code></pre>
+
+        <h3>2. Session Storage</h3>
+
+        <p>
+            Session Storage madhye data current browser
+            tab session purta store hoto.
+            Tab kiwa window session end zalyavar
+            data clear hoto.
+        </p>
+
+        <pre class="code-block"><code>
+// Store Data
+
+sessionStorage.setItem("username", "Rohan");
+
+// Get Data
+
+let name = sessionStorage.getItem("username");
+
+// Remove Data
+
+sessionStorage.removeItem("username");
+        </code></pre>
+
+        <h3>Difference:</h3>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>Local Storage</th>
+                    <th>Session Storage</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Data generally persistent asto</td>
+                    <td>Current tab session purta asto</td>
+                </tr>
+
+                <tr>
+                    <td>Browser restart nantar suddha rahto</td>
+                    <td>Tab session end zalyavar clear hoto</td>
+                </tr>
+
+                <tr>
+                    <td>Same origin chya pages madhye share hoto</td>
+                    <td>Pratyek tab cha session vegla asto</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <div class="important-box">
+            <strong>Security Note:</strong>
+            Local Storage ani Session Storage madhye
+            passwords, secret keys kiwa sensitive tokens
+            store karu naye. JavaScript access mule
+            XSS attack madhye data expose hou shakto.
+        </div>
+
+    </section>
+
+
+    <!-- Section 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Geolocation API</h2>
+
+        <p>
+            Geolocation API cha use user chi location
+            permission gheun access karnyasathi hoto.
+        </p>
+
+        <p>
+            Location access karnyapurvi browser user
+            permission magto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+function getLocation() {
+
+    if (navigator.geolocation) {
+
+        navigator.geolocation.getCurrentPosition(
+            function(position) {
+
+                console.log(position.coords.latitude);
+
+                console.log(position.coords.longitude);
+
+            }
+        );
+
+    } else {
+
+        console.log("Geolocation not supported.");
+
+    }
+
+}
+        </code></pre>
+
+        <h3>Important Points:</h3>
+
+        <ul>
+            <li>Browser user permission magto.</li>
+            <li>Latitude location chi north-south position sangte.</li>
+            <li>Longitude location chi east-west position sangte.</li>
+            <li>Generally HTTPS kiwa localhost required aste.</li>
+            <li>User permission deny karu shakto.</li>
+        </ul>
+
+        <div class="info-box">
+            <strong>Example Uses:</strong>
+            Maps, nearby services ani location-based
+            applications madhye Geolocation API useful aahe.
+        </div>
+
+    </section>
+
+
+    <!-- Section 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. HTML Drag and Drop</h2>
+
+        <p>
+            Drag and Drop API mule user webpage var
+            elements eka thikanahun dusrya thikani
+            drag ani drop karu shakto.
+        </p>
+
+        <h3>Important Attributes and Events:</h3>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>draggable</td>
+                    <td>Element draggable banavto</td>
+                </tr>
+
+                <tr>
+                    <td>ondragstart</td>
+                    <td>Dragging start zalyavar</td>
+                </tr>
+
+                <tr>
+                    <td>ondragover</td>
+                    <td>Element drop area var asatana</td>
+                </tr>
+
+                <tr>
+                    <td>ondrop</td>
+                    <td>Element drop kelyavar</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;p id="item"
+   draggable="true"
+   ondragstart="drag(event)"&gt;
+
+   Drag Me
+
+&lt;/p&gt;
+
+&lt;div id="box"
+     ondragover="allowDrop(event)"
+     ondrop="drop(event)"&gt;
+
+     Drop Here
+
+&lt;/div&gt;
+
+&lt;script&gt;
+
+function drag(event) {
+
+    event.dataTransfer.setData(
+        "text",
+        event.target.id
+    );
+
+}
+
+function allowDrop(event) {
+
+    event.preventDefault();
+
+}
+
+function drop(event) {
+
+    event.preventDefault();
+
+    const id = event.dataTransfer.getData("text");
+
+    event.currentTarget.appendChild(
+        document.getElementById(id)
+    );
+
+}
+
+&lt;/script&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box drag-output">
+
+            <p id="dragItem"
+               draggable="true"
+               ondragstart="html5DragStart(event)">
+                Drag Me
+            </p>
+
+            <div id="dragBox"
+                 ondragover="html5AllowDrop(event)"
+                 ondrop="html5Drop(event)">
+                Drop Here
+            </div>
+
+            <button type="button"
+                    onclick="html5ResetDrag()">
+                Reset
+            </button>
+
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Drop area var ondragover event madhye
+            event.preventDefault() call karne important aahe.
+        </div>
+
+    </section>
+
+
+    <!-- Section 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Complete HTML5 Practical Example</h2>
+
+        <p>
+            Ata HTML5 semantic elements ani form features
+            vaprun ek simple webpage create karu.
+        </p>
+
+        <h3>HTML Code:</h3>
+
+        <pre class="code-block"><code>
+&lt;!DOCTYPE html&gt;
+
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+
+    &lt;meta charset="UTF-8"&gt;
+
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+
+    &lt;title&gt;HTML5 Example&lt;/title&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;header&gt;
+
+        &lt;h1&gt;My HTML5 Website&lt;/h1&gt;
+
+    &lt;/header&gt;
+
+    &lt;nav&gt;
+
+        &lt;a href="#home"&gt;Home&lt;/a&gt;
+
+        &lt;a href="#contact"&gt;Contact&lt;/a&gt;
+
+    &lt;/nav&gt;
+
+    &lt;main&gt;
+
+        &lt;section id="home"&gt;
+
+            &lt;h2&gt;Welcome&lt;/h2&gt;
+
+            &lt;p&gt;Learning HTML5 is useful.&lt;/p&gt;
+
+        &lt;/section&gt;
+
+        &lt;section id="contact"&gt;
+
+            &lt;h2&gt;Contact Form&lt;/h2&gt;
+
+            &lt;form&gt;
+
+                &lt;input type="email"
+                       placeholder="Enter email"
+                       required&gt;
+
+                &lt;button type="submit"&gt;
+                    Submit
+                &lt;/button&gt;
+
+            &lt;/form&gt;
+
+        &lt;/section&gt;
+
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+
+        &lt;p&gt;Copyright &amp;copy; 2026&lt;/p&gt;
+
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box practical-output">
+
+            <header>
+                <h2>My HTML5 Website</h2>
+            </header>
+
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+            <main>
+                <section>
+                    <h3>Welcome</h3>
+                    <p>Learning HTML5 is useful.</p>
+                </section>
+
+                <section>
+                    <h3>Contact Form</h3>
+                    <form>
+                        <input type="email"
+                               placeholder="Enter email"
+                               required>
+                        <button type="submit">Submit</button>
+                    </form>
+                </section>
+            </main>
+
+            <footer>
+                <p>Copyright © 2026</p>
+            </footer>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Common Beginner Mistakes</h2>
+
+        <div class="mistake-card">
+            <strong>Mistake 1: Canvas Without JavaScript</strong>
+            <p>
+                Canvas element graphics automatically draw
+                karat nahi. Drawing sathi JavaScript vaprave lagte.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 2: SVG and Canvas Same Samajne</strong>
+            <p>
+                Canvas bitmap-based aahe, tar SVG
+                vector-based graphics format aahe.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 3: Local Storage Madhye Password Store Karne</strong>
+            <p>
+                Sensitive information browser storage madhye
+                store karne unsafe tharu shakte.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 4: Geolocation Permission Ignore Karne</strong>
+            <p>
+                Location access karnyasathi user permission
+                ani supported browser environment necessary aahe.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 5: Drop Event Madhye preventDefault Visarne</strong>
+            <p>
+                Drag and Drop madhye drop area chya
+                dragover event madhye preventDefault() vaprave.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- Section 13 -->
+
+    <section class="lesson-section">
+
+        <h2>13. Quick Revision</h2>
+
+        <div class="revision-box">
+
+            <ul>
+                <li>HTML5 = Modern HTML standard.</li>
+                <li>DOCTYPE = &lt;!DOCTYPE html&gt;.</li>
+                <li>Semantic Elements = header, nav, main, footer.</li>
+                <li>Audio Element = &lt;audio&gt;.</li>
+                <li>Video Element = &lt;video&gt;.</li>
+                <li>Canvas = JavaScript drawing surface.</li>
+                <li>SVG = Scalable Vector Graphics.</li>
+                <li>Local Storage = Persistent browser storage.</li>
+                <li>Session Storage = Current tab session storage.</li>
+                <li>Geolocation API = Location access.</li>
+                <li>Drag and Drop API = Elements move karne.</li>
+                <li>HTML5 Forms = New input types and validation.</li>
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 14 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>14. Practice Questions</h2>
+
+        <h3>Basic Questions</h3>
+
+        <ol>
+            <li>HTML5 mhanje kay?</li>
+            <li>HTML4 ani HTML5 madhil differences lih.</li>
+            <li>HTML5 che important features lih.</li>
+            <li>Semantic Elements mhanje kay?</li>
+            <li>Audio ani Video elements cha use kay aahe?</li>
+            <li>Canvas element mhanje kay?</li>
+            <li>SVG cha full form ani use lih.</li>
+            <li>Local Storage ani Session Storage madhil difference lih.</li>
+            <li>Geolocation API mhanje kay?</li>
+            <li>Drag and Drop API cha use kay aahe?</li>
+        </ol>
+
+        <h3>Practical Questions</h3>
+
+        <ol>
+            <li>HTML5 semantic webpage create kar.</li>
+            <li>Audio ani Video elements use karun webpage create kar.</li>
+            <li>HTML5 form with email and date input create kar.</li>
+            <li>Canvas vaprun rectangle draw kar.</li>
+            <li>SVG vaprun circle create kar.</li>
+            <li>Local Storage madhye username save kar.</li>
+            <li>Session Storage madhye data save ani retrieve kar.</li>
+            <li>Geolocation API vaprun latitude ani longitude display kar.</li>
+            <li>Drag and Drop practical example create kar.</li>
+        </ol>
+
+        <div class="task-box">
+
+            <h3>Mini Task: HTML5 Features Demo Page</h3>
+
+            <p>
+                Ek HTML5 webpage create kar ani tyat
+                khalil features use kar.
+            </p>
+
+            <ul>
+                <li>Semantic Header, Navigation and Footer</li>
+                <li>Email and Date Form</li>
+                <li>Audio or Video Element</li>
+                <li>Canvas or SVG Graphic</li>
+                <li>Local Storage madhye username save karne</li>
+            </ul>
+
+            <p>
+                File Name:
+                <strong>html5-demo.html</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Lesson Navigation -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'html_topic' 'html-entities' %}"
+           class="nav-button previous-button">
+            ← Previous: HTML Entities
+        </a>
+
+        <a href="{% url 'html_topic' 'seo-basics' %}"
+           class="nav-button next-button">
+            Next: SEO Basics →
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- Canvas Demo Script -->
+
+<script>
+(function () {
+
+    const canvas = document.getElementById("html5DemoCanvas");
+
+    if (canvas) {
+
+        const ctx = canvas.getContext("2d");
+
+        ctx.fillStyle = "#2563eb";
+
+        ctx.fillRect(30, 30, 150, 80);
+
+    }
+
+})();
+
+
+/* Drag and Drop Demo */
+
+function html5DragStart(event) {
+
+    event.dataTransfer.setData(
+        "text/plain",
+        event.target.id
+    );
+
+}
+
+function html5AllowDrop(event) {
+
+    event.preventDefault();
+
+}
+
+function html5Drop(event) {
+
+    event.preventDefault();
+
+    const itemId = event.dataTransfer.getData("text/plain");
+
+    const item = document.getElementById(itemId);
+
+    if (item && event.currentTarget.id === "dragBox") {
+
+        event.currentTarget.appendChild(item);
+
+    }
+
+}
+
+function html5ResetDrag() {
+
+    const item = document.getElementById("dragItem");
+
+    const output = document.querySelector(".drag-output");
+
+    const originalPosition = output.querySelector("#dragItem");
+
+    const box = document.getElementById("dragBox");
+
+    if (item && box.contains(item)) {
+
+        output.insertBefore(item, box);
+
+    }
+
+}
+
+</script>
+
+{% endblock %}

@@ -1,0 +1,430 @@
+
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}CSS Box Model | Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/css/box-model.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+    <div class="lesson-header">
+        <span class="lesson-label">CSS TUTORIAL</span>
+
+        <h1>CSS Box Model</h1>
+
+        <p>
+            CSS Box Model cha use HTML elements madhil
+            content, padding, border ani margin samjun
+            layout design karanyasathi hoto.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 20 Minutes</span>
+            <span>📄 Page 09</span>
+        </div>
+    </div>
+
+
+    <!-- Section 1 -->
+    <section class="lesson-section">
+
+        <h2>1. Introduction to CSS Box Model</h2>
+
+        <p>
+            HTML madhil pratyek element browser madhye
+            rectangular box pramane display hoto.
+            Ya box la CSS Box Model mhantat.
+        </p>
+
+        <p>
+            Box Model madhye 4 main parts astat:
+            Content, Padding, Border ani Margin.
+        </p>
+
+        <div class="info-box">
+            <strong>Definition:</strong>
+            CSS Box Model is a concept that describes how
+            HTML elements are structured using content,
+            padding, border and margin.
+        </div>
+
+    </section>
+
+
+    <!-- Section 2 -->
+    <section class="lesson-section">
+
+        <h2>2. Parts of CSS Box Model</h2>
+
+        <h3>1. Content</h3>
+
+        <p>
+            Content ha element cha actual text, image
+            kiwa other HTML content asto.
+            Ha box cha madhla bhag asto.
+        </p>
+
+        <h3>2. Padding</h3>
+
+        <p>
+            Padding mhanje content ani border madhil
+            space. Padding mule content chya around
+            internal space tayar hote.
+        </p>
+
+        <h3>3. Border</h3>
+
+        <p>
+            Border ha padding ani content chya baher
+            asnari boundary line aahe.
+        </p>
+
+        <h3>4. Margin</h3>
+
+        <p>
+            Margin mhanje element chya border chya
+            baher asnari space. Yacha use don elements
+            madhye antar thevnyasathi hoto.
+        </p>
+
+    </section>
+
+
+    <!-- Section 3 -->
+    <section class="lesson-section">
+
+        <h2>3. CSS Box Model Diagram</h2>
+
+        <p>
+            Khali Box Model che diagram dile aahe.
+            Yat charhi parts cha order samjun ghya.
+        </p>
+
+        <div class="box-model-diagram">
+
+            <div class="diagram-margin">
+                <span class="diagram-label">MARGIN</span>
+
+                <div class="diagram-border">
+                    <span class="diagram-label">BORDER</span>
+
+                    <div class="diagram-padding">
+                        <span class="diagram-label">PADDING</span>
+
+                        <div class="diagram-content">
+                            CONTENT
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="tip-box">
+            <strong>Order Lakshat Theva:</strong>
+            Content → Padding → Border → Margin.
+        </div>
+
+    </section>
+
+
+    <!-- Section 4 -->
+    <section class="lesson-section">
+
+        <h2>4. CSS Code Example</h2>
+
+        <p>
+            Khali dilelya example madhye aapan eka box la
+            width, padding, border ani margin dile aahet.
+        </p>
+
+        <h3>HTML Code</h3>
+
+        <div class="code-block">
+            <pre><code>&lt;div class="box"&gt;
+    Welcome to CSS Box Model
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    width: 200px;
+    padding: 20px;
+    border: 5px solid blue;
+    margin: 30px;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box basic-box-output">
+            <div class="demo-box">
+                Welcome to CSS Box Model
+            </div>
+        </div>
+
+        <div class="info-box">
+            <strong>Calculation:</strong>
+            Default content-box model madhye total width =
+            200px content + 40px padding + 10px border
+            = 250px. Margin add kelyavar donhi bajunchi
+            extra space milun 310px hote.
+        </div>
+
+    </section>
+
+
+    <!-- Section 5 -->
+    <section class="lesson-section">
+
+        <h2>5. Box Sizing Property</h2>
+
+        <p>
+            <strong>box-sizing</strong> property cha use
+            element chi total width ani height kashi
+            calculate hoil he control karanyasathi hoto.
+        </p>
+
+        <h3>5.1 Content-Box</h3>
+
+        <p>
+            <strong>content-box</strong> hi default value aahe.
+            Yat width ani height fakt content sathi astat.
+            Padding ani border he extra add hotat.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    width: 200px;
+    padding: 20px;
+    border: 5px solid blue;
+    box-sizing: content-box;
+}</code></pre>
+        </div>
+
+        <h3>5.2 Border-Box</h3>
+
+        <p>
+            <strong>border-box</strong> madhye width ani
+            height madhye content, padding ani border
+            ya sarvांचा samavesh hoto.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    width: 200px;
+    padding: 20px;
+    border: 5px solid blue;
+    box-sizing: border-box;
+}</code></pre>
+        </div>
+
+        <h3>Output Comparison</h3>
+
+        <div class="output-box sizing-output">
+
+            <div class="sizing-example">
+                <strong>content-box</strong>
+                <div class="content-box-demo">
+                    250px Total Width
+                </div>
+            </div>
+
+            <div class="sizing-example">
+                <strong>border-box</strong>
+                <div class="border-box-demo">
+                    200px Total Width
+                </div>
+            </div>
+
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            border-box vaparlyas width calculate karne
+            sope hote. Mhanun responsive layouts madhye
+            hi property commonly vapartat.
+        </div>
+
+    </section>
+
+
+    <!-- Section 6 -->
+    <section class="lesson-section">
+
+        <h2>6. Difference Between Content-Box and Border-Box</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+
+                <thead>
+                    <tr>
+                        <th>Property</th>
+                        <th>content-box</th>
+                        <th>border-box</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Width</td>
+                        <td>Fakt content width.</td>
+                        <td>Content + padding + border.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Padding</td>
+                        <td>Extra add hote.</td>
+                        <td>Width madhye include hote.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Border</td>
+                        <td>Extra add hote.</td>
+                        <td>Width madhye include hote.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Default</td>
+                        <td>Yes</td>
+                        <td>No</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+    </section>
+
+
+    <!-- Section 7 -->
+    <section class="lesson-section">
+
+        <h2>7. Common Box Model Properties</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+
+                <thead>
+                    <tr>
+                        <th>Property</th>
+                        <th>Use</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>width</td>
+                        <td>Content chi width set karte.</td>
+                    </tr>
+
+                    <tr>
+                        <td>height</td>
+                        <td>Content chi height set karte.</td>
+                    </tr>
+
+                    <tr>
+                        <td>padding</td>
+                        <td>Content chya around internal space dete.</td>
+                    </tr>
+
+                    <tr>
+                        <td>border</td>
+                        <td>Element la boundary dete.</td>
+                    </tr>
+
+                    <tr>
+                        <td>margin</td>
+                        <td>Element chya baher space dete.</td>
+                    </tr>
+
+                    <tr>
+                        <td>box-sizing</td>
+                        <td>Width ani height calculation control karte.</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+    </section>
+
+
+    <!-- Section 8 -->
+    <section class="lesson-section">
+
+        <h2>8. Important Points</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>Pratyek HTML element box pramane display hoto.</li>
+                <li>Box Model madhye 4 main parts astat.</li>
+                <li>Content ha actual element content asto.</li>
+                <li>Padding content ani border madhil space aahe.</li>
+                <li>Border element chi boundary aahe.</li>
+                <li>Margin element chya baher space dete.</li>
+                <li>content-box hi default box-sizing value aahe.</li>
+                <li>border-box madhye padding ani border width madhye include hotat.</li>
+            </ul>
+        </div>
+
+    </section>
+
+
+    <!-- Practice -->
+    <section class="practice-section">
+
+        <h2>9. Practice Task</h2>
+
+        <div class="task-box">
+
+            <h3>Task: Create a Box Model Card</h3>
+
+            <p>Ek HTML card tayar kara ani tyamadhye:</p>
+
+            <ol>
+                <li>Card chi width 300px set kara.</li>
+                <li>Padding 20px dya.</li>
+                <li>Border 5px solid blue dya.</li>
+                <li>Margin 30px dya.</li>
+                <li>Background color set kara.</li>
+                <li>box-sizing: border-box vaprun paha.</li>
+            </ol>
+
+        </div>
+
+    </section>
+
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+
+        <a href="{% url 'css_topic' 'units' %}"
+           class="nav-button previous">
+            ← Previous: CSS Units
+        </a>
+
+        <a href="{% url 'css_topic' 'margin-padding' %}"
+           class="nav-button next">
+            Next: Margin and Padding →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

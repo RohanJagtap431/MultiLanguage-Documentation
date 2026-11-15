@@ -1,0 +1,838 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}JavaScript Strings and String Methods | Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/javascript/strings.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Header -->
+
+    <div class="lesson-header">
+        <span class="lesson-label">JAVASCRIPT DOCUMENTATION • PAGE 14</span>
+
+        <h1>JavaScript Strings and String Methods</h1>
+
+        <p>
+            String cha use text data store ani handle karnyasathi hoto.
+            Ya lesson madhye String properties, important methods
+            ani practical examples shikuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Beginner Level</span>
+            <span>35–45 Minutes</span>
+        </div>
+    </div>
+
+    <!-- Section 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What is a String?</h2>
+
+        <p>
+            JavaScript madhye text data la String mhantat.
+            String single quotes, double quotes kiwa backticks
+            madhye lihili jate.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let firstName = "Rohan";
+
+let city = 'Kolhapur';
+
+let message = `Hello Rohan`;
+
+console.log(firstName);
+console.log(city);
+console.log(message);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Rohan
+Kolhapur
+Hello Rohan</pre>
+        </div>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            String mhanje characters cha group, jo text represent karto.
+        </div>
+
+    </section>
+
+    <!-- Section 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. String Length</h2>
+
+        <p>
+            length property String madhil total characters chi
+            sankhya return karte. Spaces suddha count hotat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let name = "Rohan";
+
+console.log(name.length);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>5</pre>
+        </div>
+
+        <h3>Example with Spaces:</h3>
+
+        <pre class="code-block"><code>let message = "Hello World";
+
+console.log(message.length);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>11</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Note:</strong>
+            length hi property aahe, method nahi.
+            Mhanun length() ase lihayche nahi.
+        </div>
+
+    </section>
+
+    <!-- Section 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. Access String Characters</h2>
+
+        <p>
+            String madhil character tyachya index cha use karun
+            access karta yeto. Index 0 pasun suru hoto.
+        </p>
+
+        <h3>Using Index:</h3>
+
+        <pre class="code-block"><code>let name = "Rohan";
+
+console.log(name[0]);
+console.log(name[1]);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>R
+o</pre>
+        </div>
+
+        <h3>Using charAt():</h3>
+
+        <p>
+            charAt() method dilelya index varil character return karte.
+        </p>
+
+        <pre class="code-block"><code>let name = "Rohan";
+
+console.log(name.charAt(2));</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>h</pre>
+        </div>
+
+    </section>
+
+    <!-- Section 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. toUpperCase() and toLowerCase()</h2>
+
+        <h3>toUpperCase()</h3>
+
+        <p>
+            String madhil sarva English letters capital letters madhye convert karte.
+        </p>
+
+        <pre class="code-block"><code>let name = "Rohan Jagtap";
+
+console.log(name.toUpperCase());</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>ROHAN JAGTAP</pre>
+        </div>
+
+        <h3>toLowerCase()</h3>
+
+        <p>
+            String madhil sarva English capital letters small letters madhye convert karte.
+        </p>
+
+        <pre class="code-block"><code>let email = "ROHAN@GMAIL.COM";
+
+console.log(email.toLowerCase());</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>rohan@gmail.com</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Use:</strong>
+            User input madhil text standard format madhye convert
+            karnyasathi he methods upyogi aahet.
+        </div>
+
+    </section>
+
+    <!-- Section 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. trim() Method</h2>
+
+        <p>
+            trim() method String chya suruvatila ani shevati aslele
+            extra whitespace remove karte.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let username = "   Rohan   ";
+
+let result = username.trim();
+
+console.log(result);
+console.log(result.length);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Rohan
+5</pre>
+        </div>
+
+        <h3>Other Trim Methods:</h3>
+
+        <pre class="code-block"><code>let text = "   Hello   ";
+
+console.log(text.trimStart());
+console.log(text.trimEnd());</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Hello
+   Hello</pre>
+        </div>
+
+        <ul>
+            <li><strong>trim():</strong> Donhi bajunche whitespace remove karte.</li>
+            <li><strong>trimStart():</strong> Fakt suruvaticha whitespace remove karte.</li>
+            <li><strong>trimEnd():</strong> Fakt shevatacha whitespace remove karte.</li>
+        </ul>
+
+    </section>
+
+    <!-- Section 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. slice() Method</h2>
+
+        <p>
+            slice() method String madhil specific part extract karun
+            new String return karte.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>string.slice(start, end);</code></pre>
+
+        <ul>
+            <li><strong>start:</strong> Starting index.</li>
+            <li><strong>end:</strong> Jya index chya aadhi thambayche.</li>
+        </ul>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let language = "JavaScript";
+
+let result = language.slice(0, 4);
+
+console.log(result);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Java</pre>
+        </div>
+
+        <h3>Negative Index Example:</h3>
+
+        <pre class="code-block"><code>let language = "JavaScript";
+
+console.log(language.slice(-6));</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Script</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            slice() original String change karat nahi.
+            End index result madhye include hot nahi.
+        </div>
+
+    </section>
+
+    <!-- Section 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. replace() and replaceAll()</h2>
+
+        <h3>replace()</h3>
+
+        <p>
+            replace() method String madhil matching text replace karte.
+            Normal String search vaparlyas pahila matching part replace hoto.
+        </p>
+
+        <pre class="code-block"><code>let message = "Hello Rohan";
+
+let result = message.replace("Rohan", "Rahul");
+
+console.log(result);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Hello Rahul</pre>
+        </div>
+
+        <h3>replaceAll()</h3>
+
+        <p>
+            replaceAll() method matching text chya sarva occurrences replace karte.
+        </p>
+
+        <pre class="code-block"><code>let message = "Java is easy. Java is popular.";
+
+let result = message.replaceAll("Java", "Python");
+
+console.log(result);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Python is easy. Python is popular.</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Difference:</strong>
+            replace() pahila matching part replace karto,
+            tar replaceAll() sarva matching parts replace karto.
+        </div>
+
+    </section>
+
+    <!-- Section 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. includes() Method</h2>
+
+        <p>
+            includes() method String madhye specific text present aahe ka
+            te check karte.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let message = "I am learning JavaScript";
+
+console.log(message.includes("JavaScript"));
+console.log(message.includes("Python"));</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>true
+false</pre>
+        </div>
+
+        <p>
+            includes() true kiwa false return karte.
+            Hi method case-sensitive aahe.
+        </p>
+
+    </section>
+
+    <!-- Section 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. startsWith() and endsWith()</h2>
+
+        <h3>startsWith()</h3>
+
+        <p>
+            String dilelya text ne suru hote ka te check karte.
+        </p>
+
+        <pre class="code-block"><code>let name = "Rohan Jagtap";
+
+console.log(name.startsWith("Rohan"));</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>true</pre>
+        </div>
+
+        <h3>endsWith()</h3>
+
+        <p>
+            String dilelya text ne sampte ka te check karte.
+        </p>
+
+        <pre class="code-block"><code>let file = "notes.pdf";
+
+console.log(file.endsWith(".pdf"));</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>true</pre>
+        </div>
+
+    </section>
+
+    <!-- Section 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. split() Method</h2>
+
+        <p>
+            split() method String la specific separator nusar
+            parts madhye divide karte ani new array return karte.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let fruits = "Apple,Mango,Banana";
+
+let result = fruits.split(",");
+
+console.log(result);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>["Apple", "Mango", "Banana"]</pre>
+        </div>
+
+        <h3>Split Using Space:</h3>
+
+        <pre class="code-block"><code>let name = "Rohan Jagtap";
+
+let result = name.split(" ");
+
+console.log(result);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>["Rohan", "Jagtap"]</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Use:</strong>
+            Comma-separated text la array madhye convert karnyasathi split()
+            khup upyogi aahe.
+        </div>
+
+    </section>
+
+    <!-- Section 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. join() Method</h2>
+
+        <p>
+            join() method array madhil elements ekatra karun
+            String tayar karte.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let fruits = ["Apple", "Mango", "Banana"];
+
+let result = fruits.join(", ");
+
+console.log(result);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Apple, Mango, Banana</pre>
+        </div>
+
+        <h3>Another Example:</h3>
+
+        <pre class="code-block"><code>let words = ["JavaScript", "is", "easy"];
+
+console.log(words.join(" "));</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>JavaScript is easy</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Remember:</strong>
+            split() String la Array madhye convert karte.
+            join() Array la String madhye convert karte.
+        </div>
+
+    </section>
+
+    <!-- Section 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Template Literals</h2>
+
+        <p>
+            Template Literals cha use String madhye variables
+            ani expressions insert karnyasathi hoto.
+            Yat backticks (`) vapartat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let name = "Rohan";
+let age = 20;
+
+let message = `My name is ${name} and I am ${age} years old.`;
+
+console.log(message);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>My name is Rohan and I am 20 years old.</pre>
+        </div>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            ${} chya madhye variable kiwa JavaScript expression lihita yeto.
+        </div>
+
+    </section>
+
+    <!-- Section 13 -->
+
+    <section class="lesson-section">
+
+        <h2>13. String Methods Summary</h2>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Method / Property</th>
+                    <th>Use</th>
+                    <th>Return</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>length</td>
+                    <td>Characters count karte.</td>
+                    <td>Number</td>
+                </tr>
+
+                <tr>
+                    <td>charAt()</td>
+                    <td>Index varil character dete.</td>
+                    <td>String</td>
+                </tr>
+
+                <tr>
+                    <td>toUpperCase()</td>
+                    <td>Capital letters madhye convert karte.</td>
+                    <td>New String</td>
+                </tr>
+
+                <tr>
+                    <td>toLowerCase()</td>
+                    <td>Small letters madhye convert karte.</td>
+                    <td>New String</td>
+                </tr>
+
+                <tr>
+                    <td>trim()</td>
+                    <td>Donhi bajunche whitespace remove karte.</td>
+                    <td>New String</td>
+                </tr>
+
+                <tr>
+                    <td>slice()</td>
+                    <td>String cha specific part dete.</td>
+                    <td>New String</td>
+                </tr>
+
+                <tr>
+                    <td>replace()</td>
+                    <td>Matching text replace karte.</td>
+                    <td>New String</td>
+                </tr>
+
+                <tr>
+                    <td>includes()</td>
+                    <td>Text present aahe ka check karte.</td>
+                    <td>Boolean</td>
+                </tr>
+
+                <tr>
+                    <td>startsWith()</td>
+                    <td>Starting text check karte.</td>
+                    <td>Boolean</td>
+                </tr>
+
+                <tr>
+                    <td>endsWith()</td>
+                    <td>Ending text check karte.</td>
+                    <td>Boolean</td>
+                </tr>
+
+                <tr>
+                    <td>split()</td>
+                    <td>String la Array madhye divide karte.</td>
+                    <td>Array</td>
+                </tr>
+
+                <tr>
+                    <td>join()</td>
+                    <td>Array la String madhye convert karte.</td>
+                    <td>String</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </section>
+
+    <!-- Section 14 -->
+
+    <section class="lesson-section">
+
+        <h2>14. Important Concept – Strings are Immutable</h2>
+
+        <p>
+            JavaScript madhye Strings immutable astat.
+            Mhanje ekda String create zalyanantar tichya characters madhye
+            direct change karta yet nahi.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let name = "Rohan";
+
+name[0] = "M";
+
+console.log(name);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Rohan</pre>
+        </div>
+
+        <p>
+            Character change zala nahi. Nave String tayar karun
+            variable la assign karave lagte.
+        </p>
+
+        <pre class="code-block"><code>let name = "Rohan";
+
+name = "Mohan";
+
+console.log(name);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Mohan</pre>
+        </div>
+
+    </section>
+
+    <!-- Section 15 -->
+
+    <section class="lesson-section">
+
+        <h2>15. Common Beginner Mistakes</h2>
+
+        <div class="mistake-card">
+            <strong>Mistake 1: length() vaprane</strong>
+            <p>
+                length hi property aahe. length() ase lihayche nahi.
+            </p>
+            <pre class="code-block"><code>let name = "Rohan";
+
+console.log(name.length);</code></pre>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 2: trim() original String change karte ase samajne</strong>
+            <p>
+                trim() new String return karte. Original String tasach rahto.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 3: includes() case-sensitive aahe he visarne</strong>
+            <p>
+                "JavaScript" ani "javascript" he vegale text aahet.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 4: split() ani join() confuse karne</strong>
+            <p>
+                split() String pasun Array banavte, tar join() Array pasun String banavte.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- Section 16 -->
+
+    <section class="lesson-section">
+
+        <h2>16. Quick Revision</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>String mhanje text data.</li>
+                <li>length characters count karte.</li>
+                <li>charAt() index varil character dete.</li>
+                <li>toUpperCase() capital letters banavte.</li>
+                <li>toLowerCase() small letters banavte.</li>
+                <li>trim() extra whitespace remove karte.</li>
+                <li>slice() String cha specific part dete.</li>
+                <li>replace() matching text replace karte.</li>
+                <li>includes() text search karte.</li>
+                <li>split() String la Array madhye convert karte.</li>
+                <li>join() Array la String madhye convert karte.</li>
+                <li>Template Literals madhye ${} vapartat.</li>
+                <li>Strings immutable astat.</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <!-- Section 17 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>17. Practice Questions</h2>
+
+        <h3>Basic Questions</h3>
+
+        <ol>
+            <li>String mhanje kay?</li>
+            <li>String tayar karnyache teen ways konte?</li>
+            <li>length property cha use kay aahe?</li>
+            <li>toUpperCase() ani toLowerCase() madhye kay difference aahe?</li>
+            <li>trim() method kay karte?</li>
+            <li>slice() method cha use kay aahe?</li>
+            <li>replace() ani replaceAll() madhye kay difference aahe?</li>
+            <li>includes() method kay return karte?</li>
+            <li>split() ani join() madhye kay difference aahe?</li>
+            <li>Strings immutable astat mhanje kay?</li>
+        </ol>
+
+        <h3>Practical Questions</h3>
+
+        <ol>
+            <li>Swatahche full name String madhye store kar.</li>
+            <li>String madhil characters count kar.</li>
+            <li>String capital ani small letters madhye convert kar.</li>
+            <li>Extra spaces remove kar.</li>
+            <li>String madhun first 4 characters extract kar.</li>
+            <li>Ek word dusrya word ne replace kar.</li>
+            <li>String madhye specific word present aahe ka check kar.</li>
+            <li>Comma-separated fruits la Array madhye convert kar.</li>
+            <li>Template Literals vaprun introduction tayar kar.</li>
+        </ol>
+
+        <div class="task-box">
+
+            <h3>Mini Task: User Profile Formatter</h3>
+
+            <p>
+                User cha data String Methods vaprun format kar.
+            </p>
+
+            <ul>
+                <li>name = " rohan jagtap " asa String tayar kar.</li>
+                <li>trim() vaprun extra spaces remove kar.</li>
+                <li>toUpperCase() vaprun name capital kar.</li>
+                <li>email = "ROHAN@GMAIL.COM" asa String tayar kar.</li>
+                <li>toLowerCase() vaprun email small kar.</li>
+                <li>includes() vaprun email madhye "@gmail.com" aahe ka check kar.</li>
+                <li>Template Literals vaprun final profile message tayar kar.</li>
+            </ul>
+
+            <p>
+                File name: <strong>javascript_strings.js</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Navigation -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'javascript_topic' 'array-methods' %}"
+           class="nav-button previous-button">
+            ← Previous: Array Methods
+        </a>
+
+        <a href="{% url 'javascript_topic' 'objects' %}"
+           class="nav-button next-button">
+            Next: JavaScript Objects →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

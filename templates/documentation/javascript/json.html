@@ -1,0 +1,596 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}JSON | JavaScript Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/javascript/json.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">JAVASCRIPT DOCUMENTATION • PAGE 25</span>
+        <h1>JSON (JavaScript Object Notation)</h1>
+
+        <p>
+            Ya lesson madhye JSON format, syntax rules, JavaScript Object
+            ani JSON madhil difference, stringify() ani parse() shikuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Beginner Level</span>
+            <span>30–35 Minutes</span>
+        </div>
+    </div>
+
+    <!-- Section 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What is JSON?</h2>
+
+        <p>
+            JSON cha full form JavaScript Object Notation aahe.
+            JSON ha data store ani exchange karnyasathi vaparla janara
+            lightweight text format aahe.
+        </p>
+
+        <p>
+            Don applications madhye data send ani receive karnyasathi
+            JSON cha mothya pramanat use hoto.
+        </p>
+
+        <div class="info-box">
+            <strong>Definition:</strong>
+            JSON is a lightweight text format used to store and exchange data.
+        </div>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>{
+    "name": "Rohan",
+    "age": 20,
+    "course": "Computer Science"
+}</code></pre>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>name hi property aahe ani Rohan hi value aahe.</li>
+            <li>age chi value 20 aahe.</li>
+            <li>course chi value Computer Science aahe.</li>
+            <li>JSON data text format madhye represent karto.</li>
+        </ul>
+
+    </section>
+
+    <!-- Section 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Why Do We Use JSON?</h2>
+
+        <p>
+            JSON cha use applications madhye data exchange karnyasathi hoto.
+        </p>
+
+        <h3>Uses:</h3>
+
+        <ul>
+            <li>Frontend ani Backend madhye data exchange.</li>
+            <li>REST API madhun data receive karne.</li>
+            <li>Server kade data send karne.</li>
+            <li>Configuration files madhye data store karne.</li>
+            <li>Local Storage madhye structured data save karne.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Backend Developer sathi:</strong>
+            Django REST Framework madhun API response detana JSON
+            format cha use kela jato.
+        </div>
+
+    </section>
+
+    <!-- Section 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. JSON Syntax Rules</h2>
+
+        <p>
+            JSON lihitana kahi important rules follow karave lagtat.
+        </p>
+
+        <h3>Rules:</h3>
+
+        <ol>
+            <li>Data key-value pairs madhye lihila jato.</li>
+            <li>Keys double quotes madhye lihilya pahijet.</li>
+            <li>String values double quotes madhye lihilya pahijet.</li>
+            <li>Key ani value madhye colon (:) vapartat.</li>
+            <li>Multiple properties madhye comma (,) vapartat.</li>
+            <li>Object sathi curly brackets &#123; &#125; vapartat.</li>
+            <li>Array sathi square brackets [ ] vapartat.</li>
+            <li>Shevatchya property nantar trailing comma allowed nahi.</li>
+        </ol>
+
+        <h3>Correct JSON:</h3>
+
+        <pre class="code-block"><code>{
+    "name": "Rohan",
+    "age": 20,
+    "is_student": true
+}</code></pre>
+
+        <h3>Incorrect JSON:</h3>
+
+        <pre class="code-block"><code>{
+    name: "Rohan",
+    'age': 20,
+    "is_student": true,
+}</code></pre>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            JSON madhye single quotes ani unquoted keys allowed nahit.
+            Shevatchya property nantar comma suddha deu naye.
+        </div>
+
+    </section>
+
+    <!-- Section 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. JSON Data Types</h2>
+
+        <p>
+            JSON madhye khalil data types support kele jatat.
+        </p>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Data Type</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>String</td>
+                    <td>"Rohan"</td>
+                </tr>
+                <tr>
+                    <td>Number</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>Boolean</td>
+                    <td>true / false</td>
+                </tr>
+                <tr>
+                    <td>Null</td>
+                    <td>null</td>
+                </tr>
+                <tr>
+                    <td>Object</td>
+                    <td>&#123; "city": "Pune" &#125;</td>
+                </tr>
+                <tr>
+                    <td>Array</td>
+                    <td>["Python", "Django"]</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="tip-box">
+            <strong>Remember:</strong>
+            JSON madhye undefined, function ani Symbol data types
+            support hot nahit.
+        </div>
+
+    </section>
+
+    <!-- Section 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. JavaScript Object vs JSON</h2>
+
+        <p>
+            JavaScript Object ani JSON disayla similar astat,
+            pan donhi ekach goshta nahit.
+        </p>
+
+        <h3>JavaScript Object:</h3>
+
+        <pre class="code-block"><code>const student = {
+    name: "Rohan",
+    age: 20,
+    greet: function() {
+        return "Hello";
+    }
+};</code></pre>
+
+        <h3>JSON:</h3>
+
+        <pre class="code-block"><code>{
+    "name": "Rohan",
+    "age": 20
+}</code></pre>
+
+        <h3>Differences:</h3>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>JavaScript Object</th>
+                    <th>JSON</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>JavaScript data structure</td>
+                    <td>Text data format</td>
+                </tr>
+                <tr>
+                    <td>Keys la quotes optional astat (identifier asel tar)</td>
+                    <td>Keys double quotes madhye pahijet</td>
+                </tr>
+                <tr>
+                    <td>Functions allowed</td>
+                    <td>Functions allowed nahit</td>
+                </tr>
+                <tr>
+                    <td>undefined value possible</td>
+                    <td>undefined support nahi</td>
+                </tr>
+                <tr>
+                    <td>Directly JavaScript madhye use hoto</td>
+                    <td>Parse karun JavaScript value milavta yete</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </section>
+
+    <!-- Section 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. JSON.stringify()</h2>
+
+        <p>
+            JSON.stringify() cha use JavaScript value la JSON string
+            madhye convert karnyasathi hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>const student = {
+    name: "Rohan",
+    age: 20,
+    course: "BSc CS"
+};
+
+const jsonData = JSON.stringify(student);
+
+console.log(jsonData);
+console.log(typeof jsonData);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>{"name":"Rohan","age":20,"course":"BSc CS"}
+string</pre>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>student ha JavaScript Object aahe.</li>
+            <li>JSON.stringify() object la JSON string madhye convert karto.</li>
+            <li>jsonData madhye string store hote.</li>
+            <li>typeof vaprun data type check karta yeto.</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Remember:</strong>
+            stringify() = JavaScript Value → JSON String
+        </div>
+
+    </section>
+
+    <!-- Section 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. JSON.parse()</h2>
+
+        <p>
+            JSON.parse() cha use valid JSON string la JavaScript value
+            madhye convert karnyasathi hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>const jsonData = '{"name":"Rohan","age":20}';
+
+const student = JSON.parse(jsonData);
+
+console.log(student.name);
+console.log(student.age);
+console.log(typeof student);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Rohan
+20
+object</pre>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>jsonData hi valid JSON string aahe.</li>
+            <li>JSON.parse() string la JavaScript Object madhye convert karto.</li>
+            <li>student.name ani student.age access karta yetat.</li>
+            <li>typeof student cha result object milto.</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Remember:</strong>
+            parse() = JSON String → JavaScript Value
+        </div>
+
+    </section>
+
+    <!-- Section 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. stringify() vs parse()</h2>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>JSON.stringify()</th>
+                    <th>JSON.parse()</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Value to JSON string</td>
+                    <td>JSON string to value</td>
+                </tr>
+                <tr>
+                    <td>Serialization</td>
+                    <td>Parsing</td>
+                </tr>
+                <tr>
+                    <td>Data send/store karnyasathi useful</td>
+                    <td>Data read/use karnyasathi useful</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </section>
+
+    <!-- Section 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Practical Example – Student Data</h2>
+
+        <p>
+            Student object JSON string madhye convert karu ani punha
+            JavaScript Object madhye convert karu.
+        </p>
+
+        <h3>JavaScript:</h3>
+
+        <pre class="code-block"><code>const student = {
+    name: "Rohan",
+    course: "BSc Computer Science",
+    skills: ["Python", "Django"]
+};
+
+// Convert Object to JSON String
+const jsonData = JSON.stringify(student);
+
+// Convert JSON String to Object
+const newStudent = JSON.parse(jsonData);
+
+console.log(newStudent.name);
+console.log(newStudent.course);
+console.log(newStudent.skills[0]);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Rohan
+BSc Computer Science
+Python</pre>
+        </div>
+
+    </section>
+
+    <!-- Section 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. JSON in Backend Development</h2>
+
+        <p>
+            Backend Developer mhanun JSON cha use APIs madhye
+            satat karava lagto.
+        </p>
+
+        <h3>Example API Response:</h3>
+
+        <pre class="code-block"><code>{
+    "id": 1,
+    "name": "Rohan",
+    "email": "rohan@example.com",
+    "is_active": true
+}</code></pre>
+
+        <h3>Data Flow:</h3>
+
+        <div class="flow-box">
+            <div class="flow-item">Frontend</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-item">HTTP Request</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-item">Django Backend</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-item">JSON Response</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-item">Frontend receives data</div>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Django REST Framework madhye serializers cha use Python
+            objects ani JSON-compatible data madhye conversion
+            karnyasathi hoto. JSON ha frontend-backend communication
+            madhil common format aahe.
+        </div>
+
+    </section>
+
+    <!-- Section 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Common Beginner Mistakes</h2>
+
+        <div class="mistake-card">
+            <strong>Mistake 1: JSON madhye single quotes vaprane</strong>
+            <p>JSON strings ani keys sathi double quotes vapra.</p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 2: stringify() ani parse() confuse karne</strong>
+            <p>stringify() value la string karto, parse() string la value karto.</p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 3: JSON madhye function lihine</strong>
+            <p>JSON madhye function ani undefined support hot nahit.</p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 4: Invalid JSON parse karne</strong>
+            <p>Invalid JSON string parse kelyas SyntaxError yeu shakto.</p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 5: JSON ani JavaScript Object same samajne</strong>
+            <p>JavaScript Object ha data structure aahe, JSON ha text format aahe.</p>
+        </div>
+
+    </section>
+
+    <!-- Section 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Quick Revision</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>JSON cha full form JavaScript Object Notation aahe.</li>
+                <li>JSON data exchange karnyasathi vapartat.</li>
+                <li>JSON madhye keys double quotes madhye lihitat.</li>
+                <li>JSON string, number, boolean, null, object ani array support karto.</li>
+                <li>JSON.stringify() value la JSON string madhye convert karto.</li>
+                <li>JSON.parse() JSON string la JavaScript value madhye convert karto.</li>
+                <li>APIs madhye JSON cha mothya pramanat use hoto.</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <!-- Section 13 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>13. Practice Questions</h2>
+
+        <h3>Basic Questions</h3>
+
+        <ol>
+            <li>JSON cha full form kay aahe?</li>
+            <li>JSON mhanje kay?</li>
+            <li>JSON cha use ka kartat?</li>
+            <li>JSON madhil data types kontya aahet?</li>
+            <li>JavaScript Object ani JSON madhye difference kay aahe?</li>
+            <li>JSON.stringify() kay karte?</li>
+            <li>JSON.parse() kay karte?</li>
+            <li>API madhye JSON cha use kasa hoto?</li>
+        </ol>
+
+        <h3>Practical Questions</h3>
+
+        <ol>
+            <li>Student object tayar kar ani console madhye print kar.</li>
+            <li>JSON.stringify() vaprun object string madhye convert kar.</li>
+            <li>JSON.parse() vaprun JSON string object madhye convert kar.</li>
+            <li>JSON madhun student cha name ani course access kar.</li>
+            <li>Student object madhye skills navacha array tayar kar.</li>
+        </ol>
+
+        <div class="task-box">
+
+            <h3>Mini Task – Student JSON Manager</h3>
+
+            <p>
+                Student JSON Manager tayar kar.
+            </p>
+
+            <ul>
+                <li>Student cha JavaScript Object tayar kar.</li>
+                <li>Name, age, course ani skills add kar.</li>
+                <li>JSON.stringify() vaprun JSON string tayar kar.</li>
+                <li>JSON.parse() vaprun object parat milav.</li>
+                <li>Student cha name ani skills display kar.</li>
+                <li>typeof vaprun donhi data types check kar.</li>
+            </ul>
+
+            <p>
+                File name: <strong>student_json_manager.js</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Navigation -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'javascript_topic' 'higher-order-methods' %}"
+           class="nav-button previous-button">
+            ← Previous: Higher Order Methods
+        </a>
+
+        <a href="{% url 'javascript_topic' 'local-storage' %}"
+           class="nav-button next-button">
+            Next: Local Storage →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

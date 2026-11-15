@@ -1,0 +1,778 @@
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}
+Django Installation and Setup | Django Documentation
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/django/installation.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- HEADER -->
+
+    <div class="lesson-header">
+
+        <span class="lesson-label">DJANGO DOCUMENTATION</span>
+
+        <h1>02. Django Installation and Setup</h1>
+
+        <p>
+            Windows ani VS Code vaprun Python, Virtual Environment,
+            Django install karane ani pahila Django project create
+            karun run karane shikuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Beginner Level</span>
+            <span>Topic 02 of 26</span>
+            <span>Practical</span>
+        </div>
+
+    </div>
+
+
+    <!-- SECTION 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. Django Install Karanyapurvi Kay Avashyak Aahe?</h2>
+
+        <p>
+            Django install karanyapurvi computer madhye kahi basic
+            development tools asane avashyak aahe.
+        </p>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>Tool</th>
+                    <th>Use</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Python</td>
+                    <td>Django code run karanyasathi.</td>
+                </tr>
+
+                <tr>
+                    <td>VS Code</td>
+                    <td>Code lihinyasathi ani project manage karanyasathi.</td>
+                </tr>
+
+                <tr>
+                    <td>Terminal</td>
+                    <td>Commands execute karanyasathi.</td>
+                </tr>
+
+                <tr>
+                    <td>pip</td>
+                    <td>Python packages install karanyasathi.</td>
+                </tr>
+
+                <tr>
+                    <td>Virtual Environment</td>
+                    <td>Project packages separate thevanyasathi.</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+
+    <!-- SECTION 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Python Install Aahe Ka Check Kar</h2>
+
+        <p>
+            Aadhi VS Code open kar ani Terminal open kar.
+            Terminal open karanyasathi keyboard shortcut vapru shakto.
+        </p>
+
+        <pre class="code-block"><code>Ctrl + `</code></pre>
+
+        <p>Ata terminal madhye hi command run kar:</p>
+
+        <pre class="code-block"><code>python --version</code></pre>
+
+        <h3>Expected Output</h3>
+
+        <pre class="output-code"><code>Python 3.x.x</code></pre>
+
+        <p>
+            IThe 3.x.x aivaji tujhya computer madhil actual Python
+            version disel.
+        </p>
+
+        <p>
+            Jar python command work hot nasel tar hi command try kar:
+        </p>
+
+        <pre class="code-block"><code>py --version</code></pre>
+
+        <div class="info-box">
+            <strong>Explanation:</strong>
+            Ya command mule computer madhye Python install aahe ka
+            ani konti version available aahe te samajta.
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. pip Check Kar</h2>
+
+        <p>
+            pip he Python package installer aahe.
+            Django sarkhe Python packages install karanyasathi pip vapartat.
+        </p>
+
+        <h3>Command</h3>
+
+        <pre class="code-block"><code>python -m pip --version</code></pre>
+
+        <h3>Expected Output</h3>
+
+        <pre class="output-code"><code>pip 25.x from ... (python 3.x)</code></pre>
+
+        <p>Jar pip available nasel tar:</p>
+
+        <pre class="code-block"><code>python -m ensurepip --upgrade</code></pre>
+
+    </section>
+
+
+    <!-- SECTION 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. Django Project Sathi Folder Create Kar</h2>
+
+        <p>
+            Samja aplyala MyDjangoProject navacha folder create karaycha aahe.
+            Terminal madhye khalil commands run kar.
+        </p>
+
+        <h3>Folder Create Kar</h3>
+
+        <pre class="code-block"><code>mkdir MyDjangoProject</code></pre>
+
+        <h3>Folder Madhye Enter Kar</h3>
+
+        <pre class="code-block"><code>cd MyDjangoProject</code></pre>
+
+        <div class="info-box">
+            <strong>Explanation:</strong>
+
+            <ul>
+                <li><code>mkdir</code> navin folder create karto.</li>
+                <li><code>cd</code> folder madhye enter karto.</li>
+            </ul>
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. Virtual Environment Create Kar</h2>
+
+        <p>
+            Virtual Environment he ek isolated Python environment aahe.
+        </p>
+
+        <p>
+            Samja tu don Django projects banavle. Project A madhye Django
+            chi ek version aahe ani Project B madhye dusri version aahe.
+            Donhi projects che packages separate thevanyasathi
+            Virtual Environment vapartat.
+        </p>
+
+        <h3>Command</h3>
+
+        <pre class="code-block"><code>python -m venv venv</code></pre>
+
+        <h3>Command Explanation</h3>
+
+        <ul>
+            <li><code>python</code> - Python interpreter run karto.</li>
+            <li><code>-m venv</code> - Virtual Environment module run karto.</li>
+            <li><code>venv</code> - Environment folder che nav aahe.</li>
+        </ul>
+
+        <h3>Project Structure</h3>
+
+        <pre class="output-code"><code>MyDjangoProject/
+│
+└── venv/</code></pre>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Pratyek Django project sathi vegala Virtual Environment
+            vaprane changli practice aahe.
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. Virtual Environment Activate Kar</h2>
+
+        <p>
+            Virtual Environment create kelyanantar te activate karave lagte.
+            Windows PowerShell madhye hi command run kar:
+        </p>
+
+        <pre class="code-block"><code>.\venv\Scripts\Activate.ps1</code></pre>
+
+        <h3>Expected Output</h3>
+
+        <pre class="output-code"><code>(venv) PS C:\...\MyDjangoProject></code></pre>
+
+        <p>
+            Terminal madhye (venv) disat asel tar environment active zala aahe.
+        </p>
+
+        <h3>PowerShell Error Aalyas</h3>
+
+        <p>
+            Jar script execution policy mule activation block zala tar
+            current terminal session sathi hi command run kar:
+        </p>
+
+        <pre class="code-block"><code>Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass</code></pre>
+
+        <p>Nantar activation command punha run kar.</p>
+
+        <div class="important-box">
+            <strong>Note:</strong>
+            Hi policy fakt current PowerShell process sathi badalte.
+            Navin terminal session madhye garaj padlyas punha command run kar.
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. Django Install Kar</h2>
+
+        <p>
+            Virtual Environment active aslyachi khatri kar.
+            Ata Django install karanyasathi hi command run kar:
+        </p>
+
+        <pre class="code-block"><code>python -m pip install django</code></pre>
+
+        <h3>Command Explanation</h3>
+
+        <ul>
+            <li><code>python</code> - Python run karto.</li>
+            <li><code>-m pip</code> - pip module vaparto.</li>
+            <li><code>install</code> - Package install karto.</li>
+            <li><code>django</code> - Install karayche package aahe.</li>
+        </ul>
+
+        <h3>Django Version Check Kar</h3>
+
+        <pre class="code-block"><code>python -m django --version</code></pre>
+
+        <h3>Expected Output</h3>
+
+        <pre class="output-code"><code>6.x</code></pre>
+
+        <p>
+            Actual installed Django version terminal madhye disel.
+        </p>
+
+    </section>
+
+
+    <!-- SECTION 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. Django Project Create Kar</h2>
+
+        <p>
+            Ata Django project create karuya.
+            Project create karanyasathi khalil command run kar:
+        </p>
+
+        <pre class="code-block"><code>django-admin startproject config .</code></pre>
+
+        <h3>Command Explanation</h3>
+
+        <ul>
+            <li><code>django-admin</code> - Django command-line tool.</li>
+            <li><code>startproject</code> - Navin Django project create karto.</li>
+            <li><code>config</code> - Project configuration package che nav.</li>
+            <li><code>.</code> - Current folder madhye project create karto.</li>
+        </ul>
+
+        <h3>Project Structure</h3>
+
+        <pre class="output-code"><code>MyDjangoProject/
+│
+├── config/
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   ├── asgi.py
+│   └── wsgi.py
+│
+├── venv/
+│
+└── manage.py</code></pre>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Command madhil shevatcha dot (.) visaru nakos.
+            Ya mule project current folder madhye create hoto.
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Django Server Run Kar</h2>
+
+        <p>
+            Project create zalyanantar development server run karanyasathi
+            hi command vapr:
+        </p>
+
+        <pre class="code-block"><code>python manage.py runserver</code></pre>
+
+        <h3>Expected Output</h3>
+
+        <pre class="output-code"><code>Starting development server at
+http://127.0.0.1:8000/
+
+Quit the server with CTRL-BREAK.</code></pre>
+
+        <p>
+            Ata browser madhye khalil address open kar:
+        </p>
+
+        <pre class="code-block"><code>http://127.0.0.1:8000/</code></pre>
+
+        <div class="browser-preview">
+
+            <div class="browser-bar">
+                <span></span>
+                <span></span>
+                <span></span>
+
+                <div class="browser-address">
+                    http://127.0.0.1:8000/
+                </div>
+            </div>
+
+            <div class="browser-content">
+                <h3>Congratulations!</h3>
+                <p>
+                    The install worked successfully!
+                    Congratulations!
+                </p>
+                <span>Django Welcome Page</span>
+            </div>
+
+        </div>
+
+        <div class="info-box">
+            <strong>Explanation:</strong>
+            Django development server local computer var website run karto.
+            Ha development sathi aahe; production hosting sathi nahi.
+        </div>
+
+        <h3>Server Band Kar</h3>
+
+        <pre class="code-block"><code>CTRL + C</code></pre>
+
+    </section>
+
+
+    <!-- SECTION 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Django App Create Kar</h2>
+
+        <p>
+            Django madhye Project ani App ya don vegveglya concepts aahet.
+        </p>
+
+        <div class="example-box">
+
+            <h3>Project Mhanje Kay?</h3>
+
+            <p>
+                Project mhanje sampurna website che configuration
+                ani structure.
+            </p>
+
+            <h3>App Mhanje Kay?</h3>
+
+            <p>
+                App mhanje website madhil ek specific functionality.
+            </p>
+
+        </div>
+
+        <p>Udaharanarth, College Management Project madhye:</p>
+
+        <ul>
+            <li>Students App</li>
+            <li>Teachers App</li>
+            <li>Attendance App</li>
+            <li>Fees App</li>
+        </ul>
+
+        <h3>App Create Karanyachi Command</h3>
+
+        <pre class="code-block"><code>python manage.py startapp students</code></pre>
+
+        <h3>App Structure</h3>
+
+        <pre class="output-code"><code>students/
+│
+├── migrations/
+├── __init__.py
+├── admin.py
+├── apps.py
+├── models.py
+├── tests.py
+└── views.py</code></pre>
+
+    </section>
+
+
+    <!-- SECTION 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. App Register Kar</h2>
+
+        <p>
+            App create kelyanantar Django la sangave lagte ki ha app
+            aplya project cha part aahe.
+        </p>
+
+        <p>
+            <strong>File: config/settings.py</strong>
+        </p>
+
+        <p>
+            INSTALLED_APPS madhye students app add kar:
+        </p>
+
+        <pre class="code-block"><code>INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+
+    'students',
+]</code></pre>
+
+        <div class="info-box">
+            <strong>Explanation:</strong>
+            INSTALLED_APPS madhye add kelyavar Django la students app
+            baddal mahiti milte.
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Database Migrations Run Kar</h2>
+
+        <p>
+            Django madhye default database setup karanyasathi
+            khalil command run kar:
+        </p>
+
+        <pre class="code-block"><code>python manage.py migrate</code></pre>
+
+        <p>
+            Ya command mule Django che default database tables create hotat.
+            Tyanchya use authentication, sessions ani admin system sathi hoto.
+        </p>
+
+    </section>
+
+
+    <!-- SECTION 13 -->
+
+    <section class="lesson-section">
+
+        <h2>13. Project Check Kar</h2>
+
+        <p>
+            Project madhye basic configuration errors aahet ka te check
+            karanyasathi khalil command run kar:
+        </p>
+
+        <pre class="code-block"><code>python manage.py check</code></pre>
+
+        <h3>Expected Output</h3>
+
+        <pre class="output-code"><code>System check identified no issues (0 silenced).</code></pre>
+
+    </section>
+
+
+    <!-- SECTION 14 -->
+
+    <section class="lesson-section">
+
+        <h2>14. Complete Command Revision</h2>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>Command</th>
+                    <th>Use</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td><code>python --version</code></td>
+                    <td>Python version check</td>
+                </tr>
+
+                <tr>
+                    <td><code>python -m pip --version</code></td>
+                    <td>pip version check</td>
+                </tr>
+
+                <tr>
+                    <td><code>python -m venv venv</code></td>
+                    <td>Virtual Environment create</td>
+                </tr>
+
+                <tr>
+                    <td><code>.\venv\Scripts\Activate.ps1</code></td>
+                    <td>Environment activate</td>
+                </tr>
+
+                <tr>
+                    <td><code>python -m pip install django</code></td>
+                    <td>Django install</td>
+                </tr>
+
+                <tr>
+                    <td><code>python -m django --version</code></td>
+                    <td>Django version check</td>
+                </tr>
+
+                <tr>
+                    <td><code>django-admin startproject config .</code></td>
+                    <td>Project create</td>
+                </tr>
+
+                <tr>
+                    <td><code>python manage.py runserver</code></td>
+                    <td>Server start</td>
+                </tr>
+
+                <tr>
+                    <td><code>python manage.py startapp students</code></td>
+                    <td>App create</td>
+                </tr>
+
+                <tr>
+                    <td><code>python manage.py migrate</code></td>
+                    <td>Database migrations apply</td>
+                </tr>
+
+                <tr>
+                    <td><code>python manage.py check</code></td>
+                    <td>Project check</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+
+    <!-- SECTION 15 -->
+
+    <section class="lesson-section">
+
+        <h2>15. Common Errors</h2>
+
+        <h3>Error 1: Python is not recognized</h3>
+
+        <p>
+            Python PATH madhye add nasu shakto.
+            Python installation check kar ani hi command try kar:
+        </p>
+
+        <pre class="code-block"><code>py --version</code></pre>
+
+        <h3>Error 2: No module named django</h3>
+
+        <p>
+            Virtual Environment activate aahe ka check kar.
+            Nantar Django install kar:
+        </p>
+
+        <pre class="code-block"><code>python -m pip install django</code></pre>
+
+        <h3>Error 3: PowerShell script execution disabled</h3>
+
+        <p>
+            Current terminal session sathi:
+        </p>
+
+        <pre class="code-block"><code>Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass</code></pre>
+
+        <h3>Error 4: Port is already in use</h3>
+
+        <p>
+            Dusra server tyach port var run hot asel tar dusra port vapr:
+        </p>
+
+        <pre class="code-block"><code>python manage.py runserver 8001</code></pre>
+
+        <h3>Error 5: manage.py not found</h3>
+
+        <p>
+            Tu project chya main folder madhye aahes ka te check kar.
+            Jithe manage.py aahe tyach folder madhun command run kar.
+        </p>
+
+    </section>
+
+
+    <!-- SECTION 16 -->
+
+    <section class="lesson-section">
+
+        <h2>16. Topic Revision</h2>
+
+        <ul>
+            <li>Python ani pip check karane.</li>
+            <li>Project folder create karane.</li>
+            <li>Virtual Environment create ani activate karane.</li>
+            <li>Django install karane.</li>
+            <li>Django project create karane.</li>
+            <li>Development server run karane.</li>
+            <li>Django app create karane.</li>
+            <li>App register karane.</li>
+            <li>Database migrations apply karane.</li>
+            <li>Project check karane.</li>
+        </ul>
+
+    </section>
+
+
+    <!-- SECTION 17 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>17. Practice Questions</h2>
+
+        <h3>Theory Questions</h3>
+
+        <ol>
+            <li>Django install karanyasathi kontya tools chi garaj aahe?</li>
+            <li>pip mhanje kay?</li>
+            <li>Virtual Environment mhanje kay?</li>
+            <li>Virtual Environment ka vapartat?</li>
+            <li>Django install karanyasathi konti command aahe?</li>
+            <li>startproject command cha use kay?</li>
+            <li>manage.py cha use kay?</li>
+            <li>Django server run karanyasathi konti command aahe?</li>
+            <li>Project ani App madhye kay difference aahe?</li>
+            <li>migrate command cha use kay?</li>
+        </ol>
+
+        <h3>Practical Tasks</h3>
+
+        <ol>
+            <li>MyDjangoProject navacha folder create kar.</li>
+            <li>Virtual Environment create kar.</li>
+            <li>Django install kar.</li>
+            <li>config navacha project create kar.</li>
+            <li>Server run karun Django welcome page open kar.</li>
+            <li>students navacha app create kar.</li>
+            <li>App INSTALLED_APPS madhye register kar.</li>
+            <li>migrate ani check commands run kar.</li>
+        </ol>
+
+    </section>
+
+
+    <!-- COMPLETION -->
+
+    <div class="completion-message">
+
+        <h2>Topic 02 Completed!</h2>
+
+        <p>
+            Aata tu Django install karu shakto, project create karu shakto
+            ani development server run karu shakto.
+            Pudhil topic madhye Django project structure detail madhye samjun gheu.
+        </p>
+
+    </div>
+
+
+    <!-- NAVIGATION -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'django_topic' 'introduction' %}"
+           class="nav-button previous-button">
+            ← Previous: Introduction
+        </a>
+
+        <a href="{% url 'django_topic' 'project-structure' %}"
+           class="nav-button next-button">
+            Next: Project Structure →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

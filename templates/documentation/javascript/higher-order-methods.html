@@ -1,0 +1,618 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}JavaScript Higher Order Methods | Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/javascript/higher-order-methods.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Header -->
+
+    <div class="lesson-header">
+        <span class="lesson-label">JAVASCRIPT DOCUMENTATION • PAGE 24</span>
+
+        <h1>Array Higher Order Methods</h1>
+
+        <p>
+            Ya lesson madhye callback functions, array higher order methods,
+            some(), every() ani method chaining practical examples sah shikuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Beginner Level</span>
+            <span>35–40 Minutes</span>
+        </div>
+    </div>
+
+    <!-- Section 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What are Higher Order Functions?</h2>
+
+        <p>
+            Higher Order Function mhanje asa function jo dusra function
+            argument mhanun accept karto kiwa function return karto.
+        </p>
+
+        <p>
+            JavaScript madhil anek array methods Higher Order Functions aahet.
+            Udaharanarth map(), filter() ani forEach().
+        </p>
+
+        <div class="info-box">
+            <strong>Definition:</strong>
+            A Higher Order Function is a function that accepts another
+            function as an argument or returns a function.
+        </div>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>function greet(name) {
+    return "Hello " + name;
+}
+
+function processUser(callback) {
+    console.log(callback("Rohan"));
+}
+
+processUser(greet);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Hello Rohan</pre>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>greet ha ek normal function aahe.</li>
+            <li>processUser function callback accept karto.</li>
+            <li>greet function argument mhanun pass kela.</li>
+            <li>processUser madhye callback execute hoto.</li>
+        </ul>
+
+    </section>
+
+    <!-- Section 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Callback Function</h2>
+
+        <p>
+            Callback Function mhanje asa function jo dusrya function la
+            argument mhanun pass kela jato.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>function calculate(a, b, callback) {
+    return callback(a, b);
+}
+
+function add(x, y) {
+    return x + y;
+}
+
+console.log(calculate(10, 20, add));</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>30</pre>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>calculate() function three parameters accept karto.</li>
+            <li>callback madhye add function pass kela.</li>
+            <li>callback(a, b) mule add function execute hoto.</li>
+            <li>Final result 30 milto.</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Remember:</strong>
+            Array Higher Order Methods madhye apan callback functions
+            khup vela vaparto.
+        </div>
+
+    </section>
+
+    <!-- Section 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. forEach() Method</h2>
+
+        <p>
+            forEach() cha use array madhil pratyek element var
+            operation perform karnyasathi hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>const numbers = [10, 20, 30];
+
+numbers.forEach(function(number) {
+    console.log(number);
+});</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>10
+20
+30</pre>
+        </div>
+
+        <h3>Important Points:</h3>
+
+        <ul>
+            <li>Pratyek element sathi callback execute hoto.</li>
+            <li>forEach() navin array return karat nahi.</li>
+            <li>Pratyek element var operation karnyasathi use hoto.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            forEach() cha return value undefined asto.
+            Navin array pahije asel tar map() vapra.
+        </div>
+
+    </section>
+
+    <!-- Section 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. map() Method</h2>
+
+        <p>
+            map() cha use existing array madhil pratyek element transform
+            karun navin array tayar karnyasathi hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>const numbers = [1, 2, 3, 4];
+
+const result = numbers.map(function(number) {
+    return number * 2;
+});
+
+console.log(result);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>[2, 4, 6, 8]</pre>
+        </div>
+
+        <h3>Important Points:</h3>
+
+        <ul>
+            <li>map() pratyek element var callback execute karto.</li>
+            <li>Callback madhil return value navin array madhye yete.</li>
+            <li>Original array change hot nahi, jar callback ne tyatil nested mutable data modify kele nahi tar.</li>
+        </ul>
+
+    </section>
+
+    <!-- Section 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. filter() Method</h2>
+
+        <p>
+            filter() cha use condition satisfy karnare elements
+            select karun navin array tayar karnyasathi hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>const numbers = [10, 15, 20, 25, 30];
+
+const result = numbers.filter(function(number) {
+    return number > 20;
+});
+
+console.log(result);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>[25, 30]</pre>
+        </div>
+
+        <h3>Important Points:</h3>
+
+        <ul>
+            <li>filter() condition check karto.</li>
+            <li>Condition true aslele elements navin array madhye yetat.</li>
+            <li>Condition false aslele elements exclude hotat.</li>
+        </ul>
+
+    </section>
+
+    <!-- Section 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. some() Method</h2>
+
+        <p>
+            some() cha use array madhil kamit kami ek element
+            condition satisfy karto ka te check karnyasathi hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>const marks = [35, 45, 75, 80];
+
+const result = marks.some(function(mark) {
+    return mark >= 75;
+});
+
+console.log(result);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>true</pre>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>some() pratyek element condition sathi check karto.</li>
+            <li>Ek tari element condition satisfy karat asel tar true milte.</li>
+            <li>Ekahi element satisfy karat nasel tar false milte.</li>
+            <li>Result boolean value asto.</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Remember:</strong>
+            some() mhanje at least one element condition satisfy karto ka?
+        </div>
+
+    </section>
+
+    <!-- Section 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. every() Method</h2>
+
+        <p>
+            every() cha use array madhil sarv elements condition
+            satisfy kartat ka te check karnyasathi hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>const marks = [60, 70, 80, 90];
+
+const result = marks.every(function(mark) {
+    return mark >= 35;
+});
+
+console.log(result);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>true</pre>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>every() sarv elements check karto.</li>
+            <li>Sarv elements condition satisfy kartat tar true milte.</li>
+            <li>Ek jari element condition fail karat asel tar false milte.</li>
+            <li>Result boolean value asto.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Empty array var some() false return karto,
+            tar every() true return karto.
+        </div>
+
+    </section>
+
+    <!-- Section 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. Method Chaining</h2>
+
+        <p>
+            Ekach statement madhye ekapeksha jast array methods
+            ekamagun ek use karnyala Method Chaining mhantat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>const numbers = [10, 15, 20, 25, 30];
+
+const result = numbers
+    .filter(number => number >= 20)
+    .map(number => number * 2);
+
+console.log(result);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>[40, 50, 60]</pre>
+        </div>
+
+        <h3>Step-by-step Explanation:</h3>
+
+        <ol>
+            <li>Original array madhye 5 numbers aahet.</li>
+            <li>filter() 20 kiwa tyapeksha jast numbers select karto.</li>
+            <li>Result [20, 25, 30] milto.</li>
+            <li>map() pratyek number la 2 ne multiply karto.</li>
+            <li>Final result [40, 50, 60] milto.</li>
+        </ol>
+
+        <div class="tip-box">
+            <strong>Remember:</strong>
+            Method Chaining mule multiple operations clean ani readable
+            paddhatine lihita yetat.
+        </div>
+
+    </section>
+
+    <!-- Section 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Comparison of Higher Order Methods</h2>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Method</th>
+                    <th>Purpose</th>
+                    <th>Return Value</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>forEach()</td>
+                    <td>Each element var operation</td>
+                    <td>undefined</td>
+                </tr>
+                <tr>
+                    <td>map()</td>
+                    <td>Elements transform karne</td>
+                    <td>New Array</td>
+                </tr>
+                <tr>
+                    <td>filter()</td>
+                    <td>Condition nusar select karne</td>
+                    <td>New Array</td>
+                </tr>
+                <tr>
+                    <td>some()</td>
+                    <td>At least one condition check</td>
+                    <td>Boolean</td>
+                </tr>
+                <tr>
+                    <td>every()</td>
+                    <td>All elements condition check</td>
+                    <td>Boolean</td>
+                </tr>
+                <tr>
+                    <td>find()</td>
+                    <td>First matching element</td>
+                    <td>Element / undefined</td>
+                </tr>
+                <tr>
+                    <td>reduce()</td>
+                    <td>Single accumulated result</td>
+                    <td>Any Value</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </section>
+
+    <!-- Section 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Practical Example – Student Marks</h2>
+
+        <p>
+            Higher Order Methods vaprun student marks filter,
+            transform ani check karu.
+        </p>
+
+        <h3>JavaScript:</h3>
+
+        <pre class="code-block"><code>const marks = [35, 45, 60, 75, 90];
+
+// Students who passed
+const passed = marks.filter(mark => mark >= 35);
+
+// Add 5 bonus marks
+const bonusMarks = marks.map(mark => mark + 5);
+
+// Check if any student scored 90
+const hasTopper = marks.some(mark => mark >= 90);
+
+// Check if all students passed
+const allPassed = marks.every(mark => mark >= 35);
+
+console.log(passed);
+console.log(bonusMarks);
+console.log(hasTopper);
+console.log(allPassed);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>[35, 45, 60, 75, 90]
+[40, 50, 65, 80, 95]
+true
+true</pre>
+        </div>
+
+    </section>
+
+    <!-- Section 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Common Beginner Mistakes</h2>
+
+        <div class="mistake-card">
+            <strong>Mistake 1: map() madhye return visarne</strong>
+            <p>
+                Callback madhye value return keli nahi tar navin array
+                madhye undefined values yeu shaktat.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 2: forEach() cha result store karne</strong>
+            <p>
+                forEach() undefined return karto. Navin array sathi map() vapra.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 3: some() ani every() confuse karne</strong>
+            <p>
+                some() ek tari element check karto, every() sarv elements check karto.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 4: filter() madhye condition na dene</strong>
+            <p>
+                filter() callback madhun true kiwa false result milne avashyak aahe.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 5: Method Chaining cha order na samajne</strong>
+            <p>
+                Pratyek method cha result pudhchya method la milto.
+                Mhanun order samjun code liha.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- Section 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Quick Revision</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>Higher Order Function dusra function accept karu shakto.</li>
+                <li>Callback Function dusrya function la argument mhanun pass hoto.</li>
+                <li>forEach() pratyek element var operation karto.</li>
+                <li>map() navin transformed array return karto.</li>
+                <li>filter() condition satisfy karnare elements select karto.</li>
+                <li>some() kamit kami ek element check karto.</li>
+                <li>every() sarv elements check karto.</li>
+                <li>Method Chaining madhye multiple methods ekamagun ek use kartat.</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <!-- Section 13 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>13. Practice Questions</h2>
+
+        <h3>Basic Questions</h3>
+
+        <ol>
+            <li>Higher Order Function mhanje kay?</li>
+            <li>Callback Function mhanje kay?</li>
+            <li>forEach() ani map() madhye kay difference aahe?</li>
+            <li>filter() method cha use kay aahe?</li>
+            <li>some() method kay check karte?</li>
+            <li>every() method kay check karte?</li>
+            <li>Method Chaining mhanje kay?</li>
+            <li>map() ani filter() kay return kartat?</li>
+        </ol>
+
+        <h3>Practical Questions</h3>
+
+        <ol>
+            <li>forEach() vaprun array madhil numbers print kar.</li>
+            <li>map() vaprun numbers cha square tayar kar.</li>
+            <li>filter() vaprun even numbers select kar.</li>
+            <li>some() vaprun ek tari number 50 peksha motha aahe ka check kar.</li>
+            <li>every() vaprun sarv marks passing aahet ka check kar.</li>
+            <li>filter() ani map() vaprun Method Chaining kar.</li>
+        </ol>
+
+        <div class="task-box">
+
+            <h3>Mini Task: Student Marks Manager</h3>
+
+            <p>
+                Higher Order Methods vaprun Student Marks Manager tayar kar.
+            </p>
+
+            <ul>
+                <li>Students ani tyanchya marks cha array tayar kar.</li>
+                <li>forEach() vaprun student details print kar.</li>
+                <li>map() vaprun bonus marks add kar.</li>
+                <li>filter() vaprun passing students select kar.</li>
+                <li>some() vaprun ek tari student 90 marks milavto ka check kar.</li>
+                <li>every() vaprun sarv students pass aahet ka check kar.</li>
+                <li>Method Chaining vaprun passing students che bonus marks display kar.</li>
+            </ul>
+
+            <p>
+                File name: <strong>student_marks_manager.js</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Navigation -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'javascript_topic' 'spread-rest' %}"
+           class="nav-button previous-button">
+            ← Previous: Spread and Rest
+        </a>
+
+        <a href="{% url 'javascript_topic' 'json' %}"
+           class="nav-button next-button">
+            Next: JSON →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

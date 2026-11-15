@@ -1,0 +1,651 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}JavaScript ES6 Features | Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/javascript/es6.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Header -->
+
+    <div class="lesson-header">
+        <span class="lesson-label">JAVASCRIPT DOCUMENTATION • PAGE 22</span>
+
+        <h1>JavaScript ES6 Features</h1>
+
+        <p>
+            ES6 madhye introduce zalele important JavaScript features
+            ani tyanchya practical uses ya lesson madhye shikuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Beginner Level</span>
+            <span>40–45 Minutes</span>
+        </div>
+    </div>
+
+    <!-- Section 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What is ES6?</h2>
+
+        <p>
+            ES6 che full form ECMAScript 2015 aahe.
+            Hi JavaScript chi ek important version update aahe.
+        </p>
+
+        <p>
+            ES6 madhye code lihinyasathi anek nave features introduce
+            kele gele. Ya features mule code readable ani maintainable hoto.
+        </p>
+
+        <h3>Important ES6 Features:</h3>
+
+        <ul>
+            <li>let and const</li>
+            <li>Template Literals</li>
+            <li>Arrow Functions</li>
+            <li>Default Parameters</li>
+            <li>Destructuring</li>
+            <li>Spread Operator</li>
+            <li>Object Property Shorthand</li>
+            <li>for...of Loop</li>
+        </ul>
+
+        <div class="info-box">
+            <strong>Definition:</strong>
+            ES6 is a major JavaScript update introduced in 2015
+            that added modern language features.
+        </div>
+
+    </section>
+
+    <!-- Section 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. let and const</h2>
+
+        <p>
+            ES6 madhye variables declare karnyasathi let ani const
+            introduce kele gele.
+        </p>
+
+        <h3>let Example:</h3>
+
+        <pre class="code-block"><code>let age = 20;
+
+age = 21;
+
+console.log(age);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>21</pre>
+        </div>
+
+        <p>
+            let variable chi value nantar change karta yete.
+        </p>
+
+        <h3>const Example:</h3>
+
+        <pre class="code-block"><code>const country = "India";
+
+console.log(country);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>India</pre>
+        </div>
+
+        <p>
+            const variable la initial value dene compulsory aste
+            ani tyala punha assign karta yet nahi.
+        </p>
+
+        <div class="tip-box">
+            <strong>Remember:</strong>
+            Modern JavaScript madhye default ne const vapra.
+            Value change honar asel tar let vapra.
+        </div>
+
+    </section>
+
+    <!-- Section 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. Template Literals</h2>
+
+        <p>
+            Template Literals cha use strings madhye variables
+            ani expressions easily add karnyasathi hoto.
+        </p>
+
+        <p>
+            Template Literals sathi backtick (`) vapartat.
+        </p>
+
+        <h3>Old Method:</h3>
+
+        <pre class="code-block"><code>const name = "Rohan";
+const age = 20;
+
+const message = "My name is " + name +
+                " and my age is " + age;
+
+console.log(message);</code></pre>
+
+        <h3>ES6 Method:</h3>
+
+        <pre class="code-block"><code>const name = "Rohan";
+const age = 20;
+
+const message = `My name is ${name} and my age is ${age}`;
+
+console.log(message);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>My name is Rohan and my age is 20</pre>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>Backtick vaprun string create keli.</li>
+            <li>${name} madhye variable chi value add hote.</li>
+            <li>${age} madhye age chi value add hote.</li>
+            <li>${} madhye expressions suddha lihita yetat.</li>
+        </ul>
+
+        <h3>Expression Example:</h3>
+
+        <pre class="code-block"><code>const a = 10;
+const b = 20;
+
+console.log(`Total: ${a + b}`);</code></pre>
+
+        <div class="output-box">
+            <pre>Total: 30</pre>
+        </div>
+
+    </section>
+
+    <!-- Section 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. Arrow Functions</h2>
+
+        <p>
+            Arrow Function ha function lihinyacha short ani modern
+            method aahe.
+        </p>
+
+        <h3>Old Method:</h3>
+
+        <pre class="code-block"><code>function add(a, b) {
+    return a + b;
+}
+
+console.log(add(10, 20));</code></pre>
+
+        <h3>ES6 Method:</h3>
+
+        <pre class="code-block"><code>const add = (a, b) => {
+    return a + b;
+};
+
+console.log(add(10, 20));</code></pre>
+
+        <h3>Short Syntax:</h3>
+
+        <pre class="code-block"><code>const add = (a, b) => a + b;
+
+console.log(add(10, 20));</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>30</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Remember:</strong>
+            Arrow Functions cha detail apan Page 11 madhye shiklo aahot.
+            ES6 madhil ha ek important feature aahe.
+        </div>
+
+    </section>
+
+    <!-- Section 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. Default Parameters</h2>
+
+        <p>
+            Function call kartana argument pass kela nahi tar
+            default parameter chi value use hote.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>function greet(name = "Guest") {
+    return `Hello ${name}`;
+}
+
+console.log(greet("Rohan"));
+console.log(greet());</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Hello Rohan
+Hello Guest</pre>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>name parameter chi default value Guest aahe.</li>
+            <li>greet("Rohan") call kelyavar Rohan use hoto.</li>
+            <li>greet() call kelyavar Guest use hoto.</li>
+        </ul>
+
+    </section>
+
+    <!-- Section 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. Destructuring</h2>
+
+        <p>
+            Destructuring cha use array kiwa object madhil values
+            easily variables madhye store karnyasathi hoto.
+        </p>
+
+        <h3>Array Destructuring:</h3>
+
+        <pre class="code-block"><code>const colors = ["Red", "Green", "Blue"];
+
+const [first, second, third] = colors;
+
+console.log(first);
+console.log(second);
+console.log(third);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Red
+Green
+Blue</pre>
+        </div>
+
+        <h3>Object Destructuring:</h3>
+
+        <pre class="code-block"><code>const student = {
+    name: "Rohan",
+    age: 20,
+    course: "BSc CS"
+};
+
+const { name, age, course } = student;
+
+console.log(name);
+console.log(age);
+console.log(course);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Rohan
+20
+BSc CS</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Remember:</strong>
+            Array Destructuring madhye position important aste.
+            Object Destructuring madhye property name important aste.
+        </div>
+
+    </section>
+
+    <!-- Section 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. Object Property Shorthand</h2>
+
+        <p>
+            Object madhye key ani variable name same asel tar
+            shorthand syntax vaprun code short karta yeto.
+        </p>
+
+        <h3>Old Method:</h3>
+
+        <pre class="code-block"><code>const name = "Rohan";
+const age = 20;
+
+const student = {
+    name: name,
+    age: age
+};
+
+console.log(student);</code></pre>
+
+        <h3>ES6 Method:</h3>
+
+        <pre class="code-block"><code>const name = "Rohan";
+const age = 20;
+
+const student = {
+    name,
+    age
+};
+
+console.log(student);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>{ name: "Rohan", age: 20 }</pre>
+        </div>
+
+        <p>
+            Donhi code cha result same aahe. ES6 shorthand mule
+            unnecessary repetition kami hote.
+        </p>
+
+    </section>
+
+    <!-- Section 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. Optional Chaining</h2>
+
+        <p>
+            Optional Chaining cha use object madhil property access
+            kartana value null kiwa undefined aslyas error talnyasathi hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>const student = {
+    name: "Rohan",
+    address: {
+        city: "Kolhapur"
+    }
+};
+
+console.log(student.address?.city);
+console.log(student.contact?.phone);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Kolhapur
+undefined</pre>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>student.address?.city madhun city milte.</li>
+            <li>student.contact property available nahi.</li>
+            <li>?. mule error yenyayevaji undefined milte.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Optional Chaining fakt null kiwa undefined access mule
+            honara error talte. Pratyek prakarcha error talat nahi.
+        </div>
+
+    </section>
+
+    <!-- Section 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. for...of Loop</h2>
+
+        <p>
+            for...of loop cha use array kiwa iterable madhil
+            values ek-ek karun access karnyasathi hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>const languages = ["Python", "JavaScript", "Java"];
+
+for (const language of languages) {
+    console.log(language);
+}</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Python
+JavaScript
+Java</pre>
+        </div>
+
+        <p>
+            Ya loop madhye pratyek iteration la array madhil
+            next value language variable madhye yete.
+        </p>
+
+    </section>
+
+    <!-- Section 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. ES6 Features Comparison</h2>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Use</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>let</td>
+                    <td>Reassign karta yenara variable.</td>
+                </tr>
+                <tr>
+                    <td>const</td>
+                    <td>Reassign na karta yenara variable.</td>
+                </tr>
+                <tr>
+                    <td>Template Literals</td>
+                    <td>String madhye variables add karne.</td>
+                </tr>
+                <tr>
+                    <td>Arrow Functions</td>
+                    <td>Short function syntax.</td>
+                </tr>
+                <tr>
+                    <td>Default Parameters</td>
+                    <td>Parameters la default values dene.</td>
+                </tr>
+                <tr>
+                    <td>Destructuring</td>
+                    <td>Array ani object madhun values milavne.</td>
+                </tr>
+                <tr>
+                    <td>Optional Chaining</td>
+                    <td>Null kiwa undefined property access mule honara error talne.</td>
+                </tr>
+                <tr>
+                    <td>for...of</td>
+                    <td>Iterable madhil values access karne.</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </section>
+
+    <!-- Section 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Common Beginner Mistakes</h2>
+
+        <div class="mistake-card">
+            <strong>Mistake 1: Template Literal madhye single quotes vaprane</strong>
+            <p>
+                Variable interpolation sathi backtick (`) ani ${}
+                syntax vapra.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 2: const variable reassign karne</strong>
+            <p>
+                const variable la punha value assign karta yet nahi.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 3: Destructuring madhye order visarne</strong>
+            <p>
+                Array Destructuring madhye values cha position mahatvacha asto.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 4: Object property name chukvane</strong>
+            <p>
+                Object Destructuring madhye property name barobar asne avashyak aahe.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 5: Optional Chaining cha jast use karne</strong>
+            <p>
+                Optional Chaining mule missing property silently undefined
+                deu shakte. Required data missing asel tar validation kara.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- Section 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Quick Revision</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>ES6 mhanje ECMAScript 2015.</li>
+                <li>let ani const variable declare kartat.</li>
+                <li>Template Literals madhye backtick vapartat.</li>
+                <li>Arrow Function ha short function syntax aahe.</li>
+                <li>Default Parameters default value detat.</li>
+                <li>Destructuring array ani object madhun values milavte.</li>
+                <li>Object Shorthand code short karte.</li>
+                <li>Optional Chaining null kiwa undefined access mule honara error talte.</li>
+                <li>for...of iterable madhil values access karte.</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <!-- Section 13 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>13. Practice Questions</h2>
+
+        <h3>Basic Questions</h3>
+
+        <ol>
+            <li>ES6 mhanje kay?</li>
+            <li>let ani const madhye kay difference aahe?</li>
+            <li>Template Literals mhanje kay?</li>
+            <li>Arrow Function cha use kay aahe?</li>
+            <li>Default Parameters mhanje kay?</li>
+            <li>Destructuring mhanje kay?</li>
+            <li>Object Property Shorthand kay aahe?</li>
+            <li>Optional Chaining cha use kay aahe?</li>
+            <li>for...of loop cha use kay aahe?</li>
+        </ol>
+
+        <h3>Practical Questions</h3>
+
+        <ol>
+            <li>Template Literal vaprun Student Details display kar.</li>
+            <li>Arrow Function vaprun don numbers add kar.</li>
+            <li>Default Parameter vaprun greeting function tayar kar.</li>
+            <li>Array Destructuring vaprun three colors access kar.</li>
+            <li>Object Destructuring vaprun student details access kar.</li>
+            <li>Optional Chaining vaprun nested property access kar.</li>
+        </ol>
+
+        <div class="task-box">
+
+            <h3>Mini Task: Student Profile</h3>
+
+            <p>
+                ES6 features vaprun Student Profile tayar kar.
+            </p>
+
+            <ul>
+                <li>let ani const vaprun variables declare kar.</li>
+                <li>Student name ani course store kar.</li>
+                <li>Template Literal vaprun profile message tayar kar.</li>
+                <li>Arrow Function vaprun greeting function tayar kar.</li>
+                <li>Default Parameter vaprun default course set kar.</li>
+                <li>Object Destructuring vaprun details access kar.</li>
+                <li>Optional Chaining vaprun city access kar.</li>
+            </ul>
+
+            <p>
+                File name: <strong>es6_student_profile.js</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Navigation -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'javascript_topic' 'form-validation' %}"
+           class="nav-button previous-button">
+            ← Previous: Form Validation
+        </a>
+
+        <a href="{% url 'javascript_topic' 'spread-rest' %}"
+           class="nav-button next-button">
+            Next: Spread and Rest →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

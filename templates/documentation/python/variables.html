@@ -1,0 +1,550 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Python Variables | Roman Marathi Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/python/variables.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+    <div class="lesson-header">
+        <span class="lesson-label">PYTHON TUTORIAL</span>
+        <h1>05. Python Variables</h1>
+        <p>
+            Python madhye data store karayla Variables kase use kartat
+            he ya lesson madhye shikuya.
+        </p>
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 15-20 Minutes</span>
+        </div>
+    </div>
+
+    <!-- Section 1 -->
+    <section class="lesson-section">
+        <h2>1. What is a Variable?</h2>
+
+        <p>
+            Variable mhanje computer memory madhye data store karanyasathi
+            dilele ek name.
+        </p>
+
+        <p>
+            Samja tujhya table var ek box aahe. Tya box madhye tu kahi vastu
+            thevto ani box la ek label lavto. Nantar tula tya label varun
+            box madhil vastu olakhata yete.
+        </p>
+
+        <p>
+            Python madhye suddha variable asech kam karto. Variable la
+            ek name deto ani tyat value store karto.
+        </p>
+
+        <div class="info-box">
+            <strong>Simple Definition:</strong>
+            Variable is a name used to store a value in a program.
+        </div>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>name = "Rohan"
+age = 20
+
+print(name)
+print(age)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Rohan
+20</pre>
+        </div>
+
+        <p>
+            Ya example madhye <code>name</code> ani <code>age</code> he
+            don variables aahet.
+        </p>
+    </section>
+
+    <!-- Section 2 -->
+    <section class="lesson-section">
+        <h2>2. Why Do We Use Variables?</h2>
+
+        <p>
+            Variables mule program madhil data store karne, access karne
+            ani update karne sope hote.
+        </p>
+
+        <p>Variables vaparnyache kahi fayde:</p>
+
+        <ul>
+            <li>Data store karta yeto.</li>
+            <li>Stored data punha use karta yeto.</li>
+            <li>Program samjayla sopa hoto.</li>
+            <li>Data madhye badal karne sope hote.</li>
+        </ul>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>price = 500
+quantity = 3
+
+total = price * quantity
+
+print(total)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>1500</pre>
+        </div>
+
+        <p>
+            Ithe price ani quantity variables madhye values store aahet.
+            Tyanchya madatine total calculate kela aahe.
+        </p>
+    </section>
+
+    <!-- Section 3 -->
+    <section class="lesson-section">
+        <h2>3. Creating a Variable</h2>
+
+        <p>
+            Python madhye variable create karanyasathi vegala declaration
+            keyword lihinyachi garaj naste.
+        </p>
+
+        <p>
+            Variable name lihun tyala <code>=</code> operator ne value
+            assign keli ki variable create hoto.
+        </p>
+
+        <div class="info-box">
+            <strong>Syntax:</strong>
+            <pre>variable_name = value</pre>
+        </div>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>name = "Rohan"
+age = 20
+city = "Kolhapur"
+marks = 85.5
+
+print(name)
+print(age)
+print(city)
+print(marks)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Rohan
+20
+Kolhapur
+85.5</pre>
+        </div>
+    </section>
+
+    <!-- Section 4 -->
+    <section class="lesson-section">
+        <h2>4. Understanding Variable Assignment</h2>
+
+        <p>
+            Variable assignment mhanje variable la value dene.
+            Python madhye <code>=</code> ha assignment operator aahe.
+        </p>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>age = 20</code></pre>
+        </div>
+
+        <p>Ya statement madhye:</p>
+
+        <ul>
+            <li><code>age</code> – Variable name</li>
+            <li><code>=</code> – Assignment operator</li>
+            <li><code>20</code> – Value</li>
+        </ul>
+
+        <div class="warning-box">
+            <strong>Important:</strong>
+            <code>=</code> ha value assign karanyasathi vapartat.
+            Don values equal aahet ka he check karanyasathi
+            <code>==</code> vapartat.
+        </div>
+    </section>
+
+    <!-- Section 5 -->
+    <section class="lesson-section">
+        <h2>5. Printing Variables</h2>
+
+        <p>
+            Variable madhil value screen var display karanyasathi
+            <code>print()</code> function vapartat.
+        </p>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>name = "Rohan"
+course = "BSc Computer Science"
+
+print(name)
+print(course)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Rohan
+BSc Computer Science</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Variable print kartana tyache name quotes madhye lihayche nahi.
+            Quotes madhye lihilyas variable name text mhanun print hoil.
+        </div>
+    </section>
+
+    <!-- Section 6 -->
+    <section class="lesson-section">
+        <h2>6. Changing Variable Values</h2>
+
+        <p>
+            Python madhye ekda variable create kelyanantar tyachi value
+            punha change karta yete.
+        </p>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>age = 19
+print(age)
+
+age = 20
+print(age)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>19
+20</pre>
+        </div>
+
+        <p>
+            Suruvatila age madhye 19 store hote. Nantar navin value 20
+            assign kelyamule age chi value change zali.
+        </p>
+    </section>
+
+    <!-- Section 7 -->
+    <section class="lesson-section">
+        <h2>7. Assigning Multiple Variables</h2>
+
+        <p>
+            Python madhye ekach line madhye anek variables create karun
+            tyanna vegveglya values assign karta yetat.
+        </p>
+
+        <h3>Example 1: Multiple Variables</h3>
+
+        <div class="code-box">
+            <pre><code>a, b, c = 10, 20, 30
+
+print(a)
+print(b)
+print(c)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>10
+20
+30</pre>
+        </div>
+
+        <h3>Example 2: Same Value to Multiple Variables</h3>
+
+        <div class="code-box">
+            <pre><code>a = b = c = 100
+
+print(a)
+print(b)
+print(c)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>100
+100
+100</pre>
+        </div>
+    </section>
+
+    <!-- Section 8 -->
+    <section class="lesson-section">
+        <h2>8. Variable Naming Rules</h2>
+
+        <p>
+            Python madhye variable create kartana kahi rules follow karave
+            lagtat.
+        </p>
+
+        <ul>
+            <li>Variable name letter kiwa underscore (_) ne suru zala pahije.</li>
+            <li>Variable name number ne suru hou shakat nahi.</li>
+            <li>Variable name madhye spaces allowed nahit.</li>
+            <li>Letters, numbers ani underscore vaparta yetat.</li>
+            <li>Python keywords variable name mhanun vaparta yet nahit.</li>
+            <li>Variable names case-sensitive astat.</li>
+        </ul>
+
+        <h3>Valid Variable Names</h3>
+
+        <div class="code-box">
+            <pre><code>name = "Rohan"
+age = 20
+student_name = "Rahul"
+_marks = 85
+number1 = 100</code></pre>
+        </div>
+
+        <h3>Invalid Variable Names</h3>
+
+        <div class="code-box error-code">
+            <pre><code>1name = "Rohan"       # Number ne start
+student name = "Raj" # Space allowed nahi
+class = 10           # class is a keyword</code></pre>
+        </div>
+    </section>
+
+    <!-- Section 9 -->
+    <section class="lesson-section">
+        <h2>9. Case-Sensitive Variables</h2>
+
+        <p>
+            Python madhye uppercase ani lowercase letters vegvegale
+            samajle jatat.
+        </p>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>name = "Rohan"
+Name = "Rahul"
+
+print(name)
+print(Name)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Rohan
+Rahul</pre>
+        </div>
+
+        <p>
+            Ithe <code>name</code> ani <code>Name</code> he don vegvegale
+            variables aahet.
+        </p>
+    </section>
+
+    <!-- Section 10 -->
+    <section class="lesson-section">
+        <h2>10. Variable Naming Convention</h2>
+
+        <p>
+            Variable names meaningful asavet. Name vachun variable madhye
+            konta data store aahe he samajle pahije.
+        </p>
+
+        <p>
+            Python madhye variables sathi generally
+            <strong>snake_case</strong> naming style vapartat.
+        </p>
+
+        <div class="code-box">
+            <div class="code-title">Good Naming</div>
+            <pre><code>student_name = "Rohan"
+total_marks = 450
+mobile_number = 9876543210</code></pre>
+        </div>
+
+        <div class="code-box error-code">
+            <div class="code-title">Avoid These Names</div>
+            <pre><code>x = "Rohan"
+a = 450
+m = 9876543210</code></pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            शक्यतो variable la meaningful name dya. Yamule code vachayla
+            ani maintain karayla sopa hoto.
+        </div>
+    </section>
+
+    <!-- Section 11 -->
+    <section class="lesson-section">
+        <h2>11. Dynamic Typing in Python</h2>
+
+        <p>
+            Python hi dynamically typed language aahe. Mhanje variable
+            create kartana tyacha data type vegala declare karava lagat nahi.
+        </p>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>data = 100
+print(data)
+
+data = "Python"
+print(data)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>100
+Python</pre>
+        </div>
+
+        <p>
+            Suruvatila data madhye integer value hoti. Nantar tyach
+            variable la string value assign keli.
+        </p>
+
+        <div class="important-box">
+            <strong>Remember:</strong>
+            Python madhye variable la vegveglya data types chya values
+            assign karta yetat. Data type ha value cha asto.
+        </div>
+    </section>
+
+    <!-- Section 12 -->
+    <section class="lesson-section">
+        <h2>12. Common Beginner Mistakes</h2>
+
+        <div class="error-card">
+            <h3>Mistake 1: Variable name quotes madhye lihine</h3>
+            <pre><code>name = "Rohan"
+print("name")</code></pre>
+            <p>Output: <code>name</code></p>
+            <p>
+                Correct: <code>print(name)</code> lihilyas variable madhil
+                value print hoil.
+            </p>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 2: Variable create karanyapurvi use karne</h3>
+            <pre><code>print(age)
+age = 20</code></pre>
+            <p>
+                Correct: Pahile variable create kara ani nantar tyacha
+                use kara.
+            </p>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 3: Invalid variable name</h3>
+            <pre><code>2name = "Rohan"</code></pre>
+            <p>
+                Correct: <code>name2 = "Rohan"</code>
+            </p>
+        </div>
+    </section>
+
+    <!-- Section 13 -->
+    <section class="lesson-section">
+        <h2>13. Quick Revision</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Concept</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Variable</td>
+                        <td>Data store karanyasathi dilele name</td>
+                    </tr>
+                    <tr>
+                        <td>=</td>
+                        <td>Assignment operator</td>
+                    </tr>
+                    <tr>
+                        <td>print()</td>
+                        <td>Value display karanyasathi</td>
+                    </tr>
+                    <tr>
+                        <td>snake_case</td>
+                        <td>Variable naming convention</td>
+                    </tr>
+                    <tr>
+                        <td>Case-sensitive</td>
+                        <td>Uppercase ani lowercase vegale astat</td>
+                    </tr>
+                    <tr>
+                        <td>Dynamic Typing</td>
+                        <td>Variable la vegveglya type chya values assign karta yetat</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Practice -->
+    <section class="practice-section">
+        <h2>14. Practice Questions</h2>
+
+        <p>Swatah code lihun khalil questions solve kara.</p>
+
+        <ol>
+            <li>name navacha variable create karun tyat swatahche nav store kara.</li>
+            <li>age navacha variable create karun tyachi value print kara.</li>
+            <li>3 variables madhye 3 vegveglya numbers store kara.</li>
+            <li>Ek variable create karun tyachi value don vela change kara.</li>
+            <li>student_name ani total_marks he variables create kara.</li>
+            <li>Ekach line madhye 3 variables create kara.</li>
+        </ol>
+
+        <div class="practice-task">
+            <h3>Practical Task</h3>
+            <p>
+                Student Information Program tayar kara. Tyamadhye
+                student che name, age, city ani marks he variables madhye
+                store karun print kara.
+            </p>
+
+            <div class="code-box">
+                <div class="code-title">Expected Output</div>
+                <pre><code>Name: Rohan
+Age: 20
+City: Kolhapur
+Marks: 85</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+        <a href="{% url 'python_topic' 'comments' %}" class="nav-button back-button">
+            ← Previous: Comments
+        </a>
+
+        <a href="{% url 'python_topic' 'data-types' %}" class="nav-button next-button">
+            Next: Data Types →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

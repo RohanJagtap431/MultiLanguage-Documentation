@@ -1,0 +1,904 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Python Operators | Roman Marathi Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/python/operators.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+    <div class="lesson-header">
+        <span class="lesson-label">PYTHON TUTORIAL</span>
+        <h1>09. Python Operators</h1>
+        <p>
+            Python madhye calculations, comparisons ani logical operations
+            karanyasathi operators kase use kartat he ya lesson madhye shikuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 25-30 Minutes</span>
+        </div>
+    </div>
+
+    <!-- Section 1 -->
+    <section class="lesson-section">
+        <h2>1. What are Operators?</h2>
+
+        <p>
+            Operators mhanje special symbols kiwa keywords je values
+            kiwa variables var specific operations perform kartat.
+        </p>
+
+        <p>
+            Udaharanarth, don numbers add karayche astil tar
+            <code>+</code> operator vapartat.
+        </p>
+
+        <div class="info-box">
+            <strong>Simple Definition:</strong>
+            Operators are symbols or keywords used to perform operations
+            on variables and values.
+        </div>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>a = 10
+b = 20
+
+result = a + b
+
+print(result)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>30</pre>
+        </div>
+
+        <p>
+            Ithe <code>+</code> ha operator aahe. To a ani b ya don
+            values chi addition karto.
+        </p>
+    </section>
+
+    <!-- Section 2 -->
+    <section class="lesson-section">
+        <h2>2. Types of Python Operators</h2>
+
+        <p>
+            Python madhye commonly use honare operators khalil pramane aahet.
+        </p>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Operator Type</th>
+                        <th>Use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Arithmetic</td>
+                        <td>Mathematical calculations</td>
+                    </tr>
+                    <tr>
+                        <td>Comparison</td>
+                        <td>Two values compare karne</td>
+                    </tr>
+                    <tr>
+                        <td>Assignment</td>
+                        <td>Variable la value assign karne</td>
+                    </tr>
+                    <tr>
+                        <td>Logical</td>
+                        <td>Multiple conditions check karne</td>
+                    </tr>
+                    <tr>
+                        <td>Identity</td>
+                        <td>Don references same object la refer kartat ka check karne</td>
+                    </tr>
+                    <tr>
+                        <td>Membership</td>
+                        <td>Value collection madhye aahe ka check karne</td>
+                    </tr>
+                    <tr>
+                        <td>Bitwise</td>
+                        <td>Numbers chya binary bits var operation karne</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Section 3 -->
+    <section class="lesson-section">
+        <h2>3. Arithmetic Operators</h2>
+
+        <p>
+            Arithmetic Operators cha use mathematical calculations
+            karanyasathi hoto.
+        </p>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Operator</th>
+                        <th>Name</th>
+                        <th>Example</th>
+                        <th>Result</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>+</td>
+                        <td>Addition</td>
+                        <td>10 + 5</td>
+                        <td>15</td>
+                    </tr>
+                    <tr>
+                        <td>-</td>
+                        <td>Subtraction</td>
+                        <td>10 - 5</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>*</td>
+                        <td>Multiplication</td>
+                        <td>10 * 5</td>
+                        <td>50</td>
+                    </tr>
+                    <tr>
+                        <td>/</td>
+                        <td>Division</td>
+                        <td>10 / 5</td>
+                        <td>2.0</td>
+                    </tr>
+                    <tr>
+                        <td>//</td>
+                        <td>Floor Division</td>
+                        <td>10 // 3</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>%</td>
+                        <td>Modulus</td>
+                        <td>10 % 3</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>**</td>
+                        <td>Exponentiation</td>
+                        <td>2 ** 3</td>
+                        <td>8</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Example – Arithmetic Operators</h3>
+
+        <div class="code-box">
+            <pre><code>a = 10
+b = 3
+
+print(a + b)
+print(a - b)
+print(a * b)
+print(a / b)
+print(a // b)
+print(a % b)
+print(a ** b)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>13
+7
+30
+3.3333333333333335
+3
+1
+1000</pre>
+        </div>
+
+        <h3>Understanding Modulus (%)</h3>
+
+        <p>
+            Modulus operator division nantar urleli remainder value return karto.
+        </p>
+
+        <div class="code-box">
+            <pre><code>print(10 % 3)
+print(15 % 4)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>1
+3</pre>
+        </div>
+
+        <h3>Understanding Floor Division (//)</h3>
+
+        <p>
+            Floor Division result la nearest lower integer value paryant
+            ghete. Negative numbers sathi suddha floor direction ne
+            result milto.
+        </p>
+
+        <div class="code-box">
+            <pre><code>print(10 // 3)
+print(-10 // 3)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>3
+-4</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Even ani Odd number check karanyasathi modulus operator
+            khup useful aahe.
+        </div>
+    </section>
+
+    <!-- Section 4 -->
+    <section class="lesson-section">
+        <h2>4. Comparison Operators</h2>
+
+        <p>
+            Comparison Operators cha use don values compare karanyasathi
+            hoto. Ya operators cha result <code>True</code> kiwa
+            <code>False</code> asto.
+        </p>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Operator</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>==</td>
+                        <td>Equal to</td>
+                    </tr>
+                    <tr>
+                        <td>!=</td>
+                        <td>Not equal to</td>
+                    </tr>
+                    <tr>
+                        <td>&gt;</td>
+                        <td>Greater than</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;</td>
+                        <td>Less than</td>
+                    </tr>
+                    <tr>
+                        <td>&gt;=</td>
+                        <td>Greater than or equal to</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;=</td>
+                        <td>Less than or equal to</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-box">
+            <pre><code>a = 10
+b = 20
+
+print(a == b)
+print(a != b)
+print(a > b)
+print(a < b)
+print(a >= b)
+print(a <= b)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>False
+True
+False
+True
+False
+True</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            <code>=</code> ha assignment operator aahe, tar
+            <code>==</code> ha don values equal aahet ka check karto.
+        </div>
+    </section>
+
+    <!-- Section 5 -->
+    <section class="lesson-section">
+        <h2>5. Assignment Operators</h2>
+
+        <p>
+            Assignment Operators cha use variable la value assign
+            karanyasathi ani existing value update karanyasathi hoto.
+        </p>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Operator</th>
+                        <th>Example</th>
+                        <th>Same As</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>=</td>
+                        <td>x = 10</td>
+                        <td>x = 10</td>
+                    </tr>
+                    <tr>
+                        <td>+=</td>
+                        <td>x += 5</td>
+                        <td>x = x + 5</td>
+                    </tr>
+                    <tr>
+                        <td>-=</td>
+                        <td>x -= 5</td>
+                        <td>x = x - 5</td>
+                    </tr>
+                    <tr>
+                        <td>*=</td>
+                        <td>x *= 5</td>
+                        <td>x = x * 5</td>
+                    </tr>
+                    <tr>
+                        <td>/=</td>
+                        <td>x /= 5</td>
+                        <td>x = x / 5</td>
+                    </tr>
+                    <tr>
+                        <td>//=</td>
+                        <td>x //= 5</td>
+                        <td>x = x // 5</td>
+                    </tr>
+                    <tr>
+                        <td>%=</td>
+                        <td>x %= 5</td>
+                        <td>x = x % 5</td>
+                    </tr>
+                    <tr>
+                        <td>**=</td>
+                        <td>x **= 2</td>
+                        <td>x = x ** 2</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Example – Assignment Operators</h3>
+
+        <div class="code-box">
+            <pre><code>x = 10
+
+x += 5
+print(x)
+
+x -= 3
+print(x)
+
+x *= 2
+print(x)
+
+x /= 4
+print(x)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>15
+12
+24
+6.0</pre>
+        </div>
+
+        <p>
+            Pratyek operation nantar x chi value update hote.
+        </p>
+    </section>
+
+    <!-- Section 6 -->
+    <section class="lesson-section">
+        <h2>6. Logical Operators</h2>
+
+        <p>
+            Logical Operators cha use multiple conditions check
+            karanyasathi hoto.
+        </p>
+
+        <p>Python madhye three main logical operators aahet:</p>
+
+        <ul>
+            <li><code>and</code> – Donhi conditions True aslyas True.</li>
+            <li><code>or</code> – Kamit kami ek condition True aslyas True.</li>
+            <li><code>not</code> – Boolean result ulta karto.</li>
+        </ul>
+
+        <h3>AND Operator</h3>
+
+        <div class="code-box">
+            <pre><code>age = 20
+has_id = True
+
+print(age >= 18 and has_id)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>True</pre>
+        </div>
+
+        <h3>OR Operator</h3>
+
+        <div class="code-box">
+            <pre><code>has_email = False
+has_mobile = True
+
+print(has_email or has_mobile)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>True</pre>
+        </div>
+
+        <h3>NOT Operator</h3>
+
+        <div class="code-box">
+            <pre><code>is_logged_in = True
+
+print(not is_logged_in)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>False</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Remember:</strong>
+            AND sathi donhi conditions True pahijet. OR sathi
+            kamit kami ek condition True asali tari chalate.
+        </div>
+    </section>
+
+    <!-- Section 7 -->
+    <section class="lesson-section">
+        <h2>7. Identity Operators</h2>
+
+        <p>
+            Identity Operators cha use don variables ekach object
+            la refer kartat ka he check karanyasathi hoto.
+        </p>
+
+        <p>Python madhye don identity operators aahet:</p>
+
+        <ul>
+            <li><code>is</code> – Don references same object aslyas True.</li>
+            <li><code>is not</code> – Don references same object naslyas True.</li>
+        </ul>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>a = [10, 20, 30]
+b = a
+c = [10, 20, 30]
+
+print(a is b)
+print(a is c)
+print(a == c)
+print(a is not c)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>True
+False
+True
+True</pre>
+        </div>
+
+        <p>
+            Ithe b ha a ch tyach list object la refer karto.
+            c madhye same values aahet, pan to vegala list object aahe.
+        </p>
+
+        <div class="warning-box">
+            <strong>Important:</strong>
+            <code>==</code> values compare karto, tar
+            <code>is</code> object identity check karto.
+            Donhi ekach arthache nahit.
+        </div>
+    </section>
+
+    <!-- Section 8 -->
+    <section class="lesson-section">
+        <h2>8. Membership Operators</h2>
+
+        <p>
+            Membership Operators cha use ek value collection madhye
+            present aahe ka he check karanyasathi hoto.
+        </p>
+
+        <p>Python madhye don membership operators aahet:</p>
+
+        <ul>
+            <li><code>in</code> – Value present aslyas True.</li>
+            <li><code>not in</code> – Value present naslyas True.</li>
+        </ul>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>fruits = ["Apple", "Banana", "Mango"]
+
+print("Apple" in fruits)
+print("Orange" in fruits)
+print("Orange" not in fruits)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>True
+False
+True</pre>
+        </div>
+
+        <h3>Membership in String</h3>
+
+        <div class="code-box">
+            <pre><code>text = "Python Programming"
+
+print("Python" in text)
+print("Java" not in text)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>True
+True</pre>
+        </div>
+    </section>
+
+    <!-- Section 9 -->
+    <section class="lesson-section">
+        <h2>9. Bitwise Operators</h2>
+
+        <p>
+            Bitwise Operators numbers chya binary representation madhil
+            bits var operations perform kartat.
+        </p>
+
+        <p>
+            Computer madhye numbers binary form madhye represent hotat.
+            Binary madhye fakt 0 ani 1 astat.
+        </p>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Operator</th>
+                        <th>Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>&amp;</td>
+                        <td>Bitwise AND</td>
+                    </tr>
+                    <tr>
+                        <td>|</td>
+                        <td>Bitwise OR</td>
+                    </tr>
+                    <tr>
+                        <td>^</td>
+                        <td>Bitwise XOR</td>
+                    </tr>
+                    <tr>
+                        <td>~</td>
+                        <td>Bitwise NOT</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;&lt;</td>
+                        <td>Left Shift</td>
+                    </tr>
+                    <tr>
+                        <td>&gt;&gt;</td>
+                        <td>Right Shift</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Example – Bitwise AND</h3>
+
+        <div class="code-box">
+            <pre><code>a = 5
+b = 3
+
+print(a & b)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>1</pre>
+        </div>
+
+        <p>
+            5 chi binary value 101 ani 3 chi binary value 011 aahe.
+            Bitwise AND madhye donhi bits 1 aslyas result bit 1 hoto.
+        </p>
+
+        <h3>Example – Bitwise OR</h3>
+
+        <div class="code-box">
+            <pre><code>a = 5
+b = 3
+
+print(a | b)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>7</pre>
+        </div>
+
+        <h3>Example – Left Shift</h3>
+
+        <div class="code-box">
+            <pre><code>number = 5
+
+print(number << 1)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>10</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Bitwise Operators he thode advanced aahet. Sadhya
+            operators chi nave ani basic examples samjun ghya.
+        </div>
+    </section>
+
+    <!-- Section 10 -->
+    <section class="lesson-section">
+        <h2>10. Operator Precedence</h2>
+
+        <p>
+            Ekach expression madhye multiple operators astil tar
+            Python ठराविक priority nusar operations perform karto.
+            Yala Operator Precedence mhantat.
+        </p>
+
+        <div class="code-box">
+            <div class="code-title">Example</div>
+            <pre><code>result = 10 + 5 * 2
+
+print(result)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>20</pre>
+        </div>
+
+        <p>
+            Multiplication la addition peksha jast priority aahe.
+            Mhanun pahile 5 * 2 hote ani nantar 10 + 10.
+        </p>
+
+        <h3>Using Parentheses</h3>
+
+        <div class="code-box">
+            <pre><code>result = (10 + 5) * 2
+
+print(result)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>30</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Expression samjayla kathin asel tar parentheses
+            <code>()</code> vapra. Code readable hoto.
+        </div>
+    </section>
+
+    <!-- Section 11 -->
+    <section class="lesson-section">
+        <h2>11. Common Beginner Mistakes</h2>
+
+        <div class="error-card">
+            <h3>Mistake 1: Assignment ani Comparison madhye confusion</h3>
+            <pre><code>age = 20
+
+print(age = 20)</code></pre>
+            <p>
+                print() madhye asa assignment lihilyas SyntaxError yeil.
+            </p>
+            <p>
+                Correct: <code>print(age == 20)</code>
+            </p>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 2: String ani Number direct add karne</h3>
+            <pre><code>age = 20
+
+print("Age: " + age)</code></pre>
+            <p>
+                String ani integer direct concatenate karta yet nahit.
+            </p>
+            <p>
+                Correct: <code>print("Age:", age)</code>
+            </p>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 3: Division by Zero</h3>
+            <pre><code>print(10 / 0)</code></pre>
+            <p>
+                Division by zero mule ZeroDivisionError yeil.
+            </p>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 4: is ani == madhye confusion</h3>
+            <pre><code>a = [1, 2]
+b = [1, 2]
+
+print(a is b)
+print(a == b)</code></pre>
+            <p>
+                Output: False ani True. is object identity check karto,
+                tar == values compare karto.
+            </p>
+        </div>
+    </section>
+
+    <!-- Section 12 -->
+    <section class="lesson-section">
+        <h2>12. Quick Revision</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Operator Type</th>
+                        <th>Important Operators</th>
+                        <th>Use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Arithmetic</td>
+                        <td>+, -, *, /, %, //, **</td>
+                        <td>Calculations</td>
+                    </tr>
+                    <tr>
+                        <td>Comparison</td>
+                        <td>==, !=, &gt;, &lt;, &gt;=, &lt;=</td>
+                        <td>Compare values</td>
+                    </tr>
+                    <tr>
+                        <td>Assignment</td>
+                        <td>=, +=, -=, *=</td>
+                        <td>Assign and update values</td>
+                    </tr>
+                    <tr>
+                        <td>Logical</td>
+                        <td>and, or, not</td>
+                        <td>Check conditions</td>
+                    </tr>
+                    <tr>
+                        <td>Identity</td>
+                        <td>is, is not</td>
+                        <td>Check object identity</td>
+                    </tr>
+                    <tr>
+                        <td>Membership</td>
+                        <td>in, not in</td>
+                        <td>Check collection membership</td>
+                    </tr>
+                    <tr>
+                        <td>Bitwise</td>
+                        <td>&amp;, |, ^, ~, &lt;&lt;, &gt;&gt;</td>
+                        <td>Binary operations</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Practice -->
+    <section class="practice-section">
+        <h2>13. Practice Questions</h2>
+
+        <p>
+            Khalil questions swatah Python madhye code lihun solve kara.
+        </p>
+
+        <ol>
+            <li>Don numbers gheun addition, subtraction ani multiplication kara.</li>
+            <li>Modulus operator vaprun 17 la 5 ne divide kelyavar remainder shodha.</li>
+            <li>Ek number even aahe ki odd te check kara.</li>
+            <li>Don numbers compare karun result print kara.</li>
+            <li>Assignment operator += vaprun variable update kara.</li>
+            <li>and, or ani not operators chi examples lihा.</li>
+            <li>in operator vaprun list madhye ek value aahe ka check kara.</li>
+            <li>is ani == madhil difference code madhun samjun ghya.</li>
+            <li>Bitwise AND ani OR operations perform kara.</li>
+            <li>Operator precedence cha use karun expression solve kara.</li>
+        </ol>
+
+        <div class="practice-task">
+            <h3>Practical Task – Marks Calculator</h3>
+
+            <p>
+                User kadun 3 subjects che marks input ghya.
+                Total marks, average ani percentage calculate kara.
+                Comparison operator vaprun student pass aahe ka te suddha check kara.
+            </p>
+
+            <div class="code-box">
+                <div class="code-title">Expected Output</div>
+                <pre><code>Enter Python marks: 80
+Enter C++ marks: 75
+Enter Java marks: 85
+
+Total Marks: 240
+Average: 80.0
+Percentage: 80.0
+Passed: True</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+        <a href="{% url 'python_topic' 'input-output' %}" class="nav-button back-button">
+            ← Previous: Input and Output
+        </a>
+
+        <a href="{% url 'python_topic' 'strings' %}" class="nav-button next-button">
+            Next: Strings →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

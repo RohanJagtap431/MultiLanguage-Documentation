@@ -1,0 +1,477 @@
+
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}CSS Width, Height and Max-Width | Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/css/width-height.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+    <div class="lesson-header">
+        <span class="lesson-label">CSS TUTORIAL</span>
+
+        <h1>CSS Width, Height and Max-Width</h1>
+
+        <p>
+            CSS Width and Height Properties cha use
+            HTML elements cha size control karanyasathi hoto.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 20 Minutes</span>
+            <span>📄 Page 12</span>
+        </div>
+    </div>
+
+
+    <!-- Section 1 -->
+    <section class="lesson-section">
+
+        <h2>1. Introduction</h2>
+
+        <p>
+            Website design kartana pratyek element la
+            yogya width ani height dene mahatvache aste.
+            CSS madhil width ani height properties cha
+            use element cha size set karanyasathi hoto.
+        </p>
+
+        <div class="info-box">
+            <strong>Definition:</strong>
+            CSS Width and Height properties are used to
+            control the width and height of HTML elements.
+        </div>
+
+    </section>
+
+
+    <!-- Section 2 -->
+    <section class="lesson-section">
+
+        <h2>2. CSS Width</h2>
+
+        <p>
+            <strong>width</strong> property cha use
+            HTML element chi width set karanyasathi hoto.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    width: 300px;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box width-output">
+            <div class="small-width">Width: 150px</div>
+            <div class="medium-width">Width: 250px</div>
+            <div class="large-width">Width: 350px</div>
+        </div>
+
+        <div class="tip-box">
+            <strong>Lakshat Thev:</strong>
+            Width sathi px, %, rem ani vw sarkhe units
+            vaparta yetat.
+        </div>
+
+    </section>
+
+
+    <!-- Section 3 -->
+    <section class="lesson-section">
+
+        <h2>3. CSS Height</h2>
+
+        <p>
+            <strong>height</strong> property cha use
+            HTML element chi height set karanyasathi hoto.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    height: 150px;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box height-output">
+            <div class="small-height">Height: 60px</div>
+            <div class="medium-height">Height: 100px</div>
+            <div class="large-height">Height: 150px</div>
+        </div>
+
+    </section>
+
+
+    <!-- Section 4 -->
+    <section class="lesson-section">
+
+        <h2>4. Min-Width</h2>
+
+        <p>
+            <strong>min-width</strong> property cha use
+            element chi minimum width set karanyasathi hoto.
+        </p>
+
+        <p>
+            Element chi width ya value peksha kami hou
+            shakat nahi.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    min-width: 200px;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box min-width-output">
+            <div class="min-width-demo">
+                Minimum Width: 200px
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Section 5 -->
+    <section class="lesson-section">
+
+        <h2>5. Max-Width</h2>
+
+        <p>
+            <strong>max-width</strong> property cha use
+            element chi maximum width set karanyasathi hoto.
+        </p>
+
+        <p>
+            Element chi width ya value peksha jast hou
+            shakat nahi.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.container {
+    width: 100%;
+    max-width: 600px;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box max-width-output">
+            <div class="max-width-demo">
+                Maximum Width: 600px
+            </div>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            width: 100% mule element available space
+            gheto ani max-width mule tyachi maximum
+            width limit hote.
+        </div>
+
+    </section>
+
+
+    <!-- Section 6 -->
+    <section class="lesson-section">
+
+        <h2>6. Min-Height</h2>
+
+        <p>
+            <strong>min-height</strong> property cha use
+            element chi minimum height set karanyasathi hoto.
+        </p>
+
+        <p>
+            Content kami asla tari element chi height
+            minimum value peksha kami honar nahi.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    min-height: 150px;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box min-height-output">
+            <div class="min-height-demo">
+                Minimum Height: 150px
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Section 7 -->
+    <section class="lesson-section">
+
+        <h2>7. Max-Height</h2>
+
+        <p>
+            <strong>max-height</strong> property cha use
+            element chi maximum height limit set
+            karanyasathi hoto.
+        </p>
+
+        <p>
+            Content jast asel tar to available area madhye
+            fit karnyasathi overflow property vapravi lagu shakte.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    max-height: 100px;
+    overflow: auto;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box max-height-output">
+            <div class="max-height-demo">
+                This is an example of maximum height.
+                CSS controls the maximum height of an element.
+                Extra content can be handled using overflow.
+                Scrollbar appears when required.
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Section 8 -->
+    <section class="lesson-section">
+
+        <h2>8. Auto Value</h2>
+
+        <p>
+            <strong>auto</strong> value cha use browser la
+            element cha size kiwa margin automatic
+            calculate karu denyasathi hoto.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    width: 300px;
+    height: auto;
+    margin: 0 auto;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box auto-output">
+            <div class="auto-demo">
+                <strong>Auto Width Example</strong>
+                <p>
+                    Ha box available layout madhye
+                    horizontal center la aahe.
+                </p>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Section 9 -->
+    <section class="lesson-section">
+
+        <h2>9. Responsive Width Example</h2>
+
+        <p>
+            Responsive design madhye element mobile,
+            tablet ani desktop screen nusar adjust
+            honyasathi width ani max-width vapartat.
+        </p>
+
+        <h3>HTML Code</h3>
+
+        <div class="code-block">
+            <pre><code>&lt;div class="responsive-card"&gt;
+    &lt;h2&gt;Responsive Card&lt;/h2&gt;
+    &lt;p&gt;This card adjusts to screen size.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.responsive-card {
+    width: 100%;
+    max-width: 400px;
+    min-height: 150px;
+    margin: 20px auto;
+    padding: 20px;
+    box-sizing: border-box;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box responsive-output">
+            <div class="responsive-demo">
+                <h3>Responsive Card</h3>
+                <p>This card adjusts to screen size.</p>
+            </div>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            width: 100% ani max-width ekatra vaparlyane
+            card la available space nusar width milte,
+            pan tyachi maximum width limit rahate.
+        </div>
+
+    </section>
+
+
+    <!-- Section 10 -->
+    <section class="lesson-section">
+
+        <h2>10. Difference Between Width and Height Properties</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+
+                <thead>
+                    <tr>
+                        <th>Property</th>
+                        <th>Use</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>width</td>
+                        <td>Element chi width set karte.</td>
+                    </tr>
+
+                    <tr>
+                        <td>height</td>
+                        <td>Element chi height set karte.</td>
+                    </tr>
+
+                    <tr>
+                        <td>min-width</td>
+                        <td>Minimum width set karte.</td>
+                    </tr>
+
+                    <tr>
+                        <td>max-width</td>
+                        <td>Maximum width set karte.</td>
+                    </tr>
+
+                    <tr>
+                        <td>min-height</td>
+                        <td>Minimum height set karte.</td>
+                    </tr>
+
+                    <tr>
+                        <td>max-height</td>
+                        <td>Maximum height set karte.</td>
+                    </tr>
+
+                    <tr>
+                        <td>auto</td>
+                        <td>Browser la size automatic calculate karu dete.</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+    </section>
+
+
+    <!-- Section 11 -->
+    <section class="lesson-section">
+
+        <h2>11. Important Points</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>width element chi width set karte.</li>
+                <li>height element chi height set karte.</li>
+                <li>min-width minimum width limit karte.</li>
+                <li>max-width maximum width limit karte.</li>
+                <li>min-height minimum height limit karte.</li>
+                <li>max-height maximum height limit karte.</li>
+                <li>auto value browser la automatic calculation karu dete.</li>
+                <li>Responsive cards sathi width: 100% ani max-width upyogi aahe.</li>
+            </ul>
+        </div>
+
+    </section>
+
+
+    <!-- Practice -->
+    <section class="practice-section">
+
+        <h2>12. Practice Task</h2>
+
+        <div class="task-box">
+
+            <h3>Task: Create a Responsive Container</h3>
+
+            <p>Ek HTML container tayar kara ani tyamadhye:</p>
+
+            <ol>
+                <li>Width 100% set kara.</li>
+                <li>Max-width 500px set kara.</li>
+                <li>Min-height 200px set kara.</li>
+                <li>Padding 20px dya.</li>
+                <li>Margin 20px auto dya.</li>
+                <li>Mobile screen var container test kara.</li>
+            </ol>
+
+        </div>
+
+    </section>
+
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+
+        <a href="{% url 'css_topic' 'borders-outlines' %}"
+           class="nav-button previous">
+            ← Previous: Borders and Outlines
+        </a>
+
+        <a href="{% url 'css_topic' 'display' %}"
+           class="nav-button next">
+            Next: CSS Display Property →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

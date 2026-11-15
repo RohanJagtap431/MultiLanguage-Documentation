@@ -1,0 +1,523 @@
+
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}CSS Units | Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/css/units.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+    <div class="lesson-header">
+        <span class="lesson-label">CSS TUTORIAL</span>
+
+        <h1>CSS Units</h1>
+
+        <p>
+            CSS Units cha use elements cha size, width,
+            height, spacing ani font-size set karanyasathi hoto.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 20 Minutes</span>
+            <span>📄 Page 08</span>
+        </div>
+    </div>
+
+
+    <!-- Section 1 -->
+    <section class="lesson-section">
+
+        <h2>1. Introduction to CSS Units</h2>
+
+        <p>
+            CSS madhye kontyahi element cha size kiwa spacing
+            set karanyasathi units vapartat.
+        </p>
+
+        <p>
+            Udaharanarth, font-size: 20px mhanje text cha
+            size 20 pixels set hoto.
+        </p>
+
+        <div class="info-box">
+            <strong>Definition:</strong>
+            CSS Units are used to define the size of elements,
+            text, spacing, width and height.
+        </div>
+
+        <h3>Types of CSS Units</h3>
+
+        <ul>
+            <li>Absolute Units</li>
+            <li>Relative Units</li>
+            <li>Viewport Units</li>
+        </ul>
+
+    </section>
+
+
+    <!-- Section 2 -->
+    <section class="lesson-section">
+
+        <h2>2. Absolute Units</h2>
+
+        <p>
+            Absolute units madhye size ek fixed measurement
+            pramane define hoto. He units parent element
+            kiwa viewport chya size var depend nastat.
+        </p>
+
+        <h3>Common Absolute Units</h3>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Unit</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>px</td>
+                        <td>Pixel</td>
+                    </tr>
+                    <tr>
+                        <td>cm</td>
+                        <td>Centimeter</td>
+                    </tr>
+                    <tr>
+                        <td>mm</td>
+                        <td>Millimeter</td>
+                    </tr>
+                    <tr>
+                        <td>in</td>
+                        <td>Inch</td>
+                    </tr>
+                    <tr>
+                        <td>pt</td>
+                        <td>Point</td>
+                    </tr>
+                    <tr>
+                        <td>pc</td>
+                        <td>Pica</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    width: 200px;
+    height: 100px;
+}
+
+.heading {
+    font-size: 24px;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box absolute-output">
+            <div class="fixed-box">
+                200px × 100px
+            </div>
+            <p>Heading Size: 24px</p>
+        </div>
+
+        <div class="tip-box">
+            <strong>Lakshat Thev:</strong>
+            Web development madhye px ha commonly used
+            absolute unit aahe. Print design madhye cm,
+            mm ani in upyogi padtat.
+        </div>
+
+    </section>
+
+
+    <!-- Section 3 -->
+    <section class="lesson-section">
+
+        <h2>3. Relative Units</h2>
+
+        <p>
+            Relative units madhye element cha size dusrya
+            element chya size kiwa root font-size nusar
+            tharato.
+        </p>
+
+        <h3>3.1 Percentage (%)</h3>
+
+        <p>
+            Percentage unit cha use parent element chya
+            size chya tulanet child element cha size set
+            karanyasathi hoto.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.parent {
+    width: 300px;
+}
+
+.child {
+    width: 50%;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box percentage-output">
+            <div class="parent-box">
+                Parent - 300px
+                <div class="child-box">
+                    Child - 50%
+                </div>
+            </div>
+        </div>
+
+
+        <h3>3.2 EM Unit</h3>
+
+        <p>
+            <strong>em</strong> unit ha element chya
+            inherited kiwa computed font-size var depend
+            karto. Font-size property sathi em cha base
+            parent cha computed font-size asto.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.parent {
+    font-size: 20px;
+}
+
+.child {
+    font-size: 2em;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box em-output">
+            <div class="em-parent">
+                Parent Text - 20px
+                <p>Child Text - 2em (40px)</p>
+            </div>
+        </div>
+
+
+        <h3>3.3 REM Unit</h3>
+
+        <p>
+            <strong>rem</strong> unit ha HTML root element
+            chya font-size var depend karto.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>html {
+    font-size: 16px;
+}
+
+h1 {
+    font-size: 2rem;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box rem-output">
+            <p>Root Font Size: 16px</p>
+            <h3>Heading Size: 2rem = 32px</h3>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            1em cha exact size context nusar badlu shakto.
+            1rem cha base nehemi root element cha
+            computed font-size asto.
+        </div>
+
+    </section>
+
+
+    <!-- Section 4 -->
+    <section class="lesson-section">
+
+        <h2>4. Viewport Units</h2>
+
+        <p>
+            Viewport mhanje browser madhil visible area.
+            Viewport units cha use screen chya size nusar
+            element cha size set karanyasathi hoto.
+        </p>
+
+        <h3>4.1 VW (Viewport Width)</h3>
+
+        <p>
+            1vw mhanje viewport width cha 1%.
+            Yacha use width kiwa responsive font-size
+            set karanyasathi hoto.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    width: 50vw;
+}</code></pre>
+        </div>
+
+        <p>
+            Mhanje viewport width 1000px asel tar
+            50vw = 500px.
+        </p>
+
+
+        <h3>4.2 VH (Viewport Height)</h3>
+
+        <p>
+            1vh mhanje viewport height cha 1%.
+            Yacha use height set karanyasathi hoto.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    height: 50vh;
+}</code></pre>
+        </div>
+
+        <p>
+            Mhanje viewport height 800px asel tar
+            50vh = 400px.
+        </p>
+
+        <h3>Output</h3>
+
+        <div class="output-box viewport-output">
+            <div class="vw-box">50vw Width</div>
+            <div class="vh-box">50vh Height</div>
+        </div>
+
+    </section>
+
+
+    <!-- Section 5 -->
+    <section class="lesson-section">
+
+        <h2>5. VMIN and VMAX</h2>
+
+        <p>
+            <strong>vmin</strong> ani <strong>vmax</strong>
+            he viewport chya width ani height paiki
+            lahan kiwa mothya dimension var depend astat.
+        </p>
+
+        <ul>
+            <li>vmin – Viewport madhil smaller dimension cha 1%.</li>
+            <li>vmax – Viewport madhil larger dimension cha 1%.</li>
+        </ul>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    width: 50vmin;
+    height: 30vmax;
+}</code></pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Example:</strong>
+            Viewport width 1000px ani height 800px asel tar
+            1vmin = 8px ani 1vmax = 10px.
+        </div>
+
+    </section>
+
+
+    <!-- Section 6 -->
+    <section class="lesson-section">
+
+        <h2>6. Difference Between px, em and rem</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Unit</th>
+                        <th>Depends On</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>px</td>
+                        <td>Fixed CSS pixel value.</td>
+                    </tr>
+                    <tr>
+                        <td>em</td>
+                        <td>Element cha font-size context.</td>
+                    </tr>
+                    <tr>
+                        <td>rem</td>
+                        <td>Root element cha font-size.</td>
+                    </tr>
+                    <tr>
+                        <td>%</td>
+                        <td>Property nusar containing element cha size.</td>
+                    </tr>
+                    <tr>
+                        <td>vw</td>
+                        <td>Viewport width.</td>
+                    </tr>
+                    <tr>
+                        <td>vh</td>
+                        <td>Viewport height.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Responsive website banavatana relative ani
+            viewport units upyogi thartat. Pan pratyek
+            property sathi ekach unit best asto ase nahi.
+        </div>
+
+    </section>
+
+
+    <!-- Section 7 -->
+    <section class="lesson-section">
+
+        <h2>7. Practical Example</h2>
+
+        <p>
+            Khali ek responsive card che example dile aahe.
+            Yat percentage, rem ani px units vaprale aahet.
+        </p>
+
+        <h3>HTML Code</h3>
+
+        <div class="code-block">
+            <pre><code>&lt;div class="card"&gt;
+    &lt;h2&gt;CSS Learning&lt;/h2&gt;
+    &lt;p&gt;Learn CSS step by step.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.card {
+    width: 80%;
+    max-width: 400px;
+    padding: 1.5rem;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+}
+
+.card h2 {
+    font-size: 1.5rem;
+}
+
+.card p {
+    font-size: 1rem;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box practical-output">
+            <div class="demo-card">
+                <h3>CSS Learning</h3>
+                <p>Learn CSS step by step.</p>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Section 8 -->
+    <section class="lesson-section">
+
+        <h2>8. Important Points</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>CSS units size ani spacing define kartat.</li>
+                <li>px ha absolute unit aahe.</li>
+                <li>% ha relative unit aahe.</li>
+                <li>em parent kiwa element chya font-size context var depend karto.</li>
+                <li>rem root element chya font-size var depend karto.</li>
+                <li>vw viewport width nusar size set karto.</li>
+                <li>vh viewport height nusar size set karto.</li>
+                <li>vmin ani vmax viewport dimensions compare kartat.</li>
+            </ul>
+        </div>
+
+    </section>
+
+
+    <!-- Practice -->
+    <section class="practice-section">
+
+        <h2>9. Practice Task</h2>
+
+        <div class="task-box">
+
+            <h3>Task: Create a Responsive Card</h3>
+
+            <p>Ek HTML card tayar kara ani tyamadhye:</p>
+
+            <ol>
+                <li>Card chi width 80% kara.</li>
+                <li>Card chi max-width 400px kara.</li>
+                <li>Padding 2rem dya.</li>
+                <li>Heading cha font-size 2rem kara.</li>
+                <li>Paragraph cha font-size 1rem kara.</li>
+                <li>Card la margin auto dya.</li>
+            </ol>
+
+        </div>
+
+    </section>
+
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+
+        <a href="{% url 'css_topic' 'fonts' %}"
+           class="nav-button previous">
+            ← Previous: CSS Fonts
+        </a>
+
+        <a href="{% url 'css_topic' 'box-model' %}"
+           class="nav-button next">
+            Next: CSS Box Model →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

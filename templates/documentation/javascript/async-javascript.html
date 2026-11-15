@@ -1,0 +1,691 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Async JavaScript | JavaScript Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/javascript/async-javascript.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">JAVASCRIPT DOCUMENTATION • PAGE 27</span>
+
+        <h1>Asynchronous JavaScript</h1>
+
+        <p>
+            Ya lesson madhye synchronous ani asynchronous code,
+            timers, Call Stack, Callback Queue ani Event Loop shikuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Beginner Level</span>
+            <span>35–40 Minutes</span>
+        </div>
+    </div>
+
+    <!-- Section 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What is Synchronous JavaScript?</h2>
+
+        <p>
+            Synchronous JavaScript madhye code ekamagun ek execute hoto.
+            Ek statement complete zalyashivay pudhcha statement execute hot nahi.
+        </p>
+
+        <div class="info-box">
+            <strong>Definition:</strong>
+            Synchronous execution means code runs one statement at a time
+            in a sequential order.
+        </div>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>console.log("First");
+
+console.log("Second");
+
+console.log("Third");</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>First
+Second
+Third</pre>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>First statement execute hoto.</li>
+            <li>Tyachyanantar Second execute hoto.</li>
+            <li>Shevati Third execute hoto.</li>
+            <li>Execution sequence maintain hote.</li>
+        </ul>
+
+    </section>
+
+    <!-- Section 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. What is Asynchronous JavaScript?</h2>
+
+        <p>
+            Asynchronous JavaScript madhye kahi operations background madhye
+            process hou shaktat. Tyamule main JavaScript execution pudhe chalu
+            rahu shakto.
+        </p>
+
+        <p>
+            Asynchronous operation complete zalyavar tyacha callback
+            execute honyasathi schedule hoto.
+        </p>
+
+        <div class="info-box">
+            <strong>Definition:</strong>
+            Asynchronous JavaScript allows certain operations to complete
+            later without blocking the main JavaScript execution.
+        </div>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>console.log("First");
+
+setTimeout(function() {
+    console.log("Second");
+}, 2000);
+
+console.log("Third");</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>First
+Third
+Second</pre>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>First print hoto.</li>
+            <li>setTimeout() callback delay nantar execute honyasathi schedule karto.</li>
+            <li>JavaScript pudhcha statement execute karto.</li>
+            <li>Third print hoto.</li>
+            <li>Timer complete zalyanantar callback execute hoto.</li>
+            <li>Second print hoto.</li>
+        </ul>
+
+    </section>
+
+    <!-- Section 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. Synchronous vs Asynchronous</h2>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Synchronous</th>
+                    <th>Asynchronous</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Code sequentially execute hoto.</td>
+                    <td>Kahi operations later complete hotat.</td>
+                </tr>
+                <tr>
+                    <td>Ek statement pudhchya statement la wait karu shakto.</td>
+                    <td>Main execution pudhe chalu rahu shakto.</td>
+                </tr>
+                <tr>
+                    <td>Simple calculations.</td>
+                    <td>Timers ani network requests.</td>
+                </tr>
+                <tr>
+                    <td>Blocking operation asu shakto.</td>
+                    <td>Non-blocking operation asu shakto.</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </section>
+
+    <!-- Section 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. JavaScript Single Thread</h2>
+
+        <p>
+            JavaScript cha main execution thread ekaveles ekach task
+            execute karto. Yala Single Threaded execution model mhantat.
+        </p>
+
+        <p>
+            Browser timers, network operations ani itar asynchronous
+            facilities handle karu shakto. JavaScript callbacks yogya
+            veles execute honyasathi Event Loop madat karto.
+        </p>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            JavaScript single-threaded aahe mhanje browser madhil sarv
+            operations ekach thread var hotat ase nahi. Browser kahi
+            operations swatah handle karto.
+        </div>
+
+    </section>
+
+    <!-- Section 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. Blocking vs Non-Blocking</h2>
+
+        <p>
+            Blocking operation mule pudhil JavaScript code execute
+            honyasathi wait karu shakto.
+        </p>
+
+        <p>
+            Non-blocking operation madhye operation complete honyachi
+            wait kartana main JavaScript execution pudhe chalu rahu shakto.
+        </p>
+
+        <h3>Blocking Example:</h3>
+
+        <pre class="code-block"><code>console.log("Start");
+
+let total = 0;
+
+for (let i = 0; i < 1000000000; i++) {
+    total += i;
+}
+
+console.log("Calculation Complete");
+console.log("End");</code></pre>
+
+        <p>
+            Ya loop la vel lagu shakto. Loop complete zalyashivay
+            pudhil statements execute honar nahit.
+        </p>
+
+        <h3>Non-Blocking Example:</h3>
+
+        <pre class="code-block"><code>console.log("Start");
+
+setTimeout(function() {
+    console.log("Task Complete");
+}, 2000);
+
+console.log("End");</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Start
+End
+Task Complete</pre>
+        </div>
+
+    </section>
+
+    <!-- Section 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. setTimeout() Method</h2>
+
+        <p>
+            setTimeout() cha use ek callback function specified delay
+            nantar execute karnyasathi hoto.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>setTimeout(callback, delay);</code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>setTimeout(function() {
+    console.log("Hello Rohan");
+}, 3000);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Approximately 3 seconds later:
+Hello Rohan</pre>
+        </div>
+
+        <h3>Important Points:</h3>
+
+        <ul>
+            <li>Delay milliseconds madhye dila jato.</li>
+            <li>1000 milliseconds = 1 second.</li>
+            <li>setTimeout() callback la ekda schedule karto.</li>
+            <li>Exact execution time guarantee hot nahi.</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Remember:</strong>
+            setTimeout() cha delay ha minimum waiting time aahe,
+            exact execution time nahi.
+        </div>
+
+    </section>
+
+    <!-- Section 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. setInterval() Method</h2>
+
+        <p>
+            setInterval() cha use callback function repeated intervals
+            madhye execute karnyasathi hoto.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>setInterval(callback, interval);</code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let count = 1;
+
+const timer = setInterval(function() {
+    console.log(count);
+
+    count++;
+
+    if (count > 5) {
+        clearInterval(timer);
+    }
+
+}, 1000);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>1
+2
+3
+4
+5</pre>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>setInterval() callback repeat karto.</li>
+            <li>Pratyek interval 1000 milliseconds aahe.</li>
+            <li>clearInterval() timer stop karto.</li>
+            <li>Ya example madhye 5 numbers print hotat.</li>
+        </ul>
+
+    </section>
+
+    <!-- Section 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. clearTimeout() and clearInterval()</h2>
+
+        <p>
+            clearTimeout() pending timeout cancel karnyasathi
+            ani clearInterval() interval stop karnyasathi vapartat.
+        </p>
+
+        <h3>clearTimeout() Example:</h3>
+
+        <pre class="code-block"><code>const timer = setTimeout(function() {
+    console.log("Hello");
+}, 3000);
+
+clearTimeout(timer);</code></pre>
+
+        <p>
+            Ya example madhye callback execute honyapurvich
+            timeout cancel kela aahe.
+        </p>
+
+        <h3>clearInterval() Example:</h3>
+
+        <pre class="code-block"><code>let count = 0;
+
+const timer = setInterval(function() {
+    count++;
+    console.log(count);
+
+    if (count === 3) {
+        clearInterval(timer);
+    }
+}, 1000);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>1
+2
+3</pre>
+        </div>
+
+    </section>
+
+    <!-- Section 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Call Stack</h2>
+
+        <p>
+            Call Stack hi JavaScript madhil data structure aahe.
+            Function calls track karnyasathi ti use hote.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>function first() {
+    console.log("First Function");
+}
+
+function second() {
+    first();
+    console.log("Second Function");
+}
+
+second();</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>First Function
+Second Function</pre>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>second() Call Stack madhye add hoto.</li>
+            <li>second() madhun first() call hoto.</li>
+            <li>first() execute houn Stack madhun remove hoto.</li>
+            <li>second() cha urlela code execute hoto.</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Remember:</strong>
+            Call Stack LIFO principle follow karto.
+            LIFO mhanje Last In, First Out.
+        </div>
+
+    </section>
+
+    <!-- Section 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Callback Queue</h2>
+
+        <p>
+            Asynchronous callback ready zalyavar to task queue madhye
+            wait karu shakto. Browser timers sathi callback queue
+            ha shabda commonly vaparla jato.
+        </p>
+
+        <p>
+            Call Stack empty zalyavar Event Loop callback queue madhil
+            task execute honyasathi pathavto.
+        </p>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            Callback Queue madhil task lagech execute hot nahi.
+            Call Stack available asne avashyak aahe.
+        </div>
+
+    </section>
+
+    <!-- Section 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Event Loop</h2>
+
+        <p>
+            Event Loop Call Stack ani task queues yanchyat coordination
+            karto. Call Stack empty zalyavar queued callbacks execute
+            honyasathi pathavto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>console.log("Start");
+
+setTimeout(function() {
+    console.log("Timer");
+}, 0);
+
+console.log("End");</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Start
+End
+Timer</pre>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ol>
+            <li>Start print hoto.</li>
+            <li>setTimeout() callback schedule karto.</li>
+            <li>End print hoto.</li>
+            <li>Call Stack empty hoto.</li>
+            <li>Event Loop timer callback execute honyasathi pathavto.</li>
+            <li>Timer print hoto.</li>
+        </ol>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            setTimeout(callback, 0) mhanje callback lagech execute hoil
+            asa nahi. Synchronous code complete zalyanantar callback
+            execute hoto.
+        </div>
+
+    </section>
+
+    <!-- Section 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. JavaScript Execution Flow</h2>
+
+        <p>
+            Asynchronous JavaScript madhye Call Stack, Browser APIs,
+            Task Queue ani Event Loop yanchi mahattvachi role aste.
+        </p>
+
+        <div class="flow-box">
+
+            <div class="flow-item">JavaScript Code</div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-item">Call Stack</div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-item">Browser APIs</div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-item">Callback / Task Queue</div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-item">Event Loop</div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-item">Call Stack (when available)</div>
+
+        </div>
+
+    </section>
+
+    <!-- Section 13 -->
+
+    <section class="lesson-section">
+
+        <h2>13. Common Beginner Mistakes</h2>
+
+        <div class="mistake-card">
+            <strong>Mistake 1: setTimeout() exact time samajne</strong>
+            <p>
+                Delay complete zalyavar callback schedule hoto.
+                Exact execution time guarantee naste.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 2: setInterval() stop na karne</strong>
+            <p>
+                Repeated timer band karnyasathi clearInterval() vapra.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 3: Asynchronous code blocking samajne</strong>
+            <p>
+                setTimeout() sarkhya operations mule main execution
+                pudhe chalu rahu shakto.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 4: setTimeout(callback, 0) lagech execute hoil samajne</strong>
+            <p>
+                Synchronous code complete zalyanantar callback execute hoto.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 5: Call Stack ani Callback Queue confuse karne</strong>
+            <p>
+                Call Stack function calls execute karto, tar Queue
+                scheduled tasks wait madhye thevte.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- Section 14 -->
+
+    <section class="lesson-section">
+
+        <h2>14. Quick Revision</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>Synchronous code sequentially execute hoto.</li>
+                <li>Asynchronous operations main execution block karat nahit.</li>
+                <li>JavaScript main execution thread single-threaded aahe.</li>
+                <li>setTimeout() callback delay nantar schedule karto.</li>
+                <li>setInterval() callback repeated intervals madhye schedule karto.</li>
+                <li>clearTimeout() pending timeout cancel karto.</li>
+                <li>clearInterval() interval stop karto.</li>
+                <li>Call Stack LIFO principle follow karto.</li>
+                <li>Event Loop queued callbacks execute honyasathi coordinate karto.</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <!-- Section 15 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>15. Practice Questions</h2>
+
+        <h3>Basic Questions</h3>
+
+        <ol>
+            <li>Synchronous JavaScript mhanje kay?</li>
+            <li>Asynchronous JavaScript mhanje kay?</li>
+            <li>JavaScript Single Threaded mhanje kay?</li>
+            <li>Blocking ani Non-Blocking madhye difference kay?</li>
+            <li>setTimeout() method kay karte?</li>
+            <li>setInterval() method kay karte?</li>
+            <li>clearTimeout() ani clearInterval() cha use kay?</li>
+            <li>Call Stack mhanje kay?</li>
+            <li>Callback Queue mhanje kay?</li>
+            <li>Event Loop mhanje kay?</li>
+        </ol>
+
+        <h3>Practical Questions</h3>
+
+        <ol>
+            <li>setTimeout() vaprun 2 seconds nantar message print kar.</li>
+            <li>setInterval() vaprun 1 te 5 numbers print kar.</li>
+            <li>clearInterval() vaprun timer 3 nantar stop kar.</li>
+            <li>setTimeout() vaprun output sequence predict kar.</li>
+            <li>Call Stack cha example function vaprun tayar kar.</li>
+        </ol>
+
+        <div class="task-box">
+
+            <h3>Mini Task – Simple Countdown Timer</h3>
+
+            <p>
+                setInterval() vaprun simple countdown timer tayar kar.
+            </p>
+
+            <ul>
+                <li>Countdown 10 pasun start kar.</li>
+                <li>Pratyek second la number decrease kar.</li>
+                <li>0 alyavar timer stop kar.</li>
+                <li>"Time Up!" message display kar.</li>
+                <li>clearInterval() cha use kar.</li>
+            </ul>
+
+            <p>
+                File name: <strong>countdown_timer.js</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Navigation -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'javascript_topic' 'local-storage' %}"
+           class="nav-button previous-button">
+            ← Previous: Local Storage
+        </a>
+
+        <a href="{% url 'javascript_topic' 'promises' %}"
+           class="nav-button next-button">
+            Next: Promises and Async/Await →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

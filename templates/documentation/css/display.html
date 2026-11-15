@@ -1,0 +1,420 @@
+
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}CSS Display Property | Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/css/display.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+    <div class="lesson-header">
+        <span class="lesson-label">CSS TUTORIAL</span>
+
+        <h1>CSS Display Property</h1>
+
+        <p>
+            CSS Display property cha use HTML elements
+            webpage var kase display hotil he control
+            karanyasathi hoto.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 20 Minutes</span>
+            <span>📄 Page 13</span>
+        </div>
+    </div>
+
+
+    <!-- Section 1 -->
+    <section class="lesson-section">
+
+        <h2>1. Introduction to Display</h2>
+
+        <p>
+            HTML madhil pratyek element cha default
+            display behavior asto. Kahi elements
+            new line pasun start hotat, tar kahi
+            same line madhye display hotat.
+        </p>
+
+        <p>
+            CSS madhil display property vaprun
+            aapan element cha display behavior
+            change karu shakto.
+        </p>
+
+        <div class="info-box">
+            <strong>Definition:</strong>
+            The CSS display property specifies how
+            an HTML element is displayed on a webpage.
+        </div>
+
+    </section>
+
+
+    <!-- Section 2 -->
+    <section class="lesson-section">
+
+        <h2>2. Display: Block</h2>
+
+        <p>
+            Block elements nehmich new line pasun
+            start hotat ani available width gheu
+            shaktat.
+        </p>
+
+        <p>
+            Width ani height properties block
+            elements var apply karta yetat.
+        </p>
+
+        <h3>Examples of Block Elements</h3>
+
+        <ul>
+            <li>&lt;div&gt;</li>
+            <li>&lt;p&gt;</li>
+            <li>&lt;h1&gt; to &lt;h6&gt;</li>
+            <li>&lt;section&gt;</li>
+        </ul>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    display: block;
+    width: 200px;
+    padding: 15px;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box block-output">
+            <div class="block-item">Block Element 1</div>
+            <div class="block-item">Block Element 2</div>
+            <div class="block-item">Block Element 3</div>
+        </div>
+
+    </section>
+
+
+    <!-- Section 3 -->
+    <section class="lesson-section">
+
+        <h2>3. Display: Inline</h2>
+
+        <p>
+            Inline elements same line madhye display
+            hotat. Tyanna content purtich width milte.
+        </p>
+
+        <p>
+            Normal inline elements var width ani height
+            properties apply hot nahit.
+        </p>
+
+        <h3>Examples of Inline Elements</h3>
+
+        <ul>
+            <li>&lt;span&gt;</li>
+            <li>&lt;a&gt;</li>
+            <li>&lt;strong&gt;</li>
+            <li>&lt;em&gt;</li>
+        </ul>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.item {
+    display: inline;
+    background-color: lightblue;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box inline-output">
+            <span class="inline-item">Inline 1</span>
+            <span class="inline-item">Inline 2</span>
+            <span class="inline-item">Inline 3</span>
+        </div>
+
+    </section>
+
+
+    <!-- Section 4 -->
+    <section class="lesson-section">
+
+        <h2>4. Display: Inline-Block</h2>
+
+        <p>
+            Inline-block elements same line madhye
+            display hotat. Pan tyanna width ani height
+            properties apply karta yetat.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    display: inline-block;
+    width: 120px;
+    height: 70px;
+    padding: 10px;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box inline-block-output">
+            <div class="inline-block-item">Box 1</div>
+            <div class="inline-block-item">Box 2</div>
+            <div class="inline-block-item">Box 3</div>
+        </div>
+
+    </section>
+
+
+    <!-- Section 5 -->
+    <section class="lesson-section">
+
+        <h2>5. Display: None</h2>
+
+        <p>
+            display: none mule element webpage var
+            disat nahi ani tyane layout madhye
+            kontihi space occupy hot nahi.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    display: none;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box none-output">
+            <div class="visible-item">Visible Element 1</div>
+            <div class="hidden-item">Hidden Element</div>
+            <div class="visible-item">Visible Element 2</div>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            display: none mule element layout madhun
+            remove hoto. visibility: hidden mule
+            element disat nahi, pan tyachi space
+            rahate.
+        </div>
+
+    </section>
+
+
+    <!-- Section 6 -->
+    <section class="lesson-section">
+
+        <h2>6. Display: Flex</h2>
+
+        <p>
+            display: flex cha use container madhil
+            child elements eka flexible layout madhye
+            arrange karanyasathi hoto.
+        </p>
+
+        <p>
+            Flexbox mule elements horizontal kiwa
+            vertical direction madhye arrange karta yetat.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.container {
+    display: flex;
+    gap: 10px;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box flex-output">
+            <div class="flex-item">Item 1</div>
+            <div class="flex-item">Item 2</div>
+            <div class="flex-item">Item 3</div>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Flexbox cha use navbar, cards, buttons
+            ani alignment sathi khup hoto.
+        </div>
+
+    </section>
+
+
+    <!-- Section 7 -->
+    <section class="lesson-section">
+
+        <h2>7. Display: Grid</h2>
+
+        <p>
+            display: grid cha use rows ani columns
+            madhye elements arrange karanyasathi hoto.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box grid-output">
+            <div class="grid-item">1</div>
+            <div class="grid-item">2</div>
+            <div class="grid-item">3</div>
+            <div class="grid-item">4</div>
+            <div class="grid-item">5</div>
+            <div class="grid-item">6</div>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            CSS Grid cha use image gallery,
+            dashboard ani multi-column layouts
+            tayar karanyasathi hoto.
+        </div>
+
+    </section>
+
+
+    <!-- Section 8 -->
+    <section class="lesson-section">
+
+        <h2>8. Difference Between Display Properties</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+
+                <thead>
+                    <tr>
+                        <th>Property</th>
+                        <th>Behavior</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>block</td>
+                        <td>New line pasun start hoto.</td>
+                    </tr>
+
+                    <tr>
+                        <td>inline</td>
+                        <td>Same line madhye display hoto.</td>
+                    </tr>
+
+                    <tr>
+                        <td>inline-block</td>
+                        <td>Same line madhye rahato ani width-height accept karto.</td>
+                    </tr>
+
+                    <tr>
+                        <td>none</td>
+                        <td>Element disat nahi ani space pan ghet nahi.</td>
+                    </tr>
+
+                    <tr>
+                        <td>flex</td>
+                        <td>Flexible layout tayar karto.</td>
+                    </tr>
+
+                    <tr>
+                        <td>grid</td>
+                        <td>Rows ani columns madhye layout tayar karto.</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+    </section>
+
+
+    <!-- Section 9 -->
+    <section class="lesson-section">
+
+        <h2>9. Important Points</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>Block element new line pasun start hoto.</li>
+                <li>Inline element same line madhye display hoto.</li>
+                <li>Inline-block width ani height accept karto.</li>
+                <li>display: none element la layout madhun remove karto.</li>
+                <li>Flexbox flexible layout sathi vapartat.</li>
+                <li>Grid rows ani columns sathi vapartat.</li>
+            </ul>
+        </div>
+
+    </section>
+
+
+    <!-- Practice -->
+    <section class="practice-section">
+
+        <h2>10. Practice Task</h2>
+
+        <div class="task-box">
+
+            <h3>Task: Create Display Examples</h3>
+
+            <p>Ek HTML page tayar kara ani:</p>
+
+            <ol>
+                <li>3 block elements tayar kara.</li>
+                <li>3 inline elements tayar kara.</li>
+                <li>3 inline-block boxes tayar kara.</li>
+                <li>Ek element display: none ne hide kara.</li>
+                <li>3 items cha Flexbox container tayar kara.</li>
+                <li>6 boxes cha Grid layout tayar kara.</li>
+            </ol>
+
+        </div>
+
+    </section>
+
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+
+        <a href="{% url 'css_topic' 'width-height' %}"
+           class="nav-button previous">
+            ← Previous: Width and Height
+        </a>
+
+        <a href="{% url 'css_topic' 'position' %}"
+           class="nav-button next">
+            Next: CSS Position Property →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

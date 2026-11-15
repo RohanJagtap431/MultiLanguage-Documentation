@@ -1,0 +1,444 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Django Project and App Structure{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/django/project-structure.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO COURSE • TOPIC 03</span>
+        <h1>Django Project and App Structure</h1>
+        <p>
+            Understand Django project folders, important files,
+            project configuration and app URL connection.
+        </p>
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 25–35 Minutes</span>
+        </div>
+    </div>
+
+    <section class="lesson-section">
+        <h2>1. Django Project mhanje kay?</h2>
+
+        <p>
+            Django Project mhanje aaplya complete website kiwa
+            web application cha main setup.
+        </p>
+
+        <div class="example-box">
+            <h3>Example: College Management System</h3>
+            <ul>
+                <li>Students – Student information manage karne.</li>
+                <li>Teachers – Teacher information manage karne.</li>
+                <li>Attendance – Attendance manage karne.</li>
+                <li>Fees – Fees records manage karne.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="lesson-section">
+        <h2>2. Django App mhanje kay?</h2>
+
+        <p>
+            Django App mhanje project madhil ek specific
+            functionality handle karanara module.
+        </p>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            <p>Project = Complete Website / Application</p>
+            <p>App = Website madhil Specific Feature</p>
+        </div>
+
+        <p>
+            Ek Django project madhye multiple apps asu shaktat.
+        </p>
+    </section>
+
+    <section class="lesson-section">
+        <h2>3. Django Project Structure</h2>
+
+        <p>
+            Aapan Topic 02 madhye project create karnyasathi
+            khalil commands use kelya hotya.
+        </p>
+
+        <pre class="code-block"><code>django-admin startproject config .
+python manage.py startapp students</code></pre>
+
+        <h3>Folder Structure</h3>
+
+        <pre class="code-block"><code>MyDjangoProject/
+│
+├── venv/
+│
+├── config/
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   ├── asgi.py
+│   └── wsgi.py
+│
+├── students/
+│   ├── migrations/
+│   │   └── __init__.py
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── tests.py
+│   └── views.py
+│
+└── manage.py</code></pre>
+    </section>
+
+    <section class="lesson-section">
+        <h2>4. manage.py</h2>
+
+        <p>
+            manage.py hi Django project madhil important file aahe.
+            Ya file cha use project management commands run
+            karnyasathi hoto.
+        </p>
+
+        <pre class="code-block"><code>python manage.py runserver
+python manage.py startapp students
+python manage.py migrate
+python manage.py createsuperuser</code></pre>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            Django project var vegvegale management commands
+            run karnyasathi manage.py use karto.
+        </div>
+    </section>
+
+    <section class="lesson-section">
+        <h2>5. config Folder</h2>
+
+        <p>
+            config ha project cha main configuration package aahe.
+        </p>
+
+        <h3>A. __init__.py</h3>
+        <ul>
+            <li>Python la folder ha package aahe he identify karayla madat karto.</li>
+            <li>Generally ya file madhye kahi lihinyachi garaj naste.</li>
+        </ul>
+
+        <h3>B. settings.py</h3>
+
+        <p>
+            Hi Django project chi main settings file aahe.
+            Yamadhye project chi configuration keli jate.
+        </p>
+
+        <h4>INSTALLED_APPS</h4>
+        <p>Project madhye kontya apps use honar aahet te register karto.</p>
+
+        <pre class="code-block"><code>INSTALLED_APPS = [
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+
+    "students",
+]</code></pre>
+
+        <h4>Other Important Settings</h4>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Setting</th>
+                    <th>Use</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>DATABASES</td>
+                    <td>Database connection configure karte.</td>
+                </tr>
+                <tr>
+                    <td>TEMPLATES</td>
+                    <td>HTML templates configure karte.</td>
+                </tr>
+                <tr>
+                    <td>STATIC_URL</td>
+                    <td>CSS, JS ani images sathi use hote.</td>
+                </tr>
+                <tr>
+                    <td>DEBUG</td>
+                    <td>Development madhye errors display karte.</td>
+                </tr>
+                <tr>
+                    <td>ALLOWED_HOSTS</td>
+                    <td>Allowed hostnames define karte.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>C. urls.py</h3>
+
+        <p>
+            Project-level URL configuration file aahe.
+            User chya URL nusar konta view execute karaycha
+            he tharavnyasathi use hote.
+        </p>
+
+        <pre class="code-block"><code>from django.contrib import admin
+from django.urls import path
+
+urlpatterns = [
+    path("admin/", admin.site.urls),
+]</code></pre>
+
+        <h3>D. asgi.py</h3>
+        <p>
+            ASGI cha full form Asynchronous Server Gateway Interface.
+            Asynchronous applications serve karnyasathi deployment
+            entry point mhanun use hote.
+        </p>
+
+        <h3>E. wsgi.py</h3>
+        <p>
+            WSGI cha full form Web Server Gateway Interface.
+            Traditional synchronous Django applications sathi
+            deployment entry point mhanun use hote.
+        </p>
+    </section>
+
+    <section class="lesson-section">
+        <h2>6. students App madhil Files</h2>
+
+        <h3>A. migrations/</h3>
+        <p>
+            Database models madhye kelelya changes track
+            karnyasathi migrations use hotat.
+        </p>
+
+        <pre class="code-block"><code>python manage.py makemigrations
+python manage.py migrate</code></pre>
+
+        <h3>B. admin.py</h3>
+        <p>
+            Django Admin Panel madhye models register
+            karnyasathi use hote.
+        </p>
+
+        <h3>C. apps.py</h3>
+        <p>
+            App chi configuration information store karte.
+        </p>
+
+        <h3>D. models.py</h3>
+        <p>
+            Database tables represent karanare models
+            create karnyasathi use hote.
+        </p>
+
+        <pre class="code-block"><code>from django.db import models
+
+class Student(models.Model):
+    name = models.CharField(max_length=100)
+    age = models.IntegerField()</code></pre>
+
+        <h3>E. tests.py</h3>
+        <p>
+            Application madhil code test karnyasathi use hote.
+        </p>
+
+        <h3>F. views.py</h3>
+        <p>
+            User chya request la response denyasathi views lihitat.
+        </p>
+
+        <pre class="code-block"><code>from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("Welcome to Students App!")</code></pre>
+
+        <h3>G. urls.py</h3>
+        <p>
+            startapp command run kelyavar urls.py file
+            automatic create hot nahi. Aaplyala hi file
+            manually create karavi lagte.
+        </p>
+    </section>
+
+    <section class="lesson-section">
+        <h2>7. Practical – Project URL ani App URL Connect Karne</h2>
+
+        <p>
+            Ata students app la project sobat connect karu.
+        </p>
+
+        <h3>Step 1: students/urls.py</h3>
+        <p>students folder madhye urls.py file create kara.</p>
+
+        <pre class="code-block"><code>from django.urls import path
+from . import views
+
+urlpatterns = [
+    path("", views.home, name="home"),
+]</code></pre>
+
+        <h3>Step 2: students/views.py</h3>
+
+        <pre class="code-block"><code>from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("Welcome to Students App!")</code></pre>
+
+        <h3>Step 3: config/urls.py</h3>
+
+        <pre class="code-block"><code>from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    path("students/", include("students.urls")),
+]</code></pre>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            include() cha use students app madhil URL patterns
+            project sobat connect karnyasathi kela aahe.
+        </div>
+
+        <h3>Step 4: Server Run Kara</h3>
+
+        <pre class="code-block"><code>python manage.py runserver</code></pre>
+
+        <p>Browser madhye hi URL open kara:</p>
+
+        <pre class="output-code"><code>http://127.0.0.1:8000/students/</code></pre>
+
+        <div class="example-box">
+            <h3>Expected Output</h3>
+            <p class="success-text">Welcome to Students App!</p>
+        </div>
+    </section>
+
+    <section class="lesson-section">
+        <h2>8. Request Flow</h2>
+
+        <p>
+            User /students/ URL open karto. Request project URL
+            madhun app URL kade jate. Tithun view execute houn
+            browser la response milto.
+        </p>
+
+        <div class="flow-container">
+            <div class="flow-box">User</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-box">config/urls.py</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-box">students/urls.py</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-box">students/views.py</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-box flow-success">Browser Response</div>
+        </div>
+    </section>
+
+    <section class="lesson-section">
+        <h2>9. Common Mistakes</h2>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Mistake</th>
+                    <th>Solution</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>App register kele nahi</td>
+                    <td>INSTALLED_APPS madhye add kara.</td>
+                </tr>
+                <tr>
+                    <td>App madhye urls.py nahi</td>
+                    <td>Manually create kara.</td>
+                </tr>
+                <tr>
+                    <td>include import kele nahi</td>
+                    <td>include import kara.</td>
+                </tr>
+                <tr>
+                    <td>Wrong view name</td>
+                    <td>URL madhil view name check kara.</td>
+                </tr>
+                <tr>
+                    <td>Wrong URL open keli</td>
+                    <td>/students/ open kara.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="lesson-section">
+        <h2>10. Important Revision</h2>
+
+        <ol>
+            <li>Django Project mhanje complete application.</li>
+            <li>Django App mhanje specific functionality.</li>
+            <li>manage.py project commands run karte.</li>
+            <li>settings.py project configuration karte.</li>
+            <li>urls.py URL routing karte.</li>
+            <li>views.py request handle karte.</li>
+            <li>models.py database models define karte.</li>
+            <li>admin.py models admin panel madhye register karte.</li>
+            <li>migrations database changes track karte.</li>
+            <li>include() app URLs connect karte.</li>
+        </ol>
+    </section>
+
+    <section class="practice-section">
+        <h2>11. Practice Questions</h2>
+
+        <p>He practical swatah karun paha:</p>
+
+        <ol>
+            <li>students app create kara.</li>
+            <li>App la INSTALLED_APPS madhye register kara.</li>
+            <li>students/urls.py manually create kara.</li>
+            <li>views.py madhye home() function create kara.</li>
+            <li>Browser madhye /students/ open karun output paha.</li>
+            <li>Message badlun "My First Django Application" kara.</li>
+        </ol>
+    </section>
+
+    <div class="completion-message">
+        <h3>Topic 03 Completed!</h3>
+        <p>
+            Ata tumhala Django project structure, important files
+            ani project-app URL connection samajle asel.
+        </p>
+    </div>
+
+    <div class="lesson-navigation">
+        <a href="{% url 'django_topic' 'installation' %}"
+           class="nav-button previous-button">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'django_topic' 'mvt-architecture' %}"
+           class="nav-button next-button">
+            Next Topic →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

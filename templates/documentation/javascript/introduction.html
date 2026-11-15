@@ -1,0 +1,700 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Introduction to JavaScript | Roman Marathi{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/javascript/introduction.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">JAVASCRIPT DOCUMENTATION • PAGE 01</span>
+
+        <h1>Introduction to JavaScript</h1>
+
+        <p>
+            JavaScript mhanje kay, JavaScript cha use kasa hoto
+            ani website madhye interactivity kashi add hote
+            he ya lesson madhye shikuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Beginner Level</span>
+            <span>25–30 Minutes</span>
+        </div>
+    </div>
+
+    <!-- Section 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What is JavaScript?</h2>
+
+        <p>
+            JavaScript hi ek high-level programming language aahe.
+            Ticha use website madhye dynamic features ani
+            interactivity add karnyasathi hoto.
+        </p>
+
+        <p>
+            JavaScript mule user button click karu shakto,
+            form submit karu shakto, data update karu shakto
+            ani webpage sobat interact karu shakto.
+        </p>
+
+        <p>
+            JavaScript browser madhye run hou shakte.
+            Backend development sathi Node.js cha use karun
+            JavaScript server-side suddha run karta yete.
+        </p>
+
+        <div class="info-box">
+            <strong>Simple Definition:</strong>
+            JavaScript hi programming language aahe ji website
+            madhye functionality ani interactivity add karte.
+        </div>
+
+    </section>
+
+    <!-- Section 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Why is JavaScript Used?</h2>
+
+        <p>
+            JavaScript cha main purpose website la interactive
+            ani dynamic banavne ha aahe.
+        </p>
+
+        <h3>JavaScript cha use khalil goshtinsathi hoto:</h3>
+
+        <ul>
+            <li>Button click kelyavar action perform karne.</li>
+            <li>Form madhil user input validate karne.</li>
+            <li>Webpage madhil content change karne.</li>
+            <li>Images ani menus interactive banavne.</li>
+            <li>Server kadun data fetch karne.</li>
+            <li>API sobat communication karne.</li>
+            <li>Web applications develop karne.</li>
+        </ul>
+
+        <div class="example-box">
+            <strong>Example:</strong>
+            Registration form madhye user ne email bharla nasel,
+            tar JavaScript error message display karu shakte.
+        </div>
+
+    </section>
+
+    <!-- Section 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. JavaScript is a Programming Language</h2>
+
+        <p>
+            JavaScript hi programming language aahe karan
+            tichyamadhye variables, conditions, loops, functions
+            ani logical operations vaparta yetat.
+        </p>
+
+        <p>
+            JavaScript cha use karun apan user chya action nusar
+            program execute karu shakto ani data process karu shakto.
+        </p>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            JavaScript ani Java ya don vegveglya programming
+            languages aahet. Fakt nav similar aahe.
+        </div>
+
+        <h3>JavaScript vs HTML</h3>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>HTML</th>
+                    <th>JavaScript</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Markup Language aahe.</td>
+                    <td>Programming Language aahe.</td>
+                </tr>
+
+                <tr>
+                    <td>Webpage structure tayar karte.</td>
+                    <td>Webpage madhye functionality add karte.</td>
+                </tr>
+
+                <tr>
+                    <td>HTML tags vaparte.</td>
+                    <td>Variables, functions ani conditions vaparte.</td>
+                </tr>
+
+                <tr>
+                    <td>Example: Heading ani paragraph.</td>
+                    <td>Example: Button click action.</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </section>
+
+    <!-- Section 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. HTML, CSS and JavaScript</h2>
+
+        <p>
+            Website tayar karnyasathi HTML, CSS ani JavaScript
+            ya tin technologies ekatra vaparlya jatat.
+            Pratyek technology che kam vegale aste.
+        </p>
+
+        <div class="technology-list">
+
+            <div class="technology-card html-card">
+                <h3>HTML</h3>
+                <p>Website cha structure tayar karte.</p>
+                <span>Structure</span>
+            </div>
+
+            <div class="technology-card css-card">
+                <h3>CSS</h3>
+                <p>Website la design ani styling dete.</p>
+                <span>Design</span>
+            </div>
+
+            <div class="technology-card js-card">
+                <h3>JavaScript</h3>
+                <p>Website madhye functionality add karte.</p>
+                <span>Behavior</span>
+            </div>
+
+        </div>
+
+        <h3>Simple Real-Life Example:</h3>
+
+        <ul>
+            <li>
+                <strong>HTML:</strong>
+                Gharachi structure ani bhinti.
+            </li>
+
+            <li>
+                <strong>CSS:</strong>
+                Gharacha color ani decoration.
+            </li>
+
+            <li>
+                <strong>JavaScript:</strong>
+                Gharatil lights ani switches che working.
+            </li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Website development madhye HTML structure,
+            CSS design ani JavaScript functionality handle karte.
+        </div>
+
+    </section>
+
+    <!-- Section 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. History of JavaScript</h2>
+
+        <p>
+            JavaScript chi nirmiti 1995 madhye Brendan Eich
+            yanni Netscape browser sathi keli.
+        </p>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+                <strong>1995</strong>
+                <p>
+                    Brendan Eich yanni JavaScript develop keli.
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <strong>1996</strong>
+                <p>
+                    JavaScript la ECMAScript standardization
+                    sathi submit karnyat aale.
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <strong>1997</strong>
+                <p>
+                    ECMAScript chi pahili edition publish zali.
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <strong>2009</strong>
+                <p>
+                    Node.js release zalyamule JavaScript
+                    server-side development madhye suddha vaparta yeu lagli.
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <strong>2015</strong>
+                <p>
+                    ES6 release zala. Tyamadhye let, const,
+                    arrow functions ani classes sarkhe features aale.
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <strong>Today</strong>
+                <p>
+                    JavaScript cha use frontend, backend,
+                    web applications ani itar platforms var hoto.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Section 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. Where is JavaScript Used?</h2>
+
+        <p>
+            JavaScript cha use fakt webpage interactive
+            banvnyapurta maryadit nahi. Aaj anek types che
+            software develop karnyasathi JavaScript vapartat.
+        </p>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Area</th>
+                    <th>Use</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Frontend Development</td>
+                    <td>Website madhye user interaction add karne.</td>
+                </tr>
+
+                <tr>
+                    <td>Backend Development</td>
+                    <td>Node.js vaprun server-side code lihine.</td>
+                </tr>
+
+                <tr>
+                    <td>Web Applications</td>
+                    <td>Dynamic web applications develop karne.</td>
+                </tr>
+
+                <tr>
+                    <td>API Integration</td>
+                    <td>Server kadun data send ani receive karne.</td>
+                </tr>
+
+                <tr>
+                    <td>Mobile Applications</td>
+                    <td>React Native sarkhya tools vaprun apps banavne.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="info-box">
+            <strong>Backend Developer sathi:</strong>
+            JavaScript madhil Fetch API, JSON, asynchronous
+            programming ani API communication he topics upayogi aahet.
+        </div>
+
+    </section>
+
+    <!-- Section 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. How Does JavaScript Work?</h2>
+
+        <p>
+            Browser madhye JavaScript code execute karnyasathi
+            JavaScript Engine cha use hoto.
+            Engine code process karun instructions execute karto.
+        </p>
+
+        <div class="workflow">
+
+            <div class="workflow-step">
+                <span>01</span>
+                <strong>JavaScript Code</strong>
+                <p>Developer JavaScript code lihito.</p>
+            </div>
+
+            <div class="workflow-arrow">↓</div>
+
+            <div class="workflow-step">
+                <span>02</span>
+                <strong>JavaScript Engine</strong>
+                <p>Engine JavaScript code process karto.</p>
+            </div>
+
+            <div class="workflow-arrow">↓</div>
+
+            <div class="workflow-step">
+                <span>03</span>
+                <strong>Code Execution</strong>
+                <p>JavaScript madhil instructions execute hotat.</p>
+            </div>
+
+            <div class="workflow-arrow">↓</div>
+
+            <div class="workflow-step">
+                <span>04</span>
+                <strong>Result</strong>
+                <p>Browser madhye expected action diste.</p>
+            </div>
+
+        </div>
+
+        <div class="example-box">
+            <strong>Example:</strong>
+            User ne button click kela tar JavaScript event
+            handle karun webpage var message display karu shakte.
+        </div>
+
+    </section>
+
+    <!-- Section 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. First JavaScript Example</h2>
+
+        <p>
+            Ata apan ek simple JavaScript example pahu.
+            Ya example madhye button click kelyavar message change hoil.
+        </p>
+
+        <h3>HTML and JavaScript Code:</h3>
+
+        <pre class="code-block"><code>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;First JavaScript&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;h1 id="message"&gt;Hello World&lt;/h1&gt;
+
+    &lt;button onclick="changeMessage()"&gt;
+        Click Me
+    &lt;/button&gt;
+
+    &lt;script&gt;
+        function changeMessage() {
+            document.getElementById("message").innerText =
+                "Welcome to JavaScript!";
+        }
+    &lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <h1 id="js-intro-output">Hello World</h1>
+            <button type="button"
+                    onclick="document.getElementById('js-intro-output').innerText='Welcome to JavaScript!'">
+                Click Me
+            </button>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>
+                <strong>h1:</strong>
+                Webpage var heading display karto.
+            </li>
+
+            <li>
+                <strong>id:</strong>
+                HTML element la unique identity dete.
+            </li>
+
+            <li>
+                <strong>button:</strong>
+                User la click karnyasathi button dete.
+            </li>
+
+            <li>
+                <strong>onclick:</strong>
+                Button click zalyavar function call karto.
+            </li>
+
+            <li>
+                <strong>function:</strong>
+                JavaScript code cha reusable block aahe.
+            </li>
+
+            <li>
+                <strong>innerText:</strong>
+                HTML element madhil text change karte.
+            </li>
+        </ul>
+
+    </section>
+
+    <!-- Section 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Advantages of JavaScript</h2>
+
+        <ul>
+            <li>JavaScript shikayla suruvatila sopi aahe.</li>
+            <li>Modern web browsers JavaScript support kartat.</li>
+            <li>Website madhye interactivity add karta yete.</li>
+            <li>Frontend ani backend donhi thikani use karta yete.</li>
+            <li>API sobat communication karta yete.</li>
+            <li>JavaScript chi mothi developer community aahe.</li>
+            <li>JavaScript sathi anek libraries ani frameworks available aahet.</li>
+        </ul>
+
+    </section>
+
+    <!-- Section 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Limitations of JavaScript</h2>
+
+        <p>
+            JavaScript powerful asali tari kahi limitations suddha aahet.
+        </p>
+
+        <ul>
+            <li>Browser madhil JavaScript la security restrictions astat.</li>
+            <li>Different browsers madhye kahi behavior vegale asu shakte.</li>
+            <li>JavaScript code madhye mistakes aslyas errors yeu shaktat.</li>
+            <li>Large applications sathi proper code organization avashyak aahe.</li>
+            <li>Client-side JavaScript var sensitive data security sathi bharosa thevu naye.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Password, database credentials ani secret API keys
+            frontend JavaScript code madhye thevu naye.
+            Sensitive operations backend var handle karavyat.
+        </div>
+
+    </section>
+
+    <!-- Section 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Important JavaScript Terms</h2>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Term</th>
+                    <th>Meaning</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>JavaScript</td>
+                    <td>Programming Language.</td>
+                </tr>
+
+                <tr>
+                    <td>Variable</td>
+                    <td>Data store karnyasathi vaparla janara container.</td>
+                </tr>
+
+                <tr>
+                    <td>Function</td>
+                    <td>Reusable code block.</td>
+                </tr>
+
+                <tr>
+                    <td>Event</td>
+                    <td>User kiwa browser kadun honari action.</td>
+                </tr>
+
+                <tr>
+                    <td>DOM</td>
+                    <td>Document Object Model.</td>
+                </tr>
+
+                <tr>
+                    <td>JavaScript Engine</td>
+                    <td>JavaScript code execute karnara engine.</td>
+                </tr>
+
+                <tr>
+                    <td>Node.js</td>
+                    <td>Browser baher JavaScript run karnyasathi runtime.</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </section>
+
+    <!-- Section 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Common Beginner Mistakes</h2>
+
+        <div class="mistake-card">
+            <strong>Mistake 1: JavaScript ani Java same samajne</strong>
+            <p>
+                JavaScript ani Java ya vegveglya programming languages aahet.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 2: JavaScript fakt frontend sathi aahe ase samajne</strong>
+            <p>
+                Node.js mule JavaScript backend development sathi suddha vaparta yete.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 3: HTML ani JavaScript same samajne</strong>
+            <p>
+                HTML structure tayar karte tar JavaScript functionality add karte.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 4: Code save karayla visarne</strong>
+            <p>
+                JavaScript file external asel tar ti .js extension ne save karavi.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- Section 13 -->
+
+    <section class="lesson-section">
+
+        <h2>13. Quick Revision</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>JavaScript hi programming language aahe.</li>
+                <li>JavaScript website madhye interactivity add karte.</li>
+                <li>JavaScript chi nirmiti Brendan Eich yanni keli.</li>
+                <li>JavaScript 1995 madhye develop keli geli.</li>
+                <li>JavaScript frontend ani backend donhi thikani vaparta yete.</li>
+                <li>Node.js ha JavaScript runtime aahe.</li>
+                <li>JavaScript code execute karnyasathi JavaScript Engine vaparla jato.</li>
+                <li>JavaScript file .js extension ne save keli jate.</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <!-- Section 14 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>14. Practice Questions</h2>
+
+        <p>
+            Khali dilele questions swatah solve kar.
+            Ya mule JavaScript chi basic understanding majboot hoil.
+        </p>
+
+        <h3>Basic Questions</h3>
+
+        <ol>
+            <li>JavaScript mhanje kay?</li>
+            <li>JavaScript cha use kashasathi hoto?</li>
+            <li>JavaScript hi programming language aahe ka?</li>
+            <li>JavaScript chi nirmiti koni keli?</li>
+            <li>JavaScript ani Java madhye kay difference aahe?</li>
+            <li>HTML, CSS ani JavaScript yanche kam kay aahe?</li>
+            <li>Node.js mhanje kay?</li>
+            <li>JavaScript file kontya extension ne save kartat?</li>
+        </ol>
+
+        <h3>Practical Questions</h3>
+
+        <ol>
+            <li>Hello World display karanara JavaScript code lih.</li>
+            <li>Button click kelyavar message change karanara code lih.</li>
+            <li>HTML ani JavaScript madhil difference lih.</li>
+        </ol>
+
+        <div class="task-box">
+
+            <h3>Mini Task: My First JavaScript Page</h3>
+
+            <p>
+                Ek simple HTML page create kar ani JavaScript vaprun:
+            </p>
+
+            <ul>
+                <li>Ek heading display kar.</li>
+                <li>Ek paragraph display kar.</li>
+                <li>Ek button create kar.</li>
+                <li>Button click kelyavar paragraph madhil text change kar.</li>
+            </ul>
+
+            <p>
+                File name: <strong>my_first_javascript.html</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Lesson Navigation -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'javascript_index' %}"
+           class="nav-button previous-button">
+            ← JavaScript Topics
+        </a>
+
+        <a href="{% url 'javascript_topic' 'syntax' %}"
+           class="nav-button next-button">
+            Next: JavaScript Syntax →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,962 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}
+SEO Basics | HTML Documentation
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/html/seo-basics.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+
+    <div class="lesson-header">
+
+        <span class="lesson-label">HTML DOCUMENTATION • PAGE 17</span>
+
+        <h1>SEO Basics</h1>
+
+        <p>
+            Search Engine Optimization samjun gheuya
+            ani HTML webpage search engines sathi
+            optimize kasa karaycha te shikuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Beginner Level</span>
+            <span>35–40 Minutes</span>
+        </div>
+
+    </div>
+
+
+    <!-- Section 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What is SEO?</h2>
+
+        <p>
+            SEO cha full form Search Engine Optimization aahe.
+            Website search engine madhye easily discover
+            ani understand vhavi yasathi kelelya process la
+            SEO mhantat.
+        </p>
+
+        <p>
+            Google sarkhe search engines webpages crawl,
+            index ani rank karu shaktat.
+            SEO mule website chi search results madhil
+            visibility improve honyas madat hote.
+        </p>
+
+        <h3>Example:</h3>
+
+        <p>
+            Samja user Google var "Python Tutorial"
+            search karto.
+        </p>
+
+        <p>
+            Tumchi website Python tutorials provide karat
+            asel ani ti properly optimized asel tar
+            search results madhye disnyachi possibility
+            improve hou shakte.
+        </p>
+
+        <div class="info-box">
+            <strong>Simple Definition:</strong>
+            SEO mhanje website search engines sathi
+            optimize karne, jyamule relevant users la
+            website shodhne sope hote.
+        </div>
+
+    </section>
+
+
+    <!-- Section 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Types of SEO</h2>
+
+        <p>
+            SEO che mainly three important types aahet.
+        </p>
+
+        <h3>1. On-Page SEO</h3>
+
+        <p>
+            Website chya webpage madhye kelelya
+            optimization la On-Page SEO mhantat.
+        </p>
+
+        <ul>
+            <li>Proper page title</li>
+            <li>Meta description</li>
+            <li>Heading tags</li>
+            <li>Image alt attributes</li>
+            <li>Useful content</li>
+            <li>Internal links</li>
+        </ul>
+
+        <h3>2. Off-Page SEO</h3>
+
+        <p>
+            Website chya baher kelelya activities mule
+            website chi reputation ani authority
+            improve karnyacha prayatna kela jato.
+        </p>
+
+        <ul>
+            <li>Quality backlinks</li>
+            <li>Brand mentions</li>
+            <li>Content promotion</li>
+            <li>Relevant website references</li>
+        </ul>
+
+        <h3>3. Technical SEO</h3>
+
+        <p>
+            Website chi technical performance ani
+            search engine accessibility improve
+            karnyala Technical SEO mhantat.
+        </p>
+
+        <ul>
+            <li>Website loading speed</li>
+            <li>Mobile-friendly design</li>
+            <li>HTTPS security</li>
+            <li>XML Sitemap</li>
+            <li>Robots.txt</li>
+            <li>Proper URL structure</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Remember:</strong>
+            HTML madhye title, headings, meta description
+            ani alt attributes he On-Page SEO che
+            important parts aahet.
+        </div>
+
+    </section>
+
+
+    <!-- Section 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. Importance of SEO in HTML</h2>
+
+        <p>
+            HTML webpage cha structure define karte.
+            Proper HTML structure mule search engines la
+            webpage madhil content samjun ghenyas madat hote.
+        </p>
+
+        <h3>Important HTML SEO Elements:</h3>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>HTML Element</th>
+                    <th>SEO Purpose</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>&lt;title&gt;</td>
+                    <td>Page title define karto.</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;meta&gt;</td>
+                    <td>Page information provide karto.</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;h1&gt; to &lt;h6&gt;</td>
+                    <td>Content headings organize kartat.</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;img&gt;</td>
+                    <td>Image content display karto.</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;a&gt;</td>
+                    <td>Links create karto.</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;main&gt;</td>
+                    <td>Main content identify karto.</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;article&gt;</td>
+                    <td>Independent content define karto.</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+
+    <!-- Section 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. Title Tag</h2>
+
+        <p>
+            &lt;title&gt; tag webpage cha title define karto.
+            Ha tag HTML document chya &lt;head&gt;
+            section madhye lihitat.
+        </p>
+
+        <p>
+            Search results madhye title link mhanun
+            display hou shakto.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>
+&lt;head&gt;
+
+    &lt;title&gt;Python Tutorial for Beginners&lt;/title&gt;
+
+&lt;/head&gt;
+        </code></pre>
+
+        <h3>Important Points:</h3>
+
+        <ul>
+            <li>Pratyek page sathi descriptive title liha.</li>
+            <li>Title page content shi relevant asava.</li>
+            <li>Unnecessary keywords repeat karu naka.</li>
+            <li>Pratyek webpage cha title unique theva.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Title tag ani h1 tag vegale aahet.
+            Title browser tab ani search results sathi,
+            tar h1 page madhil main heading sathi asto.
+        </div>
+
+    </section>
+
+
+    <!-- Section 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. Meta Description</h2>
+
+        <p>
+            Meta description hi webpage cha short summary
+            aste. Ti HTML document chya head section madhye
+            lihitat.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>
+&lt;meta name="description"
+      content="Learn Python programming with easy
+      examples and practical tutorials."&gt;
+        </code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;head&gt;
+
+    &lt;title&gt;Python Tutorial&lt;/title&gt;
+
+    &lt;meta name="description"
+          content="Learn Python from basics with
+          simple examples and exercises."&gt;
+
+&lt;/head&gt;
+        </code></pre>
+
+        <h3>Important Points:</h3>
+
+        <ul>
+            <li>Page content cha accurate summary dya.</li>
+            <li>Pratyek page sathi relevant description liha.</li>
+            <li>Unnecessary keywords avoid kara.</li>
+            <li>Description user la page baddal mahiti dete.</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Google kahi vela tumchi meta description
+            use karto, pan search result madhye
+            vegla text suddha show karu shakto.
+        </div>
+
+    </section>
+
+
+    <!-- Section 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. Heading Tags and SEO</h2>
+
+        <p>
+            HTML madhye h1 te h6 ase six heading tags aahet.
+            Ya tags cha use webpage madhil content
+            organize karnyasathi hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;h1&gt;Python Tutorial&lt;/h1&gt;
+
+&lt;h2&gt;Python Basics&lt;/h2&gt;
+
+&lt;h3&gt;Variables&lt;/h3&gt;
+
+&lt;h3&gt;Data Types&lt;/h3&gt;
+
+&lt;h2&gt;Python Functions&lt;/h2&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box heading-output">
+
+            <h1>Python Tutorial</h1>
+
+            <h2>Python Basics</h2>
+
+            <h3>Variables</h3>
+
+            <h3>Data Types</h3>
+
+            <h2>Python Functions</h2>
+
+        </div>
+
+        <h3>Important Points:</h3>
+
+        <ul>
+            <li>Page cha main topic clearly explain kara.</li>
+            <li>Headings logical order madhye use kara.</li>
+            <li>Headings cha use content structure sathi kara.</li>
+            <li>Fakt text motha karnyasathi heading tags vapru naka.</li>
+        </ul>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            Heading hierarchy user ani search engines
+            donhanna content samjun ghenyas madat karte.
+        </div>
+
+    </section>
+
+
+    <!-- Section 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. Image Alt Attribute</h2>
+
+        <p>
+            Alt attribute image cha text description
+            provide karto.
+        </p>
+
+        <p>
+            Image load zali nahi kiwa screen reader
+            use kela tar alt text useful tharto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;img src="python-logo.png"
+     alt="Python programming language logo"&gt;
+        </code></pre>
+
+        <h3>Important Points:</h3>
+
+        <ul>
+            <li>Image cha meaning describe kara.</li>
+            <li>Relevant alt text liha.</li>
+            <li>Keyword stuffing karu naka.</li>
+            <li>Decorative image sathi empty alt vapru shakta.</li>
+        </ul>
+
+        <h3>Decorative Image Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;img src="decoration.png" alt=""&gt;
+        </code></pre>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Alt text ha image cha description asto.
+            To image filename kiwa keyword list
+            nasava.
+        </div>
+
+    </section>
+
+
+    <!-- Section 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. Semantic HTML and SEO</h2>
+
+        <p>
+            Semantic HTML elements webpage madhil
+            content cha meaning clear kartat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;header&gt;
+
+    &lt;h1&gt;Technology Blog&lt;/h1&gt;
+
+&lt;/header&gt;
+
+&lt;main&gt;
+
+    &lt;article&gt;
+
+        &lt;h2&gt;Learn Web Development&lt;/h2&gt;
+
+        &lt;p&gt;
+            Web development includes HTML, CSS and JavaScript.
+        &lt;/p&gt;
+
+    &lt;/article&gt;
+
+&lt;/main&gt;
+
+&lt;footer&gt;
+
+    &lt;p&gt;Copyright 2026&lt;/p&gt;
+
+&lt;/footer&gt;
+        </code></pre>
+
+        <h3>Benefits:</h3>
+
+        <ul>
+            <li>Content structure clear hote.</li>
+            <li>Accessibility improve honyas madat hote.</li>
+            <li>Code readable ani maintainable hoto.</li>
+            <li>Search engines la content context samajnyas madat hote.</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Semantic HTML use kelyane automatic
+            top Google ranking milat nahi.
+            Pan clear structure tayar honyas madat hote.
+        </div>
+
+    </section>
+
+
+    <!-- Section 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Internal and External Links</h2>
+
+        <h3>1. Internal Links</h3>
+
+        <p>
+            Same website madhil eka page varun
+            dusrya page var janarya links la
+            Internal Links mhantat.
+        </p>
+
+        <pre class="code-block"><code>
+&lt;a href="/python/"&gt;
+    Python Tutorial
+&lt;/a&gt;
+        </code></pre>
+
+        <h3>2. External Links</h3>
+
+        <p>
+            Dusrya website var janarya links la
+            External Links mhantat.
+        </p>
+
+        <pre class="code-block"><code>
+&lt;a href="https://www.python.org/"
+   target="_blank"
+   rel="noopener noreferrer"&gt;
+
+    Official Python Website
+
+&lt;/a&gt;
+        </code></pre>
+
+        <h3>Benefits of Links:</h3>
+
+        <ul>
+            <li>Users la related pages shodhne sope hote.</li>
+            <li>Website navigation improve hote.</li>
+            <li>Search engines la pages discover karnyas madat hote.</li>
+            <li>Relevant external resources provide karta yetat.</li>
+        </ul>
+
+    </section>
+
+
+    <!-- Section 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. SEO-Friendly URL Structure</h2>
+
+        <p>
+            URL mhanje webpage cha web address.
+            Clear ani descriptive URL users la
+            page cha topic samajnyas madat karto.
+        </p>
+
+        <h3>Bad URL:</h3>
+
+        <pre class="code-block"><code>
+https://example.com/page?id=12345
+        </code></pre>
+
+        <h3>Better URL:</h3>
+
+        <pre class="code-block"><code>
+https://example.com/python-tutorial/
+        </code></pre>
+
+        <h3>Important Points:</h3>
+
+        <ul>
+            <li>URL short ani descriptive theva.</li>
+            <li>Words separate karnyasathi hyphen vapra.</li>
+            <li>Unnecessary parameters avoid kara.</li>
+            <li>URL page content shi related asava.</li>
+        </ul>
+
+    </section>
+
+
+    <!-- Section 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Sitemap and Robots.txt</h2>
+
+        <h3>1. XML Sitemap</h3>
+
+        <p>
+            XML Sitemap hi website madhil important
+            URLs chi list aste.
+        </p>
+
+        <p>
+            Sitemap mule search engines la website
+            madhil important pages discover karnyas
+            madat hou shakte.
+        </p>
+
+        <h3>Example: sitemap.xml</h3>
+
+        <pre class="code-block"><code>
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+
+&lt;urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"&gt;
+
+    &lt;url&gt;
+
+        &lt;loc&gt;https://example.com/&lt;/loc&gt;
+
+    &lt;/url&gt;
+
+    &lt;url&gt;
+
+        &lt;loc&gt;https://example.com/python-tutorial/&lt;/loc&gt;
+
+    &lt;/url&gt;
+
+&lt;/urlset&gt;
+        </code></pre>
+
+        <h3>2. Robots.txt</h3>
+
+        <p>
+            Robots.txt file madhye crawlers sathi
+            crawl rules specify karta yetat.
+        </p>
+
+        <h3>Example: robots.txt</h3>
+
+        <pre class="code-block"><code>
+User-agent: *
+
+Allow: /
+
+Disallow: /admin/
+
+Sitemap: https://example.com/sitemap.xml
+        </code></pre>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Robots.txt hi security system nahi.
+            Disallow rule mule private pages secure hot nahit.
+            Sensitive pages sathi proper authentication
+            ani access control vapra.
+        </div>
+
+    </section>
+
+
+    <!-- Section 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Complete SEO-Friendly HTML Page</h2>
+
+        <p>
+            Ata apan title, meta description, semantic
+            elements, headings ani image alt attributes
+            vaprun ek SEO-friendly HTML page create karu.
+        </p>
+
+        <h3>HTML Code:</h3>
+
+        <pre class="code-block"><code>
+&lt;!DOCTYPE html&gt;
+
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+
+    &lt;meta charset="UTF-8"&gt;
+
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+
+    &lt;title&gt;Python Tutorial for Beginners&lt;/title&gt;
+
+    &lt;meta name="description"
+          content="Learn Python programming with
+          simple examples and practical tutorials."&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;header&gt;
+
+        &lt;h1&gt;Python Tutorial&lt;/h1&gt;
+
+    &lt;/header&gt;
+
+    &lt;nav&gt;
+
+        &lt;a href="/python/"&gt;Home&lt;/a&gt;
+
+        &lt;a href="/python/basics/"&gt;Basics&lt;/a&gt;
+
+    &lt;/nav&gt;
+
+    &lt;main&gt;
+
+        &lt;article&gt;
+
+            &lt;h2&gt;Learn Python Programming&lt;/h2&gt;
+
+            &lt;p&gt;
+                Python is a beginner-friendly programming language.
+            &lt;/p&gt;
+
+            &lt;img src="python-logo.png"
+                 alt="Python programming language logo"
+                 width="200"&gt;
+
+            &lt;h2&gt;Why Learn Python?&lt;/h2&gt;
+
+            &lt;p&gt;
+                Python is used in web development,
+                automation and data science.
+            &lt;/p&gt;
+
+            &lt;a href="https://www.python.org/"&gt;
+                Official Python Website
+            &lt;/a&gt;
+
+        &lt;/article&gt;
+
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+
+        &lt;p&gt;Copyright &amp;copy; 2026&lt;/p&gt;
+
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box practical-output">
+
+            <header>
+                <h2>Python Tutorial</h2>
+            </header>
+
+            <nav>
+                <a href="#python-home">Home</a>
+                <a href="#python-basics">Basics</a>
+            </nav>
+
+            <main>
+                <article>
+
+                    <h3>Learn Python Programming</h3>
+
+                    <p>
+                        Python is a beginner-friendly programming language.
+                    </p>
+
+                    <div class="image-placeholder">
+                        <span>Python Logo Image</span>
+                    </div>
+
+                    <h3>Why Learn Python?</h3>
+
+                    <p>
+                        Python is used in web development,
+                        automation and data science.
+                    </p>
+
+                    <a href="https://www.python.org/">
+                        Official Python Website
+                    </a>
+
+                </article>
+            </main>
+
+            <footer>
+                <p>Copyright © 2026</p>
+            </footer>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 13 -->
+
+    <section class="lesson-section">
+
+        <h2>13. Common SEO Mistakes</h2>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 1: Missing Title Tag</strong>
+
+            <p>
+                Page sathi descriptive title provide na karne.
+            </p>
+
+        </div>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 2: Missing Meta Description</strong>
+
+            <p>
+                Page content cha useful summary provide na karne.
+            </p>
+
+        </div>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 3: Missing Alt Attribute</strong>
+
+            <p>
+                Images sathi meaningful alternative text na dene.
+            </p>
+
+        </div>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 4: Keyword Stuffing</strong>
+
+            <p>
+                Ranking milavnyasathi same keywords
+                unnecessary repeat karne.
+            </p>
+
+        </div>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 5: Poor Heading Structure</strong>
+
+            <p>
+                Content la proper headings ani logical
+                structure na dene.
+            </p>
+
+        </div>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 6: Broken Links</strong>
+
+            <p>
+                Working naslele links website madhye thevne.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 14 -->
+
+    <section class="lesson-section">
+
+        <h2>14. Quick Revision</h2>
+
+        <div class="revision-box">
+
+            <ul>
+                <li>SEO = Search Engine Optimization.</li>
+                <li>On-Page SEO = Website content optimization.</li>
+                <li>Off-Page SEO = Website baherchi activities.</li>
+                <li>Technical SEO = Technical website optimization.</li>
+                <li>Title Tag = Webpage title.</li>
+                <li>Meta Description = Page summary.</li>
+                <li>Heading Tags = Content structure.</li>
+                <li>Alt Attribute = Image description.</li>
+                <li>Internal Links = Same website links.</li>
+                <li>External Links = Other website links.</li>
+                <li>XML Sitemap = Important website URLs chi list.</li>
+                <li>Robots.txt = Crawler instructions.</li>
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 15 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>15. Practice Questions</h2>
+
+        <h3>Basic Questions</h3>
+
+        <ol>
+            <li>SEO cha full form kay aahe?</li>
+            <li>SEO mhanje kay?</li>
+            <li>SEO che three types explain kar.</li>
+            <li>On-Page SEO mhanje kay?</li>
+            <li>Off-Page SEO mhanje kay?</li>
+            <li>Technical SEO mhanje kay?</li>
+            <li>Title tag cha use kay aahe?</li>
+            <li>Meta description mhanje kay?</li>
+            <li>Alt attribute cha use kay aahe?</li>
+            <li>Internal ani External Links madhil difference lih.</li>
+            <li>XML Sitemap mhanje kay?</li>
+            <li>Robots.txt file cha use kay aahe?</li>
+        </ol>
+
+        <h3>Practical Questions</h3>
+
+        <ol>
+            <li>SEO-friendly HTML webpage create kar.</li>
+            <li>Title ani Meta Description add kar.</li>
+            <li>Proper heading structure create kar.</li>
+            <li>Image with meaningful alt attribute add kar.</li>
+            <li>Internal ani External Links create kar.</li>
+            <li>Sample sitemap.xml file create kar.</li>
+            <li>Sample robots.txt file create kar.</li>
+        </ol>
+
+        <div class="task-box">
+
+            <h3>Mini Task: SEO-Friendly Blog Page</h3>
+
+            <p>
+                Ek simple blog webpage create kar.
+                Tyamadhye khalil goshti add kar.
+            </p>
+
+            <ul>
+                <li>Unique Page Title</li>
+                <li>Meta Description</li>
+                <li>One Main Heading</li>
+                <li>Proper Subheadings</li>
+                <li>Image with Alt Text</li>
+                <li>One Internal Link</li>
+                <li>One External Link</li>
+                <li>Semantic HTML Elements</li>
+            </ul>
+
+            <p>
+                File Name:
+                <strong>seo-blog.html</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Lesson Navigation -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'html_topic' 'html5-features' %}"
+           class="nav-button previous-button">
+            ← Previous: HTML5 Features
+        </a>
+
+        <a href="{% url 'html_topic' 'accessibility' %}"
+           class="nav-button next-button">
+            Next: Accessibility →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

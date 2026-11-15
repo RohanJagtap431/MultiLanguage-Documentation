@@ -1,0 +1,784 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}JavaScript Conditional Statements | Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/javascript/conditions.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+
+    <div class="lesson-header">
+        <span class="lesson-label">JAVASCRIPT DOCUMENTATION • PAGE 08</span>
+
+        <h1>JavaScript Conditional Statements</h1>
+
+        <p>
+            JavaScript madhye condition check karun program la
+            vegvegale decisions kase ghyayla lavayche he shikuya.
+            if, else, else if ani switch statements samjun gheuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Beginner Level</span>
+            <span>35–40 Minutes</span>
+        </div>
+    </div>
+
+    <!-- Section 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What are Conditional Statements?</h2>
+
+        <p>
+            Conditional Statements cha use condition check karun
+            tyapramane specific code execute karnyasathi hoto.
+        </p>
+
+        <p>
+            Real life madhye suddha apan conditions nusar decisions
+            gheto. Udaharanarth, exam madhye 35 kiwa tyapeksha jast
+            marks milale tar student pass hoto.
+        </p>
+
+        <h3>Real-Life Example:</h3>
+
+        <div class="condition-flow">
+            <div class="flow-start">Student Marks</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-decision">Marks >= 35 ?</div>
+
+            <div class="flow-branches">
+                <div class="flow-branch success-branch">
+                    <span>YES</span>
+                    <strong>Pass</strong>
+                </div>
+
+                <div class="flow-branch danger-branch">
+                    <span>NO</span>
+                    <strong>Fail</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <strong>Simple Definition:</strong>
+            Condition true kiwa false aahe he check karun
+            yogya code execute karnyasathi conditional statements vapartat.
+        </div>
+
+    </section>
+
+    <!-- Section 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. if Statement</h2>
+
+        <p>
+            if statement cha use condition true asel tevha
+            specific code execute karnyasathi hoto.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>if (condition) {
+    // Condition true aslyas ha code execute hoil
+}</code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let age = 20;
+
+if (age >= 18) {
+    console.log("You are eligible");
+}</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>You are eligible</pre>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li><strong>if:</strong> Condition check karto.</li>
+            <li><strong>age >= 18:</strong> Age 18 kiwa tyapeksha jast aahe ka te check karto.</li>
+            <li><strong>{ }:</strong> Condition true aslyas execute honara code ya block madhye asto.</li>
+            <li><strong>console.log():</strong> Message console madhye display karto.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            if madhil condition true asel tarch tyatil code execute hoto.
+            Condition false asel tar block skip hoto.
+        </div>
+
+    </section>
+
+    <!-- Section 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. if...else Statement</h2>
+
+        <p>
+            if...else cha use don possible situations madhun
+            ek nivadnyasathi hoto.
+        </p>
+
+        <p>
+            Condition true asel tar if block execute hoto.
+            Condition false asel tar else block execute hoto.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>if (condition) {
+    // Condition true aslyas
+} else {
+    // Condition false aslyas
+}</code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let marks = 30;
+
+if (marks >= 35) {
+    console.log("Pass");
+} else {
+    console.log("Fail");
+}</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Fail</pre>
+        </div>
+
+        <h3>Another Example:</h3>
+
+        <pre class="code-block"><code>let number = 10;
+
+if (number % 2 === 0) {
+    console.log("Even Number");
+} else {
+    console.log("Odd Number");
+}</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Even Number</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Even kiwa Odd number, Pass kiwa Fail ani Login success
+            kiwa failure asha situations madhye if...else upyogi aahe.
+        </div>
+
+    </section>
+
+    <!-- Section 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. if...else if...else Statement</h2>
+
+        <p>
+            Jevha anek conditions check karaychya astat tevha
+            if...else if...else vapartat.
+        </p>
+
+        <p>
+            JavaScript conditions ek-ek karun check karte.
+            Ji pahili condition true hote ticha block execute hoto.
+            Nantarche blocks skip hotat.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>if (condition1) {
+    // First condition true
+
+} else if (condition2) {
+    // Second condition true
+
+} else if (condition3) {
+    // Third condition true
+
+} else {
+    // Kontihi condition true naslyas
+}</code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let marks = 75;
+
+if (marks >= 90) {
+    console.log("Grade A");
+
+} else if (marks >= 75) {
+    console.log("Grade B");
+
+} else if (marks >= 50) {
+    console.log("Grade C");
+
+} else if (marks >= 35) {
+    console.log("Grade D");
+
+} else {
+    console.log("Fail");
+}</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Grade B</pre>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>Marks 90 aahet ka? Nahi.</li>
+            <li>Marks 75 aahet ka kiwa tyapeksha jast? Ho.</li>
+            <li>Tyamule Grade B display hoto.</li>
+            <li>Urlelya conditions check hot nahit.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Conditions yogya order madhye lihine mahatvache aahe.
+            Sarvat mothi marks condition aadhi check kara.
+        </div>
+
+    </section>
+
+    <!-- Section 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. Nested if Statement</h2>
+
+        <p>
+            Ek if statement chya aat dusra if statement lihilyas
+            tyala Nested if mhantat.
+        </p>
+
+        <p>
+            Ek condition true zalyanantar tyachya aat ajun ek
+            condition check karaychi asel tar nested if vapartat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let age = 20;
+let hasID = true;
+
+if (age >= 18) {
+
+    if (hasID === true) {
+        console.log("Entry Allowed");
+    }
+
+} else {
+    console.log("Entry Not Allowed");
+}</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Entry Allowed</pre>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>First age 18 kiwa tyapeksha jast aahe ka te check hote.</li>
+            <li>Age condition true aslyamule inner if execute hoto.</li>
+            <li>hasID true aslyamule Entry Allowed display hote.</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Nested if cha use multiple dependent conditions check
+            karnyasathi hou shakto. Pan unnecessary nesting tal.
+        </div>
+
+    </section>
+
+    <!-- Section 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. switch Statement</h2>
+
+        <p>
+            switch statement cha use ekach expression chya
+            vegveglya possible values check karnyasathi hoto.
+        </p>
+
+        <p>
+            Anek fixed values check karaychya astil tar switch
+            statement code adhik readable banvu shakto.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>switch (expression) {
+
+    case value1:
+        // Code
+        break;
+
+    case value2:
+        // Code
+        break;
+
+    default:
+        // Kontahi case match naslyas
+
+}</code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let day = 3;
+
+switch (day) {
+
+    case 1:
+        console.log("Monday");
+        break;
+
+    case 2:
+        console.log("Tuesday");
+        break;
+
+    case 3:
+        console.log("Wednesday");
+        break;
+
+    case 4:
+        console.log("Thursday");
+        break;
+
+    default:
+        console.log("Invalid Day");
+
+}</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Wednesday</pre>
+        </div>
+
+        <h3>switch madhil important keywords:</h3>
+
+        <ul>
+            <li><strong>switch:</strong> Expression check karto.</li>
+            <li><strong>case:</strong> Possible value define karto.</li>
+            <li><strong>break:</strong> Matching case execute zalyanantar switch madhun baher padto.</li>
+            <li><strong>default:</strong> Kontahi case match naslyas execute hoto.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            break nasel tar pudhil cases suddha execute hou shaktat.
+            Yala fall-through mhantat.
+        </div>
+
+    </section>
+
+    <!-- Section 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. Ternary Operator</h2>
+
+        <p>
+            Ternary operator ha simple if...else condition
+            short form madhye lihinyasathi vapartat.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>condition ? valueIfTrue : valueIfFalse;</code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>let age = 20;
+
+let result = age >= 18 ? "Adult" : "Minor";
+
+console.log(result);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Adult</pre>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>age >= 18 condition check hote.</li>
+            <li>Condition true asel tar "Adult" milte.</li>
+            <li>Condition false asel tar "Minor" milte.</li>
+            <li>Final value result madhye store hote.</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Simple condition sathi ternary vapra.
+            Complex decision making sathi if...else adhik readable aste.
+        </div>
+
+    </section>
+
+    <!-- Section 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. Truthy and Falsy Values</h2>
+
+        <p>
+            JavaScript madhye condition check kartana kahi values
+            true sarkhya ani kahi false sarkhya treat kelya jatat.
+            Yanna Truthy ani Falsy values mhantat.
+        </p>
+
+        <h3>Truthy Values:</h3>
+
+        <p>
+            Boolean madhye convert kelyavar true denarya values
+            mhanje Truthy values.
+        </p>
+
+        <pre class="code-block"><code>console.log(Boolean("Hello"));
+console.log(Boolean(10));
+console.log(Boolean("0"));
+console.log(Boolean([]));
+console.log(Boolean({}));</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>true
+true
+true
+true
+true</pre>
+        </div>
+
+        <h3>Falsy Values:</h3>
+
+        <p>
+            Boolean madhye convert kelyavar false denarya
+            values mhanje Falsy values.
+        </p>
+
+        <pre class="code-block"><code>console.log(Boolean(false));
+console.log(Boolean(0));
+console.log(Boolean(""));
+console.log(Boolean(null));
+console.log(Boolean(undefined));
+console.log(Boolean(NaN));</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>false
+false
+false
+false
+false
+false</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Empty array [] ani empty object {} he JavaScript madhye
+            Truthy astat. Empty String "" hi Falsy aste.
+        </div>
+
+    </section>
+
+    <!-- Section 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Difference Between if...else and switch</h2>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>if...else</th>
+                    <th>switch</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Conditions check karnyasathi.</td>
+                    <td>Expression chya fixed values check karnyasathi.</td>
+                </tr>
+
+                <tr>
+                    <td>Comparison operators vapru shakto.</td>
+                    <td>case values sobat strict equality comparison karto.</td>
+                </tr>
+
+                <tr>
+                    <td>Range check karu shakto.</td>
+                    <td>Fixed cases sathi upyogi.</td>
+                </tr>
+
+                <tr>
+                    <td>Complex conditions sathi yogya.</td>
+                    <td>Menu kiwa fixed options sathi yogya.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="tip-box">
+            <strong>Learning Tip:</strong>
+            Marks range, age ani eligibility sathi if...else vapra.
+            Weekday, menu options ani fixed choices sathi switch vapra.
+        </div>
+
+    </section>
+
+    <!-- Section 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Practical Example - Student Grade Calculator</h2>
+
+        <p>
+            Ata marks nusar student cha grade display karanara
+            program tayar karu.
+        </p>
+
+        <h3>JavaScript Code:</h3>
+
+        <pre class="code-block"><code>let marks = 82;
+
+if (marks < 0 || marks > 100) {
+
+    console.log("Invalid Marks");
+
+} else if (marks >= 90) {
+
+    console.log("Grade A");
+
+} else if (marks >= 75) {
+
+    console.log("Grade B");
+
+} else if (marks >= 60) {
+
+    console.log("Grade C");
+
+} else if (marks >= 35) {
+
+    console.log("Grade D");
+
+} else {
+
+    console.log("Fail");
+
+}</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Grade B</pre>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>First marks valid aahet ka te check kele.</li>
+            <li>90 kiwa tyapeksha jast aslyas Grade A.</li>
+            <li>75 kiwa tyapeksha jast aslyas Grade B.</li>
+            <li>60 kiwa tyapeksha jast aslyas Grade C.</li>
+            <li>35 kiwa tyapeksha jast aslyas Grade D.</li>
+            <li>35 peksha kami aslyas Fail.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Note:</strong>
+            Ha fakt programming practice sathi banavlela sample
+            grading rule aahe. Pratyaksha college grading rules
+            vegle asu shaktat.
+        </div>
+
+    </section>
+
+    <!-- Section 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Common Beginner Mistakes</h2>
+
+        <div class="mistake-card">
+            <strong>Mistake 1: if condition madhye = vaprane</strong>
+            <p>
+                = value assign karto. Comparison sathi === kiwa
+                yogya comparison operator vapra.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 2: else if conditions cha order chukavne</strong>
+            <p>
+                Range conditions madhye mothya value chi condition
+                aadhi check kara.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 3: switch madhye break visarne</strong>
+            <p>
+                break naslyas pudhil cases execute hou shaktat.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 4: switch madhye default visarne</strong>
+            <p>
+                Unexpected value alyas default case madhye
+                message display karta yeto.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 5: Empty values nehmi Falsy astat ase samajne</strong>
+            <p>
+                [] ani {} ya empty values suddha Truthy astat.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 6: Curly brackets chukiche vaprane</strong>
+            <p>
+                if ani else blocks madhil { } yogya thikani
+                close kara.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- Section 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Quick Revision</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>Conditional Statements decisions ghenyasathi vapartat.</li>
+                <li>if condition true asel tar code execute karto.</li>
+                <li>else condition false asel tar execute hoto.</li>
+                <li>else if anek conditions check karnyasathi vapartat.</li>
+                <li>Nested if madhye eka if chya aat dusra if asto.</li>
+                <li>switch fixed values check karnyasathi vapartat.</li>
+                <li>case possible value define karto.</li>
+                <li>break switch madhun baher padto.</li>
+                <li>default matching case naslyas execute hoto.</li>
+                <li>Ternary operator simple if...else chi short form aahe.</li>
+                <li>Truthy values Boolean true detat.</li>
+                <li>Falsy values Boolean false detat.</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <!-- Section 13 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>13. Practice Questions</h2>
+
+        <h3>Basic Questions</h3>
+
+        <ol>
+            <li>Conditional Statements mhanje kay?</li>
+            <li>if statement cha use kay aahe?</li>
+            <li>if ani else madhye kay difference aahe?</li>
+            <li>else if cha use kadhi kartat?</li>
+            <li>Nested if mhanje kay?</li>
+            <li>switch statement cha use kay aahe?</li>
+            <li>switch madhye break keyword ka vapartat?</li>
+            <li>default case mhanje kay?</li>
+            <li>Ternary operator mhanje kay?</li>
+            <li>Truthy ani Falsy values mhanje kay?</li>
+        </ol>
+
+        <h3>Practical Questions</h3>
+
+        <ol>
+            <li>if vaprun age 18 peksha jast aahe ka check kar.</li>
+            <li>if...else vaprun number Even kiwa Odd check kar.</li>
+            <li>else if vaprun marks nusar grade display kar.</li>
+            <li>Nested if vaprun age ani ID check kar.</li>
+            <li>switch vaprun 1 te 7 numbers nusar weekday display kar.</li>
+            <li>Ternary operator vaprun Pass kiwa Fail display kar.</li>
+            <li>Boolean() vaprun Truthy ani Falsy values check kar.</li>
+        </ol>
+
+        <div class="task-box">
+
+            <h3>Mini Task: Login Eligibility Checker</h3>
+
+            <p>
+                JavaScript vaprun simple login eligibility
+                program tayar kar.
+            </p>
+
+            <ul>
+                <li>age navacha variable tayar kar.</li>
+                <li>isRegistered navacha Boolean variable tayar kar.</li>
+                <li>Age 18 kiwa tyapeksha jast aahe ka check kar.</li>
+                <li>User registered aahe ka te check kar.</li>
+                <li>Donhi conditions true aslyas "Login Allowed" display kar.</li>
+                <li>Anyatha "Login Not Allowed" display kar.</li>
+            </ul>
+
+            <p>
+                File name: <strong>javascript_conditions.js</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Navigation -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'javascript_topic' 'input-output' %}"
+           class="nav-button previous-button">
+            ← Previous: Input and Output
+        </a>
+
+        <a href="{% url 'javascript_topic' 'loops' %}"
+           class="nav-button next-button">
+            Next: JavaScript Loops →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

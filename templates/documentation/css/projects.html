@@ -1,0 +1,774 @@
+
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}CSS Mini Projects | Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/css/projects.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+    <div class="lesson-header">
+        <span class="lesson-label">CSS PRACTICAL</span>
+
+        <h1>CSS Mini Projects</h1>
+
+        <p>
+            Ya lesson madhye aapan HTML ani CSS vaprun
+            6 practical UI projects design karnaar aahot.
+            Pratyek project madhye vegveglya CSS concepts
+            cha use karu.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Practical Level</span>
+            <span>⏱️ 60 Minutes</span>
+            <span>📄 Page 28</span>
+        </div>
+    </div>
+
+
+    <!-- Project 1 -->
+    <section class="lesson-section">
+
+        <h2>Project 1 - Profile Card</h2>
+
+        <p>
+            Profile Card madhye user che nav, role ani
+            short introduction display kele jate.
+            Ya project madhye aapan padding, margin,
+            border-radius, box-shadow ani text properties vaparnar aahot.
+        </p>
+
+        <h3>HTML Code</h3>
+
+        <div class="code-block">
+            <pre><code>&lt;div class="profile-card"&gt;
+
+    &lt;div class="profile-avatar"&gt;RJ&lt;/div&gt;
+
+    &lt;h2&gt;Rohan Jagtap&lt;/h2&gt;
+
+    &lt;p class="profile-role"&gt;
+        Python Backend Developer
+    &lt;/p&gt;
+
+    &lt;p class="profile-description"&gt;
+        I build web applications using Python
+        and Django.
+    &lt;/p&gt;
+
+    &lt;button class="profile-button"&gt;
+        View Profile
+    &lt;/button&gt;
+
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.profile-card {
+    width: 280px;
+    padding: 25px;
+    margin: 20px auto;
+    text-align: center;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px #00000015;
+}
+
+.profile-avatar {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #2563eb;
+    color: white;
+    border-radius: 50%;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.profile-card h2 {
+    margin: 10px 0;
+    color: #172033;
+}
+
+.profile-role {
+    color: #2563eb;
+    font-size: 14px;
+}
+
+.profile-description {
+    color: #64748b;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.profile-button {
+    padding: 10px 20px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box profile-output">
+            <div class="profile-card">
+                <div class="profile-avatar">RJ</div>
+                <h2>Rohan Jagtap</h2>
+                <p class="profile-role">
+                    Python Backend Developer
+                </p>
+                <p class="profile-description">
+                    I build web applications using Python
+                    and Django.
+                </p>
+                <button type="button" class="profile-button">
+                    View Profile
+                </button>
+            </div>
+        </div>
+
+        <div class="tip-box">
+            <strong>CSS Concepts:</strong>
+            Flexbox, Padding, Margin, Border Radius,
+            Box Shadow and Text Styling.
+        </div>
+
+    </section>
+
+
+    <!-- Project 2 -->
+    <section class="lesson-section">
+
+        <h2>Project 2 - Responsive Navigation Bar</h2>
+
+        <p>
+            Navigation Bar cha use website madhil
+            vegveglya pages var navigate karanyasathi hoto.
+            Ya project madhye Flexbox ani Media Queries vaparnar aahot.
+        </p>
+
+        <h3>HTML Code</h3>
+
+        <div class="code-block">
+            <pre><code>&lt;nav class="project-navbar"&gt;
+
+    &lt;h2 class="project-logo"&gt;MyWebsite&lt;/h2&gt;
+
+    &lt;div class="project-nav-links"&gt;
+        &lt;a href="#"&gt;Home&lt;/a&gt;
+        &lt;a href="#"&gt;About&lt;/a&gt;
+        &lt;a href="#"&gt;Services&lt;/a&gt;
+        &lt;a href="#"&gt;Contact&lt;/a&gt;
+    &lt;/div&gt;
+
+&lt;/nav&gt;</code></pre>
+        </div>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.project-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 25px;
+    background: #172033;
+}
+
+.project-logo {
+    color: white;
+    margin: 0;
+    font-size: 20px;
+}
+
+.project-nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.project-nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+.project-nav-links a:hover {
+    color: #93c5fd;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .project-navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .project-nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box navbar-output">
+            <nav class="project-navbar">
+                <h2 class="project-logo">MyWebsite</h2>
+
+                <div class="project-nav-links">
+                    <a href="#navbar-project">Home</a>
+                    <a href="#navbar-project">About</a>
+                    <a href="#navbar-project">Services</a>
+                    <a href="#navbar-project">Contact</a>
+                </div>
+            </nav>
+        </div>
+
+        <div class="tip-box">
+            <strong>CSS Concepts:</strong>
+            Flexbox, Gap, Hover, Media Queries
+            and Responsive Design.
+        </div>
+
+    </section>
+
+
+    <!-- Project 3 -->
+    <section class="lesson-section">
+
+        <h2>Project 3 - Login Form</h2>
+
+        <p>
+            Login Form madhye user email ani password
+            enter karu shakto. Ya project madhye aapan
+            form elements, input styling ani focus effects shiknar aahot.
+        </p>
+
+        <h3>HTML Code</h3>
+
+        <div class="code-block">
+            <pre><code>&lt;div class="login-card"&gt;
+
+    &lt;h2&gt;Welcome Back&lt;/h2&gt;
+
+    &lt;p&gt;Login to your account&lt;/p&gt;
+
+    &lt;form&gt;
+
+        &lt;label for="login-email"&gt;Email&lt;/label&gt;
+        &lt;input
+            type="email"
+            id="login-email"
+            placeholder="Enter your email"
+        &gt;
+
+        &lt;label for="login-password"&gt;Password&lt;/label&gt;
+        &lt;input
+            type="password"
+            id="login-password"
+            placeholder="Enter your password"
+        &gt;
+
+        &lt;button type="submit"&gt;Login&lt;/button&gt;
+
+    &lt;/form&gt;
+
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.login-card {
+    width: 100%;
+    max-width: 350px;
+    margin: 20px auto;
+    padding: 25px;
+    box-sizing: border-box;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px #00000015;
+}
+
+.login-card h2 {
+    color: #172033;
+    margin: 0 0 8px;
+}
+
+.login-card p {
+    color: #64748b;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.login-card label {
+    display: block;
+    margin: 12px 0 6px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.login-card input {
+    width: 100%;
+    padding: 11px;
+    box-sizing: border-box;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    outline: none;
+}
+
+.login-card input:focus {
+    border-color: #2563eb;
+}
+
+.login-card button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box login-output">
+            <div class="login-card">
+                <h2>Welcome Back</h2>
+                <p>Login to your account</p>
+
+                <form>
+                    <label for="demo-email">Email</label>
+                    <input
+                        type="email"
+                        id="demo-email"
+                        placeholder="Enter your email"
+                    >
+
+                    <label for="demo-password">Password</label>
+                    <input
+                        type="password"
+                        id="demo-password"
+                        placeholder="Enter your password"
+                    >
+
+                    <button type="button">Login</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="important-box">
+            <strong>Note:</strong>
+            Ha fakt frontend design demo aahe.
+            Actual login system sathi backend authentication,
+            form validation ani security implement karavi lagte.
+        </div>
+
+        <div class="tip-box">
+            <strong>CSS Concepts:</strong>
+            Form Styling, Input, Focus, Border,
+            Padding and Box Shadow.
+        </div>
+
+    </section>
+
+
+    <!-- Project 4 -->
+    <section class="lesson-section">
+
+        <h2>Project 4 - Product Card</h2>
+
+        <p>
+            Product Card cha use e-commerce website madhye
+            product image, name, price ani purchase button
+            display karanyasathi hoto.
+        </p>
+
+        <h3>HTML Code</h3>
+
+        <div class="code-block">
+            <pre><code>&lt;div class="product-card"&gt;
+
+    &lt;div class="product-image"&gt;
+        Product Image
+    &lt;/div&gt;
+
+    &lt;h2&gt;Wireless Headphones&lt;/h2&gt;
+
+    &lt;p class="product-price"&gt;₹1,499&lt;/p&gt;
+
+    &lt;button type="button"&gt;Buy Now&lt;/button&gt;
+
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.product-card {
+    width: 250px;
+    padding: 15px;
+    margin: 20px auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px #00000015;
+}
+
+.product-image {
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #eff6ff;
+    color: #2563eb;
+    border-radius: 8px;
+}
+
+.product-card h2 {
+    font-size: 18px;
+    color: #172033;
+}
+
+.product-price {
+    color: #16a34a;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.product-card button {
+    width: 100%;
+    padding: 11px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box product-output">
+            <div class="product-card">
+                <div class="product-image">
+                    Product Image
+                </div>
+                <h2>Wireless Headphones</h2>
+                <p class="product-price">₹1,499</p>
+                <button type="button">Buy Now</button>
+            </div>
+        </div>
+
+        <div class="tip-box">
+            <strong>CSS Concepts:</strong>
+            Card Design, Flexbox, Box Shadow,
+            Colors and Button Styling.
+        </div>
+
+    </section>
+
+
+    <!-- Project 5 -->
+    <section class="lesson-section">
+
+        <h2>Project 5 - Pricing Card</h2>
+
+        <p>
+            Pricing Card madhye website kiwa service che
+            plans ani tyanchi prices display keli jatat.
+        </p>
+
+        <h3>HTML Code</h3>
+
+        <div class="code-block">
+            <pre><code>&lt;div class="pricing-card"&gt;
+
+    &lt;h2&gt;Basic Plan&lt;/h2&gt;
+
+    &lt;h3&gt;₹199 / Month&lt;/h3&gt;
+
+    &lt;ul&gt;
+        &lt;li&gt;5 Projects&lt;/li&gt;
+        &lt;li&gt;Basic Support&lt;/li&gt;
+        &lt;li&gt;Email Access&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;button type="button"&gt;
+        Choose Plan
+    &lt;/button&gt;
+
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.pricing-card {
+    width: 260px;
+    padding: 25px;
+    margin: 20px auto;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.pricing-card h2 {
+    color: #172033;
+}
+
+.pricing-card h3 {
+    color: #2563eb;
+    font-size: 23px;
+}
+
+.pricing-card ul {
+    padding-left: 20px;
+    text-align: left;
+    color: #475569;
+    line-height: 2;
+}
+
+.pricing-card button {
+    width: 100%;
+    padding: 11px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box pricing-output">
+            <div class="pricing-card">
+                <h2>Basic Plan</h2>
+                <h3>₹199 / Month</h3>
+
+                <ul>
+                    <li>5 Projects</li>
+                    <li>Basic Support</li>
+                    <li>Email Access</li>
+                </ul>
+
+                <button type="button">Choose Plan</button>
+            </div>
+        </div>
+
+        <div class="tip-box">
+            <strong>CSS Concepts:</strong>
+            Typography, Borders, Spacing,
+            Lists and Button Styling.
+        </div>
+
+    </section>
+
+
+    <!-- Project 6 -->
+    <section class="lesson-section">
+
+        <h2>Project 6 - Responsive Image Gallery</h2>
+
+        <p>
+            Image Gallery madhye multiple images grid
+            format madhye display kele jatat.
+            Ya project madhye CSS Grid ani Media Queries vaparnar aahot.
+        </p>
+
+        <h3>HTML Code</h3>
+
+        <div class="code-block">
+            <pre><code>&lt;div class="gallery"&gt;
+
+    &lt;div class="gallery-item"&gt;Image 1&lt;/div&gt;
+    &lt;div class="gallery-item"&gt;Image 2&lt;/div&gt;
+    &lt;div class="gallery-item"&gt;Image 3&lt;/div&gt;
+    &lt;div class="gallery-item"&gt;Image 4&lt;/div&gt;
+    &lt;div class="gallery-item"&gt;Image 5&lt;/div&gt;
+    &lt;div class="gallery-item"&gt;Image 6&lt;/div&gt;
+
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.gallery-item {
+    min-height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #dbeafe;
+    color: #1e40af;
+    border-radius: 8px;
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box gallery-output">
+            <div class="gallery">
+                <div class="gallery-item">Image 1</div>
+                <div class="gallery-item">Image 2</div>
+                <div class="gallery-item">Image 3</div>
+                <div class="gallery-item">Image 4</div>
+                <div class="gallery-item">Image 5</div>
+                <div class="gallery-item">Image 6</div>
+            </div>
+        </div>
+
+        <div class="tip-box">
+            <strong>CSS Concepts:</strong>
+            CSS Grid, Gap, Flexbox,
+            Media Queries and Responsive Design.
+        </div>
+
+    </section>
+
+
+    <!-- Summary -->
+    <section class="lesson-section">
+
+        <h2>Project Summary</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+
+                <thead>
+                    <tr>
+                        <th>Project</th>
+                        <th>Main CSS Concepts</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Profile Card</td>
+                        <td>Padding, Shadow, Flexbox</td>
+                    </tr>
+
+                    <tr>
+                        <td>Navigation Bar</td>
+                        <td>Flexbox, Media Queries</td>
+                    </tr>
+
+                    <tr>
+                        <td>Login Form</td>
+                        <td>Input, Focus, Forms</td>
+                    </tr>
+
+                    <tr>
+                        <td>Product Card</td>
+                        <td>Cards, Colors, Spacing</td>
+                    </tr>
+
+                    <tr>
+                        <td>Pricing Card</td>
+                        <td>Typography, Borders, Lists</td>
+                    </tr>
+
+                    <tr>
+                        <td>Image Gallery</td>
+                        <td>Grid, Gap, Media Queries</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+    </section>
+
+
+    <!-- Practice Section -->
+    <section class="practice-section">
+
+        <h2>Practice Task</h2>
+
+        <div class="task-box">
+
+            <h3>Complete These Projects Yourself</h3>
+
+            <ol>
+                <li>Profile Card swata design kara.</li>
+                <li>Responsive Navbar tayar kara.</li>
+                <li>Login Form design kara.</li>
+                <li>Product Card madhye actual image add kara.</li>
+                <li>Pricing Card madhye 3 plans tayar kara.</li>
+                <li>Image Gallery madhye 6 actual images add kara.</li>
+                <li>Pratyek project mobile var test kara.</li>
+            </ol>
+
+            <p>
+                Pratyek project swata code karanyacha
+                prayatna kara. Code fakt copy-paste karu naka.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+
+        <a href="{% url 'css_topic' 'best-practices' %}"
+           class="nav-button previous">
+            ← Previous: CSS Best Practices
+        </a>
+
+        <a href="{% url 'css_topic' 'practice' %}"
+           class="nav-button next">
+            Next: CSS Practice Questions →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

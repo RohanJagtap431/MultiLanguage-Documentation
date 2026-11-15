@@ -1,0 +1,1046 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}
+HTML Images | Roman Marathi
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/html/images.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+
+    <div class="lesson-header">
+
+        <span class="lesson-label">HTML DOCUMENTATION • PAGE 07</span>
+
+        <h1>HTML Images</h1>
+
+        <p>
+            HTML webpage madhye images add karne, image paths,
+            src ani alt attributes, image dimensions,
+            responsive images ani figure elements ya lesson madhye shikuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Beginner Level</span>
+            <span>35–40 Minutes</span>
+        </div>
+
+    </div>
+
+
+    <!-- Section 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What are HTML Images?</h2>
+
+        <p>
+            HTML Images cha use webpage madhye pictures,
+            photographs, graphics ani visual content display
+            karnyasathi hoto.
+        </p>
+
+        <p>
+            Images mule webpage adhik informative ani visually
+            attractive banto.
+        </p>
+
+        <h3>Examples:</h3>
+
+        <ul>
+            <li>Website madhye company logo display karne.</li>
+            <li>Product photographs show karne.</li>
+            <li>Profile pictures display karne.</li>
+            <li>Blog madhye photographs add karne.</li>
+            <li>Educational diagrams display karne.</li>
+        </ul>
+
+        <div class="info-box">
+            <strong>Simple Definition:</strong>
+            HTML Images cha use webpage madhye visual content
+            display karnyasathi hoto.
+        </div>
+
+    </section>
+
+
+    <!-- Section 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. HTML img Element</h2>
+
+        <p>
+            HTML madhye image add karnyasathi img element vapartat.
+            Ha void element aahe. Tyala closing tag chi garaj naste.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>
+&lt;img src="image.jpg" alt="Image Description"&gt;
+        </code></pre>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;img src="flower.jpg" alt="Beautiful Flower"&gt;
+        </code></pre>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>img = Image element.</li>
+            <li>src = Image file cha path.</li>
+            <li>alt = Image cha alternative text.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            img ha void element aahe.
+            Tyamule &lt;img&gt; vapr. &lt;/img&gt; closing tag
+            vaparnyachi garaj nahi.
+        </div>
+
+    </section>
+
+
+    <!-- Section 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. src Attribute</h2>
+
+        <p>
+            src cha full form source aahe.
+            Ya attribute cha use image file kuthe aahe
+            he browser la sangnyasathi hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;img src="flower.jpg" alt="Red Flower"&gt;
+        </code></pre>
+
+        <p>
+            Ithe flower.jpg hi image file browser load karnyacha
+            prayatna karel.
+        </p>
+
+        <h3>Different Image Formats:</h3>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>Format</th>
+                    <th>Common Use</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>JPG / JPEG</td>
+                    <td>Photographs ani regular images.</td>
+                </tr>
+
+                <tr>
+                    <td>PNG</td>
+                    <td>Transparency support aslelya images.</td>
+                </tr>
+
+                <tr>
+                    <td>GIF</td>
+                    <td>Simple animations.</td>
+                </tr>
+
+                <tr>
+                    <td>SVG</td>
+                    <td>Logos, icons ani vector graphics.</td>
+                </tr>
+
+                <tr>
+                    <td>WebP</td>
+                    <td>Modern compressed web images.</td>
+                </tr>
+
+                <tr>
+                    <td>AVIF</td>
+                    <td>Modern efficient image format.</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Website madhye image format select kartana
+            image quality, file size ani browser compatibility
+            lakshat ghe.
+        </div>
+
+    </section>
+
+
+    <!-- Section 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. alt Attribute</h2>
+
+        <p>
+            alt cha full form alternative text aahe.
+            Ya attribute madhye image baddal text description
+            lihitat.
+        </p>
+
+        <p>
+            Image load zali nahi tar kahi paristhitit alt text
+            display hou shakto. Screen reader users na image cha
+            meaning samjnyasathi suddha alt text useful aahe.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;img
+    src="student.jpg"
+    alt="Student studying at a desk"
+&gt;
+        </code></pre>
+
+        <h3>Decorative Image:</h3>
+
+        <pre class="code-block"><code>
+&lt;img src="decoration.png" alt=""&gt;
+        </code></pre>
+
+        <p>
+            Image fakt decoration sathi asel ani additional
+            information det nasel tar empty alt text vaparta yeto.
+        </p>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Meaningful image sathi descriptive alt text lih.
+            Alt attribute completely omit karnyapeksha
+            appropriate alt value dene changle.
+        </div>
+
+    </section>
+
+
+    <!-- Section 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. width and height Attributes</h2>
+
+        <p>
+            width ani height attributes cha use image chi
+            dimensions specify karnyasathi hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;img
+    src="flower.jpg"
+    alt="Red Flower"
+    width="300"
+    height="200"
+&gt;
+        </code></pre>
+
+        <p>
+            Ithe image chi width 300 pixels ani height
+            200 pixels specify keli aahe.
+        </p>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <div class="image-placeholder">
+                <span>300 × 200</span>
+                <small>Image dimensions example</small>
+            </div>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            width ani height specify kelyane browser la image
+            sathi space reserve karta yete. Yogya dimensions
+            dene layout shifting kami karnyas madat karte.
+        </div>
+
+    </section>
+
+
+    <!-- Section 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. Relative Image Path</h2>
+
+        <p>
+            Relative path madhye image cha location current
+            HTML document chya location nusar specify karto.
+        </p>
+
+        <h3>Example 1: Same Folder</h3>
+
+        <pre class="code-block"><code>
+&lt;img src="photo.jpg" alt="My Photo"&gt;
+        </code></pre>
+
+        <p>
+            Ithe photo.jpg ani HTML file same folder madhye aahet.
+        </p>
+
+        <h3>Example 2: Images Folder</h3>
+
+        <pre class="code-block"><code>
+&lt;img src="images/photo.jpg" alt="My Photo"&gt;
+        </code></pre>
+
+        <p>
+            Ithe photo.jpg hi file images folder madhye aahe.
+        </p>
+
+        <h3>Example 3: Parent Folder</h3>
+
+        <pre class="code-block"><code>
+&lt;img src="../photo.jpg" alt="My Photo"&gt;
+        </code></pre>
+
+        <p>
+            ../ mule current folder chya parent folder madhil
+            photo.jpg file access hote.
+        </p>
+
+        <h3>Folder Structure:</h3>
+
+        <pre class="code-block"><code>
+my-website/
+│
+├── index.html
+│
+├── photo.jpg
+│
+└── images/
+    ├── flower.jpg
+    └── student.png
+        </code></pre>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Relative path ha HTML document chya location
+            nusar resolve hoto. File path barobar lihine
+            khup important aahe.
+        </div>
+
+    </section>
+
+
+    <!-- Section 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. Absolute Image Path</h2>
+
+        <p>
+            Absolute URL madhye image cha complete web address
+            specify kelela asto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;img
+    src="https://example.com/images/flower.jpg"
+    alt="Flower"
+&gt;
+        </code></pre>
+
+        <p>
+            Ya example madhye image external website varun load
+            karnyacha prayatna kela jato.
+        </p>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            External image URL vapartana image publicly accessible
+            aahe ka ani website tyacha use allow karte ka
+            he check kar.
+        </div>
+
+    </section>
+
+
+    <!-- Section 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. Image Folder Structure</h2>
+
+        <p>
+            Website project madhye images sathi separate folder
+            create karne hi common practice aahe.
+        </p>
+
+        <h3>Example Folder Structure:</h3>
+
+        <pre class="code-block"><code>
+my-website/
+│
+├── index.html
+│
+├── about.html
+│
+├── css/
+│   └── style.css
+│
+├── js/
+│   └── script.js
+│
+└── images/
+    ├── logo.png
+    ├── profile.jpg
+    └── banner.webp
+        </code></pre>
+
+        <h3>HTML Code:</h3>
+
+        <pre class="code-block"><code>
+&lt;img src="images/logo.png" alt="Website Logo"&gt;
+
+&lt;img src="images/profile.jpg" alt="Profile Photo"&gt;
+
+&lt;img src="images/banner.webp" alt="Website Banner"&gt;
+        </code></pre>
+
+        <p>
+            Ya prakare images ekach folder madhye व्यवस्थित
+            organize karta yetat.
+        </p>
+
+    </section>
+
+
+    <!-- Section 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Image as a Link</h2>
+
+        <p>
+            Image la clickable banvanyasathi img element
+            anchor element chya aat place kartat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;a href="https://www.google.com"&gt;
+
+    &lt;img
+        src="google-logo.png"
+        alt="Visit Google"
+        width="150"
+    &gt;
+
+&lt;/a&gt;
+        </code></pre>
+
+        <p>
+            Ata user image var click kelyavar Google website
+            open hoil.
+        </p>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            Anchor element madhye image thevlyane image
+            hyperlink mhanun work karte.
+        </div>
+
+    </section>
+
+
+    <!-- Section 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Figure and Figcaption Elements</h2>
+
+        <p>
+            figure element cha use image, diagram, illustration
+            kiwa other self-contained content group karnyasathi hoto.
+        </p>
+
+        <p>
+            figcaption element cha use figure madhil content sathi
+            caption kiwa description denyasathi hoto.
+        </p>
+
+        <h3>Syntax:</h3>
+
+        <pre class="code-block"><code>
+&lt;figure&gt;
+
+    &lt;img src="flower.jpg" alt="Red Rose"&gt;
+
+    &lt;figcaption&gt;
+        A beautiful red rose.
+    &lt;/figcaption&gt;
+
+&lt;/figure&gt;
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+
+            <figure class="figure-demo">
+
+                <div class="image-placeholder figure-image">
+                    <span>Flower Image</span>
+                </div>
+
+                <figcaption>
+                    A beautiful red rose.
+                </figcaption>
+
+            </figure>
+
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Image la meaningful caption dyaycha asel tar
+            figure ani figcaption elements useful aahet.
+        </div>
+
+    </section>
+
+
+    <!-- Section 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Responsive Images with CSS</h2>
+
+        <p>
+            Responsive image mhanje screen size nusar
+            available space madhye adjust honari image.
+        </p>
+
+        <p>
+            CSS madhye max-width: 100% vaprun image
+            container peksha mothi honar nahi yachi kalji gheta yete.
+        </p>
+
+        <h3>HTML Code:</h3>
+
+        <pre class="code-block"><code>
+&lt;img
+    src="landscape.jpg"
+    alt="Beautiful Landscape"
+    class="responsive-image"
+&gt;
+        </code></pre>
+
+        <h3>CSS Code:</h3>
+
+        <pre class="code-block"><code>
+.responsive-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+        </code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <div class="responsive-demo">
+                <div class="image-placeholder">
+                    <span>Responsive Image</span>
+                    <small>Container width nusar adjust hoil</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            height: auto mule image che original proportions
+            maintain karnyas madat hote.
+        </div>
+
+    </section>
+
+
+    <!-- Section 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. loading Attribute</h2>
+
+        <p>
+            img element madhil loading attribute browser la
+            image loading behavior baddal hint dete.
+        </p>
+
+        <h3>Common Values:</h3>
+
+        <table class="lesson-table">
+
+            <thead>
+                <tr>
+                    <th>Value</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>lazy</td>
+                    <td>Image viewport javal alyavar load karnyasathi hint dete.</td>
+                </tr>
+
+                <tr>
+                    <td>eager</td>
+                    <td>Image normally lagech load karnyasathi hint dete.</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;img
+    src="product.jpg"
+    alt="Product Image"
+    loading="lazy"
+&gt;
+        </code></pre>
+
+        <p>
+            Ya example madhye browser image la lazy loading
+            hint follow karnyasathi sangto.
+        </p>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Page chya khali aslelya images sathi lazy loading
+            useful asu shakate. Above-the-fold main image sathi
+            unnecessary lazy loading avoid kar.
+        </div>
+
+    </section>
+
+
+    <!-- Section 13 -->
+
+    <section class="lesson-section">
+
+        <h2>13. Responsive Images with srcset</h2>
+
+        <p>
+            srcset attribute cha use ekach image chya
+            different sizes kiwa resolutions browser la
+            available karun denyasathi hoto.
+        </p>
+
+        <p>
+            Browser device ani display conditions nusar
+            suitable image resource select karu shakto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;img
+    src="small.jpg"
+    srcset="
+        small.jpg 480w,
+        medium.jpg 800w,
+        large.jpg 1200w
+    "
+    sizes="(max-width: 600px) 100vw, 800px"
+    alt="Beautiful Landscape"
+&gt;
+        </code></pre>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>src = Default image source.</li>
+            <li>srcset = Available image sources ani tyanchi width.</li>
+            <li>sizes = Layout madhye image kiti width gheil yachi hint.</li>
+            <li>480w, 800w, 1200w = Image resource widths.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            srcset ani sizes vaprun browser la different
+            screen conditions sathi suitable image select
+            karnyas madat hote.
+        </div>
+
+    </section>
+
+
+    <!-- Section 14 -->
+
+    <section class="lesson-section">
+
+        <h2>14. Picture Element</h2>
+
+        <p>
+            picture element cha use different screen conditions
+            kiwa image formats nusar alternative image resources
+            provide karnyasathi hoto.
+        </p>
+
+        <p>
+            picture madhye source elements ani img element vapartat.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>
+&lt;picture&gt;
+
+    &lt;source
+        media="(max-width: 600px)"
+        srcset="mobile.jpg"
+    &gt;
+
+    &lt;source
+        media="(min-width: 601px)"
+        srcset="desktop.jpg"
+    &gt;
+
+    &lt;img
+        src="desktop.jpg"
+        alt="Website Banner"
+    &gt;
+
+&lt;/picture&gt;
+        </code></pre>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>picture = Alternative image sources group karte.</li>
+            <li>source = Alternative image resource specify karte.</li>
+            <li>media = CSS media condition specify karte.</li>
+            <li>img = Default ani fallback image provide karte.</li>
+        </ul>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            picture element vapartana img element suddha
+            provide karne important aahe.
+        </div>
+
+    </section>
+
+
+    <!-- Section 15 -->
+
+    <section class="lesson-section">
+
+        <h2>15. Complete Practical Example</h2>
+
+        <p>
+            Ata apan image, alt, dimensions, figure,
+            figcaption ani responsive CSS vaprun
+            ek simple profile section tayar karu.
+        </p>
+
+        <h3>HTML Code:</h3>
+
+        <pre class="code-block"><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+
+    &lt;meta charset="UTF-8"&gt;
+
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+
+    &lt;title&gt;Student Profile&lt;/title&gt;
+
+    &lt;style&gt;
+
+        .profile-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+        }
+
+    &lt;/style&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;h1&gt;Student Profile&lt;/h1&gt;
+
+    &lt;figure&gt;
+
+        &lt;img
+            src="images/student.jpg"
+            alt="Student Profile Photo"
+            width="250"
+            height="250"
+            class="profile-image"
+        &gt;
+
+        &lt;figcaption&gt;
+            My Student Profile
+        &lt;/figcaption&gt;
+
+    &lt;/figure&gt;
+
+    &lt;h2&gt;About Me&lt;/h2&gt;
+
+    &lt;p&gt;
+        I am learning web development.
+    &lt;/p&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+        </code></pre>
+
+        <h3>Expected Output Structure:</h3>
+
+        <div class="output-box profile-demo">
+
+            <h1>Student Profile</h1>
+
+            <figure>
+                <div class="image-placeholder profile-image-demo">
+                    <span>Student Photo</span>
+                </div>
+
+                <figcaption>My Student Profile</figcaption>
+            </figure>
+
+            <h2>About Me</h2>
+
+            <p>I am learning web development.</p>
+
+        </div>
+
+        <p>
+            Actual image display honyasathi project madhye
+            images/student.jpg file available asne avashyak aahe.
+        </p>
+
+    </section>
+
+
+    <!-- Section 16 -->
+
+    <section class="lesson-section">
+
+        <h2>16. Common Beginner Mistakes</h2>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 1: Wrong Image Path</strong>
+
+            <p>
+                src madhye incorrect path dilyas image load hot nahi.
+                Folder structure check kar.
+            </p>
+
+        </div>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 2: alt Attribute Ignore Karne</strong>
+
+            <p>
+                Meaningful image sathi descriptive alt text dene
+                important aahe.
+            </p>
+
+        </div>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 3: Wrong File Extension</strong>
+
+            <p>
+                Image cha actual file format ani src madhil
+                extension match hot aahe ka te check kar.
+            </p>
+
+        </div>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 4: width ani height madhye distortion</strong>
+
+            <p>
+                Image che proportions maintain karnyasathi
+                CSS madhye height: auto vapr.
+            </p>
+
+        </div>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 5: Missing Image File</strong>
+
+            <p>
+                HTML madhye image path dila pan actual image
+                project madhye nasel tar image display honar nahi.
+            </p>
+
+        </div>
+
+        <div class="mistake-card">
+
+            <strong>Mistake 6: Saglya Images la Lazy Loading</strong>
+
+            <p>
+                Main visible image la unnecessary lazy loading
+                deu naye. Lazy loading appropriate images sathi vapr.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 17 -->
+
+    <section class="lesson-section">
+
+        <h2>17. Quick Revision</h2>
+
+        <div class="revision-box">
+
+            <ul>
+                <li>HTML images sathi img element vapartat.</li>
+                <li>img ha void element aahe.</li>
+                <li>src image cha path specify karte.</li>
+                <li>alt image cha alternative text dete.</li>
+                <li>width ani height image dimensions specify kartat.</li>
+                <li>Relative path current document location var depend hoto.</li>
+                <li>Absolute URL complete web address specify karte.</li>
+                <li>figure image kiwa related content group karte.</li>
+                <li>figcaption caption provide karte.</li>
+                <li>CSS max-width: 100% responsive image sathi useful aahe.</li>
+                <li>loading="lazy" lazy loading hint dete.</li>
+                <li>srcset different image resources provide karte.</li>
+                <li>picture alternative image sources provide karte.</li>
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 18 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>18. Practice Questions</h2>
+
+        <h3>Basic Questions</h3>
+
+        <ol>
+            <li>HTML Images mhanje kay?</li>
+            <li>Image add karnyasathi konta element vapartat?</li>
+            <li>img element void element ka aahe?</li>
+            <li>src attribute cha use kay aahe?</li>
+            <li>alt attribute ka important aahe?</li>
+            <li>width ani height attributes cha use kay aahe?</li>
+            <li>Relative Image Path mhanje kay?</li>
+            <li>Absolute Image URL mhanje kay?</li>
+            <li>figure ani figcaption elements cha use kay aahe?</li>
+            <li>Responsive Image mhanje kay?</li>
+            <li>loading="lazy" cha use kay aahe?</li>
+            <li>srcset attribute mhanje kay?</li>
+            <li>picture element cha use kay aahe?</li>
+        </ol>
+
+        <h3>Practical Questions</h3>
+
+        <ol>
+            <li>Webpage madhye flower image add kar.</li>
+            <li>Image la descriptive alt text de.</li>
+            <li>Image chi width 300 ani height 200 set kar.</li>
+            <li>Images folder madhun image load kar.</li>
+            <li>Image la clickable link banav.</li>
+            <li>figure ani figcaption vaprun image caption tayar kar.</li>
+            <li>CSS vaprun responsive image tayar kar.</li>
+            <li>Image madhye loading="lazy" vapr.</li>
+            <li>picture element vaprun mobile ani desktop image sources define kar.</li>
+        </ol>
+
+        <div class="task-box">
+
+            <h3>Mini Task: Personal Photo Gallery</h3>
+
+            <p>
+                HTML vaprun ek simple photo gallery tayar kar.
+            </p>
+
+            <ul>
+                <li>Gallery sathi h1 heading create kar.</li>
+                <li>Kamit kami 3 images add kar.</li>
+                <li>Pratyek image la descriptive alt text de.</li>
+                <li>Images sathi width ani height specify kar.</li>
+                <li>figure ani figcaption vapr.</li>
+                <li>CSS vaprun images responsive banav.</li>
+                <li>Images sathi separate folder create kar.</li>
+            </ul>
+
+            <p>
+                File Name: <strong>gallery.html</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Lesson Navigation -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'html_topic' 'links' %}"
+           class="nav-button previous-button">
+            ← Previous: HTML Links
+        </a>
+
+        <a href="{% url 'html_topic' 'lists' %}"
+           class="nav-button next-button">
+            Next: HTML Lists →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

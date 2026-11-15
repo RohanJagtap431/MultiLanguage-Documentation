@@ -1,0 +1,155 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}
+HTML Documentation | Roman Marathi
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/html/index.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<div class="page-heading">
+
+    <span class="section-label">WEB DEVELOPMENT</span>
+
+    <h1>HTML Documentation</h1>
+
+    <p>
+        HTML web development basic pasun advanced paryant
+        soprya Roman Marathi madhye shika.
+        Pratyek topic sobat explanation, syntax,
+        code examples ani output dile aahet.
+    </p>
+
+</div>
+
+<div class="topic-list">
+
+    <a href="{% url 'html_topic' 'introduction' %}" class="topic-card">
+        <span class="topic-number">01</span>
+        <span class="topic-name">Introduction to HTML</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'html_topic' 'structure' %}" class="topic-card">
+        <span class="topic-number">02</span>
+        <span class="topic-name">HTML Document Structure</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'html_topic' 'elements' %}" class="topic-card">
+        <span class="topic-number">03</span>
+        <span class="topic-name">HTML Elements and Tags</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'html_topic' 'attributes' %}" class="topic-card">
+        <span class="topic-number">04</span>
+        <span class="topic-name">HTML Attributes</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'html_topic' 'headings-paragraphs' %}" class="topic-card">
+        <span class="topic-number">05</span>
+        <span class="topic-name">Headings and Paragraphs</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'html_topic' 'links' %}" class="topic-card">
+        <span class="topic-number">06</span>
+        <span class="topic-name">HTML Links</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'html_topic' 'images' %}" class="topic-card">
+        <span class="topic-number">07</span>
+        <span class="topic-name">HTML Images</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'html_topic' 'lists' %}" class="topic-card">
+        <span class="topic-number">08</span>
+        <span class="topic-name">HTML Lists</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'html_topic' 'tables' %}" class="topic-card">
+        <span class="topic-number">09</span>
+        <span class="topic-name">HTML Tables</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'html_topic' 'forms' %}" class="topic-card">
+        <span class="topic-number">10</span>
+        <span class="topic-name">HTML Forms</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'html_topic' 'input-types' %}" class="topic-card">
+        <span class="topic-number">11</span>
+        <span class="topic-name">HTML Input Types</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'html_topic' 'semantic-html' %}" class="topic-card">
+        <span class="topic-number">12</span>
+        <span class="topic-name">Semantic HTML</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'html_topic' 'audio-video' %}" class="topic-card">
+        <span class="topic-number">13</span>
+        <span class="topic-name">HTML Audio and Video</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'html_topic' 'iframes' %}" class="topic-card">
+        <span class="topic-number">14</span>
+        <span class="topic-name">HTML Iframes</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'html_topic' 'html-entities' %}" class="topic-card">
+        <span class="topic-number">15</span>
+        <span class="topic-name">HTML Entities</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'html_topic' 'html5-features' %}" class="topic-card">
+        <span class="topic-number">16</span>
+        <span class="topic-name">HTML5 Features</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'html_topic' 'seo-basics' %}" class="topic-card">
+        <span class="topic-number">17</span>
+        <span class="topic-name">HTML SEO Basics</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'html_topic' 'accessibility' %}" class="topic-card">
+        <span class="topic-number">18</span>
+        <span class="topic-name">HTML Accessibility</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'html_topic' 'projects' %}" class="topic-card">
+        <span class="topic-number">19</span>
+        <span class="topic-name">HTML Mini Projects</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="{% url 'html_topic' 'practice' %}" class="topic-card">
+        <span class="topic-number">20</span>
+        <span class="topic-name">HTML Practice Questions</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+</div>
+
+{% endblock %}

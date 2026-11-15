@@ -1,0 +1,458 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}DOM Introduction | JavaScript Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/javascript/dom.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Header -->
+
+    <div class="lesson-header">
+        <span class="lesson-label">JAVASCRIPT DOCUMENTATION • PAGE 17</span>
+
+        <h1>DOM Introduction</h1>
+
+        <p>
+            Ya lesson madhye DOM mhanje kay, HTML ani DOM madhil
+            difference, DOM Tree, document object ani JavaScript
+            HTML page sobat kasa interact karte te shikuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Beginner Level</span>
+            <span>35–40 Minutes</span>
+        </div>
+    </div>
+
+    <!-- Section 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What is DOM?</h2>
+
+        <p>
+            DOM cha full form <strong>Document Object Model</strong> aahe.
+            Browser HTML document load karto tevha tyachi ek tree-like
+            structure tayar karto. Ya structure la DOM mhantat.
+        </p>
+
+        <p>
+            DOM mule JavaScript la HTML elements access karta yetat
+            ani tyanchya content, style ani attributes madhye badal karta yeto.
+        </p>
+
+        <div class="info-box">
+            <strong>Definition:</strong>
+            DOM is a programming interface that represents an HTML
+            document as a tree of objects.
+        </div>
+
+        <h3>DOM cha use:</h3>
+
+        <ul>
+            <li>HTML elements access karne.</li>
+            <li>Element madhil text change karne.</li>
+            <li>CSS styles change karne.</li>
+            <li>New HTML elements add karne.</li>
+            <li>Existing elements remove karne.</li>
+            <li>User events handle karne.</li>
+        </ul>
+
+    </section>
+
+    <!-- Section 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. HTML vs DOM</h2>
+
+        <p>
+            HTML ani DOM he same nahit. HTML hi webpage chi structure
+            lihinyasathi vaprali janari markup language aahe.
+            DOM hi browser ne tayar kelele object structure aahe.
+        </p>
+
+        <h3>HTML Example:</h3>
+
+        <pre class="code-block"><code>&lt;h1&gt;Hello World&lt;/h1&gt;
+&lt;p&gt;Welcome to JavaScript&lt;/p&gt;</code></pre>
+
+        <h3>DOM madhye kay hote?</h3>
+
+        <p>
+            Browser ya HTML madhil elements la objects mhanun represent karto.
+            JavaScript ya objects sobat interact karu shakte.
+        </p>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>HTML</th>
+                    <th>DOM</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Markup language aahe.</td>
+                    <td>Programming interface aahe.</td>
+                </tr>
+                <tr>
+                    <td>Page chi structure lihite.</td>
+                    <td>Page la objects madhye represent karte.</td>
+                </tr>
+                <tr>
+                    <td>HTML tags vaparte.</td>
+                    <td>Objects ani properties vaparte.</td>
+                </tr>
+                <tr>
+                    <td>Browser HTML read karto.</td>
+                    <td>JavaScript DOM madhun page change karu shakte.</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </section>
+
+    <!-- Section 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. DOM Tree Structure</h2>
+
+        <p>
+            DOM document la tree structure madhye represent karto.
+            Ya tree madhye pratyek HTML element ha ek node asto.
+        </p>
+
+        <h3>Example HTML:</h3>
+
+        <pre class="code-block"><code>&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;My Page&lt;/title&gt;
+    &lt;/head&gt;
+
+    &lt;body&gt;
+        &lt;h1&gt;Hello&lt;/h1&gt;
+        &lt;p&gt;Welcome&lt;/p&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+        <h3>DOM Tree:</h3>
+
+        <div class="dom-tree">
+            <div class="tree-node root-node">document</div>
+
+            <div class="tree-children">
+                <div class="tree-branch">
+                    <div class="tree-node">html</div>
+
+                    <div class="tree-children">
+                        <div class="tree-branch">
+                            <div class="tree-node">head</div>
+
+                            <div class="tree-children">
+                                <div class="tree-node leaf-node">title</div>
+                            </div>
+                        </div>
+
+                        <div class="tree-branch">
+                            <div class="tree-node">body</div>
+
+                            <div class="tree-children">
+                                <div class="tree-node leaf-node">h1</div>
+                                <div class="tree-node leaf-node">p</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h3>Important Terms:</h3>
+
+        <ul>
+            <li><strong>Parent:</strong> Dusrya node la contain karanara node.</li>
+            <li><strong>Child:</strong> Parent node chya aat asanara node.</li>
+            <li><strong>Sibling:</strong> Same parent share karanare nodes.</li>
+            <li><strong>Root:</strong> Tree madhil top-level node.</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Remember:</strong>
+            body madhil h1 ani p he doghe html elements aahet
+            ani doghancha parent body aahe.
+        </div>
+
+    </section>
+
+    <!-- Section 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. What is document Object?</h2>
+
+        <p>
+            JavaScript madhye document ha object aahe.
+            To browser madhye load zalele HTML document represent karto.
+        </p>
+
+        <p>
+            DOM sobat kaam kartana document ha entry point mhanun
+            vaparla jato.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>console.log(document);
+
+console.log(document.title);
+
+console.log(document.body);</code></pre>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li><strong>document:</strong> Complete HTML document access karto.</li>
+            <li><strong>document.title:</strong> Page cha title milavto.</li>
+            <li><strong>document.body:</strong> HTML madhil body element milavto.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            document object browser environment madhye available asto.
+            To Node.js madhye default ne available nasto.
+        </div>
+
+    </section>
+
+    <!-- Section 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. How JavaScript Interacts with HTML</h2>
+
+        <p>
+            JavaScript document object cha use karun HTML elements
+            access karte ani tyanchyamadhye badal karu shakte.
+        </p>
+
+        <h3>JavaScript kay karu shakte?</h3>
+
+        <ul>
+            <li>HTML madhil text change karu shakte.</li>
+            <li>Element cha color change karu shakte.</li>
+            <li>New elements create karu shakte.</li>
+            <li>Elements delete karu shakte.</li>
+            <li>Button click sarkhe events handle karu shakte.</li>
+        </ul>
+
+        <h3>Simple Example:</h3>
+
+        <pre class="code-block"><code>&lt;h1 id="heading"&gt;Hello World&lt;/h1&gt;
+
+&lt;button id="changeButton"&gt;
+    Change Text
+&lt;/button&gt;
+
+&lt;script&gt;
+    const heading = document.getElementById("heading");
+    const button = document.getElementById("changeButton");
+
+    button.addEventListener("click", function() {
+        heading.textContent = "Welcome to DOM!";
+    });
+&lt;/script&gt;</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box demo-output">
+            <h3 id="dom-demo-heading">Hello World</h3>
+            <button type="button" id="dom-demo-button" class="demo-button">
+                Change Text
+            </button>
+        </div>
+
+        <p>
+            Button click kelyavar JavaScript heading madhil text
+            change karte. Ha DOM cha basic use aahe.
+        </p>
+
+    </section>
+
+    <!-- Section 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. DOM and Browser</h2>
+
+        <p>
+            Browser HTML file read karto ani tyavarun DOM tree tayar karto.
+            JavaScript ya DOM tree madhil nodes access karu shakte.
+        </p>
+
+        <h3>Working Process:</h3>
+
+        <ol>
+            <li>Browser HTML document load karto.</li>
+            <li>HTML madhun DOM Tree tayar hote.</li>
+            <li>JavaScript document object vaprun elements access karte.</li>
+            <li>JavaScript elements madhye changes karte.</li>
+            <li>Browser updated page screen var dakhavto.</li>
+        </ol>
+
+        <div class="info-box">
+            HTML page chi original file ani browser madhil DOM
+            he vegale astat. JavaScript ne DOM madhye kelela badal
+            automatic HTML file madhye save hot nahi.
+        </div>
+
+    </section>
+
+    <!-- Section 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. Common Beginner Mistakes</h2>
+
+        <div class="mistake-card">
+            <strong>Mistake 1: DOM ani HTML same samajne</strong>
+            <p>
+                HTML markup aahe, tar DOM hi browser madhil object structure aahe.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 2: Wrong element ID vaprane</strong>
+            <p>
+                JavaScript madhil ID ani HTML madhil ID same asne avashyak aahe.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 3: Element load honyapurvi JavaScript chalavne</strong>
+            <p>
+                JavaScript element load honyapurvi run zali tar
+                element null milu shakto. Script yogya thikani theva
+                kiwa defer vapra.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 4: document object cha use na samajne</strong>
+            <p>
+                document ha loaded HTML document access karnyasathi
+                vaparla janara main object aahe.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- Section 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. Quick Revision</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>DOM cha full form Document Object Model aahe.</li>
+                <li>Browser HTML document pasun DOM Tree tayar karto.</li>
+                <li>DOM HTML la objects madhye represent karto.</li>
+                <li>DOM Tree madhye nodes astat.</li>
+                <li>Parent node madhye child nodes astat.</li>
+                <li>document ha HTML document represent karto.</li>
+                <li>JavaScript DOM vaprun HTML content change karu shakte.</li>
+                <li>DOM vaprun styles ani elements suddha change karta yetat.</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <!-- Section 9 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>9. Practice Questions</h2>
+
+        <h3>Basic Questions</h3>
+
+        <ol>
+            <li>DOM cha full form kay aahe?</li>
+            <li>DOM mhanje kay?</li>
+            <li>HTML ani DOM madhye kay difference aahe?</li>
+            <li>DOM Tree mhanje kay?</li>
+            <li>Parent ani Child node mhanje kay?</li>
+            <li>document object cha use kay aahe?</li>
+            <li>JavaScript DOM vaprun kay karu shakte?</li>
+        </ol>
+
+        <h3>Practical Questions</h3>
+
+        <ol>
+            <li>Ek HTML heading tayar kar.</li>
+            <li>document.title vaprun page title print kar.</li>
+            <li>document.body vaprun body access kar.</li>
+            <li>Button click kelyavar heading change kar.</li>
+        </ol>
+
+        <div class="task-box">
+
+            <h3>Mini Task: Welcome Message Changer</h3>
+
+            <p>
+                Ek simple webpage tayar kar ani DOM vaprun
+                heading cha text change kar.
+            </p>
+
+            <ul>
+                <li>Ek h1 heading tayar kar.</li>
+                <li>Ek paragraph add kar.</li>
+                <li>Ek button add kar.</li>
+                <li>Button click kelyavar heading change kar.</li>
+                <li>Paragraph madhil text suddha change kar.</li>
+            </ul>
+
+            <p>
+                File name: <strong>javascript_dom_intro.html</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Navigation -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'javascript_topic' 'object-methods' %}"
+           class="nav-button previous-button">
+            ← Previous: Object Methods
+        </a>
+
+        <a href="{% url 'javascript_topic' 'dom-selectors' %}"
+           class="nav-button next-button">
+            Next: DOM Selectors →
+        </a>
+
+    </div>
+
+</div>
+
+<script>
+    const domHeading = document.getElementById("dom-demo-heading");
+    const domButton = document.getElementById("dom-demo-button");
+
+    domButton.addEventListener("click", function () {
+        domHeading.textContent = "Welcome to DOM!";
+    });
+</script>
+
+{% endblock %}

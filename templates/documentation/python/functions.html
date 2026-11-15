@@ -1,0 +1,864 @@
+
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}Python Functions | Roman Marathi Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/python/functions.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">PYTHON • LESSON 19</span>
+        <h1>Python Functions</h1>
+        <p>
+            Function cha use code reusable banvnyasathi hoto.
+            Ekda function define karun tyala anek vela call karta yete.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Level: Beginner</span>
+            <span>⏱️ Time: 40–50 Minutes</span>
+        </div>
+    </div>
+
+    <!-- 1. Introduction -->
+    <section class="lesson-section">
+        <h2>1. What are Functions?</h2>
+
+        <p>
+            Function ha code cha reusable block aahe.
+            Specific task perform karnyasathi function create kartat.
+        </p>
+
+        <p>
+            Samja aaplyala Hello message anek vela print karaycha aahe.
+            Pratyek veli print() lihinyapeksha ek function create karun
+            tyala punha-punha call karu shakto.
+        </p>
+
+        <h3>Without Function</h3>
+
+        <pre><code>print("Hello Rohan")
+print("Hello Rohan")
+print("Hello Rohan")</code></pre>
+
+        <h3>With Function</h3>
+
+        <pre><code>def greet():
+    print("Hello Rohan")
+
+greet()
+greet()
+greet()</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Hello Rohan
+Hello Rohan
+Hello Rohan</pre>
+        </div>
+
+        <div class="info-box">
+            <strong>Samjun ghe:</strong>
+            Function ekda define kela aahe ani greet() call karun
+            tyacha code teen vela execute kela aahe.
+        </div>
+    </section>
+
+    <!-- 2. Advantages -->
+    <section class="lesson-section">
+        <h2>2. Advantages of Functions</h2>
+
+        <ul>
+            <li><strong>Code Reusability:</strong> Ekach code anek vela use karta yeto.</li>
+            <li><strong>Less Repetition:</strong> Same code punha-punha lihava lagat nahi.</li>
+            <li><strong>Easy Maintenance:</strong> Code update karne sope hote.</li>
+            <li><strong>Better Organization:</strong> Program small parts madhye divide hoto.</li>
+            <li><strong>Easy Testing:</strong> Specific function separately test karta yeto.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Large applications madhye functions mule code samjun ghene,
+            debug karne ani maintain karne sope hote.
+        </div>
+    </section>
+
+    <!-- 3. Types -->
+    <section class="lesson-section">
+        <h2>3. Types of Functions</h2>
+
+        <p>Python madhye functions che don important types aahet:</p>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Built-in Functions</td>
+                        <td>Python madhye already available aslele functions.</td>
+                    </tr>
+                    <tr>
+                        <td>User-defined Functions</td>
+                        <td>Programmer swatah create karto te functions.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 4. Built-in -->
+    <section class="lesson-section">
+        <h2>4. Built-in Functions</h2>
+
+        <p>
+            Python madhye kahi functions already available astat.
+            Tyanna Built-in Functions mhantat.
+        </p>
+
+        <h3>Common Built-in Functions</h3>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Function</th>
+                        <th>Use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>print()</td><td>Output display karto.</td></tr>
+                    <tr><td>input()</td><td>User kadun input gheto.</td></tr>
+                    <tr><td>len()</td><td>Items chi sankhya deto.</td></tr>
+                    <tr><td>type()</td><td>Data type check karto.</td></tr>
+                    <tr><td>int()</td><td>Integer conversion karto.</td></tr>
+                    <tr><td>float()</td><td>Float conversion karto.</td></tr>
+                    <tr><td>str()</td><td>String conversion karto.</td></tr>
+                    <tr><td>max()</td><td>Maximum value deto.</td></tr>
+                    <tr><td>min()</td><td>Minimum value deto.</td></tr>
+                    <tr><td>sum()</td><td>Numbers chi sum deto.</td></tr>
+                    <tr><td>sorted()</td><td>Sorted list return karto.</td></tr>
+                    <tr><td>range()</td><td>Numbers chi sequence deto.</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Example</h3>
+
+        <pre><code>numbers = [10, 20, 30, 40]
+
+print(len(numbers))
+print(max(numbers))
+print(min(numbers))
+print(sum(numbers))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>4
+40
+10
+100</pre>
+        </div>
+    </section>
+
+    <!-- 5. User Defined -->
+    <section class="lesson-section">
+        <h2>5. User-defined Functions</h2>
+
+        <p>
+            Programmer swatah specific task sathi function create karto.
+            Tyala User-defined Function mhantat.
+        </p>
+
+        <p>
+            Python madhye function define karnyasathi
+            <code>def</code> keyword vapartat.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre><code>def function_name():
+    # Code to execute</code></pre>
+
+        <h3>Example</h3>
+
+        <pre><code>def greet():
+    print("Welcome to Python")
+
+greet()</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Welcome to Python</pre>
+        </div>
+
+        <h3>Code Explanation</h3>
+
+        <ul>
+            <li><code>def</code> – Function define karnyasathi keyword.</li>
+            <li><code>greet</code> – Function che name.</li>
+            <li><code>()</code> – Parameters lihinyasathi parentheses.</li>
+            <li><code>:</code> – Function body suru hoto.</li>
+            <li><code>greet()</code> – Function call karto.</li>
+        </ul>
+    </section>
+
+    <!-- 6. Function Calling -->
+    <section class="lesson-section">
+        <h2>6. Function Calling</h2>
+
+        <p>
+            Function define kelyanantar tyacha code execute karnyasathi
+            function call karava lagto.
+        </p>
+
+        <pre><code>def message():
+    print("Learning Python")
+
+message()
+message()</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Learning Python
+Learning Python</pre>
+        </div>
+
+        <div class="warning-box">
+            <strong>Note:</strong>
+            Fakt function define kelyane tyatil code execute hot nahi.
+            Function call karne avashyak aahe.
+        </div>
+    </section>
+
+    <!-- 7. Parameters -->
+    <section class="lesson-section">
+        <h2>7. Parameters in Functions</h2>
+
+        <p>
+            Function define kartana parentheses madhye je variables
+            lihito tyanna Parameters mhantat.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>def greet(name):
+    print("Hello", name)
+
+greet("Rohan")
+greet("Amit")</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Hello Rohan
+Hello Amit</pre>
+        </div>
+
+        <p>
+            Ya example madhye name ha parameter aahe.
+            Function call kartana dilelya values name madhye store hotat.
+        </p>
+
+        <div class="info-box">
+            <strong>Important:</strong>
+            Parameters ani Arguments ya donhi terms madhye difference aahe.
+            Parameters function definition madhye astat, arguments function
+            call kartana dile jatat.
+        </div>
+    </section>
+
+    <!-- 8. Multiple Parameters -->
+    <section class="lesson-section">
+        <h2>8. Multiple Parameters</h2>
+
+        <p>
+            Function madhye ekapeksha jast parameters define karta yetat.
+        </p>
+
+        <pre><code>def add(a, b):
+    result = a + b
+    print(result)
+
+add(10, 20)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>30</pre>
+        </div>
+
+        <h3>Another Example</h3>
+
+        <pre><code>def student(name, age, course):
+    print("Name:", name)
+    print("Age:", age)
+    print("Course:", course)
+
+student("Rohan", 20, "Computer Science")</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Name: Rohan
+Age: 20
+Course: Computer Science</pre>
+        </div>
+    </section>
+
+    <!-- 9. Return -->
+    <section class="lesson-section">
+        <h2>9. return Statement</h2>
+
+        <p>
+            <code>return</code> statement cha use function madhun
+            result value parat pathavnyasathi hoto.
+        </p>
+
+        <p>
+            return zalyanantar function madhil execution thambte
+            ani result function call chya thikani milto.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre><code>def function_name():
+    return value</code></pre>
+
+        <h3>Example</h3>
+
+        <pre><code>def add(a, b):
+    return a + b
+
+result = add(10, 20)
+
+print(result)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>30</pre>
+        </div>
+
+        <h3>Using Returned Value</h3>
+
+        <pre><code>def square(number):
+    return number * number
+
+answer = square(5)
+
+print("Square:", answer)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Square: 25</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            return mule value caller la milte. Ti value variable madhye
+            store karu shakto kiwa dusrya calculation madhye vapru shakto.
+        </div>
+    </section>
+
+    <!-- 10. Print vs Return -->
+    <section class="lesson-section">
+        <h2>10. Difference Between print() and return</h2>
+
+        <p>
+            print() ani return ekach kam karat nahit.
+            Ha difference samjun ghene khup important aahe.
+        </p>
+
+        <h3>Using print()</h3>
+
+        <pre><code>def add(a, b):
+    print(a + b)
+
+result = add(10, 20)
+
+print("Result:", result)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>30
+Result: None</pre>
+        </div>
+
+        <h3>Using return</h3>
+
+        <pre><code>def add(a, b):
+    return a + b
+
+result = add(10, 20)
+
+print("Result:", result)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Result: 30</pre>
+        </div>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>print()</th>
+                        <th>return</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Output display karto.</td>
+                        <td>Value caller la parat pathavto.</td>
+                    </tr>
+                    <tr>
+                        <td>Swatah result return karat nahi.</td>
+                        <td>Result pudhe use karta yeto.</td>
+                    </tr>
+                    <tr>
+                        <td>print() mule function automatically return hot nahi.</td>
+                        <td>return nantar function execution stop hote.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 11. Default Return -->
+    <section class="lesson-section">
+        <h2>11. Function Without return</h2>
+
+        <p>
+            Function madhye return statement nasel tar Python automatically
+            <code>None</code> return karto.
+        </p>
+
+        <pre><code>def greet():
+    print("Hello")
+
+result = greet()
+
+print(result)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Hello
+None</pre>
+        </div>
+
+        <p>
+            Function ne explicit value return keli nahi,
+            mhanun result chi value None aahe.
+        </p>
+    </section>
+
+    <!-- 12. Multiple Return Values -->
+    <section class="lesson-section">
+        <h2>12. Returning Multiple Values</h2>
+
+        <p>
+            Python madhye function madhun comma-separated multiple values
+            return karta yetat. Python tyanna tuple madhye pack karto.
+        </p>
+
+        <pre><code>def calculate(a, b):
+    total = a + b
+    difference = a - b
+
+    return total, difference
+
+result = calculate(20, 10)
+
+print(result)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>(30, 10)</pre>
+        </div>
+
+        <h3>Unpacking Returned Values</h3>
+
+        <pre><code>def calculate(a, b):
+    return a + b, a - b
+
+total, difference = calculate(20, 10)
+
+print("Total:", total)
+print("Difference:", difference)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Total: 30
+Difference: 10</pre>
+        </div>
+    </section>
+
+    <!-- 13. Scope -->
+    <section class="lesson-section">
+        <h2>13. Local and Global Variables</h2>
+
+        <p>
+            Function chya aat create kelelya variable la Local Variable
+            mhantat. Function chya baher create kelelya variable la
+            Global Variable mhantat.
+        </p>
+
+        <h3>Local Variable</h3>
+
+        <pre><code>def greet():
+    message = "Hello Python"
+    print(message)
+
+greet()</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Hello Python</pre>
+        </div>
+
+        <p>
+            message ha function chya aat create zala aahe.
+            Mhanun to local variable aahe.
+        </p>
+
+        <h3>Global Variable</h3>
+
+        <pre><code>name = "Rohan"
+
+def greet():
+    print("Hello", name)
+
+greet()</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Hello Rohan</pre>
+        </div>
+
+        <p>
+            name ha function chya baher define kela aahe.
+            Mhanun to global variable aahe ani function madhun read karta yeto.
+        </p>
+
+        <div class="warning-box">
+            <strong>Note:</strong>
+            Global variable la function madhun modify karaycha asel tar
+            global keyword lagto. Pan unnecessary global variables
+            vaprane talave.
+        </div>
+    </section>
+
+    <!-- 14. Built-in vs User Defined -->
+    <section class="lesson-section">
+        <h2>14. Built-in vs User-defined Functions</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Built-in</th>
+                        <th>User-defined</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Python madhye already available astat.</td>
+                        <td>Programmer swatah create karto.</td>
+                    </tr>
+                    <tr>
+                        <td>Directly use karta yetat.</td>
+                        <td>Aadhi define karave lagtat.</td>
+                    </tr>
+                    <tr>
+                        <td>Example: len(), max(), sum()</td>
+                        <td>Example: greet(), add(), calculate()</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 15. Practical Example -->
+    <section class="lesson-section">
+        <h2>15. Practical Example – Calculator</h2>
+
+        <p>
+            Calculator sathi vegvegale functions create kar.
+            Pratyek function specific mathematical operation perform karel.
+        </p>
+
+        <pre><code>def add(a, b):
+    return a + b
+
+def subtract(a, b):
+    return a - b
+
+def multiply(a, b):
+    return a * b
+
+def divide(a, b):
+    if b == 0:
+        return "Cannot divide by zero"
+
+    return a / b
+
+
+print("Addition:", add(10, 5))
+print("Subtraction:", subtract(10, 5))
+print("Multiplication:", multiply(10, 5))
+print("Division:", divide(10, 5))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Addition: 15
+Subtraction: 5
+Multiplication: 50
+Division: 2.0</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Samjun ghe:</strong>
+            Pratyek operation sathi vegala function create kela aahe.
+            Tyamule code organized ani reusable zala aahe.
+        </div>
+    </section>
+
+    <!-- 16. Common Mistakes -->
+    <section class="lesson-section">
+        <h2>16. Common Beginner Mistakes</h2>
+
+        <div class="error-card">
+            <h3>Mistake 1: Missing Parentheses</h3>
+
+            <pre><code>def greet:
+    print("Hello")</code></pre>
+
+            <p>
+                Function name nantar parentheses dene avashyak aahe.
+            </p>
+
+            <pre><code>def greet():
+    print("Hello")</code></pre>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 2: Missing Colon</h3>
+
+            <pre><code>def greet()
+    print("Hello")</code></pre>
+
+            <p>
+                Function definition nantar colon dene avashyak aahe.
+            </p>
+
+            <pre><code>def greet():
+    print("Hello")</code></pre>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 3: Wrong Indentation</h3>
+
+            <pre><code>def greet():
+print("Hello")</code></pre>
+
+            <p>
+                Function body madhil code la indentation dene avashyak aahe.
+            </p>
+
+            <pre><code>def greet():
+    print("Hello")</code></pre>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 4: Calling Before Definition</h3>
+
+            <pre><code>greet()
+
+def greet():
+    print("Hello")</code></pre>
+
+            <p>
+                Function define honyapurvi call kelyas NameError yeu shakto.
+                Function aadhi define kar.
+            </p>
+
+            <pre><code>def greet():
+    print("Hello")
+
+greet()</code></pre>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 5: Forgetting return</h3>
+
+            <pre><code>def add(a, b):
+    print(a + b)
+
+result = add(10, 20)
+print(result)</code></pre>
+
+            <p>
+                Function madhun result pudhe use karaycha asel tar
+                print() aivaji return vapra.
+            </p>
+
+            <pre><code>def add(a, b):
+    return a + b</code></pre>
+        </div>
+    </section>
+
+    <!-- 17. Revision -->
+    <section class="lesson-section">
+        <h2>17. Quick Revision</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Concept</th>
+                        <th>Use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>def</td><td>Function define karto.</td></tr>
+                    <tr><td>Function Call</td><td>Function execute karto.</td></tr>
+                    <tr><td>Parameter</td><td>Function definition madhil variable.</td></tr>
+                    <tr><td>Argument</td><td>Function call kartana dileli value.</td></tr>
+                    <tr><td>return</td><td>Function madhun value parat pathavto.</td></tr>
+                    <tr><td>print()</td><td>Output display karto.</td></tr>
+                    <tr><td>Local Variable</td><td>Function madhye define kelela variable.</td></tr>
+                    <tr><td>Global Variable</td><td>Function chya baher define kelela variable.</td></tr>
+                    <tr><td>Built-in</td><td>Python madhye already available function.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 18. Practice -->
+    <section class="practice-section">
+        <h2>18. Practice Questions</h2>
+
+        <p>
+            Khalil questions swatah code lihun solve kar.
+            Function define karne, call karne ani return samjun ghe.
+        </p>
+
+        <div class="practice-task">
+            <h3>Question 1</h3>
+            <p>greet() navacha function create kar ani Hello Python print kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 2</h3>
+            <p>Function create karun 1 te 10 numbers print kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 3</h3>
+            <p>Ek number parameter mhanun gheun tyacha square return kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 4</h3>
+            <p>Don numbers parameters mhanun gheun tyanchi addition return kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 5</h3>
+            <p>Number Even aahe ki Odd te check karnara function create kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 6</h3>
+            <p>Three numbers madhil maximum number return karnara function create kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 7</h3>
+            <p>Student name ani marks gheun details print karnara function create kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 8</h3>
+            <p>Function vaprun list madhil numbers chi sum return kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 9</h3>
+            <p>Two numbers chi addition ani subtraction donhi values return kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 10</h3>
+            <p>Function vaprun Celsius temperature Fahrenheit madhye convert kar.</p>
+        </div>
+    </section>
+
+    <!-- 19. Practical Task -->
+    <section class="lesson-section">
+        <h2>19. Practical Task – Student Result System</h2>
+
+        <p>
+            Student che name ani marks gheun result calculate kar.
+            Function madhye marks check karun Pass kiwa Fail return kar.
+        </p>
+
+        <pre><code>def check_result(name, marks):
+
+    if marks >= 35:
+        result = "Pass"
+    else:
+        result = "Fail"
+
+    return result
+
+
+student_name = "Rohan"
+student_marks = 80
+
+result = check_result(student_name, student_marks)
+
+print("Student:", student_name)
+print("Marks:", student_marks)
+print("Result:", result)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Student: Rohan
+Marks: 80
+Result: Pass</pre>
+        </div>
+
+        <p>
+            Ya practical madhye function, parameters, arguments,
+            if-else ani return statement vaparla aahe.
+        </p>
+
+        <div class="tip-box">
+            <strong>Practice Challenge:</strong>
+            Ya program madhye marks nusar Grade A, Grade B, Grade C
+            ani Fail return karnyachi functionality add kar.
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+        <a href="{% url 'python_topic' 'loop-control' %}" class="nav-button back-button">
+            ← Previous: Loop Control
+        </a>
+
+        <a href="{% url 'python_topic' 'arguments' %}" class="nav-button next-button">
+            Next: Function Arguments →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,813 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Django Admin Panel{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/django/admin-panel.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- HEADER -->
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO COURSE • TOPIC 16</span>
+        <h1>Django Admin Panel</h1>
+        <p>
+            Learn how to manage database records using Django's
+            built-in administration interface.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 40–50 Minutes</span>
+        </div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <section class="lesson-section">
+        <h2>1. Django Admin Panel mhanje kay?</h2>
+
+        <p>
+            Django Admin Panel he Django madhye built-in
+            administration interface aahe.
+        </p>
+
+        <p>
+            Admin Panel cha use database madhil records
+            add, view, update ani delete karnyasathi hoto.
+        </p>
+
+        <div class="example-box">
+            <h3>Example – Student Management</h3>
+            <ul>
+                <li>New Student add karne.</li>
+                <li>Existing Student details view karne.</li>
+                <li>Student information update karne.</li>
+                <li>Student record delete karne.</li>
+                <li>Students search ani filter karne.</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            Django Admin Panel automatically generate hoto.
+            Aapan models register karun tyanna Admin madhye manage karu shakto.
+        </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section class="lesson-section">
+        <h2>2. Django Admin URL</h2>
+
+        <p>
+            Django project create kartana default admin URL
+            configuration already available aste.
+        </p>
+
+        <h3>File: config/urls.py</h3>
+
+        <pre class="code-block"><code>from django.contrib import admin
+from django.urls import path
+
+urlpatterns = [
+
+    path("admin/", admin.site.urls),
+
+]</code></pre>
+
+        <p>
+            Ya URL mule Django Admin Panel access karta yeto.
+        </p>
+
+        <h3>Admin URL</h3>
+
+        <pre class="output-code"><code>http://127.0.0.1:8000/admin/</code></pre>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            Project madhye admin URL already asel tar
+            punha duplicate URL add karu naka.
+        </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section class="lesson-section">
+        <h2>3. Create Superuser</h2>
+
+        <p>
+            Admin Panel madhye login karnyasathi Superuser account
+            create karava lagto.
+        </p>
+
+        <h3>Command</h3>
+
+        <pre class="code-block"><code>python manage.py createsuperuser</code></pre>
+
+        <p>Command run kelyavar Django details vicharte:</p>
+
+        <pre class="output-code"><code>Username:
+Email address:
+Password:
+Password (again):</code></pre>
+
+        <p>
+            Valid details enter kelyanantar Superuser account
+            create hoto.
+        </p>
+
+        <h3>Run Server</h3>
+
+        <pre class="code-block"><code>python manage.py runserver</code></pre>
+
+        <p>
+            Ata browser madhye Admin URL open karun
+            Superuser credentials vaprun login kara.
+        </p>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Superuser create karnyapurvi database migrations
+            apply kelelya asne necessary aahe.
+        </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section class="lesson-section">
+        <h2>4. Model Registration</h2>
+
+        <p>
+            Model Registration mhanje Django model la
+            Admin Panel madhye available karun dene.
+        </p>
+
+        <p>
+            Model register karnyasathi app madhil admin.py
+            file use keli jate.
+        </p>
+
+        <h3>Example: students/admin.py</h3>
+
+        <pre class="code-block"><code>from django.contrib import admin
+from .models import Student
+
+admin.site.register(Student)</code></pre>
+
+        <p>
+            Ata Student model Admin Panel madhye disel.
+            Admin user Student records manage karu shakel.
+        </p>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            Model create karne ani Admin Panel madhye register karne
+            ya don vegalya goshti aahet.
+        </div>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section class="lesson-section">
+        <h2>5. ModelAdmin Class</h2>
+
+        <p>
+            ModelAdmin class cha use Admin Panel madhil
+            model display ani behavior customize karnyasathi hoto.
+        </p>
+
+        <h3>Basic Example</h3>
+
+        <pre class="code-block"><code>from django.contrib import admin
+from .models import Student
+
+@admin.register(Student)
+class StudentAdmin(admin.ModelAdmin):
+
+    pass</code></pre>
+
+        <p>
+            @admin.register(Student) decorator Student model
+            la StudentAdmin configuration sobat register karto.
+        </p>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            ModelAdmin mule Admin Panel madhye columns,
+            search, filters ani ordering customize karta yetat.
+        </div>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section class="lesson-section">
+        <h2>6. list_display</h2>
+
+        <p>
+            list_display cha use Admin Panel madhil list page var
+            konti fields columns mhanun display karaychi te tharavnyasathi hoto.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre class="code-block"><code>@admin.register(Student)
+class StudentAdmin(admin.ModelAdmin):
+
+    list_display = (
+        "id",
+        "name",
+        "email",
+        "age",
+        "course",
+    )</code></pre>
+
+        <h3>Expected Columns</h3>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Age</th>
+                    <th>Course</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Rahul</td>
+                    <td>rahul@example.com</td>
+                    <td>20</td>
+                    <td>BSc CS</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Amit</td>
+                    <td>amit@example.com</td>
+                    <td>21</td>
+                    <td>BCA</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            list_display madhye model fields kiwa model varil
+            suitable methods specify karta yetat.
+        </div>
+    </section>
+
+    <!-- SECTION 7 -->
+    <section class="lesson-section">
+        <h2>7. search_fields</h2>
+
+        <p>
+            search_fields cha use Admin Panel madhye records
+            search karnyasathi hoto.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre class="code-block"><code>class StudentAdmin(admin.ModelAdmin):
+
+    list_display = (
+        "name",
+        "email",
+        "course",
+    )
+
+    search_fields = (
+        "name",
+        "email",
+        "course",
+    )</code></pre>
+
+        <p>
+            Ata Admin Panel madhye name, email ani course
+            vaprun Student search karta yeil.
+        </p>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            search_fields madhye searchable text fields specify kara.
+        </div>
+    </section>
+
+    <!-- SECTION 8 -->
+    <section class="lesson-section">
+        <h2>8. list_filter</h2>
+
+        <p>
+            list_filter cha use records filter karnyasathi hoto.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre class="code-block"><code>class StudentAdmin(admin.ModelAdmin):
+
+    list_display = (
+        "name",
+        "age",
+        "course",
+    )
+
+    list_filter = (
+        "course",
+        "age",
+    )</code></pre>
+
+        <p>
+            Ata Admin Panel madhye course ani age nusar
+            Student records filter karta yetil.
+        </p>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            list_filter sidebar madhye filtering options provide karte.
+        </div>
+    </section>
+
+    <!-- SECTION 9 -->
+    <section class="lesson-section">
+        <h2>9. ordering</h2>
+
+        <p>
+            ordering cha use Admin Panel madhil records
+            default order madhye display karnyasathi hoto.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre class="code-block"><code>class StudentAdmin(admin.ModelAdmin):
+
+    ordering = ("name",)</code></pre>
+
+        <p>
+            Ya mule records name nusar ascending order madhye display hotil.
+        </p>
+
+        <h3>Descending Order</h3>
+
+        <pre class="code-block"><code>ordering = ("-name",)</code></pre>
+
+        <p>
+            Field chya pudhe minus (-) dilyas descending order milto.
+        </p>
+    </section>
+
+    <!-- SECTION 10 -->
+    <section class="lesson-section">
+        <h2>10. list_editable</h2>
+
+        <p>
+            list_editable cha use list page varun kahi field values
+            directly edit karnyasathi hoto.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre class="code-block"><code>class StudentAdmin(admin.ModelAdmin):
+
+    list_display = (
+        "name",
+        "email",
+        "age",
+        "course",
+    )
+
+    list_editable = (
+        "age",
+        "course",
+    )</code></pre>
+
+        <p>
+            Ata Student list madhye age ani course values
+            edit karta yetil.
+        </p>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            list_editable madhil fields list_display madhye
+            asne required aahe. list_display madhil pahila field
+            list_editable madhye thevu naye.
+        </div>
+    </section>
+
+    <!-- SECTION 11 -->
+    <section class="lesson-section">
+        <h2>11. readonly_fields</h2>
+
+        <p>
+            readonly_fields cha use Admin form madhye kahi fields
+            read-only thevnyasathi hoto.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre class="code-block"><code>class StudentAdmin(admin.ModelAdmin):
+
+    readonly_fields = (
+        "created_at",
+    )</code></pre>
+
+        <p>
+            Ata created_at field Admin form madhye display hoil,
+            pan manually edit karta yenar nahi.
+        </p>
+    </section>
+
+    <!-- SECTION 12 -->
+    <section class="lesson-section">
+        <h2>12. date_hierarchy</h2>
+
+        <p>
+            date_hierarchy cha use date field nusar records
+            navigate ani filter karnyasathi hoto.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre class="code-block"><code>class StudentAdmin(admin.ModelAdmin):
+
+    date_hierarchy = "created_at"</code></pre>
+
+        <p>
+            Admin Panel madhye created_at date nusar
+            date navigation available hote.
+        </p>
+
+        <div class="important-box">
+            <strong>Note:</strong>
+            date_hierarchy sathi model madhye suitable DateField
+            kiwa DateTimeField asne required aahe.
+        </div>
+    </section>
+
+    <!-- SECTION 13 -->
+    <section class="lesson-section">
+        <h2>13. Admin Panel Customization</h2>
+
+        <p>
+            Django Admin Site cha title ani header customize
+            karnyasathi admin site properties use karta yetat.
+        </p>
+
+        <h3>Example: students/admin.py</h3>
+
+        <pre class="code-block"><code>admin.site.site_header = "Student Management"
+admin.site.site_title = "Student Admin"
+admin.site.index_title = "Welcome to Admin Panel"</code></pre>
+
+        <p>
+            Ya properties mule Admin Panel madhil heading
+            ani browser title customize karta yetat.
+        </p>
+    </section>
+
+    <!-- SECTION 14 -->
+    <section class="lesson-section">
+        <h2>14. Admin Panel Working Flow</h2>
+
+        <div class="flow-container">
+
+            <div class="flow-box flow-user">
+                <strong>Admin User</strong>
+                <span>Login with Superuser Account</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-box">
+                <strong>Django Admin</strong>
+                <span>Check Admin Permissions</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-box">
+                <strong>ModelAdmin</strong>
+                <span>Display and Manage Records</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-box flow-success">
+                <strong>Database</strong>
+                <span>Save Updated Records</span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 15 -->
+    <section class="lesson-section">
+        <h2>15. Practical – Professional Student Admin</h2>
+
+        <p>
+            Ata existing Student model vaprun Admin Panel
+            customize karu.
+        </p>
+
+        <h3>Step 1: Check Student Model</h3>
+
+        <p>File: students/models.py</p>
+
+        <pre class="code-block"><code>from django.db import models
+
+class Student(models.Model):
+
+    name = models.CharField(max_length=100)
+
+    email = models.EmailField(unique=True)
+
+    age = models.IntegerField()
+
+    course = models.CharField(max_length=100)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name</code></pre>
+
+        <p>
+            Ha model Topic 08 madhye create kela asel tar
+            punha create karu naka. Existing model check kara.
+        </p>
+
+        <h3>Step 2: Configure Admin</h3>
+
+        <p>File: students/admin.py</p>
+
+        <pre class="code-block"><code>from django.contrib import admin
+from .models import Student
+
+
+@admin.register(Student)
+class StudentAdmin(admin.ModelAdmin):
+
+    list_display = (
+        "id",
+        "name",
+        "email",
+        "age",
+        "course",
+        "created_at",
+    )
+
+    search_fields = (
+        "name",
+        "email",
+        "course",
+    )
+
+    list_filter = (
+        "course",
+        "age",
+    )
+
+    ordering = ("name",)
+
+    list_per_page = 10
+
+    readonly_fields = (
+        "created_at",
+    )
+
+
+admin.site.site_header = "Student Management System"
+
+admin.site.site_title = "Student Admin"
+
+admin.site.index_title = "Welcome to Student Admin Panel"</code></pre>
+
+        <h3>Step 3: Check App Registration</h3>
+
+        <p>File: config/settings.py</p>
+
+        <pre class="code-block"><code>INSTALLED_APPS = [
+
+    # Existing Django Apps
+
+    "students",
+]</code></pre>
+
+        <p>
+            students app already registered asel tar
+            duplicate entry add karu naka.
+        </p>
+
+        <h3>Step 4: Check Admin URL</h3>
+
+        <p>File: config/urls.py</p>
+
+        <pre class="code-block"><code>from django.contrib import admin
+from django.urls import path
+
+urlpatterns = [
+
+    path("admin/", admin.site.urls),
+
+]</code></pre>
+
+        <p>
+            Existing project madhye admin URL already asel tar
+            toch vapra.
+        </p>
+
+        <h3>Step 5: Apply Migrations</h3>
+
+        <pre class="code-block"><code>python manage.py makemigrations
+
+python manage.py migrate</code></pre>
+
+        <h3>Step 6: Create Superuser</h3>
+
+        <pre class="code-block"><code>python manage.py createsuperuser</code></pre>
+
+        <p>
+            Superuser already asel tar hi step skip kara.
+        </p>
+
+        <h3>Step 7: Run Server</h3>
+
+        <pre class="code-block"><code>python manage.py runserver</code></pre>
+
+        <h3>Step 8: Open Admin Panel</h3>
+
+        <pre class="output-code"><code>http://127.0.0.1:8000/admin/</code></pre>
+
+        <p>
+            Superuser username ani password enter karun login kara.
+            Ata Students section madhye Student records manage karta yetil.
+        </p>
+
+        <h3>Expected Admin Preview</h3>
+
+        <div class="browser-preview">
+
+            <div class="browser-bar">
+                <span></span>
+                <span></span>
+                <span></span>
+                <div class="browser-address">
+                    127.0.0.1:8000/admin/
+                </div>
+            </div>
+
+            <div class="admin-preview">
+
+                <div class="admin-preview-header">
+                    Student Management System
+                </div>
+
+                <div class="admin-preview-content">
+                    <h3>Site administration</h3>
+
+                    <div class="admin-preview-table">
+                        <div class="admin-preview-row admin-preview-heading">
+                            <span>App / Model</span>
+                            <span>Action</span>
+                        </div>
+
+                        <div class="admin-preview-row">
+                            <strong>Students</strong>
+                            <span>Student</span>
+                        </div>
+
+                        <div class="admin-preview-row">
+                            <span>Authentication</span>
+                            <span>Users / Groups</span>
+                        </div>
+                    </div>
+
+                    <p class="preview-note">
+                        Illustrative preview. Actual Admin Panel
+                        registered models ani permissions nusar disel.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="info-box">
+            <strong>Practical Completed:</strong>
+            Ata Student Admin madhye list display, search,
+            filters, ordering ani read-only fields configure kele aahet.
+        </div>
+    </section>
+
+    <!-- SECTION 16 -->
+    <section class="lesson-section">
+        <h2>16. Common Mistakes</h2>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Problem</th>
+                    <th>Solution</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Model not visible</td>
+                    <td>Model admin.py madhye register kara.</td>
+                </tr>
+                <tr>
+                    <td>Admin login failed</td>
+                    <td>Correct Superuser credentials vapra.</td>
+                </tr>
+                <tr>
+                    <td>No such table</td>
+                    <td>Migrations apply kara.</td>
+                </tr>
+                <tr>
+                    <td>Model import error</td>
+                    <td>Import path ani model name check kara.</td>
+                </tr>
+                <tr>
+                    <td>list_editable error</td>
+                    <td>list_display madhil first field edit sathi vapru naka.</td>
+                </tr>
+                <tr>
+                    <td>Admin URL not found</td>
+                    <td>Project urls.py check kara.</td>
+                </tr>
+                <tr>
+                    <td>Duplicate registration</td>
+                    <td>Model ekdach register kara.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- SECTION 17 -->
+    <section class="lesson-section">
+        <h2>17. Important Revision</h2>
+
+        <ol>
+            <li>Django Admin Panel database records manage karte.</li>
+            <li>createsuperuser command Superuser create karte.</li>
+            <li>admin.py madhye models register kartat.</li>
+            <li>ModelAdmin class Admin Panel customize karte.</li>
+            <li>list_display columns define karte.</li>
+            <li>search_fields records search karte.</li>
+            <li>list_filter records filter karte.</li>
+            <li>ordering default record order define karte.</li>
+            <li>list_editable list madhun fields edit karte.</li>
+            <li>readonly_fields fields edit honyapasun protect karte.</li>
+            <li>date_hierarchy date-based navigation dete.</li>
+            <li>site_header Admin Panel heading customize karte.</li>
+        </ol>
+    </section>
+
+    <!-- PRACTICE -->
+    <section class="practice-section">
+
+        <h2>18. Practice Questions</h2>
+
+        <p>He questions swatah solve kar:</p>
+
+        <ol>
+            <li>Django Admin Panel mhanje kay?</li>
+            <li>Superuser create karnyachi command lih.</li>
+            <li>Model Registration explain kar.</li>
+            <li>ModelAdmin class cha use kay?</li>
+            <li>list_display ani search_fields explain kar.</li>
+            <li>list_filter cha use kay?</li>
+            <li>ordering madhye minus (-) cha use kay?</li>
+            <li>list_editable ani readonly_fields explain kar.</li>
+            <li>Django Admin Panel customize kasa karal?</li>
+            <li>Student Model sathi complete Admin configuration lih.</li>
+        </ol>
+
+    </section>
+
+    <!-- COMPLETION -->
+    <div class="completion-message">
+        <h2>Topic 16 Completed!</h2>
+        <p>
+            Ata tumhala Django Admin Panel, Superuser,
+            Model Registration ani ModelAdmin customization
+            samajle asel.
+        </p>
+    </div>
+
+    <!-- NAVIGATION -->
+    <div class="lesson-navigation">
+
+        <a href="{% url 'django_topic' 'login-logout' %}"
+           class="nav-button previous-button">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'django_topic' 'sessions-and-cookies' %}"
+           class="nav-button next-button">
+            Next Topic →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

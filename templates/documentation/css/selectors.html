@@ -1,0 +1,711 @@
+
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}CSS Selectors | Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/css/selectors.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+    <div class="lesson-header">
+
+        <span class="lesson-label">CSS TUTORIAL</span>
+
+        <h1>CSS Selectors</h1>
+
+        <p>
+            CSS Selectors cha use HTML madhil specific elements
+            select karanyasathi hoto. Select kelelya elements la
+            aapan CSS vaprun vegveglya styles deu shakto.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 20 Minutes</span>
+            <span>📄 Page 04</span>
+        </div>
+
+    </div>
+
+
+    <!-- Section 1 -->
+    <section class="lesson-section">
+
+        <h2>1. CSS Selectors Mhanje Kay?</h2>
+
+        <p>
+            CSS Selector mhanje HTML madhil konta element
+            style karaycha aahe he tharavnyachi paddhat.
+        </p>
+
+        <p>
+            Samja aaplya webpage var anek headings ani paragraphs
+            aahet. Aaplyala fakt heading cha color blue karaycha
+            asel, tar CSS Selector vaprun aapan fakt headings
+            select karu shakto.
+        </p>
+
+        <div class="info-box">
+            <strong>Definition:</strong>
+
+            CSS Selector cha use HTML elements select karun
+            tyanna CSS styles apply karanyasathi hoto.
+        </div>
+
+        <h3>CSS Selectors Che Prakar</h3>
+
+        <div class="definition-list">
+
+            <div class="definition-item">
+                <strong>h1</strong>
+                <span>Element Selector</span>
+            </div>
+
+            <div class="definition-item">
+                <strong>#</strong>
+                <span>ID Selector</span>
+            </div>
+
+            <div class="definition-item">
+                <strong>.</strong>
+                <span>Class Selector</span>
+            </div>
+
+            <div class="definition-item">
+                <strong>*</strong>
+                <span>Universal Selector</span>
+            </div>
+
+            <div class="definition-item">
+                <strong>,</strong>
+                <span>Grouping Selector</span>
+            </div>
+
+            <div class="definition-item">
+                <strong>Space</strong>
+                <span>Descendant Selector</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 2 -->
+    <section class="lesson-section">
+
+        <h2>2. Element Selector</h2>
+
+        <p>
+            Element Selector cha use HTML tag chya navavarun
+            elements select karanyasathi hoto.
+        </p>
+
+        <p>
+            Udaharanarth, aaplyala webpage varil saglya h1
+            headings cha color blue karaycha asel, tar
+            aapan h1 selector vapru shakto.
+        </p>
+
+        <h3>HTML Code</h3>
+
+        <div class="code-block">
+            <pre><code>&lt;h1&gt;CSS Shika&lt;/h1&gt;
+
+&lt;h1&gt;Web Development&lt;/h1&gt;
+
+&lt;p&gt;Ha ek paragraph aahe.&lt;/p&gt;</code></pre>
+        </div>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>h1 {
+    color: blue;
+}
+
+p {
+    color: gray;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box element-output">
+
+            <h1>CSS Shika</h1>
+
+            <h1>Web Development</h1>
+
+            <p>Ha ek paragraph aahe.</p>
+
+        </div>
+
+        <div class="tip-box">
+            <strong>Lakshat Theva:</strong>
+
+            Element Selector vaparlyas tyach navache sagle
+            HTML elements select hotat.
+        </div>
+
+    </section>
+
+
+    <!-- Section 3 -->
+    <section class="lesson-section">
+
+        <h2>3. ID Selector</h2>
+
+        <p>
+            ID Selector cha use HTML madhil ek specific element
+            select karanyasathi hoto.
+        </p>
+
+        <p>
+            CSS madhye ID select karanyasathi hash (#) symbol
+            vapartat. HTML madhye dilele ID ani CSS madhil
+            ID selector yanche nav same asle pahije.
+        </p>
+
+        <h3>HTML Code</h3>
+
+        <div class="code-block">
+            <pre><code>&lt;h1 id="title"&gt;
+    Majhi Pahili Website
+&lt;/h1&gt;
+
+&lt;p&gt;Majhya Website Madhye Tumche Swagat Aahe.&lt;/p&gt;</code></pre>
+        </div>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>#title {
+    color: red;
+    text-align: center;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box id-output">
+
+            <h1 id="title">Majhi Pahili Website</h1>
+
+            <p>Majhya Website Madhye Tumche Swagat Aahe.</p>
+
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+
+            Eka HTML page madhye ekach ID multiple elements
+            na deu naye. ID unique thevane yogya aahe.
+        </div>
+
+    </section>
+
+
+    <!-- Section 4 -->
+    <section class="lesson-section">
+
+        <h2>4. Class Selector</h2>
+
+        <p>
+            Class Selector cha use ekach class name aslele
+            anek HTML elements select karanyasathi hoto.
+        </p>
+
+        <p>
+            CSS madhye Class Selector lihitana dot (.) symbol
+            vapartat. HTML madhil class name ani CSS madhil
+            class selector same asla pahije.
+        </p>
+
+        <h3>HTML Code</h3>
+
+        <div class="code-block">
+            <pre><code>&lt;p class="message"&gt;
+    Pahila Sandesh
+&lt;/p&gt;
+
+&lt;p class="message"&gt;
+    Dusra Sandesh
+&lt;/p&gt;
+
+&lt;p&gt;
+    Sadharan Paragraph
+&lt;/p&gt;</code></pre>
+        </div>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.message {
+    color: green;
+    font-size: 20px;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box class-output">
+
+            <p class="message">Pahila Sandesh</p>
+
+            <p class="message">Dusra Sandesh</p>
+
+            <p>Sadharan Paragraph</p>
+
+        </div>
+
+        <div class="tip-box">
+            <strong>Lakshat Theva:</strong>
+
+            Ekach class name anek HTML elements na deta yeto.
+            Mhanun Class Selector cha use khup jast hoto.
+        </div>
+
+    </section>
+
+
+    <!-- Section 5 -->
+    <section class="lesson-section">
+
+        <h2>5. Universal Selector</h2>
+
+        <p>
+            Universal Selector cha use webpage varil sarva
+            HTML elements select karanyasathi hoto.
+        </p>
+
+        <p>
+            Universal Selector sathi asterisk (*) symbol vapartat.
+            Yacha use common styling denyasathi kela jato.
+        </p>
+
+        <h3>HTML Code</h3>
+
+        <div class="code-block">
+            <pre><code>&lt;h1&gt;Namaskar&lt;/h1&gt;
+
+&lt;p&gt;Pahila Paragraph&lt;/p&gt;
+
+&lt;h2&gt;Amchyabaddal&lt;/h2&gt;</code></pre>
+        </div>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>* {
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}</code></pre>
+        </div>
+
+        <p>
+            Ya CSS mule webpage varil saglya elements na
+            Arial font ani border-box sizing lagu hote.
+        </p>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+
+            Universal Selector cha use basic global styling
+            ani CSS reset sathi suddha kela jato.
+        </div>
+
+    </section>
+
+
+    <!-- Section 6 -->
+    <section class="lesson-section">
+
+        <h2>6. Grouping Selector</h2>
+
+        <p>
+            Grouping Selector cha use ekach CSS style
+            anek vegveglya selectors na denyasathi hoto.
+        </p>
+
+        <p>
+            Selectors separate karanyasathi comma (,)
+            symbol vapartat.
+        </p>
+
+        <p>
+            Samja h1, h2 ani p ya tinhi elements cha color
+            same thevaycha aahe. Tar tin vegle CSS rules
+            lihinyapeksha Grouping Selector vapru shakto.
+        </p>
+
+        <h3>HTML Code</h3>
+
+        <div class="code-block">
+            <pre><code>&lt;h1&gt;Main Heading&lt;/h1&gt;
+
+&lt;h2&gt;Sub Heading&lt;/h2&gt;
+
+&lt;p&gt;CSS Shika ani Practice Kara.&lt;/p&gt;</code></pre>
+        </div>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>h1, h2, p {
+    color: purple;
+    font-family: Arial, sans-serif;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box grouping-output">
+
+            <h1>Main Heading</h1>
+
+            <h2>Sub Heading</h2>
+
+            <p>CSS Shika ani Practice Kara.</p>
+
+        </div>
+
+        <div class="tip-box">
+            <strong>Lakshat Theva:</strong>
+
+            Grouping Selector mule same CSS code punha punha
+            lihinyachi garaj rahat nahi.
+        </div>
+
+    </section>
+
+
+    <!-- Section 7 -->
+    <section class="lesson-section">
+
+        <h2>7. Descendant Selector</h2>
+
+        <p>
+            Descendant Selector cha use eka parent element
+            chya aat aslele elements select karanyasathi hoto.
+        </p>
+
+        <p>
+            Ya selector madhye parent ani child selector
+            yanchya madhye space vapartat.
+        </p>
+
+        <p>
+            Udaharanarth, eka div chya aat aslele sagle
+            paragraphs select karayche astil tar
+            .container p asa selector lihitat.
+        </p>
+
+        <h3>HTML Code</h3>
+
+        <div class="code-block">
+            <pre><code>&lt;div class="container"&gt;
+
+    &lt;p&gt;Container Chya Aatla Paragraph&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;Container Chya Bahercha Paragraph&lt;/p&gt;</code></pre>
+        </div>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.container p {
+    color: blue;
+    font-weight: bold;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box descendant-output">
+
+            <div>
+                <p>Container Chya Aatla Paragraph</p>
+            </div>
+
+            <p>Container Chya Bahercha Paragraph</p>
+
+        </div>
+
+        <p>
+            Ya example madhye fakt container chya aatla
+            paragraph blue ani bold hoil. Bahercha paragraph
+            normal rahil.
+        </p>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+
+            Descendant Selector madhye space vapartat.
+            Tyamule parent chya aat nested aslele elements
+            suddha select hotat.
+        </div>
+
+    </section>
+
+
+    <!-- Section 8 -->
+    <section class="lesson-section">
+
+        <h2>8. CSS Selectors Madhil Farak</h2>
+
+        <p>
+            Aata paryant aapan sahaa CSS Selectors pahile.
+            Tyanchyatila main farak khalil table madhye samjun gheu.
+        </p>
+
+        <div class="table-wrapper">
+
+            <table class="lesson-table">
+
+                <thead>
+                    <tr>
+                        <th>Selector</th>
+                        <th>Symbol / Syntax</th>
+                        <th>Use</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Element</td>
+                        <td>h1</td>
+                        <td>Saman tag aslele elements select karto.</td>
+                    </tr>
+
+                    <tr>
+                        <td>ID</td>
+                        <td>#title</td>
+                        <td>Specific ID aslela element select karto.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Class</td>
+                        <td>.box</td>
+                        <td>Saman class aslele elements select karto.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Universal</td>
+                        <td>*</td>
+                        <td>Sarva HTML elements select karto.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Grouping</td>
+                        <td>h1, p</td>
+                        <td>Anek selectors ekatra select karto.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Descendant</td>
+                        <td>.box p</td>
+                        <td>Parent chya aatle paragraphs select karto.</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 9 -->
+    <section class="lesson-section">
+
+        <h2>9. CSS Selectors Madhil Common Mistakes</h2>
+
+        <p>
+            CSS lihitana kahi chuka hotat. Tya chuka talnyasathi
+            khalil examples lakshat theva.
+        </p>
+
+        <div class="mistake-card">
+
+            <strong>Chuk 1: Class sathi # vaprane</strong>
+
+            <div class="code-block">
+                <pre><code>#message {
+    color: red;
+}</code></pre>
+            </div>
+
+            <p>
+                Ha selector ID sathi aahe. Class select
+                karanyasathi dot (.) vaprayla hava.
+            </p>
+
+            <h3>Yogya Code</h3>
+
+            <div class="code-block">
+                <pre><code>.message {
+    color: red;
+}</code></pre>
+            </div>
+
+        </div>
+
+
+        <div class="mistake-card">
+
+            <strong>Chuk 2: ID sathi . vaprane</strong>
+
+            <div class="code-block">
+                <pre><code>.title {
+    color: blue;
+}</code></pre>
+            </div>
+
+            <p>
+                Ha selector Class sathi aahe.
+                ID select karanyasathi hash (#) vaprayla hava.
+            </p>
+
+            <h3>Yogya Code</h3>
+
+            <div class="code-block">
+                <pre><code>#title {
+    color: blue;
+}</code></pre>
+            </div>
+
+        </div>
+
+
+        <div class="mistake-card">
+
+            <strong>Chuk 3: Descendant Selector madhye Space visarne</strong>
+
+            <div class="code-block">
+                <pre><code>.containerp {
+    color: green;
+}</code></pre>
+            </div>
+
+            <p>
+                Ya code madhye container ani p yanchya madhye
+                space nahi. Yogya selector .container p asa aahe.
+            </p>
+
+            <h3>Yogya Code</h3>
+
+            <div class="code-block">
+                <pre><code>.container p {
+    color: green;
+}</code></pre>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 10 -->
+    <section class="lesson-section">
+
+        <h2>10. Mahatvache Mudde</h2>
+
+        <div class="revision-box">
+
+            <ul>
+                <li>CSS Selector cha use HTML elements select karanyasathi hoto.</li>
+
+                <li>Element Selector madhye tag name vapartat.</li>
+
+                <li>ID Selector sathi # symbol vapartat.</li>
+
+                <li>Class Selector sathi . symbol vapartat.</li>
+
+                <li>Universal Selector sathi * symbol vapartat.</li>
+
+                <li>Grouping Selector sathi comma vapartat.</li>
+
+                <li>Descendant Selector madhye space vapartat.</li>
+
+                <li>Ek ID eka HTML page madhye unique asava.</li>
+
+                <li>Ekach Class anek HTML elements na deta yeto.</li>
+
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- Practice -->
+    <section class="practice-section">
+
+        <h2>11. Practice Task</h2>
+
+        <div class="task-box">
+
+            <h3>Task: CSS Selectors Vaprun Webpage Tayaar Kara</h3>
+
+            <p>
+                Ek simple HTML page tayaar kara ani khalil
+                tasks complete kara.
+            </p>
+
+            <ol>
+                <li>Element Selector vaprun don headings cha color change kara.</li>
+
+                <li>ID Selector vaprun eka heading la red color dya.</li>
+
+                <li>Class Selector vaprun don paragraphs green kara.</li>
+
+                <li>Universal Selector vaprun webpage cha font set kara.</li>
+
+                <li>Grouping Selector vaprun headings cha color same theva.</li>
+
+                <li>Descendant Selector vaprun div chya aatla paragraph style kara.</li>
+
+            </ol>
+
+            <div class="info-box">
+                <strong>Practice Tip:</strong>
+
+                Pratyek selector swata lihun bagha.
+                Fakt code copy-paste karu naka.
+                Browser madhye output check kara.
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+
+        <a href="{% url 'css_topic' 'ways-to-add-css' %}"
+           class="nav-button previous">
+            ← Previous: Ways to Add CSS
+        </a>
+
+        <a href="{% url 'css_topic' 'colors-backgrounds' %}"
+           class="nav-button next">
+            Next: Colors and Backgrounds →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

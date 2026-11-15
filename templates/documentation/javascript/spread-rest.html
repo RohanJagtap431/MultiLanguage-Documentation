@@ -1,0 +1,533 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}JavaScript Spread and Rest | Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/javascript/spread-rest.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Header -->
+
+    <div class="lesson-header">
+        <span class="lesson-label">JAVASCRIPT DOCUMENTATION • PAGE 23</span>
+
+        <h1>Spread and Rest Operators</h1>
+
+        <p>
+            JavaScript madhye three dots (...) vaprun array,
+            object ani function arguments sobat kam kase karayche
+            te ya lesson madhye shikuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Beginner Level</span>
+            <span>35–40 Minutes</span>
+        </div>
+    </div>
+
+    <!-- Section 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What are Spread and Rest Operators?</h2>
+
+        <p>
+            Spread ani Rest donhi sathi three dots (...) syntax vapartat.
+            Pan tyanchya uses vegveglya aahet.
+        </p>
+
+        <ul>
+            <li><strong>Spread:</strong> Array kiwa object madhil values spread karto.</li>
+            <li><strong>Rest:</strong> Multiple values ekatra collect karto.</li>
+        </ul>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            Spread values expand karto, tar Rest values collect karto.
+        </div>
+
+    </section>
+
+    <!-- Section 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Spread Operator with Arrays</h2>
+
+        <p>
+            Spread Operator cha use array madhil elements vegale
+            karnyasathi hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>const numbers = [10, 20, 30];
+
+console.log(...numbers);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>10 20 30</pre>
+        </div>
+
+        <p>
+            ...numbers mule array madhil elements spread hotat.
+        </p>
+
+    </section>
+
+    <!-- Section 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. Copy an Array using Spread</h2>
+
+        <p>
+            Spread Operator vaprun existing array chi shallow copy
+            tayar karta yete.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>const original = [10, 20, 30];
+
+const copy = [...original];
+
+console.log(copy);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>[10, 20, 30]</pre>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>original madhye original array aahe.</li>
+            <li>...original elements spread karto.</li>
+            <li>copy madhye navin array tayar hoto.</li>
+            <li>Top-level elements change kele tar original array change hot nahi.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Spread chi copy shallow aste. Nested arrays kiwa objects
+            aslyas tyanchya inner references share hou shaktat.
+        </div>
+
+    </section>
+
+    <!-- Section 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. Merge Two Arrays</h2>
+
+        <p>
+            Don kiwa adhik arrays ekatra combine karnyasathi
+            Spread Operator vaparta yeto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>const first = [10, 20];
+
+const second = [30, 40];
+
+const combined = [...first, ...second];
+
+console.log(combined);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>[10, 20, 30, 40]</pre>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>first array madhil values spread hotat.</li>
+            <li>second array madhil values suddha spread hotat.</li>
+            <li>combined madhye donhi arrays merge hotat.</li>
+        </ul>
+
+    </section>
+
+    <!-- Section 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. Add Elements to an Array</h2>
+
+        <p>
+            Existing array chi copy karun tyat navin elements add
+            karnyasathi Spread Operator vaparta yeto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>const fruits = ["Apple", "Mango"];
+
+const newFruits = [...fruits, "Banana"];
+
+console.log(newFruits);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>["Apple", "Mango", "Banana"]</pre>
+        </div>
+
+        <p>
+            Ya example madhye original fruits array change hot nahi.
+            Navin array tayar hoto.
+        </p>
+
+    </section>
+
+    <!-- Section 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. Spread Operator with Objects</h2>
+
+        <p>
+            Spread Operator vaprun object chi shallow copy tayar
+            karta yete.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>const student = {
+    name: "Rohan",
+    age: 20
+};
+
+const copy = { ...student };
+
+console.log(copy);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>{ name: "Rohan", age: 20 }</pre>
+        </div>
+
+        <p>
+            ...student mule student object madhil properties
+            copy object madhye spread hotat.
+        </p>
+
+    </section>
+
+    <!-- Section 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. Merge Two Objects</h2>
+
+        <p>
+            Don objects ekatra combine karnyasathi Spread Operator vaparta yeto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>const student = {
+    name: "Rohan"
+};
+
+const course = {
+    subject: "Computer Science"
+};
+
+const details = {
+    ...student,
+    ...course
+};
+
+console.log(details);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>{
+    name: "Rohan",
+    subject: "Computer Science"
+}</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Remember:</strong>
+            Donhi objects madhye same key asel tar nantar spread
+            kelelya object chi value final object madhye rahte.
+        </div>
+
+    </section>
+
+    <!-- Section 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. Rest Parameters in Functions</h2>
+
+        <p>
+            Rest Parameters cha use function madhye dilele multiple
+            arguments ekach array madhye collect karnyasathi hoto.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>function add(...numbers) {
+
+    let total = 0;
+
+    for (const number of numbers) {
+        total += number;
+    }
+
+    return total;
+}
+
+console.log(add(10, 20, 30));</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>60</pre>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>...numbers multiple arguments collect karte.</li>
+            <li>numbers ha array asto.</li>
+            <li>for...of loop pratyek number access karto.</li>
+            <li>total madhye sarv numbers add hotat.</li>
+            <li>return final answer deto.</li>
+        </ul>
+
+    </section>
+
+    <!-- Section 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Rest with Normal Parameters</h2>
+
+        <p>
+            Rest Parameter chya adhi normal parameters suddha lihita yetat.
+            Pan Rest Parameter ha function madhil last parameter asla pahije.
+        </p>
+
+        <h3>Example:</h3>
+
+        <pre class="code-block"><code>function showStudent(name, ...subjects) {
+
+    console.log(name);
+    console.log(subjects);
+
+}
+
+showStudent("Rohan", "Python", "Django", "JavaScript");</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Rohan
+["Python", "Django", "JavaScript"]</pre>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>name madhye first argument store hoto.</li>
+            <li>...subjects urlele arguments collect karto.</li>
+            <li>subjects ha array asto.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Rest Parameter function madhye last position varach
+            asla pahije. Tyachyanantar dusra parameter lihita yet nahi.
+        </div>
+
+    </section>
+
+    <!-- Section 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Spread vs Rest</h2>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>Spread</th>
+                    <th>Rest</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Values expand karto.</td>
+                    <td>Values collect karto.</td>
+                </tr>
+                <tr>
+                    <td>Array ani object copy/merge sathi use hoto.</td>
+                    <td>Function arguments collect karnyasathi use hoto.</td>
+                </tr>
+                <tr>
+                    <td>Existing values spread karto.</td>
+                    <td>Multiple values ekatra array madhye thevto.</td>
+                </tr>
+                <tr>
+                    <td>Example: [...numbers]</td>
+                    <td>Example: function add(...numbers)</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </section>
+
+    <!-- Section 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Common Beginner Mistakes</h2>
+
+        <div class="mistake-card">
+            <strong>Mistake 1: Spread ani Rest madhil difference na samajne</strong>
+            <p>
+                Spread values expand karto, tar Rest multiple values collect karto.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 2: Rest Parameter last position var na thevne</strong>
+            <p>
+                Rest Parameter function madhil last parameter asla pahije.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 3: Spread la deep copy samajne</strong>
+            <p>
+                Spread Operator shallow copy tayar karto.
+                Nested objects ani arrays share hou shaktat.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 4: Object madhil duplicate keys visarne</strong>
+            <p>
+                Same key asel tar nantar spread kelelya object chi value
+                overwrite karu shakte.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- Section 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Quick Revision</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>Spread ani Rest sathi ... syntax vapartat.</li>
+                <li>Spread array ani object values expand karto.</li>
+                <li>Spread vaprun arrays copy ani merge karta yetat.</li>
+                <li>Spread vaprun objects copy ani merge karta yetat.</li>
+                <li>Rest multiple function arguments collect karto.</li>
+                <li>Rest Parameter function madhye last position var asto.</li>
+                <li>Spread chi copy shallow aste.</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <!-- Section 13 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>13. Practice Questions</h2>
+
+        <h3>Basic Questions</h3>
+
+        <ol>
+            <li>Spread Operator mhanje kay?</li>
+            <li>Rest Parameters mhanje kay?</li>
+            <li>Spread ani Rest madhye kay difference aahe?</li>
+            <li>Array copy karnyasathi Spread kasa vapartat?</li>
+            <li>Don arrays merge kase karayche?</li>
+            <li>Object copy kasa tayar karaycha?</li>
+            <li>Rest Parameter last position var ka asto?</li>
+            <li>Shallow Copy mhanje kay?</li>
+        </ol>
+
+        <h3>Practical Questions</h3>
+
+        <ol>
+            <li>Spread vaprun array copy kar.</li>
+            <li>Spread vaprun don arrays merge kar.</li>
+            <li>Array madhye navin elements add kar.</li>
+            <li>Spread vaprun object copy kar.</li>
+            <li>Don objects merge kar.</li>
+            <li>Rest Parameter vaprun numbers chi addition kar.</li>
+            <li>Function madhye name ani multiple subjects accept kar.</li>
+        </ol>
+
+        <div class="task-box">
+
+            <h3>Mini Task: Student Subjects Manager</h3>
+
+            <p>
+                Spread ani Rest vaprun Student Subjects Manager tayar kar.
+            </p>
+
+            <ul>
+                <li>Existing subjects cha array tayar kar.</li>
+                <li>Spread vaprun array chi copy kar.</li>
+                <li>Copy madhye navin subjects add kar.</li>
+                <li>Spread vaprun don subject arrays merge kar.</li>
+                <li>Rest Parameter vaprun multiple subjects accept kar.</li>
+                <li>Student object chi copy tayar kar.</li>
+            </ul>
+
+            <p>
+                File name: <strong>spread_rest_practice.js</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Navigation -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'javascript_topic' 'es6' %}"
+           class="nav-button previous-button">
+            ← Previous: ES6 Features
+        </a>
+
+        <a href="{% url 'javascript_topic' 'higher-order-methods' %}"
+           class="nav-button next-button">
+            Next: Higher Order Methods →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

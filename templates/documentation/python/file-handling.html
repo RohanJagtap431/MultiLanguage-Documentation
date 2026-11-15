@@ -1,0 +1,888 @@
+
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}Python File Handling | Roman Marathi Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/python/file-handling.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">PYTHON • LESSON 24</span>
+        <h1>Python File Handling</h1>
+        <p>
+            Python madhun files create, read, write ani update
+            karnyasathi File Handling vapartat.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Level: Beginner</span>
+            <span>⏱️ Time: 45–55 Minutes</span>
+        </div>
+    </div>
+
+    <!-- 1. Introduction -->
+    <section class="lesson-section">
+        <h2>1. What is File Handling?</h2>
+
+        <p>
+            File Handling mhanje Python program cha use karun
+            computer madhil files sobat operations perform karne.
+        </p>
+
+        <p>
+            Aapan file madhil data read karu shakto, navin data write karu shakto
+            ani existing data update karu shakto.
+        </p>
+
+        <h3>Example</h3>
+
+        <p>
+            Samaj tu Student Management System banavla aahe.
+            Students chi information file madhye save karaychi asel,
+            tar File Handling vaparta yeil.
+        </p>
+
+        <div class="info-box">
+            <strong>Samjun ghe:</strong>
+            Variable madhil data generally program chalu astana memory madhye asto.
+            File madhye save kelela data program band zalyanantarsuddha
+            available rahu shakto.
+        </div>
+    </section>
+
+    <!-- 2. File Types -->
+    <section class="lesson-section">
+        <h2>2. Types of Files</h2>
+
+        <p>Computer madhye files che don main types astat.</p>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>File Type</th>
+                        <th>Meaning</th>
+                        <th>Examples</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Text File</td>
+                        <td>Human-readable text store karte.</td>
+                        <td>.txt, .csv, .json</td>
+                    </tr>
+                    <tr>
+                        <td>Binary File</td>
+                        <td>Data bytes format madhye store karte.</td>
+                        <td>.jpg, .png, .pdf, .mp3</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Text File Example</h3>
+
+        <pre><code>Hello Python
+Welcome to File Handling</code></pre>
+
+        <h3>Binary File Example</h3>
+
+        <p>
+            Images, audio, video ani PDF files ya binary data format madhye
+            handle kelya jau shaktat.
+        </p>
+    </section>
+
+    <!-- 3. open -->
+    <section class="lesson-section">
+        <h2>3. open() Function</h2>
+
+        <p>
+            Python madhye file open karnyasathi
+            <code>open()</code> function vapartat.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre><code>file = open("filename.txt", "mode")</code></pre>
+
+        <p>Yethe:</p>
+
+        <ul>
+            <li><strong>filename.txt:</strong> File che name.</li>
+            <li><strong>mode:</strong> File kontya purpose sathi open karaychi aahe.</li>
+            <li><strong>file:</strong> File object store karnara variable.</li>
+        </ul>
+
+        <h3>Example</h3>
+
+        <pre><code>file = open("student.txt", "r")
+
+print(file.read())
+
+file.close()</code></pre>
+
+        <p>
+            Ya example madhye student.txt file read mode madhye open keli aahe.
+            read() method ne data vachla ani close() ne file close keli.
+        </p>
+
+        <div class="warning-box">
+            <strong>Important:</strong>
+            Read mode madhye file astitvat nasel tar FileNotFoundError yeu shakto.
+        </div>
+    </section>
+
+    <!-- 4. File Modes -->
+    <section class="lesson-section">
+        <h2>4. File Opening Modes</h2>
+
+        <p>
+            File open kartana mode specify karava lagto.
+            Mode varun file sobat konta operation karaycha te tharate.
+        </p>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Mode</th>
+                        <th>Meaning</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>r</td>
+                        <td>Read</td>
+                        <td>Existing file madhil data vachne.</td>
+                    </tr>
+                    <tr>
+                        <td>w</td>
+                        <td>Write</td>
+                        <td>Data write karne; existing content overwrite hoto.</td>
+                    </tr>
+                    <tr>
+                        <td>a</td>
+                        <td>Append</td>
+                        <td>Existing data chya shevti navin data add karne.</td>
+                    </tr>
+                    <tr>
+                        <td>x</td>
+                        <td>Create</td>
+                        <td>Navin file create karne; file already asel tar error.</td>
+                    </tr>
+                    <tr>
+                        <td>b</td>
+                        <td>Binary</td>
+                        <td>Binary mode madhye file open karne.</td>
+                    </tr>
+                    <tr>
+                        <td>t</td>
+                        <td>Text</td>
+                        <td>Text mode; default mode.</td>
+                    </tr>
+                    <tr>
+                        <td>r+</td>
+                        <td>Read and Write</td>
+                        <td>Existing file read ani write karne.</td>
+                    </tr>
+                    <tr>
+                        <td>w+</td>
+                        <td>Write and Read</td>
+                        <td>File write ani read karne; existing content clear hoto.</td>
+                    </tr>
+                    <tr>
+                        <td>a+</td>
+                        <td>Append and Read</td>
+                        <td>File read karne ani shevti data add karne.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            w mode vaparlyas existing file madhil junya content la overwrite kele jate.
+            Mahit nasatana w mode vapru nakos.
+        </div>
+    </section>
+
+    <!-- 5. read -->
+    <section class="lesson-section">
+        <h2>5. read() Method</h2>
+
+        <p>
+            <code>read()</code> method cha use file madhil content
+            read karnyasathi hoto.
+        </p>
+
+        <h3>Example</h3>
+
+        <p>Samaj student.txt madhye ha data aahe:</p>
+
+        <pre><code>Rohan
+Python
+Django</code></pre>
+
+        <p>Python code:</p>
+
+        <pre><code>file = open("student.txt", "r")
+
+data = file.read()
+
+print(data)
+
+file.close()</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Rohan
+Python
+Django</pre>
+        </div>
+
+        <h3>read(size)</h3>
+
+        <p>
+            read() madhye number dila tar tevdhe characters read karta yetat.
+        </p>
+
+        <pre><code>file = open("student.txt", "r")
+
+data = file.read(5)
+
+print(data)
+
+file.close()</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Rohan</pre>
+        </div>
+
+        <div class="info-box">
+            <strong>Note:</strong>
+            read() cha default argument -1 asto. Mhanje remaining
+            complete content read hoto.
+        </div>
+    </section>
+
+    <!-- 6. readline -->
+    <section class="lesson-section">
+        <h2>6. readline() Method</h2>
+
+        <p>
+            <code>readline()</code> method file madhun ek veli ek line read karte.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>file = open("student.txt", "r")
+
+line1 = file.readline()
+line2 = file.readline()
+
+print(line1)
+print(line2)
+
+file.close()</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Rohan
+Python</pre>
+        </div>
+
+        <p>
+            Pahilya readline() ne first line ani dusrya readline() ne second
+            line read keli.
+        </p>
+    </section>
+
+    <!-- 7. readlines -->
+    <section class="lesson-section">
+        <h2>7. readlines() Method</h2>
+
+        <p>
+            <code>readlines()</code> method file madhil saglya lines
+            read karun list return karte.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>file = open("student.txt", "r")
+
+data = file.readlines()
+
+print(data)
+
+file.close()</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>['Rohan\n', 'Python\n', 'Django']</pre>
+        </div>
+
+        <p>
+            readlines() ne file madhil pratyek line list madhil
+            separate element mhanun milte.
+        </p>
+    </section>
+
+    <!-- 8. write -->
+    <section class="lesson-section">
+        <h2>8. write() Method</h2>
+
+        <p>
+            <code>write()</code> method cha use file madhye data
+            write karnyasathi hoto.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>file = open("student.txt", "w")
+
+file.write("Hello Python")
+
+file.close()
+
+print("Data written successfully")</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Data written successfully</pre>
+        </div>
+
+        <p>
+            Ya code mule student.txt file madhye Hello Python save hoil.
+            File already asel tar ticha old content overwrite hoil.
+        </p>
+
+        <h3>Writing Multiple Lines</h3>
+
+        <pre><code>file = open("student.txt", "w")
+
+file.write("Name: Rohan\n")
+file.write("Course: Python\n")
+file.write("Year: Second")
+
+file.close()</code></pre>
+
+        <p>File madhil content:</p>
+
+        <div class="output-box">
+            <pre>Name: Rohan
+Course: Python
+Year: Second</pre>
+        </div>
+    </section>
+
+    <!-- 9. writelines -->
+    <section class="lesson-section">
+        <h2>9. writelines() Method</h2>
+
+        <p>
+            <code>writelines()</code> method iterable madhil strings
+            file madhye write karte.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>lines = [
+    "Python\n",
+    "Django\n",
+    "SQL\n"
+]
+
+file = open("skills.txt", "w")
+
+file.writelines(lines)
+
+file.close()</code></pre>
+
+        <p>File madhil content:</p>
+
+        <div class="output-box">
+            <pre>Python
+Django
+SQL</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            writelines() automatic newline add karat nahi.
+            Pratyek line sathi \n swatah dyava lagto.
+        </div>
+    </section>
+
+    <!-- 10. Append -->
+    <section class="lesson-section">
+        <h2>10. Append Mode</h2>
+
+        <p>
+            Existing file madhil data delete na karta shevti navin data
+            add karnyasathi <code>a</code> mode vapartat.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>file = open("student.txt", "a")
+
+file.write("\nCourse: Django")
+
+file.close()
+
+print("New data added")</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>New data added</pre>
+        </div>
+
+        <p>File madhil updated content:</p>
+
+        <div class="output-box">
+            <pre>Name: Rohan
+Course: Python
+Year: Second
+Course: Django</pre>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Existing data preserve karun navin data add karaycha asel tar append mode vapra.
+        </div>
+    </section>
+
+    <!-- 11. close -->
+    <section class="lesson-section">
+        <h2>11. close() Method</h2>
+
+        <p>
+            File open kelyanantar operation complete zalyavar
+            <code>close()</code> method vaprun file close karavi.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>file = open("student.txt", "r")
+
+print(file.read())
+
+file.close()</code></pre>
+
+        <p>
+            File close kelyamule file resource release hoto.
+            Closed file var read kiwa write operation karta yet nahi.
+        </p>
+
+        <div class="warning-box">
+            <strong>Warning:</strong>
+            File close karayla visarlas tar resource unnecessarily open rahu shakto.
+        </div>
+    </section>
+
+    <!-- 12. with -->
+    <section class="lesson-section">
+        <h2>12. with open() Statement</h2>
+
+        <p>
+            Python madhye file handle karnyacha recommended way mhanje
+            <code>with open()</code> statement.
+        </p>
+
+        <p>
+            with block complete zalyavar file automatically close hote.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre><code>with open("filename.txt", "mode") as file:
+    # File operations</code></pre>
+
+        <h3>Example</h3>
+
+        <pre><code>with open("student.txt", "r") as file:
+    data = file.read()
+    print(data)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Name: Rohan
+Course: Python</pre>
+        </div>
+
+        <div class="success-box">
+            <strong>Best Practice:</strong>
+            with open() vaparlyas manually close() call karanyachi
+            garaj naste. Block samplyavar file automatically close hote.
+        </div>
+    </section>
+
+    <!-- 13. File path -->
+    <section class="lesson-section">
+        <h2>13. File Paths</h2>
+
+        <p>
+            File open kartana file cha path dyava lagto.
+            File current working directory madhye nasel tar path specify karava.
+        </p>
+
+        <h3>Relative Path</h3>
+
+        <pre><code>file = open("student.txt", "r")</code></pre>
+
+        <p>
+            Relative path current working directory chya reference ne
+            file locate karto.
+        </p>
+
+        <h3>Absolute Path</h3>
+
+        <pre><code>file = open(
+    r"C:\Users\Admin\Desktop\student.txt",
+    "r"
+)</code></pre>
+
+        <p>
+            Absolute path file cha complete location specify karto.
+            Windows path madhye raw string r"..." vaparlyane backslash
+            escape problems talta yetat.
+        </p>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Relative path vapartana Python cha current working directory
+            konta aahe he lakshat thev.
+        </div>
+    </section>
+
+    <!-- 14. File Exceptions -->
+    <section class="lesson-section">
+        <h2>14. File Handling Exceptions</h2>
+
+        <p>
+            File operations kartana suddha vegveglya exceptions yeu shaktat.
+        </p>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Exception</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>FileNotFoundError</td>
+                        <td>Requested file sapadli nahi.</td>
+                    </tr>
+                    <tr>
+                        <td>PermissionError</td>
+                        <td>File access karnyachi permission nahi.</td>
+                    </tr>
+                    <tr>
+                        <td>IsADirectoryError</td>
+                        <td>File aivaji directory open karnyacha prayatna kela.</td>
+                    </tr>
+                    <tr>
+                        <td>UnicodeDecodeError</td>
+                        <td>Text decode kartana problem aali.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Handling FileNotFoundError</h3>
+
+        <pre><code>try:
+    with open("unknown.txt", "r") as file:
+        data = file.read()
+        print(data)
+
+except FileNotFoundError:
+    print("File not found")</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>File not found</pre>
+        </div>
+    </section>
+
+    <!-- 15. Binary Files -->
+    <section class="lesson-section">
+        <h2>15. Binary File Handling</h2>
+
+        <p>
+            Image, PDF ani audio sarkhya binary files handle karnyasathi
+            binary modes vapartat.
+        </p>
+
+        <h3>Example – Read Image File</h3>
+
+        <pre><code>with open("photo.jpg", "rb") as file:
+    data = file.read()
+
+print(type(data))
+print(len(data))</code></pre>
+
+        <div class="output-box">
+            <strong>Possible Output:</strong>
+            <pre>&lt;class 'bytes'&gt;
+125000</pre>
+            <small>Bytes count file pramane badalto.</small>
+        </div>
+
+        <h3>Common Binary Modes</h3>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Mode</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>rb</td><td>Read binary file.</td></tr>
+                    <tr><td>wb</td><td>Write binary file.</td></tr>
+                    <tr><td>ab</td><td>Append binary data.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 16. Practical -->
+    <section class="lesson-section">
+        <h2>16. Practical Example – Student Record System</h2>
+
+        <p>
+            Aapan student information text file madhye save karu
+            ani nantar ti read karu.
+        </p>
+
+        <h3>Step 1 – Write Student Details</h3>
+
+        <pre><code>name = input("Enter student name: ")
+course = input("Enter course: ")
+age = input("Enter age: ")
+
+with open("students.txt", "a") as file:
+    file.write(f"Name: {name}\n")
+    file.write(f"Course: {course}\n")
+    file.write(f"Age: {age}\n")
+    file.write("----------------\n")
+
+print("Student record saved")</code></pre>
+
+        <h3>Step 2 – Read Student Details</h3>
+
+        <pre><code>with open("students.txt", "r") as file:
+    data = file.read()
+
+print(data)</code></pre>
+
+        <div class="output-box">
+            <strong>Possible Output:</strong>
+            <pre>Enter student name: Rohan
+Enter course: Python
+Enter age: 20
+Student record saved</pre>
+        </div>
+
+        <p>students.txt madhil data:</p>
+
+        <div class="output-box">
+            <pre>Name: Rohan
+Course: Python
+Age: 20
+----------------</pre>
+        </div>
+    </section>
+
+    <!-- 17. Common Mistakes -->
+    <section class="lesson-section">
+        <h2>17. Common Beginner Mistakes</h2>
+
+        <div class="error-card">
+            <h3>Mistake 1: Wrong File Mode</h3>
+
+            <pre><code>file = open("student.txt", "r")
+file.write("Python")</code></pre>
+
+            <p>
+                Read mode madhye write operation karta yet nahi.
+                Write karaycha asel tar w kiwa a mode vapra.
+            </p>
+
+            <pre><code>file = open("student.txt", "a")
+file.write("Python")
+file.close()</code></pre>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 2: Forgetting close()</h3>
+
+            <pre><code>file = open("student.txt", "r")
+print(file.read())</code></pre>
+
+            <p>
+                File manually close karaychi rahu shakte.
+                with open() vaparlyas file automatically close hote.
+            </p>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 3: Using w Instead of a</h3>
+
+            <pre><code>file = open("student.txt", "w")
+file.write("New Student")
+file.close()</code></pre>
+
+            <p>
+                w mode existing content overwrite karto.
+                Old content preserve karaycha asel tar a mode vapra.
+            </p>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 4: Wrong File Path</h3>
+
+            <pre><code>file = open("C:\new\test.txt", "r")</code></pre>
+
+            <p>
+                Windows path madhye backslash escape sequences cha problem yeu shakto.
+                Raw string vapra.
+            </p>
+
+            <pre><code>file = open(r"C:\new\test.txt", "r")</code></pre>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 5: Missing Newline</h3>
+
+            <pre><code>file.write("Python")
+file.write("Django")</code></pre>
+
+            <p>
+                Donhi words ekach line var lihile jatil.
+                Vegveglya lines sathi \n vapra.
+            </p>
+
+            <pre><code>file.write("Python\n")
+file.write("Django\n")</code></pre>
+        </div>
+    </section>
+
+    <!-- 18. Revision -->
+    <section class="lesson-section">
+        <h2>18. Quick Revision</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Function / Mode</th>
+                        <th>Use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>open()</td><td>File open karne.</td></tr>
+                    <tr><td>read()</td><td>File madhil content read karne.</td></tr>
+                    <tr><td>readline()</td><td>Ek line read karne.</td></tr>
+                    <tr><td>readlines()</td><td>Saglya lines list madhye read karne.</td></tr>
+                    <tr><td>write()</td><td>File madhye string write karne.</td></tr>
+                    <tr><td>writelines()</td><td>Strings iterable madhye write karne.</td></tr>
+                    <tr><td>close()</td><td>File close karne.</td></tr>
+                    <tr><td>with open()</td><td>Automatically file close karne.</td></tr>
+                    <tr><td>r</td><td>Read mode.</td></tr>
+                    <tr><td>w</td><td>Write / overwrite mode.</td></tr>
+                    <tr><td>a</td><td>Append mode.</td></tr>
+                    <tr><td>x</td><td>Exclusive create mode.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 19. Practice -->
+    <section class="practice-section">
+        <h2>19. Practice Questions</h2>
+
+        <p>
+            Khalil questions swatah solve kar.
+            Pratyek question sathi Python program lihun run kar.
+        </p>
+
+        <div class="practice-task">
+            <h3>Question 1</h3>
+            <p>open() function vaprun student.txt file read mode madhye open kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 2</h3>
+            <p>write() method vaprun file madhye tuze name ani course save kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 3</h3>
+            <p>read() method vaprun complete file content display kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 4</h3>
+            <p>readline() vaprun file madhil first line display kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 5</h3>
+            <p>readlines() vaprun file madhil saglya lines list madhye store kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 6</h3>
+            <p>Append mode vaprun existing file madhye navin student name add kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 7</h3>
+            <p>writelines() vaprun five programming languages file madhye save kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 8</h3>
+            <p>with open() vaprun file read kar ani automatic closing test kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 9</h3>
+            <p>FileNotFoundError handle karnara program lih.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 10</h3>
+            <p>Student Record System create kar. Student details file madhye save ani read kar.</p>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+        <a href="{% url 'python_topic' 'exceptions' %}" class="nav-button back-button">
+            ← Previous: Exception Handling
+        </a>
+
+        <a href="{% url 'python_topic' 'oops' %}" class="nav-button next-button">
+            Next: Python OOPs →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

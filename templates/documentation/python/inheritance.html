@@ -1,0 +1,1074 @@
+
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}Python Inheritance | Roman Marathi Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/python/inheritance.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">PYTHON • LESSON 26</span>
+        <h1>Python Inheritance</h1>
+        <p>
+            Ek class dusrya class madhil attributes ani methods reuse
+            kashi karu shakto te Inheritance madhun shikuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Level: Beginner</span>
+            <span>⏱️ Time: 50–60 Minutes</span>
+        </div>
+    </div>
+
+    <!-- 1. Introduction -->
+    <section class="lesson-section">
+        <h2>1. What is Inheritance?</h2>
+
+        <p>
+            Inheritance ha Object-Oriented Programming madhil ek important
+            concept aahe. Yachya madatine ek class dusrya class madhil
+            attributes ani methods use karu shakto.
+        </p>
+
+        <p>
+            Existing class madhun properties ani methods ghenyala
+            Inheritance mhantat.
+        </p>
+
+        <h3>Real-Life Example</h3>
+
+        <p>
+            Samaj ek Animal class aahe. Tyamadhye eat() ani sleep()
+            methods aahet.
+        </p>
+
+        <p>
+            Dog ani Cat he suddha animals aahet. Tyanna eat() ani sleep()
+            ya common methods chi garaj aahe.
+        </p>
+
+        <p>
+            Pratyek class madhye same methods punha lihinyapeksha
+            Dog ani Cat classes ne Animal class inherit karu shakto.
+        </p>
+
+        <div class="info-box">
+            <strong>Samjun ghe:</strong>
+            Inheritance mule code duplication kami hote ani existing
+            functionality reuse karta yete.
+        </div>
+    </section>
+
+    <!-- 2. Parent and Child -->
+    <section class="lesson-section">
+        <h2>2. Parent Class and Child Class</h2>
+
+        <p>Inheritance madhye don main classes astat:</p>
+
+        <ul>
+            <li><strong>Parent Class:</strong> Jya class madhun properties ani methods inherit hotat.</li>
+            <li><strong>Child Class:</strong> Ji class parent class inherit karte.</li>
+        </ul>
+
+        <h3>Syntax</h3>
+
+        <pre><code>class Parent:
+    # Parent class code
+    pass
+
+
+class Child(Parent):
+    # Child class code
+    pass</code></pre>
+
+        <h3>Example</h3>
+
+        <pre><code>class Animal:
+
+    def eat(self):
+        print("Animal is eating")
+
+
+class Dog(Animal):
+    pass
+
+
+dog = Dog()
+
+dog.eat()</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Animal is eating</pre>
+        </div>
+
+        <p>
+            Yethe Animal hi Parent Class aahe ani Dog hi Child Class aahe.
+            Dog class ne Animal madhil eat() method inherit keli.
+        </p>
+    </section>
+
+    <!-- 3. Why Inheritance -->
+    <section class="lesson-section">
+        <h2>3. Why Use Inheritance?</h2>
+
+        <ul>
+            <li>Code reuse karta yeto.</li>
+            <li>Same code punha lihava lagat nahi.</li>
+            <li>Application maintain karne sope hote.</li>
+            <li>Parent class madhye common functionality organize karta yete.</li>
+            <li>Child class madhye additional functionality add karta yete.</li>
+        </ul>
+
+        <h3>Without Inheritance</h3>
+
+        <pre><code>class Dog:
+
+    def eat(self):
+        print("Eating")
+
+
+class Cat:
+
+    def eat(self):
+        print("Eating")</code></pre>
+
+        <p>
+            Donhi classes madhye same eat() method lihavi lagli.
+        </p>
+
+        <h3>With Inheritance</h3>
+
+        <pre><code>class Animal:
+
+    def eat(self):
+        print("Eating")
+
+
+class Dog(Animal):
+    pass
+
+
+class Cat(Animal):
+    pass</code></pre>
+
+        <p>
+            Aata Dog ani Cat donhi classes Animal madhil eat()
+            method reuse karu shaktat.
+        </p>
+    </section>
+
+    <!-- 4. Single -->
+    <section class="lesson-section">
+        <h2>4. Single Inheritance</h2>
+
+        <p>
+            Ek Child Class ekach Parent Class inherit karte,
+            tyala Single Inheritance mhantat.
+        </p>
+
+        <h3>Structure</h3>
+
+        <div class="inheritance-diagram">
+            <div class="diagram-box parent-box">Animal (Parent)</div>
+            <div class="diagram-arrow">↓</div>
+            <div class="diagram-box child-box">Dog (Child)</div>
+        </div>
+
+        <h3>Example</h3>
+
+        <pre><code>class Animal:
+
+    def eat(self):
+        print("Animal is eating")
+
+
+class Dog(Animal):
+
+    def bark(self):
+        print("Dog is barking")
+
+
+dog = Dog()
+
+dog.eat()
+dog.bark()</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Animal is eating
+Dog is barking</pre>
+        </div>
+
+        <p>
+            Dog class la Animal chi eat() method ani swatachi bark()
+            method donhi access karta yetat.
+        </p>
+    </section>
+
+    <!-- 5. Multiple -->
+    <section class="lesson-section">
+        <h2>5. Multiple Inheritance</h2>
+
+        <p>
+            Ek Child Class multiple Parent Classes inherit karte,
+            tyala Multiple Inheritance mhantat.
+        </p>
+
+        <h3>Structure</h3>
+
+        <div class="inheritance-diagram">
+            <div class="diagram-parents">
+                <div class="diagram-box parent-box">Father</div>
+                <div class="diagram-box parent-box">Mother</div>
+            </div>
+            <div class="diagram-arrow">↓</div>
+            <div class="diagram-box child-box">Child</div>
+        </div>
+
+        <h3>Example</h3>
+
+        <pre><code>class Father:
+
+    def father_skill(self):
+        print("Father: Driving")
+
+
+class Mother:
+
+    def mother_skill(self):
+        print("Mother: Cooking")
+
+
+class Child(Father, Mother):
+
+    def child_skill(self):
+        print("Child: Coding")
+
+
+child = Child()
+
+child.father_skill()
+child.mother_skill()
+child.child_skill()</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Father: Driving
+Mother: Cooking
+Child: Coding</pre>
+        </div>
+
+        <p>
+            Child class ne Father ani Mother ya donhi classes inherit kelya aahet.
+        </p>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Multiple inheritance madhye parent classes madhil method names
+            same aslyas konti method call honar he MRO tharavte.
+        </div>
+    </section>
+
+    <!-- 6. Multilevel -->
+    <section class="lesson-section">
+        <h2>6. Multilevel Inheritance</h2>
+
+        <p>
+            Ek class dusrya class la inherit karte ani tisri class
+            dusrya class la inherit karte, tyala Multilevel Inheritance mhantat.
+        </p>
+
+        <h3>Structure</h3>
+
+        <div class="inheritance-diagram">
+            <div class="diagram-box parent-box">Animal</div>
+            <div class="diagram-arrow">↓</div>
+            <div class="diagram-box middle-box">Dog</div>
+            <div class="diagram-arrow">↓</div>
+            <div class="diagram-box child-box">Puppy</div>
+        </div>
+
+        <h3>Example</h3>
+
+        <pre><code>class Animal:
+
+    def eat(self):
+        print("Animal is eating")
+
+
+class Dog(Animal):
+
+    def bark(self):
+        print("Dog is barking")
+
+
+class Puppy(Dog):
+
+    def play(self):
+        print("Puppy is playing")
+
+
+puppy = Puppy()
+
+puppy.eat()
+puppy.bark()
+puppy.play()</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Animal is eating
+Dog is barking
+Puppy is playing</pre>
+        </div>
+
+        <p>
+            Puppy class la Dog madhil bark() ani Animal madhil eat()
+            ya donhi methods access karta yetat.
+        </p>
+    </section>
+
+    <!-- 7. Hierarchical -->
+    <section class="lesson-section">
+        <h2>7. Hierarchical Inheritance</h2>
+
+        <p>
+            Multiple Child Classes ekach Parent Class inherit kartat,
+            tyala Hierarchical Inheritance mhantat.
+        </p>
+
+        <h3>Structure</h3>
+
+        <div class="inheritance-diagram">
+            <div class="diagram-box parent-box">Animal (Parent)</div>
+            <div class="diagram-arrow">↓</div>
+            <div class="diagram-children">
+                <div class="diagram-box child-box">Dog</div>
+                <div class="diagram-box child-box">Cat</div>
+                <div class="diagram-box child-box">Cow</div>
+            </div>
+        </div>
+
+        <h3>Example</h3>
+
+        <pre><code>class Animal:
+
+    def eat(self):
+        print("Animal is eating")
+
+
+class Dog(Animal):
+
+    def bark(self):
+        print("Dog is barking")
+
+
+class Cat(Animal):
+
+    def meow(self):
+        print("Cat is meowing")
+
+
+dog = Dog()
+cat = Cat()
+
+dog.eat()
+dog.bark()
+
+cat.eat()
+cat.meow()</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Animal is eating
+Dog is barking
+Animal is eating
+Cat is meowing</pre>
+        </div>
+
+        <p>
+            Dog ani Cat ya donhi classes Animal class inherit kartat.
+        </p>
+    </section>
+
+    <!-- 8. Hybrid -->
+    <section class="lesson-section">
+        <h2>8. Hybrid Inheritance</h2>
+
+        <p>
+            Don kiwa adhik inheritance patterns combine zalyas
+            tyala Hybrid Inheritance mhantat.
+        </p>
+
+        <h3>Structure Example</h3>
+
+        <div class="inheritance-diagram">
+            <div class="diagram-box parent-box">Animal</div>
+            <div class="diagram-arrow">↓</div>
+            <div class="diagram-parents">
+                <div class="diagram-box middle-box">Dog</div>
+                <div class="diagram-box middle-box">Cat</div>
+            </div>
+            <div class="diagram-arrow">↓</div>
+            <div class="diagram-box child-box">Pet</div>
+        </div>
+
+        <h3>Example</h3>
+
+        <pre><code>class Animal:
+
+    def eat(self):
+        print("Eating")
+
+
+class Dog(Animal):
+
+    def bark(self):
+        print("Barking")
+
+
+class Cat(Animal):
+
+    def meow(self):
+        print("Meowing")
+
+
+class Pet(Dog, Cat):
+
+    def play(self):
+        print("Playing")
+
+
+pet = Pet()
+
+pet.eat()
+pet.bark()
+pet.meow()
+pet.play()</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Eating
+Barking
+Meowing
+Playing</pre>
+        </div>
+
+        <p>
+            Ya example madhye hierarchical ani multiple inheritance
+            patterns combine kele aahet.
+        </p>
+    </section>
+
+    <!-- 9. Constructor -->
+    <section class="lesson-section">
+        <h2>9. Inheritance with Constructor</h2>
+
+        <p>
+            Parent class madhye __init__() method asel tar child class
+            object create kartana parent constructor automatically call
+            hot nahi, jar child ne swatacha __init__() define kela asel.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>class Animal:
+
+    def __init__(self, name):
+        self.name = name
+
+
+class Dog(Animal):
+
+    def __init__(self, name, breed):
+        super().__init__(name)
+        self.breed = breed
+
+
+dog = Dog("Tommy", "Labrador")
+
+print(dog.name)
+print(dog.breed)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Tommy
+Labrador</pre>
+        </div>
+
+        <p>
+            super().__init__(name) mule parent class cha constructor call hoto
+            ani name attribute initialize hoto.
+        </p>
+    </section>
+
+    <!-- 10. super -->
+    <section class="lesson-section">
+        <h2>10. super() Function</h2>
+
+        <p>
+            <code>super()</code> cha use current class chya Method Resolution
+            Order madhil pudhil class chi functionality access karnyasathi hoto.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>class Animal:
+
+    def sound(self):
+        print("Animal makes sound")
+
+
+class Dog(Animal):
+
+    def sound(self):
+        super().sound()
+        print("Dog barks")
+
+
+dog = Dog()
+dog.sound()</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Animal makes sound
+Dog barks</pre>
+        </div>
+
+        <p>
+            Dog madhil sound() method ne super() vaprun parent class
+            madhil sound() method call keli.
+        </p>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            super() fakt direct parent class la call karte asa samju nakos.
+            Multiple inheritance madhye te MRO nusar pudhil class kade jate.
+        </div>
+    </section>
+
+    <!-- 11. Method Overriding -->
+    <section class="lesson-section">
+        <h2>11. Method Overriding</h2>
+
+        <p>
+            Child class madhye parent class madhil method chya same name ne
+            navin implementation define kelyas Method Overriding hote.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>class Animal:
+
+    def sound(self):
+        print("Animal makes sound")
+
+
+class Dog(Animal):
+
+    def sound(self):
+        print("Dog barks")
+
+
+animal = Animal()
+dog = Dog()
+
+animal.sound()
+dog.sound()</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Animal makes sound
+Dog barks</pre>
+        </div>
+
+        <p>
+            Animal ani Dog ya classes madhye sound() method aahe.
+            Dog class madhil method parent method override karte.
+        </p>
+    </section>
+
+    <!-- 12. MRO -->
+    <section class="lesson-section">
+        <h2>12. MRO (Method Resolution Order)</h2>
+
+        <p>
+            MRO mhanje Python method kiwa attribute shodhtana
+            classes kontya order ne check karto te tharavnari sequence.
+        </p>
+
+        <p>
+            Multiple Inheritance madhye same method name asel tar
+            kontya class madhil method use honar he MRO tharavte.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>class A:
+
+    def show(self):
+        print("Class A")
+
+
+class B(A):
+
+    def show(self):
+        print("Class B")
+
+
+class C(A):
+
+    def show(self):
+        print("Class C")
+
+
+class D(B, C):
+    pass
+
+
+obj = D()
+obj.show()
+
+print(D.mro())</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Class B</pre>
+        </div>
+
+        <p>
+            D class madhye B ani C donhi parent classes aahet.
+            Python MRO nusar B madhil show() method first search karto.
+        </p>
+
+        <h3>MRO Check</h3>
+
+        <pre><code>print(D.mro())</code></pre>
+
+        <p>Ya example madhil MRO order:</p>
+
+        <div class="output-box">
+            <pre>D → B → C → A → object</pre>
+        </div>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+            MRO check karnyasathi ClassName.mro() kiwa
+            ClassName.__mro__ vaparta yeto.
+        </div>
+    </section>
+
+    <!-- 13. isinstance -->
+    <section class="lesson-section">
+        <h2>13. isinstance() Function</h2>
+
+        <p>
+            <code>isinstance()</code> function object specific class cha
+            kiwa tyachya parent class cha instance aahe ka he check karte.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <pre><code>isinstance(object, class)</code></pre>
+
+        <h3>Example</h3>
+
+        <pre><code>class Animal:
+    pass
+
+
+class Dog(Animal):
+    pass
+
+
+dog = Dog()
+
+print(isinstance(dog, Dog))
+print(isinstance(dog, Animal))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>True
+True</pre>
+        </div>
+
+        <p>
+            Dog ha Animal class cha child aslyamule dog object
+            Dog ani Animal donhi classes cha instance aahe.
+        </p>
+    </section>
+
+    <!-- 14. issubclass -->
+    <section class="lesson-section">
+        <h2>14. issubclass() Function</h2>
+
+        <p>
+            <code>issubclass()</code> function ek class dusrya class chi
+            child kiwa subclass aahe ka he check karte.
+        </p>
+
+        <h3>Example</h3>
+
+        <pre><code>class Animal:
+    pass
+
+
+class Dog(Animal):
+    pass
+
+
+print(issubclass(Dog, Animal))
+print(issubclass(Animal, Dog))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>True
+False</pre>
+        </div>
+
+        <p>
+            Dog hi Animal chi subclass aahe.
+            Pan Animal hi Dog chi subclass nahi.
+        </p>
+    </section>
+
+    <!-- 15. Types comparison -->
+    <section class="lesson-section">
+        <h2>15. Types of Inheritance – Revision</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Structure</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Single</td>
+                        <td>A → B</td>
+                        <td>One parent, one child.</td>
+                    </tr>
+                    <tr>
+                        <td>Multiple</td>
+                        <td>A + B → C</td>
+                        <td>Multiple parents, one child.</td>
+                    </tr>
+                    <tr>
+                        <td>Multilevel</td>
+                        <td>A → B → C</td>
+                        <td>Inheritance chain.</td>
+                    </tr>
+                    <tr>
+                        <td>Hierarchical</td>
+                        <td>A → B, C</td>
+                        <td>One parent, multiple children.</td>
+                    </tr>
+                    <tr>
+                        <td>Hybrid</td>
+                        <td>Combination</td>
+                        <td>Multiple inheritance patterns combine.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 16. Practical -->
+    <section class="lesson-section">
+        <h2>16. Practical Example – Employee Management System</h2>
+
+        <p>
+            Aata inheritance vaprun Employee Management System cha
+            simple example baghuya.
+        </p>
+
+        <h3>Complete Program</h3>
+
+        <pre><code>class Employee:
+
+    def __init__(self, name, salary):
+        self.name = name
+        self.salary = salary
+
+    def display_details(self):
+        print("Name:", self.name)
+        print("Salary:", self.salary)
+
+
+class Developer(Employee):
+
+    def __init__(self, name, salary, language):
+        super().__init__(name, salary)
+        self.language = language
+
+    def display_role(self):
+        print("Role: Developer")
+        print("Language:", self.language)
+
+
+class Manager(Employee):
+
+    def __init__(self, name, salary, team_size):
+        super().__init__(name, salary)
+        self.team_size = team_size
+
+    def display_role(self):
+        print("Role: Manager")
+        print("Team Size:", self.team_size)
+
+
+developer = Developer("Rohan", 30000, "Python")
+manager = Manager("Amit", 50000, 5)
+
+developer.display_details()
+developer.display_role()
+
+print()
+
+manager.display_details()
+manager.display_role()</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Name: Rohan
+Salary: 30000
+Role: Developer
+Language: Python
+
+Name: Amit
+Salary: 50000
+Role: Manager
+Team Size: 5</pre>
+        </div>
+
+        <p>Ya program madhye:</p>
+
+        <ul>
+            <li>Employee hi Parent Class aahe.</li>
+            <li>Developer ani Manager ya Child Classes aahet.</li>
+            <li>Donhi child classes Employee cha constructor reuse kartat.</li>
+            <li>super() mule parent class chi initialization hote.</li>
+            <li>Pratyek child class madhye swatachi additional functionality aahe.</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Backend Connection:</strong>
+            Real Django projects madhye common functionality base classes madhye
+            thevun child classes madhye specific behavior define karta yeto.
+            Pan inheritance fakt code reuse sathi andhadhund vapru naye.
+        </div>
+    </section>
+
+    <!-- 17. Common mistakes -->
+    <section class="lesson-section">
+        <h2>17. Common Beginner Mistakes</h2>
+
+        <div class="error-card">
+            <h3>Mistake 1: Wrong Parent Class Name</h3>
+
+            <pre><code>class Animal:
+    pass
+
+class Dog(Animals):
+    pass</code></pre>
+
+            <p>
+                Parent class che name Animal aahe, Animals nahi.
+            </p>
+
+            <pre><code>class Dog(Animal):
+    pass</code></pre>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 2: Forgetting super()</h3>
+
+            <pre><code>class Animal:
+
+    def __init__(self, name):
+        self.name = name
+
+
+class Dog(Animal):
+
+    def __init__(self, name, breed):
+        self.breed = breed</code></pre>
+
+            <p>
+                Child class ne swatacha __init__() define kela aahe,
+                pan parent constructor call kela nahi.
+                Tyamule self.name initialize hot nahi.
+            </p>
+
+            <pre><code>class Dog(Animal):
+
+    def __init__(self, name, breed):
+        super().__init__(name)
+        self.breed = breed</code></pre>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 3: Wrong Multiple Inheritance Syntax</h3>
+
+            <pre><code>class Child(Father, Mother):
+    pass</code></pre>
+
+            <p>
+                Multiple inheritance madhye parent class names comma ne
+                separate karave lagtat. Ha correct syntax aahe.
+            </p>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 4: Assuming Parent Methods Are Always First</h3>
+
+            <pre><code>class Animal:
+
+    def sound(self):
+        print("Animal")
+
+
+class Dog(Animal):
+
+    def sound(self):
+        print("Dog")
+
+
+dog = Dog()
+dog.sound()</code></pre>
+
+            <p>
+                Child class madhye same method override asel tar
+                object var call kelyavar child implementation use hote.
+            </p>
+
+            <div class="output-box">
+                <pre>Dog</pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- 18. Revision -->
+    <section class="lesson-section">
+        <h2>18. Quick Revision</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Concept</th>
+                        <th>Use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Inheritance</td><td>Existing class cha code reuse karne.</td></tr>
+                    <tr><td>Parent Class</td><td>Jya class madhun inherit karto.</td></tr>
+                    <tr><td>Child Class</td><td>Ji class inherit karte.</td></tr>
+                    <tr><td>Single</td><td>One parent, one child.</td></tr>
+                    <tr><td>Multiple</td><td>Multiple parent classes.</td></tr>
+                    <tr><td>Multilevel</td><td>Inheritance chi chain.</td></tr>
+                    <tr><td>Hierarchical</td><td>One parent, multiple children.</td></tr>
+                    <tr><td>Hybrid</td><td>Combination of inheritance types.</td></tr>
+                    <tr><td>super()</td><td>MRO madhil next class chi functionality access karne.</td></tr>
+                    <tr><td>Overriding</td><td>Child class madhye parent method chi navin implementation.</td></tr>
+                    <tr><td>MRO</td><td>Method search order.</td></tr>
+                    <tr><td>isinstance()</td><td>Object class cha instance aahe ka check karne.</td></tr>
+                    <tr><td>issubclass()</td><td>Ek class dusrya class chi subclass aahe ka check karne.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 19. Practice -->
+    <section class="practice-section">
+        <h2>19. Practice Questions</h2>
+
+        <p>
+            Khalil questions swatah solve kar.
+            Pratyek program VS Code madhye run karun output check kar.
+        </p>
+
+        <div class="practice-task">
+            <h3>Question 1</h3>
+            <p>Animal parent class ani Dog child class create kar. eat() method inherit kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 2</h3>
+            <p>Single Inheritance vaprun Vehicle ani Car classes create kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 3</h3>
+            <p>Father ani Mother classes create kar ani Child class madhye Multiple Inheritance use kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 4</h3>
+            <p>Animal, Dog ani Puppy classes vaprun Multilevel Inheritance demonstrate kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 5</h3>
+            <p>Animal parent class ani Dog, Cat, Cow child classes vaprun Hierarchical Inheritance demonstrate kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 6</h3>
+            <p>Hybrid Inheritance cha example create kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 7</h3>
+            <p>Parent ani Child class madhye constructors define karun super() use kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 8</h3>
+            <p>Parent class madhil display() method child class madhye override kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 9</h3>
+            <p>Multiple Inheritance use karun MRO check kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 10</h3>
+            <p>isinstance() ani issubclass() functions use karun class relationships check kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 11</h3>
+            <p>Employee parent class ani Developer, Manager child classes create kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 12</h3>
+            <p>Student Management System create kar. Person parent class ani Student child class vapra.</p>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+        <a href="{% url 'python_topic' 'oops' %}" class="nav-button back-button">
+            ← Previous: Python OOPs
+        </a>
+
+        <a href="{% url 'python_topic' 'polymorphism' %}" class="nav-button next-button">
+            Next: Polymorphism →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

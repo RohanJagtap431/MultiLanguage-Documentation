@@ -1,0 +1,821 @@
+
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}Python Tuples | Roman Marathi Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/python/tuples.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">PYTHON • LESSON 13</span>
+        <h1>Python Tuples</h1>
+        <p>
+            Tuple cha use multiple values ekach variable madhye store
+            karnyasathi hoto. Pan List peksha Tuple madhye ek important
+            difference aahe: Tuple immutable asto.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Level: Beginner</span>
+            <span>⏱️ Time: 30–40 Minutes</span>
+        </div>
+    </div>
+
+    <!-- 1. Introduction -->
+    <section class="lesson-section">
+        <h2>1. What is a Tuple?</h2>
+
+        <p>
+            Python madhye Tuple ha collection data type aahe.
+            Tyat aapan multiple values ekach variable madhye store karu shakto.
+        </p>
+
+        <p>
+            Tuple create karnyasathi round brackets <code>()</code>
+            vapartat. Tuple madhil elements comma ne separate kele jatat.
+        </p>
+
+        <pre><code>fruits = ("Apple", "Mango", "Banana")
+
+print(fruits)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>('Apple', 'Mango', 'Banana')</pre>
+        </div>
+
+        <div class="info-box">
+            <strong>Important:</strong>
+            Tuple ordered asto ani tyat duplicate values suddha store karta yetat.
+        </div>
+    </section>
+
+    <!-- 2. Features -->
+    <section class="lesson-section">
+        <h2>2. Features of Tuple</h2>
+
+        <ul>
+            <li><strong>Ordered:</strong> Elements cha order maintain hoto.</li>
+            <li><strong>Immutable:</strong> Tuple create kelyanantar tyatil elements change karta yet nahit.</li>
+            <li><strong>Duplicates:</strong> Same value multiple times store karta yete.</li>
+            <li><strong>Different Data Types:</strong> Vegvegale data types ekach Tuple madhye store karta yetat.</li>
+            <li><strong>Indexed:</strong> Pratyek element la index number asto.</li>
+        </ul>
+
+        <pre><code>student = ("Rohan", 20, 85.5, True)
+
+print(student)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>('Rohan', 20, 85.5, True)</pre>
+        </div>
+    </section>
+
+    <!-- 3. Creating Tuple -->
+    <section class="lesson-section">
+        <h2>3. Creating a Tuple</h2>
+
+        <h3>Example 1: String Tuple</h3>
+
+        <pre><code>fruits = ("Apple", "Mango", "Banana")
+
+print(fruits)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>('Apple', 'Mango', 'Banana')</pre>
+        </div>
+
+        <h3>Example 2: Number Tuple</h3>
+
+        <pre><code>numbers = (10, 20, 30, 40, 50)
+
+print(numbers)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>(10, 20, 30, 40, 50)</pre>
+        </div>
+
+        <h3>Example 3: Mixed Data Types</h3>
+
+        <pre><code>data = ("Python", 100, 25.5, True)
+
+print(data)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>('Python', 100, 25.5, True)</pre>
+        </div>
+
+        <h3>Example 4: Empty Tuple</h3>
+
+        <pre><code>items = ()
+
+print(items)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>()</pre>
+        </div>
+
+        <h3>Example 5: Single Element Tuple</h3>
+
+        <p>
+            Single element Tuple create kartana value nantar comma dene
+            avashyak aahe.
+        </p>
+
+        <pre><code>number = (10,)
+
+print(number)
+print(type(number))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>(10,)
+&lt;class 'tuple'&gt;</pre>
+        </div>
+
+        <div class="warning-box">
+            <strong>Important:</strong>
+            <code>(10)</code> ha integer aahe, Tuple nahi.
+            <code>(10,)</code> ha single-element Tuple aahe.
+        </div>
+    </section>
+
+    <!-- 4. Indexing -->
+    <section class="lesson-section">
+        <h2>4. Tuple Indexing</h2>
+
+        <p>
+            Tuple madhil pratyek element la index number asto.
+            Indexing 0 pasun start hote.
+        </p>
+
+        <pre><code>fruits = ("Apple", "Mango", "Banana", "Orange")
+
+print(fruits[0])
+print(fruits[1])
+print(fruits[2])
+print(fruits[3])</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Apple
+Mango
+Banana
+Orange</pre>
+        </div>
+
+        <h3>Negative Indexing</h3>
+
+        <p>
+            Negative indexing madhye last element cha index -1 asto.
+        </p>
+
+        <pre><code>fruits = ("Apple", "Mango", "Banana", "Orange")
+
+print(fruits[-1])
+print(fruits[-2])</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Orange
+Banana</pre>
+        </div>
+
+        <h3>Index Position Table</h3>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Element</th>
+                        <th>Positive Index</th>
+                        <th>Negative Index</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Apple</td><td>0</td><td>-4</td></tr>
+                    <tr><td>Mango</td><td>1</td><td>-3</td></tr>
+                    <tr><td>Banana</td><td>2</td><td>-2</td></tr>
+                    <tr><td>Orange</td><td>3</td><td>-1</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 5. Slicing -->
+    <section class="lesson-section">
+        <h2>5. Tuple Slicing</h2>
+
+        <p>
+            Tuple madhun ekapeksha jast elements select karnyasathi
+            slicing vapartat.
+        </p>
+
+        <p><strong>Syntax:</strong></p>
+
+        <pre><code>tuple_name[start : stop : step]</code></pre>
+
+        <h3>Example 1: Basic Slicing</h3>
+
+        <pre><code>numbers = (10, 20, 30, 40, 50)
+
+print(numbers[1:4])</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>(20, 30, 40)</pre>
+        </div>
+
+        <h3>Example 2: Start Omitted</h3>
+
+        <pre><code>numbers = (10, 20, 30, 40, 50)
+
+print(numbers[:3])</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>(10, 20, 30)</pre>
+        </div>
+
+        <h3>Example 3: Stop Omitted</h3>
+
+        <pre><code>numbers = (10, 20, 30, 40, 50)
+
+print(numbers[2:])</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>(30, 40, 50)</pre>
+        </div>
+
+        <h3>Example 4: Reverse Tuple</h3>
+
+        <pre><code>numbers = (10, 20, 30, 40, 50)
+
+print(numbers[::-1])</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>(50, 40, 30, 20, 10)</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Slicing madhye stop index include hot nahi.
+            Slicing cha result Tuple asto.
+        </div>
+    </section>
+
+    <!-- 6. Immutable -->
+    <section class="lesson-section">
+        <h2>6. Tuple is Immutable</h2>
+
+        <p>
+            Immutable mhanje Tuple create kelyanantar tyatil existing
+            elements direct change, add kiwa remove karta yet nahit.
+        </p>
+
+        <pre><code>fruits = ("Apple", "Mango", "Banana")
+
+fruits[1] = "Orange"
+
+print(fruits)</code></pre>
+
+        <div class="error-box">
+            <strong>Output:</strong>
+            <pre>TypeError: 'tuple' object does not support item assignment</pre>
+        </div>
+
+        <p>
+            Varil code madhye aapan index 1 varil value change karnyacha
+            prayatna kela. Pan Tuple immutable aslyamule error yeto.
+        </p>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Data create kelyanantar tyat changes karayche nasatil tar
+            Tuple useful tharu shakto.
+        </div>
+    </section>
+
+    <!-- 7. Tuple methods -->
+    <section class="lesson-section">
+        <h2>7. Important Tuple Methods</h2>
+
+        <p>
+            Tuple madhye List peksha methods kami astat. Tyatil don
+            important methods mhanje count() ani index().
+        </p>
+
+        <h3>count()</h3>
+
+        <p>
+            Tuple madhye specific value kiti vela aali aahe he
+            mojnyasathi <code>count()</code> vapartat.
+        </p>
+
+        <pre><code>numbers = (10, 20, 10, 30, 10)
+
+print(numbers.count(10))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>3</pre>
+        </div>
+
+        <h3>index()</h3>
+
+        <p>
+            Specific value cha pahila index shodhnayasathi
+            <code>index()</code> vapartat.
+        </p>
+
+        <pre><code>fruits = ("Apple", "Mango", "Banana")
+
+print(fruits.index("Mango"))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>1</pre>
+        </div>
+
+        <div class="warning-box">
+            <strong>Note:</strong>
+            index() madhye value sapadli nahi tar ValueError error yeto.
+        </div>
+    </section>
+
+    <!-- 8. len -->
+    <section class="lesson-section">
+        <h2>8. len() Function</h2>
+
+        <p>
+            Tuple madhye kiti elements aahet he count karnyasathi
+            <code>len()</code> function vapartat.
+        </p>
+
+        <pre><code>fruits = ("Apple", "Mango", "Banana", "Orange")
+
+print(len(fruits))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>4</pre>
+        </div>
+
+        <div class="info-box">
+            <strong>Note:</strong>
+            len() hi Python built-in function aahe. Ti Tuple method nahi.
+        </div>
+    </section>
+
+    <!-- 9. Tuple Packing -->
+    <section class="lesson-section">
+        <h2>9. Tuple Packing</h2>
+
+        <p>
+            Multiple values ekatra lihun Tuple tayar karnyachya process la
+            Tuple Packing mhantat.
+        </p>
+
+        <pre><code>student = "Rohan", 20, "Computer Science"
+
+print(student)
+print(type(student))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>('Rohan', 20, 'Computer Science')
+&lt;class 'tuple'&gt;</pre>
+        </div>
+
+        <p>
+            Yethe values comma ne separate kelyamule Python ne Tuple tayar kela.
+            Round brackets optional aahet.
+        </p>
+    </section>
+
+    <!-- 10. Tuple Unpacking -->
+    <section class="lesson-section">
+        <h2>10. Tuple Unpacking</h2>
+
+        <p>
+            Tuple madhil values vegveglya variables madhye assign
+            karnyachya process la Tuple Unpacking mhantat.
+        </p>
+
+        <pre><code>student = ("Rohan", 20, "Computer Science")
+
+name, age, course = student
+
+print(name)
+print(age)
+print(course)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Rohan
+20
+Computer Science</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Unpacking kartana variables chi sankhya Tuple madhil
+            elements chya sankhyeitki asavi. Nahi tar ValueError yeu shakto.
+        </div>
+
+        <h3>Using Asterisk (*)</h3>
+
+        <p>
+            Asterisk (*) vaprun remaining values ekach list madhye
+            collect karta yetat.
+        </p>
+
+        <pre><code>numbers = (10, 20, 30, 40, 50)
+
+first, *middle, last = numbers
+
+print(first)
+print(middle)
+print(last)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>10
+[20, 30, 40]
+50</pre>
+        </div>
+    </section>
+
+    <!-- 11. Looping -->
+    <section class="lesson-section">
+        <h2>11. Looping Through a Tuple</h2>
+
+        <p>
+            Tuple madhil pratyek element ek-ek karun access karnyasathi
+            for loop vapartat.
+        </p>
+
+        <pre><code>fruits = ("Apple", "Mango", "Banana")
+
+for fruit in fruits:
+    print(fruit)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>Apple
+Mango
+Banana</pre>
+        </div>
+
+        <h3>Using range() and len()</h3>
+
+        <pre><code>fruits = ("Apple", "Mango", "Banana")
+
+for i in range(len(fruits)):
+    print(i, fruits[i])</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>0 Apple
+1 Mango
+2 Banana</pre>
+        </div>
+    </section>
+
+    <!-- 12. Membership -->
+    <section class="lesson-section">
+        <h2>12. Membership Operators</h2>
+
+        <p>
+            Tuple madhye specific value present aahe ka he check
+            karnyasathi <code>in</code> ani <code>not in</code>
+            operators vapartat.
+        </p>
+
+        <pre><code>fruits = ("Apple", "Mango", "Banana")
+
+print("Mango" in fruits)
+print("Orange" not in fruits)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>True
+True</pre>
+        </div>
+    </section>
+
+    <!-- 13. Concatenation -->
+    <section class="lesson-section">
+        <h2>13. Tuple Concatenation and Repetition</h2>
+
+        <h3>Concatenation (+)</h3>
+
+        <p>
+            Don Tuples ekatra jodnyasathi + operator vapartat.
+        </p>
+
+        <pre><code>tuple1 = (10, 20)
+tuple2 = (30, 40)
+
+result = tuple1 + tuple2
+
+print(result)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>(10, 20, 30, 40)</pre>
+        </div>
+
+        <h3>Repetition (*)</h3>
+
+        <p>
+            Tuple madhil elements multiple times repeat karnyasathi
+            * operator vapartat.
+        </p>
+
+        <pre><code>numbers = (10, 20)
+
+result = numbers * 3
+
+print(result)</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>(10, 20, 10, 20, 10, 20)</pre>
+        </div>
+    </section>
+
+    <!-- 14. List vs Tuple -->
+    <section class="lesson-section">
+        <h2>14. Difference Between List and Tuple</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>List</th>
+                        <th>Tuple</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Square brackets [] vapartat.</td>
+                        <td>Round brackets () vapartat.</td>
+                    </tr>
+                    <tr>
+                        <td>Mutable asto.</td>
+                        <td>Immutable asto.</td>
+                    </tr>
+                    <tr>
+                        <td>Elements change karta yetat.</td>
+                        <td>Elements direct change karta yet nahit.</td>
+                    </tr>
+                    <tr>
+                        <td>Methods jast available aahet.</td>
+                        <td>count() ani index() he main methods aahet.</td>
+                    </tr>
+                    <tr>
+                        <td>Dynamic data sathi useful.</td>
+                        <td>Fixed collection sathi useful.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-box">
+            <strong>Example:</strong>
+            Shopping cart madhil items change hot astil tar List useful.
+            Fixed coordinates kiwa fixed settings sathi Tuple useful tharu shakto.
+        </div>
+    </section>
+
+    <!-- 15. Conversion -->
+    <section class="lesson-section">
+        <h2>15. Converting List into Tuple</h2>
+
+        <p>
+            List la Tuple madhye convert karnyasathi
+            <code>tuple()</code> function vapartat.
+        </p>
+
+        <pre><code>fruits = ["Apple", "Mango", "Banana"]
+
+result = tuple(fruits)
+
+print(result)
+print(type(result))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>('Apple', 'Mango', 'Banana')
+&lt;class 'tuple'&gt;</pre>
+        </div>
+
+        <h3>Converting Tuple into List</h3>
+
+        <p>
+            Tuple la List madhye convert karnyasathi
+            <code>list()</code> function vapartat.
+        </p>
+
+        <pre><code>numbers = (10, 20, 30)
+
+result = list(numbers)
+
+print(result)
+print(type(result))</code></pre>
+
+        <div class="output-box">
+            <strong>Output:</strong>
+            <pre>[10, 20, 30]
+&lt;class 'list'&gt;</pre>
+        </div>
+    </section>
+
+    <!-- 16. Common Mistakes -->
+    <section class="lesson-section">
+        <h2>16. Common Beginner Mistakes</h2>
+
+        <div class="error-card">
+            <h3>Mistake 1: Single Element Tuple madhye comma visarne</h3>
+
+            <pre><code>number = (10)
+
+print(type(number))</code></pre>
+
+            <p>
+                Ha Tuple nahi. Ha integer aahe.
+            </p>
+
+            <pre><code>number = (10,)
+
+print(type(number))</code></pre>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 2: Tuple madhil value change karne</h3>
+
+            <pre><code>numbers = (10, 20, 30)
+
+numbers[0] = 100</code></pre>
+
+            <p>
+                Tuple immutable aslyamule item assignment karta yet nahi.
+            </p>
+        </div>
+
+        <div class="error-card">
+            <h3>Mistake 3: Unpacking madhye values mismatch hone</h3>
+
+            <pre><code>numbers = (10, 20, 30)
+
+a, b = numbers</code></pre>
+
+            <p>
+                Tuple madhye 3 values aahet, pan variables 2 aahet.
+                Mhanun ValueError yeil.
+            </p>
+        </div>
+    </section>
+
+    <!-- 17. Revision -->
+    <section class="lesson-section">
+        <h2>17. Quick Revision</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+                <thead>
+                    <tr>
+                        <th>Concept</th>
+                        <th>Use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>()</td><td>Tuple create karto.</td></tr>
+                    <tr><td>Indexing</td><td>Specific element access karto.</td></tr>
+                    <tr><td>Slicing</td><td>Multiple elements select karto.</td></tr>
+                    <tr><td>count()</td><td>Value kiti vela aahe te mojto.</td></tr>
+                    <tr><td>index()</td><td>Value cha index return karto.</td></tr>
+                    <tr><td>len()</td><td>Elements chi sankhya return karto.</td></tr>
+                    <tr><td>Packing</td><td>Multiple values Tuple madhye store karto.</td></tr>
+                    <tr><td>Unpacking</td><td>Tuple values variables madhye assign karto.</td></tr>
+                    <tr><td>tuple()</td><td>Iterable la Tuple madhye convert karto.</td></tr>
+                    <tr><td>list()</td><td>Iterable la List madhye convert karto.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 18. Practice -->
+    <section class="practice-section">
+        <h2>18. Practice Questions</h2>
+
+        <p>
+            Khalil questions swatah code lihun solve kar.
+            Pratyek question cha output suddha check kar.
+        </p>
+
+        <div class="practice-task">
+            <h3>Question 1</h3>
+            <p>5 fruits chi Tuple create kar ani print kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 2</h3>
+            <p>(10, 20, 30, 40, 50) madhun 30 access kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 3</h3>
+            <p>Tuple madhil last element negative indexing ne access kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 4</h3>
+            <p>(10, 20, 10, 30, 10) madhye 10 kiti vela aahe te count kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 5</h3>
+            <p>Tuple madhye "Mango" cha index shodh.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 6</h3>
+            <p>Tuple madhil values vegveglya variables madhye unpack kar.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 7</h3>
+            <p>Don Tuples + operator vaprun ekatra jod.</p>
+        </div>
+
+        <div class="practice-task">
+            <h3>Question 8</h3>
+            <p>List la Tuple madhye convert kar.</p>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            Tuple immutable aahe he lakshat thev.
+            Tuple ani List madhil difference swatah examples lihun samjun ghe.
+        </div>
+    </section>
+
+    <!-- 19. Practical Task -->
+    <section class="lesson-section">
+        <h2>19. Practical Task – Student Record</h2>
+
+        <p>
+            Student che name, age ani course Tuple madhye store kar.
+            Nantar Tuple unpack karun pratyek value display kar.
+        </p>
+
+        <pre><code>student = ("Rohan", 20, "Computer Science")
+
+name, age, course = student
+
+print("Name:", name)
+print("Age:", age)
+print("Course:", course)</code></pre>
+
+        <div class="output-box">
+            <strong>Example Output:</strong>
+            <pre>Name: Rohan
+Age: 20
+Course: Computer Science</pre>
+        </div>
+
+        <p>
+            Ya practical madhye Tuple creation ani Tuple unpacking
+            ya don concepts cha use kela aahe.
+        </p>
+    </section>
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+        <a href="{% url 'python_topic' 'lists' %}" class="nav-button back-button">
+            ← Previous: Lists
+        </a>
+
+        <a href="{% url 'python_topic' 'sets' %}" class="nav-button next-button">
+            Next: Sets →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

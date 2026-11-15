@@ -1,0 +1,534 @@
+
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}CSS Transitions and Transforms | Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/css/transitions-transforms.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+    <div class="lesson-header">
+        <span class="lesson-label">CSS TUTORIAL</span>
+
+        <h1>CSS Transitions and Transforms</h1>
+
+        <p>
+            CSS Transitions ani Transforms cha use
+            website madhye smooth effects ani element
+            movements tayar karanyasathi hoto.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 30 Minutes</span>
+            <span>📄 Page 19</span>
+        </div>
+    </div>
+
+
+    <!-- Section 1 -->
+    <section class="lesson-section">
+
+        <h2>1. Introduction to CSS Transitions</h2>
+
+        <p>
+            CSS Transition cha use element chi CSS property
+            change hotana smooth animation effect denyasathi
+            hoto.
+        </p>
+
+        <p>
+            Udaharanarth, button cha background color
+            change hotana to ekdam change na hota
+            halu-halu change hou shakto.
+        </p>
+
+        <div class="info-box">
+            <strong>Definition:</strong>
+            CSS Transition allows property changes to
+            happen smoothly over a specified duration.
+        </div>
+
+        <h3>Syntax</h3>
+
+        <div class="code-block">
+            <pre><code>selector {
+    transition: property duration;
+}</code></pre>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>.button {
+    background-color: blue;
+    transition: 0.5s;
+}
+
+.button:hover {
+    background-color: red;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box transition-intro-output">
+            <button class="transition-intro-button">
+                Hover Over Me
+            </button>
+            <p>Button var mouse gheun ja.</p>
+        </div>
+
+    </section>
+
+
+    <!-- Section 2 -->
+    <section class="lesson-section">
+
+        <h2>2. transition-property</h2>
+
+        <p>
+            transition-property cha use kontya CSS
+            property var transition effect apply
+            karaycha aahe he tharavanyasathi hoto.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    transition-property: background-color;
+}</code></pre>
+        </div>
+
+        <p>
+            Ya example madhye fakt background-color
+            property smoothly change hoil.
+        </p>
+
+        <h3>Common Values</h3>
+
+        <ul>
+            <li><strong>background-color</strong> - Background color change.</li>
+            <li><strong>width</strong> - Width change.</li>
+            <li><strong>transform</strong> - Transform effect change.</li>
+            <li><strong>all</strong> - Sarva supported changing properties.</li>
+        </ul>
+
+    </section>
+
+
+    <!-- Section 3 -->
+    <section class="lesson-section">
+
+        <h2>3. transition-duration</h2>
+
+        <p>
+            transition-duration cha use transition
+            effect purna honyasathi kiti vel lagel
+            he tharavanyasathi hoto.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    transition-duration: 1s;
+}</code></pre>
+        </div>
+
+        <div class="info-box">
+            <strong>Time Units:</strong>
+            s mhanje seconds ani ms mhanje milliseconds.
+            1s = 1000ms.
+        </div>
+
+        <h3>Examples</h3>
+
+        <ul>
+            <li><strong>0.5s</strong> - Half second.</li>
+            <li><strong>1s</strong> - One second.</li>
+            <li><strong>200ms</strong> - 0.2 second.</li>
+        </ul>
+
+    </section>
+
+
+    <!-- Section 4 -->
+    <section class="lesson-section">
+
+        <h2>4. transition-delay</h2>
+
+        <p>
+            transition-delay cha use transition effect
+            suru honyapurvi kiti vel thambayche he
+            tharavanyasathi hoto.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    transition-delay: 1s;
+}</code></pre>
+        </div>
+
+        <p>
+            Ya example madhye transition suru honyapurvi
+            1 second delay hoil.
+        </p>
+
+    </section>
+
+
+    <!-- Section 5 -->
+    <section class="lesson-section">
+
+        <h2>5. transition-timing-function</h2>
+
+        <p>
+            transition-timing-function cha use transition
+            effect cha speed pattern tharavanyasathi hoto.
+        </p>
+
+        <h3>Common Values</h3>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>ease</td>
+                        <td>Slow start, fast middle, slow end.</td>
+                    </tr>
+
+                    <tr>
+                        <td>linear</td>
+                        <td>Constant speed.</td>
+                    </tr>
+
+                    <tr>
+                        <td>ease-in</td>
+                        <td>Slow start.</td>
+                    </tr>
+
+                    <tr>
+                        <td>ease-out</td>
+                        <td>Slow end.</td>
+                    </tr>
+
+                    <tr>
+                        <td>ease-in-out</td>
+                        <td>Slow start and slow end.</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    transition-timing-function: ease-in-out;
+}</code></pre>
+        </div>
+
+    </section>
+
+
+    <!-- Section 6 -->
+    <section class="lesson-section">
+
+        <h2>6. Transition Shorthand</h2>
+
+        <p>
+            Transition chya sarva properties ekach
+            line madhye lihinyasathi shorthand property
+            vapartat.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <div class="code-block">
+            <pre><code>transition: property duration timing-function delay;</code></pre>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>.button {
+    background-color: blue;
+
+    transition:
+        background-color
+        0.5s
+        ease
+        0.2s;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box shorthand-output">
+            <button class="shorthand-button">
+                Hover Me
+            </button>
+        </div>
+
+    </section>
+
+
+    <!-- Section 7 -->
+    <section class="lesson-section">
+
+        <h2>7. CSS Transform - translate()</h2>
+
+        <p>
+            transform: translate() cha use element la
+            horizontal kiwa vertical direction madhye
+            move karanyasathi hoto.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    transform: translate(30px, 20px);
+}</code></pre>
+        </div>
+
+        <p>
+            Pahili value horizontal (X-axis) ani
+            dusari value vertical (Y-axis) movement
+            dakhavte.
+        </p>
+
+        <h3>Output</h3>
+
+        <div class="output-box transform-output translate-output">
+            <div class="transform-box">
+                Translate
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Section 8 -->
+    <section class="lesson-section">
+
+        <h2>8. CSS Transform - rotate()</h2>
+
+        <p>
+            transform: rotate() cha use element la
+            clockwise kiwa anti-clockwise rotate
+            karanyasathi hoto.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    transform: rotate(45deg);
+}</code></pre>
+        </div>
+
+        <p>
+            deg mhanje degree. Positive value
+            clockwise ani negative value
+            anti-clockwise rotation dete.
+        </p>
+
+        <h3>Output</h3>
+
+        <div class="output-box transform-output rotate-output">
+            <div class="transform-box">
+                Rotate
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Section 9 -->
+    <section class="lesson-section">
+
+        <h2>9. CSS Transform - scale()</h2>
+
+        <p>
+            transform: scale() cha use element cha
+            size motha kiwa lahan karanyasathi hoto.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    transform: scale(1.2);
+}</code></pre>
+        </div>
+
+        <ul>
+            <li><strong>scale(1)</strong> - Original size.</li>
+            <li><strong>scale(1.5)</strong> - 1.5 times size.</li>
+            <li><strong>scale(0.5)</strong> - Half size.</li>
+        </ul>
+
+        <h3>Output</h3>
+
+        <div class="output-box transform-output scale-output">
+            <div class="transform-box">
+                Scale
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Section 10 -->
+    <section class="lesson-section">
+
+        <h2>10. CSS Transform - skew()</h2>
+
+        <p>
+            transform: skew() cha use element la
+            horizontal kiwa vertical direction madhye
+            tilt karanyasathi hoto.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    transform: skew(15deg);
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box transform-output skew-output">
+            <div class="transform-box">
+                Skew
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Section 11 -->
+    <section class="lesson-section">
+
+        <h2>11. Difference Between Transition and Transform</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+
+                <thead>
+                    <tr>
+                        <th>Transition</th>
+                        <th>Transform</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Style changes smooth karte.</td>
+                        <td>Element cha shape, size kiwa position change karte.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Duration vaparte.</td>
+                        <td>Translate, rotate, scale, skew vaparte.</td>
+                    </tr>
+
+                    <tr>
+                        <td>transition: 0.5s;</td>
+                        <td>transform: rotate(45deg);</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+    </section>
+
+
+    <!-- Section 12 -->
+    <section class="lesson-section">
+
+        <h2>12. Important Points</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>Transition smooth style changes sathi vapartat.</li>
+                <li>transition-property konti property change honar te tharavte.</li>
+                <li>transition-duration effect cha vel tharavte.</li>
+                <li>transition-delay effect suru honyacha delay tharavte.</li>
+                <li>transition-timing-function speed pattern tharavte.</li>
+                <li>translate() element move karte.</li>
+                <li>rotate() element rotate karte.</li>
+                <li>scale() element cha size change karte.</li>
+                <li>skew() element tilt karte.</li>
+            </ul>
+        </div>
+
+    </section>
+
+
+    <!-- Practice Section -->
+    <section class="practice-section">
+
+        <h2>13. Practice Task</h2>
+
+        <div class="task-box">
+
+            <h3>Task: Create an Animated Button</h3>
+
+            <p>Ek HTML page tayar kara ani:</p>
+
+            <ol>
+                <li>Ek button create kara.</li>
+                <li>Button la background color dya.</li>
+                <li>transition: 0.5s vapra.</li>
+                <li>:hover vaprun button cha color change kara.</li>
+                <li>Hover kelyavar transform: scale(1.1) vapra.</li>
+                <li>Ek box tayar karun rotate() effect dya.</li>
+            </ol>
+
+        </div>
+
+    </section>
+
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+
+        <a href="{% url 'css_topic' 'pseudo-elements' %}"
+           class="nav-button previous">
+            ← Previous: CSS Pseudo-Elements
+        </a>
+
+        <a href="{% url 'css_topic' 'animations' %}"
+           class="nav-button next">
+            Next: CSS Animations →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

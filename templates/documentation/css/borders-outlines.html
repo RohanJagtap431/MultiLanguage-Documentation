@@ -1,0 +1,490 @@
+
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}CSS Borders and Outlines | Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/css/borders-outlines.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Lesson Header -->
+    <div class="lesson-header">
+        <span class="lesson-label">CSS TUTORIAL</span>
+
+        <h1>CSS Borders and Outlines</h1>
+
+        <p>
+            CSS Borders and Outlines cha use HTML elements
+            la boundary, color, style ani special effects
+            denyasathi hoto.
+        </p>
+
+        <div class="lesson-meta">
+            <span>📘 Beginner Level</span>
+            <span>⏱️ 20 Minutes</span>
+            <span>📄 Page 11</span>
+        </div>
+    </div>
+
+
+    <!-- Section 1 -->
+    <section class="lesson-section">
+
+        <h2>1. Introduction to CSS Border</h2>
+
+        <p>
+            CSS Border cha use HTML element chya
+            around boundary line tayar karanyasathi hoto.
+            Border mule element vegala disnyas madat hote.
+        </p>
+
+        <div class="info-box">
+            <strong>Definition:</strong>
+            CSS Border is a property used to create a
+            visible boundary around an HTML element.
+        </div>
+
+        <h3>Basic CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    border: 2px solid blue;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box border-basic-output">
+            <div class="basic-border-box">
+                CSS Border Example
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Section 2 -->
+    <section class="lesson-section">
+
+        <h2>2. Border Width</h2>
+
+        <p>
+            <strong>border-width</strong> property cha use
+            border chi thickness set karanyasathi hoto.
+        </p>
+
+        <h3>Common Values</h3>
+
+        <ul>
+            <li>thin – Patal border.</li>
+            <li>medium – Madhyam border.</li>
+            <li>thick – Jada border.</li>
+            <li>px value – Specific thickness set karte.</li>
+        </ul>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    border-style: solid;
+    border-width: 5px;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box width-output">
+            <div class="thin-border">Thin Border</div>
+            <div class="medium-border">Medium Border</div>
+            <div class="thick-border">Thick Border</div>
+        </div>
+
+    </section>
+
+
+    <!-- Section 3 -->
+    <section class="lesson-section">
+
+        <h2>3. Border Style</h2>
+
+        <p>
+            <strong>border-style</strong> property cha use
+            border cha pattern kiwa design set karanyasathi hoto.
+        </p>
+
+        <h3>Common Border Styles</h3>
+
+        <ul>
+            <li>solid – Saral continuous line.</li>
+            <li>dashed – Dash pattern madhil line.</li>
+            <li>dotted – Dots madhil line.</li>
+            <li>double – Don continuous lines.</li>
+            <li>groove – 3D groove effect.</li>
+            <li>ridge – 3D ridge effect.</li>
+            <li>inset – Element aat gelyasarkha effect.</li>
+            <li>outset – Element baher aalyasarkha effect.</li>
+            <li>none – Border disat nahi.</li>
+            <li>hidden – Border hide karte.</li>
+        </ul>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.solid {
+    border: 3px solid blue;
+}
+
+.dashed {
+    border: 3px dashed blue;
+}
+
+.dotted {
+    border: 3px dotted blue;
+}
+
+.double {
+    border: 5px double blue;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box style-output">
+            <div class="solid-demo">Solid Border</div>
+            <div class="dashed-demo">Dashed Border</div>
+            <div class="dotted-demo">Dotted Border</div>
+            <div class="double-demo">Double Border</div>
+        </div>
+
+    </section>
+
+
+    <!-- Section 4 -->
+    <section class="lesson-section">
+
+        <h2>4. Border Color</h2>
+
+        <p>
+            <strong>border-color</strong> property cha use
+            border cha color set karanyasathi hoto.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    border-style: solid;
+    border-width: 3px;
+    border-color: red;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box color-output">
+            <div class="red-border">Red Border</div>
+            <div class="green-border">Green Border</div>
+            <div class="blue-border">Blue Border</div>
+        </div>
+
+    </section>
+
+
+    <!-- Section 5 -->
+    <section class="lesson-section">
+
+        <h2>5. Border Shorthand Property</h2>
+
+        <p>
+            <strong>border</strong> hi shorthand property aahe.
+            Yachya madatine border width, style ani color
+            ekach declaration madhye set karta yetat.
+        </p>
+
+        <h3>Syntax</h3>
+
+        <div class="code-block">
+            <pre><code>border: width style color;</code></pre>
+        </div>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    border: 3px solid blue;
+}</code></pre>
+        </div>
+
+        <p>
+            Ya example madhye 3px border width,
+            solid border style ani blue border color aahe.
+        </p>
+
+        <div class="tip-box">
+            <strong>Lakshat Thev:</strong>
+            Border shorthand mule teen properties
+            ekach line madhye lihita yetat.
+        </div>
+
+    </section>
+
+
+    <!-- Section 6 -->
+    <section class="lesson-section">
+
+        <h2>6. Individual Border Sides</h2>
+
+        <p>
+            CSS madhye pratyek side la vegala border
+            denyasathi individual border properties vapartat.
+        </p>
+
+        <h3>Available Properties</h3>
+
+        <ul>
+            <li>border-top – Varil border.</li>
+            <li>border-bottom – Khalil border.</li>
+            <li>border-left – Davya bajucha border.</li>
+            <li>border-right – Ujvya bajucha border.</li>
+        </ul>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    border-top: 3px solid red;
+    border-bottom: 3px solid blue;
+    border-left: 3px dashed green;
+    border-right: 3px dotted orange;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box sides-output">
+            <div class="sides-demo">
+                Different Border Sides
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Section 7 -->
+    <section class="lesson-section">
+
+        <h2>7. Border Radius</h2>
+
+        <p>
+            <strong>border-radius</strong> property cha use
+            element che corners round karanyasathi hoto.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    border: 2px solid blue;
+    border-radius: 15px;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box radius-output">
+            <div class="radius-small">5px Radius</div>
+            <div class="radius-medium">15px Radius</div>
+            <div class="radius-large">30px Radius</div>
+            <div class="radius-circle">Circle</div>
+        </div>
+
+        <div class="tip-box">
+            <strong>Tip:</strong>
+            border-radius: 50% vaprun square element la
+            circular shape deta yete.
+        </div>
+
+    </section>
+
+
+    <!-- Section 8 -->
+    <section class="lesson-section">
+
+        <h2>8. CSS Outline</h2>
+
+        <p>
+            <strong>outline</strong> property cha use
+            HTML element chya border chya baher ek line
+            dakhavnyasathi hoto.
+        </p>
+
+        <p>
+            Outline ha border peksha vegala asto.
+            Outline mule element chi actual width ani
+            height change hot nahi.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    border: 2px solid blue;
+    outline: 3px solid red;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box outline-output">
+            <div class="outline-demo">
+                Border and Outline Example
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Section 9 -->
+    <section class="lesson-section">
+
+        <h2>9. Outline Offset</h2>
+
+        <p>
+            <strong>outline-offset</strong> property cha use
+            border ani outline yanchya madhye distance
+            thevnyasathi hoto.
+        </p>
+
+        <h3>CSS Code</h3>
+
+        <div class="code-block">
+            <pre><code>.box {
+    outline: 3px solid red;
+    outline-offset: 5px;
+}</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box offset-output">
+            <div class="offset-demo">
+                Outline Offset Example
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Section 10 -->
+    <section class="lesson-section">
+
+        <h2>10. Difference Between Border and Outline</h2>
+
+        <div class="table-wrapper">
+            <table class="lesson-table">
+
+                <thead>
+                    <tr>
+                        <th>Border</th>
+                        <th>Outline</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Element chya border area madhye asto.</td>
+                        <td>Border chya baher draw hoto.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Width ani height calculation var parinam hoto.</td>
+                        <td>Layout madhye space occupy karat nahi.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Pratyek side la vegala border deta yeto.</td>
+                        <td>Individual sides sathi separate outline properties nahit.</td>
+                    </tr>
+
+                    <tr>
+                        <td>border-radius vaprun corners round karta yetat.</td>
+                        <td>Outline la border-radius cha effect lagu hot nahi.</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+    </section>
+
+
+    <!-- Section 11 -->
+    <section class="lesson-section">
+
+        <h2>11. Important Points</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>Border element chya around boundary tayar karto.</li>
+                <li>border-width thickness set karte.</li>
+                <li>border-style pattern set karte.</li>
+                <li>border-color color set karte.</li>
+                <li>border shorthand teen properties ekatra set karte.</li>
+                <li>border-radius corners round karte.</li>
+                <li>Outline border chya baher draw hoto.</li>
+                <li>outline-offset border ani outline madhye gap dete.</li>
+            </ul>
+        </div>
+
+    </section>
+
+
+    <!-- Practice -->
+    <section class="practice-section">
+
+        <h2>12. Practice Task</h2>
+
+        <div class="task-box">
+
+            <h3>Task: Create Different Styled Boxes</h3>
+
+            <p>Ek HTML page tayar kara ani tyamadhye:</p>
+
+            <ol>
+                <li>Solid border aslela box tayar kara.</li>
+                <li>Dashed border aslela box tayar kara.</li>
+                <li>Dotted border aslela box tayar kara.</li>
+                <li>Border color change kara.</li>
+                <li>border-radius vaprun rounded box tayar kara.</li>
+                <li>Ek box la outline dya.</li>
+                <li>outline-offset vaprun gap tayar kara.</li>
+            </ol>
+
+        </div>
+
+    </section>
+
+
+    <!-- Navigation -->
+    <div class="lesson-navigation">
+
+        <a href="{% url 'css_topic' 'margin-padding' %}"
+           class="nav-button previous">
+            ← Previous: Margin and Padding
+        </a>
+
+        <a href="{% url 'css_topic' 'width-height' %}"
+           class="nav-button next">
+            Next: Width and Height →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

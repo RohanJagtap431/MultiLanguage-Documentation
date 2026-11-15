@@ -1,0 +1,602 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}DOM Manipulation | JavaScript Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/javascript/dom-manipulation.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- Header -->
+
+    <div class="lesson-header">
+        <span class="lesson-label">JAVASCRIPT DOCUMENTATION • PAGE 19</span>
+
+        <h1>DOM Manipulation</h1>
+
+        <p>
+            Ya lesson madhye JavaScript vaprun HTML content,
+            CSS styles ani webpage madhil elements kase change,
+            add ani remove karayche te shikuya.
+        </p>
+
+        <div class="lesson-meta">
+            <span>Beginner Level</span>
+            <span>40–45 Minutes</span>
+        </div>
+    </div>
+
+    <!-- Section 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What is DOM Manipulation?</h2>
+
+        <p>
+            DOM Manipulation mhanje JavaScript vaprun HTML document
+            madhil elements ani tyanchya properties madhye badal karne.
+        </p>
+
+        <p>
+            DOM Manipulation mule webpage reload na karta content,
+            style ani structure update karta yete.
+        </p>
+
+        <div class="info-box">
+            <strong>Definition:</strong>
+            DOM Manipulation is the process of changing HTML elements,
+            content, styles and structure using JavaScript.
+        </div>
+
+        <h3>DOM Manipulation cha use:</h3>
+
+        <ul>
+            <li>HTML text change karne.</li>
+            <li>HTML madhye new elements add karne.</li>
+            <li>Existing elements remove karne.</li>
+            <li>CSS styles change karne.</li>
+            <li>Webpage dynamic banavne.</li>
+        </ul>
+
+    </section>
+
+    <!-- Section 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. textContent</h2>
+
+        <p>
+            textContent property cha use HTML element madhil text
+            read ani change karnyasathi hoto.
+        </p>
+
+        <h3>HTML:</h3>
+
+        <pre class="code-block"><code>&lt;h1 id="heading"&gt;Hello World&lt;/h1&gt;</code></pre>
+
+        <h3>JavaScript:</h3>
+
+        <pre class="code-block"><code>const heading = document.getElementById("heading");
+
+heading.textContent = "Welcome to JavaScript!";
+
+console.log(heading.textContent);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Welcome to JavaScript!</pre>
+        </div>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>getElementById() heading select karte.</li>
+            <li>textContent madhil text change karte.</li>
+            <li>console.log() updated text print karte.</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Remember:</strong>
+            Fakt text change karaycha asel tar textContent vaprane
+            sope ani safe aste.
+        </div>
+
+    </section>
+
+    <!-- Section 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. innerHTML</h2>
+
+        <p>
+            innerHTML property cha use element madhil HTML content
+            read ani replace karnyasathi hoto.
+        </p>
+
+        <h3>HTML:</h3>
+
+        <pre class="code-block"><code>&lt;div id="content"&gt;
+    Old Content
+&lt;/div&gt;</code></pre>
+
+        <h3>JavaScript:</h3>
+
+        <pre class="code-block"><code>const content = document.getElementById("content");
+
+content.innerHTML = "&lt;h2&gt;New Heading&lt;/h2&gt;";
+
+console.log(content.innerHTML);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>&lt;h2&gt;New Heading&lt;/h2&gt;</pre>
+        </div>
+
+        <p>
+            Ithe div madhil junya content chya jagi navin h2 element
+            tayar hoto ani browser to heading mhanun display karto.
+        </p>
+
+        <div class="important-box">
+            <strong>Security Warning:</strong>
+            User kadun milalela untrusted data direct innerHTML madhye
+            taku naka. Tyamule Cross-Site Scripting (XSS) cha risk asto.
+            Plain text sathi textContent vapra.
+        </div>
+
+    </section>
+
+    <!-- Section 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. textContent vs innerHTML</h2>
+
+        <table class="lesson-table">
+            <thead>
+                <tr>
+                    <th>textContent</th>
+                    <th>innerHTML</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Text read ani change karte.</td>
+                    <td>HTML content read ani replace karte.</td>
+                </tr>
+                <tr>
+                    <td>HTML tags text mhanun dakhavte.</td>
+                    <td>HTML tags parse karte.</td>
+                </tr>
+                <tr>
+                    <td>Plain text sathi safe choice.</td>
+                    <td>Untrusted input sathi risky.</td>
+                </tr>
+                <tr>
+                    <td>HTML elements create karat nahi.</td>
+                    <td>HTML markup madhun elements tayar karu shakte.</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </section>
+
+    <!-- Section 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. Changing CSS with style</h2>
+
+        <p>
+            JavaScript madhye style property vaprun HTML element cha
+            CSS style change karta yeto.
+        </p>
+
+        <h3>HTML:</h3>
+
+        <pre class="code-block"><code>&lt;h1 id="title"&gt;Hello Student&lt;/h1&gt;</code></pre>
+
+        <h3>JavaScript:</h3>
+
+        <pre class="code-block"><code>const title = document.getElementById("title");
+
+title.style.color = "blue";
+title.style.backgroundColor = "yellow";
+title.style.fontSize = "30px";</code></pre>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>style.color text cha color change karte.</li>
+            <li>style.backgroundColor background color change karte.</li>
+            <li>style.fontSize text size change karte.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            CSS madhye background-color ase lihitat.
+            JavaScript style property madhye backgroundColor ase lihitat.
+            CSS property madhil hyphen remove karun camelCase vapartat.
+        </div>
+
+    </section>
+
+    <!-- Section 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. createElement()</h2>
+
+        <p>
+            createElement() method cha use JavaScript madhun
+            navin HTML element create karnyasathi hoto.
+        </p>
+
+        <h3>JavaScript:</h3>
+
+        <pre class="code-block"><code>const heading = document.createElement("h2");
+
+heading.textContent = "New Heading";
+
+console.log(heading);</code></pre>
+
+        <h3>Explanation:</h3>
+
+        <ul>
+            <li>document.createElement("h2") navin h2 element tayar karte.</li>
+            <li>textContent vaprun tyat text add karto.</li>
+            <li>Element tayar hoto, pan ajun webpage var display hot nahi.</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>Remember:</strong>
+            createElement() element tayar karte.
+            To webpage var dakhavnyasathi appendChild() vapra.
+        </div>
+
+    </section>
+
+    <!-- Section 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. appendChild()</h2>
+
+        <p>
+            appendChild() method cha use parent element chya shevti
+            navin child element add karnyasathi hoto.
+        </p>
+
+        <h3>HTML:</h3>
+
+        <pre class="code-block"><code>&lt;div id="container"&gt;&lt;/div&gt;</code></pre>
+
+        <h3>JavaScript:</h3>
+
+        <pre class="code-block"><code>const container = document.getElementById("container");
+
+const paragraph = document.createElement("p");
+
+paragraph.textContent = "Welcome to DOM!";
+
+container.appendChild(paragraph);</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Welcome to DOM!</pre>
+        </div>
+
+        <h3>Working Process:</h3>
+
+        <ol>
+            <li>Container select kela.</li>
+            <li>New paragraph create kela.</li>
+            <li>Paragraph madhye text add kela.</li>
+            <li>appendChild() vaprun paragraph container madhye add kela.</li>
+        </ol>
+
+    </section>
+
+    <!-- Section 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. remove()</h2>
+
+        <p>
+            remove() method cha use HTML document madhun existing
+            element remove karnyasathi hoto.
+        </p>
+
+        <h3>HTML:</h3>
+
+        <pre class="code-block"><code>&lt;p id="message"&gt;This message will be removed.&lt;/p&gt;</code></pre>
+
+        <h3>JavaScript:</h3>
+
+        <pre class="code-block"><code>const message = document.getElementById("message");
+
+message.remove();</code></pre>
+
+        <h3>Output:</h3>
+
+        <div class="output-box">
+            <pre>Paragraph webpage madhun remove hoto.</pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Remember:</strong>
+            remove() call kelyavar selected element DOM madhun remove hoto.
+        </div>
+
+    </section>
+
+    <!-- Section 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Practical Example – Add and Remove Items</h2>
+
+        <p>
+            Ya example madhye apan input madhun item gheun list madhye
+            add karu ani button vaprun item remove karu.
+        </p>
+
+        <h3>HTML:</h3>
+
+        <pre class="code-block"><code>&lt;input id="itemInput" type="text"&gt;
+
+&lt;button id="addButton"&gt;Add Item&lt;/button&gt;
+
+&lt;ul id="itemList"&gt;&lt;/ul&gt;</code></pre>
+
+        <h3>JavaScript:</h3>
+
+        <pre class="code-block"><code>const input = document.getElementById("itemInput");
+const addButton = document.getElementById("addButton");
+const list = document.getElementById("itemList");
+
+addButton.addEventListener("click", function() {
+
+    const value = input.value.trim();
+
+    if (value === "") {
+        return;
+    }
+
+    const li = document.createElement("li");
+
+    li.textContent = value;
+
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "Remove";
+
+    removeButton.addEventListener("click", function() {
+        li.remove();
+    });
+
+    li.appendChild(removeButton);
+    list.appendChild(li);
+
+    input.value = "";
+});</code></pre>
+
+        <h3>Live Output:</h3>
+
+        <div class="output-box demo-output">
+
+            <div class="demo-input-row">
+                <input
+                    type="text"
+                    id="itemInput"
+                    class="demo-input"
+                    placeholder="Enter item name"
+                >
+
+                <button type="button" id="addButton" class="demo-button">
+                    Add Item
+                </button>
+            </div>
+
+            <ul id="itemList" class="demo-list"></ul>
+
+            <p class="demo-note">
+                Item add karnyasathi nav type kara. Remove button vaprun item delete kara.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Section 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Common Beginner Mistakes</h2>
+
+        <div class="mistake-card">
+            <strong>Mistake 1: textContent ani innerHTML confuse karne</strong>
+            <p>
+                textContent plain text handle karte, tar innerHTML HTML markup parse karte.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 2: createElement() nantar append na karne</strong>
+            <p>
+                Fakt element create kelyane to webpage var disat nahi.
+                Parent madhye append karava lagto.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 3: CSS property wrong lihine</strong>
+            <p>
+                JavaScript madhye background-color aivaji backgroundColor vapra.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 4: Empty input add karne</strong>
+            <p>
+                Input value trim() karun empty aahe ka te check kara.
+            </p>
+        </div>
+
+        <div class="mistake-card">
+            <strong>Mistake 5: Untrusted input innerHTML madhye takne</strong>
+            <p>
+                User input sathi textContent vapra.
+                Untrusted HTML mule security problem hou shakto.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- Section 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Quick Revision</h2>
+
+        <div class="revision-box">
+            <ul>
+                <li>DOM Manipulation webpage madhye changes karte.</li>
+                <li>textContent text read ani update karte.</li>
+                <li>innerHTML HTML content read ani replace karte.</li>
+                <li>style property CSS styles change karte.</li>
+                <li>createElement() navin HTML element create karte.</li>
+                <li>appendChild() parent madhye child add karte.</li>
+                <li>remove() selected element delete karte.</li>
+                <li>User input sathi textContent ha safe choice aahe.</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <!-- Section 12 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>12. Practice Questions</h2>
+
+        <h3>Basic Questions</h3>
+
+        <ol>
+            <li>DOM Manipulation mhanje kay?</li>
+            <li>textContent cha use kay aahe?</li>
+            <li>innerHTML ani textContent madhye kay difference aahe?</li>
+            <li>style property cha use kay aahe?</li>
+            <li>createElement() kay karte?</li>
+            <li>appendChild() cha use kay aahe?</li>
+            <li>remove() method kay karte?</li>
+        </ol>
+
+        <h3>Practical Questions</h3>
+
+        <ol>
+            <li>Heading madhil text textContent vaprun change kar.</li>
+            <li>innerHTML vaprun div madhye h2 add kar.</li>
+            <li>Heading cha color blue kar.</li>
+            <li>createElement() vaprun paragraph create kar.</li>
+            <li>appendChild() vaprun paragraph div madhye add kar.</li>
+            <li>remove() vaprun paragraph delete kar.</li>
+        </ol>
+
+        <div class="task-box">
+
+            <h3>Mini Task: Dynamic To-Do List</h3>
+
+            <p>
+                DOM Manipulation vaprun ek simple To-Do List tayar kar.
+            </p>
+
+            <ul>
+                <li>Ek text input tayar kar.</li>
+                <li>Add Task button tayar kar.</li>
+                <li>createElement() vaprun new list item create kar.</li>
+                <li>appendChild() vaprun task list madhye add kar.</li>
+                <li>Pratyek task sobat Delete button add kar.</li>
+                <li>Delete button click kelyavar task remove kar.</li>
+                <li>Empty task add hou deu nakos.</li>
+            </ul>
+
+            <p>
+                File name: <strong>javascript_dom_manipulation.html</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Navigation -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'javascript_topic' 'dom-selectors' %}"
+           class="nav-button previous-button">
+            ← Previous: DOM Selectors
+        </a>
+
+        <a href="{% url 'javascript_topic' 'events' %}"
+           class="nav-button next-button">
+            Next: JavaScript Events →
+        </a>
+
+    </div>
+
+</div>
+
+<script>
+    // Add and Remove Items Demo
+
+    const itemInput = document.getElementById("itemInput");
+    const addButton = document.getElementById("addButton");
+    const itemList = document.getElementById("itemList");
+
+    addButton.addEventListener("click", function () {
+
+        const value = itemInput.value.trim();
+
+        if (value === "") {
+            itemInput.focus();
+            return;
+        }
+
+        const li = document.createElement("li");
+        li.className = "demo-list-item";
+
+        const itemText = document.createElement("span");
+        itemText.textContent = value;
+
+        const removeButton = document.createElement("button");
+        removeButton.type = "button";
+        removeButton.textContent = "Remove";
+        removeButton.className = "remove-button";
+
+        removeButton.addEventListener("click", function () {
+            li.remove();
+        });
+
+        li.appendChild(itemText);
+        li.appendChild(removeButton);
+
+        itemList.appendChild(li);
+
+        itemInput.value = "";
+        itemInput.focus();
+    });
+</script>
+
+{% endblock %}
