@@ -1,0 +1,150 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Leaderboard | Code Detective{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/bug_hunter/game.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="leaderboard-container">
+
+    <!-- HEADER -->
+    <div class="leaderboard-header">
+        <span class="leaderboard-label">CODING GAME ARENA</span>
+        <h1>🏆 Global Leaderboard</h1>
+        <p>Compete with developers and climb the rankings.</p>
+    </div>
+
+    <!-- MY RANK -->
+    <div class="my-rank-card">
+
+        <div>
+            <span class="my-rank-label">YOUR CURRENT RANK</span>
+            <h2>#{{ current_rank }}</h2>
+        </div>
+
+        <div class="my-rank-details">
+            <span>{{ request.user.name }}</span>
+            <strong>{{ current_stats.total_xp }} XP</strong>
+        </div>
+
+    </div>
+
+    <!-- TOP 3 PODIUM -->
+    <section class="podium-section">
+
+        <h2>Top Players</h2>
+
+        <div class="podium-grid">
+
+            {% for player in players|slice:":3" %}
+
+                <div class="podium-card podium-{{ forloop.counter }}">
+
+                    <div class="podium-medal">
+                        {% if forloop.counter == 1 %}
+                            🥇
+                        {% elif forloop.counter == 2 %}
+                            🥈
+                        {% else %}
+                            🥉
+                        {% endif %}
+                    </div>
+
+                    <div class="podium-rank">
+                        #{{ forloop.counter }}
+                    </div>
+
+                    <h3>{{ player.user.name|default:player.user.mobile_number }}</h3>
+
+                    <strong>{{ player.total_xp }} XP</strong>
+
+                    <span>{{ player.correct_answers }} Correct Answers</span>
+
+                </div>
+
+            {% empty %}
+
+                <p>No players ranked yet.</p>
+
+            {% endfor %}
+
+        </div>
+
+    </section>
+
+    <!-- RANKING TABLE -->
+    <section class="ranking-section">
+
+        <div class="ranking-heading">
+            <h2>All Rankings</h2>
+            <span>Top 50 Players</span>
+        </div>
+
+        <div class="ranking-list">
+
+            {% for player in players %}
+
+                <div class="ranking-row {% if player.user_id == request.user.id %}my-ranking-row{% endif %}">
+
+                    <div class="ranking-position">
+                        #{{ forloop.counter }}
+                    </div>
+
+                    <div class="ranking-player">
+
+                        <div class="player-avatar">
+                            {{ player.user.name|default:player.user.mobile_number|first|upper }}
+                        </div>
+
+                        <div class="player-info">
+                            <strong>
+                                {{ player.user.name|default:player.user.mobile_number }}
+                                {% if player.user_id == request.user.id %}
+                                    <span class="you-label">YOU</span>
+                                {% endif %}
+                            </strong>
+
+                            <span>{{ player.games_played }} Games Played</span>
+                        </div>
+
+                    </div>
+
+                    <div class="ranking-correct">
+                        {{ player.correct_answers }} Correct
+                    </div>
+
+                    <div class="ranking-xp">
+                        {{ player.total_xp }} XP
+                    </div>
+
+                </div>
+
+            {% empty %}
+
+                <p class="empty-leaderboard">
+                    No players found. Start playing to appear here!
+                </p>
+
+            {% endfor %}
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER ACTION -->
+    <div class="leaderboard-actions">
+
+        <a href="{% url 'bug_hunter:dashboard' %}">
+            ← Back to Dashboard
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

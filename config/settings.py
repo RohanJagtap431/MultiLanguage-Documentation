@@ -59,6 +59,7 @@ INSTALLED_APPS = [
 
     "accounts",
     "documentation",
+    "bug_hunter",
 ]
 
 

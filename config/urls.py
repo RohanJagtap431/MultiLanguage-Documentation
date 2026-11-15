@@ -9,4 +9,5 @@ urlpatterns = [
 
     path("", include("accounts.urls")),
     path("", include("documentation.urls")),
+    path("code-detective/", include("bug_hunter.urls")),
 ]

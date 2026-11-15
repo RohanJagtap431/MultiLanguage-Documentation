@@ -1,0 +1,212 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Bug Hunter | Game Arena{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/bug_hunter/game.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="arena-container">
+
+    <!-- TOP BAR -->
+    <div class="arena-topbar">
+
+        <div class="arena-brand">
+            <span class="arena-brand-icon">🐞</span>
+            <div>
+                <h2>BUG HUNTER</h2>
+                <span>CODING BATTLE ARENA</span>
+            </div>
+        </div>
+
+        <div class="arena-live">
+            <span class="live-dot"></span>
+            LIVE CHALLENGE
+        </div>
+
+        <a href="{% url 'bug_hunter:dashboard' %}" class="arena-exit">
+            ✕ Exit Game
+        </a>
+
+    </div>
+
+    <!-- GAME INFORMATION -->
+    <div class="arena-info">
+
+        <div class="arena-info-item">
+            <span>LANGUAGE</span>
+            <strong>{{ game.language|title }}</strong>
+        </div>
+
+        <div class="arena-info-item">
+            <span>DIFFICULTY</span>
+            <strong>{{ game.difficulty|title }}</strong>
+        </div>
+
+        <div class="arena-info-item">
+            <span>TOTAL QUESTIONS</span>
+            <strong>{{ game.total_questions }}</strong>
+        </div>
+
+        <div class="arena-info-item timer-box">
+            <span>TIME LEFT</span>
+            <strong id="game-timer">10:00</strong>
+        </div>
+
+    </div>
+
+    <!-- PROGRESS -->
+    <div class="arena-progress-section">
+
+        <div class="arena-progress-info">
+            <span>MISSION PROGRESS</span>
+            <strong id="progress-text">QUESTION 1 / 10</strong>
+        </div>
+
+        <div class="arena-progress-track">
+            <div class="arena-progress-fill" id="progress-fill"></div>
+        </div>
+
+    </div>
+
+    <!-- GAME FORM -->
+    <form method="POST"
+          action="{% url 'bug_hunter:submit_game' game.id %}"
+          id="game-form">
+
+        {% csrf_token %}
+
+        {% for question in questions %}
+
+        <div class="question-screen {% if forloop.first %}active{% endif %}"
+             data-question="{{ forloop.counter }}">
+
+            <div class="question-heading">
+
+                <div>
+                    <span class="question-tag">
+                        QUESTION {{ forloop.counter }}
+                    </span>
+
+                    <h2>{{ question.title }}</h2>
+                </div>
+
+                <div class="question-points">
+                    +10 XP
+                </div>
+
+            </div>
+
+            <div class="question-description">
+                <p>{{ question.question_text }}</p>
+            </div>
+
+            <!-- CODE DISPLAY -->
+            <div class="code-editor">
+
+                <div class="editor-topbar">
+                    <div class="editor-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <span>{{ question.language|title }} — buggy_code</span>
+
+                    <span class="bug-indicator">BUG DETECTED</span>
+                </div>
+
+                <pre class="game-code"><code>{{ question.buggy_code }}</code></pre>
+
+            </div>
+
+            <!-- ANSWERS -->
+            <div class="answer-section">
+
+                <h3>🎯 Identify the Correct Answer</h3>
+
+                <div class="answer-grid">
+
+                    <label class="answer-option">
+                        <input type="radio"
+                               name="question_{{ question.id }}"
+                               value="A">
+
+                        <span class="answer-letter">A</span>
+                        <span class="answer-text">{{ question.option_a }}</span>
+                    </label>
+
+                    <label class="answer-option">
+                        <input type="radio"
+                               name="question_{{ question.id }}"
+                               value="B">
+
+                        <span class="answer-letter">B</span>
+                        <span class="answer-text">{{ question.option_b }}</span>
+                    </label>
+
+                    <label class="answer-option">
+                        <input type="radio"
+                               name="question_{{ question.id }}"
+                               value="C">
+
+                        <span class="answer-letter">C</span>
+                        <span class="answer-text">{{ question.option_c }}</span>
+                    </label>
+
+                    <label class="answer-option">
+                        <input type="radio"
+                               name="question_{{ question.id }}"
+                               value="D">
+
+                        <span class="answer-letter">D</span>
+                        <span class="answer-text">{{ question.option_d }}</span>
+                    </label>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+        <!-- NAVIGATION -->
+        <div class="arena-navigation">
+
+            <button type="button" id="previous-btn" class="arena-nav-btn">
+                ← Previous
+            </button>
+
+            <span id="answered-count">0 / 10 Answered</span>
+
+            <button type="button" id="next-btn" class="arena-nav-btn next-btn">
+                Next Question →
+            </button>
+
+            <button type="submit" id="submit-btn" class="arena-submit-btn">
+                🏆 Submit Challenge
+            </button>
+
+        </div>
+
+    </form>
+
+    <!-- GAME FOOTER -->
+    <div class="arena-footer">
+        <span>⚡ Correct Answer: +10 XP</span>
+        <span>❌ Wrong Answer: -5 XP</span>
+        <span>⏳ Unanswered: 0 XP</span>
+    </div>
+
+</div>
+<script>
+    const GAME_STARTED_AT = {{ game_started_at_ms }};
+</script>
+<script src="{% static 'js/bug_hunter/game.js' %}" defer></script>
+
+{% endblock %}

@@ -1,0 +1,186 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Code Detective | Dashboard{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/bug_hunter/game.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="game-dashboard">
+
+    <!-- HEADER -->
+    <div class="game-header">
+        <div>
+            <span class="game-label">CODING GAME ARENA</span>
+            <h1>Code Detective</h1>
+            <p>Find bugs. Solve challenges. Earn XP.</p>
+        </div>
+    </div>
+
+    <!-- WELCOME -->
+    <div class="game-welcome">
+        <h2>Welcome, {{ request.user.name|default:"Detective" }}! 👋</h2>
+        <p>Ready to test your programming skills?</p>
+    </div>
+
+    <!-- PLAYER STATS -->
+    <div class="game-stats">
+
+        <div class="stat-card">
+            <span>Total XP</span>
+            <h2>{{ stats.total_xp }}</h2>
+        </div>
+
+        <div class="stat-card">
+            <span>Games Played</span>
+            <h2>{{ stats.games_played }}</h2>
+        </div>
+
+        <div class="stat-card">
+            <span>Correct Answers</span>
+            <h2>{{ stats.correct_answers }}</h2>
+        </div>
+
+        <div class="stat-card">
+            <span>Accuracy</span>
+            <h2>
+                {% if stats.questions_answered %}
+                    {% widthratio stats.correct_answers stats.questions_answered 100 %}%
+                {% else %}
+                    0%
+                {% endif %}
+            </h2>
+        </div>
+
+    </div>
+
+    <!-- GAME MODES -->
+    <section class="game-modes">
+
+        <h2>Choose Your Challenge</h2>
+
+        <div class="game-mode-grid">
+
+            <!-- BUG HUNTER -->
+            <div class="mode-card">
+
+                <span class="mode-icon">🐞</span>
+
+                <h3>Bug Hunter</h3>
+
+                <p>
+                    Find bugs and fix errors in your selected programming language.
+                </p>
+
+                <form method="POST" action="{% url 'bug_hunter:start_game' %}">
+
+                    {% csrf_token %}
+
+                    <input type="hidden" name="mode" value="language">
+
+                    <div class="game-form-group">
+                        <label for="language">Programming Language</label>
+
+                        <select name="language" id="language" required>
+                            <option value="python">Python</option>
+                            <option value="html">HTML</option>
+                            <option value="css">CSS</option>
+                            <option value="javascript">JavaScript</option>
+                            <option value="django">Django</option>
+                            <option value="drf">Django REST Framework</option>
+                        </select>
+                    </div>
+
+                    <div class="game-form-group">
+                        <label for="difficulty">Difficulty Level</label>
+
+                        <select name="difficulty" id="difficulty" required>
+                            <option value="all">All Levels</option>
+                            <option value="easy">Easy</option>
+                            <option value="medium">Medium</option>
+                            <option value="hard">Hard</option>
+                        </select>
+                    </div>
+
+                    <button type="submit">Start Bug Hunt →</button>
+
+                </form>
+
+            </div>
+
+            <!-- MIXED CHALLENGE -->
+            <div class="mode-card">
+
+                <span class="mode-icon">⚡</span>
+
+                <h3>Mixed Challenge</h3>
+
+                <p>
+                    Solve random programming questions from all available languages.
+                </p>
+
+                <form method="POST" action="{% url 'bug_hunter:start_game' %}">
+
+                    {% csrf_token %}
+
+                    <input type="hidden" name="mode" value="mixed">
+
+                    <div class="game-form-group">
+                        <label for="mixed-difficulty">Difficulty Level</label>
+
+                        <select name="difficulty" id="mixed-difficulty" required>
+                            <option value="all">All Levels</option>
+                            <option value="easy">Easy</option>
+                            <option value="medium">Medium</option>
+                            <option value="hard">Hard</option>
+                        </select>
+                    </div>
+
+                    <button type="submit">Start Mixed Challenge →</button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- RECENT GAMES -->
+    <section class="recent-games">
+
+        <h2>Recent Games</h2>
+
+        {% for game in recent_games %}
+
+            <div class="recent-game-card">
+
+                <span>{{ game.language|title }}</span>
+
+                <span>
+                    {{ game.correct_count }}/{{ game.total_questions }} Correct
+                </span>
+
+                <span>{{ game.points_earned }} XP</span>
+
+                <a href="{% url 'bug_hunter:game_result' game.id %}">
+                    View Result
+                </a>
+
+            </div>
+
+        {% empty %}
+
+            <p>No games played yet. Start your first challenge!</p>
+
+        {% endfor %}
+
+    </section>
+
+</div>
+
+{% endblock %}

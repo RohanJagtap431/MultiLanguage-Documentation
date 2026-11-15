@@ -116,6 +116,24 @@
 
                 </a>
 
+
+
+                <!-- GAME SECTION -->
+                <div class="sidebar-section">
+                    CODING GAMES
+                </div>
+
+                <a href="{% url 'bug_hunter:dashboard' %}"
+                class="nav-item {% if request.resolver_match.url_name == 'dashboard' %}active{% endif %}">
+                    <span>🎮</span>
+                    Code Detective
+                </a>
+
+                <a href="{% url 'bug_hunter:leaderboard' %}"
+                class="nav-item {% if request.resolver_match.url_name == 'leaderboard' %}active{% endif %}">
+                    <span>🏆</span>
+                    Leaderboard
+                </a>
                 
 
             </nav>

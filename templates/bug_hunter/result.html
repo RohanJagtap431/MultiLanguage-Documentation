@@ -1,0 +1,189 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Game Result | Code Detective{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/bug_hunter/game.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="result-container">
+
+    <!-- RESULT HEADER -->
+    <div class="result-header">
+        <span class="result-label">CODING GAME ARENA</span>
+        <h1>Challenge Completed!</h1>
+        <p>Your coding challenge has been evaluated.</p>
+    </div>
+
+    <!-- TROPHY SECTION -->
+    <div class="result-hero">
+
+        <div class="result-trophy">🏆</div>
+
+        <h2>
+            {% if accuracy >= 80 %}
+                Excellent Work!
+            {% elif accuracy >= 60 %}
+                Good Job!
+            {% elif accuracy >= 40 %}
+                Keep Practicing!
+            {% else %}
+                Don't Give Up!
+            {% endif %}
+        </h2>
+
+        <p>
+            {% if accuracy >= 80 %}
+                Outstanding performance, Detective!
+            {% elif accuracy >= 60 %}
+                You're improving. Keep solving challenges!
+            {% elif accuracy >= 40 %}
+                Practice more and improve your debugging skills.
+            {% else %}
+                Every challenge is a learning opportunity. Try again!
+            {% endif %}
+        </p>
+
+    </div>
+
+    <!-- XP SCORE -->
+    <div class="result-score-card">
+
+        <span class="score-label">TOTAL XP EARNED</span>
+
+        <h2>
+            {% if game.points_earned > 0 %}+{% endif %}{{ game.points_earned }}
+            <small>XP</small>
+        </h2>
+
+        <div class="score-divider"></div>
+
+        <div class="score-details">
+
+            <div>
+                <span>Language</span>
+                <strong>{{ game.language|title }}</strong>
+            </div>
+
+            <div>
+                <span>Difficulty</span>
+                <strong>{{ game.difficulty|title }}</strong>
+            </div>
+
+            <div>
+                <span>Questions</span>
+                <strong>{{ game.total_questions }}</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- PERFORMANCE STATS -->
+    <section class="result-stats-section">
+
+        <h2>Performance Summary</h2>
+
+        <div class="result-stats-grid">
+
+            <div class="result-stat correct-stat">
+                <span class="result-stat-icon">✓</span>
+                <span class="result-stat-label">Correct Answers</span>
+                <strong>{{ game.correct_count }}</strong>
+            </div>
+
+            <div class="result-stat wrong-stat">
+                <span class="result-stat-icon">✕</span>
+                <span class="result-stat-label">Wrong Answers</span>
+                <strong>{{ game.wrong_count }}</strong>
+            </div>
+
+            <div class="result-stat unanswered-stat">
+                <span class="result-stat-icon">—</span>
+                <span class="result-stat-label">Unanswered</span>
+                <strong>{{ game.unanswered_count }}</strong>
+            </div>
+
+            <div class="result-stat accuracy-stat">
+                <span class="result-stat-icon">%</span>
+                <span class="result-stat-label">Accuracy</span>
+                <strong>{{ accuracy }}%</strong>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ACCURACY PROGRESS -->
+    <section class="result-accuracy-card">
+
+        <div class="accuracy-heading">
+            <h3>Accuracy Rate</h3>
+            <strong>{{ accuracy }}%</strong>
+        </div>
+
+        <div class="accuracy-track">
+            <div class="accuracy-fill"
+                 style="width: {{ accuracy }}%;">
+            </div>
+        </div>
+
+        <p>
+            You answered {{ game.correct_count }}
+            out of {{ game.total_questions }} questions correctly.
+        </p>
+
+    </section>
+
+    <!-- PLAYER TOTAL STATS -->
+    <section class="result-total-card">
+
+        <h3>Your Overall Progress</h3>
+
+        <div class="overall-stats">
+
+            <div>
+                <span>Total XP</span>
+                <strong>{{ stats.total_xp }}</strong>
+            </div>
+
+            <div>
+                <span>Games Played</span>
+                <strong>{{ stats.games_played }}</strong>
+            </div>
+
+            <div>
+                <span>Total Correct</span>
+                <strong>{{ stats.correct_answers }}</strong>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ACTION BUTTONS -->
+    <div class="result-actions">
+
+        <a href="{% url 'bug_hunter:dashboard' %}"
+           class="result-btn primary-result-btn">
+            🎮 Play Again
+        </a>
+
+        <a href="{% url 'bug_hunter:leaderboard' %}"
+           class="result-btn secondary-result-btn">
+            🏆 Leaderboard
+        </a>
+
+    </div>
+
+    <p class="result-footer">
+        Keep learning. Keep debugging. Become a better developer! 🚀
+    </p>
+
+</div>
+
+{% endblock %}
