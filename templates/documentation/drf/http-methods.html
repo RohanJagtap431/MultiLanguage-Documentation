@@ -1,0 +1,726 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}
+HTTP Methods - GET, POST, PUT, PATCH, DELETE
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/drf/http-methods.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- PAGE HEADER -->
+
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO REST FRAMEWORK</span>
+
+        <h1>05. HTTP Methods</h1>
+
+        <p>
+            GET, POST, PUT, PATCH ani DELETE ya HTTP Methods
+            cha use simple Roman Marathi madhye samjun ghya.
+        </p>
+    </div>
+
+
+    <!-- SECTION 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What are HTTP Methods?</h2>
+
+        <p>
+            HTTP Methods mhanje client server la konti action
+            karaychi aahe he sangnyache methods aahet.
+        </p>
+
+        <p>
+            REST API madhye HTTP Methods cha use data read,
+            create, update ani delete karanyasathi hoto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+
+            <p>
+                HTTP Methods define the action that a client
+                wants to perform on a server resource.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <p>
+            Samaj aaplyakade Student Management API aahe.
+            Aaplyala students var vegveglya actions perform karaychya aahet.
+        </p>
+
+        <ul>
+            <li>Students chi list baghaychi.</li>
+            <li>New student add karaycha.</li>
+            <li>Student chi information update karaychi.</li>
+            <li>Student delete karaycha.</li>
+        </ul>
+
+        <p>
+            Ya actions sathi aapan HTTP Methods vaparto.
+        </p>
+
+    </section>
+
+
+    <!-- SECTION 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Types of HTTP Methods</h2>
+
+        <div class="table-wrapper">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>GET</td>
+                        <td>Data read karne</td>
+                    </tr>
+                    <tr>
+                        <td>POST</td>
+                        <td>New data create karne</td>
+                    </tr>
+                    <tr>
+                        <td>PUT</td>
+                        <td>Complete resource replace/update karne</td>
+                    </tr>
+                    <tr>
+                        <td>PATCH</td>
+                        <td>Resource madhil specific data update karne</td>
+                    </tr>
+                    <tr>
+                        <td>DELETE</td>
+                        <td>Data delete karne</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. GET Method</h2>
+
+        <p>
+            GET method cha use server kadun data retrieve
+            kiwa read karanyasathi hoto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+
+            <p>
+                GET is an HTTP method used to retrieve data
+                from a server.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <p>Aaplyala students chi complete list havi aahe.</p>
+
+        <div class="code-block">
+            <pre><code>GET /api/students/</code></pre>
+        </div>
+
+        <h3>Single Student Example</h3>
+
+        <p>
+            Aaplyala ID 1 aslelya student chi information havi aahe.
+        </p>
+
+        <div class="code-block">
+            <pre><code>GET /api/students/1/</code></pre>
+        </div>
+
+        <h3>Server Response</h3>
+
+        <div class="code-block">
+            <pre><code>{
+    "id": 1,
+    "name": "Rahul",
+    "course": "BSc Computer Science"
+}</code></pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Remember:</strong>
+
+            GET cha use data read karanyasathi hoto.
+            GET request cha purpose server var data create
+            kiwa update karne nahi.
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. POST Method</h2>
+
+        <p>
+            POST method cha use server var navin resource
+            create karanyasathi hoto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+
+            <p>
+                POST is an HTTP method used to submit data
+                to a server, commonly to create a new resource.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <p>
+            Aaplyala navin student add karaycha aahe.
+        </p>
+
+        <div class="code-block">
+            <pre><code>POST /api/students/</code></pre>
+        </div>
+
+        <h3>Request Body</h3>
+
+        <p>
+            Client server la navin student cha data pathavto.
+        </p>
+
+        <div class="code-block">
+            <pre><code>{
+    "name": "Rohan",
+    "course": "BSc Computer Science"
+}</code></pre>
+        </div>
+
+        <h3>Server Response</h3>
+
+        <div class="code-block">
+            <pre><code>{
+    "id": 3,
+    "name": "Rohan",
+    "course": "BSc Computer Science"
+}</code></pre>
+        </div>
+
+        <p>
+            Server ne navin student create kela ani tyachi
+            information response madhye return keli.
+        </p>
+
+        <div class="important-box">
+            <strong>Remember:</strong>
+
+            POST cha use navin data create karanyasathi hoto.
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. PUT Method</h2>
+
+        <p>
+            PUT method cha use existing resource replace
+            karanyasathi hoto.
+        </p>
+
+        <p>
+            PUT request madhye resource chi complete
+            representation pathavli jate.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+
+            <p>
+                PUT is an HTTP method used to replace an
+                existing resource with the supplied data.
+            </p>
+        </div>
+
+        <h3>Existing Student Data</h3>
+
+        <div class="code-block">
+            <pre><code>{
+    "name": "Rahul",
+    "course": "BCA",
+    "city": "Pune"
+}</code></pre>
+        </div>
+
+        <h3>API Request</h3>
+
+        <div class="code-block">
+            <pre><code>PUT /api/students/1/</code></pre>
+        </div>
+
+        <h3>Request Body</h3>
+
+        <div class="code-block">
+            <pre><code>{
+    "name": "Rohan",
+    "course": "BSc Computer Science",
+    "city": "Kolhapur"
+}</code></pre>
+        </div>
+
+        <p>
+            Ya request madhye resource chi complete information
+            navin values ne replace keli jate.
+        </p>
+
+        <div class="important-box">
+            <strong>Remember:</strong>
+
+            PUT madhye complete resource representation pathavli jate.
+            Required fields missing aslyas API validation error deu shakte.
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. PATCH Method</h2>
+
+        <p>
+            PATCH method cha use existing resource madhil
+            specific fields update karanyasathi hoto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+
+            <p>
+                PATCH is an HTTP method used to make partial
+                updates to an existing resource.
+            </p>
+        </div>
+
+        <h3>Existing Student Data</h3>
+
+        <div class="code-block">
+            <pre><code>{
+    "name": "Rahul",
+    "course": "BCA",
+    "city": "Pune"
+}</code></pre>
+        </div>
+
+        <h3>API Request</h3>
+
+        <div class="code-block">
+            <pre><code>PATCH /api/students/1/</code></pre>
+        </div>
+
+        <h3>Request Body</h3>
+
+        <p>
+            Aaplyala fakt student cha city change karaycha aahe.
+        </p>
+
+        <div class="code-block">
+            <pre><code>{
+    "city": "Kolhapur"
+}</code></pre>
+        </div>
+
+        <h3>Updated Student Data</h3>
+
+        <div class="code-block">
+            <pre><code>{
+    "name": "Rahul",
+    "course": "BCA",
+    "city": "Kolhapur"
+}</code></pre>
+        </div>
+
+        <p>
+            Ithe fakt city update zala.
+            Name ani course same rahile.
+        </p>
+
+        <div class="important-box">
+            <strong>Remember:</strong>
+
+            PATCH cha use specific fields update karanyasathi hoto.
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. DELETE Method</h2>
+
+        <p>
+            DELETE method cha use server varil existing
+            resource delete karanyasathi hoto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+
+            <p>
+                DELETE is an HTTP method used to remove
+                a resource from the server.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <p>
+            Aaplyala ID 1 aslela student delete karaycha aahe.
+        </p>
+
+        <div class="code-block">
+            <pre><code>DELETE /api/students/1/</code></pre>
+        </div>
+
+        <h3>Possible Server Response</h3>
+
+        <div class="code-block">
+            <pre><code>204 No Content</code></pre>
+        </div>
+
+        <p>
+            204 No Content mhanje request successful zali,
+            pan response body madhye data nahi.
+        </p>
+
+        <div class="important-box">
+            <strong>Remember:</strong>
+
+            DELETE cha use existing resource delete karanyasathi hoto.
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. Difference Between PUT and PATCH</h2>
+
+        <p>
+            PUT ani PATCH donhi update sathi vapartat.
+            Pan tyanchya working madhye difference aahe.
+        </p>
+
+        <div class="table-wrapper">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>PUT</th>
+                        <th>PATCH</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Complete resource replace karto</td>
+                        <td>Partial update karto</td>
+                    </tr>
+                    <tr>
+                        <td>Complete representation pathavtat</td>
+                        <td>Fakt change honari fields pathavtat</td>
+                    </tr>
+                    <tr>
+                        <td>Multiple fields update karu shakto</td>
+                        <td>Specific fields update karu shakto</td>
+                    </tr>
+                    <tr>
+                        <td>PUT request generally idempotent aahe</td>
+                        <td>PATCH idempotent aselach ase nahi</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="example-box">
+            <h3>Simple Example</h3>
+
+            <p><strong>PUT:</strong> Student chi complete information pathavane.</p>
+
+            <p><strong>PATCH:</strong> Student cha fakt city change karane.</p>
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. What is Idempotency?</h2>
+
+        <p>
+            Idempotency mhanje same request ekda kiwa anek vela
+            pathavli tari server varil final result same rahane.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+
+            <p>
+                An HTTP method is idempotent if making the same
+                request multiple times has the same intended
+                effect as making it once.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <p>
+            Samaj tu PUT request pathavun student cha city
+            Kolhapur set kelas.
+        </p>
+
+        <p>
+            Tech PUT request punha pathavli tari city
+            Kolhapur ch rahil.
+        </p>
+
+        <div class="table-wrapper">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>HTTP Method</th>
+                        <th>Idempotent?</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>GET</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>POST</td>
+                        <td>Generally No</td>
+                    </tr>
+                    <tr>
+                        <td>PUT</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>PATCH</td>
+                        <td>Not necessarily</td>
+                    </tr>
+                    <tr>
+                        <td>DELETE</td>
+                        <td>Yes</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <p>
+            Idempotency cha arth response pratyek veli same
+            asel asa nahi. Arth server varil intended effect same asto.
+        </p>
+
+    </section>
+
+
+    <!-- SECTION 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. HTTP Methods in Real Projects</h2>
+
+        <p>
+            Samaj tu Student Management REST API banavtoy.
+            Tar API endpoints ase asu shaktat:
+        </p>
+
+        <div class="table-wrapper">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Endpoint</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>GET</td>
+                        <td>/api/students/</td>
+                        <td>All students</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td>/api/students/1/</td>
+                        <td>Single student</td>
+                    </tr>
+                    <tr>
+                        <td>POST</td>
+                        <td>/api/students/</td>
+                        <td>Create student</td>
+                    </tr>
+                    <tr>
+                        <td>PUT</td>
+                        <td>/api/students/1/</td>
+                        <td>Replace student</td>
+                    </tr>
+                    <tr>
+                        <td>PATCH</td>
+                        <td>/api/students/1/</td>
+                        <td>Partial update</td>
+                    </tr>
+                    <tr>
+                        <td>DELETE</td>
+                        <td>/api/students/1/</td>
+                        <td>Delete student</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 11 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>11. Practice Questions</h2>
+
+        <p>Khali dilele questions swatah solve kar.</p>
+
+        <ol>
+            <li>What are HTTP Methods?</li>
+            <li>What is the use of GET method?</li>
+            <li>What is the use of POST method?</li>
+            <li>What is the difference between PUT and PATCH?</li>
+            <li>What is the use of DELETE method?</li>
+            <li>What is Idempotency?</li>
+            <li>Which HTTP methods are idempotent?</li>
+            <li>Write an endpoint to get a student with ID 5.</li>
+            <li>Which method is used to create a new student?</li>
+            <li>Which method is used to update only the student's city?</li>
+        </ol>
+
+    </section>
+
+
+    <!-- SECTION 12 -->
+
+    <section class="lesson-section interview-section">
+
+        <h2>12. Interview Questions</h2>
+
+        <h3>Q1. What is GET method?</h3>
+
+        <p>
+            GET is an HTTP method used to retrieve data
+            from a server.
+        </p>
+
+        <h3>Q2. What is POST method?</h3>
+
+        <p>
+            POST is an HTTP method commonly used to create
+            a new resource on the server.
+        </p>
+
+        <h3>Q3. What is the difference between PUT and PATCH?</h3>
+
+        <p>
+            PUT replaces a complete resource, whereas PATCH
+            updates only specific fields of a resource.
+        </p>
+
+        <h3>Q4. What is DELETE method?</h3>
+
+        <p>
+            DELETE is an HTTP method used to remove a resource
+            from the server.
+        </p>
+
+        <h3>Q5. What is Idempotency?</h3>
+
+        <p>
+            Idempotency means repeated identical requests
+            have the same intended effect as a single request.
+        </p>
+
+    </section>
+
+
+    <!-- COMPLETION -->
+
+    <div class="completion-box">
+
+        <h3>Topic 05 Completed!</h3>
+
+        <p>
+            Ata tula GET, POST, PUT, PATCH, DELETE ani
+            Idempotency ya concepts samajlya aahet.
+        </p>
+
+    </div>
+
+
+    <!-- NAVIGATION -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'drf_topic' 'json' %}">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'drf_topic' 'http-status-codes' %}">
+            Next Topic →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

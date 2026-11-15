@@ -1,0 +1,520 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}
+Introduction to Django REST Framework
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/drf/introduction.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- PAGE HEADER -->
+
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO REST FRAMEWORK</span>
+
+        <h1>01. Introduction to Django REST Framework</h1>
+
+        <p>
+            DRF agdi basic pasun shika.
+            API, REST API ani Django REST Framework
+            simple Roman Marathi madhye samjun ghya.
+        </p>
+    </div>
+
+
+    <!-- SECTION 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What is API?</h2>
+
+        <p>
+            API cha full form <strong>Application Programming Interface</strong>
+            asa aahe.
+        </p>
+
+        <p>
+            API he don software applications madhye
+            communication karanyasathi vaparla janara madhyam aahe.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+
+            <p>
+                API is an interface that allows two software
+                applications to communicate with each other.
+            </p>
+        </div>
+
+        <h3>Simple Example</h3>
+
+        <p>
+            Samaj tu restaurant madhye jevayla gela aahes.
+            Tula Pizza order karaycha aahe.
+        </p>
+
+        <ul>
+            <li>Tu waiter la order sangtos.</li>
+            <li>Waiter kitchen madhye order deto.</li>
+            <li>Kitchen pizza tayar karte.</li>
+            <li>Waiter pizza tujhya table var anto.</li>
+        </ul>
+
+        <p>
+            Ithe waiter customer ani kitchen yanchyamadhye
+            communication karto.
+        </p>
+
+        <p>
+            Software madhye API suddha asech communication karte.
+        </p>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+
+            Frontend → API → Backend → Database
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Why Do We Need API?</h2>
+
+        <p>
+            Samaj aaplyakade ek Student Management Website aahe.
+            Ya website madhye students chi mahiti database madhye save aahe.
+        </p>
+
+        <p>
+            Ata aaplyala tyach students chi mahiti Android Mobile
+            App madhye suddha dakhvaychi aahe.
+        </p>
+
+        <p>
+            Tyasathi mobile app backend la request pathavel.
+            Backend API chya madhyamatun student data return karel.
+        </p>
+
+        <div class="example-box">
+            <h3>Example</h3>
+
+            <p><strong>Mobile App Request:</strong></p>
+
+            <pre><code>GET /api/students/</code></pre>
+
+            <p><strong>Server Response:</strong></p>
+
+            <pre><code>[
+    {
+        "id": 1,
+        "name": "Rahul",
+        "course": "BSc Computer Science"
+    },
+    {
+        "id": 2,
+        "name": "Amit",
+        "course": "BCA"
+    }
+]</code></pre>
+        </div>
+
+        <p>
+            Mhanje website ani mobile app donhi ekach backend madhun
+            data gheu shaktat.
+        </p>
+
+    </section>
+
+
+    <!-- SECTION 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. What is REST API?</h2>
+
+        <p>
+            REST cha full form
+            <strong>Representational State Transfer</strong> aahe.
+        </p>
+
+        <p>
+            REST hi API design karanyachi architectural style aahe.
+            REST API madhye client server la request pathavto
+            ani server response deto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+
+            <p>
+                REST API is an API that follows the principles
+                of Representational State Transfer.
+            </p>
+        </div>
+
+        <h3>REST API Example</h3>
+
+        <pre><code>GET /api/students/</code></pre>
+
+        <p>
+            Ya request cha arth server kadun students chi list magne.
+        </p>
+
+        <pre><code>POST /api/students/</code></pre>
+
+        <p>
+            Ya request cha arth navin student create karanyasathi
+            data pathavne.
+        </p>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+
+            REST API madhye GET, POST, PUT, PATCH ani DELETE
+            sarkhe HTTP methods vapartat.
+            He aapan pudhil topic madhye detail madhye shiku.
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. What is Django REST Framework?</h2>
+
+        <p>
+            Django REST Framework cha short form DRF aahe.
+        </p>
+
+        <p>
+            DRF he Django madhil ek powerful toolkit aahe.
+            Tyacha use karun aapan Web APIs ani REST APIs
+            tayar karu shakto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+
+            <p>
+                Django REST Framework is a powerful toolkit
+                used to build Web APIs using Django.
+            </p>
+        </div>
+
+        <h3>DRF cha use kuthe hoto?</h3>
+
+        <ul class="feature-list">
+            <li>Student Management API</li>
+            <li>User Registration API</li>
+            <li>Login API</li>
+            <li>Product API</li>
+            <li>Blog API</li>
+            <li>Mobile Application Backend</li>
+        </ul>
+
+    </section>
+
+
+    <!-- SECTION 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. Django vs Django REST Framework</h2>
+
+        <p>
+            Django ani DRF he vegvegale frameworks nahit.
+            DRF he Django sobat vaparla janara toolkit aahe.
+        </p>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Django</th>
+                        <th>Django REST Framework</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Full Web Framework</td>
+                        <td>API Toolkit</td>
+                    </tr>
+
+                    <tr>
+                        <td>HTML Pages render karto</td>
+                        <td>API Responses provide karto</td>
+                    </tr>
+
+                    <tr>
+                        <td>Django Templates vaparto</td>
+                        <td>Serializers vaparto</td>
+                    </tr>
+
+                    <tr>
+                        <td>Traditional Web Forms</td>
+                        <td>API Requests</td>
+                    </tr>
+
+                    <tr>
+                        <td>Web Applications</td>
+                        <td>REST API Applications</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="info-box">
+            <strong>Remember:</strong>
+
+            Django vaprun website banavta yete.
+            DRF vaprun tyach Django backend madhun API banavta yete.
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. How Does API Work?</h2>
+
+        <p>
+            API madhye client ani server yanchyamadhye
+            request ani response exchange hoto.
+        </p>
+
+        <div class="flow-container">
+
+            <div class="flow-item">
+                <strong>Client</strong>
+                <span>Request pathavto</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-item">
+                <strong>API</strong>
+                <span>Request receive karte</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-item">
+                <strong>Backend</strong>
+                <span>Logic execute karto</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-item">
+                <strong>Database</strong>
+                <span>Data provide karte</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-result">
+                <strong>Response</strong>
+                <span>Client la result milto</span>
+            </div>
+
+        </div>
+
+        <ol>
+            <li>Client server la request pathavto.</li>
+            <li>API request receive karte.</li>
+            <li>Backend required logic execute karto.</li>
+            <li>Database madhun data milto.</li>
+            <li>Server client la response pathavto.</li>
+        </ol>
+
+    </section>
+
+
+    <!-- SECTION 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. Advantages of Django REST Framework</h2>
+
+        <ul class="feature-list">
+            <li>REST APIs easily build karta yetat.</li>
+            <li>JSON data handle karta yeto.</li>
+            <li>Built-in authentication support milto.</li>
+            <li>Permission system available aahe.</li>
+            <li>API testing sathi Browsable API milte.</li>
+            <li>Serialization ani validation soppe hote.</li>
+            <li>Frontend ani mobile apps sobat connect karta yete.</li>
+        </ul>
+
+    </section>
+
+
+    <!-- SECTION 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. Important Terms</h2>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Term</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>API</td>
+                        <td>Software communication interface</td>
+                    </tr>
+
+                    <tr>
+                        <td>REST</td>
+                        <td>API design architectural style</td>
+                    </tr>
+
+                    <tr>
+                        <td>Client</td>
+                        <td>Request pathavnara application</td>
+                    </tr>
+
+                    <tr>
+                        <td>Server</td>
+                        <td>Request handle karnara system</td>
+                    </tr>
+
+                    <tr>
+                        <td>Request</td>
+                        <td>Client kadun pathavlela message</td>
+                    </tr>
+
+                    <tr>
+                        <td>Response</td>
+                        <td>Server kadun milalele answer</td>
+                    </tr>
+
+                    <tr>
+                        <td>JSON</td>
+                        <td>Data exchange format</td>
+                    </tr>
+
+                    <tr>
+                        <td>DRF</td>
+                        <td>Django REST Framework</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 9 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>9. Practice Questions</h2>
+
+        <p>Khali dilele questions swatah solve kar.</p>
+
+        <ol>
+            <li>What is the full form of API?</li>
+            <li>What is the main use of API?</li>
+            <li>What is REST API?</li>
+            <li>What is the full form of DRF?</li>
+            <li>What is the difference between Django and DRF?</li>
+            <li>Why do we use APIs in mobile applications?</li>
+            <li>Explain API Request and Response.</li>
+        </ol>
+
+    </section>
+
+
+    <!-- SECTION 10 -->
+
+    <section class="lesson-section interview-section">
+
+        <h2>10. Interview Questions</h2>
+
+        <h3>Q1. What is Django REST Framework?</h3>
+
+        <p>
+            Django REST Framework is a powerful toolkit
+            used to build Web APIs using Django.
+        </p>
+
+        <h3>Q2. What is an API?</h3>
+
+        <p>
+            API is an interface that allows two software
+            applications to communicate with each other.
+        </p>
+
+        <h3>Q3. Why do we use DRF?</h3>
+
+        <p>
+            We use DRF to build REST APIs easily using Django.
+        </p>
+
+    </section>
+
+
+    <!-- COMPLETION -->
+
+    <div class="completion-box">
+
+        <h3>Topic 01 Completed!</h3>
+
+        <p>
+            Ata API, REST API ani Django REST Framework
+            yanchi basic understanding zali.
+        </p>
+
+    </div>
+
+
+    <!-- NAVIGATION -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'drf_index' %}">
+            ← All Topics
+        </a>
+
+        <a href="{% url 'drf_topic' 'django-vs-drf' %}">
+            Next Topic →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

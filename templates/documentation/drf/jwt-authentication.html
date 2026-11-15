@@ -1,0 +1,821 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}JWT Authentication in DRF{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/drf/jwt-authentication.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO REST FRAMEWORK</span>
+        <h1>25. JWT Authentication in DRF</h1>
+        <p>
+            Learn how to secure APIs using JSON Web Tokens
+            and Access and Refresh Tokens.
+        </p>
+    </div>
+
+    <!-- SECTION 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What is JWT Authentication?</h2>
+
+        <p>
+            JWT mhanje JSON Web Token. Ha ek token format aahe
+            jo user authentication sathi vaparla jato.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                JWT Authentication is a method of authenticating
+                API requests using digitally signed JSON Web Tokens.
+            </p>
+        </div>
+
+        <p>
+            User login kartana server credentials verify karto.
+            Tyानंतर server Access Token ani Refresh Token generate karto.
+        </p>
+
+        <h3>Uses of JWT</h3>
+
+        <ul>
+            <li>Secure API authentication.</li>
+            <li>Login-based applications.</li>
+            <li>Mobile application authentication.</li>
+            <li>Frontend ani backend madhil authentication.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. How JWT Authentication Works</h2>
+
+        <div class="flow-container">
+
+            <div class="flow-step">
+                <strong>1. Login Request</strong>
+                <span>Client username ani password pathavto.</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <strong>2. Credential Verification</strong>
+                <span>Server credentials verify karto.</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <strong>3. JWT Generation</strong>
+                <span>Server Access ani Refresh Tokens return karto.</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <strong>4. API Request</strong>
+                <span>Client Access Token pathavto.</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <strong>5. Token Verification</strong>
+                <span>Server token verify karto.</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step flow-success">
+                <strong>6. API Response</strong>
+                <span>Valid token asel tar access milto.</span>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- SECTION 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. JWT Structure</h2>
+
+        <p>
+            JWT token madhye three main parts astat.
+        </p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Part</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Header</td>
+                        <td>Token type ani signing algorithm information.</td>
+                    </tr>
+                    <tr>
+                        <td>Payload</td>
+                        <td>Claims, jase user ID ani expiry information.</td>
+                    </tr>
+                    <tr>
+                        <td>Signature</td>
+                        <td>Token chi integrity verify karanyasathi.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>JWT Format</h3>
+
+        <div class="output-box">
+            <pre><code>header.payload.signature</code></pre>
+        </div>
+
+        <p>
+            He three parts dot (.) ne separate kele jatat.
+        </p>
+
+        <div class="important-box">
+            <strong>Security:</strong>
+            JWT payload normally encoded asto, encrypted aselach ase nahi.
+            Mhanun password kiwa sensitive information payload madhye
+            store karu naye.
+        </div>
+
+    </section>
+
+    <!-- SECTION 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. Access Token and Refresh Token</h2>
+
+        <p>
+            Simple JWT madhye commonly don types che tokens miltat.
+        </p>
+
+        <div class="definition-box">
+            <h3>Access Token</h3>
+            <p>
+                Access Token protected API endpoints access
+                karanyasathi vapartat.
+            </p>
+        </div>
+
+        <div class="definition-box">
+            <h3>Refresh Token</h3>
+            <p>
+                Refresh Token cha use navin Access Token
+                milavnyasathi hoto.
+            </p>
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Access Token</th>
+                        <th>Refresh Token</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>API access sathi.</td>
+                        <td>New Access Token milavnyasathi.</td>
+                    </tr>
+                    <tr>
+                        <td>Short lifetime.</td>
+                        <td>Longer lifetime.</td>
+                    </tr>
+                    <tr>
+                        <td>Every protected request madhye pathavtat.</td>
+                        <td>Refresh endpoint la pathavtat.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- SECTION 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. Install Simple JWT</h2>
+
+        <p>
+            Django REST Framework madhye JWT authentication
+            implement karanyasathi Simple JWT package vapru shakto.
+        </p>
+
+        <h3>Installation Command</h3>
+
+        <div class="code-block">
+            <pre><code>pip install djangorestframework-simplejwt</code></pre>
+        </div>
+
+        <p>
+            Ya package mule JWT login, token refresh ani
+            token verification endpoints available hotat.
+        </p>
+
+    </section>
+
+    <!-- SECTION 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. Configure JWT Authentication</h2>
+
+        <p>
+            Ata Django project chya settings.py madhye
+            JWT authentication configure karuya.
+        </p>
+
+        <p><strong>File:</strong> config/settings.py</p>
+
+        <div class="code-block">
+            <pre><code>REST_FRAMEWORK = {
+
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+
+}</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li>JWTAuthentication JWT token verify karte.</li>
+            <li>IsAuthenticated authenticated users na access dete.</li>
+            <li>Ya settings mule default DRF APIs protected hotat.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Global IsAuthenticated mule public endpoints suddha
+            protected hotat. Public login ani registration endpoints
+            sathi AllowAny explicitly set kara.
+        </div>
+
+    </section>
+
+    <!-- SECTION 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. Create JWT Login API</h2>
+
+        <p>
+            Simple JWT madhye TokenObtainPairView built-in available aahe.
+            Ha username ani password verify karun Access ani Refresh
+            Tokens return karto.
+        </p>
+
+        <h3>Step 1 – Import JWT Views</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+    TokenVerifyView
+)</code></pre>
+        </div>
+
+        <h3>Step 2 – Configure URLs</h3>
+
+        <p><strong>File:</strong> api/urls.py</p>
+
+        <div class="code-block">
+            <pre><code>from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+    TokenVerifyView
+)
+
+from .views import StudentViewSet
+
+router = DefaultRouter()
+
+router.register(
+    'students',
+    StudentViewSet,
+    basename='student'
+)
+
+urlpatterns = [
+
+    path(
+        'token/',
+        TokenObtainPairView.as_view(),
+        name='token_obtain_pair'
+    ),
+
+    path(
+        'token/refresh/',
+        TokenRefreshView.as_view(),
+        name='token_refresh'
+    ),
+
+    path(
+        'token/verify/',
+        TokenVerifyView.as_view(),
+        name='token_verify'
+    ),
+
+    path('', include(router.urls)),
+]</code></pre>
+        </div>
+
+        <h3>Step 3 – Project URLs</h3>
+
+        <p><strong>File:</strong> config/urls.py</p>
+
+        <div class="code-block">
+            <pre><code>from django.urls import path, include
+
+urlpatterns = [
+    path('api/', include('api.urls')),
+]</code></pre>
+        </div>
+
+    </section>
+
+    <!-- SECTION 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. JWT Login Request</h2>
+
+        <p>
+            Ata Postman madhun login endpoint la POST request pathavu.
+        </p>
+
+        <h3>Request Method</h3>
+
+        <div class="output-box">
+            <pre><code>POST</code></pre>
+        </div>
+
+        <h3>Request URL</h3>
+
+        <div class="output-box">
+            <pre><code>http://127.0.0.1:8000/api/token/</code></pre>
+        </div>
+
+        <h3>Request Body – JSON</h3>
+
+        <div class="code-block">
+            <pre><code>{
+    "username": "your_username",
+    "password": "your_password"
+}</code></pre>
+        </div>
+
+        <h3>Successful Response</h3>
+
+        <div class="code-block">
+            <pre><code>{
+    "refresh": "your_refresh_token",
+    "access": "your_access_token"
+}</code></pre>
+        </div>
+
+        <p>
+            Credentials valid astil tar donhi tokens return hotat.
+        </p>
+
+    </section>
+
+    <!-- SECTION 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Access Protected API Using JWT</h2>
+
+        <p>
+            Protected API access karanyasathi Access Token
+            Authorization header madhye pathavava lagto.
+        </p>
+
+        <h3>Header Format</h3>
+
+        <div class="output-box">
+            <pre><code>Authorization: Bearer your_access_token</code></pre>
+        </div>
+
+        <h3>Example Request</h3>
+
+        <div class="output-box">
+            <pre><code>GET http://127.0.0.1:8000/api/students/</code></pre>
+        </div>
+
+        <h3>How it works?</h3>
+
+        <ul>
+            <li>Client Access Token pathavto.</li>
+            <li>JWTAuthentication token verify karte.</li>
+            <li>IsAuthenticated permission access check karte.</li>
+            <li>Valid token asel tar API response milto.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Refresh Access Token</h2>
+
+        <p>
+            Access Token expire zalyanantar Refresh Token vaprun
+            navin Access Token milavta yeto.
+        </p>
+
+        <h3>Request Method</h3>
+
+        <div class="output-box">
+            <pre><code>POST</code></pre>
+        </div>
+
+        <h3>Request URL</h3>
+
+        <div class="output-box">
+            <pre><code>http://127.0.0.1:8000/api/token/refresh/</code></pre>
+        </div>
+
+        <h3>Request Body – JSON</h3>
+
+        <div class="code-block">
+            <pre><code>{
+    "refresh": "your_refresh_token"
+}</code></pre>
+        </div>
+
+        <h3>Successful Response</h3>
+
+        <div class="code-block">
+            <pre><code>{
+    "access": "new_access_token"
+}</code></pre>
+        </div>
+
+        <p>
+            Valid Refresh Token asel tar server navin
+            Access Token return karto.
+        </p>
+
+    </section>
+
+    <!-- SECTION 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Verify JWT Token</h2>
+
+        <p>
+            TokenVerifyView vaprun JWT token valid aahe ka
+            te check karta yete.
+        </p>
+
+        <h3>Request URL</h3>
+
+        <div class="output-box">
+            <pre><code>POST http://127.0.0.1:8000/api/token/verify/</code></pre>
+        </div>
+
+        <h3>Request Body</h3>
+
+        <div class="code-block">
+            <pre><code>{
+    "token": "your_access_token"
+}</code></pre>
+        </div>
+
+        <p>
+            Token valid asel tar success response milto.
+            Invalid kiwa expired token asel tar error response milto.
+        </p>
+
+    </section>
+
+    <!-- SECTION 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Logout Using Token Blacklisting</h2>
+
+        <p>
+            JWT Access Token logout zalyavar automatically
+            invalid hot nahi. Refresh Token blacklist karun
+            tyacha pudhil use block karta yeto.
+        </p>
+
+        <h3>Step 1 – Add Blacklist App</h3>
+
+        <p><strong>File:</strong> config/settings.py</p>
+
+        <div class="code-block">
+            <pre><code>INSTALLED_APPS = [
+    # Other apps
+    'rest_framework',
+    'rest_framework_simplejwt.token_blacklist',
+]</code></pre>
+        </div>
+
+        <h3>Step 2 – Run Migrations</h3>
+
+        <div class="code-block">
+            <pre><code>python manage.py migrate</code></pre>
+        </div>
+
+        <h3>Step 3 – Add Logout URL</h3>
+
+        <p><strong>File:</strong> api/urls.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework_simplejwt.views import TokenBlacklistView
+
+urlpatterns = [
+    path(
+        'token/blacklist/',
+        TokenBlacklistView.as_view(),
+        name='token_blacklist'
+    ),
+]</code></pre>
+        </div>
+
+        <p>
+            Ha URL existing urlpatterns madhye add kara.
+        </p>
+
+        <h3>Step 4 – Logout Request</h3>
+
+        <div class="output-box">
+            <pre><code>POST http://127.0.0.1:8000/api/token/blacklist/</code></pre>
+        </div>
+
+        <h3>Request Body</h3>
+
+        <div class="code-block">
+            <pre><code>{
+    "refresh": "your_refresh_token"
+}</code></pre>
+        </div>
+
+        <p>
+            Successful blacklist nantar Refresh Token punha
+            vaparta yenar nahi.
+        </p>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Default logout blacklist mule Refresh Token revoke hoto.
+            Existing Access Token tyachya expiry paryant valid rahu shakto.
+            Immediate Access Token revocation sathi additional
+            server-side strategy lagte.
+        </div>
+
+    </section>
+
+    <!-- SECTION 13 -->
+
+    <section class="lesson-section">
+
+        <h2>13. Configure Token Lifetime</h2>
+
+        <p>
+            Simple JWT madhye Access ani Refresh Token chi
+            lifetime configure karta yete.
+        </p>
+
+        <p><strong>File:</strong> config/settings.py</p>
+
+        <div class="code-block">
+            <pre><code>from datetime import timedelta
+
+SIMPLE_JWT = {
+
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=15),
+
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+
+}</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li>Access Token 15 minutes valid rahil.</li>
+            <li>Refresh Token 1 day valid rahil.</li>
+            <li>Expiry nantar token refresh kiwa login karava lagel.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Note:</strong>
+            He example settings aahet. Actual production lifetime
+            application chya security requirements nusar tharva.
+        </div>
+
+    </section>
+
+    <!-- SECTION 14 -->
+
+    <section class="lesson-section">
+
+        <h2>14. Token Authentication vs JWT</h2>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Token Authentication</th>
+                        <th>JWT Authentication</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Database madhye token store hoto.</td>
+                        <td>Signed JWT token use hoto.</td>
+                    </tr>
+                    <tr>
+                        <td>Built-in DRF authtoken package.</td>
+                        <td>Simple JWT package commonly vapartat.</td>
+                    </tr>
+                    <tr>
+                        <td>Default expiry support nahi.</td>
+                        <td>Token expiry configure karta yete.</td>
+                    </tr>
+                    <tr>
+                        <td>Token lookup database madhun hoto.</td>
+                        <td>Signature ani claims verify kele jatat.</td>
+                    </tr>
+                    <tr>
+                        <td>Simple token system.</td>
+                        <td>Access ani Refresh Token support.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- SECTION 15 -->
+
+    <section class="lesson-section">
+
+        <h2>15. Postman Testing Checklist</h2>
+
+        <ul>
+            <li>POST /api/token/ – Login test kara.</li>
+            <li>Access ani Refresh Tokens copy kara.</li>
+            <li>GET /api/students/ – Access Token vapra.</li>
+            <li>POST /api/token/refresh/ – New Access Token milva.</li>
+            <li>POST /api/token/verify/ – Token verify kara.</li>
+            <li>POST /api/token/blacklist/ – Refresh Token blacklist kara.</li>
+            <li>Blacklist zalele Refresh Token punha test kara.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 16 -->
+
+    <section class="lesson-section">
+
+        <h2>16. Important Points to Remember</h2>
+
+        <ul>
+            <li>JWT means JSON Web Token.</li>
+            <li>JWT madhye Header, Payload ani Signature astat.</li>
+            <li>Access Token protected APIs access karte.</li>
+            <li>Refresh Token navin Access Token milavte.</li>
+            <li>Simple JWT package JWT authentication provide karte.</li>
+            <li>TokenObtainPairView login tokens generate karte.</li>
+            <li>TokenRefreshView Access Token refresh karte.</li>
+            <li>TokenVerifyView token verify karte.</li>
+            <li>TokenBlacklistView Refresh Token blacklist karte.</li>
+            <li>JWT payload madhye sensitive data thevu naye.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 17 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>17. Practice Questions</h2>
+
+        <ol>
+            <li>What is JWT Authentication?</li>
+            <li>What are the three parts of a JWT?</li>
+            <li>What is an Access Token?</li>
+            <li>What is a Refresh Token?</li>
+            <li>What is Simple JWT?</li>
+            <li>What is TokenObtainPairView?</li>
+            <li>What is TokenRefreshView?</li>
+            <li>How can we protect an API using JWT?</li>
+            <li>What is Token Blacklisting?</li>
+            <li>What is the difference between Token Authentication and JWT?</li>
+        </ol>
+
+    </section>
+
+    <!-- SECTION 18 -->
+
+    <section class="lesson-section interview-section">
+
+        <h2>18. Interview Questions</h2>
+
+        <h3>Q1. What is JWT?</h3>
+        <p>
+            JWT stands for JSON Web Token. It is a digitally
+            signed token format used for securely transmitting claims.
+        </p>
+
+        <h3>Q2. What are the three parts of JWT?</h3>
+        <p>
+            Header, Payload and Signature.
+        </p>
+
+        <h3>Q3. What is an Access Token?</h3>
+        <p>
+            An Access Token is used to access protected API endpoints.
+        </p>
+
+        <h3>Q4. What is a Refresh Token?</h3>
+        <p>
+            A Refresh Token is used to obtain a new Access Token.
+        </p>
+
+        <h3>Q5. What is Simple JWT?</h3>
+        <p>
+            Simple JWT is a package used to implement JWT
+            authentication in Django REST Framework.
+        </p>
+
+        <h3>Q6. What is Token Blacklisting?</h3>
+        <p>
+            Token Blacklisting prevents a refresh token from
+            being used again.
+        </p>
+
+        <h3>Q7. Does JWT payload contain encrypted data?</h3>
+        <p>
+            Not by default. A standard signed JWT payload is encoded,
+            not encrypted.
+        </p>
+
+    </section>
+
+    <!-- COMPLETION -->
+
+    <div class="completion-box">
+        <h3>Topic 25 Completed!</h3>
+        <p>
+            Ata aapan JWT setup, login, Access Token,
+            Refresh Token, protected API ani token
+            blacklisting shiklo.
+        </p>
+    </div>
+
+    <!-- NAVIGATION -->
+
+    <div class="lesson-navigation">
+        <a href="{% url 'drf_topic' 'token-authentication' %}">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'drf_topic' 'pagination' %}">
+            Next Topic →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

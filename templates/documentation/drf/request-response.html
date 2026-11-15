@@ -1,0 +1,762 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Request and Response in DRF{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/drf/request-response.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO REST FRAMEWORK</span>
+        <h1>14. Request and Response in DRF</h1>
+        <p>
+            Understand how DRF receives client requests and
+            sends responses back to the client.
+        </p>
+    </div>
+
+    <!-- SECTION 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What is Request and Response?</h2>
+
+        <p>
+            API madhye client server la request pathavto.
+            Server request process karun client la response return karto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Request</h3>
+            <p>
+                A request is a message sent by the client to the server
+                to perform an operation or get some data.
+            </p>
+        </div>
+
+        <div class="definition-box">
+            <h3>Response</h3>
+            <p>
+                A response is a message sent by the server to the client
+                after processing the request.
+            </p>
+        </div>
+
+        <h3>Request and Response Flow</h3>
+
+        <div class="flow-container">
+            <div class="flow-step">
+                <strong>Client</strong>
+                <span>API request pathavto</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <strong>DRF Request</strong>
+                <span>Request data receive karte</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <strong>API View</strong>
+                <span>Request process karte</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <strong>DRF Response</strong>
+                <span>Response prepare karte</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <strong>Client</strong>
+                <span>Response receive karto</span>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- SECTION 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. DRF Request Object</h2>
+
+        <p>
+            Django REST Framework madhye request object
+            client kadun aaleli information access karanyasathi
+            use hoto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                The DRF Request object provides information about
+                the incoming API request, such as data, method,
+                headers and query parameters.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
+@api_view(['GET'])
+def student_api(request):
+
+    return Response({
+        "method": request.method
+    })</code></pre>
+        </div>
+
+        <p>
+            Ithe request.method madhun request kontya
+            HTTP method ne aali aahe te samajte.
+        </p>
+
+    </section>
+
+    <!-- SECTION 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. request.data</h2>
+
+        <p>
+            request.data cha use client kadun POST, PUT ani PATCH
+            request madhye pathavlela data access karanyasathi hoto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                request.data is used to access the parsed data
+                sent by the client in an API request.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>@api_view(['POST'])
+def student_create(request):
+
+    name = request.data.get('name')
+    age = request.data.get('age')
+
+    return Response({
+        "name": name,
+        "age": age
+    })</code></pre>
+        </div>
+
+        <h3>Client Request Body</h3>
+
+        <div class="output-box">
+            <pre><code>{
+    "name": "Rohan",
+    "age": 20
+}</code></pre>
+        </div>
+
+        <h3>API Response</h3>
+
+        <div class="output-box">
+            <pre><code>{
+    "name": "Rohan",
+    "age": 20
+}</code></pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Remember:</strong>
+            request.data madhye client kadun aalela parsed
+            request body data milto. To fakt JSON purta limited nahi;
+            DRF supported parsers nusar form data suddha access karta yeto.
+        </div>
+
+    </section>
+
+    <!-- SECTION 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. request.method</h2>
+
+        <p>
+            request.method cha use client ne konti HTTP method
+            pathavli aahe he check karanyasathi hoto.
+        </p>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>@api_view(['GET', 'POST'])
+def student_api(request):
+
+    if request.method == 'GET':
+
+        return Response({
+            "message": "Get request received"
+        })
+
+    elif request.method == 'POST':
+
+        return Response({
+            "message": "Post request received"
+        })</code></pre>
+        </div>
+
+        <h3>Common Values</h3>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>GET</td>
+                        <td>Read data</td>
+                    </tr>
+                    <tr>
+                        <td>POST</td>
+                        <td>Create data</td>
+                    </tr>
+                    <tr>
+                        <td>PUT</td>
+                        <td>Update complete data</td>
+                    </tr>
+                    <tr>
+                        <td>PATCH</td>
+                        <td>Update partial data</td>
+                    </tr>
+                    <tr>
+                        <td>DELETE</td>
+                        <td>Delete data</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- SECTION 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. request.query_params</h2>
+
+        <p>
+            request.query_params cha use URL madhil query parameters
+            access karanyasathi hoto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                request.query_params is used to access query
+                parameters from the URL.
+            </p>
+        </div>
+
+        <h3>Example URL</h3>
+
+        <div class="output-box">
+            <pre><code>http://127.0.0.1:8000/api/students/?name=Rohan&age=20</code></pre>
+        </div>
+
+        <h3>Example Code</h3>
+
+        <div class="code-block">
+            <pre><code>@api_view(['GET'])
+def student_search(request):
+
+    name = request.query_params.get('name')
+    age = request.query_params.get('age')
+
+    return Response({
+        "name": name,
+        "age": age
+    })</code></pre>
+        </div>
+
+        <h3>Response</h3>
+
+        <div class="output-box">
+            <pre><code>{
+    "name": "Rohan",
+    "age": "20"
+}</code></pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Query parameter values normally string format madhye
+            miltat. Number mhanun use karayche asel tar conversion kara.
+        </div>
+
+    </section>
+
+    <!-- SECTION 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. request.headers</h2>
+
+        <p>
+            request.headers cha use client kadun request sobat
+            pathavlele HTTP headers access karanyasathi hoto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                request.headers provides access to the HTTP headers
+                included in an incoming request.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>@api_view(['GET'])
+def header_api(request):
+
+    content_type = request.headers.get(
+        'Content-Type'
+    )
+
+    user_agent = request.headers.get(
+        'User-Agent'
+    )
+
+    return Response({
+        "content_type": content_type,
+        "user_agent": user_agent
+    })</code></pre>
+        </div>
+
+        <h3>Common HTTP Headers</h3>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Header</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Content-Type</td>
+                        <td>Request body cha format sangto.</td>
+                    </tr>
+                    <tr>
+                        <td>Accept</td>
+                        <td>Client la konta response format hava aahe te sangto.</td>
+                    </tr>
+                    <tr>
+                        <td>Authorization</td>
+                        <td>Authentication credentials pathavto.</td>
+                    </tr>
+                    <tr>
+                        <td>User-Agent</td>
+                        <td>Client software chi information deto.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- SECTION 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. DRF Response Object</h2>
+
+        <p>
+            Response object cha use API madhun client la
+            data return karanyasathi hoto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                Response is a DRF class used to return content
+                from an API view to the client.
+            </p>
+        </div>
+
+        <h3>Import Response</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.response import Response</code></pre>
+        </div>
+
+        <h3>Basic Example</h3>
+
+        <div class="code-block">
+            <pre><code>@api_view(['GET'])
+def welcome_api(request):
+
+    return Response({
+        "message": "Welcome to DRF"
+    })</code></pre>
+        </div>
+
+        <h3>Example Response</h3>
+
+        <div class="output-box">
+            <pre><code>{
+    "message": "Welcome to DRF"
+}</code></pre>
+        </div>
+
+        <p>
+            DRF Response object content negotiation nusar
+            response render karanyas madat karto.
+        </p>
+
+    </section>
+
+    <!-- SECTION 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. Response Status Codes</h2>
+
+        <p>
+            API response sobat HTTP status code suddha return karu shakto.
+            Status code request cha result kay aahe te sangto.
+        </p>
+
+        <h3>Example using status number</h3>
+
+        <div class="code-block">
+            <pre><code>return Response(
+    {"message": "Student created"},
+    status=201
+)</code></pre>
+        </div>
+
+        <h3>Using DRF status module</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework import status
+from rest_framework.response import Response
+
+@api_view(['POST'])
+def student_create(request):
+
+    return Response(
+        {"message": "Student created"},
+        status=status.HTTP_201_CREATED
+    )</code></pre>
+        </div>
+
+        <h3>Common Status Codes</h3>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Status Code</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>200</td>
+                        <td>OK</td>
+                    </tr>
+                    <tr>
+                        <td>201</td>
+                        <td>Created</td>
+                    </tr>
+                    <tr>
+                        <td>204</td>
+                        <td>No Content</td>
+                    </tr>
+                    <tr>
+                        <td>400</td>
+                        <td>Bad Request</td>
+                    </tr>
+                    <tr>
+                        <td>401</td>
+                        <td>Unauthorized</td>
+                    </tr>
+                    <tr>
+                        <td>403</td>
+                        <td>Forbidden</td>
+                    </tr>
+                    <tr>
+                        <td>404</td>
+                        <td>Not Found</td>
+                    </tr>
+                    <tr>
+                        <td>500</td>
+                        <td>Internal Server Error</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="important-box">
+            <strong>Remember:</strong>
+            204 No Content response madhye response body naste.
+            Successful DELETE request sathi ha status code use karu shakto.
+        </div>
+
+    </section>
+
+    <!-- SECTION 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. request.data vs request.query_params</h2>
+
+        <p>
+            Donhi client kadun information access karanyasathi use hotat,
+            pan tyanchi source vegli aste.
+        </p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>request.data</th>
+                        <th>request.query_params</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Request body madhil data.</td>
+                        <td>URL madhil query parameters.</td>
+                    </tr>
+                    <tr>
+                        <td>POST, PUT, PATCH madhye commonly used.</td>
+                        <td>GET filtering ani searching madhye commonly used.</td>
+                    </tr>
+                    <tr>
+                        <td>JSON kiwa form data asu shakto.</td>
+                        <td>URL madhun values miltat.</td>
+                    </tr>
+                    <tr>
+                        <td>request.data.get('name')</td>
+                        <td>request.query_params.get('name')</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Request Body Example</h3>
+
+        <div class="output-box">
+            <pre><code>{
+    "name": "Rohan"
+}</code></pre>
+        </div>
+
+        <h3>Query Parameter Example</h3>
+
+        <div class="output-box">
+            <pre><code>/api/students/?name=Rohan</code></pre>
+        </div>
+
+    </section>
+
+    <!-- SECTION 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Practical API Example</h2>
+
+        <p>
+            Ata request.data, request.method,
+            request.query_params ani Response ekatra use karuya.
+        </p>
+
+        <p><strong>File:</strong> api/views.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework import status
+
+@api_view(['GET', 'POST'])
+def student_api(request):
+
+    if request.method == 'GET':
+
+        name = request.query_params.get('name')
+
+        return Response({
+            "message": "Student search",
+            "name": name
+        })
+
+    elif request.method == 'POST':
+
+        name = request.data.get('name')
+        age = request.data.get('age')
+
+        return Response(
+            {
+                "message": "Student data received",
+                "name": name,
+                "age": age
+            },
+            status=status.HTTP_201_CREATED
+        )</code></pre>
+        </div>
+
+        <h3>GET Request</h3>
+
+        <div class="output-box">
+            <pre><code>GET /api/student/?name=Rohan</code></pre>
+        </div>
+
+        <h3>POST Request Body</h3>
+
+        <div class="output-box">
+            <pre><code>{
+    "name": "Rohan",
+    "age": 20
+}</code></pre>
+        </div>
+
+        <p>
+            Ya example madhye data database madhye save hot nahi.
+            To fakt request madhun read karun response madhye return hoto.
+        </p>
+
+    </section>
+
+    <!-- SECTION 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Important Points to Remember</h2>
+
+        <ul>
+            <li>Request client kadun server kade yete.</li>
+            <li>Response server kadun client kade jato.</li>
+            <li>request.data body madhil parsed data access karte.</li>
+            <li>request.method HTTP method return karte.</li>
+            <li>request.query_params URL parameters access karte.</li>
+            <li>request.headers HTTP headers access karte.</li>
+            <li>Response() API madhun data return karte.</li>
+            <li>status parameter response cha HTTP status set karto.</li>
+            <li>status module madhye named HTTP status constants astat.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 12 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>12. Practice Questions</h2>
+
+        <ol>
+            <li>What is a Request object in DRF?</li>
+            <li>What is a Response object?</li>
+            <li>What is the use of request.data?</li>
+            <li>What is the use of request.method?</li>
+            <li>What is request.query_params?</li>
+            <li>What is the use of request.headers?</li>
+            <li>How do we return a response in DRF?</li>
+            <li>What is the use of the status parameter?</li>
+            <li>Write differences between request.data and request.query_params.</li>
+            <li>Write an API using request.data and Response().</li>
+        </ol>
+
+    </section>
+
+    <!-- SECTION 13 -->
+
+    <section class="lesson-section interview-section">
+
+        <h2>13. Interview Questions</h2>
+
+        <h3>Q1. What is request.data?</h3>
+        <p>
+            request.data is used to access parsed data sent
+            by the client in an API request.
+        </p>
+
+        <h3>Q2. What is request.method?</h3>
+        <p>
+            request.method returns the HTTP method used
+            in the incoming request.
+        </p>
+
+        <h3>Q3. What is request.query_params?</h3>
+        <p>
+            It is used to access query parameters from the URL.
+        </p>
+
+        <h3>Q4. What is request.headers?</h3>
+        <p>
+            It provides access to the HTTP headers
+            included in the incoming request.
+        </p>
+
+        <h3>Q5. What is Response()?</h3>
+        <p>
+            Response() is used to return API content
+            from the view to the client.
+        </p>
+
+        <h3>Q6. What is HTTP 201 status code?</h3>
+        <p>
+            HTTP 201 means Created. It indicates that
+            a resource has been successfully created.
+        </p>
+
+    </section>
+
+    <!-- COMPLETION -->
+
+    <div class="completion-box">
+        <h3>Topic 14 Completed!</h3>
+        <p>
+            Ata aapan DRF madhil Request object,
+            Response object ani tyanchya important properties
+            samjun ghetlya.
+        </p>
+    </div>
+
+    <!-- NAVIGATION -->
+
+    <div class="lesson-navigation">
+        <a href="{% url 'drf_topic' 'function-based-views' %}">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'drf_topic' 'crud-api' %}">
+            Next Topic →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

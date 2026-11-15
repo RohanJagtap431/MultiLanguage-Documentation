@@ -74,5 +74,22 @@ urlpatterns = [
         views.django_topic,
         name="django_topic"
     ),
+    
+    # =================================
+    # DJANGO REST FRAMEWORK NOTES
+    # =================================
+
+    path(
+        "documentation/drf/",
+        views.drf_index,
+        name="drf_index"
+    ),
+
+    path(
+        "documentation/drf/<str:topic>/",
+        views.drf_topic,
+        name="drf_topic"
+    ),
+
 
 ]

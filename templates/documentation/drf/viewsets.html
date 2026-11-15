@@ -1,0 +1,820 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}ViewSets in DRF{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/drf/viewsets.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO REST FRAMEWORK</span>
+        <h1>20. ViewSets in DRF</h1>
+        <p>
+            Learn how to manage multiple API operations using
+            ViewSets and Routers.
+        </p>
+    </div>
+
+    <!-- SECTION 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What are ViewSets?</h2>
+
+        <p>
+            ViewSets ya DRF madhil classes aahet.
+            Tyanchya madatine multiple API operations ekach
+            class madhye handle karta yetat.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                ViewSets are classes in Django REST Framework
+                that group related API operations into a single class.
+            </p>
+        </div>
+
+        <h3>Why use ViewSets?</h3>
+
+        <ul>
+            <li>Multiple API operations ekach class madhye handle hotat.</li>
+            <li>Code repetition kami hote.</li>
+            <li>URL routing sope hote.</li>
+            <li>Routers sobat automatically URLs generate karta yetat.</li>
+            <li>Code clean ani organized rahto.</li>
+        </ul>
+
+        <h3>ViewSets Working Flow</h3>
+
+        <div class="flow-container">
+            <div class="flow-step">
+                <strong>Client Request</strong>
+                <span>GET, POST, PUT, PATCH kiwa DELETE</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <strong>Router</strong>
+                <span>URL la ViewSet action sobat map karto</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <strong>ViewSet</strong>
+                <span>Required API operation execute karto</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <strong>Response</strong>
+                <span>Client la result milto</span>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- SECTION 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Types of ViewSets</h2>
+
+        <p>
+            DRF madhye commonly use honare ViewSet classes:
+        </p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ViewSet</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ViewSet</td>
+                        <td>Custom API actions define karne.</td>
+                    </tr>
+                    <tr>
+                        <td>GenericViewSet</td>
+                        <td>GenericAPIView chi functionality provide karte.</td>
+                    </tr>
+                    <tr>
+                        <td>ModelViewSet</td>
+                        <td>Complete CRUD operations provide karte.</td>
+                    </tr>
+                    <tr>
+                        <td>ReadOnlyModelViewSet</td>
+                        <td>Fakt list ani retrieve operations provide karte.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- SECTION 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. ViewSet</h2>
+
+        <p>
+            ViewSet hi basic class aahe.
+            Ya class madhye aapan list, create, retrieve,
+            update ani delete sarkhya actions manually define karto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                ViewSet is a base class that allows developers
+                to define custom actions for API endpoints.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.viewsets import ViewSet
+from rest_framework.response import Response
+
+class StudentViewSet(ViewSet):
+
+    def list(self, request):
+        return Response({
+            "message": "Student list"
+        })
+
+    def create(self, request):
+        return Response({
+            "message": "Student created"
+        })</code></pre>
+        </div>
+
+        <h3>Important Points</h3>
+
+        <ul>
+            <li><strong>list():</strong> Multiple records fetch karte.</li>
+            <li><strong>create():</strong> New record create karte.</li>
+            <li><strong>retrieve():</strong> Single record fetch karte.</li>
+            <li><strong>update():</strong> Complete record update karte.</li>
+            <li><strong>partial_update():</strong> Specific fields update karte.</li>
+            <li><strong>destroy():</strong> Record delete karte.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Basic ViewSet madhye he actions automatically
+            implement hot nahit. Aplyala required actions
+            swatah define karave lagtat.
+        </div>
+
+    </section>
+
+    <!-- SECTION 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. GenericViewSet</h2>
+
+        <p>
+            GenericViewSet hi class GenericAPIView chi
+            functionality provide karte.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                GenericViewSet provides the functionality of
+                GenericAPIView and can be combined with Mixins
+                to build API operations.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework import mixins
+from rest_framework.viewsets import GenericViewSet
+
+class StudentViewSet(
+    mixins.ListModelMixin,
+    mixins.CreateModelMixin,
+    GenericViewSet
+):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li><strong>GenericViewSet:</strong> GenericAPIView chi functionality dete.</li>
+            <li><strong>ListModelMixin:</strong> list() method provide karte.</li>
+            <li><strong>CreateModelMixin:</strong> create() method provide karte.</li>
+            <li><strong>queryset:</strong> Student records select karto.</li>
+            <li><strong>serializer_class:</strong> StudentSerializer select karto.</li>
+        </ul>
+
+        <p>
+            Ya example madhye List ani Create operations
+            available hotat. Itar operations sathi additional
+            Mixins add karave lagtat.
+        </p>
+
+    </section>
+
+    <!-- SECTION 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. ModelViewSet</h2>
+
+        <p>
+            ModelViewSet ha ViewSets madhil important class aahe.
+            Ya class madhye complete CRUD operations already available astat.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                ModelViewSet provides list, create, retrieve,
+                update, partial_update and destroy actions
+                for a model.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.viewsets import ModelViewSet
+
+class StudentViewSet(ModelViewSet):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer</code></pre>
+        </div>
+
+        <h3>Available Actions</h3>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Action</th>
+                        <th>HTTP Method</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>list</td>
+                        <td>GET</td>
+                        <td>All students fetch</td>
+                    </tr>
+                    <tr>
+                        <td>create</td>
+                        <td>POST</td>
+                        <td>New student create</td>
+                    </tr>
+                    <tr>
+                        <td>retrieve</td>
+                        <td>GET</td>
+                        <td>Single student fetch</td>
+                    </tr>
+                    <tr>
+                        <td>update</td>
+                        <td>PUT</td>
+                        <td>Complete update</td>
+                    </tr>
+                    <tr>
+                        <td>partial_update</td>
+                        <td>PATCH</td>
+                        <td>Partial update</td>
+                    </tr>
+                    <tr>
+                        <td>destroy</td>
+                        <td>DELETE</td>
+                        <td>Student delete</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="important-box">
+            <strong>Remember:</strong>
+            ModelViewSet vaparlyavar pratyek action sathi
+            separate method manually lihinyachi garaj naste.
+        </div>
+
+    </section>
+
+    <!-- SECTION 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. ReadOnlyModelViewSet</h2>
+
+        <p>
+            ReadOnlyModelViewSet cha use fakt data read
+            karanyasathi hoto. Ya madhye create, update ani
+            delete operations available nastat.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                ReadOnlyModelViewSet provides only list and
+                retrieve actions to read data.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.viewsets import ReadOnlyModelViewSet
+
+class StudentReadOnlyViewSet(ReadOnlyModelViewSet):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer</code></pre>
+        </div>
+
+        <h3>Available Actions</h3>
+
+        <ul>
+            <li><strong>list():</strong> All records fetch karte.</li>
+            <li><strong>retrieve():</strong> Single record fetch karte.</li>
+        </ul>
+
+        <div class="output-box">
+            <strong>Supported Methods</strong>
+            <pre><code>GET /api/students/
+GET /api/students/1/</code></pre>
+        </div>
+
+    </section>
+
+    <!-- SECTION 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. What are Routers?</h2>
+
+        <p>
+            Routers cha use ViewSet sathi automatically
+            URL patterns generate karanyasathi hoto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                Routers automatically generate URL patterns
+                for registered ViewSets.
+            </p>
+        </div>
+
+        <h3>Types of Routers</h3>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Router</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>SimpleRouter</td>
+                        <td>Basic API URL patterns generate karto.</td>
+                    </tr>
+                    <tr>
+                        <td>DefaultRouter</td>
+                        <td>API URLs sobat API root view pan provide karto.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Router Import</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.routers import DefaultRouter</code></pre>
+        </div>
+
+        <h3>Register ViewSet</h3>
+
+        <div class="code-block">
+            <pre><code>router = DefaultRouter()
+
+router.register(
+    'students',
+    StudentViewSet,
+    basename='student'
+)</code></pre>
+        </div>
+
+        <p>
+            Ithe students ha URL prefix aahe ani StudentViewSet
+            ya prefix sobat register kela aahe.
+        </p>
+
+    </section>
+
+    <!-- SECTION 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. How Router Maps URLs?</h2>
+
+        <p>
+            Router HTTP methods la ViewSet actions sobat
+            automatically map karto.
+        </p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>HTTP Method</th>
+                        <th>URL</th>
+                        <th>ViewSet Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>GET</td>
+                        <td>/students/</td>
+                        <td>list()</td>
+                    </tr>
+                    <tr>
+                        <td>POST</td>
+                        <td>/students/</td>
+                        <td>create()</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td>/students/1/</td>
+                        <td>retrieve()</td>
+                    </tr>
+                    <tr>
+                        <td>PUT</td>
+                        <td>/students/1/</td>
+                        <td>update()</td>
+                    </tr>
+                    <tr>
+                        <td>PATCH</td>
+                        <td>/students/1/</td>
+                        <td>partial_update()</td>
+                    </tr>
+                    <tr>
+                        <td>DELETE</td>
+                        <td>/students/1/</td>
+                        <td>destroy()</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Router la ViewSet register kelyanantar
+            manually pratyek action sathi URL lihinyachi
+            garaj naste.
+        </div>
+
+    </section>
+
+    <!-- SECTION 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Practical Student CRUD API using ModelViewSet</h2>
+
+        <p>
+            Ata aapan ModelViewSet ani DefaultRouter vaprun
+            complete Student CRUD API create karuya.
+        </p>
+
+        <h3>Step 1 – Model</h3>
+
+        <p>
+            Topic 15 madhil Student model already asel
+            tar toch use kara.
+        </p>
+
+        <div class="code-block">
+            <pre><code># api/models.py
+
+from django.db import models
+
+class Student(models.Model):
+
+    name = models.CharField(max_length=100)
+    email = models.EmailField(unique=True)
+    age = models.PositiveIntegerField()
+
+    def __str__(self):
+        return self.name</code></pre>
+        </div>
+
+        <h3>Step 2 – Serializer</h3>
+
+        <div class="code-block">
+            <pre><code># api/serializers.py
+
+from rest_framework import serializers
+from .models import Student
+
+class StudentSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Student
+        fields = '__all__'</code></pre>
+        </div>
+
+        <h3>Step 3 – ViewSet</h3>
+
+        <p><strong>File:</strong> api/views.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.viewsets import ModelViewSet
+
+from .models import Student
+from .serializers import StudentSerializer
+
+
+class StudentViewSet(ModelViewSet):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer</code></pre>
+        </div>
+
+        <h3>Step 4 – Router and URLs</h3>
+
+        <p><strong>File:</strong> api/urls.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.routers import DefaultRouter
+from .views import StudentViewSet
+
+router = DefaultRouter()
+
+router.register(
+    'students',
+    StudentViewSet,
+    basename='student'
+)
+
+urlpatterns = router.urls</code></pre>
+        </div>
+
+        <h3>Step 5 – Main URLs</h3>
+
+        <p><strong>File:</strong> config/urls.py</p>
+
+        <div class="code-block">
+            <pre><code>from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('api/', include('api.urls')),
+]</code></pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Existing Student model ani serializer astil tar
+            te punha create karu naka. Router use kartana
+            tyach ViewSet sathi duplicate URL patterns add karu naka.
+        </div>
+
+    </section>
+
+    <!-- SECTION 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Final API Endpoints</h2>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Endpoint</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>GET</td>
+                        <td>/api/students/</td>
+                        <td>All students fetch</td>
+                    </tr>
+                    <tr>
+                        <td>POST</td>
+                        <td>/api/students/</td>
+                        <td>Create student</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td>/api/students/1/</td>
+                        <td>Single student fetch</td>
+                    </tr>
+                    <tr>
+                        <td>PUT</td>
+                        <td>/api/students/1/</td>
+                        <td>Complete update</td>
+                    </tr>
+                    <tr>
+                        <td>PATCH</td>
+                        <td>/api/students/1/</td>
+                        <td>Partial update</td>
+                    </tr>
+                    <tr>
+                        <td>DELETE</td>
+                        <td>/api/students/1/</td>
+                        <td>Delete student</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Run Server</h3>
+
+        <div class="code-block">
+            <pre><code>python manage.py runserver</code></pre>
+        </div>
+
+        <h3>Open API</h3>
+
+        <div class="output-box">
+            <pre><code>http://127.0.0.1:8000/api/students/</code></pre>
+        </div>
+
+        <p>
+            Browser madhye API open karun GET ani POST test kara.
+            Single student URL var GET, PUT, PATCH ani DELETE test kara.
+        </p>
+
+    </section>
+
+    <!-- SECTION 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Generic Views vs ViewSets</h2>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Generic Views</th>
+                        <th>ViewSets</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Each view class specific operations handle karte.</td>
+                        <td>Multiple operations ekach class madhye group hotat.</td>
+                    </tr>
+                    <tr>
+                        <td>URL patterns manually define karave lagtat.</td>
+                        <td>Routers automatically URLs generate karu shaktat.</td>
+                    </tr>
+                    <tr>
+                        <td>ListCreateAPIView example.</td>
+                        <td>ModelViewSet example.</td>
+                    </tr>
+                    <tr>
+                        <td>Separate endpoints var jast control.</td>
+                        <td>Related CRUD operations organize karne sope.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- SECTION 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Important Points to Remember</h2>
+
+        <ul>
+            <li>ViewSets multiple API operations ekach class madhye group kartat.</li>
+            <li>ViewSet madhye actions manually define karave lagtat.</li>
+            <li>GenericViewSet GenericAPIView chi functionality dete.</li>
+            <li>ModelViewSet complete CRUD actions provide karte.</li>
+            <li>ReadOnlyModelViewSet fakt list ani retrieve actions provide karte.</li>
+            <li>Router automatically URL patterns generate karto.</li>
+            <li>DefaultRouter API root view pan provide karto.</li>
+            <li>ModelViewSet ani Router combination mule CRUD API kami code madhye tayar hote.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 13 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>13. Practice Questions</h2>
+
+        <ol>
+            <li>What are ViewSets in DRF?</li>
+            <li>Why do we use ViewSets?</li>
+            <li>What is ViewSet?</li>
+            <li>What is GenericViewSet?</li>
+            <li>What is ModelViewSet?</li>
+            <li>What is ReadOnlyModelViewSet?</li>
+            <li>What is the use of Router?</li>
+            <li>What is the difference between SimpleRouter and DefaultRouter?</li>
+            <li>What is the use of list() and create() actions?</li>
+            <li>How does ModelViewSet perform CRUD operations?</li>
+            <li>Create a Student CRUD API using ModelViewSet and DefaultRouter.</li>
+        </ol>
+
+    </section>
+
+    <!-- SECTION 14 -->
+
+    <section class="lesson-section interview-section">
+
+        <h2>14. Interview Questions</h2>
+
+        <h3>Q1. What are ViewSets?</h3>
+        <p>
+            ViewSets group related API operations into a single class.
+        </p>
+
+        <h3>Q2. What is ModelViewSet?</h3>
+        <p>
+            ModelViewSet provides all common CRUD actions for a model.
+        </p>
+
+        <h3>Q3. What is ReadOnlyModelViewSet?</h3>
+        <p>
+            It provides only list and retrieve actions.
+        </p>
+
+        <h3>Q4. What is a Router?</h3>
+        <p>
+            A Router automatically generates URL patterns for ViewSets.
+        </p>
+
+        <h3>Q5. What is the difference between ViewSet and ModelViewSet?</h3>
+        <p>
+            ViewSet requires custom actions to be defined,
+            while ModelViewSet provides common CRUD actions.
+        </p>
+
+        <h3>Q6. What is the use of DefaultRouter?</h3>
+        <p>
+            DefaultRouter generates URL patterns for registered
+            ViewSets and provides an API root view.
+        </p>
+
+    </section>
+
+    <!-- COMPLETION -->
+
+    <div class="completion-box">
+        <h3>Topic 20 Completed!</h3>
+        <p>
+            Ata aapan ViewSets, ModelViewSet ani Router
+            vaprun Student CRUD API create karayla shiklo.
+        </p>
+    </div>
+
+    <!-- NAVIGATION -->
+
+    <div class="lesson-navigation">
+        <a href="{% url 'drf_topic' 'concrete-generic-views' %}">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'drf_topic' 'routers' %}">
+            Next Topic →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

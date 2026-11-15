@@ -1,0 +1,181 @@
+
+/* =====================================
+   DRF TOPIC 18 - MIXINS
+===================================== */
+
+@import url("introduction.css");
+
+/* DEFINITION BOX */
+
+.definition-box {
+    background: #eff6ff;
+    border-left: 4px solid #2563eb;
+    padding: 18px;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+.definition-box h3 {
+    color: #1d4ed8;
+    margin-top: 0;
+}
+
+.definition-box p {
+    color: #334155;
+    margin-bottom: 0;
+    line-height: 1.8;
+}
+
+/* IMPORTANT BOX */
+
+.important-box {
+    background: #fff7ed;
+    border-left: 4px solid #f59e0b;
+    padding: 16px 18px;
+    margin: 20px 0;
+    border-radius: 7px;
+    color: #9a3412;
+    line-height: 1.8;
+}
+
+/* CODE BLOCK */
+
+.code-block {
+    background: #111827;
+    padding: 20px;
+    margin: 16px 0 22px;
+    border-radius: 9px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.code-block pre {
+    margin: 0;
+}
+
+.code-block code {
+    background: transparent;
+    padding: 0;
+    color: #e5e7eb;
+    font-family: Consolas, monospace;
+    font-size: 13px;
+    line-height: 1.8;
+    white-space: pre;
+}
+
+/* OUTPUT BOX */
+
+.output-box {
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 17px;
+    margin: 16px 0 22px;
+    overflow-x: auto;
+}
+
+.output-box strong {
+    color: #172033;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.output-box pre {
+    margin: 0;
+}
+
+.output-box code {
+    background: transparent;
+    color: #334155;
+    padding: 0;
+    font-family: Consolas, monospace;
+    font-size: 13px;
+    line-height: 1.8;
+    white-space: pre;
+}
+
+/* TABLE */
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+.table-wrapper table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 480px;
+}
+
+.table-wrapper th {
+    background: #172033;
+    color: #ffffff;
+    padding: 13px;
+    text-align: left;
+}
+
+.table-wrapper td {
+    padding: 12px 13px;
+    border-bottom: 1px solid #e2e8f0;
+    color: #334155;
+    vertical-align: top;
+}
+
+.table-wrapper tr:nth-child(even) {
+    background: #f8fafc;
+}
+
+/* PRACTICE QUESTIONS */
+
+.practice-section ol,
+.lesson-section ul {
+    padding-left: 24px;
+}
+
+.practice-section li,
+.lesson-section li {
+    margin-bottom: 10px;
+    line-height: 1.7;
+}
+
+/* INTERVIEW QUESTIONS */
+
+.interview-section h3 {
+    color: #1d4ed8;
+    margin-top: 24px;
+}
+
+.interview-section p {
+    line-height: 1.8;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media (max-width: 600px) {
+
+    .definition-box,
+    .important-box {
+        padding: 13px;
+        font-size: 13px;
+    }
+
+    .code-block {
+        padding: 13px;
+    }
+
+    .code-block code,
+    .output-box code {
+        font-size: 11px;
+    }
+
+    .output-box {
+        padding: 12px;
+    }
+
+    .table-wrapper th,
+    .table-wrapper td {
+        padding: 10px;
+        font-size: 12px;
+    }
+}

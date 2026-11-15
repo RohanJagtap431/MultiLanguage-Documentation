@@ -1,0 +1,860 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Function-Based Views in DRF{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/drf/function-based-views.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO REST FRAMEWORK</span>
+        <h1>13. Function-Based Views (FBV)</h1>
+        <p>
+            Learn how to create CRUD APIs using Function-Based Views
+            in Django REST Framework.
+        </p>
+    </div>
+
+    <!-- SECTION 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What is Function-Based View?</h2>
+
+        <p>
+            Function-Based View (FBV) hi normal Python function aste.
+            DRF madhye @api_view() decorator vaprun aapan function la
+            API View banavu shakto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                A Function-Based View is an API view created using
+                a Python function and the @api_view() decorator.
+            </p>
+        </div>
+
+        <h3>Basic Syntax</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
+@api_view(['GET'])
+def my_api(request):
+
+    return Response({
+        "message": "Hello API"
+    })</code></pre>
+        </div>
+
+        <h3>How it works</h3>
+
+        <div class="flow-container">
+            <div class="flow-step">
+                <strong>Client</strong>
+                <span>Request pathavto</span>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">
+                <strong>@api_view()</strong>
+                <span>Allowed method check karto</span>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">
+                <strong>Python Function</strong>
+                <span>Request process karte</span>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">
+                <strong>Response</strong>
+                <span>Client la result milto</span>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- SECTION 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. The @api_view() Decorator</h2>
+
+        <p>
+            @api_view() decorator API madhye kontya HTTP methods
+            allow aahet te specify karto.
+        </p>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>@api_view(['GET'])
+def student_list(request):
+    pass</code></pre>
+        </div>
+
+        <p>
+            Ya example madhye API fakt GET request accept karte.
+        </p>
+
+        <h3>Allow Multiple Methods</h3>
+
+        <div class="code-block">
+            <pre><code>@api_view(['GET', 'POST'])
+def student_list(request):
+    pass</code></pre>
+        </div>
+
+        <p>
+            Ya API madhye GET ani POST donhi methods allow aahet.
+        </p>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            API ne allow na keleli HTTP method request keli tar
+            DRF 405 Method Not Allowed response return karte.
+        </div>
+
+    </section>
+
+    <!-- SECTION 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. HTTP Methods in FBV</h2>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Purpose</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>GET</td>
+                        <td>Data read karne</td>
+                        <td>Student list pahane</td>
+                    </tr>
+                    <tr>
+                        <td>POST</td>
+                        <td>New data create karne</td>
+                        <td>Student add karne</td>
+                    </tr>
+                    <tr>
+                        <td>PUT</td>
+                        <td>Complete data update karne</td>
+                        <td>Student details replace karne</td>
+                    </tr>
+                    <tr>
+                        <td>PATCH</td>
+                        <td>Partial data update karne</td>
+                        <td>Fakt student name change karne</td>
+                    </tr>
+                    <tr>
+                        <td>DELETE</td>
+                        <td>Data delete karne</td>
+                        <td>Student remove karne</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- SECTION 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. Practical CRUD API Setup</h2>
+
+        <p>
+            Ata aapan Student CRUD API create karnaar aahot.
+            Ya example madhye Student model ani ModelSerializer
+            use karnaar aahot.
+        </p>
+
+        <h3>Step 1: Create Student Model</h3>
+
+        <p><strong>File:</strong> api/models.py</p>
+
+        <div class="code-block">
+            <pre><code>from django.db import models
+
+class Student(models.Model):
+
+    name = models.CharField(max_length=100)
+    email = models.EmailField(unique=True)
+    age = models.PositiveIntegerField()
+
+    def __str__(self):
+        return self.name</code></pre>
+        </div>
+
+        <h3>Step 2: Create Serializer</h3>
+
+        <p><strong>File:</strong> api/serializers.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework import serializers
+from .models import Student
+
+class StudentSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Student
+        fields = '__all__'</code></pre>
+        </div>
+
+        <h3>Step 3: Run Migrations</h3>
+
+        <div class="code-block">
+            <pre><code>python manage.py makemigrations
+python manage.py migrate</code></pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Note:</strong>
+            api app INSTALLED_APPS madhye add kelela asava.
+            Model ani serializer files madhye varil code save kara.
+        </div>
+
+    </section>
+
+    <!-- SECTION 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. GET Method – Read Data</h2>
+
+        <p>
+            GET method database madhun student records fetch
+            karanyasathi use hote.
+        </p>
+
+        <p><strong>File:</strong> api/views.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
+from .models import Student
+from .serializers import StudentSerializer
+
+@api_view(['GET'])
+def student_list(request):
+
+    students = Student.objects.all()
+
+    serializer = StudentSerializer(
+        students,
+        many=True
+    )
+
+    return Response(serializer.data)</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li><strong>Student.objects.all():</strong> Sarve students fetch karte.</li>
+            <li><strong>many=True:</strong> Multiple objects serialize karte.</li>
+            <li><strong>serializer.data:</strong> Serialized data return karto.</li>
+            <li><strong>Response():</strong> API response pathavto.</li>
+        </ul>
+
+        <h3>Example Response</h3>
+
+        <div class="output-box">
+            <pre><code>[
+    {
+        "id": 1,
+        "name": "Rohan",
+        "email": "rohan@example.com",
+        "age": 20
+    },
+    {
+        "id": 2,
+        "name": "Amit",
+        "email": "amit@example.com",
+        "age": 21
+    }
+]</code></pre>
+        </div>
+
+    </section>
+
+    <!-- SECTION 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. POST Method – Create Data</h2>
+
+        <p>
+            POST method database madhye navin student record
+            create karanyasathi use hote.
+        </p>
+
+        <div class="code-block">
+            <pre><code>@api_view(['POST'])
+def student_create(request):
+
+    serializer = StudentSerializer(
+        data=request.data
+    )
+
+    if serializer.is_valid():
+        serializer.save()
+
+        return Response(
+            serializer.data,
+            status=201
+        )
+
+    return Response(
+        serializer.errors,
+        status=400
+    )</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li><strong>request.data:</strong> Client kadun aalela data.</li>
+            <li><strong>is_valid():</strong> Data validation karte.</li>
+            <li><strong>serializer.save():</strong> Valid data database madhye save karto.</li>
+            <li><strong>serializer.errors:</strong> Validation errors return karto.</li>
+        </ul>
+
+        <h3>POST Request Body</h3>
+
+        <div class="output-box">
+            <pre><code>{
+    "name": "Rohan",
+    "email": "rohan@example.com",
+    "age": 20
+}</code></pre>
+        </div>
+
+        <p>
+            Data successfully create zalyas HTTP 201 Created
+            response milto.
+        </p>
+
+    </section>
+
+    <!-- SECTION 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. PUT Method – Update Complete Data</h2>
+
+        <p>
+            PUT method existing student cha complete data
+            update karanyasathi use hote.
+        </p>
+
+        <div class="code-block">
+            <pre><code>from django.shortcuts import get_object_or_404
+
+@api_view(['PUT'])
+def student_update(request, pk):
+
+    student = get_object_or_404(
+        Student,
+        pk=pk
+    )
+
+    serializer = StudentSerializer(
+        student,
+        data=request.data
+    )
+
+    if serializer.is_valid():
+        serializer.save()
+
+        return Response(serializer.data)
+
+    return Response(
+        serializer.errors,
+        status=400
+    )</code></pre>
+        </div>
+
+        <h3>Example Request Body</h3>
+
+        <div class="output-box">
+            <pre><code>{
+    "name": "Rohan Jagtap",
+    "email": "rohan@example.com",
+    "age": 21
+}</code></pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Remember:</strong>
+            PUT madhye serializer la partial=True dilele nahi.
+            Mhanun required fields complete pathavane apekshit aste.
+        </div>
+
+    </section>
+
+    <!-- SECTION 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. PATCH Method – Update Partial Data</h2>
+
+        <p>
+            PATCH method existing record madhil fakt kahi fields
+            update karanyasathi use hote.
+        </p>
+
+        <div class="code-block">
+            <pre><code>@api_view(['PATCH'])
+def student_partial_update(request, pk):
+
+    student = get_object_or_404(
+        Student,
+        pk=pk
+    )
+
+    serializer = StudentSerializer(
+        student,
+        data=request.data,
+        partial=True
+    )
+
+    if serializer.is_valid():
+        serializer.save()
+
+        return Response(serializer.data)
+
+    return Response(
+        serializer.errors,
+        status=400
+    )</code></pre>
+        </div>
+
+        <h3>Example Request Body</h3>
+
+        <div class="output-box">
+            <pre><code>{
+    "age": 22
+}</code></pre>
+        </div>
+
+        <p>
+            Ithe fakt age update hoil. Name ani email
+            change honar nahit.
+        </p>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            PATCH madhye partial=True use karane mahatvache aahe.
+            Tyamule required naslele fields pathavnyachi garaj naste.
+        </div>
+
+    </section>
+
+    <!-- SECTION 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. DELETE Method – Delete Data</h2>
+
+        <p>
+            DELETE method database madhun existing student
+            record delete karanyasathi use hote.
+        </p>
+
+        <div class="code-block">
+            <pre><code>@api_view(['DELETE'])
+def student_delete(request, pk):
+
+    student = get_object_or_404(
+        Student,
+        pk=pk
+    )
+
+    student.delete()
+
+    return Response(
+        {"message": "Student deleted successfully"},
+        status=200
+    )</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li><strong>get_object_or_404():</strong> Student sapadla nahi tar 404 return karte.</li>
+            <li><strong>student.delete():</strong> Database madhun record delete karte.</li>
+            <li><strong>status=200:</strong> Success response return karto.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Complete CRUD Views</h2>
+
+        <p>
+            Ata GET ani POST ekach function madhye ani
+            PUT, PATCH, DELETE dusrya function madhye
+            handle karu shakto.
+        </p>
+
+        <p><strong>File:</strong> api/views.py</p>
+
+        <div class="code-block">
+            <pre><code>from django.shortcuts import get_object_or_404
+
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
+from .models import Student
+from .serializers import StudentSerializer
+
+
+@api_view(['GET', 'POST'])
+def student_list(request):
+
+    if request.method == 'GET':
+
+        students = Student.objects.all()
+
+        serializer = StudentSerializer(
+            students,
+            many=True
+        )
+
+        return Response(serializer.data)
+
+    elif request.method == 'POST':
+
+        serializer = StudentSerializer(
+            data=request.data
+        )
+
+        if serializer.is_valid():
+            serializer.save()
+
+            return Response(
+                serializer.data,
+                status=201
+            )
+
+        return Response(
+            serializer.errors,
+            status=400
+        )
+
+
+@api_view(['GET', 'PUT', 'PATCH', 'DELETE'])
+def student_detail(request, pk):
+
+    student = get_object_or_404(
+        Student,
+        pk=pk
+    )
+
+    if request.method == 'GET':
+
+        serializer = StudentSerializer(student)
+
+        return Response(serializer.data)
+
+    elif request.method == 'PUT':
+
+        serializer = StudentSerializer(
+            student,
+            data=request.data
+        )
+
+    elif request.method == 'PATCH':
+
+        serializer = StudentSerializer(
+            student,
+            data=request.data,
+            partial=True
+        )
+
+    elif request.method == 'DELETE':
+
+        student.delete()
+
+        return Response(
+            {"message": "Student deleted"},
+            status=200
+        )
+
+    if serializer.is_valid():
+        serializer.save()
+
+        return Response(serializer.data)
+
+    return Response(
+        serializer.errors,
+        status=400
+    )</code></pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Note:</strong>
+            Ha complete CRUD code aahe. Separate GET, POST,
+            PUT, PATCH ani DELETE examples samjun ghetlyanantar
+            ha combined code vapra. Donhi versions ekach URL
+            var duplicate register karu naka.
+        </div>
+
+    </section>
+
+    <!-- SECTION 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Configure URLs</h2>
+
+        <p><strong>File:</strong> api/urls.py</p>
+
+        <div class="code-block">
+            <pre><code>from django.urls import path
+from . import views
+
+urlpatterns = [
+
+    path(
+        'students/',
+        views.student_list,
+        name='student_list'
+    ),
+
+    path(
+        'students/&lt;int:pk&gt;/',
+        views.student_detail,
+        name='student_detail'
+    ),
+
+]</code></pre>
+        </div>
+
+        <p>
+            Main project chya config/urls.py madhye
+            app URLs include kara.
+        </p>
+
+        <div class="code-block">
+            <pre><code>from django.urls import path, include
+
+urlpatterns = [
+    path('api/', include('api.urls')),
+]</code></pre>
+        </div>
+
+        <h3>API Endpoints</h3>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Endpoint</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>GET</td>
+                        <td>/api/students/</td>
+                        <td>All students</td>
+                    </tr>
+                    <tr>
+                        <td>POST</td>
+                        <td>/api/students/</td>
+                        <td>Create student</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td>/api/students/1/</td>
+                        <td>Single student</td>
+                    </tr>
+                    <tr>
+                        <td>PUT</td>
+                        <td>/api/students/1/</td>
+                        <td>Complete update</td>
+                    </tr>
+                    <tr>
+                        <td>PATCH</td>
+                        <td>/api/students/1/</td>
+                        <td>Partial update</td>
+                    </tr>
+                    <tr>
+                        <td>DELETE</td>
+                        <td>/api/students/1/</td>
+                        <td>Delete student</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- SECTION 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Test API</h2>
+
+        <p>
+            Server start kara:
+        </p>
+
+        <div class="code-block">
+            <pre><code>python manage.py runserver</code></pre>
+        </div>
+
+        <p>
+            Browser madhye GET endpoint open kara:
+        </p>
+
+        <div class="output-box">
+            <pre><code>http://127.0.0.1:8000/api/students/</code></pre>
+        </div>
+
+        <p>
+            DRF Browsable API madhun GET ani POST test karu shakta.
+            PUT, PATCH ani DELETE sathi student detail endpoint
+            vapra.
+        </p>
+
+        <div class="important-box">
+            <strong>Testing Tip:</strong>
+            POST request madhye valid email ani age pathva.
+            PUT madhye complete required data pathva.
+            PATCH madhye fakt update karayche fields pathva.
+        </div>
+
+    </section>
+
+    <!-- SECTION 13 -->
+
+    <section class="lesson-section">
+
+        <h2>13. Important Points to Remember</h2>
+
+        <ul>
+            <li>FBV create karanyasathi @api_view() use hoto.</li>
+            <li>GET data read karte.</li>
+            <li>POST new record create karte.</li>
+            <li>PUT complete data update karte.</li>
+            <li>PATCH partial data update karte.</li>
+            <li>DELETE record remove karte.</li>
+            <li>request.data madhun client cha input milto.</li>
+            <li>serializer.is_valid() data validate karte.</li>
+            <li>serializer.save() data save karte.</li>
+            <li>get_object_or_404() record nasel tar 404 return karte.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 14 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>14. Practice Questions</h2>
+
+        <ol>
+            <li>What is Function-Based View?</li>
+            <li>What is the use of @api_view()?</li>
+            <li>How does GET method work in FBV?</li>
+            <li>How do we create data using POST?</li>
+            <li>What is the difference between PUT and PATCH?</li>
+            <li>What is the use of partial=True?</li>
+            <li>How do we delete a record using DELETE?</li>
+            <li>What is the use of get_object_or_404()?</li>
+            <li>What is the use of request.data?</li>
+            <li>Write a Student CRUD API using FBV.</li>
+        </ol>
+
+    </section>
+
+    <!-- SECTION 15 -->
+
+    <section class="lesson-section interview-section">
+
+        <h2>15. Interview Questions</h2>
+
+        <h3>Q1. What is FBV in DRF?</h3>
+        <p>
+            FBV is an API view created using a Python function
+            and the @api_view() decorator.
+        </p>
+
+        <h3>Q2. What is the use of request.data?</h3>
+        <p>
+            request.data is used to access the data sent by
+            the client in an API request.
+        </p>
+
+        <h3>Q3. What is the difference between PUT and PATCH?</h3>
+        <p>
+            PUT updates the complete resource, whereas PATCH
+            updates only selected fields.
+        </p>
+
+        <h3>Q4. What is partial=True?</h3>
+        <p>
+            partial=True allows a serializer to update selected
+            fields without requiring every field.
+        </p>
+
+        <h3>Q5. What is get_object_or_404()?</h3>
+        <p>
+            It returns the requested object or raises
+            an HTTP 404 error if the object does not exist.
+        </p>
+
+        <h3>Q6. What is CRUD?</h3>
+        <p>
+            CRUD stands for Create, Read, Update and Delete.
+        </p>
+
+    </section>
+
+    <!-- COMPLETION -->
+
+    <div class="completion-box">
+        <h3>Topic 13 Completed!</h3>
+        <p>
+            Ata aapan FBV vaprun Student CRUD API create karayla
+            shiklo.
+        </p>
+    </div>
+
+    <!-- NAVIGATION -->
+
+    <div class="lesson-navigation">
+        <a href="{% url 'drf_topic' 'api-views' %}">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'drf_topic' 'request-response' %}">
+            Next Topic →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

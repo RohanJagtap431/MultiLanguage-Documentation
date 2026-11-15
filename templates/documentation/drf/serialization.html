@@ -1,0 +1,650 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Serialization and Deserialization in Practice{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/drf/serialization.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO REST FRAMEWORK</span>
+        <h1>11. Serialization and Deserialization in Practice</h1>
+        <p>
+            API madhye data receive karne, validate karne,
+            database madhye save karne ani response return karne
+            he practical example madhun shikuya.
+        </p>
+    </div>
+
+    <!-- SECTION 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. Serialization and Deserialization</h2>
+
+        <p>
+            DRF madhye Serialization ani Deserialization ya
+            don important processes aahet.
+        </p>
+
+        <div class="definition-box">
+            <h3>Serialization</h3>
+            <p>
+                Serialization is the process of converting
+                complex data, such as model instances, into
+                Python native data types for API responses.
+            </p>
+        </div>
+
+        <div class="definition-box">
+            <h3>Deserialization</h3>
+            <p>
+                Deserialization is the process of processing
+                incoming data into Python native data types
+                after validation.
+            </p>
+        </div>
+
+        <h3>Simple Workflow</h3>
+
+        <div class="flow-container">
+            <div class="flow-step">
+                <strong>Client</strong>
+                <span>JSON data pathavto</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <strong>Deserialization</strong>
+                <span>Data process ani validate hoto</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <strong>Database</strong>
+                <span>Valid data save hoto</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <strong>Serialization</strong>
+                <span>Model data response sathi convert hoto</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-success">
+                API Response
+            </div>
+        </div>
+
+    </section>
+
+    <!-- SECTION 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. What is request.data?</h2>
+
+        <p>
+            Client jevha POST request madhun JSON data pathavto,
+            tevha DRF madhye request.data vaprun incoming data
+            access karta yeto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                request.data is used to access the parsed
+                incoming data sent by the client in an API request.
+            </p>
+        </div>
+
+        <h3>Example Request Body</h3>
+
+        <div class="code-block">
+            <pre><code>{
+    "name": "Rohan",
+    "age": 20,
+    "course": "BSc CS",
+    "email": "rohan@example.com"
+}</code></pre>
+        </div>
+
+        <h3>Access Data in View</h3>
+
+        <div class="code-block">
+            <pre><code>data = request.data
+
+print(data)</code></pre>
+        </div>
+
+        <p>
+            Ithe client ne pathavlela parsed data
+            request.data madhun milto.
+        </p>
+
+    </section>
+
+    <!-- SECTION 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. What is serializer.is_valid()?</h2>
+
+        <p>
+            Client kadun aalela data database madhye save
+            karanyapurvi validate karne garjeche aahe.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                is_valid() checks whether the incoming data
+                follows the serializer's field and validation rules.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>serializer = StudentSerializer(
+    data=request.data
+)
+
+if serializer.is_valid():
+    print("Valid Data")
+else:
+    print(serializer.errors)</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li><strong>StudentSerializer:</strong> Student data validate karto.</li>
+            <li><strong>data=request.data:</strong> Client cha data serializer la deto.</li>
+            <li><strong>is_valid():</strong> Data valid aahe ka check karto.</li>
+            <li><strong>serializer.errors:</strong> Validation errors return karto.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. What is validated_data?</h2>
+
+        <p>
+            is_valid() successful zalyanantar validated_data
+            madhye validated incoming data available hoto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                validated_data contains the incoming data
+                after successful serializer validation.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>if serializer.is_valid():
+    print(serializer.validated_data)</code></pre>
+        </div>
+
+        <h3>Possible Output</h3>
+
+        <div class="code-block">
+            <pre><code>{
+    'name': 'Rohan',
+    'age': 20,
+    'course': 'BSc CS',
+    'email': 'rohan@example.com'
+}</code></pre>
+        </div>
+
+        <p>
+            Ha data validation rules pass zalyanantar
+            validated_data madhye milto.
+        </p>
+
+    </section>
+
+    <!-- SECTION 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. What is serializer.save()?</h2>
+
+        <p>
+            serializer.save() cha use validated data
+            database madhye save karanyasathi hoto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                serializer.save() creates a new model instance
+                or updates an existing instance using validated data.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>if serializer.is_valid():
+    student = serializer.save()</code></pre>
+        </div>
+
+        <h3>Important Points</h3>
+
+        <ul>
+            <li>save() call karanyapurvi is_valid() successful asne garjeche aahe.</li>
+            <li>New object asel tar ModelSerializer cha create() method use hoto.</li>
+            <li>Existing object asel tar update() method use hoto.</li>
+            <li>save() nantar created kiwa updated model instance return karto.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Remember:</strong>
+            ModelSerializer madhye default create() ani update()
+            methods available astat. Custom behavior sathi
+            aapan he methods override karu shakto.
+        </div>
+
+    </section>
+
+    <!-- SECTION 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. What is serializer.errors?</h2>
+
+        <p>
+            Client ne invalid data pathavla tar serializer
+            errors madhye validation errors store karto.
+        </p>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>if not serializer.is_valid():
+    print(serializer.errors)</code></pre>
+        </div>
+
+        <h3>Possible Output</h3>
+
+        <div class="code-block">
+            <pre><code>{
+    "name": [
+        "This field is required."
+    ],
+    "email": [
+        "Enter a valid email address."
+    ]
+}</code></pre>
+        </div>
+
+        <p>
+            Ithe name field missing aahe ani email format
+            invalid aahe.
+        </p>
+
+    </section>
+
+    <!-- SECTION 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. Create POST API</h2>
+
+        <p>
+            Ata aapan Student create karanyasathi complete
+            POST API banavu.
+        </p>
+
+        <p><strong>File:</strong> api/views.py</p>
+
+        <h3>Code</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework import status
+
+from .serializers import StudentSerializer
+
+@api_view(['POST'])
+def create_student(request):
+
+    serializer = StudentSerializer(
+        data=request.data
+    )
+
+    if serializer.is_valid():
+
+        student = serializer.save()
+
+        return Response(
+            StudentSerializer(student).data,
+            status=status.HTTP_201_CREATED
+        )
+
+    return Response(
+        serializer.errors,
+        status=status.HTTP_400_BAD_REQUEST
+    )</code></pre>
+        </div>
+
+        <h3>Code Explanation</h3>
+
+        <ul>
+            <li><strong>request.data:</strong> Client kadun incoming data gheto.</li>
+            <li><strong>StudentSerializer:</strong> Data validate karto.</li>
+            <li><strong>is_valid():</strong> Data check karto.</li>
+            <li><strong>serializer.save():</strong> Student database madhye create karto.</li>
+            <li><strong>StudentSerializer(student).data:</strong> Created student cha serialized response deto.</li>
+            <li><strong>201_CREATED:</strong> Resource successfully create zala he sangto.</li>
+            <li><strong>400_BAD_REQUEST:</strong> Invalid data aslyas error return karto.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. Configure POST API URL</h2>
+
+        <p>
+            Ata create_student view la URL sobat connect karu.
+        </p>
+
+        <p><strong>File:</strong> api/urls.py</p>
+
+        <div class="code-block">
+            <pre><code>from django.urls import path
+from . import views
+
+urlpatterns = [
+    path(
+        'students/',
+        views.student_list,
+        name='student_list'
+    ),
+
+    path(
+        'students/create/',
+        views.create_student,
+        name='create_student'
+    ),
+]</code></pre>
+        </div>
+
+        <p>
+            Ata POST API cha URL asa asel:
+        </p>
+
+        <div class="url-box">
+            <strong>http://127.0.0.1:8000/api/students/create/</strong>
+        </div>
+
+    </section>
+
+    <!-- SECTION 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Test POST API</h2>
+
+        <p>
+            Server start kara.
+        </p>
+
+        <div class="code-block">
+            <pre><code>python manage.py runserver</code></pre>
+        </div>
+
+        <p>
+            Postman kiwa DRF Browsable API madhun
+            POST request pathava.
+        </p>
+
+        <h3>Request Method</h3>
+
+        <div class="code-block">
+            <pre><code>POST</code></pre>
+        </div>
+
+        <h3>Request URL</h3>
+
+        <div class="url-box">
+            <strong>http://127.0.0.1:8000/api/students/create/</strong>
+        </div>
+
+        <h3>Request Body – JSON</h3>
+
+        <div class="code-block">
+            <pre><code>{
+    "name": "Rohan",
+    "age": 20,
+    "course": "BSc CS",
+    "email": "rohan@example.com"
+}</code></pre>
+        </div>
+
+        <h3>Expected Response</h3>
+
+        <div class="code-block">
+            <pre><code>201 Created
+
+{
+    "id": 1,
+    "name": "Rohan",
+    "age": 20,
+    "course": "BSc CS",
+    "email": "rohan@example.com"
+}</code></pre>
+        </div>
+
+        <p>
+            Student database madhye successfully create zala.
+        </p>
+
+    </section>
+
+    <!-- SECTION 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Complete Data Flow</h2>
+
+        <p>
+            Aapan create kelelaya POST API madhye data
+            khalil process madhun jato.
+        </p>
+
+        <div class="flow-container">
+            <div class="flow-step">
+                <strong>1. Client Request</strong>
+                <span>JSON data pathavto</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <strong>2. request.data</strong>
+                <span>Incoming data receive hoto</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <strong>3. Serializer</strong>
+                <span>Data validate karto</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <strong>4. serializer.save()</strong>
+                <span>Database madhye data save hoto</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <strong>5. Serialization</strong>
+                <span>Student data response sathi convert hoto</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-success">
+                201 Created Response
+            </div>
+        </div>
+
+    </section>
+
+    <!-- SECTION 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Important Methods and Properties</h2>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Method / Property</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>request.data</td>
+                        <td>Incoming request data access karto.</td>
+                    </tr>
+                    <tr>
+                        <td>is_valid()</td>
+                        <td>Data validation karto.</td>
+                    </tr>
+                    <tr>
+                        <td>validated_data</td>
+                        <td>Validated data provide karto.</td>
+                    </tr>
+                    <tr>
+                        <td>serializer.save()</td>
+                        <td>Object create kiwa update karto.</td>
+                    </tr>
+                    <tr>
+                        <td>serializer.errors</td>
+                        <td>Validation errors provide karto.</td>
+                    </tr>
+                    <tr>
+                        <td>serializer.data</td>
+                        <td>Serialized output provide karto.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- SECTION 12 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>12. Practice Questions</h2>
+
+        <ol>
+            <li>What is Serialization?</li>
+            <li>What is Deserialization?</li>
+            <li>What is request.data?</li>
+            <li>What is the use of is_valid()?</li>
+            <li>What is validated_data?</li>
+            <li>What is the purpose of serializer.save()?</li>
+            <li>What is serializer.errors?</li>
+            <li>What is the difference between serializer.data and validated_data?</li>
+            <li>How do you create a POST API in DRF?</li>
+            <li>What is the difference between 201 and 400 status codes?</li>
+        </ol>
+
+    </section>
+
+    <!-- SECTION 13 -->
+
+    <section class="lesson-section interview-section">
+
+        <h2>13. Interview Questions</h2>
+
+        <h3>Q1. What is request.data?</h3>
+        <p>
+            request.data is used to access parsed incoming
+            data sent by the client.
+        </p>
+
+        <h3>Q2. What is serializer.save()?</h3>
+        <p>
+            It creates a new model instance or updates
+            an existing instance using validated data.
+        </p>
+
+        <h3>Q3. Why do we call is_valid() before save()?</h3>
+        <p>
+            We validate incoming data before saving it
+            to ensure that it follows the required rules.
+        </p>
+
+        <h3>Q4. What is validated_data?</h3>
+        <p>
+            It contains the incoming data after successful
+            serializer validation.
+        </p>
+
+        <h3>Q5. What is the purpose of serializer.errors?</h3>
+        <p>
+            It provides details about validation errors
+            when incoming data is invalid.
+        </p>
+
+    </section>
+
+    <!-- COMPLETION -->
+
+    <div class="completion-box">
+        <h3>Topic 11 Completed!</h3>
+        <p>
+            Ata aapan API madhye data receive, validate,
+            database madhye save ani response return karayla shiklo.
+        </p>
+    </div>
+
+    <!-- NAVIGATION -->
+
+    <div class="lesson-navigation">
+        <a href="{% url 'drf_topic' 'model-serializer' %}">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'drf_topic' 'api-views' %}">
+            Next Topic →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+from django.http import Http404
 
 
 @login_required(login_url="login")
@@ -253,4 +254,63 @@ def django_topic(request, topic):
     return render(
         request,
         f"documentation/django/{template}"
+    )
+    
+# ==========================================
+# DJANGO REST FRAMEWORK NOTES
+# ==========================================
+
+def drf_index(request):
+    return render(
+        request,
+        "documentation/drf/index.html"
+    )
+
+
+def drf_topic(request, topic):
+
+    topics = [
+        "introduction",
+        "django-vs-drf",
+        "rest-api-basics",
+        "json",
+        "http-methods",
+        "http-status-codes",
+        "installation",
+        "first-api",
+        "serializers",
+        "model-serializer",
+        "serialization",
+        "deserialization",
+        "api-views",
+        "function-based-views",
+        "request-response",
+        "crud-api",
+        "url-routing",
+        "generic-views",
+        "mixins",
+        "concrete-generic-views",
+        "viewsets",
+        "routers",
+        "authentication",
+        "permissions",
+        "token-authentication",
+        "jwt-authentication",
+        "pagination",
+        "filtering",
+        "searching",
+        "ordering",
+        "throttling",
+        "relationships",
+        "file-upload-api",
+        "api-testing",
+        "api-deployment",
+    ]
+
+    if topic not in topics:
+        raise Http404("Topic not found")
+
+    return render(
+        request,
+        f"documentation/drf/{topic}.html"
     )

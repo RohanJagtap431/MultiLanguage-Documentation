@@ -1,0 +1,515 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}
+Django vs Django REST Framework
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/drf/django-vs-drf.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- PAGE HEADER -->
+
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO REST FRAMEWORK</span>
+
+        <h1>02. Django vs Django REST Framework</h1>
+
+        <p>
+            Django ani Django REST Framework madhil difference
+            simple Roman Marathi madhye samjun ghya.
+        </p>
+    </div>
+
+
+    <!-- SECTION 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What is Django?</h2>
+
+        <p>
+            Django he Python madhil ek high-level Web Framework aahe.
+            Django cha use karun aapan complete websites ani
+            web applications develop karu shakto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+
+            <p>
+                Django is a high-level Python web framework used
+                to build secure and maintainable web applications.
+            </p>
+        </div>
+
+        <h3>Django cha use kuthe hoto?</h3>
+
+        <ul class="feature-list">
+            <li>Blog Website</li>
+            <li>Student Management System</li>
+            <li>E-commerce Website</li>
+            <li>College Management System</li>
+            <li>Admin Dashboard</li>
+        </ul>
+
+        <div class="example-box">
+            <h3>Simple Example</h3>
+
+            <p>
+                Samaj tu Django vaprun Student Management Website
+                tayar keli aahe.
+            </p>
+
+            <p>
+                Student browser madhye website open karto.
+                Django backend request process karto ani HTML page
+                browser la return karto.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. What is Django REST Framework?</h2>
+
+        <p>
+            Django REST Framework la short madhye DRF mhantat.
+            He Django sobat vaparla janara toolkit aahe.
+        </p>
+
+        <p>
+            DRF cha use karun aapan REST APIs create karu shakto.
+            Ya API madhun frontend, mobile application kiwa
+            dusri application data gheu shakte.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+
+            <p>
+                Django REST Framework is a toolkit used to build
+                Web APIs using Django.
+            </p>
+        </div>
+
+        <h3>DRF cha use kuthe hoto?</h3>
+
+        <ul class="feature-list">
+            <li>Student API</li>
+            <li>User Registration API</li>
+            <li>Login API</li>
+            <li>Product API</li>
+            <li>Mobile Application Backend</li>
+        </ul>
+
+    </section>
+
+
+    <!-- SECTION 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. Main Difference Between Django and DRF</h2>
+
+        <p>
+            Django ani DRF yanche purpose samjun ghenyasathi
+            khalil table bagh.
+        </p>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Django</th>
+                        <th>Django REST Framework</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Full Web Framework</td>
+                        <td>API Toolkit</td>
+                    </tr>
+
+                    <tr>
+                        <td>Complete web applications banavto</td>
+                        <td>Web APIs banavnyas madat karto</td>
+                    </tr>
+
+                    <tr>
+                        <td>HTML pages return karu shakto</td>
+                        <td>JSON responses provide karu shakto</td>
+                    </tr>
+
+                    <tr>
+                        <td>Django Templates vaparto</td>
+                        <td>Serializers vaparto</td>
+                    </tr>
+
+                    <tr>
+                        <td>Traditional web forms handle karto</td>
+                        <td>API requests handle karto</td>
+                    </tr>
+
+                    <tr>
+                        <td>Browser-based websites sathi useful</td>
+                        <td>Web ani mobile applications sathi useful</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+
+            DRF he Django cha replacement nahi.
+            DRF he Django var build keleले toolkit aahe.
+            DRF vaparnyasathi Django project lagto.
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. How Django Works?</h2>
+
+        <p>
+            Django madhye browser request pathavto.
+            Django backend request process karto ani HTML response
+            browser la return karu shakto.
+        </p>
+
+        <div class="flow-container">
+
+            <div class="flow-step">
+                <div class="flow-number">1</div>
+                <h3>Browser</h3>
+                <p>User website open karto.</p>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <div class="flow-number">2</div>
+                <h3>Django View</h3>
+                <p>Request process hote.</p>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <div class="flow-number">3</div>
+                <h3>Template</h3>
+                <p>HTML page tayar hoto.</p>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step flow-success">
+                <div class="flow-number">4</div>
+                <h3>HTML Response</h3>
+                <p>Browser la webpage milto.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. How Django REST Framework Works?</h2>
+
+        <p>
+            DRF madhye client API la request pathavto.
+            DRF backend madhil data process karun JSON response
+            return karu shakto.
+        </p>
+
+        <div class="flow-container">
+
+            <div class="flow-step">
+                <div class="flow-number">1</div>
+                <h3>Client</h3>
+                <p>Website kiwa mobile app request pathavte.</p>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <div class="flow-number">2</div>
+                <h3>DRF View</h3>
+                <p>API request process hote.</p>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <div class="flow-number">3</div>
+                <h3>Serializer</h3>
+                <p>Data JSON format madhye convert hoto.</p>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step flow-success">
+                <div class="flow-number">4</div>
+                <h3>JSON Response</h3>
+                <p>Client la JSON data milto.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. Real-Life Example</h2>
+
+        <p>
+            Samaj tu ek E-commerce application develop kartoy.
+            Ya application madhye products chi list dakhvaychi aahe.
+        </p>
+
+        <h3>Using Django</h3>
+
+        <p>
+            Django madhye view database madhun products gheil
+            ani HTML template madhye products display karel.
+        </p>
+
+        <div class="example-box">
+
+            <h3>Example Output</h3>
+
+            <ul>
+                <li>Mobile - ₹10,000</li>
+                <li>Laptop - ₹50,000</li>
+                <li>Headphones - ₹2,000</li>
+            </ul>
+
+            <p>
+                Browser madhye complete HTML webpage display hoil.
+            </p>
+
+        </div>
+
+        <h3>Using Django REST Framework</h3>
+
+        <p>
+            DRF madhye API products cha data JSON format madhye
+            return karu shakte.
+        </p>
+
+        <div class="code-block">
+            <pre><code>[
+    {
+        "id": 1,
+        "name": "Mobile",
+        "price": 10000
+    },
+    {
+        "id": 2,
+        "name": "Laptop",
+        "price": 50000
+    }
+]</code></pre>
+        </div>
+
+        <p>
+            Ha JSON data React frontend kiwa Android mobile app
+            vaprun display karta yeil.
+        </p>
+
+    </section>
+
+
+    <!-- SECTION 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. Can We Build API Without DRF?</h2>
+
+        <p>
+            Ho! Django madhye DRF nasतानाही API create karta yete.
+            Django madhye JsonResponse vaprun JSON data return
+            karu shakto.
+        </p>
+
+        <p>
+            Pan authentication, serializers, permissions,
+            validation ani API views sarkhya features sathi
+            DRF khup useful tharto.
+        </p>
+
+        <div class="important-box">
+            <strong>Remember:</strong>
+
+            Django madhye API banavne possible aahe.
+            Pan REST API development soppe ani organized
+            karanyasathi DRF vapartat.
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. When Should We Use Django or DRF?</h2>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Requirement</th>
+                        <th>Use</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Normal HTML Website</td>
+                        <td>Django</td>
+                    </tr>
+
+                    <tr>
+                        <td>Blog Website</td>
+                        <td>Django</td>
+                    </tr>
+
+                    <tr>
+                        <td>REST API</td>
+                        <td>DRF</td>
+                    </tr>
+
+                    <tr>
+                        <td>React Frontend Backend</td>
+                        <td>Django + DRF</td>
+                    </tr>
+
+                    <tr>
+                        <td>Android App Backend</td>
+                        <td>Django + DRF</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 9 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>9. Practice Questions</h2>
+
+        <p>Khali dilele questions swatah solve kar.</p>
+
+        <ol>
+            <li>What is Django?</li>
+            <li>What is Django REST Framework?</li>
+            <li>Write any four differences between Django and DRF.</li>
+            <li>Can we create an API without DRF?</li>
+            <li>What type of response can a DRF API return?</li>
+            <li>When should we use Django REST Framework?</li>
+        </ol>
+
+    </section>
+
+
+    <!-- SECTION 10 -->
+
+    <section class="lesson-section interview-section">
+
+        <h2>10. Interview Questions</h2>
+
+        <h3>Q1. What is the difference between Django and DRF?</h3>
+
+        <p>
+            Django is a Python web framework used to build
+            web applications, whereas DRF is a toolkit used
+            to build Web APIs using Django.
+        </p>
+
+        <h3>Q2. Is DRF a replacement for Django?</h3>
+
+        <p>
+            No. DRF is built on top of Django and is used
+            for API development.
+        </p>
+
+        <h3>Q3. Can Django create APIs without DRF?</h3>
+
+        <p>
+            Yes. Django can return JSON data using JsonResponse.
+            DRF provides additional tools that simplify API development.
+        </p>
+
+    </section>
+
+
+    <!-- COMPLETION -->
+
+    <div class="completion-box">
+
+        <h3>Topic 02 Completed!</h3>
+
+        <p>
+            Ata tula Django ani Django REST Framework madhil
+            basic difference samajla aahe.
+        </p>
+
+    </div>
+
+
+    <!-- NAVIGATION -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'drf_topic' 'introduction' %}">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'drf_topic' 'rest-api-basics' %}">
+            Next Topic →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

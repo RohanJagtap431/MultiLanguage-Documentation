@@ -1,0 +1,543 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}
+REST API Basics
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/drf/rest-api-basics.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- PAGE HEADER -->
+
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO REST FRAMEWORK</span>
+
+        <h1>03. REST API Basics</h1>
+
+        <p>
+            REST API chi basic concept, structure ani working
+            simple Roman Marathi madhye samjun ghya.
+        </p>
+    </div>
+
+
+    <!-- SECTION 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What is REST?</h2>
+
+        <p>
+            REST cha full form
+            <strong>Representational State Transfer</strong> aahe.
+        </p>
+
+        <p>
+            REST hi software applications madhye API design
+            karanyasathi vaprali janari architectural style aahe.
+        </p>
+
+        <p>
+            REST mule client ani server yanchyamadhye
+            standard rules follow karun communication karta yete.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+
+            <p>
+                REST is an architectural style used to design
+                network-based applications.
+            </p>
+        </div>
+
+        <h3>Simple Example</h3>
+
+        <p>
+            Samaj tu Student Management application banavli aahe.
+            Ya application madhye students chi mahiti server var aahe.
+        </p>
+
+        <p>
+            Mobile app la student chi mahiti havi asel tar ti
+            server la request pathavel. Server required data
+            response madhye return karel.
+        </p>
+
+    </section>
+
+
+    <!-- SECTION 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. What is REST API?</h2>
+
+        <p>
+            REST principles follow karun banavlelya API la
+            REST API mhantat.
+        </p>
+
+        <p>
+            REST API madhye client HTTP request pathavto
+            ani server HTTP response return karto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+
+            <p>
+                REST API is an API that follows REST architectural
+                principles to communicate between client and server.
+            </p>
+        </div>
+
+        <div class="important-box">
+            <strong>Remember:</strong>
+
+            REST hi architectural style aahe.
+            REST API hi REST principles follow karun tayar kelele API aahe.
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. What is Client and Server?</h2>
+
+        <p>
+            REST API madhye Client ani Server he don important parts aahet.
+        </p>
+
+        <h3>Client</h3>
+
+        <p>
+            Client mhanje request pathavnari application.
+        </p>
+
+        <p>Examples:</p>
+
+        <ul>
+            <li>Web Browser</li>
+            <li>React Application</li>
+            <li>Android Mobile App</li>
+            <li>Desktop Application</li>
+        </ul>
+
+        <h3>Server</h3>
+
+        <p>
+            Server mhanje client chi request receive karun
+            process karanari system.
+        </p>
+
+        <p>Examples:</p>
+
+        <ul>
+            <li>Django Backend</li>
+            <li>Database Server</li>
+            <li>Application Server</li>
+        </ul>
+
+        <div class="example-box">
+            <h3>Example</h3>
+
+            <p>
+                Tu mobile madhye Student App open kelas.
+                Student App ha Client aahe.
+            </p>
+
+            <p>
+                Django backend request process karto.
+                To Server cha part aahe.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. What is Resource?</h2>
+
+        <p>
+            REST API madhye Resource mhanje server var available
+            aslela data kiwa object.
+        </p>
+
+        <p>
+            Udaharanarth, Student Management System madhye
+            Student ha ek Resource aahe.
+        </p>
+
+        <h3>Examples of Resources</h3>
+
+        <ul class="feature-list">
+            <li>Students</li>
+            <li>Teachers</li>
+            <li>Products</li>
+            <li>Orders</li>
+            <li>Users</li>
+        </ul>
+
+        <p>
+            Pratyek resource la API madhye unique URL path
+            kiwa endpoint ne access karta yete.
+        </p>
+
+    </section>
+
+
+    <!-- SECTION 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. What is API Endpoint?</h2>
+
+        <p>
+            API Endpoint mhanje server varil specific resource
+            access karanyasathi vaparla janara URL path.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+
+            <p>
+                An API endpoint is a specific URL path through
+                which a client accesses a resource.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>GET /api/students/</code></pre>
+        </div>
+
+        <p>Ya example madhye:</p>
+
+        <ul>
+            <li><strong>GET</strong> - HTTP Method</li>
+            <li><strong>/api/</strong> - API URL prefix</li>
+            <li><strong>students/</strong> - Resource path</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+
+            Endpoint ha URL path asto.
+            GET ha HTTP method aahe.
+            Ya donhi goshti veglya aahet.
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. What is Statelessness?</h2>
+
+        <p>
+            REST chi ek important constraint mhanje Statelessness.
+        </p>
+
+        <p>
+            Statelessness mhanje server pratyek request la
+            independent request mhanun handle karto.
+        </p>
+
+        <p>
+            Server ne previous request madhil client state
+            lakshat thevne required naste.
+            Pratyek request madhye required information pathavli pahije.
+        </p>
+
+        <div class="example-box">
+            <h3>Simple Example</h3>
+
+            <p>
+                Samaj tu student details magnyasathi request pathavtos.
+                Nantar student marks magnyasathi dusri request pathavtos.
+            </p>
+
+            <p>
+                Donhi requests madhye server la required information
+                independently milali pahije.
+            </p>
+        </div>
+
+        <div class="important-box">
+            <strong>Remember:</strong>
+
+            Statelessness mhanje server la previous request chi
+            application state maintain karavi lagat nahi.
+            Authentication sathi token sarkhi information
+            pratyek request sobat pathavli jau shakte.
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. Client-Server Request and Response</h2>
+
+        <p>
+            REST API madhye client request pathavto ani server
+            response return karto.
+        </p>
+
+        <div class="flow-container">
+
+            <div class="flow-step">
+                <div class="flow-number">1</div>
+                <h3>Client</h3>
+                <p>API la request pathavto.</p>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <div class="flow-number">2</div>
+                <h3>Server</h3>
+                <p>Request receive karto.</p>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <div class="flow-number">3</div>
+                <h3>Processing</h3>
+                <p>Required logic execute karto.</p>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step flow-success">
+                <div class="flow-number">4</div>
+                <h3>Response</h3>
+                <p>Client la result return karto.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. Basic REST API Example</h2>
+
+        <p>
+            Samaj aaplyakade Students API aahe.
+            Aaplyala server kadun students chi list havi aahe.
+        </p>
+
+        <h3>API Request</h3>
+
+        <div class="code-block">
+            <pre><code>GET /api/students/</code></pre>
+        </div>
+
+        <h3>API Response</h3>
+
+        <div class="code-block">
+            <pre><code>[
+    {
+        "id": 1,
+        "name": "Rahul",
+        "course": "BSc Computer Science"
+    },
+    {
+        "id": 2,
+        "name": "Amit",
+        "course": "BCA"
+    }
+]</code></pre>
+        </div>
+
+        <p>
+            Server ne JSON format madhye students chi list return keli.
+            Client ya data cha use karun screen var student details
+            display karu shakto.
+        </p>
+
+    </section>
+
+
+    <!-- SECTION 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Important REST API Terms</h2>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Term</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>REST</td>
+                        <td>API design architectural style</td>
+                    </tr>
+
+                    <tr>
+                        <td>REST API</td>
+                        <td>REST principles follow karanari API</td>
+                    </tr>
+
+                    <tr>
+                        <td>Client</td>
+                        <td>Request pathavnari application</td>
+                    </tr>
+
+                    <tr>
+                        <td>Server</td>
+                        <td>Request process karnari system</td>
+                    </tr>
+
+                    <tr>
+                        <td>Resource</td>
+                        <td>Server varil data kiwa object</td>
+                    </tr>
+
+                    <tr>
+                        <td>Endpoint</td>
+                        <td>Resource access karanyacha URL path</td>
+                    </tr>
+
+                    <tr>
+                        <td>Statelessness</td>
+                        <td>Pratyek request independent asne</td>
+                    </tr>
+
+                    <tr>
+                        <td>JSON</td>
+                        <td>Data exchange format</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 10 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>10. Practice Questions</h2>
+
+        <p>Khali dilele questions swatah solve kar.</p>
+
+        <ol>
+            <li>What is REST?</li>
+            <li>What is REST API?</li>
+            <li>Who is a Client?</li>
+            <li>What is a Server?</li>
+            <li>What is a Resource in REST API?</li>
+            <li>What is an API Endpoint?</li>
+            <li>What is Statelessness?</li>
+            <li>Explain Client-Server communication.</li>
+        </ol>
+
+    </section>
+
+
+    <!-- SECTION 11 -->
+
+    <section class="lesson-section interview-section">
+
+        <h2>11. Interview Questions</h2>
+
+        <h3>Q1. What is REST?</h3>
+
+        <p>
+            REST is an architectural style used to design
+            network-based applications.
+        </p>
+
+        <h3>Q2. What is a REST API?</h3>
+
+        <p>
+            REST API is an API that follows REST architectural
+            principles to communicate between client and server.
+        </p>
+
+        <h3>Q3. What is an API Endpoint?</h3>
+
+        <p>
+            An API endpoint is a specific URL path used to
+            access a resource.
+        </p>
+
+        <h3>Q4. What is Statelessness?</h3>
+
+        <p>
+            Statelessness means each request is handled
+            independently without requiring the server to
+            maintain the previous request state.
+        </p>
+
+    </section>
+
+
+    <!-- COMPLETION -->
+
+    <div class="completion-box">
+
+        <h3>Topic 03 Completed!</h3>
+
+        <p>
+            Ata tula REST, REST API, Client, Server,
+            Resource, Endpoint ani Statelessness ya concepts
+            samajlya aahet.
+        </p>
+
+    </div>
+
+
+    <!-- NAVIGATION -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'drf_topic' 'django-vs-drf' %}">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'drf_topic' 'json' %}">
+            Next Topic →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,132 @@
+
+/* =====================================
+   DRF TOPIC 10 - MODELSERIALIZER
+===================================== */
+
+@import url("introduction.css");
+
+/* DEFINITION BOX */
+
+.definition-box {
+    background: #eff6ff;
+    border-left: 4px solid #2563eb;
+    padding: 18px;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+.definition-box h3 {
+    color: #1d4ed8;
+    margin-top: 0;
+}
+
+.definition-box p {
+    color: #334155;
+    margin-bottom: 0;
+}
+
+/* IMPORTANT BOX */
+
+.important-box {
+    background: #fff7ed;
+    border-left: 4px solid #f59e0b;
+    padding: 16px 18px;
+    margin: 20px 0;
+    border-radius: 7px;
+    color: #9a3412;
+    line-height: 1.8;
+}
+
+/* CODE BLOCK */
+
+.code-block {
+    background: #111827;
+    padding: 20px;
+    margin: 16px 0 22px;
+    border-radius: 9px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.code-block pre {
+    margin: 0;
+}
+
+.code-block code {
+    background: transparent;
+    padding: 0;
+    color: #e5e7eb;
+    font-family: Consolas, monospace;
+    font-size: 13px;
+    line-height: 1.8;
+    white-space: pre;
+}
+
+/* TABLE */
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+.table-wrapper table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 480px;
+}
+
+.table-wrapper th {
+    background: #172033;
+    color: #ffffff;
+    padding: 13px;
+    text-align: left;
+}
+
+.table-wrapper td {
+    padding: 12px 13px;
+    border-bottom: 1px solid #e2e8f0;
+    color: #334155;
+    vertical-align: top;
+}
+
+.table-wrapper tr:nth-child(even) {
+    background: #f8fafc;
+}
+
+/* URL BOX */
+
+.url-box {
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 18px 0;
+    color: #047857;
+    overflow-wrap: anywhere;
+    font-size: 14px;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media (max-width: 600px) {
+
+    .definition-box,
+    .important-box {
+        padding: 13px;
+        font-size: 13px;
+    }
+
+    .code-block {
+        padding: 13px;
+    }
+
+    .code-block code {
+        font-size: 11px;
+    }
+
+    .url-box {
+        font-size: 12px;
+        padding: 12px;
+    }
+}

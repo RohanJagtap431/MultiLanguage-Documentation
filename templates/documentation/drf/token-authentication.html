@@ -1,0 +1,667 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Token Authentication in DRF{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/drf/token-authentication.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO REST FRAMEWORK</span>
+        <h1>24. Token Authentication in DRF</h1>
+        <p>
+            Learn how to authenticate API users using token keys
+            and protect API endpoints.
+        </p>
+    </div>
+
+    <!-- SECTION 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What is Token Authentication?</h2>
+
+        <p>
+            Token Authentication hi API madhye user chi identity
+            verify karanyachi ek method aahe.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                Token Authentication is a method in which a client
+                uses a token key to authenticate API requests.
+            </p>
+        </div>
+
+        <h3>Simple Example</h3>
+
+        <p>
+            Samja user application madhye login karto.
+            Server username ani password verify karun user la
+            ek unique token key deto.
+        </p>
+
+        <p>
+            Pudhil API requests madhye client ha token pathavto.
+            Server token verify karun user identify karto.
+        </p>
+
+    </section>
+
+    <!-- SECTION 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. How Token Authentication Works</h2>
+
+        <div class="flow-container">
+
+            <div class="flow-step">
+                <strong>1. Login Request</strong>
+                <span>Client username ani password pathavto.</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <strong>2. Credential Verification</strong>
+                <span>Server user credentials verify karto.</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <strong>3. Token Generation</strong>
+                <span>Server user cha token return karto.</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <strong>4. API Request</strong>
+                <span>Client request sobat token pathavto.</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <strong>5. Token Verification</strong>
+                <span>Server token verify karto.</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step flow-success">
+                <strong>6. API Response</strong>
+                <span>Valid token asel tar access milto.</span>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- SECTION 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. Install Django REST Framework</h2>
+
+        <p>
+            Token Authentication sathi Django REST Framework
+            project madhye installed asne avashyak aahe.
+        </p>
+
+        <h3>Installation Command</h3>
+
+        <div class="code-block">
+            <pre><code>pip install djangorestframework</code></pre>
+        </div>
+
+        <p>
+            DRF already installed asel tar punha install karanyachi
+            garaj nahi.
+        </p>
+
+    </section>
+
+    <!-- SECTION 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. Add Token App in INSTALLED_APPS</h2>
+
+        <p>
+            Django REST Framework madhye token authentication
+            sathi built-in authtoken application available aahe.
+        </p>
+
+        <p><strong>File:</strong> config/settings.py</p>
+
+        <div class="code-block">
+            <pre><code>INSTALLED_APPS = [
+    # Django apps
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+
+    # Third-party apps
+    'rest_framework',
+    'rest_framework.authtoken',
+
+    # Local apps
+    'accounts',
+    'documentation',
+]</code></pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            rest_framework.authtoken add kelyanantar database
+            migrations run karne avashyak aahe.
+        </div>
+
+    </section>
+
+    <!-- SECTION 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. Run Database Migrations</h2>
+
+        <p>
+            Token model sathi database table create karanyasathi
+            migration command run kara.
+        </p>
+
+        <div class="code-block">
+            <pre><code>python manage.py migrate</code></pre>
+        </div>
+
+        <h3>What happens?</h3>
+
+        <ul>
+            <li>Django authtoken application chi migration run karte.</li>
+            <li>Database madhye token table create hote.</li>
+            <li>User tokens database madhye store kele jatat.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. Configure Token Authentication</h2>
+
+        <p>
+            Ata settings.py madhye default authentication
+            ani permission classes configure karuya.
+        </p>
+
+        <p><strong>File:</strong> config/settings.py</p>
+
+        <div class="code-block">
+            <pre><code>REST_FRAMEWORK = {
+
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+
+}</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li>TokenAuthentication token verify karte.</li>
+            <li>IsAuthenticated authenticated users na access dete.</li>
+            <li>Default settings sarva DRF views la apply hotat.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Ya global settings mule public API suddha protected
+            hote. Public endpoint sathi AllowAny permission
+            explicitly define kara.
+        </div>
+
+    </section>
+
+    <!-- SECTION 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. Create Token Login API</h2>
+
+        <p>
+            DRF madhye obtain_auth_token view built-in available aahe.
+            Tyacha use karun username ani password verify karun
+            token milavta yeto.
+        </p>
+
+        <h3>Step 1 – Import</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.authtoken.views import obtain_auth_token</code></pre>
+        </div>
+
+        <h3>Step 2 – Add URL</h3>
+
+        <p><strong>File:</strong> api/urls.py</p>
+
+        <div class="code-block">
+            <pre><code>from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from rest_framework.authtoken.views import obtain_auth_token
+
+from .views import StudentViewSet
+
+router = DefaultRouter()
+
+router.register(
+    'students',
+    StudentViewSet,
+    basename='student'
+)
+
+urlpatterns = [
+    path('token/', obtain_auth_token, name='api_token_auth'),
+    path('', include(router.urls)),
+]</code></pre>
+        </div>
+
+        <p>
+            Ya example madhye project-level URL madhye
+            api app include kelela asne avashyak aahe.
+        </p>
+
+        <p><strong>File:</strong> config/urls.py</p>
+
+        <div class="code-block">
+            <pre><code>from django.urls import path, include
+
+urlpatterns = [
+    path('api/', include('api.urls')),
+]</code></pre>
+        </div>
+
+        <h3>Token Login URL</h3>
+
+        <div class="output-box">
+            <pre><code>http://127.0.0.1:8000/api/token/</code></pre>
+        </div>
+
+    </section>
+
+    <!-- SECTION 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. Login API Request</h2>
+
+        <p>
+            Ata Postman madhun token login API la POST request pathavu.
+        </p>
+
+        <h3>Request Method</h3>
+
+        <div class="output-box">
+            <pre><code>POST</code></pre>
+        </div>
+
+        <h3>Request URL</h3>
+
+        <div class="output-box">
+            <pre><code>http://127.0.0.1:8000/api/token/</code></pre>
+        </div>
+
+        <h3>Request Body – JSON</h3>
+
+        <div class="code-block">
+            <pre><code>{
+    "username": "your_username",
+    "password": "your_password"
+}</code></pre>
+        </div>
+
+        <h3>Successful Response</h3>
+
+        <div class="output-box">
+            <pre><code>{
+    "token": "your_generated_token_key"
+}</code></pre>
+        </div>
+
+        <p>
+            Credentials valid astil tar server token return karto.
+            Invalid credentials aslyas login fail hoto.
+        </p>
+
+    </section>
+
+    <!-- SECTION 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Send Token in API Request</h2>
+
+        <p>
+            Login nantar milalela token pudhil API requests
+            madhye Authorization header madhun pathavaycha.
+        </p>
+
+        <h3>Authorization Header</h3>
+
+        <div class="output-box">
+            <pre><code>Authorization: Token your_generated_token_key</code></pre>
+        </div>
+
+        <h3>Example Request</h3>
+
+        <div class="output-box">
+            <pre><code>GET http://127.0.0.1:8000/api/students/</code></pre>
+        </div>
+
+        <h3>How it works?</h3>
+
+        <ul>
+            <li>Client token header madhye pathavto.</li>
+            <li>DRF TokenAuthentication token verify karte.</li>
+            <li>Valid token asel tar request authenticated hote.</li>
+            <li>IsAuthenticated permission access allow karte.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Test API Using Postman</h2>
+
+        <h3>Step 1 – Start Server</h3>
+
+        <div class="code-block">
+            <pre><code>python manage.py runserver</code></pre>
+        </div>
+
+        <h3>Step 2 – Login Request</h3>
+
+        <ul>
+            <li>Postman open kara.</li>
+            <li>POST method select kara.</li>
+            <li>/api/token/ URL enter kara.</li>
+            <li>Body madhye username ani password dya.</li>
+            <li>Send button click kara.</li>
+        </ul>
+
+        <h3>Step 3 – Copy Token</h3>
+
+        <p>
+            Response madhun token copy kara.
+        </p>
+
+        <h3>Step 4 – Access Student API</h3>
+
+        <ul>
+            <li>GET method select kara.</li>
+            <li>/api/students/ URL enter kara.</li>
+            <li>Authorization tab open kara.</li>
+            <li>Type madhye API Key select kara.</li>
+            <li>Key madhye Authorization enter kara.</li>
+            <li>Value madhye Token ani tumchi token key enter kara.</li>
+            <li>Add to madhye Header select kara.</li>
+            <li>Send button click kara.</li>
+        </ul>
+
+        <div class="output-box">
+            <pre><code>Authorization: Token your_generated_token_key</code></pre>
+        </div>
+
+    </section>
+
+    <!-- SECTION 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Generate Token Manually</h2>
+
+        <p>
+            Django shell madhun suddha user sathi token create karta yeto.
+        </p>
+
+        <h3>Step 1 – Open Django Shell</h3>
+
+        <div class="code-block">
+            <pre><code>python manage.py shell</code></pre>
+        </div>
+
+        <h3>Step 2 – Import User and Token</h3>
+
+        <div class="code-block">
+            <pre><code>from django.contrib.auth.models import User
+from rest_framework.authtoken.models import Token</code></pre>
+        </div>
+
+        <h3>Step 3 – Get User</h3>
+
+        <div class="code-block">
+            <pre><code>user = User.objects.get(username='your_username')</code></pre>
+        </div>
+
+        <h3>Step 4 – Create or Get Token</h3>
+
+        <div class="code-block">
+            <pre><code>token, created = Token.objects.get_or_create(user=user)
+
+print(token.key)</code></pre>
+        </div>
+
+        <p>
+            get_or_create mule user sathi token nasel tar navin
+            token create hoto. Already token asel tar toch return hoto.
+        </p>
+
+        <div class="important-box">
+            <strong>Note:</strong>
+            Custom user model asel tar User import karanyasathi
+            get_user_model() vapra.
+        </div>
+
+    </section>
+
+    <!-- SECTION 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Logout and Delete Token</h2>
+
+        <p>
+            DRF built-in TokenAuthentication madhye default logout
+            endpoint nahi. Logout sathi current user's token delete
+            karu shakto.
+        </p>
+
+        <h3>Step 1 – Create Logout API</h3>
+
+        <p><strong>File:</strong> api/views.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.views import APIView
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.response import Response
+from rest_framework import status
+
+class LogoutAPIView(APIView):
+
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+
+        request.user.auth_token.delete()
+
+        return Response(
+            {"message": "Logout successful"},
+            status=status.HTTP_200_OK
+        )</code></pre>
+        </div>
+
+        <h3>Step 2 – Add URL</h3>
+
+        <p><strong>File:</strong> api/urls.py</p>
+
+        <div class="code-block">
+            <pre><code>from .views import LogoutAPIView
+
+urlpatterns = [
+    path('token/', obtain_auth_token, name='api_token_auth'),
+    path('logout/', LogoutAPIView.as_view(), name='api_logout'),
+    path('', include(router.urls)),
+]</code></pre>
+        </div>
+
+        <h3>Step 3 – Send Logout Request</h3>
+
+        <div class="output-box">
+            <pre><code>POST http://127.0.0.1:8000/api/logout/</code></pre>
+        </div>
+
+        <p>
+            Request sobat valid token pathva. Token delete zalyanantar
+            tyach token cha use karun pudhil request authenticate honar nahi.
+        </p>
+
+    </section>
+
+    <!-- SECTION 13 -->
+
+    <section class="lesson-section">
+
+        <h2>13. Important Points to Remember</h2>
+
+        <ul>
+            <li>Token Authentication API users identify karte.</li>
+            <li>Token sathi rest_framework.authtoken app add karave lagte.</li>
+            <li>Database migrations run karavya lagtat.</li>
+            <li>obtain_auth_token built-in login token view aahe.</li>
+            <li>Token Authorization header madhun pathavla jato.</li>
+            <li>Header format: Authorization: Token your_token_key.</li>
+            <li>Token secret thevne avashyak aahe.</li>
+            <li>Token delete kelyavar to token invalid hoto.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Security:</strong>
+            Built-in DRF TokenAuthentication token expiry automatically
+            provide karat nahi. Production madhye HTTPS vapra,
+            tokens securely store kara ani token rotation/expiry
+            requirements vicharat ghya.
+        </div>
+
+    </section>
+
+    <!-- SECTION 14 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>14. Practice Questions</h2>
+
+        <ol>
+            <li>What is Token Authentication?</li>
+            <li>How does Token Authentication work?</li>
+            <li>Why do we add rest_framework.authtoken?</li>
+            <li>Why do we run database migrations?</li>
+            <li>What is obtain_auth_token?</li>
+            <li>How can we generate a token manually?</li>
+            <li>What is the Authorization header format?</li>
+            <li>How can we test token authentication using Postman?</li>
+            <li>How can we delete a token during logout?</li>
+            <li>Why should tokens be kept secret?</li>
+        </ol>
+
+    </section>
+
+    <!-- SECTION 15 -->
+
+    <section class="lesson-section interview-section">
+
+        <h2>15. Interview Questions</h2>
+
+        <h3>Q1. What is Token Authentication?</h3>
+        <p>
+            Token Authentication is a method that uses a token key
+            to authenticate API requests.
+        </p>
+
+        <h3>Q2. Which app is required for DRF Token Authentication?</h3>
+        <p>
+            rest_framework.authtoken is required.
+        </p>
+
+        <h3>Q3. What is obtain_auth_token?</h3>
+        <p>
+            It is a built-in DRF view that verifies login credentials
+            and returns an authentication token.
+        </p>
+
+        <h3>Q4. How is a token sent to the API?</h3>
+        <p>
+            The token is sent using the Authorization header
+            in the format Authorization: Token your_token_key.
+        </p>
+
+        <h3>Q5. How can we logout using Token Authentication?</h3>
+        <p>
+            We can delete the authenticated user's token
+            to invalidate that token.
+        </p>
+
+        <h3>Q6. Does DRF TokenAuthentication provide automatic expiry?</h3>
+        <p>
+            No. The built-in TokenAuthentication does not provide
+            automatic token expiry.
+        </p>
+
+    </section>
+
+    <!-- COMPLETION -->
+
+    <div class="completion-box">
+        <h3>Topic 24 Completed!</h3>
+        <p>
+            Ata aapan Token Authentication setup, login API,
+            token generation, Postman testing ani logout shiklo.
+        </p>
+    </div>
+
+    <!-- NAVIGATION -->
+
+    <div class="lesson-navigation">
+        <a href="{% url 'drf_topic' 'permissions' %}">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'drf_topic' 'jwt-authentication' %}">
+            Next Topic →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

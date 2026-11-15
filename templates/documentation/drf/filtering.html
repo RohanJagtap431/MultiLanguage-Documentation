@@ -1,0 +1,777 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Filtering in DRF{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/drf/filtering.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO REST FRAMEWORK</span>
+        <h1>27. Filtering in DRF</h1>
+        <p>
+            Learn how to retrieve specific records from an API
+            using filters and query parameters.
+        </p>
+    </div>
+
+    <!-- SECTION 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What is Filtering?</h2>
+
+        <p>
+            Filtering mhanje database madhun specific condition
+            match honare records retrieve karne.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                Filtering is the process of retrieving records
+                that match specific conditions.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <p>
+            Samja Student database madhye 500 students aahet.
+            Aaplyala fakt Computer Science course madhil students pahije.
+        </p>
+
+        <div class="example-box">
+            <h3>Without Filtering</h3>
+            <p>API all available student records return karte.</p>
+
+            <h3>With Filtering</h3>
+            <p>API fakt Computer Science course madhil students return karte.</p>
+        </div>
+
+    </section>
+
+    <!-- SECTION 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Why is Filtering Required?</h2>
+
+        <ul>
+            <li>Specific records search karanyasathi.</li>
+            <li>Unnecessary data retrieve karne talnyasathi.</li>
+            <li>Frontend madhye search ani filter features denyasathi.</li>
+            <li>Database records conditions nusar retrieve karanyasathi.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. What are Query Parameters?</h2>
+
+        <p>
+            Query Parameters URL madhye question mark (?) nantar
+            pass kele jatat. Tyanchya help ne API la filtering
+            conditions pathavta yetat.
+        </p>
+
+        <h3>Example URL</h3>
+
+        <div class="output-box">
+            <pre><code>/api/students/?course=ComputerScience</code></pre>
+        </div>
+
+        <p>
+            Ya URL madhye course ha query parameter aahe
+            ani ComputerScience hi tyachi value aahe.
+        </p>
+
+        <h3>Multiple Query Parameters</h3>
+
+        <div class="output-box">
+            <pre><code>/api/students/?course=ComputerScience&age=20</code></pre>
+        </div>
+
+        <p>
+            Multiple parameters pass karanyasathi ampersand (&)
+            vapartat.
+        </p>
+
+    </section>
+
+    <!-- SECTION 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. Install django-filter</h2>
+
+        <p>
+            Django REST Framework madhye advanced filtering
+            implement karanyasathi django-filter package vaparta yete.
+        </p>
+
+        <h3>Installation Command</h3>
+
+        <div class="code-block">
+            <pre><code>pip install django-filter</code></pre>
+        </div>
+
+        <h3>Add in INSTALLED_APPS</h3>
+
+        <p><strong>File:</strong> config/settings.py</p>
+
+        <div class="code-block">
+            <pre><code>INSTALLED_APPS = [
+    # Django apps
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+
+    # Third-party apps
+    'rest_framework',
+    'django_filters',
+
+    # Local apps
+    'accounts',
+    'documentation',
+]</code></pre>
+        </div>
+
+    </section>
+
+    <!-- SECTION 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. DjangoFilterBackend</h2>
+
+        <p>
+            DjangoFilterBackend ha DRF madhil filtering backend aahe.
+            To query parameters vaprun queryset filter karto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                DjangoFilterBackend allows API clients to filter
+                queryset results using URL query parameters.
+            </p>
+        </div>
+
+        <h3>Import</h3>
+
+        <div class="code-block">
+            <pre><code>from django_filters.rest_framework import DjangoFilterBackend</code></pre>
+        </div>
+
+        <h3>Example</h3>
+
+        <p><strong>File:</strong> api/views.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.viewsets import ModelViewSet
+from django_filters.rest_framework import DjangoFilterBackend
+
+from .models import Student
+from .serializers import StudentSerializer
+
+class StudentViewSet(ModelViewSet):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+    filter_backends = [DjangoFilterBackend]</code></pre>
+        </div>
+
+        <p>
+            Fakt DjangoFilterBackend add kelyane kontya fields var
+            filtering karaychi te automatically define hot nahi.
+            Tyasathi filterset_fields vapartat.
+        </p>
+
+    </section>
+
+    <!-- SECTION 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. filterset_fields</h2>
+
+        <p>
+            filterset_fields madhye kontya model fields var
+            filtering allow karaychi te define kele jate.
+        </p>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>class StudentViewSet(ModelViewSet):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+    filter_backends = [DjangoFilterBackend]
+
+    filterset_fields = ['course', 'age']</code></pre>
+        </div>
+
+        <h3>Test API URLs</h3>
+
+        <div class="output-box">
+            <pre><code>/api/students/?course=ComputerScience
+
+/api/students/?age=20
+
+/api/students/?course=ComputerScience&age=20</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li>course field var filtering karta yete.</li>
+            <li>age field var filtering karta yete.</li>
+            <li>Multiple fields ekach request madhye filter karta yetat.</li>
+            <li>Multiple conditions default ne AND logic vapartat.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            filterset_fields madhye dileli fields Student model madhye
+            available asne avashyak aahe. Tumchya model madhye vegli
+            field names astil tar ti vapra.
+        </div>
+
+    </section>
+
+    <!-- SECTION 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. Exact Filtering</h2>
+
+        <p>
+            Exact filtering madhye field chi exact value match
+            honare records retrieve kele jatat.
+        </p>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>filterset_fields = ['course']</code></pre>
+        </div>
+
+        <h3>API Request</h3>
+
+        <div class="output-box">
+            <pre><code>/api/students/?course=ComputerScience</code></pre>
+        </div>
+
+        <p>
+            Ya request madhye course chi value
+            ComputerScience aslele records return hotil.
+        </p>
+
+    </section>
+
+    <!-- SECTION 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. Multiple Field Filtering</h2>
+
+        <p>
+            Ekach API request madhye multiple fields vaprun
+            records filter karta yetat.
+        </p>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>filterset_fields = ['course', 'age']</code></pre>
+        </div>
+
+        <h3>API Request</h3>
+
+        <div class="output-box">
+            <pre><code>/api/students/?course=ComputerScience&age=20</code></pre>
+        </div>
+
+        <p>
+            Ya request madhye course ComputerScience ani age 20
+            aslele students return hotil.
+        </p>
+
+        <div class="important-box">
+            <strong>Note:</strong>
+            Default filtering madhye multiple conditions AND
+            logic ne combine hotat. Donhi conditions match
+            hone avashyak aahe.
+        </div>
+
+    </section>
+
+    <!-- SECTION 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Custom FilterSet Class</h2>
+
+        <p>
+            filterset_fields madhye basic filtering karta yete.
+            Advanced filtering sathi custom FilterSet class create
+            karu shakto.
+        </p>
+
+        <h3>Step 1 – Create filters.py</h3>
+
+        <p><strong>File:</strong> api/filters.py</p>
+
+        <div class="code-block">
+            <pre><code>import django_filters
+
+from .models import Student
+
+class StudentFilter(django_filters.FilterSet):
+
+    age = django_filters.NumberFilter(
+        field_name='age',
+        lookup_expr='exact'
+    )
+
+    class Meta:
+        model = Student
+        fields = ['course', 'age']</code></pre>
+        </div>
+
+        <h3>Step 2 – Apply FilterSet</h3>
+
+        <p><strong>File:</strong> api/views.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.viewsets import ModelViewSet
+from django_filters.rest_framework import DjangoFilterBackend
+
+from .models import Student
+from .serializers import StudentSerializer
+from .filters import StudentFilter
+
+class StudentViewSet(ModelViewSet):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+    filter_backends = [DjangoFilterBackend]
+    filterset_class = StudentFilter</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li>StudentFilter custom filtering rules define karte.</li>
+            <li>NumberFilter numeric field filter karanyasathi vapartat.</li>
+            <li>field_name model madhil field select karte.</li>
+            <li>lookup_expr filtering operation define karte.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Lookup Expressions</h2>
+
+        <p>
+            Lookup expressions mule exact match, greater than,
+            less than kiwa range sarkhe filters create karta yetat.
+        </p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Lookup</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>exact</td>
+                        <td>Exact value match karte.</td>
+                    </tr>
+                    <tr>
+                        <td>iexact</td>
+                        <td>Case-insensitive exact match.</td>
+                    </tr>
+                    <tr>
+                        <td>contains</td>
+                        <td>Text madhye value search karte.</td>
+                    </tr>
+                    <tr>
+                        <td>icontains</td>
+                        <td>Case-insensitive text search.</td>
+                    </tr>
+                    <tr>
+                        <td>gt</td>
+                        <td>Greater than.</td>
+                    </tr>
+                    <tr>
+                        <td>gte</td>
+                        <td>Greater than or equal to.</td>
+                    </tr>
+                    <tr>
+                        <td>lt</td>
+                        <td>Less than.</td>
+                    </tr>
+                    <tr>
+                        <td>lte</td>
+                        <td>Less than or equal to.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Example – Greater Than</h3>
+
+        <div class="code-block">
+            <pre><code>age = django_filters.NumberFilter(
+    field_name='age',
+    lookup_expr='gt'
+)</code></pre>
+        </div>
+
+        <h3>API Request</h3>
+
+        <div class="output-box">
+            <pre><code>/api/students/?age=18</code></pre>
+        </div>
+
+        <p>
+            Ya example madhye age 18 peksha jast aslele
+            students return hotil.
+        </p>
+
+        <h3>Example – Contains</h3>
+
+        <div class="code-block">
+            <pre><code>name = django_filters.CharFilter(
+    field_name='name',
+    lookup_expr='icontains'
+)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <pre><code>/api/students/?name=rah</code></pre>
+        </div>
+
+        <p>
+            Name madhye rah text aslele matching records
+            case-insensitive padhatine return hotil.
+        </p>
+
+    </section>
+
+    <!-- SECTION 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Range Filtering</h2>
+
+        <p>
+            Range filtering madhye don values madhil records
+            retrieve karta yetat.
+        </p>
+
+        <h3>Example – Age Range</h3>
+
+        <p><strong>File:</strong> api/filters.py</p>
+
+        <div class="code-block">
+            <pre><code>import django_filters
+
+from .models import Student
+
+class StudentFilter(django_filters.FilterSet):
+
+    min_age = django_filters.NumberFilter(
+        field_name='age',
+        lookup_expr='gte'
+    )
+
+    max_age = django_filters.NumberFilter(
+        field_name='age',
+        lookup_expr='lte'
+    )
+
+    class Meta:
+        model = Student
+        fields = ['course']</code></pre>
+        </div>
+
+        <h3>API Request</h3>
+
+        <div class="output-box">
+            <pre><code>/api/students/?min_age=18&max_age=25</code></pre>
+        </div>
+
+        <p>
+            Ya request madhye age 18 te 25 ya range madhil
+            records return hotil.
+        </p>
+
+    </section>
+
+    <!-- SECTION 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Practical Student API Filtering</h2>
+
+        <p>
+            Ata aapan Student API madhye filtering implement karuya.
+        </p>
+
+        <h3>Step 1 – Create filters.py</h3>
+
+        <div class="code-block">
+            <pre><code>import django_filters
+
+from .models import Student
+
+class StudentFilter(django_filters.FilterSet):
+
+    name = django_filters.CharFilter(
+        field_name='name',
+        lookup_expr='icontains'
+    )
+
+    min_age = django_filters.NumberFilter(
+        field_name='age',
+        lookup_expr='gte'
+    )
+
+    max_age = django_filters.NumberFilter(
+        field_name='age',
+        lookup_expr='lte'
+    )
+
+    class Meta:
+        model = Student
+        fields = ['course']</code></pre>
+        </div>
+
+        <h3>Step 2 – Update views.py</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.viewsets import ModelViewSet
+from django_filters.rest_framework import DjangoFilterBackend
+
+from .models import Student
+from .serializers import StudentSerializer
+from .filters import StudentFilter
+
+class StudentViewSet(ModelViewSet):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+    filter_backends = [DjangoFilterBackend]
+    filterset_class = StudentFilter</code></pre>
+        </div>
+
+        <h3>Step 3 – Register Router</h3>
+
+        <p><strong>File:</strong> api/urls.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.routers import DefaultRouter
+from .views import StudentViewSet
+
+router = DefaultRouter()
+
+router.register(
+    'students',
+    StudentViewSet,
+    basename='student'
+)
+
+urlpatterns = router.urls</code></pre>
+        </div>
+
+        <h3>Step 4 – Run Server</h3>
+
+        <div class="code-block">
+            <pre><code>python manage.py runserver</code></pre>
+        </div>
+
+        <h3>Step 5 – Test API</h3>
+
+        <div class="output-box">
+            <pre><code>/api/students/?course=ComputerScience
+
+/api/students/?name=rah
+
+/api/students/?min_age=18&max_age=25
+
+/api/students/?course=ComputerScience&min_age=18&max_age=25</code></pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Ya practical madhye Student model madhye name, age
+            ani course fields asne avashyak aahe. Tumchya model
+            madhye vegli fields astil tar tyapramane code change kara.
+        </div>
+
+    </section>
+
+    <!-- SECTION 13 -->
+
+    <section class="lesson-section">
+
+        <h2>13. Filtering with Pagination</h2>
+
+        <p>
+            DRF madhye filtering ani pagination ekatra use karta yetat.
+        </p>
+
+        <h3>Example</h3>
+
+        <div class="output-box">
+            <pre><code>/api/students/?course=ComputerScience&page=1</code></pre>
+        </div>
+
+        <p>
+            Ya request madhye first Computer Science filtered
+            records cha page return hoto.
+        </p>
+
+        <p>
+            Filtering ani pagination sathi donhi configuration
+            API view madhye enable asne avashyak aahe.
+        </p>
+
+    </section>
+
+    <!-- SECTION 14 -->
+
+    <section class="lesson-section">
+
+        <h2>14. Important Points to Remember</h2>
+
+        <ul>
+            <li>Filtering specific records retrieve karte.</li>
+            <li>Query Parameters URL madhun pass kele jatat.</li>
+            <li>django-filter package install karave lagte.</li>
+            <li>DjangoFilterBackend filtering backend aahe.</li>
+            <li>filterset_fields basic filtering sathi vapartat.</li>
+            <li>Custom FilterSet advanced filtering sathi vapartat.</li>
+            <li>lookup_expr filtering operation define karte.</li>
+            <li>NumberFilter numeric fields sathi vapartat.</li>
+            <li>CharFilter text fields sathi vapartat.</li>
+            <li>Filtering ani pagination ekatra use karta yetat.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 15 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>15. Practice Questions</h2>
+
+        <ol>
+            <li>What is Filtering in DRF?</li>
+            <li>Why is Filtering required?</li>
+            <li>What are Query Parameters?</li>
+            <li>What is DjangoFilterBackend?</li>
+            <li>What is filterset_fields?</li>
+            <li>What is a Custom FilterSet Class?</li>
+            <li>What is lookup_expr?</li>
+            <li>What is NumberFilter?</li>
+            <li>What is Range Filtering?</li>
+            <li>How can we apply Filtering to a Student API?</li>
+        </ol>
+
+    </section>
+
+    <!-- SECTION 16 -->
+
+    <section class="lesson-section interview-section">
+
+        <h2>16. Interview Questions</h2>
+
+        <h3>Q1. What is Filtering?</h3>
+        <p>
+            Filtering is the process of retrieving records
+            that match specific conditions.
+        </p>
+
+        <h3>Q2. What is DjangoFilterBackend?</h3>
+        <p>
+            It is a DRF backend that allows filtering querysets
+            using URL query parameters.
+        </p>
+
+        <h3>Q3. What is filterset_fields?</h3>
+        <p>
+            It defines the model fields that can be used for filtering.
+        </p>
+
+        <h3>Q4. What is a FilterSet?</h3>
+        <p>
+            A FilterSet is a class used to define custom
+            filtering rules for a model.
+        </p>
+
+        <h3>Q5. What is lookup_expr?</h3>
+        <p>
+            lookup_expr defines the type of database lookup
+            used by a filter.
+        </p>
+
+        <h3>Q6. What is Range Filtering?</h3>
+        <p>
+            Range filtering retrieves records whose field values
+            fall within a specified range.
+        </p>
+
+    </section>
+
+    <!-- COMPLETION -->
+
+    <div class="completion-box">
+        <h3>Topic 27 Completed!</h3>
+        <p>
+            Ata aapan DjangoFilterBackend, Query Parameters,
+            filterset_fields, Custom FilterSet ani Range Filtering shiklo.
+        </p>
+    </div>
+
+    <!-- NAVIGATION -->
+
+    <div class="lesson-navigation">
+        <a href="{% url 'drf_topic' 'pagination' %}">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'drf_topic' 'searching' %}">
+            Next Topic →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

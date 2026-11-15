@@ -1,0 +1,472 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}DRF Installation and Setup{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/drf/installation.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO REST FRAMEWORK</span>
+        <h1>07. DRF Installation and Setup</h1>
+        <p>
+            Django project madhye Django REST Framework install
+            ani configure kase karayche te shikuya.
+        </p>
+    </div>
+
+    <!-- SECTION 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What is Installation?</h2>
+
+        <p>
+            Django REST Framework (DRF) he Django var based
+            Python package aahe. Django project madhye API
+            develop karanyasathi aapan DRF install karto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                Django REST Framework is a powerful toolkit
+                used to build Web APIs using Django.
+            </p>
+        </div>
+
+        <h3>Why do we install DRF?</h3>
+
+        <ul>
+            <li>REST APIs create karanyasathi.</li>
+            <li>JSON data handle karanyasathi.</li>
+            <li>API authentication implement karanyasathi.</li>
+            <li>API permissions manage karanyasathi.</li>
+            <li>CRUD operations develop karanyasathi.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Requirements</h2>
+
+        <p>
+            DRF install karanyapurvi system madhye kahi basic
+            requirements asne garjeche aahe.
+        </p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Requirement</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Python</td>
+                        <td>Programming Language</td>
+                    </tr>
+                    <tr>
+                        <td>Django</td>
+                        <td>Web Framework</td>
+                    </tr>
+                    <tr>
+                        <td>pip</td>
+                        <td>Python Package Installer</td>
+                    </tr>
+                    <tr>
+                        <td>VS Code</td>
+                        <td>Code Editor</td>
+                    </tr>
+                    <tr>
+                        <td>Virtual Environment</td>
+                        <td>Project Dependencies Manage karne</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- SECTION 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. Create a Django Project</h2>
+
+        <p>
+            Sarvat aadhi terminal open karun Django project
+            create karaycha aahe.
+        </p>
+
+        <h3>Step 1: Create Project Folder</h3>
+
+        <div class="code-block">
+            <pre><code>mkdir drf_project
+cd drf_project</code></pre>
+        </div>
+
+        <p>
+            <strong>mkdir:</strong> New folder create karto.
+            <br>
+            <strong>cd:</strong> Folder madhye enter karto.
+        </p>
+
+        <h3>Step 2: Create Virtual Environment</h3>
+
+        <div class="code-block">
+            <pre><code>python -m venv venv</code></pre>
+        </div>
+
+        <p>
+            Virtual Environment mule project che Python
+            packages separate manage karta yetat.
+        </p>
+
+        <h3>Step 3: Activate Virtual Environment</h3>
+
+        <p>Windows CMD:</p>
+
+        <div class="code-block">
+            <pre><code>venv\Scripts\activate</code></pre>
+        </div>
+
+        <p>PowerShell:</p>
+
+        <div class="code-block">
+            <pre><code>.\venv\Scripts\Activate.ps1</code></pre>
+        </div>
+
+        <p>
+            Activate zalyanantar terminal madhye
+            <strong>(venv)</strong> disel.
+        </p>
+
+        <h3>Step 4: Install Django</h3>
+
+        <div class="code-block">
+            <pre><code>pip install django</code></pre>
+        </div>
+
+        <h3>Step 5: Create Django Project</h3>
+
+        <div class="code-block">
+            <pre><code>django-admin startproject config .</code></pre>
+        </div>
+
+        <p>
+            Ya command mule current folder madhye
+            Django project create hoto.
+        </p>
+
+    </section>
+
+    <!-- SECTION 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. Install Django REST Framework</h2>
+
+        <p>
+            Django install zalyanantar DRF install karanyasathi
+            terminal madhye hi command run kara.
+        </p>
+
+        <div class="code-block">
+            <pre><code>pip install djangorestframework</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li><strong>pip:</strong> Python package installer.</li>
+            <li><strong>install:</strong> Package install karto.</li>
+            <li><strong>djangorestframework:</strong> DRF package che nav.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Command run karanyapurvi virtual environment
+            activate aahe yachi khatri kara.
+        </div>
+
+    </section>
+
+    <!-- SECTION 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. Add DRF to INSTALLED_APPS</h2>
+
+        <p>
+            DRF install zalyanantar Django la DRF app
+            register karun dyava lagto.
+        </p>
+
+        <p>
+            <strong>File:</strong> config/settings.py
+        </p>
+
+        <div class="code-block">
+            <pre><code>INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+
+    'rest_framework',
+]</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <p>
+            <strong>INSTALLED_APPS</strong> madhye Django project
+            madhye use honare applications register kele jatat.
+        </p>
+
+        <p>
+            <strong>rest_framework</strong> add kelyamule
+            Django project madhye DRF features available hotat.
+        </p>
+
+    </section>
+
+    <!-- SECTION 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. Verify DRF Installation</h2>
+
+        <p>
+            DRF successfully install zala aahe ka he check
+            karanyasathi terminal madhye command run kara.
+        </p>
+
+        <div class="code-block">
+            <pre><code>pip show djangorestframework</code></pre>
+        </div>
+
+        <p>
+            Package chi information dislyas DRF install
+            zala aahe ase samajta yeil.
+        </p>
+
+        <h3>Check Django Project</h3>
+
+        <div class="code-block">
+            <pre><code>python manage.py check</code></pre>
+        </div>
+
+        <p>
+            Project madhye configuration errors naslyas
+            Django system check successful message dakhavel.
+        </p>
+
+    </section>
+
+    <!-- SECTION 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. Run Django Server</h2>
+
+        <p>
+            Django project run karanyasathi hi command use kara.
+        </p>
+
+        <div class="code-block">
+            <pre><code>python manage.py runserver</code></pre>
+        </div>
+
+        <p>
+            Browser madhye hi address open kara:
+        </p>
+
+        <div class="code-block">
+            <pre><code>http://127.0.0.1:8000/</code></pre>
+        </div>
+
+        <p>
+            Django project successfully run zalyas browser madhye
+            Django welcome page disel.
+        </p>
+
+    </section>
+
+    <!-- SECTION 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. Project Folder Structure</h2>
+
+        <p>
+            Installation complete zalyanantar project structure
+            sadharanpane asa asel.
+        </p>
+
+        <div class="code-block">
+            <pre><code>drf_project/
+│
+├── venv/
+│
+├── config/
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   ├── asgi.py
+│   └── wsgi.py
+│
+├── manage.py
+└── db.sqlite3</code></pre>
+        </div>
+
+        <h3>Important Files</h3>
+
+        <ul>
+            <li><strong>manage.py:</strong> Django project commands run karto.</li>
+            <li><strong>settings.py:</strong> Project configuration manage karto.</li>
+            <li><strong>urls.py:</strong> URL routing manage karto.</li>
+            <li><strong>venv:</strong> Project dependencies separate thevto.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Important Installation Commands</h2>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Command</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>python -m venv venv</td>
+                        <td>Create virtual environment</td>
+                    </tr>
+                    <tr>
+                        <td>venv\Scripts\activate</td>
+                        <td>Activate environment (CMD)</td>
+                    </tr>
+                    <tr>
+                        <td>pip install django</td>
+                        <td>Install Django</td>
+                    </tr>
+                    <tr>
+                        <td>pip install djangorestframework</td>
+                        <td>Install DRF</td>
+                    </tr>
+                    <tr>
+                        <td>pip show djangorestframework</td>
+                        <td>Check DRF installation</td>
+                    </tr>
+                    <tr>
+                        <td>python manage.py check</td>
+                        <td>Check project configuration</td>
+                    </tr>
+                    <tr>
+                        <td>python manage.py runserver</td>
+                        <td>Start development server</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- SECTION 10 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>10. Practice Questions</h2>
+
+        <ol>
+            <li>What is Django REST Framework?</li>
+            <li>Why do we install DRF?</li>
+            <li>What is a virtual environment?</li>
+            <li>Write the command to install DRF.</li>
+            <li>Why do we add rest_framework to INSTALLED_APPS?</li>
+            <li>How can we verify DRF installation?</li>
+            <li>Write the command to run a Django server.</li>
+            <li>What is the purpose of settings.py?</li>
+        </ol>
+
+    </section>
+
+    <!-- SECTION 11 -->
+
+    <section class="lesson-section interview-section">
+
+        <h2>11. Interview Questions</h2>
+
+        <h3>Q1. How do you install Django REST Framework?</h3>
+        <p>
+            We install DRF using the command
+            <strong>pip install djangorestframework</strong>.
+        </p>
+
+        <h3>Q2. Why is rest_framework added to INSTALLED_APPS?</h3>
+        <p>
+            It registers Django REST Framework in the Django
+            project and enables its features.
+        </p>
+
+        <h3>Q3. What is a virtual environment?</h3>
+        <p>
+            A virtual environment is an isolated Python
+            environment used to manage project dependencies.
+        </p>
+
+        <h3>Q4. How do you check the Django project configuration?</h3>
+        <p>
+            We use the command
+            <strong>python manage.py check</strong>.
+        </p>
+
+    </section>
+
+    <!-- COMPLETION -->
+
+    <div class="completion-box">
+        <h3>Topic 07 Completed!</h3>
+        <p>
+            Ata aapan Django project madhye DRF install,
+            configure ani verify karayla shiklo.
+        </p>
+    </div>
+
+    <!-- NAVIGATION -->
+
+    <div class="lesson-navigation">
+        <a href="{% url 'drf_topic' 'http-status-codes' %}">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'drf_topic' 'first-api' %}">
+            Next Topic →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

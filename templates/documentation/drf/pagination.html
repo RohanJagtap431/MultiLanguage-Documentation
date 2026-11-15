@@ -1,0 +1,705 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Pagination in DRF{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/drf/pagination.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO REST FRAMEWORK</span>
+        <h1>26. Pagination in DRF</h1>
+        <p>
+            Learn how to divide large API responses into smaller pages
+            using Django REST Framework.
+        </p>
+    </div>
+
+    <!-- SECTION 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What is Pagination?</h2>
+
+        <p>
+            Pagination mhanje mothya data la small pages madhye divide karne.
+            Pratyek API request madhye limited records return kele jatat.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                Pagination is the process of dividing large data
+                into smaller pages for easier access and management.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <p>
+            Samja database madhye 1,000 students aahet.
+            Ekach request madhye 1,000 records pathavnyapeksha
+            pratyek page madhye 10 records pathavu shakto.
+        </p>
+
+        <div class="example-box">
+            <h3>Without Pagination</h3>
+            <p>One API request returns all 1,000 student records.</p>
+
+            <h3>With Pagination</h3>
+            <p>Page 1 → 10 records</p>
+            <p>Page 2 → 10 records</p>
+            <p>Page 3 → 10 records</p>
+            <p>And so on...</p>
+        </div>
+
+    </section>
+
+    <!-- SECTION 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Why is Pagination Required?</h2>
+
+        <p>
+            Large database madhun data retrieve kartana
+            pagination useful tharte.
+        </p>
+
+        <ul>
+            <li>API response madhil records limit karta yetat.</li>
+            <li>Large responses manage karne sope hote.</li>
+            <li>Frontend madhye page-wise data display karta yeto.</li>
+            <li>Network var unnecessary data transfer kami hoto.</li>
+            <li>Large datasets efficiently browse karta yetat.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Pagination mule pratyek request madhye limited records
+            return hotat. Pan database query ani performance
+            efficient thevnyasathi proper indexing suddha important aahe.
+        </div>
+
+    </section>
+
+    <!-- SECTION 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. Types of Pagination in DRF</h2>
+
+        <p>
+            Django REST Framework madhye three common built-in
+            pagination classes aahet.
+        </p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Pagination Class</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>PageNumberPagination</td>
+                        <td>Page number vaprun records retrieve karte.</td>
+                    </tr>
+                    <tr>
+                        <td>LimitOffsetPagination</td>
+                        <td>Limit ani offset vaprun records retrieve karte.</td>
+                    </tr>
+                    <tr>
+                        <td>CursorPagination</td>
+                        <td>Cursor position vaprun records retrieve karte.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- SECTION 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. PageNumberPagination</h2>
+
+        <p>
+            PageNumberPagination madhye page number specify karun
+            records retrieve karta yetat.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                PageNumberPagination divides API results into pages
+                and allows clients to request a specific page number.
+            </p>
+        </div>
+
+        <h3>Example URL</h3>
+
+        <div class="output-box">
+            <pre><code>/api/students/?page=1</code></pre>
+        </div>
+
+        <p>
+            Ya request madhye first page che records return hotil.
+        </p>
+
+        <h3>Step 1 – Create Pagination Class</h3>
+
+        <p><strong>File:</strong> api/pagination.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.pagination import PageNumberPagination
+
+class StudentPagination(PageNumberPagination):
+
+    page_size = 10</code></pre>
+        </div>
+
+        <h3>Step 2 – Apply Pagination</h3>
+
+        <p><strong>File:</strong> api/views.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.viewsets import ModelViewSet
+
+from .models import Student
+from .serializers import StudentSerializer
+from .pagination import StudentPagination
+
+class StudentViewSet(ModelViewSet):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+    pagination_class = StudentPagination</code></pre>
+        </div>
+
+        <h3>Step 3 – Test API</h3>
+
+        <div class="output-box">
+            <pre><code>GET /api/students/?page=1
+GET /api/students/?page=2
+GET /api/students/?page=3</code></pre>
+        </div>
+
+        <h3>Example Response</h3>
+
+        <div class="code-block">
+            <pre><code>{
+    "count": 100,
+    "next": "http://127.0.0.1:8000/api/students/?page=2",
+    "previous": null,
+    "results": [
+        {
+            "id": 1,
+            "name": "Rahul"
+        },
+        {
+            "id": 2,
+            "name": "Amit"
+        }
+    ]
+}</code></pre>
+        </div>
+
+        <p>
+            Ya response madhye count, next, previous ani results
+            he important fields astat.
+        </p>
+
+    </section>
+
+    <!-- SECTION 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. Customize Page Size</h2>
+
+        <p>
+            Client la URL madhun page size change karaychi permission
+            dyaychi asel tar page_size_query_param use karu shakto.
+        </p>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.pagination import PageNumberPagination
+
+class StudentPagination(PageNumberPagination):
+
+    page_size = 10
+    page_size_query_param = 'page_size'
+    max_page_size = 50</code></pre>
+        </div>
+
+        <h3>Example URLs</h3>
+
+        <div class="output-box">
+            <pre><code>/api/students/?page=1&page_size=20
+
+/api/students/?page=2&page_size=30</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li>page_size = 10 means default 10 records.</li>
+            <li>page_size_query_param = 'page_size' allows client to request a page size.</li>
+            <li>max_page_size = 50 limits the maximum requested page size.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. LimitOffsetPagination</h2>
+
+        <p>
+            LimitOffsetPagination madhye limit ani offset
+            parameters vaprun records retrieve kele jatat.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                LimitOffsetPagination uses a limit to control the number
+                of records and an offset to determine where to start.
+            </p>
+        </div>
+
+        <h3>Example URL</h3>
+
+        <div class="output-box">
+            <pre><code>/api/students/?limit=10&offset=0</code></pre>
+        </div>
+
+        <h3>Step 1 – Create Pagination Class</h3>
+
+        <p><strong>File:</strong> api/pagination.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.pagination import LimitOffsetPagination
+
+class StudentLimitPagination(LimitOffsetPagination):
+
+    default_limit = 10
+    max_limit = 50</code></pre>
+        </div>
+
+        <h3>Step 2 – Apply Pagination</h3>
+
+        <div class="code-block">
+            <pre><code>class StudentViewSet(ModelViewSet):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+    pagination_class = StudentLimitPagination</code></pre>
+        </div>
+
+        <h3>Example URLs</h3>
+
+        <div class="output-box">
+            <pre><code>/api/students/?limit=10&offset=0
+
+/api/students/?limit=10&offset=10
+
+/api/students/?limit=20&offset=20</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li>limit = 10 means 10 records return hotil.</li>
+            <li>offset = 0 means first record pasun start hoil.</li>
+            <li>offset = 10 means first 10 records skip hotil.</li>
+            <li>max_limit = 50 means maximum 50 records request karta yetil.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. CursorPagination</h2>
+
+        <p>
+            CursorPagination madhye records access karanyasathi
+            cursor position vaprali jate.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                CursorPagination uses a cursor to navigate through
+                a dataset instead of using page numbers or offsets.
+            </p>
+        </div>
+
+        <h3>Step 1 – Create Pagination Class</h3>
+
+        <p><strong>File:</strong> api/pagination.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.pagination import CursorPagination
+
+class StudentCursorPagination(CursorPagination):
+
+    page_size = 10
+    ordering = '-created_at'</code></pre>
+        </div>
+
+        <h3>Step 2 – Apply Pagination</h3>
+
+        <div class="code-block">
+            <pre><code>class StudentViewSet(ModelViewSet):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+    pagination_class = StudentCursorPagination</code></pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Ya example madhye Student model madhye created_at field
+            asne avashyak aahe. CursorPagination sathi ordering
+            stable ani suitable field var asne important aahe.
+        </div>
+
+        <h3>How it works?</h3>
+
+        <ul>
+            <li>First request madhye initial records miltat.</li>
+            <li>Response madhye next cursor URL milto.</li>
+            <li>Next URL use karun pudhil records retrieve karta yetat.</li>
+            <li>Page number manually specify karanyachi garaj naste.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. Global Pagination Settings</h2>
+
+        <p>
+            Pratyek ViewSet madhye pagination class define karanyapeksha
+            settings.py madhye global pagination configure karta yete.
+        </p>
+
+        <p><strong>File:</strong> config/settings.py</p>
+
+        <div class="code-block">
+            <pre><code>REST_FRAMEWORK = {
+
+    'DEFAULT_PAGINATION_CLASS':
+        'rest_framework.pagination.PageNumberPagination',
+
+    'PAGE_SIZE': 10,
+
+}</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li>DEFAULT_PAGINATION_CLASS default pagination class select karte.</li>
+            <li>PAGE_SIZE pratyek page madhil default records tharavte.</li>
+            <li>Ya settings generic views ani viewsets sathi apply hotat.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Note:</strong>
+            Plain APIView madhye pagination automatically apply hot nahi.
+            Tithe pagination manually implement karavi lagte.
+        </div>
+
+    </section>
+
+    <!-- SECTION 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Custom Pagination Class</h2>
+
+        <p>
+            Application chya requirement nusar custom pagination
+            class create karta yete.
+        </p>
+
+        <h3>Example</h3>
+
+        <p><strong>File:</strong> api/pagination.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.pagination import PageNumberPagination
+
+class CustomStudentPagination(PageNumberPagination):
+
+    page_size = 5
+    page_size_query_param = 'size'
+    max_page_size = 20</code></pre>
+        </div>
+
+        <h3>Apply Custom Pagination</h3>
+
+        <div class="code-block">
+            <pre><code>class StudentViewSet(ModelViewSet):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+    pagination_class = CustomStudentPagination</code></pre>
+        </div>
+
+        <h3>Example URL</h3>
+
+        <div class="output-box">
+            <pre><code>/api/students/?page=1&size=10</code></pre>
+        </div>
+
+    </section>
+
+    <!-- SECTION 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Disable Pagination for a View</h2>
+
+        <p>
+            Specific ViewSet sathi pagination disable karaychi
+            asel tar pagination_class None set karu shakto.
+        </p>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>class StudentViewSet(ModelViewSet):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+    pagination_class = None</code></pre>
+        </div>
+
+        <p>
+            Ya view madhye global pagination settings apply honar nahi.
+        </p>
+
+    </section>
+
+    <!-- SECTION 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Practical Student API Pagination</h2>
+
+        <p>
+            Ata aapan Student API madhye PageNumberPagination
+            implement karuya.
+        </p>
+
+        <h3>Step 1 – Create Pagination File</h3>
+
+        <p><strong>File:</strong> api/pagination.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.pagination import PageNumberPagination
+
+class StudentPagination(PageNumberPagination):
+
+    page_size = 10
+    page_size_query_param = 'page_size'
+    max_page_size = 50</code></pre>
+        </div>
+
+        <h3>Step 2 – Update ViewSet</h3>
+
+        <p><strong>File:</strong> api/views.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.viewsets import ModelViewSet
+
+from .models import Student
+from .serializers import StudentSerializer
+from .pagination import StudentPagination
+
+class StudentViewSet(ModelViewSet):
+
+    queryset = Student.objects.all().order_by('id')
+    serializer_class = StudentSerializer
+    pagination_class = StudentPagination</code></pre>
+        </div>
+
+        <h3>Step 3 – Register Router</h3>
+
+        <p><strong>File:</strong> api/urls.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.routers import DefaultRouter
+from .views import StudentViewSet
+
+router = DefaultRouter()
+
+router.register(
+    'students',
+    StudentViewSet,
+    basename='student'
+)
+
+urlpatterns = router.urls</code></pre>
+        </div>
+
+        <h3>Step 4 – Run Server</h3>
+
+        <div class="code-block">
+            <pre><code>python manage.py runserver</code></pre>
+        </div>
+
+        <h3>Step 5 – Test API</h3>
+
+        <div class="output-box">
+            <pre><code>http://127.0.0.1:8000/api/students/?page=1</code></pre>
+        </div>
+
+        <h3>Test Different Page Sizes</h3>
+
+        <div class="output-box">
+            <pre><code>http://127.0.0.1:8000/api/students/?page=1&page_size=20
+
+http://127.0.0.1:8000/api/students/?page=2&page_size=20</code></pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Note:</strong>
+            Ha practical existing Student model ani StudentSerializer
+            var based aahe. Te already project madhye astil tar
+            punha create karu naka.
+        </div>
+
+    </section>
+
+    <!-- SECTION 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Important Points to Remember</h2>
+
+        <ul>
+            <li>Pagination large data small pages madhye divide karte.</li>
+            <li>PageNumberPagination page number vaparte.</li>
+            <li>LimitOffsetPagination limit ani offset vaparte.</li>
+            <li>CursorPagination cursor position vaparte.</li>
+            <li>page_size default records tharavte.</li>
+            <li>page_size_query_param client la page size change karu dete.</li>
+            <li>max_page_size maximum page size limit karte.</li>
+            <li>Global pagination settings.py madhye define karta yetat.</li>
+            <li>ViewSet madhye pagination_class vaparta yete.</li>
+            <li>pagination_class = None pagination disable karte.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 13 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>13. Practice Questions</h2>
+
+        <ol>
+            <li>What is Pagination in DRF?</li>
+            <li>Why is Pagination required?</li>
+            <li>What are the types of Pagination in DRF?</li>
+            <li>What is PageNumberPagination?</li>
+            <li>What is LimitOffsetPagination?</li>
+            <li>What is CursorPagination?</li>
+            <li>What is page_size?</li>
+            <li>What is page_size_query_param?</li>
+            <li>What are Global Pagination Settings?</li>
+            <li>How can we create a Custom Pagination Class?</li>
+        </ol>
+
+    </section>
+
+    <!-- SECTION 14 -->
+
+    <section class="lesson-section interview-section">
+
+        <h2>14. Interview Questions</h2>
+
+        <h3>Q1. What is Pagination?</h3>
+        <p>
+            Pagination divides large API responses into smaller pages.
+        </p>
+
+        <h3>Q2. What is PageNumberPagination?</h3>
+        <p>
+            It divides API results into pages using page numbers.
+        </p>
+
+        <h3>Q3. What is LimitOffsetPagination?</h3>
+        <p>
+            It uses limit and offset parameters to retrieve records.
+        </p>
+
+        <h3>Q4. What is CursorPagination?</h3>
+        <p>
+            It uses a cursor position to navigate through records.
+        </p>
+
+        <h3>Q5. What is PAGE_SIZE?</h3>
+        <p>
+            PAGE_SIZE defines the default number of records per page.
+        </p>
+
+        <h3>Q6. What is Custom Pagination?</h3>
+        <p>
+            Custom Pagination is a user-defined pagination class
+            created according to application requirements.
+        </p>
+
+    </section>
+
+    <!-- COMPLETION -->
+
+    <div class="completion-box">
+        <h3>Topic 26 Completed!</h3>
+        <p>
+            Ata aapan PageNumberPagination, LimitOffsetPagination,
+            CursorPagination ani Custom Pagination shiklo.
+        </p>
+    </div>
+
+    <!-- NAVIGATION -->
+
+    <div class="lesson-navigation">
+        <a href="{% url 'drf_topic' 'jwt-authentication' %}">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'drf_topic' 'filtering' %}">
+            Next Topic →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

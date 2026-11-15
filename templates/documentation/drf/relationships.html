@@ -1,0 +1,796 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Relationships in DRF{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/drf/relationships.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO REST FRAMEWORK</span>
+        <h1>31. Relationships in DRF</h1>
+        <p>
+            Learn how to represent database relationships
+            using Django models and DRF serializers.
+        </p>
+    </div>
+
+    <!-- SECTION 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What are Database Relationships?</h2>
+
+        <p>
+            Database Relationship mhanje don kiwa adhik database
+            tables madhil connection.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                Database relationships define how records in
+                different tables are connected to each other.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <p>
+            Samja College database madhye Student ani Department
+            ase don tables aahet.
+        </p>
+
+        <div class="example-box">
+            <h3>Student Table</h3>
+            <pre><code>id    name       department_id
+1     Rohan      1
+2     Amit       1
+3     Rahul      2</code></pre>
+
+            <h3>Department Table</h3>
+            <pre><code>id    department_name
+1     Computer Science
+2     Mathematics</code></pre>
+
+            <p>
+                Ya example madhye department_id mule Student
+                ani Department tables connect hotat.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- SECTION 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Types of Database Relationships</h2>
+
+        <p>
+            Django madhye mainly three types of database
+            relationships use kele jatat.
+        </p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Relationship</th>
+                        <th>Meaning</th>
+                        <th>Django Field</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>One-to-One</td>
+                        <td>One record connects to one record.</td>
+                        <td>OneToOneField</td>
+                    </tr>
+                    <tr>
+                        <td>One-to-Many</td>
+                        <td>One record connects to multiple records.</td>
+                        <td>ForeignKey</td>
+                    </tr>
+                    <tr>
+                        <td>Many-to-Many</td>
+                        <td>Multiple records connect to multiple records.</td>
+                        <td>ManyToManyField</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- SECTION 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. One-to-One Relationship</h2>
+
+        <p>
+            One-to-One relationship madhye eka record cha
+            sambandh dusrya table madhil fakt eka record sobat asto.
+        </p>
+
+        <h3>Example</h3>
+
+        <p>
+            Ek Student cha ekach Profile asu shakto.
+            Ek Profile fakt eka Student sobat connected asto.
+        </p>
+
+        <div class="relationship-box">
+            <div class="relationship-card">
+                <strong>Student</strong>
+                <span>Rohan</span>
+            </div>
+
+            <div class="relationship-line">
+                1 ───── 1
+            </div>
+
+            <div class="relationship-card">
+                <strong>Profile</strong>
+                <span>Rohan's Profile</span>
+            </div>
+        </div>
+
+        <h3>Django Model Example</h3>
+
+        <p><strong>File:</strong> api/models.py</p>
+
+        <div class="code-block">
+            <pre><code>from django.db import models
+
+class Student(models.Model):
+    name = models.CharField(max_length=100)
+
+
+class Profile(models.Model):
+    student = models.OneToOneField(
+        Student,
+        on_delete=models.CASCADE,
+        related_name='profile'
+    )
+
+    phone = models.CharField(max_length=15)
+    address = models.CharField(max_length=200)</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li>OneToOneField don models madhye one-to-one connection create karte.</li>
+            <li>on_delete=models.CASCADE mule Student delete zalyas tyacha Profile suddha delete hoto.</li>
+            <li>related_name='profile' mule student.profile vaprun profile access karta yete.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. One-to-Many Relationship</h2>
+
+        <p>
+            One-to-Many relationship madhye eka record sobat
+            dusrya table madhil multiple records connected astat.
+        </p>
+
+        <h3>Example</h3>
+
+        <p>
+            Eka Department madhye multiple Students asu shaktat.
+            Pan pratyek Student eka Department sobat connected asto.
+        </p>
+
+        <div class="relationship-box vertical-relationship">
+            <div class="relationship-card">
+                <strong>Department</strong>
+                <span>Computer Science</span>
+            </div>
+
+            <div class="relationship-line">
+                1
+                <br>
+                |
+                <br>
+                +------ 1 Student
+                <br>
+                +------ 2 Student
+                <br>
+                +------ 3 Student
+            </div>
+
+            <div class="relationship-card">
+                <strong>Multiple Students</strong>
+                <span>Rohan, Amit, Rahul</span>
+            </div>
+        </div>
+
+        <h3>Django Model Example</h3>
+
+        <div class="code-block">
+            <pre><code>from django.db import models
+
+class Department(models.Model):
+    name = models.CharField(max_length=100)
+
+
+class Student(models.Model):
+    name = models.CharField(max_length=100)
+
+    department = models.ForeignKey(
+        Department,
+        on_delete=models.CASCADE,
+        related_name='students'
+    )</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li>ForeignKey one-to-many relationship create karte.</li>
+            <li>Student model madhye Department chi reference store hote.</li>
+            <li>related_name='students' mule department.students vaprun students access karta yetat.</li>
+            <li>on_delete=models.CASCADE mule Department delete zalyas related Students suddha delete hotat.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. Many-to-Many Relationship</h2>
+
+        <p>
+            Many-to-Many relationship madhye eka table madhil
+            multiple records dusrya table madhil multiple
+            records sobat connected astat.
+        </p>
+
+        <h3>Example</h3>
+
+        <p>
+            Ek Student multiple Courses join karu shakto.
+            Ani ek Course multiple Students join karu shaktat.
+        </p>
+
+        <div class="example-box">
+            <h3>Student and Course</h3>
+            <pre><code>Rohan  -> Python, Django
+Amit   -> Python, Java
+Rahul  -> Django, Java</code></pre>
+        </div>
+
+        <h3>Django Model Example</h3>
+
+        <div class="code-block">
+            <pre><code>from django.db import models
+
+class Course(models.Model):
+    name = models.CharField(max_length=100)
+
+
+class Student(models.Model):
+    name = models.CharField(max_length=100)
+
+    courses = models.ManyToManyField(
+        Course,
+        related_name='students'
+    )</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li>ManyToManyField many-to-many relationship create karte.</li>
+            <li>Ek Student multiple Courses select karu shakto.</li>
+            <li>Ek Course multiple Students sobat connect hou shakto.</li>
+            <li>Django automatically intermediate table create karte.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. What are Nested Serializers?</h2>
+
+        <p>
+            Nested Serializer cha use related model cha data
+            main serializer madhye display karanyasathi hoto.
+        </p>
+
+        <h3>Example</h3>
+
+        <p>
+            Student API response madhye Student sobat
+            tyacha Department details suddha display karaycha aahe.
+        </p>
+
+        <h3>Step 1 – Create DepartmentSerializer</h3>
+
+        <p><strong>File:</strong> api/serializers.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework import serializers
+from .models import Department, Student
+
+
+class DepartmentSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Department
+        fields = '__all__'</code></pre>
+        </div>
+
+        <h3>Step 2 – Create StudentSerializer</h3>
+
+        <div class="code-block">
+            <pre><code>class StudentSerializer(serializers.ModelSerializer):
+
+    department = DepartmentSerializer(read_only=True)
+
+    class Meta:
+        model = Student
+        fields = ['id', 'name', 'department']</code></pre>
+        </div>
+
+        <h3>Example API Response</h3>
+
+        <div class="output-box">
+            <pre><code>{
+    "id": 1,
+    "name": "Rohan",
+    "department": {
+        "id": 1,
+        "name": "Computer Science"
+    }
+}</code></pre>
+        </div>
+
+        <p>
+            Nested Serializer mule department cha complete
+            object Student API response madhye display hoto.
+        </p>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            read_only=True aslyamule ya nested field madhun
+            Department create kiwa update karta yet nahi.
+            Nested write sathi custom create() kiwa update()
+            method implement karavi lagte.
+        </div>
+
+    </section>
+
+    <!-- SECTION 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. PrimaryKeyRelatedField</h2>
+
+        <p>
+            PrimaryKeyRelatedField cha use related object
+            tyachya primary key ID madhun represent karanyasathi hoto.
+        </p>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>class StudentSerializer(serializers.ModelSerializer):
+
+    department = serializers.PrimaryKeyRelatedField(
+        read_only=True
+    )
+
+    class Meta:
+        model = Student
+        fields = ['id', 'name', 'department']</code></pre>
+        </div>
+
+        <h3>API Response</h3>
+
+        <div class="output-box">
+            <pre><code>{
+    "id": 1,
+    "name": "Rohan",
+    "department": 1
+}</code></pre>
+        </div>
+
+        <p>
+            Ya example madhye department cha complete object
+            denyayevaji fakt department ID return hoto.
+        </p>
+
+    </section>
+
+    <!-- SECTION 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. StringRelatedField</h2>
+
+        <p>
+            StringRelatedField cha use related object
+            tyachya string representation madhye display
+            karanyasathi hoto.
+        </p>
+
+        <h3>Step 1 – Add __str__() Method</h3>
+
+        <p><strong>File:</strong> api/models.py</p>
+
+        <div class="code-block">
+            <pre><code>class Department(models.Model):
+
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name</code></pre>
+        </div>
+
+        <h3>Step 2 – Use StringRelatedField</h3>
+
+        <p><strong>File:</strong> api/serializers.py</p>
+
+        <div class="code-block">
+            <pre><code>class StudentSerializer(serializers.ModelSerializer):
+
+    department = serializers.StringRelatedField()
+
+    class Meta:
+        model = Student
+        fields = ['id', 'name', 'department']</code></pre>
+        </div>
+
+        <h3>API Response</h3>
+
+        <div class="output-box">
+            <pre><code>{
+    "id": 1,
+    "name": "Rohan",
+    "department": "Computer Science"
+}</code></pre>
+        </div>
+
+        <p>
+            StringRelatedField related object cha __str__()
+            method madhun milnari string display karte.
+        </p>
+
+    </section>
+
+    <!-- SECTION 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Relationship Fields Comparison</h2>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Output</th>
+                        <th>Use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Nested Serializer</td>
+                        <td>Complete object</td>
+                        <td>Related details display karne.</td>
+                    </tr>
+                    <tr>
+                        <td>PrimaryKeyRelatedField</td>
+                        <td>Object ID</td>
+                        <td>Primary key display karne.</td>
+                    </tr>
+                    <tr>
+                        <td>StringRelatedField</td>
+                        <td>String value</td>
+                        <td>Object chi readable value display karne.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- SECTION 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Practical Student-Course API</h2>
+
+        <p>
+            Ata aapan Student ani Course madhye
+            Many-to-Many relationship implement karuya.
+        </p>
+
+        <h3>Step 1 – Create Models</h3>
+
+        <p><strong>File:</strong> api/models.py</p>
+
+        <div class="code-block">
+            <pre><code>from django.db import models
+
+
+class Course(models.Model):
+
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+
+class Student(models.Model):
+
+    name = models.CharField(max_length=100)
+
+    courses = models.ManyToManyField(
+        Course,
+        related_name='students',
+        blank=True
+    )
+
+    def __str__(self):
+        return self.name</code></pre>
+        </div>
+
+        <h3>Step 2 – Run Migrations</h3>
+
+        <div class="code-block">
+            <pre><code>python manage.py makemigrations
+
+python manage.py migrate</code></pre>
+        </div>
+
+        <h3>Step 3 – Create Serializers</h3>
+
+        <p><strong>File:</strong> api/serializers.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework import serializers
+from .models import Student, Course
+
+
+class CourseSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Course
+        fields = '__all__'
+
+
+class StudentSerializer(serializers.ModelSerializer):
+
+    courses = CourseSerializer(
+        many=True,
+        read_only=True
+    )
+
+    class Meta:
+        model = Student
+        fields = ['id', 'name', 'courses']</code></pre>
+        </div>
+
+        <h3>Step 4 – Create ViewSets</h3>
+
+        <p><strong>File:</strong> api/views.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.viewsets import ModelViewSet
+
+from .models import Student, Course
+from .serializers import (
+    StudentSerializer,
+    CourseSerializer
+)
+
+
+class StudentViewSet(ModelViewSet):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+
+class CourseViewSet(ModelViewSet):
+
+    queryset = Course.objects.all()
+    serializer_class = CourseSerializer</code></pre>
+        </div>
+
+        <h3>Step 5 – Register Routers</h3>
+
+        <p><strong>File:</strong> api/urls.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.routers import DefaultRouter
+
+from .views import StudentViewSet, CourseViewSet
+
+router = DefaultRouter()
+
+router.register(
+    'students',
+    StudentViewSet,
+    basename='student'
+)
+
+router.register(
+    'courses',
+    CourseViewSet,
+    basename='course'
+)
+
+urlpatterns = router.urls</code></pre>
+        </div>
+
+        <h3>Step 6 – Test API</h3>
+
+        <div class="output-box">
+            <pre><code>GET /api/students/
+
+GET /api/courses/</code></pre>
+        </div>
+
+        <h3>Example Student API Response</h3>
+
+        <div class="output-box">
+            <pre><code>{
+    "id": 1,
+    "name": "Rohan",
+    "courses": [
+        {
+            "id": 1,
+            "name": "Python"
+        },
+        {
+            "id": 2,
+            "name": "Django"
+        }
+    ]
+}</code></pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Ya practical madhye courses read_only=True aahet.
+            Mhanun Student API madhun courses add kiwa update
+            hot nahit. Relationship create karanyasathi Django
+            admin, shell kiwa separate writable serializer/API
+            implement karavi lagel.
+        </div>
+
+    </section>
+
+    <!-- SECTION 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Important Points to Remember</h2>
+
+        <ul>
+            <li>Database relationships tables madhye connection create kartat.</li>
+            <li>OneToOneField one-to-one relationship sathi aahe.</li>
+            <li>ForeignKey one-to-many relationship sathi aahe.</li>
+            <li>ManyToManyField many-to-many relationship sathi aahe.</li>
+            <li>Nested Serializers related object details display kartat.</li>
+            <li>PrimaryKeyRelatedField related object chi ID display karte.</li>
+            <li>StringRelatedField related object chi string value display karte.</li>
+            <li>related_name reverse relationship access karanyasathi vapartat.</li>
+            <li>read_only=True mule field madhun write karta yet nahi.</li>
+            <li>Nested writes sathi custom create() kiwa update() methods lagu shaktat.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 12 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>12. Practice Questions</h2>
+
+        <ol>
+            <li>What are Database Relationships?</li>
+            <li>What is One-to-One Relationship?</li>
+            <li>What is One-to-Many Relationship?</li>
+            <li>What is Many-to-Many Relationship?</li>
+            <li>What is ForeignKey?</li>
+            <li>What is ManyToManyField?</li>
+            <li>What are Nested Serializers?</li>
+            <li>What is PrimaryKeyRelatedField?</li>
+            <li>What is StringRelatedField?</li>
+            <li>What is the use of related_name?</li>
+        </ol>
+
+    </section>
+
+    <!-- SECTION 13 -->
+
+    <section class="lesson-section interview-section">
+
+        <h2>13. Interview Questions</h2>
+
+        <h3>Q1. What are Database Relationships?</h3>
+        <p>
+            Database relationships define connections between
+            records in different database tables.
+        </p>
+
+        <h3>Q2. What is ForeignKey?</h3>
+        <p>
+            ForeignKey is used to create a one-to-many
+            relationship between two models.
+        </p>
+
+        <h3>Q3. What is ManyToManyField?</h3>
+        <p>
+            ManyToManyField creates a relationship where
+            multiple records can connect to multiple records.
+        </p>
+
+        <h3>Q4. What is a Nested Serializer?</h3>
+        <p>
+            A Nested Serializer displays related model data
+            inside another serializer.
+        </p>
+
+        <h3>Q5. What is PrimaryKeyRelatedField?</h3>
+        <p>
+            It represents a related object using its primary key.
+        </p>
+
+        <h3>Q6. What is StringRelatedField?</h3>
+        <p>
+            It represents a related object using its string
+            representation.
+        </p>
+
+        <h3>Q7. What is related_name?</h3>
+        <p>
+            related_name defines the name used to access
+            related objects from the reverse side of a relationship.
+        </p>
+
+    </section>
+
+    <!-- COMPLETION -->
+
+    <div class="completion-box">
+        <h3>Topic 31 Completed!</h3>
+        <p>
+            Ata aapan One-to-One, One-to-Many, Many-to-Many,
+            Nested Serializers ani Relationship Fields shiklo.
+        </p>
+    </div>
+
+    <!-- NAVIGATION -->
+
+    <div class="lesson-navigation">
+        <a href="{% url 'drf_topic' 'throttling' %}">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'drf_topic' 'file-upload-api' %}">
+            Next Topic →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

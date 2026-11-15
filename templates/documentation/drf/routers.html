@@ -1,0 +1,811 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Routers in DRF{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/drf/routers.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO REST FRAMEWORK</span>
+        <h1>21. Routers in DRF</h1>
+        <p>
+            Learn how to automatically generate API URL patterns
+            using Routers and ViewSets.
+        </p>
+    </div>
+
+    <!-- SECTION 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What are Routers?</h2>
+
+        <p>
+            Routers ya Django REST Framework madhil classes aahet.
+            Tyanchya madatine ViewSets sathi URL patterns
+            automatically generate hotat.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                Routers are used to automatically generate URL patterns
+                for registered ViewSets in Django REST Framework.
+            </p>
+        </div>
+
+        <h3>Why use Routers?</h3>
+
+        <ul>
+            <li>URLs automatically generate hotat.</li>
+            <li>Manual URL configuration kami hote.</li>
+            <li>CRUD API routing sope hote.</li>
+            <li>ViewSets sobat easily work kartat.</li>
+            <li>Code clean ani organized rahto.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Routers he ViewSets sobat use kele jatat.
+            Normal function-based views sathi Router chi garaj naste.
+        </div>
+
+    </section>
+
+    <!-- SECTION 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Types of Routers</h2>
+
+        <p>
+            DRF madhye don commonly used built-in routers aahet.
+        </p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Router</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>SimpleRouter</td>
+                        <td>ViewSets sathi basic URL patterns generate karto.</td>
+                    </tr>
+                    <tr>
+                        <td>DefaultRouter</td>
+                        <td>URL patterns sobat API root view pan provide karto.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- SECTION 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. SimpleRouter</h2>
+
+        <p>
+            SimpleRouter ha basic router aahe.
+            To registered ViewSets sathi list ani detail
+            URL patterns generate karto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                SimpleRouter automatically creates URL patterns
+                for the list and detail actions of a ViewSet.
+            </p>
+        </div>
+
+        <h3>Import SimpleRouter</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.routers import SimpleRouter</code></pre>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.routers import SimpleRouter
+from .views import StudentViewSet
+
+router = SimpleRouter()
+
+router.register(
+    'students',
+    StudentViewSet,
+    basename='student'
+)
+
+urlpatterns = router.urls</code></pre>
+        </div>
+
+        <h3>Generated URLs</h3>
+
+        <div class="output-box">
+            <pre><code>/students/
+/students/{pk}/</code></pre>
+        </div>
+
+        <p>
+            Ithe list URL var GET ani POST requests handle hotat.
+            Detail URL var GET, PUT, PATCH ani DELETE requests
+            handle hotat, jar ViewSet madhye te actions available astil.
+        </p>
+
+    </section>
+
+    <!-- SECTION 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. DefaultRouter</h2>
+
+        <p>
+            DefaultRouter ha SimpleRouter sarkhach URL patterns
+            generate karto. Tyashivay to API root view pan provide karto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                DefaultRouter automatically generates URL patterns
+                for ViewSets and also provides an API root view.
+            </p>
+        </div>
+
+        <h3>Import DefaultRouter</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.routers import DefaultRouter</code></pre>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.routers import DefaultRouter
+from .views import StudentViewSet
+
+router = DefaultRouter()
+
+router.register(
+    'students',
+    StudentViewSet,
+    basename='student'
+)
+
+urlpatterns = router.urls</code></pre>
+        </div>
+
+        <h3>Generated URLs</h3>
+
+        <div class="output-box">
+            <pre><code>/                 → API Root
+/students/        → Student List
+/students/{pk}/   → Student Detail</code></pre>
+        </div>
+
+        <p>
+            DefaultRouter API root view provide karto.
+            Tithe registered ViewSets che links disu shaktat.
+        </p>
+
+    </section>
+
+    <!-- SECTION 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. register() Method</h2>
+
+        <p>
+            register() method cha use Router madhye ViewSet
+            register karanyasathi hoto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                The register() method connects a URL prefix
+                with a ViewSet.
+            </p>
+        </div>
+
+        <h3>Syntax</h3>
+
+        <div class="code-block">
+            <pre><code>router.register(
+    prefix,
+    viewset,
+    basename
+)</code></pre>
+        </div>
+
+        <h3>Parameters</h3>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>prefix</td>
+                        <td>URL madhil starting path.</td>
+                    </tr>
+                    <tr>
+                        <td>viewset</td>
+                        <td>Register karaycha ViewSet class.</td>
+                    </tr>
+                    <tr>
+                        <td>basename</td>
+                        <td>Generated URL names sathi base name.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>router.register(
+    'students',
+    StudentViewSet,
+    basename='student'
+)</code></pre>
+        </div>
+
+        <p>
+            Ya example madhye students ha URL prefix aahe
+            ani student ha URL names sathi basename aahe.
+        </p>
+
+    </section>
+
+    <!-- SECTION 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. What is basename?</h2>
+
+        <p>
+            basename cha use Router generate karat aslelya
+            URL names madhye base name define karanyasathi hoto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                Basename is used to create URL names for
+                registered ViewSet routes.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>router.register(
+    'students',
+    StudentViewSet,
+    basename='student'
+)</code></pre>
+        </div>
+
+        <h3>Generated URL Names</h3>
+
+        <div class="output-box">
+            <pre><code>student-list
+student-detail</code></pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            ViewSet madhye queryset define nasel tar
+            Router la basename manually provide karne
+            avashyak aste.
+        </div>
+
+    </section>
+
+    <!-- SECTION 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. How Router Generates URLs?</h2>
+
+        <p>
+            Router ViewSet madhil available actions nusar
+            list ani detail routes generate karto.
+        </p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>HTTP Method</th>
+                        <th>URL</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>GET</td>
+                        <td>/students/</td>
+                        <td>list</td>
+                    </tr>
+                    <tr>
+                        <td>POST</td>
+                        <td>/students/</td>
+                        <td>create</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td>/students/1/</td>
+                        <td>retrieve</td>
+                    </tr>
+                    <tr>
+                        <td>PUT</td>
+                        <td>/students/1/</td>
+                        <td>update</td>
+                    </tr>
+                    <tr>
+                        <td>PATCH</td>
+                        <td>/students/1/</td>
+                        <td>partial_update</td>
+                    </tr>
+                    <tr>
+                        <td>DELETE</td>
+                        <td>/students/1/</td>
+                        <td>destroy</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>
+            He mapping ModelViewSet sarkhya CRUD actions
+            available aslelya ViewSet sathi lagu hote.
+        </p>
+
+    </section>
+
+    <!-- SECTION 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. Custom URLs with ViewSets</h2>
+
+        <p>
+            ViewSet madhye custom API endpoint create karanyasathi
+            @action decorator use karta yeto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                The @action decorator is used to create
+                custom actions in a ViewSet.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.viewsets import ModelViewSet
+from rest_framework.decorators import action
+from rest_framework.response import Response
+
+class StudentViewSet(ModelViewSet):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+    @action(
+        detail=False,
+        methods=['get']
+    )
+    def active_students(self, request):
+
+        students = self.get_queryset().filter(age__gte=18)
+
+        serializer = self.get_serializer(
+            students,
+            many=True
+        )
+
+        return Response(serializer.data)</code></pre>
+        </div>
+
+        <h3>Custom API URL</h3>
+
+        <div class="output-box">
+            <pre><code>GET /students/active_students/</code></pre>
+        </div>
+
+        <h3>Understanding detail Parameter</h3>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>detail=False</td>
+                        <td>Collection-level action. Specific object ID lagat nahi.</td>
+                    </tr>
+                    <tr>
+                        <td>detail=True</td>
+                        <td>Single-object action. URL madhye object ID asto.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Custom Detail Action Example</h3>
+
+        <div class="code-block">
+            <pre><code>@action(
+    detail=True,
+    methods=['get']
+)
+def student_info(self, request, pk=None):
+
+    student = self.get_object()
+
+    serializer = self.get_serializer(student)
+
+    return Response(serializer.data)</code></pre>
+        </div>
+
+        <div class="output-box">
+            <pre><code>GET /students/1/student_info/</code></pre>
+        </div>
+
+    </section>
+
+    <!-- SECTION 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Practical Student API using DefaultRouter</h2>
+
+        <p>
+            Ata aapan ModelViewSet ani DefaultRouter vaprun
+            complete Student CRUD API create karuya.
+        </p>
+
+        <h3>Step 1 – Model</h3>
+
+        <p>
+            Existing Student model asel tar toch use kara.
+        </p>
+
+        <div class="code-block">
+            <pre><code># api/models.py
+
+from django.db import models
+
+class Student(models.Model):
+
+    name = models.CharField(max_length=100)
+    email = models.EmailField(unique=True)
+    age = models.PositiveIntegerField()
+
+    def __str__(self):
+        return self.name</code></pre>
+        </div>
+
+        <h3>Step 2 – Serializer</h3>
+
+        <div class="code-block">
+            <pre><code># api/serializers.py
+
+from rest_framework import serializers
+from .models import Student
+
+class StudentSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Student
+        fields = '__all__'</code></pre>
+        </div>
+
+        <h3>Step 3 – ViewSet</h3>
+
+        <p><strong>File:</strong> api/views.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.viewsets import ModelViewSet
+
+from .models import Student
+from .serializers import StudentSerializer
+
+
+class StudentViewSet(ModelViewSet):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer</code></pre>
+        </div>
+
+        <h3>Step 4 – Router</h3>
+
+        <p><strong>File:</strong> api/urls.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.routers import DefaultRouter
+from .views import StudentViewSet
+
+router = DefaultRouter()
+
+router.register(
+    'students',
+    StudentViewSet,
+    basename='student'
+)
+
+urlpatterns = router.urls</code></pre>
+        </div>
+
+        <h3>Step 5 – Main URLs</h3>
+
+        <p><strong>File:</strong> config/urls.py</p>
+
+        <div class="code-block">
+            <pre><code>from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('api/', include('api.urls')),
+]</code></pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Existing Student model ani serializer already astil
+            tar punha create karu naka. Same ViewSet sathi
+            duplicate URL patterns add karu naka.
+        </div>
+
+    </section>
+
+    <!-- SECTION 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Final API Endpoints</h2>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Endpoint</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>GET</td>
+                        <td>/api/</td>
+                        <td>API Root</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td>/api/students/</td>
+                        <td>All students</td>
+                    </tr>
+                    <tr>
+                        <td>POST</td>
+                        <td>/api/students/</td>
+                        <td>Create student</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td>/api/students/1/</td>
+                        <td>Single student</td>
+                    </tr>
+                    <tr>
+                        <td>PUT</td>
+                        <td>/api/students/1/</td>
+                        <td>Complete update</td>
+                    </tr>
+                    <tr>
+                        <td>PATCH</td>
+                        <td>/api/students/1/</td>
+                        <td>Partial update</td>
+                    </tr>
+                    <tr>
+                        <td>DELETE</td>
+                        <td>/api/students/1/</td>
+                        <td>Delete student</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td>/api/students/active_students/</td>
+                        <td>Custom action</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Run Server</h3>
+
+        <div class="code-block">
+            <pre><code>python manage.py runserver</code></pre>
+        </div>
+
+        <h3>Open API</h3>
+
+        <div class="output-box">
+            <pre><code>http://127.0.0.1:8000/api/</code></pre>
+        </div>
+
+        <p>
+            API root madhun Students endpoint open karun
+            CRUD operations test kara.
+        </p>
+
+    </section>
+
+    <!-- SECTION 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. SimpleRouter vs DefaultRouter</h2>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>SimpleRouter</th>
+                        <th>DefaultRouter</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Basic URL patterns generate karto.</td>
+                        <td>URL patterns sobat API root provide karto.</td>
+                    </tr>
+                    <tr>
+                        <td>Separate API root view nahi.</td>
+                        <td>API root view available aste.</td>
+                    </tr>
+                    <tr>
+                        <td>Simple routing requirement sathi useful.</td>
+                        <td>API root pahije asel tar useful.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- SECTION 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Important Points to Remember</h2>
+
+        <ul>
+            <li>Routers ViewSets sathi URL patterns generate kartat.</li>
+            <li>SimpleRouter basic routes create karto.</li>
+            <li>DefaultRouter API root view pan provide karto.</li>
+            <li>register() method ViewSet register karte.</li>
+            <li>prefix URL path define karto.</li>
+            <li>basename URL names generate karanyasathi use hoto.</li>
+            <li>@action decorator custom endpoints create karto.</li>
+            <li>detail=False collection-level action aahe.</li>
+            <li>detail=True single-object action aahe.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 13 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>13. Practice Questions</h2>
+
+        <ol>
+            <li>What are Routers in DRF?</li>
+            <li>Why do we use Routers?</li>
+            <li>What is SimpleRouter?</li>
+            <li>What is DefaultRouter?</li>
+            <li>What is the use of register()?</li>
+            <li>What is basename?</li>
+            <li>How does a Router generate URLs?</li>
+            <li>What is the difference between SimpleRouter and DefaultRouter?</li>
+            <li>What is the use of @action decorator?</li>
+            <li>What is the difference between detail=True and detail=False?</li>
+            <li>Create a Student API using ModelViewSet and DefaultRouter.</li>
+        </ol>
+
+    </section>
+
+    <!-- SECTION 14 -->
+
+    <section class="lesson-section interview-section">
+
+        <h2>14. Interview Questions</h2>
+
+        <h3>Q1. What are Routers?</h3>
+        <p>
+            Routers automatically generate URL patterns for ViewSets.
+        </p>
+
+        <h3>Q2. What is SimpleRouter?</h3>
+        <p>
+            SimpleRouter generates basic list and detail URL patterns.
+        </p>
+
+        <h3>Q3. What is DefaultRouter?</h3>
+        <p>
+            DefaultRouter generates URL patterns and provides an API root view.
+        </p>
+
+        <h3>Q4. What is basename?</h3>
+        <p>
+            Basename is used to generate URL names for a registered ViewSet.
+        </p>
+
+        <h3>Q5. What is the use of @action?</h3>
+        <p>
+            The @action decorator creates custom actions in a ViewSet.
+        </p>
+
+        <h3>Q6. What is the difference between detail=True and detail=False?</h3>
+        <p>
+            detail=True creates an action for a single object,
+            while detail=False creates an action for a collection.
+        </p>
+
+    </section>
+
+    <!-- COMPLETION -->
+
+    <div class="completion-box">
+        <h3>Topic 21 Completed!</h3>
+        <p>
+            Ata aapan SimpleRouter, DefaultRouter, register(),
+            basename ani custom actions shiklo.
+        </p>
+    </div>
+
+    <!-- NAVIGATION -->
+
+    <div class="lesson-navigation">
+        <a href="{% url 'drf_topic' 'viewsets' %}">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'drf_topic' 'authentication' %}">
+            Next Topic →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

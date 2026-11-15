@@ -1,0 +1,722 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Throttling in DRF{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/drf/throttling.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO REST FRAMEWORK</span>
+        <h1>30. Throttling in DRF</h1>
+        <p>
+            Learn how to control the number of API requests
+            made by users within a specific time period.
+        </p>
+    </div>
+
+    <!-- SECTION 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What is Throttling?</h2>
+
+        <p>
+            Throttling mhanje API la specific time period madhye
+            kiti requests allow karaychya he control karne.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                Throttling is a technique used to limit the
+                number of API requests made by a client
+                within a specific time period.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <p>
+            Samja ek API user la 1 minute madhye maximum
+            10 requests allow karte.
+        </p>
+
+        <div class="example-box">
+            <h3>Request Limit</h3>
+            <pre><code>Allowed Requests: 10 per minute
+
+Request 1  - Allowed
+Request 2  - Allowed
+Request 3  - Allowed
+...
+Request 10 - Allowed
+Request 11 - Throttled</code></pre>
+        </div>
+
+        <p>
+            Limit exceed zalyavar API 429 Too Many Requests
+            response deu shakte.
+        </p>
+
+    </section>
+
+    <!-- SECTION 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Why is Throttling Required?</h2>
+
+        <ul>
+            <li>API requests control karanyasathi.</li>
+            <li>Excessive requests limit karanyasathi.</li>
+            <li>API resources cha usage manage karanyasathi.</li>
+            <li>Fair usage policy implement karanyasathi.</li>
+            <li>Unnecessary repeated requests kami karanyasathi.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Throttling he complete security protection nahi.
+            Sensitive APIs secure karanyasathi authentication,
+            permissions ani proper security controls suddha avashyak aahet.
+        </div>
+
+    </section>
+
+    <!-- SECTION 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. What is Rate Limiting?</h2>
+
+        <p>
+            Rate Limiting mhanje ek user kiwa client specific
+            time period madhye kiti requests karu shakto
+            yachi limit define karne.
+        </p>
+
+        <h3>Examples</h3>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rate Limit</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>10/minute</td>
+                        <td>1 minute madhye 10 requests.</td>
+                    </tr>
+                    <tr>
+                        <td>100/hour</td>
+                        <td>1 hour madhye 100 requests.</td>
+                    </tr>
+                    <tr>
+                        <td>1000/day</td>
+                        <td>1 day madhye 1000 requests.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- SECTION 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. Types of Throttling in DRF</h2>
+
+        <p>
+            Django REST Framework madhye commonly three
+            built-in throttling classes vapartat.
+        </p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Throttle Class</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>AnonRateThrottle</td>
+                        <td>Unauthenticated users sathi request limit.</td>
+                    </tr>
+                    <tr>
+                        <td>UserRateThrottle</td>
+                        <td>Authenticated users sathi request limit.</td>
+                    </tr>
+                    <tr>
+                        <td>ScopedRateThrottle</td>
+                        <td>Specific API scope nusar request limit.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- SECTION 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. AnonRateThrottle</h2>
+
+        <p>
+            AnonRateThrottle ha unauthenticated users sathi
+            request limit apply karto.
+        </p>
+
+        <p>
+            Mhanje login na kelele users sathi IP address
+            nusar request limit lagu hote.
+        </p>
+
+        <h3>Step 1 – Import</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.throttling import AnonRateThrottle</code></pre>
+        </div>
+
+        <h3>Step 2 – Configure in settings.py</h3>
+
+        <div class="code-block">
+            <pre><code>REST_FRAMEWORK = {
+
+    'DEFAULT_THROTTLE_CLASSES': [
+        'rest_framework.throttling.AnonRateThrottle',
+    ],
+
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': '10/minute',
+    },
+
+}</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li>AnonRateThrottle unauthenticated requests limit karto.</li>
+            <li>anon ha default rate scope aahe.</li>
+            <li>10/minute mhanje configured rate 10 requests per minute.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. UserRateThrottle</h2>
+
+        <p>
+            UserRateThrottle ha authenticated users sathi
+            request limit apply karto.
+        </p>
+
+        <p>
+            Authenticated user chi request limit user identity
+            nusar track keli jate.
+        </p>
+
+        <h3>Configuration</h3>
+
+        <p><strong>File:</strong> config/settings.py</p>
+
+        <div class="code-block">
+            <pre><code>REST_FRAMEWORK = {
+
+    'DEFAULT_THROTTLE_CLASSES': [
+        'rest_framework.throttling.UserRateThrottle',
+    ],
+
+    'DEFAULT_THROTTLE_RATES': {
+        'user': '100/day',
+    },
+
+}</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li>UserRateThrottle authenticated users sathi aahe.</li>
+            <li>user ha default rate scope aahe.</li>
+            <li>100/day mhanje 1 day madhye 100 requests chi configured limit.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. ScopedRateThrottle</h2>
+
+        <p>
+            ScopedRateThrottle vaprun specific API endpoints
+            sathi vegvegli request limits define karta yetat.
+        </p>
+
+        <h3>Step 1 – Configure in settings.py</h3>
+
+        <div class="code-block">
+            <pre><code>REST_FRAMEWORK = {
+
+    'DEFAULT_THROTTLE_CLASSES': [
+        'rest_framework.throttling.ScopedRateThrottle',
+    ],
+
+    'DEFAULT_THROTTLE_RATES': {
+        'student_api': '20/minute',
+        'report_api': '5/minute',
+    },
+
+}</code></pre>
+        </div>
+
+        <h3>Step 2 – Apply Scope in View</h3>
+
+        <p><strong>File:</strong> api/views.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.viewsets import ModelViewSet
+
+from .models import Student
+from .serializers import StudentSerializer
+
+
+class StudentViewSet(ModelViewSet):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+    throttle_scope = 'student_api'</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li>throttle_scope view cha rate scope define karto.</li>
+            <li>student_api la 20 requests per minute limit aahe.</li>
+            <li>Different API views sathi different scopes define karta yetat.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Note:</strong>
+            ScopedRateThrottle authenticated user kiwa
+            unauthenticated client chi request identity track karto.
+            Fakat scope define kelyane rate limit enable hot nahi;
+            ScopedRateThrottle class suddha configure asne avashyak aahe.
+        </div>
+
+    </section>
+
+    <!-- SECTION 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. DEFAULT_THROTTLE_CLASSES</h2>
+
+        <p>
+            DEFAULT_THROTTLE_CLASSES madhye API sathi
+            default throttling classes define kele jatat.
+        </p>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>REST_FRAMEWORK = {
+
+    'DEFAULT_THROTTLE_CLASSES': [
+        'rest_framework.throttling.AnonRateThrottle',
+        'rest_framework.throttling.UserRateThrottle',
+    ],
+
+}</code></pre>
+        </div>
+
+        <p>
+            Ya configuration madhye unauthenticated users
+            ani authenticated users donhinsathi throttle classes
+            enable hotat.
+        </p>
+
+    </section>
+
+    <!-- SECTION 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. DEFAULT_THROTTLE_RATES</h2>
+
+        <p>
+            DEFAULT_THROTTLE_RATES madhye pratyek throttle
+            class sathi request limit define keli jate.
+        </p>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>REST_FRAMEWORK = {
+
+    'DEFAULT_THROTTLE_CLASSES': [
+        'rest_framework.throttling.AnonRateThrottle',
+        'rest_framework.throttling.UserRateThrottle',
+    ],
+
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': '10/minute',
+        'user': '100/day',
+    },
+
+}</code></pre>
+        </div>
+
+        <h3>Supported Time Periods</h3>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Unit</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>second</td>
+                        <td>Per second</td>
+                    </tr>
+                    <tr>
+                        <td>minute</td>
+                        <td>Per minute</td>
+                    </tr>
+                    <tr>
+                        <td>hour</td>
+                        <td>Per hour</td>
+                    </tr>
+                    <tr>
+                        <td>day</td>
+                        <td>Per day</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- SECTION 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Custom Throttling</h2>
+
+        <p>
+            DRF madhye aapan custom throttle class suddha create
+            karu shakto.
+        </p>
+
+        <h3>Step 1 – Create throttles.py</h3>
+
+        <p><strong>File:</strong> api/throttles.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.throttling import UserRateThrottle
+
+
+class CustomUserThrottle(UserRateThrottle):
+
+    scope = 'custom_user'</code></pre>
+        </div>
+
+        <h3>Step 2 – Configure Rate</h3>
+
+        <p><strong>File:</strong> config/settings.py</p>
+
+        <div class="code-block">
+            <pre><code>REST_FRAMEWORK = {
+
+    'DEFAULT_THROTTLE_CLASSES': [
+        'api.throttles.CustomUserThrottle',
+    ],
+
+    'DEFAULT_THROTTLE_RATES': {
+        'custom_user': '20/hour',
+    },
+
+}</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li>CustomUserThrottle hi custom throttle class aahe.</li>
+            <li>Ti UserRateThrottle inherit karte.</li>
+            <li>scope madhye custom_user define kele aahe.</li>
+            <li>Settings madhye tyacha rate 20/hour define kela aahe.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Throttling with a Specific View</h2>
+
+        <p>
+            Throttling global settings madhye configure na karta
+            specific API view madhye suddha apply karta yete.
+        </p>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.viewsets import ModelViewSet
+from rest_framework.throttling import UserRateThrottle
+
+class StudentViewSet(ModelViewSet):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+    throttle_classes = [UserRateThrottle]</code></pre>
+        </div>
+
+        <p>
+            Ya view madhye UserRateThrottle apply hoil.
+            Tyacha rate settings madhil user scope nusar
+            configure karava lagel.
+        </p>
+
+    </section>
+
+    <!-- SECTION 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Throttling Response</h2>
+
+        <p>
+            Configured request limit exceed zalyas DRF
+            request reject karu shakto.
+        </p>
+
+        <h3>Example Response</h3>
+
+        <div class="output-box">
+            <pre><code>HTTP 429 Too Many Requests
+
+{
+    "detail": "Request was throttled."
+}</code></pre>
+        </div>
+
+        <p>
+            429 ha HTTP status code client ne allowed
+            request rate exceed kelyache darshavto.
+        </p>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            DRF throttling ha approximate rate limiting mechanism
+            aahe. To security protection kiwa strict request
+            counting system samju naye.
+        </div>
+
+    </section>
+
+    <!-- SECTION 13 -->
+
+    <section class="lesson-section">
+
+        <h2>13. Practical API Rate Limiting</h2>
+
+        <p>
+            Ata aapan Student API sathi authenticated ani
+            unauthenticated users che request limits configure karuya.
+        </p>
+
+        <h3>Step 1 – Update settings.py</h3>
+
+        <div class="code-block">
+            <pre><code>REST_FRAMEWORK = {
+
+    'DEFAULT_THROTTLE_CLASSES': [
+        'rest_framework.throttling.AnonRateThrottle',
+        'rest_framework.throttling.UserRateThrottle',
+    ],
+
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': '10/minute',
+        'user': '100/day',
+    },
+
+}</code></pre>
+        </div>
+
+        <h3>Step 2 – Create Student API</h3>
+
+        <p><strong>File:</strong> api/views.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.viewsets import ModelViewSet
+
+from .models import Student
+from .serializers import StudentSerializer
+
+
+class StudentViewSet(ModelViewSet):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer</code></pre>
+        </div>
+
+        <h3>Step 3 – Run Server</h3>
+
+        <div class="code-block">
+            <pre><code>python manage.py runserver</code></pre>
+        </div>
+
+        <h3>Step 4 – Test API</h3>
+
+        <div class="output-box">
+            <pre><code>GET /api/students/</code></pre>
+        </div>
+
+        <p>
+            Unauthenticated user sathi configured limit
+            10 requests per minute aahe.
+            Authenticated user sathi 100 requests per day aahe.
+        </p>
+
+        <p>
+            Limit exceed zalyas API 429 response deu shakte.
+        </p>
+
+    </section>
+
+    <!-- SECTION 14 -->
+
+    <section class="lesson-section">
+
+        <h2>14. Important Points to Remember</h2>
+
+        <ul>
+            <li>Throttling API requests limit karte.</li>
+            <li>Rate Limiting request count ani time period define karte.</li>
+            <li>AnonRateThrottle unauthenticated users sathi aahe.</li>
+            <li>UserRateThrottle authenticated users sathi aahe.</li>
+            <li>ScopedRateThrottle specific API scopes sathi aahe.</li>
+            <li>DEFAULT_THROTTLE_CLASSES throttle classes configure karte.</li>
+            <li>DEFAULT_THROTTLE_RATES request limits define karte.</li>
+            <li>Custom throttling class create karta yete.</li>
+            <li>429 Too Many Requests ha throttling response aahe.</li>
+            <li>Throttling ha complete security solution nahi.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 15 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>15. Practice Questions</h2>
+
+        <ol>
+            <li>What is Throttling in DRF?</li>
+            <li>What is Rate Limiting?</li>
+            <li>Why is Throttling required?</li>
+            <li>What is AnonRateThrottle?</li>
+            <li>What is UserRateThrottle?</li>
+            <li>What is ScopedRateThrottle?</li>
+            <li>What is DEFAULT_THROTTLE_CLASSES?</li>
+            <li>What is DEFAULT_THROTTLE_RATES?</li>
+            <li>How can we create a Custom Throttle Class?</li>
+            <li>What is HTTP 429 status code?</li>
+        </ol>
+
+    </section>
+
+    <!-- SECTION 16 -->
+
+    <section class="lesson-section interview-section">
+
+        <h2>16. Interview Questions</h2>
+
+        <h3>Q1. What is Throttling?</h3>
+        <p>
+            Throttling is a technique used to limit API requests
+            within a specific time period.
+        </p>
+
+        <h3>Q2. What is AnonRateThrottle?</h3>
+        <p>
+            It limits requests made by unauthenticated clients.
+        </p>
+
+        <h3>Q3. What is UserRateThrottle?</h3>
+        <p>
+            It limits requests made by authenticated users.
+        </p>
+
+        <h3>Q4. What is ScopedRateThrottle?</h3>
+        <p>
+            It applies different request limits to specific
+            API scopes.
+        </p>
+
+        <h3>Q5. What is Rate Limiting?</h3>
+        <p>
+            Rate Limiting defines the maximum number of requests
+            allowed within a given time period.
+        </p>
+
+        <h3>Q6. What is HTTP 429?</h3>
+        <p>
+            HTTP 429 means Too Many Requests.
+        </p>
+
+    </section>
+
+    <!-- COMPLETION -->
+
+    <div class="completion-box">
+        <h3>Topic 30 Completed!</h3>
+        <p>
+            Ata aapan Throttling, Rate Limiting, AnonRateThrottle,
+            UserRateThrottle, ScopedRateThrottle ani Custom
+            Throttling shiklo.
+        </p>
+    </div>
+
+    <!-- NAVIGATION -->
+
+    <div class="lesson-navigation">
+        <a href="{% url 'drf_topic' 'ordering' %}">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'drf_topic' 'relationships' %}">
+            Next Topic →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

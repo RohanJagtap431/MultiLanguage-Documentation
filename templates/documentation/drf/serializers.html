@@ -1,0 +1,730 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Serializers in DRF{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/drf/serializers.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO REST FRAMEWORK</span>
+        <h1>09. Serializers in DRF</h1>
+        <p>
+            Serializers mhanje kay, data JSON madhye convert kasa hoto
+            ani API madhye data validate kasa hoto te shikuya.
+        </p>
+    </div>
+
+    <!-- SECTION 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What is a Serializer?</h2>
+
+        <p>
+            Serializer ha Django REST Framework madhil ek important
+            component aahe. To Python objects ani complex data la
+            API sathi suitable format madhye convert karto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                A Serializer converts complex data such as Django
+                model instances into Python native data types that
+                can be easily converted into JSON.
+            </p>
+        </div>
+
+        <h3>Simple Example</h3>
+
+        <p>
+            Samaj aaplyakade Python madhye Student object aahe.
+            API madhun ha data JSON format madhye pathavaycha aahe.
+        </p>
+
+        <div class="code-block">
+            <pre><code>student = {
+    "id": 1,
+    "name": "Rohan",
+    "course": "BSc CS"
+}</code></pre>
+        </div>
+
+        <p>
+            Serializer ya data la API response sathi
+            suitable format madhye convert karayla madat karto.
+        </p>
+
+    </section>
+
+    <!-- SECTION 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Why do we use Serializers?</h2>
+
+        <p>
+            DRF madhye Serializers cha use mainly khalil
+            kamansathi hoto.
+        </p>
+
+        <ul>
+            <li>Python objects cha data API response madhye convert karne.</li>
+            <li>Incoming API data validate karne.</li>
+            <li>JSON data process karanyasathi madat karne.</li>
+            <li>Data fields define karne.</li>
+            <li>Data create ani update karanyasathi madat karne.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Remember:</strong>
+            Serializer fakt JSON conversion sathi nahi.
+            To incoming data validation ani deserialization
+            sathi suddha use hoto.
+        </div>
+
+    </section>
+
+    <!-- SECTION 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. Serialization</h2>
+
+        <p>
+            Serialization mhanje complex Python data la
+            simple Python native data types madhye convert karne.
+            Ha data nantar JSON sarkhya format madhye render
+            karta yeto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                Serialization is the process of converting
+                complex data into Python native data types
+                suitable for rendering.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <p>
+            Aaplyakade Student data aahe.
+        </p>
+
+        <div class="code-block">
+            <pre><code>student = {
+    "id": 1,
+    "name": "Rohan",
+    "course": "BSc CS"
+}</code></pre>
+        </div>
+
+        <p>
+            Serializer vaprun ha data process karu.
+        </p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework import serializers
+
+class StudentSerializer(serializers.Serializer):
+
+    id = serializers.IntegerField()
+    name = serializers.CharField()
+    course = serializers.CharField()</code></pre>
+        </div>
+
+        <p>
+            Ata serializer la Student data pass karu.
+        </p>
+
+        <div class="code-block">
+            <pre><code>serializer = StudentSerializer(student)
+
+print(serializer.data)</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="code-block">
+            <pre><code>{
+    'id': 1,
+    'name': 'Rohan',
+    'course': 'BSc CS'
+}</code></pre>
+        </div>
+
+        <p>
+            <strong>serializer.data</strong> madhun
+            serialized Python data milto.
+        </p>
+
+    </section>
+
+    <!-- SECTION 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. Deserialization</h2>
+
+        <p>
+            Deserialization mhanje client kadun aalela data
+            process karun Python native data madhye convert karne.
+            Ya process madhye data validation suddha karta yete.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                Deserialization is the process of converting
+                incoming data into Python native data types
+                after validation.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <p>
+            Samaj client ne API la ha data pathavla.
+        </p>
+
+        <div class="code-block">
+            <pre><code>{
+    "name": "Rohan",
+    "course": "BSc CS"
+}</code></pre>
+        </div>
+
+        <p>
+            Ha data serializer madhye pass karu.
+        </p>
+
+        <div class="code-block">
+            <pre><code>serializer = StudentSerializer(data={
+    "id": 1,
+    "name": "Rohan",
+    "course": "BSc CS"
+})
+
+if serializer.is_valid():
+    print(serializer.validated_data)</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="code-block">
+            <pre><code>{
+    'id': 1,
+    'name': 'Rohan',
+    'course': 'BSc CS'
+}</code></pre>
+        </div>
+
+        <p>
+            <strong>is_valid()</strong> data valid aahe ka
+            te check karto. Valid data
+            <strong>validated_data</strong> madhun milto.
+        </p>
+
+    </section>
+
+    <!-- SECTION 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. Serializer Fields</h2>
+
+        <p>
+            Serializer madhye fields define kele jatat.
+            Pratyek field specific type cha data accept karto.
+        </p>
+
+        <h3>Common Serializer Fields</h3>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>CharField</td>
+                        <td>Text data</td>
+                    </tr>
+                    <tr>
+                        <td>IntegerField</td>
+                        <td>Integer numbers</td>
+                    </tr>
+                    <tr>
+                        <td>FloatField</td>
+                        <td>Decimal numbers</td>
+                    </tr>
+                    <tr>
+                        <td>BooleanField</td>
+                        <td>True or False</td>
+                    </tr>
+                    <tr>
+                        <td>EmailField</td>
+                        <td>Email address</td>
+                    </tr>
+                    <tr>
+                        <td>DateField</td>
+                        <td>Date values</td>
+                    </tr>
+                    <tr>
+                        <td>DateTimeField</td>
+                        <td>Date and time</td>
+                    </tr>
+                    <tr>
+                        <td>ChoiceField</td>
+                        <td>Fixed choices madhun value</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework import serializers
+
+class StudentSerializer(serializers.Serializer):
+
+    name = serializers.CharField()
+    age = serializers.IntegerField()
+    email = serializers.EmailField()
+    is_active = serializers.BooleanField()</code></pre>
+        </div>
+
+        <p>
+            Ithe pratyek field la specific data type dilela aahe.
+        </p>
+
+    </section>
+
+    <!-- SECTION 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. Required and Optional Fields</h2>
+
+        <p>
+            Serializer madhye kahi fields required astat,
+            tar kahi optional thevta yetat.
+        </p>
+
+        <h3>Required Field</h3>
+
+        <div class="code-block">
+            <pre><code>name = serializers.CharField()</code></pre>
+        </div>
+
+        <p>
+            Default ne required field chi value dene garjeche aste.
+        </p>
+
+        <h3>Optional Field</h3>
+
+        <div class="code-block">
+            <pre><code>age = serializers.IntegerField(required=False)</code></pre>
+        </div>
+
+        <p>
+            <strong>required=False</strong> mule age field
+            request madhye nasla tari validation fail hot nahi.
+        </p>
+
+        <h3>Allow Blank</h3>
+
+        <div class="code-block">
+            <pre><code>name = serializers.CharField(
+    allow_blank=True
+)</code></pre>
+        </div>
+
+        <p>
+            <strong>allow_blank=True</strong> mule empty string
+            value accept karta yete.
+        </p>
+
+    </section>
+
+    <!-- SECTION 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. Data Validation</h2>
+
+        <p>
+            API la client kadun data milalyanantar to valid
+            aahe ka he check karne garjeche aste.
+            Ya process la Validation mhantat.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                Validation is the process of checking whether
+                incoming data follows the required rules.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework import serializers
+
+class StudentSerializer(serializers.Serializer):
+
+    name = serializers.CharField()
+    age = serializers.IntegerField()
+
+    def validate_age(self, value):
+
+        if value < 18:
+            raise serializers.ValidationError(
+                "Age must be 18 or above."
+            )
+
+        return value</code></pre>
+        </div>
+
+        <h3>Validation Explanation</h3>
+
+        <ul>
+            <li><strong>validate_age():</strong> Age field validate karto.</li>
+            <li><strong>value:</strong> User ne pathavleli age.</li>
+            <li><strong>ValidationError:</strong> Invalid data aslyas error raise karto.</li>
+            <li><strong>return value:</strong> Valid value return karto.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Remember:</strong>
+            Field-level validation method che nav
+            <code>validate_fieldname()</code> ya format madhye aste.
+        </div>
+
+    </section>
+
+    <!-- SECTION 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. is_valid() Method</h2>
+
+        <p>
+            is_valid() method serializer madhil incoming data
+            valid aahe ki nahi he check karte.
+        </p>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>serializer = StudentSerializer(data={
+    "name": "Rohan",
+    "age": 20
+})
+
+if serializer.is_valid():
+    print("Valid Data")
+else:
+    print(serializer.errors)</code></pre>
+        </div>
+
+        <h3>Possible Output</h3>
+
+        <div class="code-block">
+            <pre><code>Valid Data</code></pre>
+        </div>
+
+        <p>
+            Data valid nasel tar serializer.errors madhye
+            validation errors miltat.
+        </p>
+
+        <h3>Invalid Data Example</h3>
+
+        <div class="code-block">
+            <pre><code>serializer = StudentSerializer(data={
+    "name": "Rohan",
+    "age": 15
+})
+
+if serializer.is_valid():
+    print("Valid Data")
+else:
+    print(serializer.errors)</code></pre>
+        </div>
+
+        <h3>Possible Output</h3>
+
+        <div class="code-block">
+            <pre><code>{
+    'age': ['Age must be 18 or above.']
+}</code></pre>
+        </div>
+
+    </section>
+
+    <!-- SECTION 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. validated_data and errors</h2>
+
+        <p>
+            Serializer validation successful zalyanantar
+            validated_data madhun cleaned data milto.
+        </p>
+
+        <div class="code-block">
+            <pre><code>if serializer.is_valid():
+    print(serializer.validated_data)</code></pre>
+        </div>
+
+        <p>
+            Validation fail zalyas errors madhun problem samajto.
+        </p>
+
+        <div class="code-block">
+            <pre><code>if not serializer.is_valid():
+    print(serializer.errors)</code></pre>
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Property</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>serializer.data</td>
+                        <td>Serialized output data</td>
+                    </tr>
+                    <tr>
+                        <td>serializer.validated_data</td>
+                        <td>Validated incoming data</td>
+                    </tr>
+                    <tr>
+                        <td>serializer.errors</td>
+                        <td>Validation errors</td>
+                    </tr>
+                    <tr>
+                        <td>serializer.is_valid()</td>
+                        <td>Data validation check</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- SECTION 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Complete Student Serializer</h2>
+
+        <p>
+            Ata aapan shiklelya concepts cha use karun
+            complete Student Serializer banavu.
+        </p>
+
+        <p><strong>File:</strong> api/serializers.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework import serializers
+
+class StudentSerializer(serializers.Serializer):
+
+    name = serializers.CharField(max_length=100)
+
+    age = serializers.IntegerField()
+
+    course = serializers.CharField(max_length=100)
+
+    email = serializers.EmailField()
+
+    def validate_age(self, value):
+
+        if value < 18:
+            raise serializers.ValidationError(
+                "Age must be 18 or above."
+            )
+
+        return value</code></pre>
+        </div>
+
+        <h3>Test the Serializer</h3>
+
+        <p>
+            Django shell madhye serializer test karu shakto.
+        </p>
+
+        <div class="code-block">
+            <pre><code>python manage.py shell</code></pre>
+        </div>
+
+        <div class="code-block">
+            <pre><code>from api.serializers import StudentSerializer
+
+serializer = StudentSerializer(data={
+    "name": "Rohan",
+    "age": 20,
+    "course": "BSc CS",
+    "email": "rohan@example.com"
+})
+
+serializer.is_valid()
+
+serializer.validated_data</code></pre>
+        </div>
+
+        <p>
+            Data valid asel tar validated_data madhye
+            student chi validated information disel.
+        </p>
+
+    </section>
+
+    <!-- SECTION 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Serialization vs Deserialization</h2>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Serialization</th>
+                        <th>Deserialization</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Complex data to Python native data</td>
+                        <td>Incoming data to Python native data</td>
+                    </tr>
+                    <tr>
+                        <td>Data response sathi prepare hoto</td>
+                        <td>Data input sathi process hoto</td>
+                    </tr>
+                    <tr>
+                        <td>serializer = StudentSerializer(student)</td>
+                        <td>StudentSerializer(data=request.data)</td>
+                    </tr>
+                    <tr>
+                        <td>serializer.data</td>
+                        <td>serializer.is_valid()</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- SECTION 12 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>12. Practice Questions</h2>
+
+        <ol>
+            <li>What is a Serializer in DRF?</li>
+            <li>Why do we use Serializers?</li>
+            <li>What is Serialization?</li>
+            <li>What is Deserialization?</li>
+            <li>Write any five Serializer fields.</li>
+            <li>What is the use of is_valid()?</li>
+            <li>What is validated_data?</li>
+            <li>What is serializer.errors?</li>
+            <li>What is the use of validate_age()?</li>
+            <li>Write a Student Serializer using serializers.Serializer.</li>
+        </ol>
+
+    </section>
+
+    <!-- SECTION 13 -->
+
+    <section class="lesson-section interview-section">
+
+        <h2>13. Interview Questions</h2>
+
+        <h3>Q1. What is a Serializer in DRF?</h3>
+        <p>
+            A Serializer converts complex data into Python
+            native data types and helps validate incoming data.
+        </p>
+
+        <h3>Q2. What is Serialization?</h3>
+        <p>
+            Serialization converts complex data into Python
+            native data types suitable for rendering.
+        </p>
+
+        <h3>Q3. What is Deserialization?</h3>
+        <p>
+            Deserialization processes incoming data into
+            Python native data types after validation.
+        </p>
+
+        <h3>Q4. What is is_valid()?</h3>
+        <p>
+            is_valid() checks whether incoming data follows
+            the serializer's validation rules.
+        </p>
+
+        <h3>Q5. What is validated_data?</h3>
+        <p>
+            validated_data contains the incoming data
+            after successful validation.
+        </p>
+
+        <h3>Q6. What is serializer.errors?</h3>
+        <p>
+            It contains the errors generated when
+            serializer validation fails.
+        </p>
+
+    </section>
+
+    <!-- COMPLETION -->
+
+    <div class="completion-box">
+        <h3>Topic 09 Completed!</h3>
+        <p>
+            Ata aapan Serializers, Serialization,
+            Deserialization, Fields ani Validation samjun ghetle.
+        </p>
+    </div>
+
+    <!-- NAVIGATION -->
+
+    <div class="lesson-navigation">
+        <a href="{% url 'drf_topic' 'first-api' %}">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'drf_topic' 'model-serializer' %}">
+            Next Topic →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

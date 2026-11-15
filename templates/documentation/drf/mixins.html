@@ -1,0 +1,813 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Mixins in DRF{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/drf/mixins.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO REST FRAMEWORK</span>
+        <h1>18. Mixins in DRF</h1>
+        <p>
+            Learn how to use reusable mixin classes with
+            GenericAPIView to build API endpoints.
+        </p>
+    </div>
+
+    <!-- SECTION 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What are Mixins?</h2>
+
+        <p>
+            Mixins ya DRF madhil reusable classes aahet.
+            Tyanchya madatine aapan API madhil common operations
+            perform karu shakto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                Mixins are reusable classes that provide methods
+                for performing common API operations such as
+                listing, creating, retrieving, updating and deleting objects.
+            </p>
+        </div>
+
+        <h3>Why use Mixins?</h3>
+
+        <ul>
+            <li>Common API operations sathi ready-made methods miltat.</li>
+            <li>Code repetition kami hote.</li>
+            <li>GenericAPIView sobat use karta yetat.</li>
+            <li>Custom API views tayar karne sope hote.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Mixins swatah complete API view nahit.
+            Te GenericAPIView sobat inherit karun use kele jatat.
+        </div>
+
+    </section>
+
+    <!-- SECTION 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Types of Mixins</h2>
+
+        <p>
+            DRF madhye mainly five important model mixins aahet.
+        </p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mixin</th>
+                        <th>Method</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ListModelMixin</td>
+                        <td>list()</td>
+                        <td>Multiple records fetch karne.</td>
+                    </tr>
+                    <tr>
+                        <td>CreateModelMixin</td>
+                        <td>create()</td>
+                        <td>New record create karne.</td>
+                    </tr>
+                    <tr>
+                        <td>RetrieveModelMixin</td>
+                        <td>retrieve()</td>
+                        <td>Single record fetch karne.</td>
+                    </tr>
+                    <tr>
+                        <td>UpdateModelMixin</td>
+                        <td>update()</td>
+                        <td>Record update karne.</td>
+                    </tr>
+                    <tr>
+                        <td>DestroyModelMixin</td>
+                        <td>destroy()</td>
+                        <td>Record delete karne.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Import Mixins</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework import mixins</code></pre>
+        </div>
+
+    </section>
+
+    <!-- SECTION 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. ListModelMixin</h2>
+
+        <p>
+            ListModelMixin cha use database madhil multiple
+            records fetch karanyasathi hoto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                ListModelMixin provides the list() method
+                to retrieve multiple objects.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework import mixins
+from rest_framework.generics import GenericAPIView
+
+class StudentListView(
+    mixins.ListModelMixin,
+    GenericAPIView
+):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+    def get(self, request):
+        return self.list(request)</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li><strong>ListModelMixin:</strong> list() method provide karte.</li>
+            <li><strong>GenericAPIView:</strong> Queryset ani serializer support dete.</li>
+            <li><strong>get():</strong> GET request handle karte.</li>
+            <li><strong>self.list():</strong> Student records fetch karun response dete.</li>
+        </ul>
+
+        <div class="output-box">
+            <strong>API Request</strong>
+            <pre><code>GET /api/students/</code></pre>
+        </div>
+
+    </section>
+
+    <!-- SECTION 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. CreateModelMixin</h2>
+
+        <p>
+            CreateModelMixin cha use database madhye new
+            record create karanyasathi hoto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                CreateModelMixin provides the create() method
+                to create a new object.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>class StudentCreateView(
+    mixins.CreateModelMixin,
+    GenericAPIView
+):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+    def post(self, request):
+        return self.create(request)</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li>POST request accept hote.</li>
+            <li>Request madhil data serializer kade jato.</li>
+            <li>Serializer data validate karto.</li>
+            <li>Valid data database madhye save hoto.</li>
+        </ul>
+
+        <div class="output-box">
+            <strong>API Request</strong>
+            <pre><code>POST /api/students/</code></pre>
+        </div>
+
+    </section>
+
+    <!-- SECTION 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. RetrieveModelMixin</h2>
+
+        <p>
+            RetrieveModelMixin cha use ek specific object
+            fetch karanyasathi hoto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                RetrieveModelMixin provides the retrieve() method
+                to retrieve a single object.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>class StudentDetailView(
+    mixins.RetrieveModelMixin,
+    GenericAPIView
+):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+    def get(self, request, *args, **kwargs):
+        return self.retrieve(request, *args, **kwargs)</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li>GET request accept hote.</li>
+            <li>URL madhil primary key vaprun object find hoto.</li>
+            <li>Serializer object convert karto.</li>
+            <li>Client la single student cha response milto.</li>
+        </ul>
+
+        <div class="output-box">
+            <strong>API Request</strong>
+            <pre><code>GET /api/students/1/</code></pre>
+        </div>
+
+    </section>
+
+    <!-- SECTION 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. UpdateModelMixin</h2>
+
+        <p>
+            UpdateModelMixin cha use existing object update
+            karanyasathi hoto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                UpdateModelMixin provides update() and
+                partial_update() methods to update an object.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>class StudentUpdateView(
+    mixins.UpdateModelMixin,
+    GenericAPIView
+):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+    def put(self, request, *args, **kwargs):
+        return self.update(request, *args, **kwargs)
+
+    def patch(self, request, *args, **kwargs):
+        return self.partial_update(
+            request,
+            *args,
+            **kwargs
+        )</code></pre>
+        </div>
+
+        <h3>HTTP Methods</h3>
+
+        <ul>
+            <li><strong>PUT:</strong> Complete object update karte.</li>
+            <li><strong>PATCH:</strong> Object madhil specific fields update karte.</li>
+        </ul>
+
+        <div class="output-box">
+            <strong>API Request</strong>
+            <pre><code>PUT   /api/students/1/
+PATCH /api/students/1/</code></pre>
+        </div>
+
+    </section>
+
+    <!-- SECTION 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. DestroyModelMixin</h2>
+
+        <p>
+            DestroyModelMixin cha use existing object
+            delete karanyasathi hoto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                DestroyModelMixin provides the destroy() method
+                to delete an existing object.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>class StudentDeleteView(
+    mixins.DestroyModelMixin,
+    GenericAPIView
+):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+    def delete(self, request, *args, **kwargs):
+        return self.destroy(request, *args, **kwargs)</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li>DELETE request accept hote.</li>
+            <li>Primary key vaprun object find hoto.</li>
+            <li>destroy() method object delete karte.</li>
+            <li>Successful delete nantar HTTP 204 response milto.</li>
+        </ul>
+
+        <div class="output-box">
+            <strong>API Request</strong>
+            <pre><code>DELETE /api/students/1/</code></pre>
+        </div>
+
+    </section>
+
+    <!-- SECTION 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. GenericAPIView with Multiple Mixins</h2>
+
+        <p>
+            Aapan ekach view madhye multiple mixins inherit
+            karun multiple API operations handle karu shakto.
+        </p>
+
+        <h3>Example: List and Create API</h3>
+
+        <div class="code-block">
+            <pre><code>class StudentListCreateView(
+    mixins.ListModelMixin,
+    mixins.CreateModelMixin,
+    GenericAPIView
+):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+    def get(self, request):
+        return self.list(request)
+
+    def post(self, request):
+        return self.create(request)</code></pre>
+        </div>
+
+        <h3>Example: Retrieve, Update and Delete API</h3>
+
+        <div class="code-block">
+            <pre><code>class StudentDetailView(
+    mixins.RetrieveModelMixin,
+    mixins.UpdateModelMixin,
+    mixins.DestroyModelMixin,
+    GenericAPIView
+):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+    def get(self, request, *args, **kwargs):
+        return self.retrieve(request, *args, **kwargs)
+
+    def put(self, request, *args, **kwargs):
+        return self.update(request, *args, **kwargs)
+
+    def patch(self, request, *args, **kwargs):
+        return self.partial_update(
+            request,
+            *args,
+            **kwargs
+        )
+
+    def delete(self, request, *args, **kwargs):
+        return self.destroy(request, *args, **kwargs)</code></pre>
+        </div>
+
+    </section>
+
+    <!-- SECTION 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Practical Student CRUD API using Mixins</h2>
+
+        <p>
+            Ata aapan Mixins vaprun complete Student CRUD API
+            create karuya.
+        </p>
+
+        <h3>Step 1 – Model</h3>
+
+        <p>
+            Topic 17 madhil Student model already asel tar
+            toch model use kara.
+        </p>
+
+        <div class="code-block">
+            <pre><code># api/models.py
+
+from django.db import models
+
+class Student(models.Model):
+
+    name = models.CharField(max_length=100)
+    email = models.EmailField(unique=True)
+    age = models.PositiveIntegerField()
+
+    def __str__(self):
+        return self.name</code></pre>
+        </div>
+
+        <h3>Step 2 – Serializer</h3>
+
+        <div class="code-block">
+            <pre><code># api/serializers.py
+
+from rest_framework import serializers
+from .models import Student
+
+class StudentSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Student
+        fields = '__all__'</code></pre>
+        </div>
+
+        <h3>Step 3 – Views</h3>
+
+        <div class="code-block">
+            <pre><code># api/views.py
+
+from rest_framework import mixins
+from rest_framework.generics import GenericAPIView
+
+from .models import Student
+from .serializers import StudentSerializer
+
+
+class StudentListCreateView(
+    mixins.ListModelMixin,
+    mixins.CreateModelMixin,
+    GenericAPIView
+):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+    def get(self, request):
+        return self.list(request)
+
+    def post(self, request):
+        return self.create(request)
+
+
+class StudentDetailView(
+    mixins.RetrieveModelMixin,
+    mixins.UpdateModelMixin,
+    mixins.DestroyModelMixin,
+    GenericAPIView
+):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+    def get(self, request, *args, **kwargs):
+        return self.retrieve(request, *args, **kwargs)
+
+    def put(self, request, *args, **kwargs):
+        return self.update(request, *args, **kwargs)
+
+    def patch(self, request, *args, **kwargs):
+        return self.partial_update(
+            request,
+            *args,
+            **kwargs
+        )
+
+    def delete(self, request, *args, **kwargs):
+        return self.destroy(request, *args, **kwargs)</code></pre>
+        </div>
+
+        <h3>Step 4 – URLs</h3>
+
+        <div class="code-block">
+            <pre><code># api/urls.py
+
+from django.urls import path
+
+from .views import (
+    StudentListCreateView,
+    StudentDetailView
+)
+
+urlpatterns = [
+
+    path(
+        'students/',
+        StudentListCreateView.as_view(),
+        name='student_list'
+    ),
+
+    path(
+        'students/&lt;int:pk&gt;/',
+        StudentDetailView.as_view(),
+        name='student_detail'
+    ),
+
+]</code></pre>
+        </div>
+
+        <h3>Step 5 – Main URL Configuration</h3>
+
+        <div class="code-block">
+            <pre><code># config/urls.py
+
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('api/', include('api.urls')),
+]</code></pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Topic 17 madhil Student CRUD API sobat same URL patterns
+            duplicate add karu naka. Ya practical sathi existing
+            views replace kara kiwa separate URL prefix use kara.
+            Model ani Serializer already astil tar te punha create karu naka.
+        </div>
+
+    </section>
+
+    <!-- SECTION 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Final API Endpoints</h2>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Endpoint</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>GET</td>
+                        <td>/api/students/</td>
+                        <td>All students fetch</td>
+                    </tr>
+                    <tr>
+                        <td>POST</td>
+                        <td>/api/students/</td>
+                        <td>New student create</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td>/api/students/1/</td>
+                        <td>Single student fetch</td>
+                    </tr>
+                    <tr>
+                        <td>PUT</td>
+                        <td>/api/students/1/</td>
+                        <td>Complete update</td>
+                    </tr>
+                    <tr>
+                        <td>PATCH</td>
+                        <td>/api/students/1/</td>
+                        <td>Partial update</td>
+                    </tr>
+                    <tr>
+                        <td>DELETE</td>
+                        <td>/api/students/1/</td>
+                        <td>Student delete</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Run Django Server</h3>
+
+        <div class="code-block">
+            <pre><code>python manage.py runserver</code></pre>
+        </div>
+
+        <h3>Open API</h3>
+
+        <div class="output-box">
+            <pre><code>http://127.0.0.1:8000/api/students/</code></pre>
+        </div>
+
+        <p>
+            Browser kiwa DRF Browsable API madhun GET ani POST
+            test kara. Detail URL var GET, PUT, PATCH ani DELETE
+            test kara.
+        </p>
+
+    </section>
+
+    <!-- SECTION 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Generic Views vs Mixins</h2>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Generic Views</th>
+                        <th>Mixins</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ready-made API view classes.</td>
+                        <td>Reusable operation methods.</td>
+                    </tr>
+                    <tr>
+                        <td>Less code and easy to use.</td>
+                        <td>More control over view structure.</td>
+                    </tr>
+                    <tr>
+                        <td>Common operations directly handle kartat.</td>
+                        <td>GenericAPIView sobat methods manually call karave lagtat.</td>
+                    </tr>
+                    <tr>
+                        <td>Example: ListCreateAPIView</td>
+                        <td>Example: ListModelMixin</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- SECTION 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Important Points to Remember</h2>
+
+        <ul>
+            <li>Mixins reusable classes aahet.</li>
+            <li>Mixins GenericAPIView sobat use kele jatat.</li>
+            <li>ListModelMixin madhye list() method aste.</li>
+            <li>CreateModelMixin madhye create() method aste.</li>
+            <li>RetrieveModelMixin madhye retrieve() method aste.</li>
+            <li>UpdateModelMixin madhye update() ani partial_update() methods astat.</li>
+            <li>DestroyModelMixin madhye destroy() method aste.</li>
+            <li>Multiple mixins ekach view madhye inherit karta yetat.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 13 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>13. Practice Questions</h2>
+
+        <ol>
+            <li>What are Mixins in DRF?</li>
+            <li>Why do we use Mixins?</li>
+            <li>What is ListModelMixin?</li>
+            <li>What is CreateModelMixin?</li>
+            <li>What is RetrieveModelMixin?</li>
+            <li>What is UpdateModelMixin?</li>
+            <li>What is DestroyModelMixin?</li>
+            <li>What is the use of GenericAPIView with Mixins?</li>
+            <li>How can we use multiple Mixins in one view?</li>
+            <li>Create a Student CRUD API using Mixins.</li>
+        </ol>
+
+    </section>
+
+    <!-- SECTION 14 -->
+
+    <section class="lesson-section interview-section">
+
+        <h2>14. Interview Questions</h2>
+
+        <h3>Q1. What are Mixins?</h3>
+        <p>
+            Mixins are reusable classes that provide methods
+            for common API operations.
+        </p>
+
+        <h3>Q2. What is ListModelMixin?</h3>
+        <p>
+            It provides the list() method to retrieve multiple objects.
+        </p>
+
+        <h3>Q3. What is CreateModelMixin?</h3>
+        <p>
+            It provides the create() method to create a new object.
+        </p>
+
+        <h3>Q4. What is RetrieveModelMixin?</h3>
+        <p>
+            It provides the retrieve() method to fetch a single object.
+        </p>
+
+        <h3>Q5. What is UpdateModelMixin?</h3>
+        <p>
+            It provides update() and partial_update() methods
+            to update an existing object.
+        </p>
+
+        <h3>Q6. What is DestroyModelMixin?</h3>
+        <p>
+            It provides the destroy() method to delete an object.
+        </p>
+
+        <h3>Q7. Can we use multiple Mixins together?</h3>
+        <p>
+            Yes. We can inherit multiple Mixins with GenericAPIView
+            to handle different API operations.
+        </p>
+
+    </section>
+
+    <!-- COMPLETION -->
+
+    <div class="completion-box">
+        <h3>Topic 18 Completed!</h3>
+        <p>
+            Ata aapan five important Mixins ani tyanchya
+            madatine Student CRUD API create karayla shiklo.
+        </p>
+    </div>
+
+    <!-- NAVIGATION -->
+
+    <div class="lesson-navigation">
+        <a href="{% url 'drf_topic' 'generic-views' %}">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'drf_topic' 'concrete-generic-views' %}">
+            Next Topic →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

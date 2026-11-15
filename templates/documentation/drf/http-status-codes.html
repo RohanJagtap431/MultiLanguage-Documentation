@@ -1,0 +1,807 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}
+HTTP Status Codes
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/drf/http-status-codes.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- PAGE HEADER -->
+
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO REST FRAMEWORK</span>
+
+        <h1>06. HTTP Status Codes</h1>
+
+        <p>
+            HTTP Status Codes mhanje kay, tyache types
+            ani API madhye tyacha use simple Roman Marathi madhye samjun ghya.
+        </p>
+    </div>
+
+
+    <!-- SECTION 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What are HTTP Status Codes?</h2>
+
+        <p>
+            HTTP Status Codes he server kadun client la milnare
+            numerical codes aahet.
+        </p>
+
+        <p>
+            Client ne server la request pathavlyanantar server
+            request cha result Status Code madhun sangto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+
+            <p>
+                HTTP Status Codes are numerical codes sent by
+                a server to indicate the result of an HTTP request.
+            </p>
+        </div>
+
+        <h3>Simple Example</h3>
+
+        <p>
+            Samaj tu Student Management API la request pathavli.
+            Server ne students chi list successfully return keli.
+        </p>
+
+        <div class="code-block">
+            <pre><code>GET /api/students/
+
+200 OK</code></pre>
+        </div>
+
+        <p>
+            Ithe 200 ha Status Code aahe.
+            Yacha arth request successfully complete zali.
+        </p>
+
+        <div class="important-box">
+            <strong>Remember:</strong>
+
+            Status Code mule client la request successful zali
+            ki error aala he samajta.
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Types of HTTP Status Codes</h2>
+
+        <p>
+            HTTP Status Codes che 5 main categories aahet.
+            Pratyek category specific type cha result represent karte.
+        </p>
+
+        <div class="table-wrapper">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Code Range</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>1xx</td>
+                        <td>100–199</td>
+                        <td>Informational</td>
+                    </tr>
+
+                    <tr>
+                        <td>2xx</td>
+                        <td>200–299</td>
+                        <td>Success</td>
+                    </tr>
+
+                    <tr>
+                        <td>3xx</td>
+                        <td>300–399</td>
+                        <td>Redirection</td>
+                    </tr>
+
+                    <tr>
+                        <td>4xx</td>
+                        <td>400–499</td>
+                        <td>Client Error</td>
+                    </tr>
+
+                    <tr>
+                        <td>5xx</td>
+                        <td>500–599</td>
+                        <td>Server Error</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <h3>Simple Explanation</h3>
+
+        <ul>
+            <li><strong>1xx:</strong> Request process hot aahe.</li>
+            <li><strong>2xx:</strong> Request successful zali.</li>
+            <li><strong>3xx:</strong> Redirect karanyachi garaj aahe.</li>
+            <li><strong>4xx:</strong> Client request madhye problem aahe.</li>
+            <li><strong>5xx:</strong> Server request process kartana fail zala.</li>
+        </ul>
+
+    </section>
+
+
+    <!-- SECTION 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. 200 OK</h2>
+
+        <p>
+            200 OK cha arth request successfully complete zali.
+        </p>
+
+        <div class="definition-box">
+            <h3>Meaning</h3>
+
+            <p>
+                200 OK indicates that the request was successful.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <p>
+            Aaplyala students chi list retrieve karaychi aahe.
+        </p>
+
+        <div class="code-block">
+            <pre><code>GET /api/students/
+
+200 OK</code></pre>
+        </div>
+
+        <h3>Response</h3>
+
+        <div class="code-block">
+            <pre><code>[
+    {
+        "id": 1,
+        "name": "Rahul"
+    },
+    {
+        "id": 2,
+        "name": "Amit"
+    }
+]</code></pre>
+        </div>
+
+        <p>
+            Server ne students chi list successfully return keli.
+        </p>
+
+    </section>
+
+
+    <!-- SECTION 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. 201 Created</h2>
+
+        <p>
+            201 Created cha arth server var navin resource
+            successfully create zala.
+        </p>
+
+        <div class="definition-box">
+            <h3>Meaning</h3>
+
+            <p>
+                201 Created indicates that a new resource
+                has been successfully created.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <p>
+            Aaplyala Student API madhye navin student add karaycha aahe.
+        </p>
+
+        <div class="code-block">
+            <pre><code>POST /api/students/</code></pre>
+        </div>
+
+        <h3>Request Body</h3>
+
+        <div class="code-block">
+            <pre><code>{
+    "name": "Rohan",
+    "course": "BSc Computer Science"
+}</code></pre>
+        </div>
+
+        <h3>Response</h3>
+
+        <div class="code-block">
+            <pre><code>201 Created
+
+{
+    "id": 3,
+    "name": "Rohan",
+    "course": "BSc Computer Science"
+}</code></pre>
+        </div>
+
+        <p>
+            Server ne navin student create kela.
+        </p>
+
+    </section>
+
+
+    <!-- SECTION 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. 204 No Content</h2>
+
+        <p>
+            204 No Content cha arth request successfully complete
+            zali, pan response body madhye kontahi data nahi.
+        </p>
+
+        <div class="definition-box">
+            <h3>Meaning</h3>
+
+            <p>
+                204 No Content indicates that the request
+                was successful, but there is no response body.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <p>
+            Aaplyala student delete karaycha aahe.
+        </p>
+
+        <div class="code-block">
+            <pre><code>DELETE /api/students/1/
+
+204 No Content</code></pre>
+        </div>
+
+        <p>
+            Student successfully delete zala.
+            Server ne response body return keli nahi.
+        </p>
+
+        <div class="important-box">
+            <strong>Remember:</strong>
+
+            204 response madhye response body nasto.
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. 400 Bad Request</h2>
+
+        <p>
+            400 Bad Request cha arth client ne pathavlelya
+            request madhye problem aahe.
+        </p>
+
+        <div class="definition-box">
+            <h3>Meaning</h3>
+
+            <p>
+                400 Bad Request indicates that the server
+                cannot process the request because of a
+                client-side request problem.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <p>
+            Samaj student create kartana required name field
+            pathavli nahi.
+        </p>
+
+        <div class="code-block">
+            <pre><code>POST /api/students/</code></pre>
+        </div>
+
+        <h3>Request Body</h3>
+
+        <div class="code-block">
+            <pre><code>{
+    "course": "BCA"
+}</code></pre>
+        </div>
+
+        <h3>Possible Response</h3>
+
+        <div class="code-block">
+            <pre><code>400 Bad Request
+
+{
+    "name": [
+        "This field is required."
+    ]
+}</code></pre>
+        </div>
+
+        <p>
+            Required name field missing aslyamule request reject zali.
+        </p>
+
+    </section>
+
+
+    <!-- SECTION 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. 401 Unauthorized</h2>
+
+        <p>
+            401 Unauthorized cha arth request la valid
+            authentication credentials milale nahit.
+        </p>
+
+        <div class="definition-box">
+            <h3>Meaning</h3>
+
+            <p>
+                401 Unauthorized indicates that valid
+                authentication credentials are missing
+                or invalid.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <p>
+            Samaj Student API madhil private data access
+            karanyasathi login required aahe.
+        </p>
+
+        <p>
+            Pan client ne valid login token pathavla nahi.
+        </p>
+
+        <div class="code-block">
+            <pre><code>GET /api/profile/
+
+401 Unauthorized</code></pre>
+        </div>
+
+        <p>
+            Server ne request reject keli karan valid
+            authentication credentials available nahit.
+        </p>
+
+    </section>
+
+
+    <!-- SECTION 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. 403 Forbidden</h2>
+
+        <p>
+            403 Forbidden cha arth server la request samajli,
+            pan client la ti action perform karanyachi permission nahi.
+        </p>
+
+        <div class="definition-box">
+            <h3>Meaning</h3>
+
+            <p>
+                403 Forbidden indicates that the client
+                does not have permission to access the resource.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <p>
+            Samaj College Management API madhye fakt Admin la
+            student delete karanyachi permission aahe.
+        </p>
+
+        <p>
+            Student user delete request pathavto.
+            Tyachyakade required permission nahi.
+        </p>
+
+        <div class="code-block">
+            <pre><code>DELETE /api/students/1/
+
+403 Forbidden</code></pre>
+        </div>
+
+        <div class="important-box">
+            <strong>401 vs 403:</strong>
+
+            401 madhye valid authentication credentials nahit.
+            403 madhye request karanarya user la action chi permission nahi.
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. 404 Not Found</h2>
+
+        <p>
+            404 Not Found cha arth requested resource
+            server var sapadla nahi.
+        </p>
+
+        <div class="definition-box">
+            <h3>Meaning</h3>
+
+            <p>
+                404 Not Found indicates that the requested
+                resource could not be found.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <p>
+            Samaj aaplyakade student ID 10 available nahi.
+            Pan client ID 10 chi information magto.
+        </p>
+
+        <div class="code-block">
+            <pre><code>GET /api/students/10/
+
+404 Not Found</code></pre>
+        </div>
+
+        <p>
+            Server la ID 10 cha student sapadla nahi.
+        </p>
+
+    </section>
+
+
+    <!-- SECTION 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. 500 Internal Server Error</h2>
+
+        <p>
+            500 Internal Server Error cha arth server madhye
+            unexpected problem aali ani request complete
+            karta aali nahi.
+        </p>
+
+        <div class="definition-box">
+            <h3>Meaning</h3>
+
+            <p>
+                500 Internal Server Error indicates that
+                the server encountered an unexpected condition
+                while processing the request.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <p>
+            Samaj Django backend madhye code error aala
+            kiwa server madhil unexpected exception mule
+            API request fail zali.
+        </p>
+
+        <div class="code-block">
+            <pre><code>GET /api/students/
+
+500 Internal Server Error</code></pre>
+        </div>
+
+        <p>
+            Ashya veli developer ne server logs check karun
+            error debug karava.
+        </p>
+
+    </section>
+
+
+    <!-- SECTION 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Important HTTP Status Codes Table</h2>
+
+        <div class="table-wrapper">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Status Code</th>
+                        <th>Name</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>200</td>
+                        <td>OK</td>
+                        <td>Request successful</td>
+                    </tr>
+
+                    <tr>
+                        <td>201</td>
+                        <td>Created</td>
+                        <td>New resource created</td>
+                    </tr>
+
+                    <tr>
+                        <td>204</td>
+                        <td>No Content</td>
+                        <td>Successful, no response body</td>
+                    </tr>
+
+                    <tr>
+                        <td>301</td>
+                        <td>Moved Permanently</td>
+                        <td>Resource permanently moved</td>
+                    </tr>
+
+                    <tr>
+                        <td>302</td>
+                        <td>Found</td>
+                        <td>Temporary redirection</td>
+                    </tr>
+
+                    <tr>
+                        <td>400</td>
+                        <td>Bad Request</td>
+                        <td>Invalid request</td>
+                    </tr>
+
+                    <tr>
+                        <td>401</td>
+                        <td>Unauthorized</td>
+                        <td>Valid authentication missing or invalid</td>
+                    </tr>
+
+                    <tr>
+                        <td>403</td>
+                        <td>Forbidden</td>
+                        <td>Permission denied</td>
+                    </tr>
+
+                    <tr>
+                        <td>404</td>
+                        <td>Not Found</td>
+                        <td>Resource not found</td>
+                    </tr>
+
+                    <tr>
+                        <td>405</td>
+                        <td>Method Not Allowed</td>
+                        <td>HTTP method not allowed</td>
+                    </tr>
+
+                    <tr>
+                        <td>429</td>
+                        <td>Too Many Requests</td>
+                        <td>Too many requests sent</td>
+                    </tr>
+
+                    <tr>
+                        <td>500</td>
+                        <td>Internal Server Error</td>
+                        <td>Unexpected server error</td>
+                    </tr>
+
+                    <tr>
+                        <td>503</td>
+                        <td>Service Unavailable</td>
+                        <td>Server temporarily unavailable</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. HTTP Status Codes in Django REST Framework</h2>
+
+        <p>
+            DRF madhye status codes use karanyasathi
+            status module available aahe.
+        </p>
+
+        <h3>Example Code</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.response import Response
+from rest_framework import status
+
+def student_view(request):
+
+    return Response(
+        {"message": "Student created"},
+        status=status.HTTP_201_CREATED
+    )</code></pre>
+        </div>
+
+        <h3>Code Explanation</h3>
+
+        <ul>
+            <li><strong>Response:</strong> API response return karte.</li>
+            <li><strong>status:</strong> HTTP Status Codes provide karto.</li>
+            <li><strong>HTTP_201_CREATED:</strong> 201 status code represent karto.</li>
+        </ul>
+
+        <h3>Another Example</h3>
+
+        <div class="code-block">
+            <pre><code>return Response(
+    {"message": "Student not found"},
+    status=status.HTTP_404_NOT_FOUND
+)</code></pre>
+        </div>
+
+        <p>
+            Ya example madhye API 404 Not Found response return karte.
+        </p>
+
+        <div class="important-box">
+            <strong>Remember:</strong>
+
+            DRF madhye status.HTTP_200_OK,
+            status.HTTP_201_CREATED ani status.HTTP_404_NOT_FOUND
+            sarkhe constants vaparta yetat.
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 13 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>13. Practice Questions</h2>
+
+        <p>Khali dilele questions swatah solve kar.</p>
+
+        <ol>
+            <li>What are HTTP Status Codes?</li>
+            <li>What is the meaning of 200 OK?</li>
+            <li>When do we use 201 Created?</li>
+            <li>What is the meaning of 204 No Content?</li>
+            <li>What is the difference between 401 and 403?</li>
+            <li>When do we get 404 Not Found?</li>
+            <li>What is 500 Internal Server Error?</li>
+            <li>What is the meaning of 400 Bad Request?</li>
+            <li>Write any five important HTTP Status Codes.</li>
+            <li>How do we use status codes in DRF?</li>
+        </ol>
+
+    </section>
+
+
+    <!-- SECTION 14 -->
+
+    <section class="lesson-section interview-section">
+
+        <h2>14. Interview Questions</h2>
+
+        <h3>Q1. What is HTTP Status Code?</h3>
+
+        <p>
+            HTTP Status Code is a numerical code sent by
+            the server to indicate the result of a request.
+        </p>
+
+        <h3>Q2. What is the difference between 401 and 403?</h3>
+
+        <p>
+            401 means valid authentication credentials are
+            missing or invalid, whereas 403 means access
+            is forbidden due to insufficient permission.
+        </p>
+
+        <h3>Q3. What is 404 Not Found?</h3>
+
+        <p>
+            404 indicates that the requested resource
+            could not be found on the server.
+        </p>
+
+        <h3>Q4. What is 500 Internal Server Error?</h3>
+
+        <p>
+            500 indicates that an unexpected server-side
+            error occurred while processing the request.
+        </p>
+
+        <h3>Q5. Which status code indicates successful creation?</h3>
+
+        <p>
+            201 Created indicates that a new resource
+            has been successfully created.
+        </p>
+
+    </section>
+
+
+    <!-- COMPLETION -->
+
+    <div class="completion-box">
+
+        <h3>Topic 06 Completed!</h3>
+
+        <p>
+            Ata tula HTTP Status Codes, tyache categories
+            ani Django REST Framework madhye status codes
+            kase use kartat he samajle aahe.
+        </p>
+
+    </div>
+
+
+    <!-- NAVIGATION -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'drf_topic' 'http-methods' %}">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'drf_topic' 'installation' %}">
+            Next Topic →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

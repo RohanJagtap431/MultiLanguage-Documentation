@@ -1,0 +1,877 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Concrete Generic Views in DRF{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/drf/concrete-generic-views.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO REST FRAMEWORK</span>
+        <h1>19. Concrete Generic Views in DRF</h1>
+        <p>
+            Learn how to use ready-made generic view classes
+            to build REST APIs with less code.
+        </p>
+    </div>
+
+    <!-- SECTION 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What are Concrete Generic Views?</h2>
+
+        <p>
+            Concrete Generic Views ya DRF madhil ready-made
+            view classes aahet. Ya classes GenericAPIView ani
+            Mixins chi functionality combine kartat.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                Concrete Generic Views are ready-made API view classes
+                that combine GenericAPIView and Mixins to perform
+                common API operations.
+            </p>
+        </div>
+
+        <h3>Why use Concrete Generic Views?</h3>
+
+        <ul>
+            <li>Code kami lihava lagto.</li>
+            <li>Common API operations ready-made miltat.</li>
+            <li>GET, POST, PUT, PATCH ani DELETE handle karne sope hote.</li>
+            <li>API code clean ani reusable rahto.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Concrete Generic Views madhye common HTTP methods
+            internally handle kele jatat. Aplyala pratyek method
+            manually define karanyachi garaj naste.
+        </div>
+
+    </section>
+
+    <!-- SECTION 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Types of Concrete Generic Views</h2>
+
+        <p>
+            DRF madhye commonly use honarya Concrete Generic Views
+            khalilpramane aahet.
+        </p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>View Class</th>
+                        <th>HTTP Methods</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ListAPIView</td>
+                        <td>GET</td>
+                        <td>Multiple records fetch karne.</td>
+                    </tr>
+                    <tr>
+                        <td>CreateAPIView</td>
+                        <td>POST</td>
+                        <td>New record create karne.</td>
+                    </tr>
+                    <tr>
+                        <td>RetrieveAPIView</td>
+                        <td>GET</td>
+                        <td>Single record fetch karne.</td>
+                    </tr>
+                    <tr>
+                        <td>UpdateAPIView</td>
+                        <td>PUT, PATCH</td>
+                        <td>Record update karne.</td>
+                    </tr>
+                    <tr>
+                        <td>DestroyAPIView</td>
+                        <td>DELETE</td>
+                        <td>Record delete karne.</td>
+                    </tr>
+                    <tr>
+                        <td>ListCreateAPIView</td>
+                        <td>GET, POST</td>
+                        <td>List ani create.</td>
+                    </tr>
+                    <tr>
+                        <td>RetrieveUpdateAPIView</td>
+                        <td>GET, PUT, PATCH</td>
+                        <td>Retrieve ani update.</td>
+                    </tr>
+                    <tr>
+                        <td>RetrieveDestroyAPIView</td>
+                        <td>GET, DELETE</td>
+                        <td>Retrieve ani delete.</td>
+                    </tr>
+                    <tr>
+                        <td>RetrieveUpdateDestroyAPIView</td>
+                        <td>GET, PUT, PATCH, DELETE</td>
+                        <td>Retrieve, update ani delete.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- SECTION 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. ListAPIView</h2>
+
+        <p>
+            ListAPIView cha use database madhil multiple
+            records fetch karanyasathi hoto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                ListAPIView is used to retrieve a list of objects
+                using a GET request.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.generics import ListAPIView
+
+class StudentListView(ListAPIView):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>API Request</strong>
+            <pre><code>GET /api/students/</code></pre>
+        </div>
+
+        <p>
+            Ya request mule database madhil sarva students
+            fetch hotat.
+        </p>
+
+    </section>
+
+    <!-- SECTION 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. CreateAPIView</h2>
+
+        <p>
+            CreateAPIView cha use database madhye navin
+            record create karanyasathi hoto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                CreateAPIView is used to create a new object
+                using a POST request.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.generics import CreateAPIView
+
+class StudentCreateView(CreateAPIView):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer</code></pre>
+        </div>
+
+        <h3>Request Body</h3>
+
+        <div class="output-box">
+            <pre><code>{
+    "name": "Rohan",
+    "email": "rohan@example.com",
+    "age": 20
+}</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>API Request</strong>
+            <pre><code>POST /api/students/create/</code></pre>
+        </div>
+
+        <p>
+            Valid data asel tar student create hoto ani
+            HTTP 201 Created response milto.
+        </p>
+
+    </section>
+
+    <!-- SECTION 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. RetrieveAPIView</h2>
+
+        <p>
+            RetrieveAPIView cha use ek specific record
+            fetch karanyasathi hoto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                RetrieveAPIView is used to retrieve a single
+                object using its lookup value.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.generics import RetrieveAPIView
+
+class StudentDetailView(RetrieveAPIView):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>API Request</strong>
+            <pre><code>GET /api/students/1/</code></pre>
+        </div>
+
+        <p>
+            Ithe primary key 1 aslela student fetch hoto.
+            Record sapadla nahi tar HTTP 404 response milto.
+        </p>
+
+    </section>
+
+    <!-- SECTION 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. UpdateAPIView</h2>
+
+        <p>
+            UpdateAPIView cha use existing record update
+            karanyasathi hoto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                UpdateAPIView is used to update an existing
+                object using PUT or PATCH requests.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.generics import UpdateAPIView
+
+class StudentUpdateView(UpdateAPIView):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer</code></pre>
+        </div>
+
+        <h3>Supported Methods</h3>
+
+        <ul>
+            <li><strong>PUT:</strong> Complete object update karte.</li>
+            <li><strong>PATCH:</strong> Specific fields update karte.</li>
+        </ul>
+
+        <div class="output-box">
+            <strong>API Request</strong>
+            <pre><code>PUT   /api/students/1/
+PATCH /api/students/1/</code></pre>
+        </div>
+
+    </section>
+
+    <!-- SECTION 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. DestroyAPIView</h2>
+
+        <p>
+            DestroyAPIView cha use database madhil existing
+            record delete karanyasathi hoto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                DestroyAPIView is used to delete an existing
+                object using a DELETE request.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.generics import DestroyAPIView
+
+class StudentDeleteView(DestroyAPIView):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer</code></pre>
+        </div>
+
+        <div class="output-box">
+            <strong>API Request</strong>
+            <pre><code>DELETE /api/students/1/</code></pre>
+        </div>
+
+        <p>
+            Successful delete nantar HTTP 204 No Content
+            response milto.
+        </p>
+
+    </section>
+
+    <!-- SECTION 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. ListCreateAPIView</h2>
+
+        <p>
+            ListCreateAPIView madhye GET ani POST donhi
+            operations ekach view madhye handle hotat.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                ListCreateAPIView is used to list multiple objects
+                and create a new object.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.generics import ListCreateAPIView
+
+class StudentListCreateView(ListCreateAPIView):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer</code></pre>
+        </div>
+
+        <h3>Supported Methods</h3>
+
+        <ul>
+            <li><strong>GET:</strong> All students fetch karne.</li>
+            <li><strong>POST:</strong> New student create karne.</li>
+        </ul>
+
+        <div class="output-box">
+            <strong>API Endpoint</strong>
+            <pre><code>/api/students/</code></pre>
+        </div>
+
+    </section>
+
+    <!-- SECTION 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. RetrieveUpdateAPIView</h2>
+
+        <p>
+            RetrieveUpdateAPIView ek specific object fetch
+            ani update karanyasathi use hote.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                RetrieveUpdateAPIView is used to retrieve
+                and update a single object.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.generics import RetrieveUpdateAPIView
+
+class StudentRetrieveUpdateView(RetrieveUpdateAPIView):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer</code></pre>
+        </div>
+
+        <h3>Supported Methods</h3>
+
+        <ul>
+            <li><strong>GET:</strong> Single student fetch karne.</li>
+            <li><strong>PUT:</strong> Complete student update karne.</li>
+            <li><strong>PATCH:</strong> Partial student update karne.</li>
+        </ul>
+
+        <div class="output-box">
+            <strong>API Endpoint</strong>
+            <pre><code>/api/students/1/</code></pre>
+        </div>
+
+    </section>
+
+    <!-- SECTION 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. RetrieveDestroyAPIView</h2>
+
+        <p>
+            RetrieveDestroyAPIView ek specific object fetch
+            ani delete karanyasathi use hote.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                RetrieveDestroyAPIView is used to retrieve
+                and delete a single object.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.generics import RetrieveDestroyAPIView
+
+class StudentRetrieveDeleteView(RetrieveDestroyAPIView):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer</code></pre>
+        </div>
+
+        <h3>Supported Methods</h3>
+
+        <ul>
+            <li><strong>GET:</strong> Single student fetch karne.</li>
+            <li><strong>DELETE:</strong> Student delete karne.</li>
+        </ul>
+
+        <div class="output-box">
+            <strong>API Endpoint</strong>
+            <pre><code>/api/students/1/</code></pre>
+        </div>
+
+    </section>
+
+    <!-- SECTION 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. RetrieveUpdateDestroyAPIView</h2>
+
+        <p>
+            RetrieveUpdateDestroyAPIView ekach view madhye
+            single object var GET, PUT, PATCH ani DELETE
+            operations perform karte.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                RetrieveUpdateDestroyAPIView is used to retrieve,
+                update and delete a single object.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.generics import (
+    RetrieveUpdateDestroyAPIView
+)
+
+class StudentDetailView(RetrieveUpdateDestroyAPIView):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer</code></pre>
+        </div>
+
+        <h3>Supported Methods</h3>
+
+        <ul>
+            <li><strong>GET:</strong> Student fetch karne.</li>
+            <li><strong>PUT:</strong> Complete data update karne.</li>
+            <li><strong>PATCH:</strong> Partial data update karne.</li>
+            <li><strong>DELETE:</strong> Student delete karne.</li>
+        </ul>
+
+        <div class="output-box">
+            <strong>API Endpoint</strong>
+            <pre><code>/api/students/1/</code></pre>
+        </div>
+
+    </section>
+
+    <!-- SECTION 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Practical Student CRUD API</h2>
+
+        <p>
+            Ata aapan fakt don Concrete Generic Views vaprun
+            complete Student CRUD API create karuya.
+        </p>
+
+        <h3>Step 1 – Model</h3>
+
+        <p>
+            Student model Topic 15 madhye create kela asel
+            tar toch model use kara.
+        </p>
+
+        <div class="code-block">
+            <pre><code># api/models.py
+
+from django.db import models
+
+class Student(models.Model):
+
+    name = models.CharField(max_length=100)
+    email = models.EmailField(unique=True)
+    age = models.PositiveIntegerField()
+
+    def __str__(self):
+        return self.name</code></pre>
+        </div>
+
+        <h3>Step 2 – Serializer</h3>
+
+        <div class="code-block">
+            <pre><code># api/serializers.py
+
+from rest_framework import serializers
+from .models import Student
+
+class StudentSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Student
+        fields = '__all__'</code></pre>
+        </div>
+
+        <h3>Step 3 – Views</h3>
+
+        <p><strong>File:</strong> api/views.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.generics import (
+    ListCreateAPIView,
+    RetrieveUpdateDestroyAPIView
+)
+
+from .models import Student
+from .serializers import StudentSerializer
+
+
+class StudentListCreateView(ListCreateAPIView):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+
+class StudentDetailView(RetrieveUpdateDestroyAPIView):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer</code></pre>
+        </div>
+
+        <h3>Step 4 – URLs</h3>
+
+        <p><strong>File:</strong> api/urls.py</p>
+
+        <div class="code-block">
+            <pre><code>from django.urls import path
+
+from .views import (
+    StudentListCreateView,
+    StudentDetailView
+)
+
+urlpatterns = [
+
+    path(
+        'students/',
+        StudentListCreateView.as_view(),
+        name='student_list'
+    ),
+
+    path(
+        'students/&lt;int:pk&gt;/',
+        StudentDetailView.as_view(),
+        name='student_detail'
+    ),
+
+]</code></pre>
+        </div>
+
+        <h3>Step 5 – Main URLs</h3>
+
+        <p><strong>File:</strong> config/urls.py</p>
+
+        <div class="code-block">
+            <pre><code>from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('api/', include('api.urls')),
+]</code></pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Existing Student model ani serializer already astil
+            tar punha create karu naka. Existing URL patterns
+            sobat duplicate routes add karu naka.
+        </div>
+
+    </section>
+
+    <!-- SECTION 13 -->
+
+    <section class="lesson-section">
+
+        <h2>13. Final API Endpoints</h2>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Endpoint</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>GET</td>
+                        <td>/api/students/</td>
+                        <td>All students fetch</td>
+                    </tr>
+                    <tr>
+                        <td>POST</td>
+                        <td>/api/students/</td>
+                        <td>Create student</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td>/api/students/1/</td>
+                        <td>Single student fetch</td>
+                    </tr>
+                    <tr>
+                        <td>PUT</td>
+                        <td>/api/students/1/</td>
+                        <td>Complete update</td>
+                    </tr>
+                    <tr>
+                        <td>PATCH</td>
+                        <td>/api/students/1/</td>
+                        <td>Partial update</td>
+                    </tr>
+                    <tr>
+                        <td>DELETE</td>
+                        <td>/api/students/1/</td>
+                        <td>Delete student</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Run Server</h3>
+
+        <div class="code-block">
+            <pre><code>python manage.py runserver</code></pre>
+        </div>
+
+        <h3>Open API</h3>
+
+        <div class="output-box">
+            <pre><code>http://127.0.0.1:8000/api/students/</code></pre>
+        </div>
+
+    </section>
+
+    <!-- SECTION 14 -->
+
+    <section class="lesson-section">
+
+        <h2>14. Generic Views vs Mixins vs Concrete Generic Views</h2>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>GenericAPIView</th>
+                        <th>Mixins</th>
+                        <th>Concrete Generic Views</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Base class</td>
+                        <td>Reusable operation classes</td>
+                        <td>Ready-made view classes</td>
+                    </tr>
+                    <tr>
+                        <td>Provides queryset and serializer support.</td>
+                        <td>Provides methods such as list() and create().</td>
+                        <td>Combines common functionality.</td>
+                    </tr>
+                    <tr>
+                        <td>More manual code.</td>
+                        <td>Methods manually call karave lagtat.</td>
+                        <td>Very less code.</td>
+                    </tr>
+                    <tr>
+                        <td>Custom API views.</td>
+                        <td>Flexible API operations.</td>
+                        <td>Common API operations quickly create karne.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- SECTION 15 -->
+
+    <section class="lesson-section">
+
+        <h2>15. Important Points to Remember</h2>
+
+        <ul>
+            <li>Concrete Generic Views ready-made API classes aahet.</li>
+            <li>Ya classes GenericAPIView ani Mixins var based aahet.</li>
+            <li>ListAPIView multiple records fetch karte.</li>
+            <li>CreateAPIView new record create karte.</li>
+            <li>RetrieveAPIView single record fetch karte.</li>
+            <li>UpdateAPIView PUT ani PATCH handle karte.</li>
+            <li>DestroyAPIView DELETE handle karte.</li>
+            <li>ListCreateAPIView GET ani POST handle karte.</li>
+            <li>RetrieveUpdateDestroyAPIView GET, PUT, PATCH ani DELETE handle karte.</li>
+            <li>Practical CRUD API fakt don views madhye create karta yete.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 16 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>16. Practice Questions</h2>
+
+        <ol>
+            <li>What are Concrete Generic Views?</li>
+            <li>Why do we use Concrete Generic Views?</li>
+            <li>What is ListAPIView?</li>
+            <li>What is CreateAPIView?</li>
+            <li>What is RetrieveAPIView?</li>
+            <li>What is UpdateAPIView?</li>
+            <li>What is DestroyAPIView?</li>
+            <li>What is ListCreateAPIView?</li>
+            <li>What is RetrieveUpdateAPIView?</li>
+            <li>What is RetrieveDestroyAPIView?</li>
+            <li>What is RetrieveUpdateDestroyAPIView?</li>
+            <li>Explain GenericAPIView, Mixins and Concrete Generic Views.</li>
+            <li>Create a Student CRUD API using Concrete Generic Views.</li>
+        </ol>
+
+    </section>
+
+    <!-- SECTION 17 -->
+
+    <section class="lesson-section interview-section">
+
+        <h2>17. Interview Questions</h2>
+
+        <h3>Q1. What are Concrete Generic Views?</h3>
+        <p>
+            Concrete Generic Views are ready-made DRF classes
+            that combine GenericAPIView and Mixins.
+        </p>
+
+        <h3>Q2. What is ListCreateAPIView?</h3>
+        <p>
+            It handles GET and POST requests to list and create objects.
+        </p>
+
+        <h3>Q3. What is RetrieveUpdateDestroyAPIView?</h3>
+        <p>
+            It handles GET, PUT, PATCH and DELETE requests
+            for a single object.
+        </p>
+
+        <h3>Q4. What is the advantage of Concrete Generic Views?</h3>
+        <p>
+            They reduce repeated code and make API development easier.
+        </p>
+
+        <h3>Q5. What is the difference between PUT and PATCH?</h3>
+        <p>
+            PUT is generally used for complete updates, while
+            PATCH is used for partial updates.
+        </p>
+
+    </section>
+
+    <!-- COMPLETION -->
+
+    <div class="completion-box">
+        <h3>Topic 19 Completed!</h3>
+        <p>
+            Ata aapan Concrete Generic Views vaprun
+            complete Student CRUD API create karayla shiklo.
+        </p>
+    </div>
+
+    <!-- NAVIGATION -->
+
+    <div class="lesson-navigation">
+        <a href="{% url 'drf_topic' 'mixins' %}">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'drf_topic' 'viewsets' %}">
+            Next Topic →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

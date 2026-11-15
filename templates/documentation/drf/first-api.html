@@ -1,0 +1,554 @@
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Your First API{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/drf/first-api.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO REST FRAMEWORK</span>
+        <h1>08. Your First API</h1>
+        <p>
+            Django REST Framework vaprun pahili API create karayla
+            ani browser madhye test karayla shikuya.
+        </p>
+    </div>
+
+    <!-- SECTION 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What is an API?</h2>
+
+        <p>
+            API mhanje Application Programming Interface.
+            API mule don applications ekmekansobat data exchange
+            karu shaktat.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                An API is a way for two software applications
+                to communicate with each other.
+            </p>
+        </div>
+
+        <h3>Simple Example</h3>
+
+        <p>
+            Samaj ek mobile application la Django server madhun
+            students chi list pahije aahe.
+        </p>
+
+        <p>
+            Mobile application API la request pathavte.
+            Django server data JSON format madhye return karto.
+        </p>
+
+        <div class="flow-container">
+            <div class="flow-step">
+                <strong>Client</strong>
+                <span>Request pathavto</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <strong>Django API</strong>
+                <span>Request process karte</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <strong>JSON Response</strong>
+                <span>Data return hoto</span>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- SECTION 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Create a Django App</h2>
+
+        <p>
+            Sarvat aadhi Django project madhye API sathi
+            ek separate app create karu.
+        </p>
+
+        <h3>Step 1: Create App</h3>
+
+        <div class="code-block">
+            <pre><code>python manage.py startapp api</code></pre>
+        </div>
+
+        <p>
+            Ya command mule <strong>api</strong> navache
+            Django application create hote.
+        </p>
+
+        <h3>Step 2: Register App</h3>
+
+        <p>
+            <strong>File:</strong> config/settings.py
+        </p>
+
+        <div class="code-block">
+            <pre><code>INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+
+    'rest_framework',
+    'api',
+]</code></pre>
+        </div>
+
+        <p>
+            Ithe aapan <strong>api</strong> app ani
+            <strong>rest_framework</strong> register kele aahet.
+        </p>
+
+    </section>
+
+    <!-- SECTION 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. Create Your First API View</h2>
+
+        <p>
+            Ata API cha logic lihinyasathi api app madhil
+            <strong>views.py</strong> file open kara.
+        </p>
+
+        <p>
+            <strong>File:</strong> api/views.py
+        </p>
+
+        <h3>Code</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
+@api_view(['GET'])
+def student_list(request):
+
+    students = [
+        {
+            "id": 1,
+            "name": "Rahul",
+            "course": "BCA"
+        },
+        {
+            "id": 2,
+            "name": "Amit",
+            "course": "BSc CS"
+        },
+        {
+            "id": 3,
+            "name": "Rohan",
+            "course": "BSc CS"
+        }
+    ]
+
+    return Response(students)</code></pre>
+        </div>
+
+        <h3>Code Explanation</h3>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>api_view</td>
+                        <td>Function-based API view create karanyasathi decorator.</td>
+                    </tr>
+                    <tr>
+                        <td>Response</td>
+                        <td>API madhun response return karto.</td>
+                    </tr>
+                    <tr>
+                        <td>@api_view(['GET'])</td>
+                        <td>View GET requests accept karte.</td>
+                    </tr>
+                    <tr>
+                        <td>request</td>
+                        <td>Client kadun aaleli request.</td>
+                    </tr>
+                    <tr>
+                        <td>students</td>
+                        <td>Student data store karanari Python list.</td>
+                    </tr>
+                    <tr>
+                        <td>Response(students)</td>
+                        <td>Student data API response madhye return karto.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="important-box">
+            <strong>Remember:</strong>
+            <code>@api_view(['GET'])</code> mule hi API
+            GET request accept karte. POST kiwa DELETE request
+            sathi vegale allowed methods configure karave lagtat.
+        </div>
+
+    </section>
+
+    <!-- SECTION 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. Configure API URLs</h2>
+
+        <p>
+            Ata API view la URL sobat connect karayche aahe.
+            Tyasathi api app madhye navin <strong>urls.py</strong>
+            file create kara.
+        </p>
+
+        <p>
+            <strong>File:</strong> api/urls.py
+        </p>
+
+        <h3>Code</h3>
+
+        <div class="code-block">
+            <pre><code>from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('students/', views.student_list, name='student_list'),
+]</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li><strong>path:</strong> URL route define karto.</li>
+            <li><strong>views:</strong> API view import karto.</li>
+            <li><strong>students/:</strong> API cha URL path aahe.</li>
+            <li><strong>student_list:</strong> Request alyavar execute honari view.</li>
+        </ul>
+
+        <h3>Connect API URLs to Main Project</h3>
+
+        <p>
+            Ata main project madhil urls.py open kara.
+        </p>
+
+        <p>
+            <strong>File:</strong> config/urls.py
+        </p>
+
+        <div class="code-block">
+            <pre><code>from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+
+    path('api/', include('api.urls')),
+]</code></pre>
+        </div>
+
+        <p>
+            Ithe <strong>include()</strong> mule api app madhil
+            URL patterns main project sobat connect hotat.
+        </p>
+
+    </section>
+
+    <!-- SECTION 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. Understand the API URL</h2>
+
+        <p>
+            Aapan project madhye don URL paths connect kele aahet.
+        </p>
+
+        <div class="code-block">
+            <pre><code>path('api/', include('api.urls'))
+
+path('students/', views.student_list)</code></pre>
+        </div>
+
+        <p>
+            Donhi paths combine zalyanantar final API URL asa banto:
+        </p>
+
+        <div class="url-box">
+            <strong>http://127.0.0.1:8000/api/students/</strong>
+        </div>
+
+        <p>
+            Ha URL browser madhye open kelyavar
+            student_list view execute hoil.
+        </p>
+
+    </section>
+
+    <!-- SECTION 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. Run and Test Your First API</h2>
+
+        <p>
+            Ata terminal madhye Django development server start kara.
+        </p>
+
+        <div class="code-block">
+            <pre><code>python manage.py runserver</code></pre>
+        </div>
+
+        <p>
+            Browser madhye ha URL open kara:
+        </p>
+
+        <div class="url-box">
+            <strong>http://127.0.0.1:8000/api/students/</strong>
+        </div>
+
+        <h3>Expected JSON Response</h3>
+
+        <div class="code-block">
+            <pre><code>[
+    {
+        "id": 1,
+        "name": "Rahul",
+        "course": "BCA"
+    },
+    {
+        "id": 2,
+        "name": "Amit",
+        "course": "BSc CS"
+    },
+    {
+        "id": 3,
+        "name": "Rohan",
+        "course": "BSc CS"
+    }
+]</code></pre>
+        </div>
+
+        <p>
+            Ha data JSON format madhye return zala aahe.
+            Yacha arth aapli pahili API successfully work karat aahe.
+        </p>
+
+    </section>
+
+    <!-- SECTION 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. What is Browsable API?</h2>
+
+        <p>
+            Django REST Framework madhye Browsable API feature
+            available aahe.
+        </p>
+
+        <p>
+            Browser madhye API URL open kelyavar data sobat
+            HTML interface suddha disu shakto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                Browsable API is a user-friendly HTML interface
+                provided by DRF to interact with APIs through a browser.
+            </p>
+        </div>
+
+        <h3>Advantages</h3>
+
+        <ul>
+            <li>Browser madhye API response baghta yeto.</li>
+            <li>API manually test karta yete.</li>
+            <li>JSON data samjun ghene sope hote.</li>
+            <li>Developer la debugging madhye madat hote.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. Complete Project Structure</h2>
+
+        <p>
+            Ya topic madhye aaplya project chi structure
+            sadharanpane ashi asel.
+        </p>
+
+        <div class="code-block">
+            <pre><code>drf_project/
+│
+├── api/
+│   ├── migrations/
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── tests.py
+│   ├── views.py
+│   └── urls.py
+│
+├── config/
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   ├── asgi.py
+│   └── wsgi.py
+│
+├── manage.py
+└── db.sqlite3</code></pre>
+        </div>
+
+    </section>
+
+    <!-- SECTION 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Important DRF Components</h2>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@api_view()</td>
+                        <td>Function-based API view define karto.</td>
+                    </tr>
+                    <tr>
+                        <td>Response()</td>
+                        <td>API response return karto.</td>
+                    </tr>
+                    <tr>
+                        <td>request</td>
+                        <td>Client request access karto.</td>
+                    </tr>
+                    <tr>
+                        <td>urls.py</td>
+                        <td>API URL routing manage karto.</td>
+                    </tr>
+                    <tr>
+                        <td>include()</td>
+                        <td>App URLs main project sobat connect karto.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- SECTION 10 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>10. Practice Questions</h2>
+
+        <ol>
+            <li>What is an API?</li>
+            <li>What is the purpose of the api_view decorator?</li>
+            <li>What is Response in DRF?</li>
+            <li>How do you create a Django app?</li>
+            <li>What is the use of api/urls.py?</li>
+            <li>Why do we use include() in Django URLs?</li>
+            <li>What is a JSON response?</li>
+            <li>What is Browsable API?</li>
+        </ol>
+
+    </section>
+
+    <!-- SECTION 11 -->
+
+    <section class="lesson-section interview-section">
+
+        <h2>11. Interview Questions</h2>
+
+        <h3>Q1. How do you create your first API in DRF?</h3>
+        <p>
+            We create a function-based view using @api_view
+            and return data using the Response class.
+        </p>
+
+        <h3>Q2. What is @api_view?</h3>
+        <p>
+            It is a decorator used to create function-based
+            API views in Django REST Framework.
+        </p>
+
+        <h3>Q3. What is Response in DRF?</h3>
+        <p>
+            Response is used to return API data to the client.
+            It can render the data into formats such as JSON.
+        </p>
+
+        <h3>Q4. What is the purpose of Browsable API?</h3>
+        <p>
+            It provides a browser-based interface to view
+            and interact with API endpoints.
+        </p>
+
+    </section>
+
+    <!-- COMPLETION -->
+
+    <div class="completion-box">
+        <h3>Topic 08 Completed!</h3>
+        <p>
+            Ata aapan Django REST Framework vaprun pahili API
+            create keli ani browser madhye test karayla shiklo.
+        </p>
+    </div>
+
+    <!-- NAVIGATION -->
+
+    <div class="lesson-navigation">
+        <a href="{% url 'drf_topic' 'installation' %}">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'drf_topic' 'serializers' %}">
+            Next Topic →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

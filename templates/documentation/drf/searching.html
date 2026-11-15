@@ -1,0 +1,702 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Searching in DRF{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/drf/searching.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO REST FRAMEWORK</span>
+        <h1>28. Searching in DRF</h1>
+        <p>
+            Learn how to search records in an API using
+            SearchFilter and query parameters.
+        </p>
+    </div>
+
+    <!-- SECTION 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What is Searching?</h2>
+
+        <p>
+            Searching mhanje database madhil records madhun
+            specific text kiwa keyword shodhun matching records
+            retrieve karne.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                Searching is the process of finding records
+                that match a given search keyword.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <p>
+            Samja Student database madhye 500 students aahet.
+            Aaplyala Rohan navacha student shodhaycha aahe.
+        </p>
+
+        <div class="example-box">
+            <h3>Search Request</h3>
+            <pre><code>/api/students/?search=Rohan</code></pre>
+            <p>
+                API madhye Rohan keyword match honare student
+                records return hotil.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- SECTION 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Filtering vs Searching</h2>
+
+        <p>
+            Filtering ani Searching donhi API madhun specific
+            records retrieve karanyasathi vapartat.
+            Pan tyanchya use madhye farak aahe.
+        </p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Filtering</th>
+                        <th>Searching</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Specific field value filter karte.</td>
+                        <td>Keyword match karun records shodhte.</td>
+                    </tr>
+                    <tr>
+                        <td>Example: course=ComputerScience</td>
+                        <td>Example: search=Rohan</td>
+                    </tr>
+                    <tr>
+                        <td>DjangoFilterBackend vapartat.</td>
+                        <td>SearchFilter vapartat.</td>
+                    </tr>
+                    <tr>
+                        <td>Exact values kiwa lookup conditions vaparta yetat.</td>
+                        <td>Text-based search sathi upyogi aahe.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- SECTION 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. What is SearchFilter?</h2>
+
+        <p>
+            SearchFilter ha Django REST Framework madhil built-in
+            filter backend aahe. To API madhye search functionality
+            provide karto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                SearchFilter allows API clients to search records
+                using a keyword passed through a query parameter.
+            </p>
+        </div>
+
+        <h3>Import SearchFilter</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.filters import SearchFilter</code></pre>
+        </div>
+
+        <p>
+            SearchFilter vaparnyasathi django-filter package
+            install karne avashyak nahi. SearchFilter DRF madhye
+            built-in available aahe.
+        </p>
+
+    </section>
+
+    <!-- SECTION 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. What is search_fields?</h2>
+
+        <p>
+            search_fields madhye kontya model fields madhye
+            search karaycha aahe te define kele jate.
+        </p>
+
+        <h3>Example</h3>
+
+        <p><strong>File:</strong> api/views.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.viewsets import ModelViewSet
+from rest_framework.filters import SearchFilter
+
+from .models import Student
+from .serializers import StudentSerializer
+
+class StudentViewSet(ModelViewSet):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+    filter_backends = [SearchFilter]
+
+    search_fields = ['name']</code></pre>
+        </div>
+
+        <p>
+            Ya example madhye API Student model chya name field
+            madhye search karel.
+        </p>
+
+        <h3>API Request</h3>
+
+        <div class="output-box">
+            <pre><code>/api/students/?search=Rohan</code></pre>
+        </div>
+
+    </section>
+
+    <!-- SECTION 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. Single Field Search</h2>
+
+        <p>
+            Ekach model field madhye search karanyasathi
+            search_fields madhye ek field define karu shakto.
+        </p>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>search_fields = ['name']</code></pre>
+        </div>
+
+        <h3>API Requests</h3>
+
+        <div class="output-box">
+            <pre><code>/api/students/?search=Rohan
+
+/api/students/?search=Rahul
+
+/api/students/?search=Amit</code></pre>
+        </div>
+
+        <p>
+            Search keyword name field madhye match honare
+            records return hotil.
+        </p>
+
+    </section>
+
+    <!-- SECTION 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. Multiple Field Search</h2>
+
+        <p>
+            Ekach API madhye multiple fields var search karaycha
+            asel tar search_fields madhye multiple fields define
+            karu shakto.
+        </p>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>search_fields = [
+    'name',
+    'email',
+    'course'
+]</code></pre>
+        </div>
+
+        <h3>API Request</h3>
+
+        <div class="output-box">
+            <pre><code>/api/students/?search=Rohan
+
+/api/students/?search=computer
+
+/api/students/?search=gmail</code></pre>
+        </div>
+
+        <p>
+            Ata API name, email ani course ya tinhi fields madhye
+            search keyword check karel.
+        </p>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            search_fields madhye dilelya field names Student model
+            madhye available asne avashyak aahe.
+        </div>
+
+    </section>
+
+    <!-- SECTION 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. Case-Insensitive Search</h2>
+
+        <p>
+            DRF SearchFilter madhye default search case-insensitive
+            aste. Mhanje uppercase ani lowercase letters madhil
+            farak consider kela jat nahi.
+        </p>
+
+        <h3>Example</h3>
+
+        <div class="output-box">
+            <pre><code>/api/students/?search=rohan
+
+/api/students/?search=ROHAN
+
+/api/students/?search=Rohan</code></pre>
+        </div>
+
+        <p>
+            Default SearchFilter configuration madhye ya
+            keywords sathi case-insensitive matching hote.
+        </p>
+
+    </section>
+
+    <!-- SECTION 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. Search Lookup Prefixes</h2>
+
+        <p>
+            search_fields madhye prefix vaprun search cha
+            behaviour change karta yeto.
+        </p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Prefix</th>
+                        <th>Lookup</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>^</td>
+                        <td>istartswith</td>
+                        <td>Text chi suruvat keyword ne hote.</td>
+                    </tr>
+                    <tr>
+                        <td>=</td>
+                        <td>iexact</td>
+                        <td>Case-insensitive exact match.</td>
+                    </tr>
+                    <tr>
+                        <td>@</td>
+                        <td>search</td>
+                        <td>Database full-text search.</td>
+                    </tr>
+                    <tr>
+                        <td>$</td>
+                        <td>iregex</td>
+                        <td>Case-insensitive regular expression.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Example – Starts With</h3>
+
+        <div class="code-block">
+            <pre><code>search_fields = ['^name']</code></pre>
+        </div>
+
+        <p>
+            Ya configuration madhye name field chi suruvat
+            search keyword ne honare records match hotil.
+        </p>
+
+        <h3>Example – Exact Match</h3>
+
+        <div class="code-block">
+            <pre><code>search_fields = ['=email']</code></pre>
+        </div>
+
+        <p>
+            Ya configuration madhye email field cha
+            case-insensitive exact match search hoto.
+        </p>
+
+        <div class="important-box">
+            <strong>Note:</strong>
+            @ prefix cha behaviour database backend var depend karto.
+            To supported database madhye full-text search sathi vaparla jato.
+        </div>
+
+    </section>
+
+    <!-- SECTION 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Related Field Searching</h2>
+
+        <p>
+            DRF SearchFilter vaprun related model fields madhye
+            suddha search karta yeto.
+        </p>
+
+        <p>
+            Related field access karanyasathi Django ORM madhil
+            double underscore (__) notation vapartat.
+        </p>
+
+        <h3>Example</h3>
+
+        <p>
+            Samja Student model madhye department navacha
+            ForeignKey field aahe ani Department model madhye
+            name field aahe.
+        </p>
+
+        <div class="code-block">
+            <pre><code>search_fields = [
+    'name',
+    'department__name'
+]</code></pre>
+        </div>
+
+        <h3>API Request</h3>
+
+        <div class="output-box">
+            <pre><code>/api/students/?search=Computer</code></pre>
+        </div>
+
+        <p>
+            Ata Student cha name ani related Department cha
+            name ya donhi fields madhye search hoil.
+        </p>
+
+    </section>
+
+    <!-- SECTION 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Search with Pagination</h2>
+
+        <p>
+            SearchFilter ani Pagination ekatra use karta yetat.
+            Search result madhil records pages madhye divide karta yetat.
+        </p>
+
+        <h3>Example Configuration</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.viewsets import ModelViewSet
+from rest_framework.filters import SearchFilter
+from rest_framework.pagination import PageNumberPagination
+
+class StudentPagination(PageNumberPagination):
+    page_size = 5
+
+
+class StudentViewSet(ModelViewSet):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+    filter_backends = [SearchFilter]
+    search_fields = ['name', 'course']
+
+    pagination_class = StudentPagination</code></pre>
+        </div>
+
+        <h3>API Request</h3>
+
+        <div class="output-box">
+            <pre><code>/api/students/?search=Rohan&page=1
+
+/api/students/?search=Rohan&page=2</code></pre>
+        </div>
+
+        <p>
+            Ya example madhye search result madhun eka page var
+            5 records return hotil, jar tyapeksha jast matching
+            records available astil.
+        </p>
+
+    </section>
+
+    <!-- SECTION 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Practical Student API Search</h2>
+
+        <p>
+            Ata aapan Student API madhye complete search
+            functionality implement karuya.
+        </p>
+
+        <h3>Step 1 – Update views.py</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.viewsets import ModelViewSet
+from rest_framework.filters import SearchFilter
+
+from .models import Student
+from .serializers import StudentSerializer
+
+
+class StudentViewSet(ModelViewSet):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+    filter_backends = [SearchFilter]
+
+    search_fields = [
+        'name',
+        'email',
+        'course'
+    ]</code></pre>
+        </div>
+
+        <h3>Step 2 – Register Router</h3>
+
+        <p>
+            Jar StudentViewSet router madhye already register asel,
+            tar punha register karanyachi garaj nahi.
+        </p>
+
+        <p><strong>File:</strong> api/urls.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.routers import DefaultRouter
+from .views import StudentViewSet
+
+router = DefaultRouter()
+
+router.register(
+    'students',
+    StudentViewSet,
+    basename='student'
+)
+
+urlpatterns = router.urls</code></pre>
+        </div>
+
+        <h3>Step 3 – Run Server</h3>
+
+        <div class="code-block">
+            <pre><code>python manage.py runserver</code></pre>
+        </div>
+
+        <h3>Step 4 – Test API</h3>
+
+        <div class="output-box">
+            <pre><code>/api/students/?search=Rohan
+
+/api/students/?search=gmail
+
+/api/students/?search=Computer</code></pre>
+        </div>
+
+        <p>
+            Ata API madhye name, email ani course ya fields var
+            search karta yeil.
+        </p>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Ya practical madhye Student model madhye name, email
+            ani course fields available asne avashyak aahe.
+            Tumchya project madhil actual field names vapra.
+        </div>
+
+    </section>
+
+    <!-- SECTION 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Filtering and Searching Together</h2>
+
+        <p>
+            DRF madhye Filtering ani Searching donhi ekach
+            ViewSet madhye use karta yetat.
+        </p>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.filters import SearchFilter
+
+class StudentViewSet(ModelViewSet):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+    filter_backends = [
+        DjangoFilterBackend,
+        SearchFilter
+    ]
+
+    filterset_fields = ['course']
+    search_fields = ['name', 'email']</code></pre>
+        </div>
+
+        <h3>API Request</h3>
+
+        <div class="output-box">
+            <pre><code>/api/students/?course=ComputerScience&search=Rohan</code></pre>
+        </div>
+
+        <p>
+            Ya request madhye course filter ani name/email
+            search donhi apply hotil.
+        </p>
+
+    </section>
+
+    <!-- SECTION 13 -->
+
+    <section class="lesson-section">
+
+        <h2>13. Important Points to Remember</h2>
+
+        <ul>
+            <li>SearchFilter DRF madhye built-in available aahe.</li>
+            <li>SearchFilter import karanyasathi rest_framework.filters vapartat.</li>
+            <li>search_fields madhye searchable fields define kartat.</li>
+            <li>Search query parameter default ne search aahe.</li>
+            <li>Default search case-insensitive aste.</li>
+            <li>Multiple fields madhye search karta yeto.</li>
+            <li>Related fields sathi double underscore notation vapartat.</li>
+            <li>SearchFilter ani Pagination ekatra use karta yetat.</li>
+            <li>Filtering ani Searching ekatra use karta yetat.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 14 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>14. Practice Questions</h2>
+
+        <ol>
+            <li>What is Searching in DRF?</li>
+            <li>What is the difference between Filtering and Searching?</li>
+            <li>What is SearchFilter?</li>
+            <li>What is search_fields?</li>
+            <li>How can we search multiple fields?</li>
+            <li>What is case-insensitive search?</li>
+            <li>What are Search Lookup Prefixes?</li>
+            <li>How can we search related model fields?</li>
+            <li>Can Searching and Pagination work together?</li>
+            <li>How can we use Filtering and Searching together?</li>
+        </ol>
+
+    </section>
+
+    <!-- SECTION 15 -->
+
+    <section class="lesson-section interview-section">
+
+        <h2>15. Interview Questions</h2>
+
+        <h3>Q1. What is SearchFilter?</h3>
+        <p>
+            SearchFilter is a built-in DRF filter backend
+            used to search records using keywords.
+        </p>
+
+        <h3>Q2. What is search_fields?</h3>
+        <p>
+            search_fields defines the model fields in which
+            the API performs searching.
+        </p>
+
+        <h3>Q3. Which query parameter is used by default?</h3>
+        <p>
+            The default query parameter is search.
+        </p>
+
+        <h3>Q4. Can we search multiple fields?</h3>
+        <p>
+            Yes. We can define multiple model fields
+            inside search_fields.
+        </p>
+
+        <h3>Q5. Is SearchFilter case-sensitive?</h3>
+        <p>
+            No. The default SearchFilter performs
+            case-insensitive searching.
+        </p>
+
+        <h3>Q6. Can we search related fields?</h3>
+        <p>
+            Yes. We can use double underscore notation
+            to search related model fields.
+        </p>
+
+    </section>
+
+    <!-- COMPLETION -->
+
+    <div class="completion-box">
+        <h3>Topic 28 Completed!</h3>
+        <p>
+            Ata aapan SearchFilter, search_fields, multiple-field
+            search, lookup prefixes ani pagination sobat search
+            implement karayla shiklo.
+        </p>
+    </div>
+
+    <!-- NAVIGATION -->
+
+    <div class="lesson-navigation">
+        <a href="{% url 'drf_topic' 'filtering' %}">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'drf_topic' 'ordering' %}">
+            Next Topic →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

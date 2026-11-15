@@ -1,0 +1,590 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}ModelSerializer in DRF{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/drf/model-serializer.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO REST FRAMEWORK</span>
+        <h1>10. ModelSerializer</h1>
+        <p>
+            Django Model vaprun Serializer automatically kasa
+            create karaycha te practical example sobat shikuya.
+        </p>
+    </div>
+
+    <!-- SECTION 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What is ModelSerializer?</h2>
+
+        <p>
+            ModelSerializer ha Django REST Framework madhil
+            ek special Serializer class aahe.
+        </p>
+
+        <p>
+            Ha Django Model madhil fields cha use karun
+            automatically serializer fields create karto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                ModelSerializer is a shortcut class that
+                automatically creates serializer fields
+                based on a Django model.
+            </p>
+        </div>
+
+        <h3>Simple Example</h3>
+
+        <p>
+            Samaj aaplyakade Student model aahe.
+            Tyache fields manually Serializer madhye define
+            karanyachi garaj nahi.
+        </p>
+
+        <p>
+            ModelSerializer model madhun fields automatically
+            generate karu shakto.
+        </p>
+
+    </section>
+
+    <!-- SECTION 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Why do we use ModelSerializer?</h2>
+
+        <p>
+            ModelSerializer mule API development madhye
+            code kami lihava lagto.
+        </p>
+
+        <ul>
+            <li>Model fields automatically generate hotat.</li>
+            <li>Field types automatically determine hotat.</li>
+            <li>Basic validation rules generate hotat.</li>
+            <li>Model objects create karne sope hote.</li>
+            <li>Model objects update karne sope hote.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Remember:</strong>
+            ModelSerializer ha Django Model sobat work karto.
+            Simple Serializer madhye aaplyala fields manually
+            define karave lagtat.
+        </div>
+
+    </section>
+
+    <!-- SECTION 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. Create a Student Model</h2>
+
+        <p>
+            Sarvat aadhi aaplyala Django Model create karava lagel.
+        </p>
+
+        <p><strong>File:</strong> api/models.py</p>
+
+        <h3>Code</h3>
+
+        <div class="code-block">
+            <pre><code>from django.db import models
+
+class Student(models.Model):
+
+    name = models.CharField(max_length=100)
+
+    age = models.IntegerField()
+
+    course = models.CharField(max_length=100)
+
+    email = models.EmailField()
+
+    def __str__(self):
+        return self.name</code></pre>
+        </div>
+
+        <h3>Code Explanation</h3>
+
+        <ul>
+            <li><strong>Student:</strong> Model class aahe.</li>
+            <li><strong>name:</strong> Student che nav store karto.</li>
+            <li><strong>age:</strong> Student che vay store karto.</li>
+            <li><strong>course:</strong> Course store karto.</li>
+            <li><strong>email:</strong> Email address store karto.</li>
+            <li><strong>__str__():</strong> Object che readable name return karto.</li>
+        </ul>
+
+        <h3>Run Migrations</h3>
+
+        <p>
+            Model create kelyanantar database table create
+            karanyasathi migrations run kara.
+        </p>
+
+        <div class="code-block">
+            <pre><code>python manage.py makemigrations
+
+python manage.py migrate</code></pre>
+        </div>
+
+    </section>
+
+    <!-- SECTION 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. Create a ModelSerializer</h2>
+
+        <p>
+            Ata Student model sathi ModelSerializer create karu.
+        </p>
+
+        <p><strong>File:</strong> api/serializers.py</p>
+
+        <h3>Code</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework import serializers
+from .models import Student
+
+class StudentSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Student
+        fields = '__all__'</code></pre>
+        </div>
+
+        <h3>Code Explanation</h3>
+
+        <ul>
+            <li><strong>ModelSerializer:</strong> Model-based serializer create karto.</li>
+            <li><strong>Student:</strong> Aapla Django model.</li>
+            <li><strong>Meta:</strong> Serializer configuration define karte.</li>
+            <li><strong>model:</strong> Konta Django model use karaycha te sangte.</li>
+            <li><strong>fields:</strong> Kontya model fields serializer madhye include karaychya te sangte.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Remember:</strong>
+            ModelSerializer madhye model ani fields he
+            Meta class madhye define karave lagtat.
+        </div>
+
+    </section>
+
+    <!-- SECTION 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. What is Meta Class?</h2>
+
+        <p>
+            Meta hi Serializer madhil nested configuration class aahe.
+            Tichya madhye serializer che settings define kele jatat.
+        </p>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>class StudentSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Student
+        fields = '__all__'</code></pre>
+        </div>
+
+        <p>
+            Ithe Meta class Django la sangte ki Student model
+            use karaycha ani tyache sagle fields include karayche.
+        </p>
+
+    </section>
+
+    <!-- SECTION 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. fields = '__all__'</h2>
+
+        <p>
+            fields = '__all__' mule model madhil sarva
+            eligible fields serializer madhye include hotat.
+        </p>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>class Meta:
+    model = Student
+    fields = '__all__'</code></pre>
+        </div>
+
+        <p>
+            Aaplya Student model madhye name, age, course
+            ani email he fields aahet. Te sagle serializer
+            madhye include hotil. Database madhil automatic
+            id field suddha include hoil.
+        </p>
+
+    </section>
+
+    <!-- SECTION 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. Select Specific Fields</h2>
+
+        <p>
+            Aaplyala model madhil sarva fields nako astil,
+            tar specific fields select karta yetat.
+        </p>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>class Meta:
+    model = Student
+    fields = ['id', 'name', 'course']</code></pre>
+        </div>
+
+        <p>
+            Ata serializer fakt id, name ani course fields
+            include karel.
+        </p>
+
+        <div class="important-box">
+            <strong>Remember:</strong>
+            fields madhye je fields define kele aahet,
+            fakt tech serializer output madhye yetil.
+        </div>
+
+    </section>
+
+    <!-- SECTION 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. read_only_fields</h2>
+
+        <p>
+            read_only_fields cha use kahi fields fakt
+            response madhye dakhavnyasathi hoto.
+        </p>
+
+        <p>
+            Read-only field la incoming data madhun create
+            kiwa update karta yet nahi.
+        </p>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>class Meta:
+    model = Student
+    fields = '__all__'
+    read_only_fields = ['id']</code></pre>
+        </div>
+
+        <p>
+            Ithe id field API response madhye disel,
+            pan client request madhun id change karta yenar nahi.
+        </p>
+
+    </section>
+
+    <!-- SECTION 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Serializer vs ModelSerializer</h2>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Serializer</th>
+                        <th>ModelSerializer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Fields manually define karave lagtat.</td>
+                        <td>Model madhun fields automatically generate hotat.</td>
+                    </tr>
+                    <tr>
+                        <td>Django Model compulsory nahi.</td>
+                        <td>Django Model required aahe.</td>
+                    </tr>
+                    <tr>
+                        <td>More manual code.</td>
+                        <td>Less manual code.</td>
+                    </tr>
+                    <tr>
+                        <td>create() ani update() logic swatah lihava lagu shakto.</td>
+                        <td>Basic model create ani update support built-in asto.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- SECTION 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Use ModelSerializer in API View</h2>
+
+        <p>
+            Ata ModelSerializer vaprun database madhil
+            Student data API madhun return karu.
+        </p>
+
+        <p><strong>File:</strong> api/views.py</p>
+
+        <h3>Code</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from .models import Student
+from .serializers import StudentSerializer
+
+@api_view(['GET'])
+def student_list(request):
+
+    students = Student.objects.all()
+
+    serializer = StudentSerializer(
+        students,
+        many=True
+    )
+
+    return Response(serializer.data)</code></pre>
+        </div>
+
+        <h3>Code Explanation</h3>
+
+        <ul>
+            <li><strong>Student.objects.all():</strong> Database madhil sarva students retrieve karto.</li>
+            <li><strong>many=True:</strong> Multiple model objects serialize karanyasathi use hoto.</li>
+            <li><strong>StudentSerializer:</strong> Student objects serialize karto.</li>
+            <li><strong>serializer.data:</strong> Serialized output return karto.</li>
+            <li><strong>Response():</strong> API response pathavto.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Single object serialize kartana many=True lagat nahi.
+            Multiple objects serialize kartana many=True use kara.
+        </div>
+
+    </section>
+
+    <!-- SECTION 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Test the API</h2>
+
+        <p>
+            Server start kara.
+        </p>
+
+        <div class="code-block">
+            <pre><code>python manage.py runserver</code></pre>
+        </div>
+
+        <p>
+            Browser madhye API URL open kara:
+        </p>
+
+        <div class="url-box">
+            <strong>http://127.0.0.1:8000/api/students/</strong>
+        </div>
+
+        <h3>Possible JSON Response</h3>
+
+        <div class="code-block">
+            <pre><code>[
+    {
+        "id": 1,
+        "name": "Rohan",
+        "age": 20,
+        "course": "BSc CS",
+        "email": "rohan@example.com"
+    },
+    {
+        "id": 2,
+        "name": "Amit",
+        "age": 21,
+        "course": "BCA",
+        "email": "amit@example.com"
+    }
+]</code></pre>
+        </div>
+
+        <p>
+            Ha data database madhun retrieve zala ani
+            ModelSerializer ne JSON-compatible output madhye
+            convert kela.
+        </p>
+
+    </section>
+
+    <!-- SECTION 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Important ModelSerializer Options</h2>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Option</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>model</td>
+                        <td>Model select karto.</td>
+                    </tr>
+                    <tr>
+                        <td>fields</td>
+                        <td>Serializer madhye fields select karto.</td>
+                    </tr>
+                    <tr>
+                        <td>exclude</td>
+                        <td>Kahi model fields exclude karto.</td>
+                    </tr>
+                    <tr>
+                        <td>read_only_fields</td>
+                        <td>Fields read-only banavto.</td>
+                    </tr>
+                    <tr>
+                        <td>extra_kwargs</td>
+                        <td>Existing fields che extra options configure karto.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Example: exclude</h3>
+
+        <div class="code-block">
+            <pre><code>class Meta:
+    model = Student
+    exclude = ['email']</code></pre>
+        </div>
+
+        <p>
+            Ithe email field serializer madhun exclude hoil.
+            <strong>fields</strong> ani <strong>exclude</strong>
+            donhi ekach Meta class madhye use karu naye.
+        </p>
+
+    </section>
+
+    <!-- SECTION 13 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>13. Practice Questions</h2>
+
+        <ol>
+            <li>What is ModelSerializer?</li>
+            <li>Why do we use ModelSerializer?</li>
+            <li>What is the purpose of the Meta class?</li>
+            <li>What is the use of fields = '__all__'?</li>
+            <li>How do we select specific fields?</li>
+            <li>What are read_only_fields?</li>
+            <li>What is the difference between Serializer and ModelSerializer?</li>
+            <li>What is the use of many=True?</li>
+            <li>Write a Student ModelSerializer.</li>
+        </ol>
+
+    </section>
+
+    <!-- SECTION 14 -->
+
+    <section class="lesson-section interview-section">
+
+        <h2>14. Interview Questions</h2>
+
+        <h3>Q1. What is ModelSerializer?</h3>
+        <p>
+            ModelSerializer is a DRF class that automatically
+            creates serializer fields based on a Django model.
+        </p>
+
+        <h3>Q2. What is the purpose of the Meta class?</h3>
+        <p>
+            Meta class defines serializer configuration
+            such as model and fields.
+        </p>
+
+        <h3>Q3. What is fields = '__all__'?</h3>
+        <p>
+            It includes all eligible fields of the model
+            in the serializer.
+        </p>
+
+        <h3>Q4. What are read_only_fields?</h3>
+        <p>
+            They are fields that can be included in output
+            but cannot be modified through incoming data.
+        </p>
+
+        <h3>Q5. What is many=True?</h3>
+        <p>
+            It is used when serializing multiple objects
+            with the same serializer.
+        </p>
+
+    </section>
+
+    <!-- COMPLETION -->
+
+    <div class="completion-box">
+        <h3>Topic 10 Completed!</h3>
+        <p>
+            Ata aapan ModelSerializer, Meta class, fields,
+            read_only_fields ani practical API integration
+            samjun ghetle.
+        </p>
+    </div>
+
+    <!-- NAVIGATION -->
+
+    <div class="lesson-navigation">
+        <a href="{% url 'drf_topic' 'serializers' %}">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'drf_topic' 'serialization' %}">
+            Next Topic →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

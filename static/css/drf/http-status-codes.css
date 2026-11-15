@@ -1,0 +1,79 @@
+
+/* =====================================
+   DJANGO REST FRAMEWORK - TOPIC 06
+===================================== */
+
+@import url("introduction.css");
+
+/* DEFINITION BOX */
+
+.definition-box {
+    padding: 18px;
+    margin: 20px 0;
+    background: #eff6ff;
+    border-left: 4px solid #2563eb;
+    border-radius: 8px;
+}
+
+.definition-box h3 {
+    margin-top: 0;
+    color: #1d4ed8;
+}
+
+.definition-box p {
+    color: #334155;
+    margin-bottom: 0;
+}
+
+/* IMPORTANT BOX */
+
+.important-box {
+    padding: 16px 18px;
+    margin: 20px 0;
+    background: #fff7ed;
+    border-left: 4px solid #f59e0b;
+    border-radius: 7px;
+    color: #9a3412;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* CODE BLOCK */
+
+.code-block {
+    padding: 20px;
+    margin: 15px 0 22px;
+    overflow-x: auto;
+    background: #111827;
+    border-radius: 9px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.code-block code {
+    padding: 0;
+    background: transparent;
+    color: #e5e7eb;
+    font-family: Consolas, monospace;
+    font-size: 13px;
+    line-height: 1.8;
+    white-space: pre;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .definition-box,
+    .important-box {
+        padding: 13px;
+        font-size: 13px;
+    }
+
+    .code-block {
+        padding: 13px;
+    }
+
+    .code-block code {
+        font-size: 11px;
+    }
+}

@@ -1,0 +1,672 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}API Deployment in DRF{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/drf/api-deployment.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO REST FRAMEWORK</span>
+        <h1>34. API Deployment in DRF</h1>
+        <p>
+            Learn how to deploy a Django REST Framework API
+            and make it available on the internet.
+        </p>
+    </div>
+
+    <!-- SECTION 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What is API Deployment?</h2>
+
+        <p>
+            API Deployment mhanje local computer var develop
+            kelela API internet var available karne.
+            Deployment nantar dusre users suddha API access karu shaktat.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                API Deployment is the process of publishing
+                an API to a server so that users can access it
+                through the internet.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="example-box">
+            <h3>Local API vs Live API</h3>
+            <pre><code>Local API:
+http://127.0.0.1:8000/api/students/
+
+Live API:
+https://example-api.onrender.com/api/students/</code></pre>
+        </div>
+
+        <p>
+            Local API fakt tumchya computer var access karta yete.
+            Live API internet connection aslelya users na access karta yete.
+        </p>
+
+    </section>
+
+    <!-- SECTION 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Development vs Production</h2>
+
+        <p>
+            Development environment coding ani testing sathi asto.
+            Production environment actual users sathi asto.
+        </p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Development</th>
+                        <th>Production</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Local computer var run hoto.</td>
+                        <td>Internet var run hoto.</td>
+                    </tr>
+                    <tr>
+                        <td>DEBUG = True asu shakto.</td>
+                        <td>DEBUG = False thevava.</td>
+                    </tr>
+                    <tr>
+                        <td>SQLite use karu shakto.</td>
+                        <td>PostgreSQL sarkha production database use karu shakto.</td>
+                    </tr>
+                    <tr>
+                        <td>Development server use hoto.</td>
+                        <td>Production WSGI server use hoto.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- SECTION 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. Production Settings</h2>
+
+        <p>
+            Production madhye Django settings secure ani
+            properly configure karne mahatvache aahe.
+        </p>
+
+        <h3>Important Settings</h3>
+
+        <ul>
+            <li>SECRET_KEY – Django security key.</li>
+            <li>DEBUG – Error details users na show karayche ka te control karte.</li>
+            <li>ALLOWED_HOSTS – Allowed domain names define karte.</li>
+            <li>DATABASES – Database connection configure karte.</li>
+            <li>STATIC_ROOT – Collected static files chi directory.</li>
+        </ul>
+
+        <h3>Example – settings.py</h3>
+
+        <div class="code-block">
+            <pre><code>import os
+
+SECRET_KEY = os.environ["SECRET_KEY"]
+
+DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
+
+ALLOWED_HOSTS = os.environ.get(
+    "ALLOWED_HOSTS", ""
+).split(",")</code></pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Production madhye DEBUG=False theva.
+            SECRET_KEY code madhye hardcode karu naka.
+        </div>
+
+    </section>
+
+    <!-- SECTION 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. Environment Variables (.env)</h2>
+
+        <p>
+            Environment Variables cha use secret information
+            ani configuration code pasun vegli thevanyasathi hoto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                Environment Variables are external configuration
+                values used by an application without hardcoding
+                them into the source code.
+            </p>
+        </div>
+
+        <h3>Example – .env</h3>
+
+        <div class="code-block">
+            <pre><code>SECRET_KEY=your-secret-key
+DEBUG=True
+ALLOWED_HOSTS=127.0.0.1,localhost
+DATABASE_URL=your-database-url</code></pre>
+        </div>
+
+        <h3>Read Environment Variables</h3>
+
+        <p>
+            Local development madhye python-dotenv package vapru shakto.
+        </p>
+
+        <div class="code-block">
+            <pre><code>pip install python-dotenv</code></pre>
+        </div>
+
+        <p><strong>settings.py</strong></p>
+
+        <div class="code-block">
+            <pre><code>import os
+from dotenv import load_dotenv
+
+load_dotenv(BASE_DIR / ".env")
+
+SECRET_KEY = os.environ["SECRET_KEY"]
+
+DEBUG = os.getenv("DEBUG", "False").lower() == "true"</code></pre>
+        </div>
+
+        <h3>.gitignore</h3>
+
+        <div class="code-block">
+            <pre><code>.env
+venv/
+__pycache__/
+*.pyc
+db.sqlite3</code></pre>
+        </div>
+
+        <p>
+            .env file GitHub var push karu naka.
+            Deployment platform madhye environment variables
+            manually configure kara.
+        </p>
+
+    </section>
+
+    <!-- SECTION 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. DEBUG and ALLOWED_HOSTS</h2>
+
+        <h3>DEBUG</h3>
+
+        <p>
+            DEBUG setting development madhye detailed error
+            information show karte.
+        </p>
+
+        <div class="code-block">
+            <pre><code>DEBUG = False</code></pre>
+        </div>
+
+        <h3>ALLOWED_HOSTS</h3>
+
+        <p>
+            ALLOWED_HOSTS madhye application access karu
+            shaknare domain names define kele jatat.
+        </p>
+
+        <div class="code-block">
+            <pre><code>ALLOWED_HOSTS = [
+    "example-api.onrender.com",
+    "localhost",
+    "127.0.0.1"
+]</code></pre>
+        </div>
+
+        <p>
+            Actual deployment madhye tumcha live domain
+            ALLOWED_HOSTS madhye add kara.
+        </p>
+
+    </section>
+
+    <!-- SECTION 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. PostgreSQL Database</h2>
+
+        <p>
+            PostgreSQL ha relational database aahe.
+            Production Django applications madhye PostgreSQL
+            commonly use kela jato.
+        </p>
+
+        <h3>Install Packages</h3>
+
+        <div class="code-block">
+            <pre><code>pip install dj-database-url psycopg2-binary</code></pre>
+        </div>
+
+        <h3>Configure Database</h3>
+
+        <p><strong>settings.py</strong></p>
+
+        <div class="code-block">
+            <pre><code>import dj_database_url
+import os
+
+DATABASE_URL = os.getenv("DATABASE_URL")
+
+if DATABASE_URL:
+    DATABASES = {
+        "default": dj_database_url.config(
+            default=DATABASE_URL,
+            conn_max_age=600,
+            ssl_require=True
+        )
+    }</code></pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Note:</strong>
+            DATABASE_URL madhye database connection details
+            astat. Ti secret information aahe. Public GitHub
+            repository madhye share karu naka.
+        </div>
+
+    </section>
+
+    <!-- SECTION 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. Static and Media Files</h2>
+
+        <p>
+            Django project madhye static files ani media files
+            vegveglya purpose sathi use hotat.
+        </p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Static Files</th>
+                        <th>Media Files</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>CSS, JavaScript, logos.</td>
+                        <td>User uploaded images and documents.</td>
+                    </tr>
+                    <tr>
+                        <td>Developer provide karto.</td>
+                        <td>Users upload karu shaktat.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Static Settings</h3>
+
+        <p><strong>settings.py</strong></p>
+
+        <div class="code-block">
+            <pre><code>STATIC_URL = "static/"
+
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+MEDIA_URL = "/media/"
+
+MEDIA_ROOT = BASE_DIR / "media"</code></pre>
+        </div>
+
+        <h3>WhiteNoise Installation</h3>
+
+        <div class="code-block">
+            <pre><code>pip install whitenoise</code></pre>
+        </div>
+
+        <h3>WhiteNoise Middleware</h3>
+
+        <p>
+            MIDDLEWARE list madhye SecurityMiddleware nantar
+            WhiteNoiseMiddleware add kara.
+        </p>
+
+        <div class="code-block">
+            <pre><code>MIDDLEWARE = [
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    # Other middleware
+]</code></pre>
+        </div>
+
+        <h3>Static Files Storage</h3>
+
+        <div class="code-block">
+            <pre><code>STORAGES = {
+    "staticfiles": {
+        "BACKEND": (
+            "whitenoise.storage.CompressedManifestStaticFilesStorage"
+        ),
+    },
+}</code></pre>
+        </div>
+
+        <h3>Collect Static Files</h3>
+
+        <div class="code-block">
+            <pre><code>python manage.py collectstatic --noinput</code></pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            WhiteNoise static files serve karanyasathi aahe.
+            User-uploaded media files sathi production madhye
+            persistent disk kiwa cloud storage configure kara.
+        </div>
+
+    </section>
+
+    <!-- SECTION 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. Deploy Django API on Render</h2>
+
+        <p>
+            Render he cloud platform aahe. Tyavar Django
+            application deploy karun live API URL milavu shakto.
+        </p>
+
+        <h3>Step 1 – Install Gunicorn</h3>
+
+        <div class="code-block">
+            <pre><code>pip install gunicorn</code></pre>
+        </div>
+
+        <h3>Step 2 – Update requirements.txt</h3>
+
+        <div class="code-block">
+            <pre><code>pip freeze > requirements.txt</code></pre>
+        </div>
+
+        <h3>Step 3 – Push Code to GitHub</h3>
+
+        <div class="code-block">
+            <pre><code>git add .
+git commit -m "Prepare API for deployment"
+git push origin main</code></pre>
+        </div>
+
+        <h3>Step 4 – Create Render Web Service</h3>
+
+        <ol>
+            <li>Render website open kara.</li>
+            <li>GitHub account connect kara.</li>
+            <li>New Web Service select kara.</li>
+            <li>Tumchi Django repository select kara.</li>
+            <li>Python runtime select kara.</li>
+            <li>Build Command configure kara.</li>
+            <li>Start Command configure kara.</li>
+            <li>Environment Variables add kara.</li>
+            <li>Deploy Web Service click kara.</li>
+        </ol>
+
+        <h3>Build Command</h3>
+
+        <div class="code-block">
+            <pre><code>pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate</code></pre>
+        </div>
+
+        <h3>Start Command</h3>
+
+        <div class="code-block">
+            <pre><code>gunicorn config.wsgi:application</code></pre>
+        </div>
+
+        <p>
+            Ya example madhye Django project package che nav
+            config aahe. Tumchya project madhye package name
+            vegle asel tar te vapra.
+        </p>
+
+        <h3>Step 5 – Environment Variables</h3>
+
+        <p>
+            Render dashboard madhye Environment section open
+            karun required variables add kara.
+        </p>
+
+        <div class="output-box">
+            <pre><code>SECRET_KEY = your-production-secret-key
+
+DEBUG = False
+
+ALLOWED_HOSTS = your-service.onrender.com
+
+DATABASE_URL = your-postgresql-database-url</code></pre>
+        </div>
+
+        <p>
+            Actual values tumchya Render service ani database
+            nusar configure kara.
+        </p>
+
+    </section>
+
+    <!-- SECTION 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Test API After Deployment</h2>
+
+        <p>
+            Deployment successful zalyanantar live API
+            endpoint test karne avashyak aahe.
+        </p>
+
+        <h3>Example</h3>
+
+        <div class="output-box">
+            <pre><code>GET
+
+https://your-service.onrender.com/api/students/</code></pre>
+        </div>
+
+        <h3>Check These Things</h3>
+
+        <ul>
+            <li>Live API URL open hoto ka?</li>
+            <li>GET request expected data return karte ka?</li>
+            <li>POST request record create karte ka?</li>
+            <li>Database connection working aahe ka?</li>
+            <li>Authentication properly work karte ka?</li>
+            <li>Static files properly load hotat ka?</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Common Deployment Errors</h2>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error</th>
+                        <th>Possible Solution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>DisallowedHost</td>
+                        <td>ALLOWED_HOSTS madhye correct domain add kara.</td>
+                    </tr>
+                    <tr>
+                        <td>ModuleNotFoundError</td>
+                        <td>Missing package requirements.txt madhye add kara.</td>
+                    </tr>
+                    <tr>
+                        <td>Database Connection Error</td>
+                        <td>DATABASE_URL ani database settings check kara.</td>
+                    </tr>
+                    <tr>
+                        <td>Static Files Not Found</td>
+                        <td>STATIC_ROOT ani collectstatic check kara.</td>
+                    </tr>
+                    <tr>
+                        <td>Application Failed to Start</td>
+                        <td>Start command ani deployment logs check kara.</td>
+                    </tr>
+                    <tr>
+                        <td>500 Internal Server Error</td>
+                        <td>Server logs madhil actual error check kara.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- SECTION 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Important Points to Remember</h2>
+
+        <ul>
+            <li>Deployment mule API internet var available hote.</li>
+            <li>Production madhye DEBUG=False theva.</li>
+            <li>SECRET_KEY environment variable madhye theva.</li>
+            <li>ALLOWED_HOSTS madhye live domain add kara.</li>
+            <li>PostgreSQL production database mhanun use karu shakto.</li>
+            <li>Gunicorn production WSGI server mhanun use hoto.</li>
+            <li>WhiteNoise static files serve karu shakto.</li>
+            <li>collectstatic static files collect karte.</li>
+            <li>Media files sathi persistent storage configure kara.</li>
+            <li>Deployment nantar live API test kara.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 12 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>12. Practice Questions</h2>
+
+        <ol>
+            <li>What is API Deployment?</li>
+            <li>What is the difference between Development and Production?</li>
+            <li>What are Environment Variables?</li>
+            <li>Why should DEBUG be False in production?</li>
+            <li>What is ALLOWED_HOSTS?</li>
+            <li>What is PostgreSQL?</li>
+            <li>What is the difference between Static and Media Files?</li>
+            <li>What is Gunicorn?</li>
+            <li>What is WhiteNoise?</li>
+            <li>How do you deploy a Django API on Render?</li>
+        </ol>
+
+    </section>
+
+    <!-- SECTION 13 -->
+
+    <section class="lesson-section interview-section">
+
+        <h2>13. Interview Questions</h2>
+
+        <h3>Q1. What is Deployment?</h3>
+        <p>
+            Deployment is the process of making an application
+            available on a server for users.
+        </p>
+
+        <h3>Q2. Why is DEBUG=False used in production?</h3>
+        <p>
+            It prevents detailed technical error information
+            from being exposed to users.
+        </p>
+
+        <h3>Q3. What are Environment Variables?</h3>
+        <p>
+            Environment Variables store application configuration
+            separately from source code.
+        </p>
+
+        <h3>Q4. What is Gunicorn?</h3>
+        <p>
+            Gunicorn is a WSGI HTTP server used to run
+            Python web applications in production.
+        </p>
+
+        <h3>Q5. What is WhiteNoise?</h3>
+        <p>
+            WhiteNoise helps Django serve static files
+            in production.
+        </p>
+
+        <h3>Q6. What is collectstatic?</h3>
+        <p>
+            collectstatic collects static files from
+            different locations into STATIC_ROOT.
+        </p>
+
+    </section>
+
+    <!-- COMPLETION -->
+
+    <div class="completion-box">
+        <h3>Topic 34 Completed!</h3>
+        <p>
+            Ata aapan Production Settings, Environment Variables,
+            PostgreSQL, Static Files ani Render Deployment shiklo.
+        </p>
+    </div>
+
+    <!-- NAVIGATION -->
+
+    <div class="lesson-navigation">
+        <a href="{% url 'drf_topic' 'api-testing' %}">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'drf_index' %}">
+            Course Home →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

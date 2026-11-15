@@ -1,0 +1,728 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}API Testing in DRF{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/drf/api-testing.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO REST FRAMEWORK</span>
+        <h1>33. API Testing in DRF</h1>
+        <p>
+            Learn how to test REST APIs using Django and
+            Django REST Framework testing tools.
+        </p>
+    </div>
+
+    <!-- SECTION 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What is API Testing?</h2>
+
+        <p>
+            API Testing mhanje API yogya prakare kaam karte ka,
+            request accept karte ka ani expected response dete ka
+            he check karne.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                API Testing is the process of checking whether
+                an API works correctly by sending requests and
+                verifying responses.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <p>
+            Samja Student API madhye GET request pathavli.
+            Tar API students chi list return karte ka he test
+            karne mhanje API Testing.
+        </p>
+
+        <div class="example-box">
+            <h3>API Testing Process</h3>
+            <pre><code>Test Case
+    |
+    v
+Send API Request
+    |
+    v
+Receive API Response
+    |
+    v
+Check Status Code
+    |
+    v
+Verify Response Data
+    |
+    v
+Test Passed / Failed</code></pre>
+        </div>
+
+        <h3>Why is API Testing Important?</h3>
+
+        <ul>
+            <li>API madhil errors shodhnyasathi.</li>
+            <li>API expected output dete ka he check karanyasathi.</li>
+            <li>CRUD operations test karanyasathi.</li>
+            <li>Authentication ani permissions check karanyasathi.</li>
+            <li>Code changes mule existing features break hot nahit he check karanyasathi.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Django TestCase</h2>
+
+        <p>
+            Django madhye TestCase class cha use automated
+            tests lihinyasathi hoto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                TestCase is a Django testing class used to
+                write and execute automated test cases.
+            </p>
+        </div>
+
+        <h3>Import</h3>
+
+        <div class="code-block">
+            <pre><code>from django.test import TestCase</code></pre>
+        </div>
+
+        <h3>Example</h3>
+
+        <p><strong>File:</strong> api/tests.py</p>
+
+        <div class="code-block">
+            <pre><code>from django.test import TestCase
+
+
+class StudentTest(TestCase):
+
+    def test_example(self):
+
+        result = 10 + 20
+
+        self.assertEqual(result, 30)</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li>TestCase testing class aahe.</li>
+            <li>test_ pasun suru honari method test mhanun run hote.</li>
+            <li>assertEqual expected ani actual value compare karte.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. What is APITestCase?</h2>
+
+        <p>
+            APITestCase hi Django REST Framework madhil
+            testing class aahe.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                APITestCase is used to write tests for REST APIs
+                by providing an API test client.
+            </p>
+        </div>
+
+        <h3>Import</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.test import APITestCase</code></pre>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.test import APITestCase
+
+
+class StudentAPITest(APITestCase):
+
+    def test_example(self):
+
+        self.assertEqual(5, 5)</code></pre>
+        </div>
+
+        <p>
+            APITestCase madhye API requests pathvun
+            response test karta yeto.
+        </p>
+
+    </section>
+
+    <!-- SECTION 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. What is APIClient?</h2>
+
+        <p>
+            APIClient cha use test madhun API la GET, POST,
+            PUT, PATCH ani DELETE requests pathavnyasathi hoto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                APIClient is a testing tool provided by DRF
+                to send API requests without running a real server.
+            </p>
+        </div>
+
+        <h3>Import</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.test import APIClient</code></pre>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.test import APIClient
+
+client = APIClient()
+
+response = client.get('/api/students/')</code></pre>
+        </div>
+
+        <h3>Common APIClient Methods</h3>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>client.get()</td>
+                        <td>GET request send karte.</td>
+                    </tr>
+                    <tr>
+                        <td>client.post()</td>
+                        <td>POST request send karte.</td>
+                    </tr>
+                    <tr>
+                        <td>client.put()</td>
+                        <td>PUT request send karte.</td>
+                    </tr>
+                    <tr>
+                        <td>client.patch()</td>
+                        <td>PATCH request send karte.</td>
+                    </tr>
+                    <tr>
+                        <td>client.delete()</td>
+                        <td>DELETE request send karte.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- SECTION 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. GET Request Testing</h2>
+
+        <p>
+            GET request test karun API students chi list
+            return karte ka he check karta yete.
+        </p>
+
+        <h3>Example</h3>
+
+        <p><strong>File:</strong> api/tests.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.test import APITestCase
+from rest_framework import status
+
+from .models import Student
+
+
+class StudentAPITest(APITestCase):
+
+    def test_get_students(self):
+
+        Student.objects.create(name="Rohan")
+
+        response = self.client.get('/api/students/')
+
+        self.assertEqual(
+            response.status_code,
+            status.HTTP_200_OK
+        )
+
+        self.assertEqual(len(response.data), 1)</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li>Student.objects.create() test database madhye student create karte.</li>
+            <li>self.client.get() GET request pathavte.</li>
+            <li>HTTP_200_OK success response check karte.</li>
+            <li>len(response.data) returned records count check karte.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. POST Request Testing</h2>
+
+        <p>
+            POST request test karun API navin student create
+            karte ka he check karta yete.
+        </p>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>def test_create_student(self):
+
+    data = {
+        "name": "Rohan"
+    }
+
+    response = self.client.post(
+        '/api/students/',
+        data,
+        format='json'
+    )
+
+    self.assertEqual(
+        response.status_code,
+        status.HTTP_201_CREATED
+    )
+
+    self.assertEqual(
+        Student.objects.count(),
+        1
+    )</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li>data madhye student information aste.</li>
+            <li>self.client.post() POST request pathavte.</li>
+            <li>format='json' request JSON format madhye pathavte.</li>
+            <li>HTTP_201_CREATED successful creation check karte.</li>
+            <li>Student.objects.count() database madhil records count check karte.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. PUT and PATCH Request Testing</h2>
+
+        <p>
+            PUT ani PATCH requests existing student information
+            update karanyasathi vapartat.
+        </p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>PUT</td>
+                        <td>Resource replace/update karanyasathi.</td>
+                    </tr>
+                    <tr>
+                        <td>PATCH</td>
+                        <td>Resource madhil specific fields update karanyasathi.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>PUT Example</h3>
+
+        <div class="code-block">
+            <pre><code>def test_update_student(self):
+
+    student = Student.objects.create(name="Rohan")
+
+    data = {
+        "name": "Rahul"
+    }
+
+    response = self.client.put(
+        f'/api/students/{student.id}/',
+        data,
+        format='json'
+    )
+
+    self.assertEqual(
+        response.status_code,
+        status.HTTP_200_OK
+    )
+
+    student.refresh_from_db()
+
+    self.assertEqual(student.name, "Rahul")</code></pre>
+        </div>
+
+        <h3>PATCH Example</h3>
+
+        <div class="code-block">
+            <pre><code>def test_partial_update_student(self):
+
+    student = Student.objects.create(name="Rohan")
+
+    data = {
+        "name": "Amit"
+    }
+
+    response = self.client.patch(
+        f'/api/students/{student.id}/',
+        data,
+        format='json'
+    )
+
+    self.assertEqual(
+        response.status_code,
+        status.HTTP_200_OK
+    )
+
+    student.refresh_from_db()
+
+    self.assertEqual(student.name, "Amit")</code></pre>
+        </div>
+
+        <p>
+            refresh_from_db() database madhun updated
+            information parat load karte.
+        </p>
+
+    </section>
+
+    <!-- SECTION 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. DELETE Request Testing</h2>
+
+        <p>
+            DELETE request test karun API student record
+            delete karte ka he check karta yete.
+        </p>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>def test_delete_student(self):
+
+    student = Student.objects.create(name="Rohan")
+
+    response = self.client.delete(
+        f'/api/students/{student.id}/'
+    )
+
+    self.assertEqual(
+        response.status_code,
+        status.HTTP_204_NO_CONTENT
+    )
+
+    self.assertEqual(
+        Student.objects.count(),
+        0
+    )</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li>Student.objects.create() student create karte.</li>
+            <li>self.client.delete() DELETE request pathavte.</li>
+            <li>HTTP_204_NO_CONTENT successful deletion check karte.</li>
+            <li>Student.objects.count() record delete zala ka te check karte.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Authentication Testing</h2>
+
+        <p>
+            Authentication Testing madhye API authorized user
+            la access dete ka ani unauthenticated user la
+            restrict karte ka he check kele jate.
+        </p>
+
+        <h3>Example – Force Authentication</h3>
+
+        <div class="code-block">
+            <pre><code>from django.contrib.auth import get_user_model
+from rest_framework.test import APITestCase
+from rest_framework import status
+
+User = get_user_model()
+
+
+class AuthenticationTest(APITestCase):
+
+    def test_authenticated_access(self):
+
+        user = User.objects.create_user(
+            username="rohan",
+            password="testpass123"
+        )
+
+        self.client.force_authenticate(user=user)
+
+        response = self.client.get('/api/students/')
+
+        self.assertEqual(
+            response.status_code,
+            status.HTTP_200_OK
+        )</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li>create_user() test user create karte.</li>
+            <li>force_authenticate() test request sathi user authenticate karte.</li>
+            <li>GET request protected API la pathavli jate.</li>
+            <li>HTTP_200_OK access successful aahe ka te check karte.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            force_authenticate() testing sathi aahe.
+            Actual login ani token authentication flow test
+            karanyasathi real credentials kiwa token vapra.
+        </div>
+
+    </section>
+
+    <!-- SECTION 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Running API Tests</h2>
+
+        <p>
+            Django project madhye tests run karanyasathi
+            manage.py test command vapartat.
+        </p>
+
+        <h3>Command</h3>
+
+        <div class="code-block">
+            <pre><code>python manage.py test</code></pre>
+        </div>
+
+        <h3>Run Tests of One App</h3>
+
+        <div class="code-block">
+            <pre><code>python manage.py test api</code></pre>
+        </div>
+
+        <h3>Example Output</h3>
+
+        <div class="output-box">
+            <pre><code>Creating test database...
+
+Found 4 test(s).
+
+....
+----------------------------------------------------------------------
+Ran 4 tests
+
+OK
+
+Destroying test database...</code></pre>
+        </div>
+
+        <p>
+            OK mhanje tests successfully pass zale.
+            Test fail zalyas Django error details show karte.
+        </p>
+
+    </section>
+
+    <!-- SECTION 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Common Assertions</h2>
+
+        <p>
+            Assertions cha use expected result ani actual
+            result compare karanyasathi hoto.
+        </p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Assertion</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>assertEqual()</td>
+                        <td>Don values equal aahet ka check karte.</td>
+                    </tr>
+                    <tr>
+                        <td>assertNotEqual()</td>
+                        <td>Don values different aahet ka check karte.</td>
+                    </tr>
+                    <tr>
+                        <td>assertTrue()</td>
+                        <td>Condition True aahe ka check karte.</td>
+                    </tr>
+                    <tr>
+                        <td>assertFalse()</td>
+                        <td>Condition False aahe ka check karte.</td>
+                    </tr>
+                    <tr>
+                        <td>assertContains()</td>
+                        <td>Response madhye expected content aahe ka check karte.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- SECTION 12 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>12. Practice Questions</h2>
+
+        <ol>
+            <li>What is API Testing?</li>
+            <li>Why is API Testing important?</li>
+            <li>What is Django TestCase?</li>
+            <li>What is APITestCase?</li>
+            <li>What is APIClient?</li>
+            <li>How do you test a GET request?</li>
+            <li>How do you test a POST request?</li>
+            <li>What is the difference between PUT and PATCH?</li>
+            <li>How do you test a DELETE request?</li>
+            <li>How do you run Django tests?</li>
+        </ol>
+
+    </section>
+
+    <!-- SECTION 13 -->
+
+    <section class="lesson-section interview-section">
+
+        <h2>13. Interview Questions</h2>
+
+        <h3>Q1. What is API Testing?</h3>
+        <p>
+            API Testing checks whether an API works correctly
+            and returns the expected response.
+        </p>
+
+        <h3>Q2. What is APITestCase?</h3>
+        <p>
+            APITestCase is a DRF testing class used to
+            test API endpoints.
+        </p>
+
+        <h3>Q3. What is APIClient?</h3>
+        <p>
+            APIClient sends HTTP requests to API endpoints
+            during testing.
+        </p>
+
+        <h3>Q4. What is assertEqual()?</h3>
+        <p>
+            assertEqual() checks whether two values are equal.
+        </p>
+
+        <h3>Q5. How do you run tests in Django?</h3>
+        <p>
+            We use the command python manage.py test.
+        </p>
+
+        <h3>Q6. What is force_authenticate()?</h3>
+        <p>
+            force_authenticate() authenticates a test request
+            as a specified user without performing the real
+            authentication process.
+        </p>
+
+    </section>
+
+    <!-- COMPLETION -->
+
+    <div class="completion-box">
+        <h3>Topic 33 Completed!</h3>
+        <p>
+            Ata aapan TestCase, APITestCase, APIClient,
+            CRUD Testing ani Authentication Testing shiklo.
+        </p>
+    </div>
+
+    <!-- NAVIGATION -->
+
+    <div class="lesson-navigation">
+        <a href="{% url 'drf_topic' 'file-upload-api' %}">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'drf_topic' 'api-deployment' %}">
+            Next Topic →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

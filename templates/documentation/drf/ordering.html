@@ -1,0 +1,626 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Ordering in DRF{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/drf/ordering.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO REST FRAMEWORK</span>
+        <h1>29. Ordering in DRF</h1>
+        <p>
+            Learn how to sort API records in ascending
+            and descending order.
+        </p>
+    </div>
+
+    <!-- SECTION 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What is Ordering?</h2>
+
+        <p>
+            Ordering mhanje database madhil records specific
+            field nusar sequence madhye arrange karne.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                Ordering is the process of arranging records
+                in a specific sequence, such as ascending
+                or descending order.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <p>
+            Samja Student database madhye students chi list aahe.
+            Aaplyala students age nusar arrange karayche aahet.
+        </p>
+
+        <div class="example-box">
+            <h3>Before Ordering</h3>
+
+            <pre><code>Rohan - 22
+Amit  - 18
+Rahul - 20</code></pre>
+
+            <h3>After Ordering by Age</h3>
+
+            <pre><code>Amit  - 18
+Rahul - 20
+Rohan - 22</code></pre>
+        </div>
+
+    </section>
+
+    <!-- SECTION 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Types of Ordering</h2>
+
+        <p>
+            DRF madhye aapan mainly don types of ordering use karto.
+        </p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Meaning</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ascending</td>
+                        <td>Small to large / A to Z</td>
+                        <td>age</td>
+                    </tr>
+                    <tr>
+                        <td>Descending</td>
+                        <td>Large to small / Z to A</td>
+                        <td>-age</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Ascending Order</h3>
+
+        <p>
+            Ascending order madhye records small to large
+            kiwa A to Z sequence madhye arrange hotat.
+        </p>
+
+        <div class="output-box">
+            <pre><code>18, 20, 22, 25, 30</code></pre>
+        </div>
+
+        <h3>Descending Order</h3>
+
+        <p>
+            Descending order madhye records large to small
+            kiwa Z to A sequence madhye arrange hotat.
+        </p>
+
+        <div class="output-box">
+            <pre><code>30, 25, 22, 20, 18</code></pre>
+        </div>
+
+    </section>
+
+    <!-- SECTION 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. What is OrderingFilter?</h2>
+
+        <p>
+            OrderingFilter ha Django REST Framework madhil
+            built-in filter backend aahe. To API records
+            specific field nusar sort karto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                OrderingFilter allows API clients to sort
+                queryset results using URL query parameters.
+            </p>
+        </div>
+
+        <h3>Import OrderingFilter</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.filters import OrderingFilter</code></pre>
+        </div>
+
+        <p>
+            OrderingFilter vaparnyasathi separate package
+            install karanyachi garaj nahi.
+        </p>
+
+    </section>
+
+    <!-- SECTION 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. What is ordering_fields?</h2>
+
+        <p>
+            ordering_fields madhye kontya model fields nusar
+            records sort karayche aahet te define kele jate.
+        </p>
+
+        <h3>Example</h3>
+
+        <p><strong>File:</strong> api/views.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.viewsets import ModelViewSet
+from rest_framework.filters import OrderingFilter
+
+from .models import Student
+from .serializers import StudentSerializer
+
+
+class StudentViewSet(ModelViewSet):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+    filter_backends = [OrderingFilter]
+
+    ordering_fields = ['name', 'age']</code></pre>
+        </div>
+
+        <p>
+            Ya example madhye API name ani age ya fields nusar
+            records sort karu shakte.
+        </p>
+
+    </section>
+
+    <!-- SECTION 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. Ascending Ordering</h2>
+
+        <p>
+            Ascending ordering madhye records small to large
+            kiwa alphabetical order madhye arrange hotat.
+        </p>
+
+        <h3>API Request</h3>
+
+        <div class="output-box">
+            <pre><code>/api/students/?ordering=age</code></pre>
+        </div>
+
+        <p>
+            Ya request madhye students age chya ascending
+            order madhye return hotil.
+        </p>
+
+        <h3>Another Example</h3>
+
+        <div class="output-box">
+            <pre><code>/api/students/?ordering=name</code></pre>
+        </div>
+
+        <p>
+            Ya request madhye students name chya A to Z
+            order madhye arrange hotil.
+        </p>
+
+    </section>
+
+    <!-- SECTION 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. Descending Ordering</h2>
+
+        <p>
+            Descending ordering madhye field name chya pudhe
+            minus (-) symbol vapartat.
+        </p>
+
+        <h3>API Request</h3>
+
+        <div class="output-box">
+            <pre><code>/api/students/?ordering=-age</code></pre>
+        </div>
+
+        <p>
+            Ya request madhye students age chya descending
+            order madhye return hotil.
+        </p>
+
+        <h3>Another Example</h3>
+
+        <div class="output-box">
+            <pre><code>/api/students/?ordering=-name</code></pre>
+        </div>
+
+        <p>
+            Ya request madhye names Z to A order madhye
+            arrange hotil.
+        </p>
+
+        <div class="important-box">
+            <strong>Remember:</strong>
+            Minus (-) symbol nasel tar ascending order.
+            Minus (-) symbol asel tar descending order.
+        </div>
+
+    </section>
+
+    <!-- SECTION 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. Multiple Field Ordering</h2>
+
+        <p>
+            Ekach API request madhye multiple fields nusar
+            records sort karta yetat.
+        </p>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>ordering_fields = ['name', 'age']</code></pre>
+        </div>
+
+        <h3>API Request</h3>
+
+        <div class="output-box">
+            <pre><code>/api/students/?ordering=name,-age</code></pre>
+        </div>
+
+        <p>
+            Ya request madhye:
+        </p>
+
+        <ul>
+            <li>First name ascending order madhye arrange hoil.</li>
+            <li>Same name aslele records age descending order madhye arrange hotil.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Multiple ordering fields comma (,) vaprun separate
+            kele jatat. Pahilya field la priority aste.
+        </div>
+
+    </section>
+
+    <!-- SECTION 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. Default Ordering</h2>
+
+        <p>
+            User ne URL madhye ordering parameter pass kela nahi,
+            tar default ordering vaparta yete.
+        </p>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>class StudentViewSet(ModelViewSet):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+    filter_backends = [OrderingFilter]
+
+    ordering_fields = ['name', 'age']
+
+    ordering = ['name']</code></pre>
+        </div>
+
+        <p>
+            Ya example madhye user ne ordering parameter pass
+            kela nahi tar students name nusar ascending
+            order madhye return hotil.
+        </p>
+
+        <h3>Default Descending Ordering</h3>
+
+        <div class="code-block">
+            <pre><code>ordering = ['-age']</code></pre>
+        </div>
+
+        <p>
+            Ata default ordering age descending order madhye hoil.
+        </p>
+
+    </section>
+
+    <!-- SECTION 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Global Ordering Configuration</h2>
+
+        <p>
+            DRF settings madhye global default ordering backend
+            configure karta yeto.
+        </p>
+
+        <p><strong>File:</strong> config/settings.py</p>
+
+        <div class="code-block">
+            <pre><code>REST_FRAMEWORK = {
+
+    'DEFAULT_FILTER_BACKENDS': [
+        'rest_framework.filters.OrderingFilter',
+    ],
+
+}</code></pre>
+        </div>
+
+        <p>
+            Ya configuration mule OrderingFilter globally
+            enable hoil. Specific views madhye allowed
+            ordering fields ani default ordering define karu shakto.
+        </p>
+
+    </section>
+
+    <!-- SECTION 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Search + Filter + Ordering Together</h2>
+
+        <p>
+            DRF madhye Filtering, Searching ani Ordering
+            ekatra use karta yetat.
+        </p>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.viewsets import ModelViewSet
+from rest_framework.filters import SearchFilter, OrderingFilter
+from django_filters.rest_framework import DjangoFilterBackend
+
+class StudentViewSet(ModelViewSet):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+    filter_backends = [
+        DjangoFilterBackend,
+        SearchFilter,
+        OrderingFilter
+    ]
+
+    filterset_fields = ['course']
+
+    search_fields = ['name', 'email']
+
+    ordering_fields = ['name', 'age']
+
+    ordering = ['name']</code></pre>
+        </div>
+
+        <h3>API Request</h3>
+
+        <div class="output-box">
+            <pre><code>/api/students/?course=ComputerScience&search=Rohan&ordering=-age</code></pre>
+        </div>
+
+        <p>
+            Ya request madhye:
+        </p>
+
+        <ul>
+            <li>course nusar filtering hoil.</li>
+            <li>name ani email madhye Rohan search hoil.</li>
+            <li>Matching records age descending order madhye arrange hotil.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Practical Student API Ordering</h2>
+
+        <p>
+            Ata aapan Student API madhye complete ordering
+            functionality implement karuya.
+        </p>
+
+        <h3>Step 1 – Update views.py</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.viewsets import ModelViewSet
+from rest_framework.filters import OrderingFilter
+
+from .models import Student
+from .serializers import StudentSerializer
+
+
+class StudentViewSet(ModelViewSet):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+    filter_backends = [OrderingFilter]
+
+    ordering_fields = [
+        'name',
+        'age',
+        'course'
+    ]
+
+    ordering = ['name']</code></pre>
+        </div>
+
+        <h3>Step 2 – Run Server</h3>
+
+        <div class="code-block">
+            <pre><code>python manage.py runserver</code></pre>
+        </div>
+
+        <h3>Step 3 – Test API</h3>
+
+        <div class="output-box">
+            <pre><code># Name ascending
+/api/students/?ordering=name
+
+# Age ascending
+/api/students/?ordering=age
+
+# Age descending
+/api/students/?ordering=-age
+
+# Multiple fields
+/api/students/?ordering=name,-age</code></pre>
+        </div>
+
+        <p>
+            Ata Student API madhye name, age ani course
+            ya fields nusar records sort karta yetil.
+        </p>
+
+        <div class="important-box">
+            <strong>Note:</strong>
+            Ha example Student model madhye name, age ani course
+            fields available aahet ase gruhit dharto. Tumchya
+            actual model madhil field names vapra.
+        </div>
+
+    </section>
+
+    <!-- SECTION 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Important Points to Remember</h2>
+
+        <ul>
+            <li>Ordering records specific sequence madhye arrange karte.</li>
+            <li>OrderingFilter DRF madhye built-in available aahe.</li>
+            <li>ordering_fields allowed fields define karte.</li>
+            <li>ordering parameter URL madhun pass karto.</li>
+            <li>Ascending order sathi minus (-) vaprat nahi.</li>
+            <li>Descending order sathi minus (-) vapartat.</li>
+            <li>Multiple fields comma (,) vaprun pass karta yetat.</li>
+            <li>Default ordering sathi ordering attribute vapartat.</li>
+            <li>Search, Filtering ani Ordering ekatra use karta yetat.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 13 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>13. Practice Questions</h2>
+
+        <ol>
+            <li>What is Ordering in DRF?</li>
+            <li>What is OrderingFilter?</li>
+            <li>What is ordering_fields?</li>
+            <li>What is Ascending Ordering?</li>
+            <li>What is Descending Ordering?</li>
+            <li>How can we perform multiple field ordering?</li>
+            <li>What is Default Ordering?</li>
+            <li>How can we enable Ordering globally?</li>
+            <li>Can Searching and Ordering work together?</li>
+            <li>How can we implement Ordering in Student API?</li>
+        </ol>
+
+    </section>
+
+    <!-- SECTION 14 -->
+
+    <section class="lesson-section interview-section">
+
+        <h2>14. Interview Questions</h2>
+
+        <h3>Q1. What is OrderingFilter?</h3>
+        <p>
+            OrderingFilter is a built-in DRF backend used
+            to sort queryset records.
+        </p>
+
+        <h3>Q2. What is ordering_fields?</h3>
+        <p>
+            It defines which fields are allowed for ordering.
+        </p>
+
+        <h3>Q3. How do you perform descending ordering?</h3>
+        <p>
+            We use a minus (-) symbol before the field name.
+            Example: ordering=-age
+        </p>
+
+        <h3>Q4. How do you perform multiple field ordering?</h3>
+        <p>
+            We pass multiple field names separated by commas.
+        </p>
+
+        <h3>Q5. What is Default Ordering?</h3>
+        <p>
+            Default Ordering defines the sorting sequence
+            when the client does not provide an ordering parameter.
+        </p>
+
+        <h3>Q6. Can we use SearchFilter and OrderingFilter together?</h3>
+        <p>
+            Yes. Both filter backends can be configured
+            in the same ViewSet.
+        </p>
+
+    </section>
+
+    <!-- COMPLETION -->
+
+    <div class="completion-box">
+        <h3>Topic 29 Completed!</h3>
+        <p>
+            Ata aapan OrderingFilter, ordering_fields,
+            ascending, descending ani multiple field ordering
+            shiklo.
+        </p>
+    </div>
+
+    <!-- NAVIGATION -->
+
+    <div class="lesson-navigation">
+        <a href="{% url 'drf_topic' 'searching' %}">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'drf_topic' 'throttling' %}">
+            Next Topic →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

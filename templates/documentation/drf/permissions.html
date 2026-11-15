@@ -1,0 +1,799 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Permissions in DRF{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/drf/permissions.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO REST FRAMEWORK</span>
+        <h1>23. Permissions in DRF</h1>
+        <p>
+            Learn how to control access to API endpoints
+            using Django REST Framework permissions.
+        </p>
+    </div>
+
+    <!-- SECTION 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What are Permissions?</h2>
+
+        <p>
+            Permission mhanje user la specific API access karaychi
+            permission aahe ka he check karne.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                Permissions determine whether a user is allowed
+                to access a particular API resource or perform an action.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <p>
+            Samja ek College Management API aahe.
+        </p>
+
+        <ul>
+            <li>Student la swatachi profile baghta yete.</li>
+            <li>Teacher la attendance update karta yete.</li>
+            <li>Admin la users manage karta yetat.</li>
+        </ul>
+
+        <p>
+            Ya pratyek user sathi vegvegale access rules define
+            karanyasathi permissions vapartat.
+        </p>
+
+    </section>
+
+    <!-- SECTION 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Authentication vs Permissions</h2>
+
+        <p>
+            Authentication ani Permissions ya donhi concepts
+            API security sathi important aahet.
+        </p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Authentication</th>
+                        <th>Permissions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>User kon aahe te verify karte.</td>
+                        <td>User la access aahe ka te check karte.</td>
+                    </tr>
+                    <tr>
+                        <td>Who are you?</td>
+                        <td>What can you access?</td>
+                    </tr>
+                    <tr>
+                        <td>Identity verify karte.</td>
+                        <td>Access control karte.</td>
+                    </tr>
+                    <tr>
+                        <td>Example: Login</td>
+                        <td>Example: Admin-only API</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Authentication user identify karte. Permissions
+            tyachya nantar user la API access dyaycha ki nahi
+            te tharavtat.
+        </div>
+
+    </section>
+
+    <!-- SECTION 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. Types of Built-in Permissions</h2>
+
+        <p>
+            DRF madhye kahi built-in permission classes available aahet.
+        </p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Permission Class</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>AllowAny</td>
+                        <td>All users can access the API.</td>
+                    </tr>
+                    <tr>
+                        <td>IsAuthenticated</td>
+                        <td>Only authenticated users can access.</td>
+                    </tr>
+                    <tr>
+                        <td>IsAdminUser</td>
+                        <td>Only admin or staff users can access.</td>
+                    </tr>
+                    <tr>
+                        <td>IsAuthenticatedOrReadOnly</td>
+                        <td>Authenticated users can make any allowed request. Others get read-only access.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- SECTION 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. AllowAny Permission</h2>
+
+        <p>
+            AllowAny permission madhye authenticated ani
+            unauthenticated donhi users API access karu shaktat.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                AllowAny allows unrestricted access to the API,
+                regardless of authentication status.
+            </p>
+        </div>
+
+        <h3>Import</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.permissions import AllowAny</code></pre>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.views import APIView
+from rest_framework.permissions import AllowAny
+from rest_framework.response import Response
+
+class PublicAPIView(APIView):
+
+    permission_classes = [AllowAny]
+
+    def get(self, request):
+        return Response({
+            "message": "This is a public API"
+        })</code></pre>
+        </div>
+
+        <h3>Use Cases</h3>
+
+        <ul>
+            <li>Public information API.</li>
+            <li>Public product listing.</li>
+            <li>Registration API.</li>
+            <li>Login API.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. IsAuthenticated Permission</h2>
+
+        <p>
+            IsAuthenticated permission fakt authenticated users
+            na API access dete.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                IsAuthenticated allows access only to users
+                who have successfully authenticated.
+            </p>
+        </div>
+
+        <h3>Import</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.permissions import IsAuthenticated</code></pre>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.views import APIView
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+
+class ProfileAPIView(APIView):
+
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        return Response({
+            "message": "Welcome to your profile",
+            "username": request.user.username
+        })</code></pre>
+        </div>
+
+        <h3>Result</h3>
+
+        <ul>
+            <li>Authenticated user – API access allowed.</li>
+            <li>Unauthenticated user – API access denied.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. IsAdminUser Permission</h2>
+
+        <p>
+            IsAdminUser permission fakt staff status aslelya
+            users na API access dete.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                IsAdminUser allows access only to users whose
+                is_staff attribute is True.
+            </p>
+        </div>
+
+        <h3>Import</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.permissions import IsAdminUser</code></pre>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.views import APIView
+from rest_framework.permissions import IsAdminUser
+from rest_framework.response import Response
+
+class AdminAPIView(APIView):
+
+    permission_classes = [IsAdminUser]
+
+    def get(self, request):
+        return Response({
+            "message": "Welcome Admin"
+        })</code></pre>
+        </div>
+
+        <h3>Important Points</h3>
+
+        <ul>
+            <li>Normal authenticated user la access milat nahi.</li>
+            <li>is_staff=True aslelya user la access milto.</li>
+            <li>Superuser users sadharanpane staff status suddha have astat.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            IsAdminUser hi permission fakt is_staff check karte.
+            Ti custom role system kiwa business-specific admin
+            rules automatically check karat nahi.
+        </div>
+
+    </section>
+
+    <!-- SECTION 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. IsAuthenticatedOrReadOnly</h2>
+
+        <p>
+            Ya permission madhye unauthenticated users la
+            read-only requests karta yetat. Authenticated users
+            na write requests suddha karta yetat.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                IsAuthenticatedOrReadOnly allows read-only access
+                to everyone and write access only to authenticated users.
+            </p>
+        </div>
+
+        <h3>Read-only Methods</h3>
+
+        <ul>
+            <li>GET</li>
+            <li>HEAD</li>
+            <li>OPTIONS</li>
+        </ul>
+
+        <h3>Write Methods</h3>
+
+        <ul>
+            <li>POST</li>
+            <li>PUT</li>
+            <li>PATCH</li>
+            <li>DELETE</li>
+        </ul>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.viewsets import ModelViewSet
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
+
+from .models import Student
+from .serializers import StudentSerializer
+
+class StudentViewSet(ModelViewSet):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+    permission_classes = [
+        IsAuthenticatedOrReadOnly
+    ]</code></pre>
+        </div>
+
+        <h3>Result</h3>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>GET</th>
+                        <th>POST / PUT / DELETE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Unauthenticated</td>
+                        <td>Allowed</td>
+                        <td>Denied</td>
+                    </tr>
+                    <tr>
+                        <td>Authenticated</td>
+                        <td>Allowed</td>
+                        <td>Allowed</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- SECTION 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. Global Permission Settings</h2>
+
+        <p>
+            Pratyek API view madhye permission define karanyapeksha
+            settings.py madhye default permission set karta yete.
+        </p>
+
+        <h3>File: config/settings.py</h3>
+
+        <div class="code-block">
+            <pre><code>REST_FRAMEWORK = {
+
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+
+}</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li>Default permission sarva DRF views la apply hote.</li>
+            <li>Authenticated users na access milto.</li>
+            <li>Public API sathi AllowAny explicitly set karu shakto.</li>
+        </ul>
+
+        <h3>Public API Example</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.permissions import AllowAny
+
+class PublicAPIView(APIView):
+
+    permission_classes = [AllowAny]</code></pre>
+        </div>
+
+    </section>
+
+    <!-- SECTION 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. View-level Permissions</h2>
+
+        <p>
+            View-level permission mhanje specific API view sathi
+            permission class define karne.
+        </p>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.views import APIView
+from rest_framework.permissions import IsAdminUser
+from rest_framework.response import Response
+
+class AdminDashboardAPIView(APIView):
+
+    permission_classes = [IsAdminUser]
+
+    def get(self, request):
+        return Response({
+            "message": "Admin Dashboard"
+        })</code></pre>
+        </div>
+
+        <p>
+            Ya view la access karanyasathi user cha is_staff
+            attribute True asne avashyak aahe.
+        </p>
+
+    </section>
+
+    <!-- SECTION 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Object-level Permissions</h2>
+
+        <p>
+            Object-level permission specific database object
+            access karanyachi permission check karte.
+        </p>
+
+        <div class="definition-box">
+            <h3>Example</h3>
+            <p>
+                Student la fakt swatachi profile edit karta yavi
+                ani dusrya student chi profile edit karta yeu naye.
+            </p>
+        </div>
+
+        <h3>Custom Permission Example</h3>
+
+        <p><strong>File:</strong> api/permissions.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.permissions import BasePermission
+
+class IsOwnerOrReadOnly(BasePermission):
+
+    def has_object_permission(self, request, view, obj):
+
+        if request.method in ["GET", "HEAD", "OPTIONS"]:
+            return True
+
+        return obj.owner == request.user</code></pre>
+        </div>
+
+        <h3>How it works?</h3>
+
+        <ul>
+            <li>GET request sarva allowed users sathi available aahe.</li>
+            <li>Read-only methods la permission milte.</li>
+            <li>Write request madhye object cha owner check hoto.</li>
+            <li>Fakt owner la object modify karta yeto.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Note:</strong>
+            Ya example madhye Student model madhye owner field
+            asne avashyak aahe. Tasech object-level permission
+            check honyasathi view madhun object retrieve zala pahije.
+        </div>
+
+    </section>
+
+    <!-- SECTION 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Custom Permission Class</h2>
+
+        <p>
+            DRF madhye aaplya application chya requirement nusar
+            custom permission class create karta yete.
+        </p>
+
+        <h3>Example – Only Staff Users</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.permissions import BasePermission
+
+class OnlyStaffUser(BasePermission):
+
+    def has_permission(self, request, view):
+
+        return (
+            request.user
+            and request.user.is_authenticated
+            and request.user.is_staff
+        )</code></pre>
+        </div>
+
+        <h3>Use Custom Permission</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.views import APIView
+from rest_framework.response import Response
+
+from .permissions import OnlyStaffUser
+
+class StaffAPIView(APIView):
+
+    permission_classes = [OnlyStaffUser]
+
+    def get(self, request):
+        return Response({
+            "message": "Staff access granted"
+        })</code></pre>
+        </div>
+
+        <h3>Important Methods</h3>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>has_permission()</td>
+                        <td>View-level access check karte.</td>
+                    </tr>
+                    <tr>
+                        <td>has_object_permission()</td>
+                        <td>Specific object cha access check karte.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- SECTION 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Practical – Admin-only Student API</h2>
+
+        <p>
+            Ata aapan Student API fakt staff users sathi
+            available karuya.
+        </p>
+
+        <h3>Step 1 – Imports</h3>
+
+        <p><strong>File:</strong> api/views.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.viewsets import ModelViewSet
+from rest_framework.permissions import IsAdminUser
+
+from .models import Student
+from .serializers import StudentSerializer</code></pre>
+        </div>
+
+        <h3>Step 2 – Create ViewSet</h3>
+
+        <div class="code-block">
+            <pre><code>class StudentViewSet(ModelViewSet):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+    permission_classes = [IsAdminUser]</code></pre>
+        </div>
+
+        <h3>Step 3 – Register Router</h3>
+
+        <p><strong>File:</strong> api/urls.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.routers import DefaultRouter
+from .views import StudentViewSet
+
+router = DefaultRouter()
+
+router.register(
+    "students",
+    StudentViewSet,
+    basename="student"
+)
+
+urlpatterns = router.urls</code></pre>
+        </div>
+
+        <h3>Step 4 – Run Server</h3>
+
+        <div class="code-block">
+            <pre><code>python manage.py runserver</code></pre>
+        </div>
+
+        <h3>Step 5 – Test API</h3>
+
+        <div class="output-box">
+            <pre><code>http://127.0.0.1:8000/api/students/</code></pre>
+        </div>
+
+        <ul>
+            <li>Staff user – API access allowed.</li>
+            <li>Normal user – API access denied.</li>
+            <li>Unauthenticated user – API access denied.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            IsAdminUser authentication perform karat nahi.
+            API access sathi authentication class suddha configure
+            asne avashyak aahe. Udaharanarth BasicAuthentication,
+            SessionAuthentication kiwa TokenAuthentication.
+        </div>
+
+    </section>
+
+    <!-- SECTION 13 -->
+
+    <section class="lesson-section">
+
+        <h2>13. Important Points to Remember</h2>
+
+        <ul>
+            <li>Permissions API access control kartat.</li>
+            <li>AllowAny sarva users na access dete.</li>
+            <li>IsAuthenticated fakt authenticated users na access dete.</li>
+            <li>IsAdminUser is_staff=True users na access dete.</li>
+            <li>IsAuthenticatedOrReadOnly unauthenticated users na read-only access dete.</li>
+            <li>Global permissions settings.py madhye define karta yetat.</li>
+            <li>View-level permissions specific view sathi astat.</li>
+            <li>Object-level permissions specific object protect kartat.</li>
+            <li>Custom permissions BasePermission inherit karun create karta yetat.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 14 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>14. Practice Questions</h2>
+
+        <ol>
+            <li>What are Permissions in DRF?</li>
+            <li>What is the difference between Authentication and Permissions?</li>
+            <li>What is AllowAny?</li>
+            <li>What is IsAuthenticated?</li>
+            <li>What is IsAdminUser?</li>
+            <li>What is IsAuthenticatedOrReadOnly?</li>
+            <li>What are Global Permission Settings?</li>
+            <li>What are View-level Permissions?</li>
+            <li>What are Object-level Permissions?</li>
+            <li>How can we create a Custom Permission Class?</li>
+        </ol>
+
+    </section>
+
+    <!-- SECTION 15 -->
+
+    <section class="lesson-section interview-section">
+
+        <h2>15. Interview Questions</h2>
+
+        <h3>Q1. What are Permissions in DRF?</h3>
+        <p>
+            Permissions control whether a user can access
+            a particular API resource or perform an action.
+        </p>
+
+        <h3>Q2. What is AllowAny?</h3>
+        <p>
+            AllowAny allows all users to access an API,
+            regardless of authentication status.
+        </p>
+
+        <h3>Q3. What is IsAdminUser?</h3>
+        <p>
+            IsAdminUser allows access only to users whose
+            is_staff attribute is True.
+        </p>
+
+        <h3>Q4. What is IsAuthenticatedOrReadOnly?</h3>
+        <p>
+            It allows read-only access to everyone and
+            write access only to authenticated users.
+        </p>
+
+        <h3>Q5. What is a Custom Permission?</h3>
+        <p>
+            A custom permission is a user-defined permission
+            class created according to application requirements.
+        </p>
+
+        <h3>Q6. What is Object-level Permission?</h3>
+        <p>
+            It checks whether a user can access or modify
+            a specific object.
+        </p>
+
+        <h3>Q7. Which class is used to create custom permissions?</h3>
+        <p>
+            BasePermission class is used to create custom
+            permission classes in DRF.
+        </p>
+
+    </section>
+
+    <!-- COMPLETION -->
+
+    <div class="completion-box">
+        <h3>Topic 23 Completed!</h3>
+        <p>
+            Ata aapan built-in permissions, global settings,
+            object-level permissions ani custom permission
+            classes shiklo.
+        </p>
+    </div>
+
+    <!-- NAVIGATION -->
+
+    <div class="lesson-navigation">
+        <a href="{% url 'drf_topic' 'authentication' %}">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'drf_topic' 'token-authentication' %}">
+            Next Topic →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

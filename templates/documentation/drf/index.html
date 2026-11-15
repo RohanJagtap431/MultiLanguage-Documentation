@@ -1,0 +1,272 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}
+Django REST Framework Documentation | Roman Marathi
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/drf/index.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="page-heading">
+
+    <span class="section-label">PYTHON BACKEND DEVELOPMENT</span>
+
+    <h1>Django REST Framework</h1>
+
+    <p>
+        Django REST Framework agdi basic pasun advanced
+        paryant sop्या Roman Marathi madhye shika.
+        Pratyek topic sobat simple explanation, complete code,
+        examples, output ani practice questions dile aahet.
+    </p>
+
+</div>
+
+<div class="topic-list">
+
+    <!-- 01 -->
+    <a href="{% url 'drf_topic' 'introduction' %}" class="topic-card">
+        <span class="topic-number">01</span>
+        <span class="topic-name">Introduction to Django REST Framework</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <!-- 02 -->
+    <a href="{% url 'drf_topic' 'django-vs-drf' %}" class="topic-card">
+        <span class="topic-number">02</span>
+        <span class="topic-name">Django vs Django REST Framework</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <!-- 03 -->
+    <a href="{% url 'drf_topic' 'rest-api-basics' %}" class="topic-card">
+        <span class="topic-number">03</span>
+        <span class="topic-name">REST API Basics</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <!-- 04 -->
+    <a href="{% url 'drf_topic' 'json' %}" class="topic-card">
+        <span class="topic-number">04</span>
+        <span class="topic-name">Introduction to JSON</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <!-- 05 -->
+    <a href="{% url 'drf_topic' 'http-methods' %}" class="topic-card">
+        <span class="topic-number">05</span>
+        <span class="topic-name">HTTP Methods (GET, POST, PUT, PATCH, DELETE)</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <!-- 06 -->
+    <a href="{% url 'drf_topic' 'http-status-codes' %}" class="topic-card">
+        <span class="topic-number">06</span>
+        <span class="topic-name">HTTP Status Codes</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <!-- 07 -->
+    <a href="{% url 'drf_topic' 'installation' %}" class="topic-card">
+        <span class="topic-number">07</span>
+        <span class="topic-name">DRF Installation and Setup</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <!-- 08 -->
+    <a href="{% url 'drf_topic' 'first-api' %}" class="topic-card">
+        <span class="topic-number">08</span>
+        <span class="topic-name">Creating Your First API</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <!-- 09 -->
+    <a href="{% url 'drf_topic' 'serializers' %}" class="topic-card">
+        <span class="topic-number">09</span>
+        <span class="topic-name">Introduction to Serializers</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <!-- 10 -->
+    <a href="{% url 'drf_topic' 'model-serializer' %}" class="topic-card">
+        <span class="topic-number">10</span>
+        <span class="topic-name">ModelSerializer</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <!-- 11 -->
+    <a href="{% url 'drf_topic' 'serialization' %}" class="topic-card">
+        <span class="topic-number">11</span>
+        <span class="topic-name">Serialization and Deserialization</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <!-- 12 -->
+    <a href="{% url 'drf_topic' 'api-views' %}" class="topic-card">
+        <span class="topic-number">12</span>
+        <span class="topic-name">API Views in DRF</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <!-- 13 -->
+    <a href="{% url 'drf_topic' 'function-based-views' %}" class="topic-card">
+        <span class="topic-number">13</span>
+        <span class="topic-name">Function-Based API Views</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <!-- 14 -->
+    <a href="{% url 'drf_topic' 'request-response' %}" class="topic-card">
+        <span class="topic-number">14</span>
+        <span class="topic-name">Request and Response</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <!-- 15 -->
+    <a href="{% url 'drf_topic' 'crud-api' %}" class="topic-card">
+        <span class="topic-number">15</span>
+        <span class="topic-name">CRUD API Operations</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <!-- 16 -->
+    <a href="{% url 'drf_topic' 'url-routing' %}" class="topic-card">
+        <span class="topic-number">16</span>
+        <span class="topic-name">API URL Routing</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <!-- 17 -->
+    <a href="{% url 'drf_topic' 'generic-views' %}" class="topic-card">
+        <span class="topic-number">17</span>
+        <span class="topic-name">Generic Views in DRF</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <!-- 18 -->
+    <a href="{% url 'drf_topic' 'mixins' %}" class="topic-card">
+        <span class="topic-number">18</span>
+        <span class="topic-name">DRF Mixins</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <!-- 19 -->
+    <a href="{% url 'drf_topic' 'concrete-generic-views' %}" class="topic-card">
+        <span class="topic-number">19</span>
+        <span class="topic-name">Concrete Generic Views</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <!-- 20 -->
+    <a href="{% url 'drf_topic' 'viewsets' %}" class="topic-card">
+        <span class="topic-number">20</span>
+        <span class="topic-name">ViewSets and ModelViewSet</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <!-- 21 -->
+    <a href="{% url 'drf_topic' 'routers' %}" class="topic-card">
+        <span class="topic-number">21</span>
+        <span class="topic-name">Routers</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <!-- 22 -->
+    <a href="{% url 'drf_topic' 'authentication' %}" class="topic-card">
+        <span class="topic-number">22</span>
+        <span class="topic-name">API Authentication</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <!-- 23 -->
+    <a href="{% url 'drf_topic' 'permissions' %}" class="topic-card">
+        <span class="topic-number">23</span>
+        <span class="topic-name">API Permissions</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <!-- 24 -->
+    <a href="{% url 'drf_topic' 'token-authentication' %}" class="topic-card">
+        <span class="topic-number">24</span>
+        <span class="topic-name">Token Authentication</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <!-- 25 -->
+    <a href="{% url 'drf_topic' 'jwt-authentication' %}" class="topic-card">
+        <span class="topic-number">25</span>
+        <span class="topic-name">JWT Authentication</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <!-- 26 -->
+    <a href="{% url 'drf_topic' 'pagination' %}" class="topic-card">
+        <span class="topic-number">26</span>
+        <span class="topic-name">API Pagination</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <!-- 27 -->
+    <a href="{% url 'drf_topic' 'filtering' %}" class="topic-card">
+        <span class="topic-number">27</span>
+        <span class="topic-name">API Filtering</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <!-- 28 -->
+    <a href="{% url 'drf_topic' 'searching' %}" class="topic-card">
+        <span class="topic-number">28</span>
+        <span class="topic-name">API Searching</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <!-- 29 -->
+    <a href="{% url 'drf_topic' 'ordering' %}" class="topic-card">
+        <span class="topic-number">29</span>
+        <span class="topic-name">API Ordering</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <!-- 30 -->
+    <a href="{% url 'drf_topic' 'throttling' %}" class="topic-card">
+        <span class="topic-number">30</span>
+        <span class="topic-name">API Throttling</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <!-- 31 -->
+    <a href="{% url 'drf_topic' 'relationships' %}" class="topic-card">
+        <span class="topic-number">31</span>
+        <span class="topic-name">Serializer Relationships</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <!-- 32 -->
+    <a href="{% url 'drf_topic' 'file-upload-api' %}" class="topic-card">
+        <span class="topic-number">32</span>
+        <span class="topic-name">File and Image Upload API</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <!-- 33 -->
+    <a href="{% url 'drf_topic' 'api-testing' %}" class="topic-card">
+        <span class="topic-number">33</span>
+        <span class="topic-name">API Testing in DRF</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+    <!-- 34 -->
+    <a href="{% url 'drf_topic' 'api-deployment' %}" class="topic-card">
+        <span class="topic-number">34</span>
+        <span class="topic-name">API Deployment</span>
+        <span class="topic-arrow">→</span>
+    </a>
+
+</div>
+
+{% endblock %}

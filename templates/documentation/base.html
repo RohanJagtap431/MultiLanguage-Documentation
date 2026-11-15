@@ -108,7 +108,13 @@
 
                 </a>
 
-                
+                <a href="{% url 'drf_index' %}"
+                class="nav-item {% if request.resolver_match.url_name == 'drf_index' or request.resolver_match.url_name == 'drf_topic' %}active{% endif %}">
+
+                    <span>🚀</span>
+                    Django REST Framework
+
+                </a>
 
                 
 

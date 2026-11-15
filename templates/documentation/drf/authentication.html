@@ -1,0 +1,784 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}Authentication in DRF{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/drf/authentication.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO REST FRAMEWORK</span>
+        <h1>22. Authentication in DRF</h1>
+        <p>
+            Learn how Django REST Framework identifies users
+            and protects API endpoints.
+        </p>
+    </div>
+
+    <!-- SECTION 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What is Authentication?</h2>
+
+        <p>
+            Authentication mhanje user chi identity verify karne.
+            API la request pathavnara user kon aahe he authentication
+            process madhun samajte.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                Authentication is the process of verifying
+                the identity of a user.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <p>
+            Samja ek website aahe. User login kartana username
+            ani password enter karto. System credentials verify karte.
+        </p>
+
+        <ul>
+            <li>Correct username ani password asel tar user identify hoto.</li>
+            <li>Invalid credentials asel tar authentication fail hote.</li>
+            <li>Authenticated user chi information request sobat available hote.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Why is Authentication Required?</h2>
+
+        <p>
+            Authentication cha use private API endpoints protect
+            karanyasathi hoto.
+        </p>
+
+        <ul>
+            <li>User identity verify karanyasathi.</li>
+            <li>Private user data protect karanyasathi.</li>
+            <li>Unauthorized access control karanyasathi.</li>
+            <li>Login-based applications develop karanyasathi.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Authentication user kon aahe he verify karte.
+            Pan user la konti action perform karaychi permission
+            aahe he Permission Classes tharavtat.
+        </div>
+
+    </section>
+
+    <!-- SECTION 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. Authentication vs Authorization</h2>
+
+        <p>
+            Authentication ani Authorization ya don veglya concepts aahet.
+        </p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Authentication</th>
+                        <th>Authorization</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>User chi identity verify karte.</td>
+                        <td>User la access permission aahe ka te check karte.</td>
+                    </tr>
+                    <tr>
+                        <td>Who are you?</td>
+                        <td>What can you access?</td>
+                    </tr>
+                    <tr>
+                        <td>Login credentials verify karte.</td>
+                        <td>Permissions ani access rules check karte.</td>
+                    </tr>
+                    <tr>
+                        <td>Example: Login</td>
+                        <td>Example: Admin-only page access</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="example-box">
+            <h3>Simple Example</h3>
+            <p>
+                User login karto. System tyachi identity verify karte.
+                Ha Authentication aahe.
+            </p>
+            <p>
+                Login zalyanantar fakt admin la admin dashboard access
+                milto. Ha Authorization aahe.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- SECTION 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. Authentication Flow in DRF</h2>
+
+        <div class="flow-container">
+            <div class="flow-step">
+                <strong>Client Request</strong>
+                <span>User API request pathavto</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <strong>Authentication</strong>
+                <span>User identity verify hote</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <strong>Permission Check</strong>
+                <span>User la access allowed aahe ka te check hote</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <strong>API View</strong>
+                <span>Allowed request process hote</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <strong>Response</strong>
+                <span>Client la response milto</span>
+            </div>
+        </div>
+
+        <p>
+            Authentication fail zalyas request unauthenticated rahu shakte.
+            Permission check fail zalyas API access deny karte.
+        </p>
+
+    </section>
+
+    <!-- SECTION 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. Authentication Classes in DRF</h2>
+
+        <p>
+            DRF madhye authentication sathi vegveglya classes available aahet.
+        </p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Authentication Class</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>BasicAuthentication</td>
+                        <td>Username ani password HTTP Basic credentials madhun verify karte.</td>
+                    </tr>
+                    <tr>
+                        <td>SessionAuthentication</td>
+                        <td>Django session madhun user identify karte.</td>
+                    </tr>
+                    <tr>
+                        <td>TokenAuthentication</td>
+                        <td>Token key vaprun user identify karte.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- SECTION 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. BasicAuthentication</h2>
+
+        <p>
+            BasicAuthentication madhye client username ani password
+            HTTP Basic Authentication header madhun pathavto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                BasicAuthentication uses a username and password
+                to authenticate a user through an HTTP Authorization header.
+            </p>
+        </div>
+
+        <h3>Import</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.authentication import BasicAuthentication</code></pre>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.views import APIView
+from rest_framework.authentication import BasicAuthentication
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+
+class StudentAPIView(APIView):
+
+    authentication_classes = [BasicAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        return Response({
+            "message": "Welcome to Student API"
+        })</code></pre>
+        </div>
+
+        <h3>How it works?</h3>
+
+        <ul>
+            <li>Client username ani password pathavto.</li>
+            <li>BasicAuthentication credentials verify karte.</li>
+            <li>Valid user asel tar request authenticated hote.</li>
+            <li>Permission class access allow karte.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Security:</strong>
+            BasicAuthentication production madhye fakt HTTPS sobat
+            use kara. HTTP var credentials secure nastat.
+        </div>
+
+    </section>
+
+    <!-- SECTION 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. SessionAuthentication</h2>
+
+        <p>
+            SessionAuthentication Django chya session system cha
+            use karun user identify karte.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                SessionAuthentication authenticates users using
+                Django's existing session framework.
+            </p>
+        </div>
+
+        <h3>Import</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.authentication import SessionAuthentication</code></pre>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.views import APIView
+from rest_framework.authentication import SessionAuthentication
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+
+class StudentAPIView(APIView):
+
+    authentication_classes = [SessionAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        return Response({
+            "message": "Session authentication successful"
+        })</code></pre>
+        </div>
+
+        <h3>How it works?</h3>
+
+        <ul>
+            <li>User Django website madhye login karto.</li>
+            <li>Django session create karte.</li>
+            <li>Browser session cookie pathavto.</li>
+            <li>DRF session madhun user identify karte.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            SessionAuthentication madhye unsafe methods
+            (POST, PUT, PATCH, DELETE) sathi CSRF protection
+            lagu hote. Browser-based applications madhye
+            CSRF token pathavne avashyak asu shakte.
+        </div>
+
+    </section>
+
+    <!-- SECTION 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. IsAuthenticated Permission</h2>
+
+        <p>
+            IsAuthenticated hi permission class aahe.
+            Ti fakt authenticated users na API access dete.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                IsAuthenticated allows access only to authenticated users.
+            </p>
+        </div>
+
+        <h3>Import</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.permissions import IsAuthenticated</code></pre>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.views import APIView
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+
+class PrivateAPIView(APIView):
+
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        return Response({
+            "message": "You are authenticated"
+        })</code></pre>
+        </div>
+
+        <h3>Response Behavior</h3>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>User Status</th>
+                        <th>Result</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Authenticated</td>
+                        <td>Permission check pass hote.</td>
+                    </tr>
+                    <tr>
+                        <td>Unauthenticated</td>
+                        <td>Access deny hote.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>
+            Unauthenticated request la authentication setup nusar
+            HTTP 401 Unauthorized kiwa HTTP 403 Forbidden response milu shakto.
+        </p>
+
+    </section>
+
+    <!-- SECTION 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Global Authentication Settings</h2>
+
+        <p>
+            Pratyek view madhye authentication classes define
+            karanyapeksha settings.py madhye global configuration
+            set karta yete.
+        </p>
+
+        <h3>Example</h3>
+
+        <p><strong>File:</strong> config/settings.py</p>
+
+        <div class="code-block">
+            <pre><code>REST_FRAMEWORK = {
+
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ],
+
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+
+}</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li>DEFAULT_AUTHENTICATION_CLASSES authentication methods set karte.</li>
+            <li>DEFAULT_PERMISSION_CLASSES default access rules set karte.</li>
+            <li>Views madhye specific settings deun defaults override karta yetat.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Global IsAuthenticated set kelyas public endpoints
+            sathi AllowAny explicitly set karava lagel.
+            Udaharanarth registration kiwa public login API.
+        </div>
+
+    </section>
+
+    <!-- SECTION 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. request.user and request.auth</h2>
+
+        <p>
+            DRF madhye authenticated request chi information
+            request object madhun access karta yete.
+        </p>
+
+        <div class="definition-box">
+            <h3>request.user</h3>
+            <p>
+                request.user authenticated user object provide karte.
+            </p>
+        </div>
+
+        <div class="definition-box">
+            <h3>request.auth</h3>
+            <p>
+                request.auth authentication class ne return keleli
+                authentication information provide karte.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.views import APIView
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+
+class ProfileAPIView(APIView):
+
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+
+        return Response({
+            "username": request.user.username,
+            "user_id": request.user.id
+        })</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li>request.user.username authenticated user cha username dete.</li>
+            <li>request.user.id user cha database ID dete.</li>
+            <li>request.auth authentication information dete.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. TokenAuthentication Introduction</h2>
+
+        <p>
+            TokenAuthentication madhye user la ek token key dileli aste.
+            Client API requests sobat hi token key pathavto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                TokenAuthentication uses a token key to identify
+                an authenticated user.
+            </p>
+        </div>
+
+        <h3>Example Authorization Header</h3>
+
+        <div class="output-box">
+            <pre><code>Authorization: Token your_token_key</code></pre>
+        </div>
+
+        <h3>Important Points</h3>
+
+        <ul>
+            <li>Pratyek user sathi token generate karta yete.</li>
+            <li>Client token API request sobat pathavto.</li>
+            <li>Server token verify karun user identify karto.</li>
+            <li>Token secret thevne avashyak aahe.</li>
+        </ul>
+
+        <p>
+            TokenAuthentication chi installation, configuration,
+            token generation ani login API aapan pudhchya
+            topic madhye detail madhye shiknar aahot.
+        </p>
+
+    </section>
+
+    <!-- SECTION 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Practical Protected Student API</h2>
+
+        <p>
+            Ata aapan ModelViewSet vaprun authenticated users
+            sathi Student API protect karuya.
+        </p>
+
+        <h3>Step 1 – Imports</h3>
+
+        <p><strong>File:</strong> api/views.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.viewsets import ModelViewSet
+from rest_framework.authentication import (
+    BasicAuthentication,
+    SessionAuthentication
+)
+from rest_framework.permissions import IsAuthenticated
+
+from .models import Student
+from .serializers import StudentSerializer</code></pre>
+        </div>
+
+        <h3>Step 2 – Protected ViewSet</h3>
+
+        <div class="code-block">
+            <pre><code>class StudentViewSet(ModelViewSet):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+    authentication_classes = [
+        BasicAuthentication,
+        SessionAuthentication
+    ]
+
+    permission_classes = [
+        IsAuthenticated
+    ]</code></pre>
+        </div>
+
+        <h3>Step 3 – Router</h3>
+
+        <p>
+            Topic 20 ani Topic 21 madhil DefaultRouter
+            configuration vapru shakto.
+        </p>
+
+        <div class="code-block">
+            <pre><code># api/urls.py
+
+from rest_framework.routers import DefaultRouter
+from .views import StudentViewSet
+
+router = DefaultRouter()
+
+router.register(
+    'students',
+    StudentViewSet,
+    basename='student'
+)
+
+urlpatterns = router.urls</code></pre>
+        </div>
+
+        <h3>Step 4 – Create a Superuser</h3>
+
+        <p>
+            Test karanyasathi Django superuser create karu shakto.
+        </p>
+
+        <div class="code-block">
+            <pre><code>python manage.py createsuperuser</code></pre>
+        </div>
+
+        <h3>Step 5 – Run Server</h3>
+
+        <div class="code-block">
+            <pre><code>python manage.py runserver</code></pre>
+        </div>
+
+        <h3>Step 6 – Test API</h3>
+
+        <div class="output-box">
+            <pre><code>http://127.0.0.1:8000/api/students/</code></pre>
+        </div>
+
+        <ul>
+            <li>Authenticated user mhanun request pathva.</li>
+            <li>Basic Authentication madhye username ani password dya.</li>
+            <li>Session Authentication madhye valid login session use kara.</li>
+            <li>Authenticated nasel tar API access deny hoil.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            Ya example madhye authentication ani permission
+            donhi configure kele aahet. Fakt authentication class
+            add kelyane API automatically private hot nahi.
+        </div>
+
+    </section>
+
+    <!-- SECTION 13 -->
+
+    <section class="lesson-section">
+
+        <h2>13. Important Points to Remember</h2>
+
+        <ul>
+            <li>Authentication user chi identity verify karte.</li>
+            <li>Authorization access permissions check karte.</li>
+            <li>BasicAuthentication username ani password use karte.</li>
+            <li>SessionAuthentication Django session use karte.</li>
+            <li>TokenAuthentication token key use karte.</li>
+            <li>IsAuthenticated authenticated users na access dete.</li>
+            <li>request.user authenticated user information dete.</li>
+            <li>request.auth authentication information dete.</li>
+            <li>Global settings madhye default authentication configure karta yete.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 14 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>14. Practice Questions</h2>
+
+        <ol>
+            <li>What is Authentication?</li>
+            <li>Why is Authentication required?</li>
+            <li>What is the difference between Authentication and Authorization?</li>
+            <li>What are Authentication Classes in DRF?</li>
+            <li>What is BasicAuthentication?</li>
+            <li>What is SessionAuthentication?</li>
+            <li>What is IsAuthenticated?</li>
+            <li>What is the use of request.user?</li>
+            <li>What is the use of request.auth?</li>
+            <li>What is TokenAuthentication?</li>
+            <li>How can we protect a Student API using IsAuthenticated?</li>
+        </ol>
+
+    </section>
+
+    <!-- SECTION 15 -->
+
+    <section class="lesson-section interview-section">
+
+        <h2>15. Interview Questions</h2>
+
+        <h3>Q1. What is Authentication?</h3>
+        <p>
+            Authentication is the process of verifying
+            the identity of a user.
+        </p>
+
+        <h3>Q2. What is Authorization?</h3>
+        <p>
+            Authorization determines what resources
+            or actions a user is allowed to access.
+        </p>
+
+        <h3>Q3. What is BasicAuthentication?</h3>
+        <p>
+            It authenticates users using username and password
+            through an HTTP Basic Authorization header.
+        </p>
+
+        <h3>Q4. What is SessionAuthentication?</h3>
+        <p>
+            It identifies users using Django's session framework.
+        </p>
+
+        <h3>Q5. What is IsAuthenticated?</h3>
+        <p>
+            IsAuthenticated allows access only to authenticated users.
+        </p>
+
+        <h3>Q6. What is request.user?</h3>
+        <p>
+            It provides the user associated with the current request.
+        </p>
+
+        <h3>Q7. What is TokenAuthentication?</h3>
+        <p>
+            It uses a token key to authenticate API requests.
+        </p>
+
+    </section>
+
+    <!-- COMPLETION -->
+
+    <div class="completion-box">
+        <h3>Topic 22 Completed!</h3>
+        <p>
+            Ata aapan Authentication, Authorization,
+            BasicAuthentication, SessionAuthentication ani
+            protected API shiklo.
+        </p>
+    </div>
+
+    <!-- NAVIGATION -->
+
+    <div class="lesson-navigation">
+        <a href="{% url 'drf_topic' 'routers' %}">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'drf_topic' 'permissions' %}">
+            Next Topic →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

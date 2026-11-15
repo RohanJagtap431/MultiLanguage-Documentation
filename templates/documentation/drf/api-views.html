@@ -1,0 +1,559 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}API Views in DRF{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/drf/api-views.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO REST FRAMEWORK</span>
+        <h1>12. API Views in DRF</h1>
+        <p>
+            API Views mhanje kay, Function-Based Views ani
+            Class-Based Views kase work kartat te shikuya.
+        </p>
+    </div>
+
+    <!-- SECTION 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What are API Views?</h2>
+
+        <p>
+            API View hi Django REST Framework madhil ek view aahe.
+            Ti client kadun request receive karte, request process
+            karte ani response return karte.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                API Views are used to handle API requests and
+                return responses to clients in Django REST Framework.
+            </p>
+        </div>
+
+        <h3>Simple Example</h3>
+
+        <p>
+            Samaj mobile application la Student API madhun
+            student chi information pahije aahe.
+        </p>
+
+        <p>
+            Client GET request pathavto. API View request process
+            karun student cha data return karte.
+        </p>
+
+        <div class="flow-container">
+            <div class="flow-step">
+                <strong>Client</strong>
+                <span>API request pathavto</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <strong>API View</strong>
+                <span>Request process karte</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <strong>Response</strong>
+                <span>Client la data return hoto</span>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- SECTION 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Types of API Views</h2>
+
+        <p>
+            DRF madhye API Views create karanyasathi don
+            commonly used approaches aahet.
+        </p>
+
+        <div class="definition-box">
+            <h3>1. Function-Based Views (FBV)</h3>
+            <p>
+                Function-Based Views madhye Python function
+                vaprun API request handle keli jate.
+            </p>
+        </div>
+
+        <div class="definition-box">
+            <h3>2. Class-Based Views (CBV)</h3>
+            <p>
+                Class-Based Views madhye Python class vaprun
+                API request handle keli jate.
+            </p>
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Approach</th>
+                        <th>Used Structure</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>FBV</td>
+                        <td>Python Function</td>
+                    </tr>
+                    <tr>
+                        <td>CBV</td>
+                        <td>Python Class</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- SECTION 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. Function-Based Views (FBV)</h2>
+
+        <p>
+            Function-Based View madhye normal Python function
+            vaprun API create keli jate.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                A Function-Based View is an API view created
+                using a Python function and the api_view decorator.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <p><strong>File:</strong> api/views.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
+@api_view(['GET'])
+def student_list(request):
+
+    students = [
+        {
+            "id": 1,
+            "name": "Rohan"
+        },
+        {
+            "id": 2,
+            "name": "Amit"
+        }
+    ]
+
+    return Response(students)</code></pre>
+        </div>
+
+        <h3>Code Explanation</h3>
+
+        <ul>
+            <li><strong>api_view:</strong> API view create karanyasathi decorator.</li>
+            <li><strong>@api_view(['GET']):</strong> View GET request accept karte.</li>
+            <li><strong>student_list:</strong> API view function.</li>
+            <li><strong>request:</strong> Client kadun aaleli request.</li>
+            <li><strong>Response:</strong> Client la API response return karto.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. What is @api_view() Decorator?</h2>
+
+        <p>
+            @api_view() ha DRF madhil decorator aahe.
+            To normal Django function la API view madhye
+            convert karanyasathi use hoto.
+        </p>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>@api_view(['GET'])
+def student_list(request):
+    return Response({
+        "message": "Student list"
+    })</code></pre>
+        </div>
+
+        <h3>Multiple HTTP Methods</h3>
+
+        <p>
+            Ekach function madhye multiple HTTP methods
+            allow karu shakto.
+        </p>
+
+        <div class="code-block">
+            <pre><code>@api_view(['GET', 'POST'])
+def student_list(request):
+
+    if request.method == 'GET':
+        return Response({
+            "message": "Get students"
+        })
+
+    elif request.method == 'POST':
+        return Response({
+            "message": "Create student"
+        })</code></pre>
+        </div>
+
+        <p>
+            Ithe function GET ani POST donhi requests accept karte.
+        </p>
+
+        <div class="important-box">
+            <strong>Remember:</strong>
+            @api_view() madhye allow kelelya methods vyatirikta
+            dusri method request keli tar DRF 405 Method Not Allowed
+            response return karte.
+        </div>
+
+    </section>
+
+    <!-- SECTION 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. Class-Based Views (CBV)</h2>
+
+        <p>
+            Class-Based View madhye Python class vaprun
+            API requests handle kelya jatat.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                A Class-Based View is an API view created
+                using a Python class to handle HTTP methods.
+            </p>
+        </div>
+
+        <h3>Example using APIView</h3>
+
+        <p><strong>File:</strong> api/views.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.views import APIView
+from rest_framework.response import Response
+
+class StudentView(APIView):
+
+    def get(self, request):
+
+        return Response({
+            "message": "Get students"
+        })
+
+    def post(self, request):
+
+        return Response({
+            "message": "Create student"
+        })</code></pre>
+        </div>
+
+        <h3>Code Explanation</h3>
+
+        <ul>
+            <li><strong>APIView:</strong> DRF madhil base class.</li>
+            <li><strong>StudentView:</strong> Aapli API class.</li>
+            <li><strong>get():</strong> GET request handle karte.</li>
+            <li><strong>post():</strong> POST request handle karte.</li>
+            <li><strong>Response():</strong> API response return karte.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. What is APIView?</h2>
+
+        <p>
+            APIView hi Django REST Framework madhil base class aahe.
+            Aapan ya class la inherit karun swatachi API view class
+            create karu shakto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                APIView is a base class provided by DRF for
+                creating class-based API views.
+            </p>
+        </div>
+
+        <h3>Basic Structure</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.views import APIView
+from rest_framework.response import Response
+
+class MyAPIView(APIView):
+
+    def get(self, request):
+        return Response({
+            "message": "GET request"
+        })
+
+    def post(self, request):
+        return Response({
+            "message": "POST request"
+        })</code></pre>
+        </div>
+
+        <p>
+            APIView madhye HTTP method pramane vegveglya
+            methods define karta yetat.
+        </p>
+
+    </section>
+
+    <!-- SECTION 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. FBV vs CBV</h2>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>FBV</th>
+                        <th>CBV</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Function use hote.</td>
+                        <td>Class use hote.</td>
+                    </tr>
+                    <tr>
+                        <td>@api_view decorator use hoto.</td>
+                        <td>APIView inherit keli jate.</td>
+                    </tr>
+                    <tr>
+                        <td>HTTP methods request.method ne check karu shakto.</td>
+                        <td>GET sathi get(), POST sathi post() method aste.</td>
+                    </tr>
+                    <tr>
+                        <td>Simple APIs sathi useful.</td>
+                        <td>Structured APIs sathi useful.</td>
+                    </tr>
+                    <tr>
+                        <td>Function-based approach.</td>
+                        <td>Object-oriented approach.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- SECTION 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. Configure API URLs</h2>
+
+        <p>
+            API view create kelyanantar tila URL sobat
+            connect karave lagte.
+        </p>
+
+        <p><strong>File:</strong> api/urls.py</p>
+
+        <h3>Function-Based View URL</h3>
+
+        <div class="code-block">
+            <pre><code>from django.urls import path
+from . import views
+
+urlpatterns = [
+    path(
+        'students/',
+        views.student_list,
+        name='student_list'
+    ),
+]</code></pre>
+        </div>
+
+        <h3>Class-Based View URL</h3>
+
+        <div class="code-block">
+            <pre><code>from django.urls import path
+from .views import StudentView
+
+urlpatterns = [
+    path(
+        'students/',
+        StudentView.as_view(),
+        name='student_list'
+    ),
+]</code></pre>
+        </div>
+
+        <p>
+            Class-Based View la URL sobat connect karanyasathi
+            <strong>as_view()</strong> use karto.
+        </p>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            FBV ani CBV donhi sathi same URL path use karat
+            aslyas ekach view route active theva.
+            Donhi examples ekach urlpatterns madhye duplicate
+            karu naka.
+        </div>
+
+    </section>
+
+    <!-- SECTION 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. When to Use FBV and CBV?</h2>
+
+        <h3>Use FBV When:</h3>
+
+        <ul>
+            <li>API simple asel.</li>
+            <li>Limited HTTP methods handle karayche astil.</li>
+            <li>Simple function-based logic lihaycha asel.</li>
+        </ul>
+
+        <h3>Use CBV When:</h3>
+
+        <ul>
+            <li>API madhye multiple HTTP methods astil.</li>
+            <li>Code structured thevaycha asel.</li>
+            <li>Class inheritance cha use karaycha asel.</li>
+            <li>Common behavior reuse karaycha asel.</li>
+        </ul>
+
+        <p>
+            Donhi approaches useful aahet.
+            Project chya requirements nusar approach select karava.
+        </p>
+
+    </section>
+
+    <!-- SECTION 10 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>10. Practice Questions</h2>
+
+        <ol>
+            <li>What are API Views?</li>
+            <li>What is Function-Based View?</li>
+            <li>What is Class-Based View?</li>
+            <li>What is the use of @api_view()?</li>
+            <li>What is APIView in DRF?</li>
+            <li>How do we handle GET requests in APIView?</li>
+            <li>How do we handle POST requests in APIView?</li>
+            <li>What is the use of as_view()?</li>
+            <li>Write two differences between FBV and CBV.</li>
+            <li>When should we use FBV and CBV?</li>
+        </ol>
+
+    </section>
+
+    <!-- SECTION 11 -->
+
+    <section class="lesson-section interview-section">
+
+        <h2>11. Interview Questions</h2>
+
+        <h3>Q1. What are API Views in DRF?</h3>
+        <p>
+            API Views handle client requests and return
+            appropriate API responses.
+        </p>
+
+        <h3>Q2. What is FBV?</h3>
+        <p>
+            FBV is an API view created using a Python function
+            and the @api_view decorator.
+        </p>
+
+        <h3>Q3. What is CBV?</h3>
+        <p>
+            CBV is an API view created using a Python class.
+        </p>
+
+        <h3>Q4. What is APIView?</h3>
+        <p>
+            APIView is a base class provided by DRF
+            for creating class-based API views.
+        </p>
+
+        <h3>Q5. What is as_view()?</h3>
+        <p>
+            as_view() converts a class-based view into
+            a callable view function that can be connected to a URL.
+        </p>
+
+        <h3>Q6. What is the difference between FBV and CBV?</h3>
+        <p>
+            FBV uses a Python function, whereas CBV uses
+            a Python class to handle API requests.
+        </p>
+
+    </section>
+
+    <!-- COMPLETION -->
+
+    <div class="completion-box">
+        <h3>Topic 12 Completed!</h3>
+        <p>
+            Ata aapan API Views, FBV, CBV, @api_view()
+            ani APIView samjun ghetle.
+        </p>
+    </div>
+
+    <!-- NAVIGATION -->
+
+    <div class="lesson-navigation">
+        <a href="{% url 'drf_topic' 'serialization' %}">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'drf_topic' 'function-based-views' %}">
+            Next Topic →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

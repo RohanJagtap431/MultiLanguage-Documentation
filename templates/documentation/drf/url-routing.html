@@ -1,0 +1,793 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}URL Routing in DRF{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/drf/url-routing.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO REST FRAMEWORK</span>
+        <h1>16. URL Routing in DRF</h1>
+        <p>
+            Learn how to connect API views with URLs using
+            Django URL routing.
+        </p>
+    </div>
+
+    <!-- SECTION 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What is URL Routing?</h2>
+
+        <p>
+            URL Routing mhanje client kadun aaleli URL request
+            yogya view function kiwa class paryant pohachavnyachi process.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                URL Routing is the process of mapping URL patterns
+                to their corresponding views in Django.
+            </p>
+        </div>
+
+        <h3>Simple Example</h3>
+
+        <p>
+            Samaj client la Student API access karaychi aahe.
+            Tyasathi client khalil URL request karto.
+        </p>
+
+        <div class="output-box">
+            <pre><code>http://127.0.0.1:8000/api/students/</code></pre>
+        </div>
+
+        <p>
+            Django URL pattern check karto ani request
+            student_list view kade pathavto.
+        </p>
+
+        <div class="flow-container">
+            <div class="flow-step">
+                <strong>Client</strong>
+                <span>URL request pathavto</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <strong>URL Router</strong>
+                <span>URL pattern match karto</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <strong>API View</strong>
+                <span>Request handle karte</span>
+            </div>
+
+            <div class="flow-arrow">↓</div>
+
+            <div class="flow-step">
+                <strong>Response</strong>
+                <span>Client la result return hoto</span>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- SECTION 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. What is path()?</h2>
+
+        <p>
+            path() ha Django madhil function aahe.
+            To URL pattern la view sobat connect karto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                path() is used to define a URL pattern
+                and connect it to a view.
+            </p>
+        </div>
+
+        <h3>Syntax</h3>
+
+        <div class="code-block">
+            <pre><code>path(route, view, name=None)</code></pre>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>from django.urls import path
+from . import views
+
+urlpatterns = [
+    path(
+        'students/',
+        views.student_list,
+        name='student_list'
+    ),
+]</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li><strong>route:</strong> URL pattern define karto.</li>
+            <li><strong>view:</strong> Request handle karanara view select karto.</li>
+            <li><strong>name:</strong> URL la unique name deto.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. Project-Level URL Configuration</h2>
+
+        <p>
+            Project-level URLs madhye complete Django project che
+            main URL patterns define kele jatat.
+        </p>
+
+        <p><strong>File:</strong> config/urls.py</p>
+
+        <div class="code-block">
+            <pre><code>from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+
+    path('admin/', admin.site.urls),
+
+    path('api/', include('api.urls')),
+
+]</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li><strong>admin/:</strong> Django admin panel cha URL.</li>
+            <li><strong>api/:</strong> API URLs sathi prefix.</li>
+            <li><strong>include():</strong> API app madhil URLs include karto.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. What is include()?</h2>
+
+        <p>
+            include() cha use dusrya URL configuration file madhil
+            URL patterns main project URL madhye include karanyasathi hoto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                include() is used to include URL patterns
+                from another URL configuration module.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <p><strong>File:</strong> config/urls.py</p>
+
+        <div class="code-block">
+            <pre><code>path('api/', include('api.urls'))</code></pre>
+        </div>
+
+        <p><strong>File:</strong> api/urls.py</p>
+
+        <div class="code-block">
+            <pre><code>from django.urls import path
+from . import views
+
+urlpatterns = [
+    path(
+        'students/',
+        views.student_list,
+        name='student_list'
+    ),
+]</code></pre>
+        </div>
+
+        <h3>Final URL</h3>
+
+        <div class="output-box">
+            <pre><code>/api/ + students/
+
+/api/students/</code></pre>
+        </div>
+
+        <p>
+            Project URL madhil api/ prefix ani app URL madhil
+            students/ route ekatra houn final URL tayar hoto.
+        </p>
+
+    </section>
+
+    <!-- SECTION 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. App-Level URL Configuration</h2>
+
+        <p>
+            App-level URLs madhye specific Django app che
+            URL patterns define kele jatat.
+        </p>
+
+        <p><strong>File:</strong> api/urls.py</p>
+
+        <div class="code-block">
+            <pre><code>from django.urls import path
+from . import views
+
+urlpatterns = [
+
+    path(
+        'students/',
+        views.student_list,
+        name='student_list'
+    ),
+
+    path(
+        'students/&lt;int:pk&gt;/',
+        views.student_detail,
+        name='student_detail'
+    ),
+
+]</code></pre>
+        </div>
+
+        <p>
+            Ithe don URL patterns aahet.
+        </p>
+
+        <ul>
+            <li>students/ – All students sathi.</li>
+            <li>students/1/ – Specific student sathi.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. Dynamic URL Parameters</h2>
+
+        <p>
+            Dynamic URL parameter cha use URL madhun variable
+            value view function paryant pathavnyasathi hoto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                Dynamic URL parameters allow us to capture values
+                from a URL and pass them to a view.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>path(
+    'students/&lt;int:pk&gt;/',
+    views.student_detail,
+    name='student_detail'
+)</code></pre>
+        </div>
+
+        <h3>Example URLs</h3>
+
+        <div class="output-box">
+            <pre><code>/api/students/1/
+/api/students/2/
+/api/students/3/</code></pre>
+        </div>
+
+        <p>
+            URL madhil ID view function la pk parameter madhun milto.
+        </p>
+
+        <h3>View Example</h3>
+
+        <div class="code-block">
+            <pre><code>@api_view(['GET'])
+def student_detail(request, pk):
+
+    student = get_object_or_404(
+        Student,
+        pk=pk
+    )
+
+    serializer = StudentSerializer(student)
+
+    return Response(serializer.data)</code></pre>
+        </div>
+
+        <p>
+            URL madhil pk value vaprun specific student fetch karto.
+        </p>
+
+    </section>
+
+    <!-- SECTION 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. Django Path Converters</h2>
+
+        <p>
+            Path converters URL madhun kontya type chi value
+            capture karaychi te define kartat.
+        </p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Converter</th>
+                        <th>Purpose</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>str</td>
+                        <td>Non-empty string capture karto.</td>
+                        <td>&lt;str:name&gt;</td>
+                    </tr>
+                    <tr>
+                        <td>int</td>
+                        <td>Positive integer capture karto.</td>
+                        <td>&lt;int:id&gt;</td>
+                    </tr>
+                    <tr>
+                        <td>slug</td>
+                        <td>Letters, numbers, hyphens ani underscores capture karto.</td>
+                        <td>&lt;slug:topic&gt;</td>
+                    </tr>
+                    <tr>
+                        <td>uuid</td>
+                        <td>UUID value capture karto.</td>
+                        <td>&lt;uuid:id&gt;</td>
+                    </tr>
+                    <tr>
+                        <td>path</td>
+                        <td>Slash sahit path capture karto.</td>
+                        <td>&lt;path:file_path&gt;</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>urlpatterns = [
+
+    path(
+        'students/&lt;int:id&gt;/',
+        views.student_detail
+    ),
+
+    path(
+        'topics/&lt;slug:topic&gt;/',
+        views.topic_detail
+    ),
+
+]</code></pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Remember:</strong>
+            Converter URL madhil value match ani convert karto.
+            Tyamule view la milnari value converter chya type nusar aste.
+        </div>
+
+    </section>
+
+    <!-- SECTION 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. URL Routing with Function-Based Views</h2>
+
+        <p>
+            Function-Based View la URL sobat direct connect karu shakto.
+        </p>
+
+        <h3>View</h3>
+
+        <p><strong>File:</strong> api/views.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
+@api_view(['GET'])
+def student_list(request):
+
+    return Response({
+        "message": "Student list API"
+    })</code></pre>
+        </div>
+
+        <h3>URL</h3>
+
+        <p><strong>File:</strong> api/urls.py</p>
+
+        <div class="code-block">
+            <pre><code>from django.urls import path
+from . import views
+
+urlpatterns = [
+    path(
+        'students/',
+        views.student_list,
+        name='student_list'
+    ),
+]</code></pre>
+        </div>
+
+        <p>
+            FBV la connect karanyasathi function name direct pass karto.
+        </p>
+
+    </section>
+
+    <!-- SECTION 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. URL Routing with Class-Based Views</h2>
+
+        <p>
+            Class-Based View la URL sobat connect karanyasathi
+            as_view() method use karto.
+        </p>
+
+        <h3>View</h3>
+
+        <p><strong>File:</strong> api/views.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.views import APIView
+from rest_framework.response import Response
+
+class StudentView(APIView):
+
+    def get(self, request):
+
+        return Response({
+            "message": "Student API"
+        })</code></pre>
+        </div>
+
+        <h3>URL</h3>
+
+        <p><strong>File:</strong> api/urls.py</p>
+
+        <div class="code-block">
+            <pre><code>from django.urls import path
+from .views import StudentView
+
+urlpatterns = [
+    path(
+        'students/',
+        StudentView.as_view(),
+        name='student_list'
+    ),
+]</code></pre>
+        </div>
+
+        <h3>What is as_view()?</h3>
+
+        <p>
+            as_view() hi class-based view la Django URL system
+            madhye use karta yeil asha callable view madhye convert karte.
+        </p>
+
+        <div class="important-box">
+            <strong>Remember:</strong>
+            FBV madhye function direct pass karto.
+            CBV madhye ClassName.as_view() use karto.
+        </div>
+
+    </section>
+
+    <!-- SECTION 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. URL Names and Reverse URLs</h2>
+
+        <p>
+            URL la name dilyamule URL hardcode na karta
+            tyacha name vaprun URL generate karta yeto.
+        </p>
+
+        <h3>Example URL</h3>
+
+        <div class="code-block">
+            <pre><code>path(
+    'students/',
+    views.student_list,
+    name='student_list'
+)</code></pre>
+        </div>
+
+        <h3>Using reverse()</h3>
+
+        <div class="code-block">
+            <pre><code>from django.urls import reverse
+
+url = reverse('student_list')
+
+print(url)</code></pre>
+        </div>
+
+        <h3>Output</h3>
+
+        <div class="output-box">
+            <pre><code>/students/</code></pre>
+        </div>
+
+        <p>
+            reverse() URL name vaprun tyacha actual URL path
+            generate karte. Project-level prefix ani namespace
+            asel tar tyapramane output badlu shakto.
+        </p>
+
+    </section>
+
+    <!-- SECTION 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Practical Student API Routing</h2>
+
+        <p>
+            Ata Student API sathi complete URL configuration
+            ekatra baghuya.
+        </p>
+
+        <h3>Project URLs</h3>
+
+        <p><strong>File:</strong> config/urls.py</p>
+
+        <div class="code-block">
+            <pre><code>from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+
+    path('admin/', admin.site.urls),
+
+    path('api/', include('api.urls')),
+
+]</code></pre>
+        </div>
+
+        <h3>App URLs</h3>
+
+        <p><strong>File:</strong> api/urls.py</p>
+
+        <div class="code-block">
+            <pre><code>from django.urls import path
+from . import views
+
+urlpatterns = [
+
+    path(
+        'students/',
+        views.student_list,
+        name='student_list'
+    ),
+
+    path(
+        'students/&lt;int:pk&gt;/',
+        views.student_detail,
+        name='student_detail'
+    ),
+
+]</code></pre>
+        </div>
+
+        <h3>Final API URLs</h3>
+
+        <div class="output-box">
+            <pre><code>GET    /api/students/
+
+POST   /api/students/
+
+GET    /api/students/1/
+
+PUT    /api/students/1/
+
+PATCH  /api/students/1/
+
+DELETE /api/students/1/</code></pre>
+        </div>
+
+    </section>
+
+    <!-- SECTION 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Test URL Routing</h2>
+
+        <p>
+            Server start karanyasathi:
+        </p>
+
+        <div class="code-block">
+            <pre><code>python manage.py runserver</code></pre>
+        </div>
+
+        <p>
+            Browser madhye khalil URL open kara:
+        </p>
+
+        <div class="output-box">
+            <pre><code>http://127.0.0.1:8000/api/students/</code></pre>
+        </div>
+
+        <p>
+            Specific student sathi:
+        </p>
+
+        <div class="output-box">
+            <pre><code>http://127.0.0.1:8000/api/students/1/</code></pre>
+        </div>
+
+        <h3>Common URL Errors</h3>
+
+        <ul>
+            <li><strong>404 Not Found:</strong> URL pattern match hot nahi kiwa requested record sapadat nahi.</li>
+            <li><strong>ImportError:</strong> View import kartana error.</li>
+            <li><strong>AttributeError:</strong> URL madhye wrong view reference.</li>
+            <li><strong>TypeError:</strong> View function la expected parameters milat nahit.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 13 -->
+
+    <section class="lesson-section">
+
+        <h2>13. Important Points to Remember</h2>
+
+        <ul>
+            <li>URL routing request la correct view paryant pohachavte.</li>
+            <li>path() URL pattern define karto.</li>
+            <li>include() dusrya URL configuration la include karto.</li>
+            <li>Project-level URLs main URL configuration astat.</li>
+            <li>App-level URLs specific app che routes define kartat.</li>
+            <li>Dynamic parameters URL madhun values capture kartat.</li>
+            <li>int, str, slug, uuid ani path he common converters aahet.</li>
+            <li>FBV la direct function name pass karto.</li>
+            <li>CBV sathi as_view() use karto.</li>
+            <li>reverse() URL name vaprun URL generate karto.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 14 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>14. Practice Questions</h2>
+
+        <ol>
+            <li>What is URL Routing?</li>
+            <li>What is the use of path()?</li>
+            <li>What is the use of include()?</li>
+            <li>What is project-level URL configuration?</li>
+            <li>What is app-level URL configuration?</li>
+            <li>What are dynamic URL parameters?</li>
+            <li>What are Django path converters?</li>
+            <li>What is the use of as_view()?</li>
+            <li>What is the use of reverse()?</li>
+            <li>Configure Student API URLs in Django REST Framework.</li>
+        </ol>
+
+    </section>
+
+    <!-- SECTION 15 -->
+
+    <section class="lesson-section interview-section">
+
+        <h2>15. Interview Questions</h2>
+
+        <h3>Q1. What is URL Routing?</h3>
+        <p>
+            URL Routing maps URL patterns to their corresponding
+            views in Django.
+        </p>
+
+        <h3>Q2. What is path()?</h3>
+        <p>
+            path() is used to define URL patterns and connect them
+            to views.
+        </p>
+
+        <h3>Q3. What is include()?</h3>
+        <p>
+            include() is used to include URL patterns
+            from another URL configuration.
+        </p>
+
+        <h3>Q4. What are Dynamic URL Parameters?</h3>
+        <p>
+            They capture values from URLs and pass them
+            to view functions.
+        </p>
+
+        <h3>Q5. What is as_view()?</h3>
+        <p>
+            as_view() converts a class-based view into
+            a callable view for URL configuration.
+        </p>
+
+        <h3>Q6. What is the difference between FBV and CBV routing?</h3>
+        <p>
+            FBV uses the function directly, whereas CBV uses
+            the class name with as_view().
+        </p>
+
+    </section>
+
+    <!-- COMPLETION -->
+
+    <div class="completion-box">
+        <h3>Topic 16 Completed!</h3>
+        <p>
+            Ata aapan Django REST Framework madhye URL Routing,
+            path(), include(), dynamic parameters ani as_view()
+            samjun ghetle.
+        </p>
+    </div>
+
+    <!-- NAVIGATION -->
+
+    <div class="lesson-navigation">
+        <a href="{% url 'drf_topic' 'crud-api' %}">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'drf_topic' 'generic-views' %}">
+            Next Topic →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,799 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}CRUD API in DRF{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/drf/crud-api.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO REST FRAMEWORK</span>
+        <h1>15. CRUD API in DRF</h1>
+        <p>
+            Learn how to create, read, update and delete database
+            records using Django REST Framework.
+        </p>
+    </div>
+
+    <!-- SECTION 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What is CRUD?</h2>
+
+        <p>
+            CRUD hi database madhil data manage karanyasathi
+            use honari four basic operations aahet.
+            DRF madhye HTTP methods vaprun CRUD API create karta yete.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                CRUD stands for Create, Read, Update and Delete.
+                These operations are used to manage data in a database.
+            </p>
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Operation</th>
+                        <th>HTTP Method</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Create</td>
+                        <td>POST</td>
+                        <td>New record add karne</td>
+                    </tr>
+                    <tr>
+                        <td>Read</td>
+                        <td>GET</td>
+                        <td>Record fetch karne</td>
+                    </tr>
+                    <tr>
+                        <td>Update</td>
+                        <td>PUT / PATCH</td>
+                        <td>Existing record update karne</td>
+                    </tr>
+                    <tr>
+                        <td>Delete</td>
+                        <td>DELETE</td>
+                        <td>Record remove karne</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>CRUD Flow</h3>
+
+        <div class="flow-container">
+            <div class="flow-step">
+                <strong>CREATE</strong>
+                <span>POST - New record</span>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">
+                <strong>READ</strong>
+                <span>GET - Fetch records</span>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">
+                <strong>UPDATE</strong>
+                <span>PUT / PATCH - Change record</span>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">
+                <strong>DELETE</strong>
+                <span>DELETE - Remove record</span>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- SECTION 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Project Setup</h2>
+
+        <p>
+            Aapan Student Management API create karnaar aahot.
+            Ya API madhye student cha name, email ani age
+            database madhye store honar aahe.
+        </p>
+
+        <h3>Required Packages</h3>
+
+        <div class="code-block">
+            <pre><code>pip install django djangorestframework</code></pre>
+        </div>
+
+        <h3>Create Django App</h3>
+
+        <div class="code-block">
+            <pre><code>python manage.py startapp api</code></pre>
+        </div>
+
+        <h3>Register Apps</h3>
+
+        <p><strong>File:</strong> config/settings.py</p>
+
+        <div class="code-block">
+            <pre><code>INSTALLED_APPS = [
+    # Django apps
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+
+    # Third-party apps
+    'rest_framework',
+
+    # Local apps
+    'api',
+]</code></pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Note:</strong>
+            Tumchya project madhye rest_framework kiwa api
+            already registered asel tar punha add karu naka.
+        </div>
+
+    </section>
+
+    <!-- SECTION 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. Create Student Model</h2>
+
+        <p>
+            Model database madhil table define karte.
+            Student model madhye three fields create karuya.
+        </p>
+
+        <p><strong>File:</strong> api/models.py</p>
+
+        <div class="code-block">
+            <pre><code>from django.db import models
+
+class Student(models.Model):
+
+    name = models.CharField(max_length=100)
+
+    email = models.EmailField(unique=True)
+
+    age = models.PositiveIntegerField()
+
+    def __str__(self):
+        return self.name</code></pre>
+        </div>
+
+        <h3>Field Explanation</h3>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>name</td>
+                        <td>Student cha name store karto.</td>
+                    </tr>
+                    <tr>
+                        <td>email</td>
+                        <td>Student cha unique email store karto.</td>
+                    </tr>
+                    <tr>
+                        <td>age</td>
+                        <td>Student che age store karto.</td>
+                    </tr>
+                    <tr>
+                        <td>__str__()</td>
+                        <td>Object che readable name return karte.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- SECTION 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. Run Database Migrations</h2>
+
+        <p>
+            Model create kelyanantar database madhye table
+            create karanyasathi migrations run karavya lagtat.
+        </p>
+
+        <div class="code-block">
+            <pre><code>python manage.py makemigrations
+
+python manage.py migrate</code></pre>
+        </div>
+
+        <h3>Commands Explanation</h3>
+
+        <ul>
+            <li><strong>makemigrations:</strong> Model changes sathi migration file create karte.</li>
+            <li><strong>migrate:</strong> Migration database madhye apply karte.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. Create Student Serializer</h2>
+
+        <p>
+            Serializer Python model objects ani API data
+            yanchyamadhye conversion ani validation karanyasathi
+            use hoto.
+        </p>
+
+        <p><strong>File:</strong> api/serializers.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework import serializers
+from .models import Student
+
+class StudentSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Student
+        fields = '__all__'</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li><strong>ModelSerializer:</strong> Model based serializer create karto.</li>
+            <li><strong>model:</strong> Student model select karto.</li>
+            <li><strong>fields = '__all__':</strong> Model madhil sarve fields include karto.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. Create CRUD API Views</h2>
+
+        <p>
+            Ata aapan ekach API view madhye GET ani POST
+            methods handle karu.
+        </p>
+
+        <p><strong>File:</strong> api/views.py</p>
+
+        <h3>GET – Read All Students</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework import status
+
+from django.shortcuts import get_object_or_404
+
+from .models import Student
+from .serializers import StudentSerializer
+
+
+@api_view(['GET', 'POST'])
+def student_list(request):
+
+    if request.method == 'GET':
+
+        students = Student.objects.all()
+
+        serializer = StudentSerializer(
+            students,
+            many=True
+        )
+
+        return Response(serializer.data)</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li><strong>Student.objects.all():</strong> Sarve students fetch karte.</li>
+            <li><strong>many=True:</strong> Multiple records serialize karte.</li>
+            <li><strong>serializer.data:</strong> API response sathi data return karto.</li>
+        </ul>
+
+        <h3>POST – Create Student</h3>
+
+        <p>
+            Tyach student_list function madhye POST condition add kara.
+        </p>
+
+        <div class="code-block">
+            <pre><code>    elif request.method == 'POST':
+
+        serializer = StudentSerializer(
+            data=request.data
+        )
+
+        if serializer.is_valid():
+            serializer.save()
+
+            return Response(
+                serializer.data,
+                status=status.HTTP_201_CREATED
+            )
+
+        return Response(
+            serializer.errors,
+            status=status.HTTP_400_BAD_REQUEST
+        )</code></pre>
+        </div>
+
+        <p>
+            Valid data asel tar navin student database madhye save hoto.
+            Invalid data asel tar validation errors return hotat.
+        </p>
+
+    </section>
+
+    <!-- SECTION 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. Read, Update and Delete Single Student</h2>
+
+        <p>
+            Ata student cha ID vaprun specific record fetch,
+            update ani delete karuya.
+        </p>
+
+        <h3>Complete Detail View</h3>
+
+        <p><strong>File:</strong> api/views.py</p>
+
+        <div class="code-block">
+            <pre><code>@api_view(['GET', 'PUT', 'PATCH', 'DELETE'])
+def student_detail(request, pk):
+
+    student = get_object_or_404(
+        Student,
+        pk=pk
+    )
+
+    if request.method == 'GET':
+
+        serializer = StudentSerializer(student)
+
+        return Response(serializer.data)
+
+    elif request.method == 'PUT':
+
+        serializer = StudentSerializer(
+            student,
+            data=request.data
+        )
+
+    elif request.method == 'PATCH':
+
+        serializer = StudentSerializer(
+            student,
+            data=request.data,
+            partial=True
+        )
+
+    elif request.method == 'DELETE':
+
+        student.delete()
+
+        return Response(
+            status=status.HTTP_204_NO_CONTENT
+        )
+
+    if serializer.is_valid():
+        serializer.save()
+
+        return Response(serializer.data)
+
+    return Response(
+        serializer.errors,
+        status=status.HTTP_400_BAD_REQUEST
+    )</code></pre>
+        </div>
+
+        <h3>Method Explanation</h3>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Working</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>GET</td>
+                        <td>Specific student fetch karto.</td>
+                    </tr>
+                    <tr>
+                        <td>PUT</td>
+                        <td>Complete student data update karto.</td>
+                    </tr>
+                    <tr>
+                        <td>PATCH</td>
+                        <td>Selected fields update karto.</td>
+                    </tr>
+                    <tr>
+                        <td>DELETE</td>
+                        <td>Student record delete karto.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            get_object_or_404() la student sapadla nahi tar
+            404 Not Found response milto. DELETE madhye 204
+            No Content return kelyamule response body naste.
+        </div>
+
+    </section>
+
+    <!-- SECTION 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. Configure API URLs</h2>
+
+        <p>
+            Views create kelyanantar tyanna URL sobat connect karave lagte.
+        </p>
+
+        <p><strong>File:</strong> api/urls.py</p>
+
+        <div class="code-block">
+            <pre><code>from django.urls import path
+from . import views
+
+urlpatterns = [
+
+    path(
+        'students/',
+        views.student_list,
+        name='student_list'
+    ),
+
+    path(
+        'students/&lt;int:pk&gt;/',
+        views.student_detail,
+        name='student_detail'
+    ),
+
+]</code></pre>
+        </div>
+
+        <h3>Include App URLs</h3>
+
+        <p><strong>File:</strong> config/urls.py</p>
+
+        <div class="code-block">
+            <pre><code>from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('api/', include('api.urls')),
+]</code></pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Note:</strong>
+            Tumchya config/urls.py madhye admin route already
+            asel tar to duplicate karu naka. Fakt api URL include kara.
+        </div>
+
+    </section>
+
+    <!-- SECTION 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. CRUD API Endpoints</h2>
+
+        <p>
+            Aapan create kelelya API che endpoints khalilpramane aahet.
+        </p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Endpoint</th>
+                        <th>Operation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>GET</td>
+                        <td>/api/students/</td>
+                        <td>Read all students</td>
+                    </tr>
+                    <tr>
+                        <td>POST</td>
+                        <td>/api/students/</td>
+                        <td>Create student</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td>/api/students/1/</td>
+                        <td>Read one student</td>
+                    </tr>
+                    <tr>
+                        <td>PUT</td>
+                        <td>/api/students/1/</td>
+                        <td>Update complete data</td>
+                    </tr>
+                    <tr>
+                        <td>PATCH</td>
+                        <td>/api/students/1/</td>
+                        <td>Update partial data</td>
+                    </tr>
+                    <tr>
+                        <td>DELETE</td>
+                        <td>/api/students/1/</td>
+                        <td>Delete student</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <!-- SECTION 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. Test CRUD API</h2>
+
+        <p>
+            Server start karanyasathi command:
+        </p>
+
+        <div class="code-block">
+            <pre><code>python manage.py runserver</code></pre>
+        </div>
+
+        <h3>Step 1 – Create Student</h3>
+
+        <p>
+            POST request pathva:
+        </p>
+
+        <div class="output-box">
+            <pre><code>POST
+http://127.0.0.1:8000/api/students/</code></pre>
+        </div>
+
+        <p>Request Body:</p>
+
+        <div class="output-box">
+            <pre><code>{
+    "name": "Rohan",
+    "email": "rohan@example.com",
+    "age": 20
+}</code></pre>
+        </div>
+
+        <p>Expected response – HTTP 201 Created:</p>
+
+        <div class="output-box">
+            <pre><code>{
+    "id": 1,
+    "name": "Rohan",
+    "email": "rohan@example.com",
+    "age": 20
+}</code></pre>
+        </div>
+
+        <h3>Step 2 – Read Students</h3>
+
+        <div class="output-box">
+            <pre><code>GET
+http://127.0.0.1:8000/api/students/</code></pre>
+        </div>
+
+        <h3>Step 3 – Update Student</h3>
+
+        <div class="output-box">
+            <pre><code>PATCH
+http://127.0.0.1:8000/api/students/1/</code></pre>
+        </div>
+
+        <p>Request Body:</p>
+
+        <div class="output-box">
+            <pre><code>{
+    "age": 21
+}</code></pre>
+        </div>
+
+        <h3>Step 4 – Delete Student</h3>
+
+        <div class="output-box">
+            <pre><code>DELETE
+http://127.0.0.1:8000/api/students/1/</code></pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Testing Tip:</strong>
+            GET requests browser madhye test karu shakto.
+            POST, PUT, PATCH ani DELETE sathi DRF Browsable API
+            kiwa Postman vapra. Delete request actual record
+            remove karte, mhanun test data vapra.
+        </div>
+
+    </section>
+
+    <!-- SECTION 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Expected Project Structure</h2>
+
+        <div class="output-box">
+            <pre><code>myproject/
+│
+├── config/
+│   ├── settings.py
+│   └── urls.py
+│
+├── api/
+│   ├── migrations/
+│   ├── __init__.py
+│   ├── models.py
+│   ├── serializers.py
+│   ├── views.py
+│   ├── urls.py
+│   └── apps.py
+│
+├── manage.py
+└── db.sqlite3</code></pre>
+        </div>
+
+    </section>
+
+    <!-- SECTION 12 -->
+
+    <section class="lesson-section">
+
+        <h2>12. Important Points to Remember</h2>
+
+        <ul>
+            <li>CRUD stands for Create, Read, Update and Delete.</li>
+            <li>POST method creates a new record.</li>
+            <li>GET method reads existing records.</li>
+            <li>PUT updates complete data.</li>
+            <li>PATCH updates selected fields.</li>
+            <li>DELETE removes a record.</li>
+            <li>Model defines the database structure.</li>
+            <li>Serializer converts and validates data.</li>
+            <li>serializer.save() saves valid data.</li>
+            <li>get_object_or_404() returns 404 if a record does not exist.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 13 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>13. Practice Questions</h2>
+
+        <ol>
+            <li>What is CRUD?</li>
+            <li>What is the use of POST method?</li>
+            <li>How do we read all records using GET?</li>
+            <li>What is the difference between PUT and PATCH?</li>
+            <li>How do we delete a database record?</li>
+            <li>What is the use of ModelSerializer?</li>
+            <li>Why do we use many=True?</li>
+            <li>What is the use of get_object_or_404()?</li>
+            <li>What is the use of serializer.save()?</li>
+            <li>Create a Student CRUD API using DRF.</li>
+        </ol>
+
+    </section>
+
+    <!-- SECTION 14 -->
+
+    <section class="lesson-section interview-section">
+
+        <h2>14. Interview Questions</h2>
+
+        <h3>Q1. What is CRUD?</h3>
+        <p>
+            CRUD stands for Create, Read, Update and Delete.
+            It represents four basic database operations.
+        </p>
+
+        <h3>Q2. Which HTTP method is used to create data?</h3>
+        <p>
+            POST method is used to create a new resource.
+        </p>
+
+        <h3>Q3. What is the difference between PUT and PATCH?</h3>
+        <p>
+            PUT is used for complete updates, whereas PATCH
+            is used for partial updates.
+        </p>
+
+        <h3>Q4. What is ModelSerializer?</h3>
+        <p>
+            ModelSerializer is used to create serializers
+            based on Django models.
+        </p>
+
+        <h3>Q5. What is the use of many=True?</h3>
+        <p>
+            many=True allows a serializer to handle multiple objects.
+        </p>
+
+        <h3>Q6. What is HTTP 204?</h3>
+        <p>
+            HTTP 204 means No Content. It indicates that
+            the request was successful and no response body is returned.
+        </p>
+
+    </section>
+
+    <!-- COMPLETION -->
+
+    <div class="completion-box">
+        <h3>Topic 15 Completed!</h3>
+        <p>
+            Ata aapan Django REST Framework vaprun complete
+            Student CRUD API create karayla shiklo.
+        </p>
+    </div>
+
+    <!-- NAVIGATION -->
+
+    <div class="lesson-navigation">
+        <a href="{% url 'drf_topic' 'request-response' %}">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'drf_topic' 'url-routing' %}">
+            Next Topic →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

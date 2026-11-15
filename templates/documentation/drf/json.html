@@ -1,0 +1,643 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}
+JSON - JavaScript Object Notation
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/drf/json.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <!-- PAGE HEADER -->
+
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO REST FRAMEWORK</span>
+
+        <h1>04. JSON (JavaScript Object Notation)</h1>
+
+        <p>
+            JSON kay aahe, tyachi structure ani API madhye
+            JSON cha use simple Roman Marathi madhye samjun ghya.
+        </p>
+    </div>
+
+
+    <!-- SECTION 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What is JSON?</h2>
+
+        <p>
+            JSON cha full form <strong>JavaScript Object Notation</strong>
+            asa aahe.
+        </p>
+
+        <p>
+            JSON ha ek lightweight data format aahe.
+            Tyacha use don applications madhye data exchange
+            karanyasathi hoto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+
+            <p>
+                JSON is a lightweight data format used to
+                store and exchange data between applications.
+            </p>
+        </div>
+
+        <h3>Simple Example</h3>
+
+        <p>
+            Samaj tu Student Management API tayar keli aahe.
+            Tula student chi information mobile application la
+            pathvaychi aahe.
+        </p>
+
+        <p>
+            Server student cha data JSON format madhye return
+            karu shakto.
+        </p>
+
+        <div class="code-block">
+            <pre><code>{
+    "id": 1,
+    "name": "Rahul",
+    "course": "BSc Computer Science"
+}</code></pre>
+        </div>
+
+        <p>
+            Ha JSON data aahe. Yat student chi ID, name ani
+            course store kele aahe.
+        </p>
+
+    </section>
+
+
+    <!-- SECTION 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. Why Do We Use JSON?</h2>
+
+        <p>
+            Aajkal web applications ani mobile applications
+            ekmekansobat data exchange kartat.
+        </p>
+
+        <p>
+            JSON mule data simple ani structured format madhye
+            pathavta ani receive karta yeto.
+        </p>
+
+        <h3>JSON che uses</h3>
+
+        <ul class="feature-list">
+            <li>Frontend ani Backend madhye data exchange</li>
+            <li>Mobile App ani Server madhye communication</li>
+            <li>REST API responses madhye data return karne</li>
+            <li>Structured data store karne</li>
+            <li>Different programming languages madhye data exchange</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Remember:</strong>
+
+            JSON ha data exchange format aahe.
+            To programming language kiwa database nahi.
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. JSON Key-Value Pairs</h2>
+
+        <p>
+            JSON madhye data Key-Value Pair format madhye
+            represent kela jato.
+        </p>
+
+        <p>
+            Key mhanje data cha name ani Value mhanje
+            tya key madhye store kelela data.
+        </p>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>{
+    "name": "Rohan",
+    "age": 20,
+    "course": "BSc Computer Science"
+}</code></pre>
+        </div>
+
+        <p>Ya example madhye:</p>
+
+        <ul>
+            <li><strong>name</strong> hi Key aahe.</li>
+            <li><strong>"Rohan"</strong> hi Value aahe.</li>
+            <li><strong>age</strong> hi Key aahe.</li>
+            <li><strong>20</strong> hi Value aahe.</li>
+            <li><strong>course</strong> hi Key aahe.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+
+            JSON madhye keys double quotes madhye lihitat.
+            Example: "name"
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. JSON Data Types</h2>
+
+        <p>
+            JSON madhye vegveglya prakarchya values store karta yetat.
+            Tyanna JSON Data Types mhantat.
+        </p>
+
+        <h3>1. String</h3>
+
+        <p>
+            Text value store karanyasathi String vapartat.
+        </p>
+
+        <div class="code-block">
+            <pre><code>{
+    "name": "Rohan"
+}</code></pre>
+        </div>
+
+        <h3>2. Number</h3>
+
+        <p>
+            Integer kiwa decimal number store karanyasathi
+            Number vapartat.
+        </p>
+
+        <div class="code-block">
+            <pre><code>{
+    "age": 20,
+    "percentage": 85.5
+}</code></pre>
+        </div>
+
+        <h3>3. Boolean</h3>
+
+        <p>
+            True kiwa False value store karanyasathi
+            Boolean vapartat.
+        </p>
+
+        <div class="code-block">
+            <pre><code>{
+    "is_active": true,
+    "is_completed": false
+}</code></pre>
+        </div>
+
+        <h3>4. Array</h3>
+
+        <p>
+            Multiple values ekach variable madhye store
+            karanyasathi Array vapartat.
+        </p>
+
+        <div class="code-block">
+            <pre><code>{
+    "subjects": [
+        "Python",
+        "Django",
+        "JavaScript"
+    ]
+}</code></pre>
+        </div>
+
+        <h3>5. Object</h3>
+
+        <p>
+            Related Key-Value Pairs ekatra store karanyasathi
+            Object vapartat.
+        </p>
+
+        <div class="code-block">
+            <pre><code>{
+    "student": {
+        "name": "Rohan",
+        "age": 20
+    }
+}</code></pre>
+        </div>
+
+        <h3>6. Null</h3>
+
+        <p>
+            Value available nasel kiwa empty value represent
+            karaychi asel tar null vapartat.
+        </p>
+
+        <div class="code-block">
+            <pre><code>{
+    "address": null
+}</code></pre>
+        </div>
+
+        <div class="table-wrapper">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Data Type</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>String</td>
+                        <td>"Rohan"</td>
+                    </tr>
+                    <tr>
+                        <td>Number</td>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td>Boolean</td>
+                        <td>true / false</td>
+                    </tr>
+                    <tr>
+                        <td>Array</td>
+                        <td>["Python", "Django"]</td>
+                    </tr>
+                    <tr>
+                        <td>Object</td>
+                        <td>{"name": "Rohan"}</td>
+                    </tr>
+                    <tr>
+                        <td>Null</td>
+                        <td>null</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. What is JSON Object?</h2>
+
+        <p>
+            JSON Object ha curly brackets { } madhye lihila jato.
+            Tyamadhye multiple Key-Value Pairs astat.
+        </p>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>{
+    "id": 1,
+    "name": "Amit",
+    "age": 21,
+    "course": "BCA"
+}</code></pre>
+        </div>
+
+        <p>
+            Ya JSON Object madhye eka student chi complete
+            information store keli aahe.
+        </p>
+
+        <div class="important-box">
+            <strong>Remember:</strong>
+
+            JSON Object sathi { } curly brackets vapartat.
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. What is JSON Array?</h2>
+
+        <p>
+            JSON Array ha square brackets [ ] madhye lihila jato.
+            Tyamadhye multiple values kiwa objects store karta yetat.
+        </p>
+
+        <h3>Simple Array Example</h3>
+
+        <div class="code-block">
+            <pre><code>[
+    "Python",
+    "Django",
+    "JavaScript"
+]</code></pre>
+        </div>
+
+        <h3>Array of Objects Example</h3>
+
+        <div class="code-block">
+            <pre><code>[
+    {
+        "id": 1,
+        "name": "Rahul"
+    },
+    {
+        "id": 2,
+        "name": "Amit"
+    },
+    {
+        "id": 3,
+        "name": "Rohan"
+    }
+]</code></pre>
+        </div>
+
+        <p>
+            Ya example madhye multiple students chi information
+            ekach Array madhye store keli aahe.
+        </p>
+
+        <div class="important-box">
+            <strong>Remember:</strong>
+
+            JSON Array sathi [ ] square brackets vapartat.
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. JSON Syntax Rules</h2>
+
+        <p>
+            JSON lihitana kahi important rules follow karave lagtat.
+        </p>
+
+        <ul>
+            <li>JSON Object sathi { } vapartat.</li>
+            <li>JSON Array sathi [ ] vapartat.</li>
+            <li>Keys double quotes madhye lihitat.</li>
+            <li>String values double quotes madhye lihitat.</li>
+            <li>Key ani Value madhye colon (:) vapartat.</li>
+            <li>Multiple pairs madhye comma (,) vapartat.</li>
+            <li>Boolean values true kiwa false asatat.</li>
+            <li>Null value sathi null lihitat.</li>
+            <li>JSON madhye comments allowed nahit.</li>
+            <li>Last item nantar extra comma lihaycha nahi.</li>
+        </ul>
+
+        <h3>Correct JSON</h3>
+
+        <div class="code-block">
+            <pre><code>{
+    "name": "Rohan",
+    "age": 20
+}</code></pre>
+        </div>
+
+        <h3>Incorrect JSON</h3>
+
+        <div class="code-block">
+            <pre><code>{
+    name: "Rohan",
+    "age": 20,
+}</code></pre>
+        </div>
+
+        <p>
+            Incorrect example madhye name la double quotes nahi
+            ani last value nantar extra comma aahe.
+        </p>
+
+    </section>
+
+
+    <!-- SECTION 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. JSON in Django REST Framework</h2>
+
+        <p>
+            DRF madhye API response JSON format madhye
+            return karta yeto.
+        </p>
+
+        <p>
+            Samaj aaplyakade Student model aahe.
+            API madhun student information frontend la pathvaychi aahe.
+        </p>
+
+        <h3>Example JSON Response</h3>
+
+        <div class="code-block">
+            <pre><code>{
+    "id": 1,
+    "name": "Rohan",
+    "course": "BSc Computer Science",
+    "is_active": true
+}</code></pre>
+        </div>
+
+        <p>
+            DRF madhye Serializer model data la JSON-compatible
+            format madhye convert karanyas madat karto.
+        </p>
+
+        <p>
+            Client kadun JSON data aala tar DRF tyala
+            process karanyasathi suddha madat karto.
+        </p>
+
+        <div class="important-box">
+            <strong>Remember:</strong>
+
+            DRF madhye JSON data handle karanyasathi
+            Serializer ani Parser sarkhe components vapartat.
+            He aapan pudhil topics madhye shiku.
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Important JSON Terms</h2>
+
+        <div class="table-wrapper">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Term</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>JSON</td>
+                        <td>Data exchange format</td>
+                    </tr>
+                    <tr>
+                        <td>Key</td>
+                        <td>Data cha name</td>
+                    </tr>
+                    <tr>
+                        <td>Value</td>
+                        <td>Key madhil data</td>
+                    </tr>
+                    <tr>
+                        <td>Object</td>
+                        <td>Key-Value Pairs cha collection</td>
+                    </tr>
+                    <tr>
+                        <td>Array</td>
+                        <td>Values kiwa objects cha collection</td>
+                    </tr>
+                    <tr>
+                        <td>String</td>
+                        <td>Text data</td>
+                    </tr>
+                    <tr>
+                        <td>Boolean</td>
+                        <td>true kiwa false</td>
+                    </tr>
+                    <tr>
+                        <td>Null</td>
+                        <td>Value naslyache representation</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 10 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>10. Practice Questions</h2>
+
+        <p>Khali dilele questions swatah solve kar.</p>
+
+        <ol>
+            <li>What is the full form of JSON?</li>
+            <li>What is JSON?</li>
+            <li>Why do we use JSON?</li>
+            <li>What is a Key-Value Pair?</li>
+            <li>What is a JSON Object?</li>
+            <li>What is a JSON Array?</li>
+            <li>Write any four JSON data types.</li>
+            <li>Write any five JSON syntax rules.</li>
+            <li>Can we write comments in JSON?</li>
+            <li>How is JSON used in Django REST Framework?</li>
+        </ol>
+
+    </section>
+
+
+    <!-- SECTION 11 -->
+
+    <section class="lesson-section interview-section">
+
+        <h2>11. Interview Questions</h2>
+
+        <h3>Q1. What is JSON?</h3>
+
+        <p>
+            JSON is a lightweight data format used to
+            exchange data between applications.
+        </p>
+
+        <h3>Q2. What is a JSON Object?</h3>
+
+        <p>
+            A JSON Object is a collection of Key-Value Pairs
+            enclosed within curly brackets.
+        </p>
+
+        <h3>Q3. What is a JSON Array?</h3>
+
+        <p>
+            A JSON Array is a collection of values or objects
+            enclosed within square brackets.
+        </p>
+
+        <h3>Q4. Can JSON store different data types?</h3>
+
+        <p>
+            Yes. JSON supports String, Number, Boolean,
+            Array, Object and Null data types.
+        </p>
+
+    </section>
+
+
+    <!-- COMPLETION -->
+
+    <div class="completion-box">
+
+        <h3>Topic 04 Completed!</h3>
+
+        <p>
+            Ata tula JSON, Key-Value Pairs, Objects,
+            Arrays, Data Types ani JSON Syntax Rules samajle aahet.
+        </p>
+
+    </div>
+
+
+    <!-- NAVIGATION -->
+
+    <div class="lesson-navigation">
+
+        <a href="{% url 'drf_topic' 'rest-api-basics' %}">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'drf_topic' 'http-methods' %}">
+            Next Topic →
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,625 @@
+
+{% extends 'documentation/base.html' %}
+{% load static %}
+
+{% block title %}File Upload API in DRF{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/drf/file-upload-api.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lesson-container">
+
+    <div class="lesson-header">
+        <span class="lesson-label">DJANGO REST FRAMEWORK</span>
+        <h1>32. File Upload API in DRF</h1>
+        <p>
+            Learn how to upload files and images through
+            Django REST Framework APIs.
+        </p>
+    </div>
+
+    <!-- SECTION 1 -->
+
+    <section class="lesson-section">
+
+        <h2>1. What is File Upload?</h2>
+
+        <p>
+            File Upload mhanje client kadun server var
+            image, PDF, document kiwa other files pathavne.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                File Upload is the process of sending files
+                from a client to a server through an API.
+            </p>
+        </div>
+
+        <h3>Example</h3>
+
+        <p>
+            Samja Student API madhye student cha profile photo
+            upload karaycha aahe.
+        </p>
+
+        <div class="example-box">
+            <h3>File Upload Process</h3>
+            <pre><code>Client
+   |
+   | Select Image
+   |
+   v
+Django REST API
+   |
+   | Validate File
+   |
+   v
+Server Media Storage
+   |
+   v
+Image URL Response</code></pre>
+        </div>
+
+        <h3>Common File Types</h3>
+
+        <ul>
+            <li>Images – JPG, PNG</li>
+            <li>Documents – PDF, DOCX</li>
+            <li>Text Files – TXT</li>
+            <li>Other files – as allowed by the application</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 2 -->
+
+    <section class="lesson-section">
+
+        <h2>2. FileField and ImageField</h2>
+
+        <p>
+            Django models madhye files ani images store
+            karanyasathi FileField ani ImageField vapartat.
+        </p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>FileField</td>
+                        <td>Different types of files upload karanyasathi.</td>
+                    </tr>
+                    <tr>
+                        <td>ImageField</td>
+                        <td>Image files upload karanyasathi.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Example – Student Model</h3>
+
+        <p><strong>File:</strong> api/models.py</p>
+
+        <div class="code-block">
+            <pre><code>from django.db import models
+
+class Student(models.Model):
+
+    name = models.CharField(max_length=100)
+
+    profile_photo = models.ImageField(
+        upload_to='students/',
+        blank=True,
+        null=True
+    )
+
+    document = models.FileField(
+        upload_to='documents/',
+        blank=True,
+        null=True
+    )</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li>ImageField image upload karanyasathi vapartat.</li>
+            <li>FileField general file upload karanyasathi vapartat.</li>
+            <li>upload_to file store honyacha subfolder define karte.</li>
+            <li>blank=True mule form madhye field optional aste.</li>
+            <li>null=True mule database madhye empty value allow hote.</li>
+        </ul>
+
+        <div class="important-box">
+            <strong>Important:</strong>
+            ImageField vaparnyasathi Pillow package install asne avashyak aahe.
+        </div>
+
+        <div class="code-block">
+            <pre><code>pip install Pillow</code></pre>
+        </div>
+
+    </section>
+
+    <!-- SECTION 3 -->
+
+    <section class="lesson-section">
+
+        <h2>3. What is MultiPartParser?</h2>
+
+        <p>
+            MultiPartParser ha DRF madhil parser aahe.
+            To multipart/form-data format madhun uploaded
+            files ani form data read karto.
+        </p>
+
+        <div class="definition-box">
+            <h3>Definition</h3>
+            <p>
+                MultiPartParser parses multipart form data,
+                including uploaded files.
+            </p>
+        </div>
+
+        <h3>Import</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.parsers import MultiPartParser</code></pre>
+        </div>
+
+        <h3>Example</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.parsers import MultiPartParser
+
+class StudentViewSet(ModelViewSet):
+
+    parser_classes = [MultiPartParser]</code></pre>
+        </div>
+
+        <p>
+            Ya parser mule API multipart/form-data request madhil
+            uploaded files process karu shakte.
+        </p>
+
+    </section>
+
+    <!-- SECTION 4 -->
+
+    <section class="lesson-section">
+
+        <h2>4. What is FormParser?</h2>
+
+        <p>
+            FormParser ha DRF madhil parser aahe.
+            To application/x-www-form-urlencoded format madhil
+            form data parse karto.
+        </p>
+
+        <h3>Import</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.parsers import FormParser</code></pre>
+        </div>
+
+        <h3>Use Both Parsers</h3>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.parsers import (
+    MultiPartParser,
+    FormParser
+)
+
+class StudentViewSet(ModelViewSet):
+
+    parser_classes = [
+        MultiPartParser,
+        FormParser
+    ]</code></pre>
+        </div>
+
+        <p>
+            MultiPartParser ani FormParser ekatra use kelyas
+            API multipart form data ani URL-encoded form data
+            accept karu shakte.
+        </p>
+
+    </section>
+
+    <!-- SECTION 5 -->
+
+    <section class="lesson-section">
+
+        <h2>5. Serializer with FileField</h2>
+
+        <p>
+            Serializer cha use model fields ani uploaded
+            file data validate karun API madhye represent
+            karanyasathi hoto.
+        </p>
+
+        <h3>Example</h3>
+
+        <p><strong>File:</strong> api/serializers.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework import serializers
+from .models import Student
+
+class StudentSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Student
+        fields = [
+            'id',
+            'name',
+            'profile_photo',
+            'document'
+        ]</code></pre>
+        </div>
+
+        <p>
+            ModelSerializer model madhil ImageField ani FileField
+            automatically serializer madhye include karto.
+        </p>
+
+    </section>
+
+    <!-- SECTION 6 -->
+
+    <section class="lesson-section">
+
+        <h2>6. File Upload API View</h2>
+
+        <p>
+            Ata aapan Student API madhye file upload support
+            add karuya.
+        </p>
+
+        <h3>Example</h3>
+
+        <p><strong>File:</strong> api/views.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework.viewsets import ModelViewSet
+from rest_framework.parsers import (
+    MultiPartParser,
+    FormParser
+)
+
+from .models import Student
+from .serializers import StudentSerializer
+
+
+class StudentViewSet(ModelViewSet):
+
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+    parser_classes = [
+        MultiPartParser,
+        FormParser
+    ]</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li>ModelViewSet CRUD operations provide karte.</li>
+            <li>StudentSerializer file fields handle karte.</li>
+            <li>parser_classes uploaded files parse karte.</li>
+            <li>Uploaded files model madhye save hotat.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 7 -->
+
+    <section class="lesson-section">
+
+        <h2>7. Media Settings in Django</h2>
+
+        <p>
+            Uploaded files store ani serve karanyasathi
+            Django madhye MEDIA_ROOT ani MEDIA_URL configure
+            karave lagtat.
+        </p>
+
+        <h3>Step 1 – Configure settings.py</h3>
+
+        <p><strong>File:</strong> config/settings.py</p>
+
+        <div class="code-block">
+            <pre><code>MEDIA_URL = '/media/'
+
+MEDIA_ROOT = BASE_DIR / 'media'</code></pre>
+        </div>
+
+        <h3>Explanation</h3>
+
+        <ul>
+            <li>MEDIA_ROOT server var uploaded files store honyachi directory aahe.</li>
+            <li>MEDIA_URL uploaded media files access karanyasathi URL prefix aahe.</li>
+        </ul>
+
+        <h3>Step 2 – Configure urls.py</h3>
+
+        <p><strong>File:</strong> config/urls.py</p>
+
+        <div class="code-block">
+            <pre><code>from django.conf import settings
+from django.conf.urls.static import static
+from django.urls import path, include
+
+urlpatterns = [
+    path('api/', include('api.urls')),
+]
+
+if settings.DEBUG:
+    urlpatterns += static(
+        settings.MEDIA_URL,
+        document_root=settings.MEDIA_ROOT
+    )</code></pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Note:</strong>
+            static() configuration hi development sathi aahe.
+            Production madhye media files serve karanyasathi
+            proper storage service kiwa web server configure kara.
+        </div>
+
+    </section>
+
+    <!-- SECTION 8 -->
+
+    <section class="lesson-section">
+
+        <h2>8. Upload File Using Postman</h2>
+
+        <p>
+            Postman cha use karun aapan API madhye image
+            kiwa document upload karu shakto.
+        </p>
+
+        <h3>Steps</h3>
+
+        <ol>
+            <li>Postman open kara.</li>
+            <li>Student API URL enter kara.</li>
+            <li>HTTP method POST select kara.</li>
+            <li>Body tab open kara.</li>
+            <li>form-data select kara.</li>
+            <li>name field madhye student name enter kara.</li>
+            <li>profile_photo field add kara ani type File select kara.</li>
+            <li>document field add karun File select kara.</li>
+            <li>File select karun Send click kara.</li>
+        </ol>
+
+        <h3>Example Request</h3>
+
+        <div class="output-box">
+            <pre><code>POST /api/students/
+
+Body: form-data
+
+name          Text    Rohan
+profile_photo File    profile.jpg
+document      File    certificate.pdf</code></pre>
+        </div>
+
+        <p>
+            Postman madhye Content-Type manually set karu naka.
+            form-data select kelyavar Postman multipart boundary
+            sahit header automatically set karto.
+        </p>
+
+    </section>
+
+    <!-- SECTION 9 -->
+
+    <section class="lesson-section">
+
+        <h2>9. Example API Response</h2>
+
+        <p>
+            File successfully upload zalyavar API madhun
+            file URL response madhye milu shakto.
+        </p>
+
+        <h3>Example JSON Response</h3>
+
+        <div class="output-box">
+            <pre><code>{
+    "id": 1,
+    "name": "Rohan",
+    "profile_photo": "/media/students/profile.jpg",
+    "document": "/media/documents/certificate.pdf"
+}</code></pre>
+        </div>
+
+        <p>
+            He example response aahe. Actual URL ani file names
+            tumchya storage configuration nusar vegle astil.
+        </p>
+
+    </section>
+
+    <!-- SECTION 10 -->
+
+    <section class="lesson-section">
+
+        <h2>10. File Upload Validation</h2>
+
+        <p>
+            API madhye file upload kartana file size ani
+            file type validate karne mahatvache aahe.
+        </p>
+
+        <h3>Example – Image Extension Validation</h3>
+
+        <p><strong>File:</strong> api/serializers.py</p>
+
+        <div class="code-block">
+            <pre><code>from rest_framework import serializers
+from .models import Student
+
+
+class StudentSerializer(serializers.ModelSerializer):
+
+    def validate_profile_photo(self, value):
+
+        allowed_extensions = ['jpg', 'jpeg', 'png']
+
+        extension = value.name.rsplit('.', 1)[-1].lower()
+
+        if extension not in allowed_extensions:
+            raise serializers.ValidationError(
+                "Only JPG and PNG images are allowed."
+            )
+
+        return value
+
+    class Meta:
+        model = Student
+        fields = [
+            'id',
+            'name',
+            'profile_photo',
+            'document'
+        ]</code></pre>
+        </div>
+
+        <div class="important-box">
+            <strong>Security Note:</strong>
+            File extension check karne evdhach purase nahi.
+            Production madhye file size, actual file content,
+            MIME type ani secure storage suddha validate kara.
+        </div>
+
+    </section>
+
+    <!-- SECTION 11 -->
+
+    <section class="lesson-section">
+
+        <h2>11. Important Points to Remember</h2>
+
+        <ul>
+            <li>FileField general files upload karanyasathi vapartat.</li>
+            <li>ImageField images upload karanyasathi vapartat.</li>
+            <li>ImageField sathi Pillow required aahe.</li>
+            <li>MultiPartParser multipart form data parse karto.</li>
+            <li>FormParser URL-encoded form data parse karto.</li>
+            <li>ModelSerializer file fields handle karu shakto.</li>
+            <li>MEDIA_ROOT files store karanyasathi vapartat.</li>
+            <li>MEDIA_URL uploaded files access karanyasathi vapartat.</li>
+            <li>Postman madhye form-data use karun file upload karta yete.</li>
+            <li>Production madhye secure media storage configure karne avashyak aahe.</li>
+        </ul>
+
+    </section>
+
+    <!-- SECTION 12 -->
+
+    <section class="lesson-section practice-section">
+
+        <h2>12. Practice Questions</h2>
+
+        <ol>
+            <li>What is File Upload in DRF?</li>
+            <li>What is the difference between FileField and ImageField?</li>
+            <li>What is MultiPartParser?</li>
+            <li>What is FormParser?</li>
+            <li>What is the use of parser_classes?</li>
+            <li>What is MEDIA_ROOT?</li>
+            <li>What is MEDIA_URL?</li>
+            <li>How can we upload files using Postman?</li>
+            <li>How can we validate uploaded files?</li>
+            <li>Why is file validation important?</li>
+        </ol>
+
+    </section>
+
+    <!-- SECTION 13 -->
+
+    <section class="lesson-section interview-section">
+
+        <h2>13. Interview Questions</h2>
+
+        <h3>Q1. What is File Upload in DRF?</h3>
+        <p>
+            File Upload allows clients to send files to
+            a server through an API.
+        </p>
+
+        <h3>Q2. What is ImageField?</h3>
+        <p>
+            ImageField is a Django model field used
+            to upload image files.
+        </p>
+
+        <h3>Q3. What is MultiPartParser?</h3>
+        <p>
+            MultiPartParser parses multipart form data,
+            including uploaded files.
+        </p>
+
+        <h3>Q4. What is MEDIA_ROOT?</h3>
+        <p>
+            MEDIA_ROOT defines the directory where
+            uploaded files are stored.
+        </p>
+
+        <h3>Q5. What is MEDIA_URL?</h3>
+        <p>
+            MEDIA_URL defines the URL prefix used
+            to access uploaded media files.
+        </p>
+
+        <h3>Q6. Why is Pillow required?</h3>
+        <p>
+            Pillow provides image processing support
+            required by Django ImageField.
+        </p>
+
+    </section>
+
+    <!-- COMPLETION -->
+
+    <div class="completion-box">
+        <h3>Topic 32 Completed!</h3>
+        <p>
+            Ata aapan FileField, ImageField, Parsers,
+            Media Settings, Postman File Upload ani
+            File Validation shiklo.
+        </p>
+    </div>
+
+    <!-- NAVIGATION -->
+
+    <div class="lesson-navigation">
+        <a href="{% url 'drf_topic' 'relationships' %}">
+            ← Previous Topic
+        </a>
+
+        <a href="{% url 'drf_topic' 'api-testing' %}">
+            Next Topic →
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}
