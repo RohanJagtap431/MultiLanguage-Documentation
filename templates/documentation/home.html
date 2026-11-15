@@ -1,257 +1,737 @@
-
 {% extends 'documentation/base.html' %}
+{% load static %}
 
 {% block title %}
-Study Guidance | Roman Marathi Documentation
+Developer Learning Hub | Rohan Jagtap
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
 {% endblock %}
 
 {% block content %}
 
-<div class="study-page">
+<div class="dashboard">
 
-    <!-- Welcome -->
-    <section class="welcome-section">
-        <span class="section-label">WELCOME TO YOUR LEARNING SPACE</span>
+    <!-- HERO SECTION -->
+    <section class="hero reveal">
 
-        <h1>Learn Every Day. Improve Every Day.</h1>
+        <div class="hero-glow"></div>
+        <div class="hero-orb orb-one"></div>
+        <div class="hero-orb orb-two"></div>
+
+        <div class="hero-content">
+
+            <div class="hero-kicker">
+                <span class="status-dot"></span>
+                YOUR PERSONAL DEVELOPER LEARNING SPACE
+            </div>
+
+            <h1>
+                Build Skills.
+                <span>Break Limits.</span>
+                Become a Developer.
+            </h1>
+
+            <p>
+                Coding fakt shikaychi nahi, tar samjun ghyaychi,
+                problems solve karayche ani real-world projects
+                build karayche. Tumcha developer journey ithe suru hoto.
+            </p>
+
+            <div class="hero-actions">
+
+                <a href="#daily-challenge" class="primary-btn">
+                    Start Coding <span>↗</span>
+                </a>
+
+                <a href="#learning-roadmap" class="secondary-btn">
+                    Explore Roadmap
+                </a>
+
+            </div>
+
+            <div class="hero-trust">
+
+                <div class="avatar-stack">
+                    <span>RJ</span>
+                    <span>Py</span>
+                    <span>DJ</span>
+                </div>
+
+                <p>
+                    Learn with purpose.
+                    <strong>Build with confidence.</strong>
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- PREMIUM LEARNING SHOWCASE -->
+        <div class="hero-visual hero-showcase">
+
+            <div class="showcase-orbit orbit-a"></div>
+            <div class="showcase-orbit orbit-b"></div>
+
+            <div class="floating-chip chip-top">
+                <span>✦</span>
+                Keep Learning
+            </div>
+
+            <div class="learning-glass-card">
+
+                <div class="glass-card-top">
+                    <span class="glass-icon">🚀</span>
+
+                    <div>
+                        <small>YOUR JOURNEY</small>
+                        <strong>Developer Mode</strong>
+                    </div>
+
+                    <span class="live-pill">● LIVE</span>
+                </div>
+
+                <div class="journey-progress">
+
+                    <div class="progress-heading">
+                        <span>Learning never stops</span>
+                        <strong>∞</strong>
+                    </div>
+
+                    <div class="progress-track">
+                        <span></span>
+                    </div>
+
+                </div>
+
+                <div class="learning-path">
+
+                    <div class="path-item path-active">
+                        <div class="path-icon">🐍</div>
+
+                        <div>
+                            <strong>Python</strong>
+                            <small>Build strong fundamentals</small>
+                        </div>
+
+                        <span class="path-check">✓</span>
+                    </div>
+
+                    <div class="path-item">
+                        <div class="path-icon">⚙️</div>
+
+                        <div>
+                            <strong>Django & DRF</strong>
+                            <small>Build powerful backend APIs</small>
+                        </div>
+
+                        <span class="path-number">02</span>
+                    </div>
+
+                    <div class="path-item">
+                        <div class="path-icon">🗄️</div>
+
+                        <div>
+                            <strong>Database & SQL</strong>
+                            <small>Manage application data</small>
+                        </div>
+
+                        <span class="path-number">03</span>
+                    </div>
+
+                    <div class="path-item">
+                        <div class="path-icon">🚀</div>
+
+                        <div>
+                            <strong>Real Projects</strong>
+                            <small>Turn ideas into products</small>
+                        </div>
+
+                        <span class="path-number">04</span>
+                    </div>
+
+                </div>
+
+                <div class="glass-card-footer">
+                    <span>✦</span>
+                    Every expert was once a beginner.
+                </div>
+
+            </div>
+
+            <div class="floating-chip chip-bottom">
+                <span class="chip-check">✓</span>
+                Progress starts today
+            </div>
+
+            <div class="floating-mini-card mini-card-one">
+                <span>💡</span>
+                <strong>Think</strong>
+            </div>
+
+            <div class="floating-mini-card mini-card-two">
+                <span>🎯</span>
+                <strong>Practice</strong>
+            </div>
+
+        </div>
+
+        <div class="hero-decoration decoration-one"></div>
+        <div class="hero-decoration decoration-two"></div>
+
+    </section>
+
+
+    <!-- QUICK STATS -->
+    <section class="stats-grid reveal">
+
+        <div class="stat-card">
+            <div class="stat-icon blue-icon">⌨</div>
+            <div>
+                <strong>{{ challenge_count }}+</strong>
+                <span>Coding Challenges</span>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon purple-icon">✦</div>
+            <div>
+                <strong>{{ thought_count }}+</strong>
+                <span>Developer Thoughts</span>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon orange-icon">⚡</div>
+            <div>
+                <strong>{{ tip_count }}+</strong>
+                <span>Learning Tips</span>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon green-icon">◎</div>
+            <div>
+                <strong>01</strong>
+                <span>Step Towards Growth</span>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- CREATOR SECTION -->
+    <section class="creator-section reveal">
+
+        <div class="creator-left">
+
+            <div class="creator-avatar">
+                <span>RJ</span>
+                <i></i>
+            </div>
+
+            <div class="creator-identity">
+
+                <span class="section-eyebrow">
+                    THE PERSON BEHIND THIS PLATFORM
+                </span>
+
+                <h2>Rohan Jagtap</h2>
+
+                <p class="creator-role">
+                    Python & Django Backend Developer
+                </p>
+
+                <div class="creator-social">
+                    <span>Programming</span>
+                    <span>Backend Development</span>
+                    <span>Learning Resources</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="creator-right">
+
+            <span class="creator-quote-mark">“</span>
+
+            <p>
+                This platform is created to make programming
+                concepts easier to understand through simple
+                explanations, practical examples and structured
+                learning resources.
+            </p>
+
+            <div class="creator-signature">
+                <span>CREATED & CURATED BY</span>
+                <strong>Rohan Jagtap</strong>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- THOUGHT AND GOAL -->
+    <section class="feature-grid reveal">
+
+        <article class="thought-card">
+
+            <div class="feature-card-top">
+                <span class="section-eyebrow">✦ DEVELOPER THOUGHT</span>
+                <span class="random-label">RANDOM PICK</span>
+            </div>
+
+            <div class="quote-symbol">“</div>
+
+            <h2>{{ thought.quote }}</h2>
+
+            <p>{{ thought.description }}</p>
+
+            <div class="thought-author">
+                <span></span>
+                {{ thought.author }}
+            </div>
+
+            <div class="thought-decoration">“</div>
+
+        </article>
+
+
+        <article class="goal-card">
+
+            <div class="feature-card-top">
+                <span class="section-eyebrow">TODAY'S FOCUS</span>
+                <span class="goal-symbol">◎</span>
+            </div>
+
+            <div class="goal-illustration">🎯</div>
+
+            <span class="goal-small-title">
+                ONE GOAL. ONE STEP FORWARD.
+            </span>
+
+            <h3>Today's Developer Goal</h3>
+
+            <p>{{ daily_goal }}</p>
+
+            <div class="goal-bottom">
+                <span class="goal-line"></span>
+                <span>Make today productive.</span>
+            </div>
+
+        </article>
+
+    </section>
+
+
+    <!-- CODING CHALLENGE -->
+    <section class="section reveal" id="daily-challenge">
+
+        <div class="section-heading">
+
+            <div>
+                <span class="section-eyebrow">THINK. CODE. SOLVE.</span>
+
+                <h2>Today's Coding Challenge<span>.</span></h2>
+
+                <p>
+                    Tumchi logic test kara. Adhi swatah solve kara,
+                    mag hint cha use kara.
+                </p>
+            </div>
+
+            <div class="challenge-live">
+                <span></span>
+                FRESH CHALLENGE
+            </div>
+
+        </div>
+
+
+        <article class="challenge-card">
+
+            <div class="challenge-main">
+
+                <div class="challenge-meta">
+
+                    <span class="category-tag">
+                        {{ challenge.category }}
+                    </span>
+
+                    <span class="difficulty-tag
+                        {% if challenge.level == 'Easy' %}easy
+                        {% elif challenge.level == 'Medium' %}medium
+                        {% else %}hard{% endif %}">
+                        {{ challenge.level }}
+                    </span>
+
+                </div>
+
+                <h3>{{ challenge.title }}</h3>
+
+                <p class="challenge-description">
+                    {{ challenge.description }}
+                </p>
+
+                <div class="challenge-code">
+
+                    <div class="challenge-code-top">
+                        <span>YOUR EDITOR</span>
+                        <span>CODE PREVIEW</span>
+                    </div>
+
+                    <pre><code>{{ challenge.starter_code }}</code></pre>
+
+                </div>
+
+                <div class="hint-card">
+
+                    <div class="hint-icon">💡</div>
+
+                    <div>
+                        <strong>Need a Hint?</strong>
+                        <p>{{ challenge.hint }}</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <aside class="challenge-side">
+
+                <div class="challenge-side-icon">⌘</div>
+
+                <span class="section-eyebrow">DEVELOPER MODE</span>
+
+                <h4>Don't just read code. Understand it.</h4>
+
+                <p>
+                    Problem samjun ghya, swatah logic design kara
+                    ani code execute karun output verify kara.
+                </p>
+
+                <div class="challenge-steps">
+
+                    <div>
+                        <span>01</span>
+                        <p>Understand the problem</p>
+                    </div>
+
+                    <div>
+                        <span>02</span>
+                        <p>Write your own logic</p>
+                    </div>
+
+                    <div>
+                        <span>03</span>
+                        <p>Test and debug</p>
+                    </div>
+
+                </div>
+
+                <div class="challenge-side-note">
+                    <span>↻</span>
+                    Refresh for another challenge
+                </div>
+
+            </aside>
+
+        </article>
+
+    </section>
+
+
+    <!-- LEARNING TIP -->
+    <section class="tip-banner reveal">
+
+        <div class="tip-icon">✧</div>
+
+        <div class="tip-content">
+
+            <span class="section-eyebrow">
+                RANDOM LEARNING TIP · {{ tip.category }}
+            </span>
+
+            <h3>{{ tip.title }}</h3>
+
+            <p>{{ tip.description }}</p>
+
+        </div>
+
+        <div class="tip-decoration">TIP</div>
+
+    </section>
+
+
+    <!-- ROADMAP -->
+    <section class="section reveal" id="learning-roadmap">
+
+        <div class="section-heading">
+
+            <div>
+                <span class="section-eyebrow">YOUR DEVELOPER JOURNEY</span>
+
+                <h2>From Beginner to Builder<span>.</span></h2>
+
+                <p>
+                    Strong fundamentals pasun real-world development paryant.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="roadmap-grid">
+
+            <article class="roadmap-card">
+                <span class="roadmap-number">01</span>
+                <div class="roadmap-icon">📘</div>
+                <h3>Programming Basics</h3>
+                <p>Variables, loops, functions, conditions ani OOP.</p>
+                <span class="roadmap-label">FOUNDATION</span>
+            </article>
+
+            <article class="roadmap-card">
+                <span class="roadmap-number">02</span>
+                <div class="roadmap-icon">🧠</div>
+                <h3>Logic & DSA</h3>
+                <p>Arrays, strings, searching, sorting ani problem solving.</p>
+                <span class="roadmap-label">LOGIC BUILDING</span>
+            </article>
+
+            <article class="roadmap-card">
+                <span class="roadmap-number">03</span>
+                <div class="roadmap-icon">🗄️</div>
+                <h3>Database & SQL</h3>
+                <p>Tables, relationships, joins ani database queries.</p>
+                <span class="roadmap-label">DATA MANAGEMENT</span>
+            </article>
+
+            <article class="roadmap-card">
+                <span class="roadmap-number">04</span>
+                <div class="roadmap-icon">⚙️</div>
+                <h3>Django & DRF</h3>
+                <p>Models, views, authentication ani REST APIs.</p>
+                <span class="roadmap-label">BACKEND DEVELOPMENT</span>
+            </article>
+
+            <article class="roadmap-card">
+                <span class="roadmap-number">05</span>
+                <div class="roadmap-icon">🚀</div>
+                <h3>Real-World Projects</h3>
+                <p>Practical applications build kara ani testing kara.</p>
+                <span class="roadmap-label">IMPLEMENTATION</span>
+            </article>
+
+            <article class="roadmap-card">
+                <span class="roadmap-number">06</span>
+                <div class="roadmap-icon">🌐</div>
+                <h3>Deployment</h3>
+                <p>GitHub, environment variables ani live hosting.</p>
+                <span class="roadmap-label">CAREER READY</span>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- DAILY ROUTINE -->
+    <section class="section reveal">
+
+        <div class="section-heading">
+
+            <div>
+                <span class="section-eyebrow">STAY CONSISTENT</span>
+                <h2>Your Daily Developer Routine<span>.</span></h2>
+                <p>Sample schedule. Tumchya velanusaar adjust kara.</p>
+            </div>
+
+        </div>
+
+
+        <div class="routine-grid">
+
+            <article class="routine-card">
+                <span class="routine-time">30 MIN</span>
+                <div class="routine-icon">📖</div>
+                <h3>Revision</h3>
+                <p>Previous concepts revise kara.</p>
+            </article>
+
+            <article class="routine-card">
+                <span class="routine-time">60 MIN</span>
+                <div class="routine-icon">💡</div>
+                <h3>Learning</h3>
+                <p>Ek navin concept samjun ghya.</p>
+            </article>
+
+            <article class="routine-card">
+                <span class="routine-time">60 MIN</span>
+                <div class="routine-icon">⌨️</div>
+                <h3>Practice</h3>
+                <p>Code swatah lihun run kara.</p>
+            </article>
+
+            <article class="routine-card">
+                <span class="routine-time">30 MIN</span>
+                <div class="routine-icon">🧩</div>
+                <h3>Problem Solving</h3>
+                <p>Questions solve karanyacha sarav kara.</p>
+            </article>
+
+            <article class="routine-card">
+                <span class="routine-time">30 MIN</span>
+                <div class="routine-icon">🚀</div>
+                <h3>Project Work</h3>
+                <p>Project madhye ek feature complete kara.</p>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- DEVELOPER HABITS -->
+    <section class="section reveal">
+
+        <div class="section-heading">
+
+            <div>
+                <span class="section-eyebrow">BEYOND WRITING CODE</span>
+                <h2>Habits of a Good Developer<span>.</span></h2>
+                <p>
+                    Technical skills sobat professional habits suddha develop kara.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="habits-grid">
+
+            <article class="habit-card">
+                <span class="habit-number">01</span>
+                <div class="habit-icon">✍️</div>
+                <h3>Clean Code</h3>
+                <p>Readable code ani meaningful variable names vapra.</p>
+            </article>
+
+            <article class="habit-card">
+                <span class="habit-number">02</span>
+                <div class="habit-icon">🐙</div>
+                <h3>Git & GitHub</h3>
+                <p>Changes track kara ani projects properly maintain kara.</p>
+            </article>
+
+            <article class="habit-card">
+                <span class="habit-number">03</span>
+                <div class="habit-icon">📚</div>
+                <h3>Documentation</h3>
+                <p>Official documentation vachnyachi savay lava.</p>
+            </article>
+
+            <article class="habit-card">
+                <span class="habit-number">04</span>
+                <div class="habit-icon">🧪</div>
+                <h3>Testing</h3>
+                <p>Normal inputs sobat edge cases suddha test kara.</p>
+            </article>
+
+            <article class="habit-card">
+                <span class="habit-number">05</span>
+                <div class="habit-icon">🔍</div>
+                <h3>Debugging</h3>
+                <p>Error cha root cause shodha. Andazane changes karu naka.</p>
+            </article>
+
+            <article class="habit-card">
+                <span class="habit-number">06</span>
+                <div class="habit-icon">🏗️</div>
+                <h3>Complete Projects</h3>
+                <p>Projects complete kara, test kara ani deploy kara.</p>
+            </article>
+
+        </div>
+
+    </section>
+
+
+
+
+
+    <!-- FINAL CTA -->
+    <section class="final-cta reveal">
+
+        <div class="cta-glow"></div>
+
+        <span class="section-eyebrow">
+            YOUR NEXT CHAPTER STARTS NOW
+        </span>
+
+        <h2>
+            Stop Waiting.
+            <span>Start Building.</span>
+        </h2>
 
         <p>
-            Coding shiknyasathi roj thoda vel dya.
-            Concepts samjun ghya, swatah code liha
-            ani practical projects tayar kara.
+            Ek concept shika. Ek problem solve kara.
+            Ek project build kara. Tumcha progress tumchya
+            daily actions madhun tayar hoto.
         </p>
-    </section>
 
-
-    <!-- Daily Motivation -->
-    <section class="study-section">
-
-        <div class="section-heading">
-            <span class="section-label">DAILY MOTIVATION</span>
-            <h2>Aajcha Vichar</h2>
-        </div>
-
-        <div class="motivation-card">
-
-            <div class="motivation-icon">✦</div>
-
-            <h3>
-                "Success eka divsat milat nahi,
-                pan rojcha chhota prayatna ek divas
-                motha result deto."
-            </h3>
-
-            <p>
-                Dusryanshi comparison karu naka.
-                Kalpeksha aaj thode jast shika.
-                Consistency hi tumchi khari strength aahe.
-            </p>
-
+        <div class="final-flow">
+            <span>LEARN</span>
+            <b>→</b>
+            <span>PRACTICE</span>
+            <b>→</b>
+            <span>BUILD</span>
+            <b>→</b>
+            <span>GROW</span>
         </div>
 
     </section>
 
 
-    <!-- About Author -->
-
-    <section class="author-section">
-
-        <div class="author-avatar">
-            RJ
-        </div>
-
-        <div class="author-info">
-            <span class="section-label">CREATED BY</span>
-
-            <h2>Rohan Jagtap</h2>
-
-            <p>
-                Hi documentation website programming shiknarya
-                students sathi tayar keli aahe.
-                Yatil notes soprya Roman Marathi bhashet,
-                examples ani practical code sobat dile aahet.
-            </p>
-
-            <span class="author-role">
-                Python & Django Backend Developer
-            </span>
-        </div>
-
-    </section>
-
-
-
-    <!-- How to Study Coding -->
-    <section class="study-section">
-
-        <div class="section-heading">
-            <span class="section-label">LEARNING GUIDE</span>
-            <h2>Coding Kashi Shikavi?</h2>
-
-            <p>
-                Programming shikatana hi step-by-step
-                paddhat follow kara.
-            </p>
-        </div>
-
-        <div class="study-steps">
-
-            <div class="study-step">
-                <span class="step-number">01</span>
-                <div>
-                    <h3>Concept Samjun Ghya</h3>
-                    <p>
-                        Pratham topic chi definition ani
-                        working samjun ghya. Fakt pathantar karu naka.
-                    </p>
-                </div>
-            </div>
-
-            <div class="study-step">
-                <span class="step-number">02</span>
-                <div>
-                    <h3>Code Swatah Liha</h3>
-                    <p>
-                        Example baghun code type kara.
-                        Nantar to na baghta swatah lihinyacha prayatna kara.
-                    </p>
-                </div>
-            </div>
-
-            <div class="study-step">
-                <span class="step-number">03</span>
-                <div>
-                    <h3>Output Check Kara</h3>
-                    <p>
-                        Code run kara ani output kasa yeto
-                        te samjun ghya.
-                    </p>
-                </div>
-            </div>
-
-            <div class="study-step">
-                <span class="step-number">04</span>
-                <div>
-                    <h3>Practice Questions Solve Kara</h3>
-                    <p>
-                        Pratyek topic var swatah questions
-                        solve kara. Chuka zalyas tyatun shika.
-                    </p>
-                </div>
-            </div>
-
-            <div class="study-step">
-                <span class="step-number">05</span>
-                <div>
-                    <h3>Small Projects Banva</h3>
-                    <p>
-                        Shikalelela concept vaprun small
-                        practical projects tayar kara.
-                    </p>
-                </div>
-            </div>
-
-            <div class="study-step">
-                <span class="step-number">06</span>
-                <div>
-                    <h3>Revision Kara</h3>
-                    <p>
-                        Aadhi shiklele topics punha revise kara.
-                        Tyamule concepts lakshat rahtil.
-                    </p>
-                </div>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- Study Timetable -->
-    <section class="study-section">
-
-        <div class="section-heading">
-            <span class="section-label">DAILY ROUTINE</span>
-            <h2>Daily Coding Timetable</h2>
-
-            <p>
-                Ha ek sample routine aahe.
-                Aaplya available time nusar badal karu shakta.
-            </p>
-        </div>
-
-        <div class="timetable-wrapper">
-
-            <table class="study-table">
-
-                <thead>
-                    <tr>
-                        <th>Time</th>
-                        <th>Activity</th>
-                        <th>Purpose</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-
-                    <tr>
-                        <td>30 Minutes</td>
-                        <td>Previous Topic Revision</td>
-                        <td>Concepts lakshat thevne</td>
-                    </tr>
-
-                    <tr>
-                        <td>60 Minutes</td>
-                        <td>New Topic Learning</td>
-                        <td>Navin concept samjun ghene</td>
-                    </tr>
-
-                    <tr>
-                        <td>60 Minutes</td>
-                        <td>Coding Practice</td>
-                        <td>Swatah code lihine</td>
-                    </tr>
-
-                    <tr>
-                        <td>30 Minutes</td>
-                        <td>Practice Questions</td>
-                        <td>Problem solving</td>
-                    </tr>
-
-                    <tr>
-                        <td>30 Minutes</td>
-                        <td>Project Development</td>
-                        <td>Practical knowledge</td>
-                    </tr>
-
-                </tbody>
-
-            </table>
-
-        </div>
-
-    </section>
-
-
-    <!-- Important Tips -->
-    <section class="study-section tips-section">
-
-        <div class="section-heading">
-            <span class="section-label">IMPORTANT TIPS</span>
-            <h2>Coding Shikatana Ya Goshti Lakshat Theva</h2>
-        </div>
-
-        <ul class="tips-list">
-            <li>Fakt video baghun coding shikta yet nahi; swatah code lihava lagto.</li>
-            <li>Ekach veli anek programming languages shiku naka.</li>
-            <li>Errors pasun ghabru naka; error madhun shika.</li>
-            <li>Daily practice la priority dya.</li>
-            <li>Code copy-paste karanyapeksha logic samjun ghya.</li>
-            <li>Small projects complete karanyachi savay lava.</li>
-        </ul>
-
-    </section>
 
 </div>
+
+
+<!-- SCROLL REVEAL ANIMATION -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const items = document.querySelectorAll(".dashboard .reveal");
+
+    if (!("IntersectionObserver" in window)) {
+        items.forEach(item => item.classList.add("is-visible"));
+        return;
+    }
+
+    const observer = new IntersectionObserver((entries, obs) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                obs.unobserve(entry.target);
+            }
+
+        });
+
+    }, {
+        threshold: 0.12,
+        rootMargin: "0px 0px -35px 0px"
+    });
+
+    items.forEach(item => observer.observe(item));
+
+});
+</script>
 
 {% endblock %}
