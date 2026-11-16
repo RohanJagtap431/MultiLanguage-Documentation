@@ -36,7 +36,7 @@ class QuestionAdmin(admin.ModelAdmin):
 class GameSessionAdmin(admin.ModelAdmin):
 
     list_display = (
-        "user",
+        "get_user_name",
         "language",
         "difficulty",
         "correct_count",
@@ -48,13 +48,21 @@ class GameSessionAdmin(admin.ModelAdmin):
 
     list_filter = ("language", "difficulty", "status")
 
-    search_fields = ("user__username",)
+    search_fields = (
+        "user__name",
+        "user__mobile_number",
+    )
+
+    @admin.display(description="Player Name")
+    def get_user_name(self, obj):
+        return obj.user.name
 
 
 @admin.register(GameAnswer)
 class GameAnswerAdmin(admin.ModelAdmin):
 
     list_display = (
+        "get_user_name",
         "session",
         "question",
         "selected_option",
@@ -64,12 +72,16 @@ class GameAnswerAdmin(admin.ModelAdmin):
 
     list_filter = ("is_correct",)
 
+    @admin.display(description="Player Name")
+    def get_user_name(self, obj):
+        return obj.session.user.name
+
 
 @admin.register(PlayerStats)
 class PlayerStatsAdmin(admin.ModelAdmin):
 
     list_display = (
-        "user",
+        "get_user_name",
         "total_xp",
         "games_played",
         "correct_answers",
@@ -77,6 +89,13 @@ class PlayerStatsAdmin(admin.ModelAdmin):
         "updated_at",
     )
 
-    search_fields = ("user__username",)
+    search_fields = (
+        "user__name",
+        "user__mobile_number",
+    )
 
     ordering = ("-total_xp",)
+
+    @admin.display(description="Player Name")
+    def get_user_name(self, obj):
+        return obj.user.name

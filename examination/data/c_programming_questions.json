@@ -1,1454 +1,1458 @@
 {
-  "subject": "Web Technology – Semester III (Unit I)",
+  "subject": "C++ Programming",
+  "unit": "Introduction to Object-Oriented Programming (OOP)",
+  "question_type": "mcq",
+  "total_questions": 50,
+  "marks_per_question": 1,
   "questions": [
     {
-      "topic": "Introduction to Internet",
-      "question_text": "What is the Internet?",
+      "topic": "OOP Basics",
+      "question_text": "What is Object-Oriented Programming (OOP)?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "A global network connecting computers worldwide",
+          "option_text": "A programming approach based on objects and classes",
           "is_correct": true
         },
         {
-          "option_text": "A computer operating system",
+          "option_text": "A method based only on functions",
           "is_correct": false
         },
         {
-          "option_text": "A programming language",
+          "option_text": "A database language",
           "is_correct": false
         },
         {
-          "option_text": "A single website",
+          "option_text": "An operating system",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "A global network connecting computers worldwide",
+        "model_answer": "A programming approach based on objects and classes",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "A global network connecting computers worldwide"
+        "important_keywords": "A programming approach based on objects and classes"
       }
     },
     {
-      "topic": "Introduction to Internet",
-      "question_text": "Which protocol suite is commonly used for communication over the Internet?",
+      "topic": "OOP Basics",
+      "question_text": "An object represents which of the following?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "TCP/IP",
+          "option_text": "A compiler instruction",
+          "is_correct": false
+        },
+        {
+          "option_text": "A real-world entity",
           "is_correct": true
         },
         {
-          "option_text": "HTML/CSS",
+          "option_text": "A data type only",
           "is_correct": false
         },
         {
-          "option_text": "FTP/HTML",
-          "is_correct": false
-        },
-        {
-          "option_text": "USB",
+          "option_text": "A header file",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "TCP/IP",
+        "model_answer": "A real-world entity",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "TCP/IP"
+        "important_keywords": "A real-world entity"
       }
     },
     {
-      "topic": "Introduction to Internet",
-      "question_text": "According to the notes, which organization developed the early Internet?",
+      "topic": "OOP Basics",
+      "question_text": "Which of the following can an object contain?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "DARPA",
+          "option_text": "Only variables",
+          "is_correct": false
+        },
+        {
+          "option_text": "Only functions",
+          "is_correct": false
+        },
+        {
+          "option_text": "Data and methods",
           "is_correct": true
         },
         {
-          "option_text": "NASA",
-          "is_correct": false
-        },
-        {
-          "option_text": "WHO",
-          "is_correct": false
-        },
-        {
-          "option_text": "UNESCO",
+          "option_text": "Only comments",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "DARPA",
+        "model_answer": "Data and methods",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "DARPA"
+        "important_keywords": "Data and methods"
       }
     },
     {
-      "topic": "Introduction to Internet",
-      "question_text": "In which year was the Internet first connected?",
+      "topic": "OOP Concepts",
+      "question_text": "A class is a ______ for creating objects.",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "1969",
+          "option_text": "Blueprint or template",
           "is_correct": true
         },
         {
-          "option_text": "1975",
+          "option_text": "Memory address",
           "is_correct": false
         },
         {
-          "option_text": "1985",
+          "option_text": "Loop",
           "is_correct": false
         },
         {
-          "option_text": "1995",
+          "option_text": "Header file",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "1969",
+        "model_answer": "Blueprint or template",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "1969"
+        "important_keywords": "Blueprint or template"
       }
     },
     {
-      "topic": "Internet Services",
-      "question_text": "Which Internet service contains collections of web pages and documents?",
+      "topic": "OOP Concepts",
+      "question_text": "An object is an instance of a ______.",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "World Wide Web",
+          "option_text": "Function",
+          "is_correct": false
+        },
+        {
+          "option_text": "Class",
           "is_correct": true
         },
         {
-          "option_text": "FTP",
+          "option_text": "Namespace",
           "is_correct": false
         },
         {
-          "option_text": "SMTP",
-          "is_correct": false
-        },
-        {
-          "option_text": "Bluetooth",
+          "option_text": "Pointer",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "World Wide Web",
+        "model_answer": "Class",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "World Wide Web"
+        "important_keywords": "Class"
       }
     },
     {
-      "topic": "Internet Services",
-      "question_text": "Which service is used to send and receive messages online?",
+      "topic": "OOP Concepts",
+      "question_text": "Which OOP concept combines data and functions into a single unit?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "Email",
+          "option_text": "Abstraction",
+          "is_correct": false
+        },
+        {
+          "option_text": "Inheritance",
+          "is_correct": false
+        },
+        {
+          "option_text": "Encapsulation",
           "is_correct": true
         },
         {
-          "option_text": "Web browser",
-          "is_correct": false
-        },
-        {
-          "option_text": "CSS",
-          "is_correct": false
-        },
-        {
-          "option_text": "HTML",
+          "option_text": "Polymorphism",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "Email",
+        "model_answer": "Encapsulation",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "Email"
+        "important_keywords": "Encapsulation"
       }
     },
     {
-      "topic": "Web Browser",
-      "question_text": "What is a web browser?",
+      "topic": "OOP Concepts",
+      "question_text": "Showing essential details and hiding implementation details is called:",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "Software used to access information on the World Wide Web",
+          "option_text": "Abstraction",
           "is_correct": true
         },
         {
-          "option_text": "A computer used to host websites",
+          "option_text": "Encapsulation",
           "is_correct": false
         },
         {
-          "option_text": "A protocol for sending email",
+          "option_text": "Message passing",
           "is_correct": false
         },
         {
-          "option_text": "A database management system",
+          "option_text": "Data typing",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "Software used to access information on the World Wide Web",
+        "model_answer": "Abstraction",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "Software used to access information on the World Wide Web"
+        "important_keywords": "Abstraction"
       }
     },
     {
-      "topic": "Web Browser",
-      "question_text": "What does a web browser do after a user requests a web page?",
+      "topic": "OOP Concepts",
+      "question_text": "Which OOP feature allows one class to acquire properties of another class?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "Fetches data from a web server and displays the page",
+          "option_text": "Polymorphism",
+          "is_correct": false
+        },
+        {
+          "option_text": "Inheritance",
           "is_correct": true
         },
         {
-          "option_text": "Compiles the HTML into an executable",
+          "option_text": "Encapsulation",
           "is_correct": false
         },
         {
-          "option_text": "Deletes the web page",
-          "is_correct": false
-        },
-        {
-          "option_text": "Creates an IP address",
+          "option_text": "Abstraction",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "Fetches data from a web server and displays the page",
+        "model_answer": "Inheritance",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "Fetches data from a web server and displays the page"
+        "important_keywords": "Inheritance"
       }
     },
     {
-      "topic": "Web Browser",
-      "question_text": "Which of the following is a web browser mentioned in the notes?",
+      "topic": "OOP Concepts",
+      "question_text": "One name or interface having multiple forms is called:",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "Google Chrome",
+          "option_text": "Data hiding",
+          "is_correct": false
+        },
+        {
+          "option_text": "Message passing",
+          "is_correct": false
+        },
+        {
+          "option_text": "Polymorphism",
           "is_correct": true
         },
         {
-          "option_text": "MySQL",
-          "is_correct": false
-        },
-        {
-          "option_text": "Django",
-          "is_correct": false
-        },
-        {
-          "option_text": "Python",
+          "option_text": "Initialization",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "Google Chrome",
+        "model_answer": "Polymorphism",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "Google Chrome"
+        "important_keywords": "Polymorphism"
       }
     },
     {
-      "topic": "Web Browser",
-      "question_text": "What is the purpose of a browser cache?",
+      "topic": "OOP Concepts",
+      "question_text": "Which access specifiers are mentioned for controlling access to data?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "To store data so a page can be opened again without downloading all data",
+          "option_text": "read, write, execute",
+          "is_correct": false
+        },
+        {
+          "option_text": "private, public, protected",
           "is_correct": true
         },
         {
-          "option_text": "To permanently delete browsing history",
+          "option_text": "int, float, char",
           "is_correct": false
         },
         {
-          "option_text": "To create websites",
-          "is_correct": false
-        },
-        {
-          "option_text": "To encrypt email messages",
+          "option_text": "new, delete, this",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "To store data so a page can be opened again without downloading all data",
+        "model_answer": "private, public, protected",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "To store data so a page can be opened again without downloading all data"
+        "important_keywords": "private, public, protected"
       }
     },
     {
-      "topic": "Web Server",
-      "question_text": "What is a web server?",
+      "topic": "OOP Concepts",
+      "question_text": "Objects communicate with each other through:",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "A computer where web content is stored",
+          "option_text": "Methods and passing information",
           "is_correct": true
         },
         {
-          "option_text": "A device used only for printing",
+          "option_text": "Only global variables",
           "is_correct": false
         },
         {
-          "option_text": "A programming language",
+          "option_text": "Only comments",
           "is_correct": false
         },
         {
-          "option_text": "A type of browser cache",
+          "option_text": "Header files",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "A computer where web content is stored",
+        "model_answer": "Methods and passing information",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "A computer where web content is stored"
+        "important_keywords": "Methods and passing information"
       }
     },
     {
-      "topic": "Web Server",
-      "question_text": "How can a web server respond to a client request?",
+      "topic": "POP vs OOP",
+      "question_text": "POP stands for:",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "By sending the requested file or generating a response using a script and database",
+          "option_text": "Program Object Process",
+          "is_correct": false
+        },
+        {
+          "option_text": "Procedure-Oriented Programming",
           "is_correct": true
         },
         {
-          "option_text": "Only by sending an email",
+          "option_text": "Public Object Programming",
           "is_correct": false
         },
         {
-          "option_text": "Only by restarting the browser",
-          "is_correct": false
-        },
-        {
-          "option_text": "By changing the URL",
+          "option_text": "Process-Oriented Program",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "By sending the requested file or generating a response using a script and database",
+        "model_answer": "Procedure-Oriented Programming",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "By sending the requested file or generating a response using a script and database"
+        "important_keywords": "Procedure-Oriented Programming"
       }
     },
     {
-      "topic": "URL",
-      "question_text": "What is the full form of URL?",
+      "topic": "POP vs OOP",
+      "question_text": "In OOP, a program is mainly divided into:",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "Uniform Resource Locator",
+          "option_text": "Functions only",
+          "is_correct": false
+        },
+        {
+          "option_text": "Files only",
+          "is_correct": false
+        },
+        {
+          "option_text": "Classes and objects",
           "is_correct": true
         },
         {
-          "option_text": "Universal Record Link",
-          "is_correct": false
-        },
-        {
-          "option_text": "Uniform Reading Language",
-          "is_correct": false
-        },
-        {
-          "option_text": "United Resource List",
+          "option_text": "Loops and conditions",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "Uniform Resource Locator",
+        "model_answer": "Classes and objects",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "Uniform Resource Locator"
+        "important_keywords": "Classes and objects"
       }
     },
     {
-      "topic": "URL",
-      "question_text": "What is the main purpose of a URL?",
+      "topic": "POP vs OOP",
+      "question_text": "Which approach generally follows a top-down approach?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "To address or locate a resource on the web",
+          "option_text": "OOP",
+          "is_correct": false
+        },
+        {
+          "option_text": "POP",
           "is_correct": true
         },
         {
-          "option_text": "To style a web page",
+          "option_text": "Both always",
           "is_correct": false
         },
         {
-          "option_text": "To send email",
-          "is_correct": false
-        },
-        {
-          "option_text": "To store passwords",
+          "option_text": "Neither",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "To address or locate a resource on the web",
+        "model_answer": "POP",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "To address or locate a resource on the web"
+        "important_keywords": "POP"
       }
     },
     {
-      "topic": "URL",
-      "question_text": "Which part of a URL specifies the type of Internet service?",
+      "topic": "POP vs OOP",
+      "question_text": "Which approach generally follows a bottom-up approach?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "Scheme",
+          "option_text": "OOP",
           "is_correct": true
         },
         {
-          "option_text": "Filename",
+          "option_text": "POP",
           "is_correct": false
         },
         {
-          "option_text": "Path",
+          "option_text": "Assembly programming",
           "is_correct": false
         },
         {
-          "option_text": "Port",
+          "option_text": "Machine language",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "Scheme",
+        "model_answer": "OOP",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "Scheme"
+        "important_keywords": "OOP"
       }
     },
     {
-      "topic": "URL",
-      "question_text": "What is the default port for HTTP mentioned in the notes?",
+      "topic": "POP vs OOP",
+      "question_text": "Which of the following is an example of OOP language given in the notes?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "80",
+          "option_text": "Pascal",
+          "is_correct": false
+        },
+        {
+          "option_text": "C",
+          "is_correct": false
+        },
+        {
+          "option_text": "C++",
           "is_correct": true
         },
         {
-          "option_text": "21",
-          "is_correct": false
-        },
-        {
-          "option_text": "25",
-          "is_correct": false
-        },
-        {
-          "option_text": "443",
+          "option_text": "None of these",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "80",
+        "model_answer": "C++",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "80"
+        "important_keywords": "C++"
       }
     },
     {
-      "topic": "URI",
-      "question_text": "What is the full form of URI?",
+      "topic": "C++ Data Types",
+      "question_text": "A data type specifies:",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "Uniform Resource Identifier",
+          "option_text": "Only variable name",
+          "is_correct": false
+        },
+        {
+          "option_text": "The type of data a variable can store",
           "is_correct": true
         },
         {
-          "option_text": "Universal Resource Internet",
+          "option_text": "Only memory address",
           "is_correct": false
         },
         {
-          "option_text": "Uniform Routing Information",
-          "is_correct": false
-        },
-        {
-          "option_text": "Unified Resource Index",
+          "option_text": "Only function name",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "Uniform Resource Identifier",
+        "model_answer": "The type of data a variable can store",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "Uniform Resource Identifier"
+        "important_keywords": "The type of data a variable can store"
       }
     },
     {
-      "topic": "URI and URL",
-      "question_text": "Which statement about URI and URL is correct?",
+      "topic": "C++ Data Types",
+      "question_text": "Which of the following is a basic C++ data type for integer numbers?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "Every URL is a URI, but not every URI is a URL",
+          "option_text": "int",
           "is_correct": true
         },
         {
-          "option_text": "Every URI is a URL",
+          "option_text": "char",
           "is_correct": false
         },
         {
-          "option_text": "URI and URL are unrelated",
+          "option_text": "bool",
           "is_correct": false
         },
         {
-          "option_text": "A URL identifies only people",
+          "option_text": "void",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "Every URL is a URI, but not every URI is a URL",
+        "model_answer": "int",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "Every URL is a URI, but not every URI is a URL"
+        "important_keywords": "int"
       }
     },
     {
-      "topic": "HTTP",
-      "question_text": "What is the full form of HTTP?",
+      "topic": "C++ Data Types",
+      "question_text": "Which data type is used to store a single character?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "HyperText Transfer Protocol",
+          "option_text": "float",
+          "is_correct": false
+        },
+        {
+          "option_text": "double",
+          "is_correct": false
+        },
+        {
+          "option_text": "char",
           "is_correct": true
         },
         {
-          "option_text": "High Text Transfer Program",
-          "is_correct": false
-        },
-        {
-          "option_text": "Hyperlink Transmission Process",
-          "is_correct": false
-        },
-        {
-          "option_text": "Host Transfer Text Protocol",
+          "option_text": "int",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "HyperText Transfer Protocol",
+        "model_answer": "char",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "HyperText Transfer Protocol"
+        "important_keywords": "char"
       }
     },
     {
-      "topic": "HTTP",
-      "question_text": "What is HTTP used for?",
+      "topic": "C++ Data Types",
+      "question_text": "Which data type stores true/false values?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "Accessing and transferring data on the World Wide Web",
+          "option_text": "int",
+          "is_correct": false
+        },
+        {
+          "option_text": "bool",
           "is_correct": true
         },
         {
-          "option_text": "Creating database tables",
+          "option_text": "char",
           "is_correct": false
         },
         {
-          "option_text": "Formatting text in HTML",
-          "is_correct": false
-        },
-        {
-          "option_text": "Sending SMS messages",
+          "option_text": "float",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "Accessing and transferring data on the World Wide Web",
+        "model_answer": "bool",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "Accessing and transferring data on the World Wide Web"
+        "important_keywords": "bool"
       }
     },
     {
-      "topic": "HTTP Features",
-      "question_text": "Why is HTTP called stateless?",
+      "topic": "C++ Data Types",
+      "question_text": "Which of the following is a derived data type?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "The client and server do not retain information between separate requests by default",
+          "option_text": "class",
+          "is_correct": false
+        },
+        {
+          "option_text": "enum",
+          "is_correct": false
+        },
+        {
+          "option_text": "array",
           "is_correct": true
         },
         {
-          "option_text": "It cannot transfer images",
-          "is_correct": false
-        },
-        {
-          "option_text": "It works without a server",
-          "is_correct": false
-        },
-        {
-          "option_text": "It stores every request permanently",
+          "option_text": "union",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "The client and server do not retain information between separate requests by default",
+        "model_answer": "array",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "The client and server do not retain information between separate requests by default"
+        "important_keywords": "array"
       }
     },
     {
-      "topic": "HTTP Features",
-      "question_text": "What does media independent mean in HTTP?",
+      "topic": "C++ Data Types",
+      "question_text": "Which of the following is a user-defined data type?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "It can transfer different types of data when both sides know how to handle them",
-          "is_correct": true
-        },
-        {
-          "option_text": "It transfers only text",
-          "is_correct": false
-        },
-        {
-          "option_text": "It works only with audio",
-          "is_correct": false
-        },
-        {
-          "option_text": "It cannot transfer files",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "It can transfer different types of data when both sides know how to handle them",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "It can transfer different types of data when both sides know how to handle them"
-      }
-    },
-    {
-      "topic": "HTTP Transaction",
-      "question_text": "What does a client send to a server to begin an HTTP transaction?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "Request message",
-          "is_correct": true
-        },
-        {
-          "option_text": "CSS file",
-          "is_correct": false
-        },
-        {
-          "option_text": "Database table",
-          "is_correct": false
-        },
-        {
-          "option_text": "Email attachment",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "Request message",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "Request message"
-      }
-    },
-    {
-      "topic": "SMTP",
-      "question_text": "What is the full form of SMTP?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "Simple Mail Transfer Protocol",
-          "is_correct": true
-        },
-        {
-          "option_text": "Secure Message Text Program",
-          "is_correct": false
-        },
-        {
-          "option_text": "Standard Mail Transfer Process",
-          "is_correct": false
-        },
-        {
-          "option_text": "Simple Media Transfer Protocol",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "Simple Mail Transfer Protocol",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "Simple Mail Transfer Protocol"
-      }
-    },
-    {
-      "topic": "SMTP",
-      "question_text": "What is the main purpose of SMTP?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "Sending email messages",
-          "is_correct": true
-        },
-        {
-          "option_text": "Displaying web pages",
-          "is_correct": false
-        },
-        {
-          "option_text": "Transferring web page styles",
-          "is_correct": false
-        },
-        {
-          "option_text": "Creating hyperlinks",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "Sending email messages",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "Sending email messages"
-      }
-    },
-    {
-      "topic": "SMTP Components",
-      "question_text": "Which component prepares the email message and envelope?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "User Agent (UA)",
-          "is_correct": true
-        },
-        {
-          "option_text": "Mail Transfer Agent (MTA)",
-          "is_correct": false
-        },
-        {
-          "option_text": "Web server",
-          "is_correct": false
-        },
-        {
-          "option_text": "Browser cache",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "User Agent (UA)",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "User Agent (UA)"
-      }
-    },
-    {
-      "topic": "SMTP Components",
-      "question_text": "Which component transfers email across the Internet?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "Mail Transfer Agent (MTA)",
-          "is_correct": true
-        },
-        {
-          "option_text": "User Agent (UA)",
-          "is_correct": false
-        },
-        {
-          "option_text": "HTML parser",
-          "is_correct": false
-        },
-        {
-          "option_text": "CSS selector",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "Mail Transfer Agent (MTA)",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "Mail Transfer Agent (MTA)"
-      }
-    },
-    {
-      "topic": "SMTP Working",
-      "question_text": "Which TCP port is mentioned for SMTP submission in the notes?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "25",
-          "is_correct": true
-        },
-        {
-          "option_text": "80",
-          "is_correct": false
-        },
-        {
-          "option_text": "21",
-          "is_correct": false
-        },
-        {
-          "option_text": "110",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "25",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "25"
-      }
-    },
-    {
-      "topic": "SMTP Working",
-      "question_text": "What are the two main parts of an email message mentioned in the notes?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "Header and body",
-          "is_correct": true
-        },
-        {
-          "option_text": "URL and URI",
-          "is_correct": false
-        },
-        {
-          "option_text": "Request and response",
-          "is_correct": false
-        },
-        {
-          "option_text": "HTML and CSS",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "Header and body",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "Header and body"
-      }
-    },
-    {
-      "topic": "SMTP Working",
-      "question_text": "What does an MX record help an MTA find?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "The target mail domain/server",
-          "is_correct": true
-        },
-        {
-          "option_text": "The browser version",
-          "is_correct": false
-        },
-        {
-          "option_text": "The HTML title",
-          "is_correct": false
-        },
-        {
-          "option_text": "The CSS file size",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "The target mail domain/server",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "The target mail domain/server"
-      }
-    },
-    {
-      "topic": "FTP",
-      "question_text": "What is the full form of FTP?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "File Transfer Protocol",
-          "is_correct": true
-        },
-        {
-          "option_text": "Fast Text Program",
-          "is_correct": false
-        },
-        {
-          "option_text": "File Tracking Process",
-          "is_correct": false
-        },
-        {
-          "option_text": "Folder Transfer Program",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "File Transfer Protocol",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "File Transfer Protocol"
-      }
-    },
-    {
-      "topic": "FTP",
-      "question_text": "What is FTP mainly used for?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "Transferring files from one host to another",
-          "is_correct": true
-        },
-        {
-          "option_text": "Styling web pages",
-          "is_correct": false
-        },
-        {
-          "option_text": "Sending instant messages",
-          "is_correct": false
-        },
-        {
-          "option_text": "Displaying HTML headings",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "Transferring files from one host to another",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "Transferring files from one host to another"
-      }
-    },
-    {
-      "topic": "FTP Advantages",
-      "question_text": "Which is an advantage of FTP listed in the notes?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "Fast file transfer",
-          "is_correct": true
-        },
-        {
-          "option_text": "It always encrypts every transfer",
-          "is_correct": false
-        },
-        {
-          "option_text": "It works without authentication",
-          "is_correct": false
-        },
-        {
-          "option_text": "It cannot transfer large files",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "Fast file transfer",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "Fast file transfer"
-      }
-    },
-    {
-      "topic": "HTML",
-      "question_text": "What is the full form of HTML?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "HyperText Markup Language",
-          "is_correct": true
-        },
-        {
-          "option_text": "HighText Machine Language",
-          "is_correct": false
-        },
-        {
-          "option_text": "Hyper Transfer Markup Link",
-          "is_correct": false
-        },
-        {
-          "option_text": "Hyper Tool Multi Language",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "HyperText Markup Language",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "HyperText Markup Language"
-      }
-    },
-    {
-      "topic": "HTML",
-      "question_text": "What is HTML used for?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "Creating web pages and web applications",
-          "is_correct": true
-        },
-        {
-          "option_text": "Managing computer hardware",
-          "is_correct": false
-        },
-        {
-          "option_text": "Sending email between servers",
-          "is_correct": false
-        },
-        {
-          "option_text": "Creating operating systems",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "Creating web pages and web applications",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "Creating web pages and web applications"
-      }
-    },
-    {
-      "topic": "HTML Concepts",
-      "question_text": "What does HyperText mean?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "Text containing links to other text or pages",
-          "is_correct": true
-        },
-        {
-          "option_text": "Text written only in bold",
-          "is_correct": false
-        },
-        {
-          "option_text": "Text without formatting",
-          "is_correct": false
-        },
-        {
-          "option_text": "Text stored in a database",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "Text containing links to other text or pages",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "Text containing links to other text or pages"
-      }
-    },
-    {
-      "topic": "HTML Concepts",
-      "question_text": "What is a markup language used for?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "Applying layout and formatting conventions to a text document",
-          "is_correct": true
-        },
-        {
-          "option_text": "Transferring files between computers",
-          "is_correct": false
-        },
-        {
-          "option_text": "Assigning IP addresses",
-          "is_correct": false
-        },
-        {
-          "option_text": "Managing email accounts",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "Applying layout and formatting conventions to a text document",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "Applying layout and formatting conventions to a text document"
-      }
-    },
-    {
-      "topic": "HTML Structure",
-      "question_text": "Which declaration tells the browser the document type or HTML version?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "<!DOCTYPE html>",
-          "is_correct": true
-        },
-        {
-          "option_text": "<body>",
-          "is_correct": false
-        },
-        {
-          "option_text": "<title>",
-          "is_correct": false
-        },
-        {
-          "option_text": "<p>",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "<!DOCTYPE html>",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "<!DOCTYPE html>"
-      }
-    },
-    {
-      "topic": "HTML Structure",
-      "question_text": "Which HTML element contains metadata about the document?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "<head>",
-          "is_correct": true
-        },
-        {
-          "option_text": "<body>",
-          "is_correct": false
-        },
-        {
-          "option_text": "<footer>",
-          "is_correct": false
-        },
-        {
-          "option_text": "<h1>",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "<head>",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "<head>"
-      }
-    },
-    {
-      "topic": "HTML Structure",
-      "question_text": "Which element contains the visible main content of an HTML page?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "<body>",
-          "is_correct": true
-        },
-        {
-          "option_text": "<head>",
-          "is_correct": false
-        },
-        {
-          "option_text": "<title>",
-          "is_correct": false
-        },
-        {
-          "option_text": "<meta>",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "<body>",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "<body>"
-      }
-    },
-    {
-      "topic": "HTML Tags",
-      "question_text": "Which tag defines the largest or first-level heading?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "<h1>",
-          "is_correct": true
-        },
-        {
-          "option_text": "<p>",
-          "is_correct": false
-        },
-        {
-          "option_text": "<a>",
-          "is_correct": false
-        },
-        {
-          "option_text": "<small>",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "<h1>",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "<h1>"
-      }
-    },
-    {
-      "topic": "HTML Tags",
-      "question_text": "Which tag is used to define a paragraph?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "<p>",
-          "is_correct": true
-        },
-        {
-          "option_text": "<br>",
-          "is_correct": false
-        },
-        {
-          "option_text": "<div>",
-          "is_correct": false
-        },
-        {
-          "option_text": "<span>",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "<p>",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "<p>"
-      }
-    },
-    {
-      "topic": "HTML Formatting",
-      "question_text": "Which HTML tag is a physical tag used to display text in bold?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "<b>",
-          "is_correct": true
-        },
-        {
-          "option_text": "<strong>",
-          "is_correct": false
-        },
-        {
-          "option_text": "<em>",
-          "is_correct": false
-        },
-        {
-          "option_text": "<i>",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "<b>",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "<b>"
-      }
-    },
-    {
-      "topic": "HTML Formatting",
-      "question_text": "Which tag indicates that the enclosed text is important?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "<strong>",
-          "is_correct": true
-        },
-        {
-          "option_text": "<b>",
-          "is_correct": false
-        },
-        {
-          "option_text": "<u>",
-          "is_correct": false
-        },
-        {
-          "option_text": "<small>",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "<strong>",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "<strong>"
-      }
-    },
-    {
-      "topic": "HTML Links",
-      "question_text": "Which HTML tag defines a hyperlink?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "<a>",
-          "is_correct": true
-        },
-        {
-          "option_text": "<linktext>",
-          "is_correct": false
-        },
-        {
-          "option_text": "<href>",
-          "is_correct": false
-        },
-        {
-          "option_text": "<url>",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "<a>",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "<a>"
-      }
-    },
-    {
-      "topic": "HTML Links",
-      "question_text": "Which attribute of the <a> element specifies the link destination?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "href",
-          "is_correct": true
-        },
-        {
-          "option_text": "src",
+          "option_text": "float",
           "is_correct": false
         },
         {
-          "option_text": "alt",
+          "option_text": "pointer",
           "is_correct": false
         },
         {
           "option_text": "class",
+          "is_correct": true
+        },
+        {
+          "option_text": "char",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "href",
+        "model_answer": "class",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "href"
+        "important_keywords": "class"
       }
     },
     {
-      "topic": "HTML Elements",
-      "question_text": "Which tag is an inline container used to mark up part of text or a document?",
+      "topic": "C++ Data Types",
+      "question_text": "The void data type represents:",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "<span>",
+          "option_text": "A decimal value",
+          "is_correct": false
+        },
+        {
+          "option_text": "Absence of a value or type",
           "is_correct": true
         },
         {
-          "option_text": "<div>",
+          "option_text": "A character",
           "is_correct": false
         },
         {
-          "option_text": "<table>",
-          "is_correct": false
-        },
-        {
-          "option_text": "<section>",
+          "option_text": "An array",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "<span>",
+        "model_answer": "Absence of a value or type",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "<span>"
+        "important_keywords": "Absence of a value or type"
       }
     },
     {
-      "topic": "HTML Elements",
-      "question_text": "What is the purpose of the <div> tag?",
+      "topic": "Keywords",
+      "question_text": "C++ keywords are:",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "To define a division or section in an HTML document",
+          "option_text": "Reserved words with predefined meaning",
           "is_correct": true
         },
         {
-          "option_text": "To create an email address",
+          "option_text": "Names created only by users",
           "is_correct": false
         },
         {
-          "option_text": "To define a browser URL",
+          "option_text": "Memory locations",
           "is_correct": false
         },
         {
-          "option_text": "To create a numbered list only",
+          "option_text": "Comments",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "To define a division or section in an HTML document",
+        "model_answer": "Reserved words with predefined meaning",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "To define a division or section in an HTML document"
+        "important_keywords": "Reserved words with predefined meaning"
       }
     },
     {
-      "topic": "HTML Lists",
-      "question_text": "Which tag is used to create an ordered list?",
+      "topic": "Keywords",
+      "question_text": "In the statement `int age = 20;`, which word is a keyword?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "<ol>",
+          "option_text": "age",
+          "is_correct": false
+        },
+        {
+          "option_text": "20",
+          "is_correct": false
+        },
+        {
+          "option_text": "int",
           "is_correct": true
         },
         {
-          "option_text": "<ul>",
-          "is_correct": false
-        },
-        {
-          "option_text": "<li>",
-          "is_correct": false
-        },
-        {
-          "option_text": "<dl>",
+          "option_text": "=",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "<ol>",
+        "model_answer": "int",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "<ol>"
+        "important_keywords": "int"
       }
     },
     {
-      "topic": "CSS",
-      "question_text": "What is the main purpose of CSS?",
+      "topic": "Variables",
+      "question_text": "A variable is:",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "To style and format the appearance of HTML elements",
+          "option_text": "A named memory location used to store data",
           "is_correct": true
         },
         {
-          "option_text": "To transfer email",
+          "option_text": "A reserved word",
           "is_correct": false
         },
         {
-          "option_text": "To store website files",
+          "option_text": "A class object only",
           "is_correct": false
         },
         {
-          "option_text": "To identify Internet protocols",
+          "option_text": "A compiler",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "To style and format the appearance of HTML elements",
+        "model_answer": "A named memory location used to store data",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "To style and format the appearance of HTML elements"
+        "important_keywords": "A named memory location used to store data"
+      }
+    },
+    {
+      "topic": "Variables",
+      "question_text": "Variable declaration tells the compiler:",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "The value of every expression",
+          "is_correct": false
+        },
+        {
+          "option_text": "The name and data type of a variable",
+          "is_correct": true
+        },
+        {
+          "option_text": "The output of the program",
+          "is_correct": false
+        },
+        {
+          "option_text": "The address of a function",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "The name and data type of a variable",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "The name and data type of a variable"
+      }
+    },
+    {
+      "topic": "Variables",
+      "question_text": "Which statement shows variable initialization?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "int age;",
+          "is_correct": false
+        },
+        {
+          "option_text": "float marks;",
+          "is_correct": false
+        },
+        {
+          "option_text": "int age = 20;",
+          "is_correct": true
+        },
+        {
+          "option_text": "char grade;",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "int age = 20;",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "int age = 20;"
+      }
+    },
+    {
+      "topic": "Variables",
+      "question_text": "Which is an example of direct initialization?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "int a = 10;",
+          "is_correct": false
+        },
+        {
+          "option_text": "int b(20);",
+          "is_correct": true
+        },
+        {
+          "option_text": "int c{30};",
+          "is_correct": false
+        },
+        {
+          "option_text": "int d;",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "int b(20);",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "int b(20);"
+      }
+    },
+    {
+      "topic": "Variables",
+      "question_text": "Dynamic initialization uses a value determined:",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "Only before compilation",
+          "is_correct": false
+        },
+        {
+          "option_text": "At run time",
+          "is_correct": true
+        },
+        {
+          "option_text": "Only by the programmer as a fixed literal",
+          "is_correct": false
+        },
+        {
+          "option_text": "Only by the operating system",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "At run time",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "At run time"
+      }
+    },
+    {
+      "topic": "Reference Variables",
+      "question_text": "A reference variable is:",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "A new class",
+          "is_correct": false
+        },
+        {
+          "option_text": "An alternative name for an existing variable",
+          "is_correct": true
+        },
+        {
+          "option_text": "A pointer to a function only",
+          "is_correct": false
+        },
+        {
+          "option_text": "A reserved keyword",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "An alternative name for an existing variable",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "An alternative name for an existing variable"
+      }
+    },
+    {
+      "topic": "Reference Variables",
+      "question_text": "Which symbol is used to declare a reference variable?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "*",
+          "is_correct": false
+        },
+        {
+          "option_text": "::",
+          "is_correct": false
+        },
+        {
+          "option_text": "&",
+          "is_correct": true
+        },
+        {
+          "option_text": "%",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "&",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "&"
+      }
+    },
+    {
+      "topic": "DMA",
+      "question_text": "DMA stands for:",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "Direct Memory Access",
+          "is_correct": false
+        },
+        {
+          "option_text": "Dynamic Memory Allocation",
+          "is_correct": true
+        },
+        {
+          "option_text": "Data Member Access",
+          "is_correct": false
+        },
+        {
+          "option_text": "Dynamic Method Assignment",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "Dynamic Memory Allocation",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "Dynamic Memory Allocation"
+      }
+    },
+    {
+      "topic": "DMA",
+      "question_text": "Which operator dynamically allocates memory for a single variable?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "delete",
+          "is_correct": false
+        },
+        {
+          "option_text": "new",
+          "is_correct": true
+        },
+        {
+          "option_text": "delete[]",
+          "is_correct": false
+        },
+        {
+          "option_text": "sizeof",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "new",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "new"
+      }
+    },
+    {
+      "topic": "DMA",
+      "question_text": "Which operator releases memory allocated using `new`?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "delete",
+          "is_correct": true
+        },
+        {
+          "option_text": "new[]",
+          "is_correct": false
+        },
+        {
+          "option_text": "malloc",
+          "is_correct": false
+        },
+        {
+          "option_text": "::",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "delete",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "delete"
+      }
+    },
+    {
+      "topic": "DMA",
+      "question_text": "Which operator allocates memory for an array dynamically?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "new",
+          "is_correct": false
+        },
+        {
+          "option_text": "delete",
+          "is_correct": false
+        },
+        {
+          "option_text": "new[]",
+          "is_correct": true
+        },
+        {
+          "option_text": "delete[]",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "new[]",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "new[]"
+      }
+    },
+    {
+      "topic": "DMA",
+      "question_text": "Which operator releases memory allocated using `new[]`?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "delete",
+          "is_correct": false
+        },
+        {
+          "option_text": "delete[]",
+          "is_correct": true
+        },
+        {
+          "option_text": "new",
+          "is_correct": false
+        },
+        {
+          "option_text": "free",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "delete[]",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "delete[]"
+      }
+    },
+    {
+      "topic": "Scope Resolution",
+      "question_text": "The scope resolution operator in C++ is:",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "->",
+          "is_correct": false
+        },
+        {
+          "option_text": "&&",
+          "is_correct": false
+        },
+        {
+          "option_text": "::",
+          "is_correct": true
+        },
+        {
+          "option_text": "**",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "::",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "::"
+      }
+    },
+    {
+      "topic": "Scope Resolution",
+      "question_text": "Which expression accesses a global variable when a local variable has the same name?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "x()",
+          "is_correct": false
+        },
+        {
+          "option_text": "::x",
+          "is_correct": true
+        },
+        {
+          "option_text": "this.x",
+          "is_correct": false
+        },
+        {
+          "option_text": "global x",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "::x",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "::x"
+      }
+    },
+    {
+      "topic": "Scope Resolution",
+      "question_text": "Which syntax defines a class member function outside the class?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "Student.display()",
+          "is_correct": false
+        },
+        {
+          "option_text": "Student->display()",
+          "is_correct": false
+        },
+        {
+          "option_text": "Student::display()",
+          "is_correct": true
+        },
+        {
+          "option_text": "display::Student()",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "Student::display()",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "Student::display()"
+      }
+    },
+    {
+      "topic": "Scope Resolution",
+      "question_text": "In `std::cout`, `std` is:",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "A class object",
+          "is_correct": false
+        },
+        {
+          "option_text": "A namespace",
+          "is_correct": true
+        },
+        {
+          "option_text": "A data type",
+          "is_correct": false
+        },
+        {
+          "option_text": "An operator",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "A namespace",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "A namespace"
+      }
+    },
+    {
+      "topic": "Manipulators",
+      "question_text": "C++ manipulators are used to:",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "Control input/output formatting",
+          "is_correct": true
+        },
+        {
+          "option_text": "Allocate memory",
+          "is_correct": false
+        },
+        {
+          "option_text": "Create classes",
+          "is_correct": false
+        },
+        {
+          "option_text": "Declare variables",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "Control input/output formatting",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "Control input/output formatting"
+      }
+    },
+    {
+      "topic": "Manipulators",
+      "question_text": "Which manipulator inserts a new line and flushes the output buffer?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "setw()",
+          "is_correct": false
+        },
+        {
+          "option_text": "setfill()",
+          "is_correct": false
+        },
+        {
+          "option_text": "endl",
+          "is_correct": true
+        },
+        {
+          "option_text": "fixed",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "endl",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "endl"
+      }
+    },
+    {
+      "topic": "Manipulators",
+      "question_text": "Which header file is commonly used for `setw()`, `setprecision()` and `setfill()`?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "iostream",
+          "is_correct": false
+        },
+        {
+          "option_text": "iomanip",
+          "is_correct": true
+        },
+        {
+          "option_text": "string",
+          "is_correct": false
+        },
+        {
+          "option_text": "cmath",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "iomanip",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "iomanip"
+      }
+    },
+    {
+      "topic": "Manipulators",
+      "question_text": "What does `setw(10)` do?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "Sets precision to 10 digits",
+          "is_correct": false
+        },
+        {
+          "option_text": "Sets minimum width of the next output field to 10",
+          "is_correct": true
+        },
+        {
+          "option_text": "Fills output with 10 stars",
+          "is_correct": false
+        },
+        {
+          "option_text": "Prints 10 lines",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "Sets minimum width of the next output field to 10",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "Sets minimum width of the next output field to 10"
+      }
+    },
+    {
+      "topic": "Manipulators",
+      "question_text": "With `fixed`, `setprecision(2)` specifies:",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "Two digits before decimal",
+          "is_correct": false
+        },
+        {
+          "option_text": "Two digits after decimal",
+          "is_correct": true
+        },
+        {
+          "option_text": "Two output lines",
+          "is_correct": false
+        },
+        {
+          "option_text": "Two variables",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "Two digits after decimal",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "Two digits after decimal"
+      }
+    },
+    {
+      "topic": "Function Calls",
+      "question_text": "A function call is used to:",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "Execute a function",
+          "is_correct": true
+        },
+        {
+          "option_text": "Declare a data type",
+          "is_correct": false
+        },
+        {
+          "option_text": "Allocate an array",
+          "is_correct": false
+        },
+        {
+          "option_text": "Define a namespace",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "Execute a function",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "Execute a function"
+      }
+    },
+    {
+      "topic": "Function Arguments",
+      "question_text": "In call by value:",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "The original variable is always changed",
+          "is_correct": false
+        },
+        {
+          "option_text": "A copy of the actual value is passed",
+          "is_correct": true
+        },
+        {
+          "option_text": "The address is always passed",
+          "is_correct": false
+        },
+        {
+          "option_text": "A reference is always passed",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "A copy of the actual value is passed",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "A copy of the actual value is passed"
+      }
+    },
+    {
+      "topic": "Function Arguments",
+      "question_text": "In call by reference, changes made to the reference:",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "Never affect the original variable",
+          "is_correct": false
+        },
+        {
+          "option_text": "Affect the original variable",
+          "is_correct": true
+        },
+        {
+          "option_text": "Delete the original variable",
+          "is_correct": false
+        },
+        {
+          "option_text": "Only affect a copy",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "Affect the original variable",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "Affect the original variable"
+      }
+    },
+    {
+      "topic": "Function Arguments",
+      "question_text": "In call by pointer, the function receives:",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "A copy of the variable only",
+          "is_correct": false
+        },
+        {
+          "option_text": "The address of the variable",
+          "is_correct": true
+        },
+        {
+          "option_text": "A class name",
+          "is_correct": false
+        },
+        {
+          "option_text": "A default argument",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "The address of the variable",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "The address of the variable"
       }
     }
   ]

@@ -27,6 +27,12 @@ class Command(BaseCommand):
             / "c_programming_short_questions_30.json"
         )
 
+
+#c_programming_questions.json
+#c_programming_long_questions_20.json
+#c_programming_short_questions_30.json
+
+
         if not file_path.exists():
             raise CommandError(
                 f"JSON file not found: {file_path}"

@@ -1,224 +1,225 @@
 {
-  "subject": "Web Technology – Semester III (Unit I)",
+  "subject": "C++ Programming",
+  "unit": "Introduction to Object-Oriented Programming (OOP)",
   "questions": [
     {
-      "topic": "Introduction to Internet",
-      "question_text": "Define the Internet. Explain its development and popular services.",
+      "topic": "Introduction to OOP",
+      "question_text": "Define Object-Oriented Programming (OOP). Explain its basic idea with a suitable example.",
       "question_type": "long",
       "marks": 6,
       "answer_key": {
-        "model_answer": "The Internet is a global network connecting millions and billions of computers throughout the world. Users communicate through the standard Internet protocol suite TCP/IP. It uses wireless, networking and electronic technologies to exchange information. According to the notes, DARPA developed the Internet and it was connected for the first time in 1969. Popular services include the World Wide Web, email, social media, online games and software updates.",
-        "marking_rubric": "1 mark definition; 2 marks TCP/IP and technologies; 1 mark DARPA and 1969; 2 marks any four services.",
-        "important_keywords": "global network, TCP/IP, DARPA, 1969, WWW, email, social media, online games, software updates"
+        "model_answer": "The Object-Oriented Programming (OOP) is a programming approach in which a program is organized around classes and objects rather than only functions and procedures.\n\nAn object represents a real-world entity. It contains data (attributes) and functions (methods) that operate on that data.\n\nExample: A Student object may contain data such as name, roll number and marks. Its methods may be study(), displayDetails() and calculateResult().\n\nThus, OOP organizes a program using objects that combine data and related operations.",
+        "marking_rubric": "1 mark definition; 2 marks classes/objects idea; 2 marks data and methods; 1 mark suitable example.",
+        "important_keywords": "OOP, classes, objects, real-world entity, attributes, methods, data"
       }
     },
     {
-      "topic": "Web Browser",
-      "question_text": "What is a web browser? Explain its functions and give examples.",
+      "topic": "Basic Concepts of OOP",
+      "question_text": "Explain the basic concepts of OOP: class, object, encapsulation, abstraction, inheritance and polymorphism.",
       "question_type": "long",
       "marks": 6,
       "answer_key": {
-        "model_answer": "A web browser is a software application used to access information on the World Wide Web. When a user requests information, the browser fetches data from a web server and displays the web page. Its functions include retrieving information, visiting websites using URLs, supporting plugins, following hyperlinks, storing data in internal cache and opening multiple web pages at the same time. Examples include WorldWideWeb, Netscape Navigator, Internet Explorer, Firefox and Google Chrome.",
-        "marking_rubric": "1 mark definition; 3 marks functions; 2 marks examples.",
-        "important_keywords": "web browser, retrieve information, URL, plugins, hyperlinks, cache, multiple webpages, Chrome, Firefox"
+        "model_answer": "1. Class: A class is a blueprint or template used to create objects. It defines data members and member functions.\n2. Object: An object is an instance of a class. For example, student1 can be an object of the Student class.\n3. Encapsulation: It combines data and the functions operating on that data into a single unit, usually a class.\n4. Abstraction: It shows essential details and hides unnecessary implementation details. Example: using an ATM without knowing its internal working.\n5. Inheritance: It allows one class to acquire properties and methods of another class. Example: Car can inherit from Vehicle.\n6. Polymorphism: It means one name or interface can have multiple forms, such as function overloading and method overriding.",
+        "marking_rubric": "1 mark each for six correctly explained concepts.",
+        "important_keywords": "class, object, encapsulation, abstraction, inheritance, polymorphism, code reuse"
       }
     },
     {
-      "topic": "Web Server",
-      "question_text": "Define a web server. Explain how a web server works.",
+      "topic": "POP and OOP",
+      "question_text": "Differentiate between Procedure-Oriented Programming (POP) and Object-Oriented Programming (OOP).",
       "question_type": "long",
       "marks": 6,
       "answer_key": {
-        "model_answer": "A web server is a computer where web content is stored. It is mainly used to host websites, but web servers can also support gaming, storage, FTP and email. A web server responds to a client request in two ways: it sends the file associated with the requested URL, or it generates a response by invoking a script and communicating with a database.",
-        "marking_rubric": "2 marks definition and uses; 2 marks sending requested file; 2 marks script and database response.",
-        "important_keywords": "web server, web content, hosting, client request, URL, script, database"
+        "model_answer": "1. POP stands for Procedure-Oriented Programming, while OOP stands for Object-Oriented Programming.\n2. POP divides a program into functions or procedures, whereas OOP divides it into classes and objects.\n3. POP mainly focuses on functions, whereas OOP mainly focuses on objects and data.\n4. In POP, data is generally less protected. OOP protects data using encapsulation and access specifiers.\n5. POP follows a top-down approach, whereas OOP generally follows a bottom-up approach.\n6. Code reuse is more limited in POP. OOP supports code reuse through inheritance and other mechanisms.\n7. Examples of POP are C and Pascal; examples of OOP are C++, Java and C#.",
+        "marking_rubric": "1 mark for meaning; 4 marks for any four correct differences; 1 mark for examples or approaches.",
+        "important_keywords": "POP, OOP, functions, classes, objects, top-down, bottom-up, encapsulation, inheritance"
       }
     },
     {
-      "topic": "URL",
-      "question_text": "What is a URL? Explain its syntax and all its components with an example.",
+      "topic": "Features of OOP",
+      "question_text": "Explain the main features of Object-Oriented Programming.",
       "question_type": "long",
       "marks": 6,
       "answer_key": {
-        "model_answer": "URL stands for Uniform Resource Locator. It is used to address a document or other data on the web. Its general syntax is scheme://prefix.domain:port/path/filename. Scheme defines the Internet service such as HTTP or HTTPS. Prefix defines a domain prefix. Domain is the Internet domain name. Port is the port number at the host; HTTP commonly uses port 80 by default. Path identifies a location on the server. Filename identifies the document or resource.",
-        "marking_rubric": "1 mark definition; 1 mark syntax; 4 marks explanation of components.",
-        "important_keywords": "Uniform Resource Locator, scheme, prefix, domain, port, path, filename, HTTP"
+        "model_answer": "1. Class: A blueprint used to create objects; it contains data members and member functions.\n2. Object: An instance of a class representing a real-world entity.\n3. Encapsulation: Combines data and related functions into one unit and helps protect data.\n4. Abstraction: Shows essential information and hides implementation details.\n5. Inheritance: Allows a new class to acquire properties and functions of an existing class, promoting code reuse.\n6. Polymorphism: Allows one name or interface to have multiple forms, such as function overloading and operator overloading.\n7. Data Hiding: Restricts direct access to internal data using private, protected and public access specifiers.\n8. Message Passing: Objects communicate by calling methods and passing information.",
+        "marking_rubric": "1 mark introduction; 5 marks for any five features correctly explained.",
+        "important_keywords": "class, object, encapsulation, abstraction, inheritance, polymorphism, data hiding, message passing"
       }
     },
     {
-      "topic": "URI and URL",
-      "question_text": "Define URI. Differentiate between URI and URL.",
+      "topic": "C++ Data Types",
+      "question_text": "Explain the classification of data types in C++ with examples.",
       "question_type": "long",
       "marks": 6,
       "answer_key": {
-        "model_answer": "URI stands for Uniform Resource Identifier. It is a string of characters used to identify a name or a resource. A URI identifies and distinguishes a resource by its name or location. URL stands for Uniform Resource Locator and identifies the location or address of a resource on the web. URI includes URN and URL as subsets; every URL is a URI, but every URI is not a URL. An ISBN is an example of URI, while https://www.javatpoint.com is an example of URL.",
-        "marking_rubric": "1 mark URI definition; 2 marks URI purpose and subsets; 3 marks correct differences and examples.",
-        "important_keywords": "Uniform Resource Identifier, Uniform Resource Locator, identify, location, URN, every URL is URI, ISBN"
+        "model_answer": "A data type specifies the kind of data a variable can store. It also determines memory requirements and the operations that can be performed.\n\n1. Basic/Fundamental data types: These are built-in types. Examples: int for integers, char for a character, float and double for decimal values, and bool for true/false values.\n2. Derived data types: These are created from fundamental types. Examples: array, pointer, function and reference.\n3. User-defined data types: These are created by the programmer. Examples: class, struct, union and enum.\n4. Void data type: void represents the absence of a value. It is commonly used for functions that do not return a value, such as void display().",
+        "marking_rubric": "1 mark definition; 4 marks for the four categories with examples; 1 mark suitable explanation/example of void.",
+        "important_keywords": "basic data types, derived, user-defined, void, int, char, float, array, pointer, class, struct"
       }
     },
     {
-      "topic": "HTTP",
-      "question_text": "What is HTTP? Explain its features.",
+      "topic": "C++ Keywords",
+      "question_text": "What are keywords in C++? Explain their characteristics with suitable examples.",
       "question_type": "long",
       "marks": 6,
       "answer_key": {
-        "model_answer": "HTTP stands for HyperText Transfer Protocol. It is used to access data on the World Wide Web. It can transfer plain text, hypertext, audio, video and other data. Its features are: connectionless, media independent and stateless. Connectionless means the connection exists only during the current request and response. Media independent means different data can be sent if both client and server can handle it. Stateless means the client and server do not retain information between separate requests.",
-        "marking_rubric": "1 mark full form and use; 3 marks features; 2 marks explanations.",
-        "important_keywords": "HyperText Transfer Protocol, connectionless, media independent, stateless, request, response, MIME"
+        "model_answer": "Keywords are reserved words in C++ that have a predefined meaning to the compiler. They are part of the language syntax and cannot normally be used as names of variables, functions, classes or other user-defined identifiers.\n\nExamples of C++ keywords include int, float, char, double, if, else, for, while, do, switch, case, break, continue, return, class, public, private, protected, void, const, static, new, delete and this.\n\nExample: int age = 20;\nHere, int is a keyword because it specifies the data type. The word age is an identifier because it is the user-defined variable name.",
+        "marking_rubric": "2 marks definition and characteristics; 2 marks examples; 2 marks explanation of the given statement.",
+        "important_keywords": "reserved words, predefined meaning, compiler, cannot be identifiers, int, class, return, new, delete"
       }
     },
     {
-      "topic": "HTTP Transaction",
-      "question_text": "Explain the HTTP transaction between a client and a server.",
+      "topic": "Variables and Initialization",
+      "question_text": "Define a variable. Explain variable declaration and initialization with syntax and examples.",
       "question_type": "long",
       "marks": 6,
       "answer_key": {
-        "model_answer": "An HTTP transaction takes place between a client and a server. First, the client initiates the transaction by sending a request message to the server. The server receives and processes the request. After processing, the server sends a response message back to the client. Thus, the main steps are request message from client and response message from server.",
-        "marking_rubric": "1 mark introduction; 2 marks client request; 2 marks server processing and response; 1 mark sequence.",
-        "important_keywords": "HTTP transaction, client, server, request message, response message"
+        "model_answer": "A variable is a named memory location used to store data. Its value can change during program execution.\n\n1. Variable Declaration: Declaration tells the compiler the name and data type of a variable. Syntax: data_type variable_name;\nExamples: int age; float marks; char grade;\n2. Variable Initialization: Initialization means assigning an initial value to a variable at the time of declaration.\nExamples: int age = 20; float marks = 85.5; char grade = 'A';\n\nCommon forms of initialization are copy initialization (int a = 10;), direct initialization (int b(20);) and list initialization (int c{30};).",
+        "marking_rubric": "1 mark variable definition; 2 marks declaration with syntax/examples; 2 marks initialization with examples; 1 mark types of initialization.",
+        "important_keywords": "variable, named memory location, declaration, data type, initialization, copy, direct, list"
       }
     },
     {
-      "topic": "SMTP",
-      "question_text": "What is SMTP? Explain its purpose and components.",
+      "topic": "Dynamic Initialization",
+      "question_text": "What is dynamic initialization? Explain it with a C++ example.",
       "question_type": "long",
       "marks": 6,
       "answer_key": {
-        "model_answer": "SMTP stands for Simple Mail Transfer Protocol. It is a set of communication guidelines used by software to transmit electronic mail over the Internet. It allows messages to be sent to one or more recipients and supports message content such as text, voice, video and graphics. Its two main components are User Agent (UA) and Mail Transfer Agent (MTA). The UA prepares the message and creates the envelope. The MTA transfers the mail across the Internet.",
-        "marking_rubric": "1 mark full form; 2 marks purpose; 3 marks UA and MTA.",
-        "important_keywords": "Simple Mail Transfer Protocol, email, User Agent, UA, Mail Transfer Agent, MTA, envelope"
+        "model_answer": "Dynamic initialization means initializing a variable with a value that is determined at run time rather than being fixed directly in the source code.\n\nExample:\n#include <iostream>\nusing namespace std;\nint main() {\n    int a, b;\n    cout << \"Enter two numbers: \";\n    cin >> a >> b;\n    int sum = a + b;\n    cout << \"Sum = \" << sum;\n    return 0;\n}\n\nIn this example, the value of sum depends on the numbers entered by the user. Therefore, sum is initialized during program execution.\n\nAnother example is int x = 10; int y = x * 5; where y is calculated during execution.",
+        "marking_rubric": "2 marks definition; 3 marks correct example/program; 1 mark explanation of run-time value.",
+        "important_keywords": "dynamic initialization, run time, user input, calculated value, sum"
       }
     },
     {
-      "topic": "SMTP Working",
-      "question_text": "Explain the working of SMTP in detail.",
+      "topic": "Reference Variable",
+      "question_text": "What is a reference variable? Explain its declaration and working with an example.",
       "question_type": "long",
       "marks": 6,
       "answer_key": {
-        "model_answer": "SMTP working includes five stages. 1. Composition of mail: the user writes an email using a Mail User Agent; the message contains a header and body. 2. Submission: the mail client submits the email to the SMTP server using TCP port 25, as stated in the notes. 3. Delivery: the Mail Transfer Agent checks the recipient domain and uses the MX record in DNS to find the target domain. 4. Receipt and processing: the incoming server or Mail Delivery Agent stores the email. 5. Access and retrieval: the user retrieves the stored email using a Mail User Agent with login and password.",
-        "marking_rubric": "1 mark composition; 1 mark submission; 2 marks delivery and MX record; 1 mark receipt; 1 mark retrieval.",
-        "important_keywords": "composition, header, body, TCP port 25, MTA, MX record, DNS, MDA, MUA"
+        "model_answer": "A reference variable is an alternative name or alias for an existing variable. It is declared using the ampersand (&) symbol.\n\nSyntax:\ndata_type &reference_name = variable_name;\n\nExample:\nint a = 10;\nint &ref = a;\ncout << ref;\n\nOutput: 10\n\nHere, ref is another name for a. If we write ref = 20;, the value of a also becomes 20 because ref refers to the same variable. A reference must be initialized when it is declared.",
+        "marking_rubric": "2 marks definition; 1 mark syntax; 2 marks example; 1 mark explanation.",
+        "important_keywords": "reference variable, alias, ampersand, &, existing variable, same variable"
       }
     },
     {
-      "topic": "FTP",
-      "question_text": "What is FTP? Explain its advantages and disadvantages.",
+      "topic": "Dynamic Memory Allocation",
+      "question_text": "What is Dynamic Memory Allocation (DMA)? Explain the new, delete, new[] and delete[] operators.",
       "question_type": "long",
       "marks": 6,
       "answer_key": {
-        "model_answer": "FTP stands for File Transfer Protocol. It is a standard Internet protocol provided by TCP/IP and is used to transfer files from one host to another. It is used to transfer web page files to servers and download files. Advantages include speed, efficiency, login-based access using username and password, and two-way file movement. Disadvantages include that not all providers encrypt transmissions, the notes mention a 2 GB file-size limit, simultaneous transfers to multiple receivers are not supported, passwords and contents may be sent in clear text, and it is not compatible with every system.",
-        "marking_rubric": "1 mark full form and definition; 2 marks uses; 1.5 marks advantages; 1.5 marks disadvantages.",
-        "important_keywords": "File Transfer Protocol, TCP/IP, speed, efficient, username, password, encryption, clear text, 2GB"
+        "model_answer": "DMA stands for Dynamic Memory Allocation. It allows memory to be allocated and released during program execution instead of fixing it in advance.\n\n1. new: Allocates memory dynamically for a single variable. Example: int *p = new int;\n2. delete: Releases memory allocated using new. Example: delete p;\n3. new[]: Allocates memory dynamically for an array. Example: int *p = new int[5];\n4. delete[]: Releases memory allocated using new[]. Example: delete[] p;\n\nThe correct deallocation operator should be used to release dynamically allocated memory.",
+        "marking_rubric": "1 mark DMA definition; 1 mark each for new, delete, new[] and delete[] with use/example; 1 mark correct pairing.",
+        "important_keywords": "Dynamic Memory Allocation, run time, new, delete, new[], delete[]"
       }
     },
     {
-      "topic": "HTML",
-      "question_text": "What is HTML? Explain HyperText, Markup Language and Web Page.",
+      "topic": "Scope Resolution Operator",
+      "question_text": "Explain the scope resolution operator (::) and its uses in C++ with examples.",
       "question_type": "long",
       "marks": 6,
       "answer_key": {
-        "model_answer": "HTML stands for HyperText Markup Language. It is used to create web pages and web applications. HyperText means text containing links that connect two or more web pages. A markup language applies layout and formatting conventions to a text document and can make text interactive by turning it into images, tables and links. A web page is a document commonly written in HTML and interpreted by a web browser. HTML can be used to create static web pages.",
-        "marking_rubric": "1 mark full form and definition; 2 marks HyperText; 2 marks markup language; 1 mark web page.",
-        "important_keywords": "HyperText Markup Language, links, markup, layout, formatting, web page, browser, static"
+        "model_answer": "The scope resolution operator (::) is used in C++ to identify and access a name within a particular scope.\n\nUses:\n1. Accessing a global variable: If local and global variables have the same name, ::x accesses the global variable.\n2. Defining a member function outside a class: Student::display() indicates that display() belongs to the Student class.\n3. Accessing static class members: Student::count refers to the static member count of the Student class.\n4. Accessing namespace members: std::cout accesses cout from the std namespace.\n\nThus, :: helps specify the scope to which a name belongs.",
+        "marking_rubric": "1 mark definition; 4 marks for uses with examples; 1 mark explanation.",
+        "important_keywords": "scope resolution, ::, global variable, class member function, static member, namespace, std::cout"
       }
     },
     {
-      "topic": "HTML Document Structure",
-      "question_text": "Explain the basic structure of an HTML document with the function of each tag.",
+      "topic": "C++ Manipulators",
+      "question_text": "What are manipulators in C++? Explain any four common manipulators with examples.",
       "question_type": "long",
       "marks": 6,
       "answer_key": {
-        "model_answer": "A basic HTML document contains <!DOCTYPE>, <html>, <head>, <title> and <body> elements. <!DOCTYPE> defines the document type or HTML version. <html> informs the browser that the document is HTML and contains the other HTML elements. <head> contains metadata. <title> sets the page title shown in the browser window or tab. <body> contains the main visible content. <h1> defines a first-level heading and <p> defines a paragraph.",
-        "marking_rubric": "1 mark structure; 1 mark DOCTYPE; 1 mark html; 1 mark head/title; 1 mark body; 1 mark h1/p.",
-        "important_keywords": "DOCTYPE, html, head, metadata, title, body, h1, paragraph"
+        "model_answer": "Manipulators are special functions or objects used with C++ input and output streams to control the formatting of data. They are mainly used with cin and cout.\n\n1. endl: Inserts a new line and flushes the output buffer. Example: cout << \"Hello\" << endl;\n2. setw(): Sets the minimum width of the next output field. Example: cout << setw(10) << 25;\n3. setprecision(): Controls the precision of floating-point output. Example: cout << setprecision(3) << 12.34567;\n4. setfill(): Specifies the character used to fill unused field width. Example: cout << setfill('*') << setw(10) << 25;\n\nThe header file <iomanip> is commonly used for setw(), setprecision() and setfill(). Other manipulators include fixed, scientific, left and right.",
+        "marking_rubric": "1 mark definition; 4 marks for any four manipulators and their uses; 1 mark examples/header file.",
+        "important_keywords": "manipulators, input/output streams, endl, setw, setprecision, setfill, iomanip"
       }
     },
     {
-      "topic": "HTML Features",
-      "question_text": "Explain the important features of HTML.",
+      "topic": "Function Call",
+      "question_text": "What is a function call? Explain its syntax and working with a suitable C++ example.",
       "question_type": "long",
       "marks": 6,
       "answer_key": {
-        "model_answer": "HTML is easy to understand and modify. It provides formatting tags for effective presentation. It offers a flexible way to design web pages with text. The anchor tag allows links between web pages and improves browsing. HTML is platform-independent and can be displayed on Windows, Linux and Macintosh. It also supports adding graphics, videos and sound to web pages. HTML is case-insensitive, so tags can be written in uppercase or lowercase.",
-        "marking_rubric": "1 mark introduction; 5 marks any five correctly explained features.",
-        "important_keywords": "easy, formatting tags, flexible, anchor tag, platform-independent, graphics, videos, sound, case-insensitive"
+        "model_answer": "A function call is a statement or expression used to execute a function. When a function is called, program control transfers to that function. Its statements are executed and control then returns to the calling point.\n\nSyntax:\nfunction_name(arguments);\n\nExample:\n#include <iostream>\nusing namespace std;\nvoid display() {\n    cout << \"Hello World\";\n}\nint main() {\n    display();\n    return 0;\n}\n\nHere, display() is the function call. When it is executed, the statements inside display() run and print Hello World. A function can also be called by passing arguments, for example add(10, 20).",
+        "marking_rubric": "2 marks definition and working; 1 mark syntax; 3 marks correct example and explanation.",
+        "important_keywords": "function call, execute, control transfer, arguments, function_name()"
       }
     },
     {
-      "topic": "HTML Formatting Tags",
-      "question_text": "Explain HTML text formatting elements with suitable examples.",
+      "topic": "Call by Value and Call by Reference",
+      "question_text": "Explain call by value and call by reference. Give examples and differentiate between them.",
       "question_type": "long",
       "marks": 6,
       "answer_key": {
-        "model_answer": "HTML formatting elements change the appearance or meaning of text. <b> displays bold text without adding logical importance. <strong> marks important text and is generally displayed in bold. <i> displays italic text, while <em> gives emphasis and is generally displayed in italic. <u> underlines text. <small> displays smaller text. <del> represents deleted content. <s> displays text with a line through it. Examples: <b>Bold</b>, <i>Italic</i>, <u>Underline</u>.",
-        "marking_rubric": "1 mark purpose; 4 marks explanation of tags; 1 mark examples.",
-        "important_keywords": "b, strong, i, em, u, small, del, s, formatting"
+        "model_answer": "1. Call by Value: A copy of the actual value is passed to the function. Changes made to the formal parameter do not affect the original variable.\nExample: void change(int x) { x = 50; } If a is 10 and change(a) is called, a remains 10.\n\n2. Call by Reference: A reference or alias to the original variable is passed. Changes made through the reference affect the original variable.\nExample: void change(int &x) { x = 50; } If a is 10 and change(a) is called, a becomes 50.\n\nDifference: Call by value passes a copy and does not change the original variable. Call by reference uses a reference parameter with & and can change the original variable.",
+        "marking_rubric": "2 marks call by value; 2 marks call by reference; 2 marks correct comparison/examples.",
+        "important_keywords": "copy of value, original variable, reference, alias, &, parameter"
       }
     },
     {
-      "topic": "HTML Hyperlinks",
-      "question_text": "What are HTML hyperlinks? Explain the anchor tag and its href attribute with an example.",
+      "topic": "Call by Pointer",
+      "question_text": "What is call by pointer? Explain its working with a C++ program.",
       "question_type": "long",
       "marks": 6,
       "answer_key": {
-        "model_answer": "HTML links or hyperlinks connect one resource on the web to another. The resource may be a web page, image, program, video or audio clip. The <a> tag defines a hyperlink. Its syntax is <a href=\"url\">link text</a>. The href attribute is the most important attribute because it specifies the destination of the link. The link text is visible to the reader, and clicking it opens the specified URL. Example: <a href=\"https://www.w3schools.com/\">Visit W3Schools</a>.",
-        "marking_rubric": "1 mark definition; 2 marks uses; 2 marks anchor syntax and href; 1 mark example.",
-        "important_keywords": "hyperlink, anchor tag, a, href, destination, link text, URL"
+        "model_answer": "Call by Pointer is a method of passing arguments to a function by passing the address of a variable. The function receives the address through a pointer parameter. The dereference operator (*) is used to access or modify the original value.\n\nExample:\n#include <iostream>\nusing namespace std;\nvoid change(int *x) {\n    *x = 50;\n}\nint main() {\n    int a = 10;\n    change(&a);\n    cout << \"a = \" << a;\n    return 0;\n}\n\nOutput: a = 50\n\nHere, &a passes the address of a. The pointer x receives that address, and *x = 50 changes the original variable.",
+        "marking_rubric": "2 marks definition and working; 3 marks correct program; 1 mark output/explanation.",
+        "important_keywords": "call by pointer, address, pointer parameter, &, dereference operator, *"
       }
     },
     {
-      "topic": "HTML Lists",
-      "question_text": "Explain ordered and unordered lists in HTML with tags and types.",
+      "topic": "Default Arguments",
+      "question_text": "What is a default argument in C++? Explain with syntax, example and advantages.",
       "question_type": "long",
       "marks": 6,
       "answer_key": {
-        "model_answer": "HTML lists organize information in ordered or unordered form. An ordered list uses the <ol> tag and displays items in a sequence. Its type values include 1, I, i, A and a. The start attribute sets the starting value, while reversed displays items in descending order. An unordered list uses the <ul> tag and displays bullet items without a particular order. Its marker types include disc, circle, square and none. The <li> tag defines each list item.",
-        "marking_rubric": "1 mark purpose; 2 marks ordered list and types; 2 marks unordered list and types; 1 mark li tag.",
-        "important_keywords": "ordered list, ol, unordered list, ul, li, type, start, reversed, disc, circle, square"
+        "model_answer": "A default argument is a value assigned to a function parameter in advance. If the function call does not provide a value for that parameter, the default value is used automatically.\n\nExample:\n#include <iostream>\nusing namespace std;\nvoid display(int x = 10) {\n    cout << x;\n}\nint main() {\n    display();\n    return 0;\n}\n\nOutput: 10\n\nHere, 10 is the default argument. Since display() is called without an argument, the function uses the default value.\n\nAdvantages:\n1. Reduces the number of arguments required in a function call.\n2. Makes functions more flexible.\n3. Avoids writing multiple functions for similar operations.",
+        "marking_rubric": "2 marks definition; 2 marks example/program and output; 2 marks advantages.",
+        "important_keywords": "default argument, parameter, default value, function call, flexibility"
       }
     },
     {
-      "topic": "HTML Input Tag",
-      "question_text": "What is the HTML input tag? Explain text, password and submit input types with examples.",
+      "topic": "Const Arguments",
+      "question_text": "What is a const argument in C++? Explain its purpose with an example. Differentiate it from a default argument.",
       "question_type": "long",
       "marks": 6,
       "answer_key": {
-        "model_answer": "The HTML <input> tag represents a form input control. It allows users to enter data and communicate with a website or application. <input type=\"text\"> creates a single-line text field. <input type=\"password\"> creates a password field in which entered characters are masked. <input type=\"submit\"> creates a button that submits form data to a form-handler. Example: <input type=\"text\" name=\"username\">, <input type=\"password\" name=\"pwd\"> and <input type=\"submit\" value=\"Submit\">.",
-        "marking_rubric": "1 mark input tag definition; 1.5 marks text; 1.5 marks password; 1.5 marks submit; 0.5 mark examples.",
-        "important_keywords": "input tag, form control, text, password, masked, submit, form-handler"
+        "model_answer": "A const argument is a function argument declared with the keyword const. It prevents the function from modifying the value through that parameter.\n\nExample:\n#include <iostream>\nusing namespace std;\nvoid display(const int &x) {\n    cout << x;\n}\nint main() {\n    int a = 20;\n    display(a);\n    return 0;\n}\n\nHere, x is a const reference to a. The function can read its value but cannot modify it through x.\n\nDifference:\n1. A default argument provides a value when an argument is not supplied.\n2. A const argument prevents modification of a parameter through that parameter.\n3. Default arguments use = to assign a default value, while const arguments use the const keyword.",
+        "marking_rubric": "2 marks definition and purpose; 2 marks example; 2 marks differences.",
+        "important_keywords": "const, parameter, prevent modification, default value, argument not supplied"
       }
     },
     {
-      "topic": "CSS",
-      "question_text": "What is CSS? Explain its uses and advantages.",
+      "topic": "Inline Function",
+      "question_text": "What is an inline function? Explain its syntax and working with a C++ program.",
       "question_type": "long",
       "marks": 6,
       "answer_key": {
-        "model_answer": "CSS stands for Cascading Style Sheets. It is a style sheet language used to describe the look and formatting of a document written in a markup language. It is generally used with HTML to change the style of web pages and user interfaces. CSS solves the problem of repeating presentation code on every page, saves time because an external CSS file can style many pages, and provides more detailed styling attributes than plain HTML.",
-        "marking_rubric": "1 mark full form; 1 mark definition; 2 marks uses; 2 marks advantages.",
-        "important_keywords": "Cascading Style Sheets, styling, HTML, presentation, saves time, external CSS, attributes"
+        "model_answer": "An inline function is a function for which the compiler is requested to expand the function code at the point where the function is called, instead of performing a normal function call. It is declared using the inline keyword.\n\nSyntax:\ninline return_type function_name(parameters) {\n    // statements\n}\n\nExample:\n#include <iostream>\nusing namespace std;\ninline int square(int x) {\n    return x * x;\n}\nint main() {\n    cout << square(5);\n    return 0;\n}\n\nOutput: 25\n\nHere, square() is an inline function. The inline keyword requests the compiler to expand its code at the call location; the compiler may decide whether to honor this request.",
+        "marking_rubric": "2 marks definition; 1 mark syntax; 2 marks correct program; 1 mark output/explanation.",
+        "important_keywords": "inline function, inline keyword, compiler, function call, square, output 25"
       }
     },
     {
-      "topic": "CSS Syntax and Types",
-      "question_text": "Explain CSS rule-set syntax and the three types of CSS.",
+      "topic": "Difference Between Call by Value, Reference and Pointer",
+      "question_text": "Differentiate between call by value, call by reference and call by pointer in C++.",
       "question_type": "long",
       "marks": 6,
       "answer_key": {
-        "model_answer": "A CSS rule-set contains a selector and a declaration block. The selector identifies the HTML element to style. The declaration block contains one or more declarations separated by semicolons. Each declaration has a property and a value separated by a colon. Syntax: selector { property: value; }. The three types are Inline CSS, Internal CSS and External CSS. Inline CSS is written in an element's style attribute. Internal CSS is written inside the <style> tag in the head section. External CSS is stored in a separate .css file and linked to the HTML document.",
-        "marking_rubric": "1 mark rule-set; 2 marks selector/declaration/property/value; 3 marks three CSS types.",
-        "important_keywords": "selector, declaration block, property, value, inline, internal, external, style, .css"
+        "model_answer": "1. Call by Value: A copy of the variable's value is passed to the function. Changes do not affect the original variable.\n2. Call by Reference: A reference (alias) to the original variable is passed. Changes affect the original variable. The parameter is declared using & and the variable is passed directly in the function call.\n3. Call by Pointer: The address of the variable is passed to the function. The function uses a pointer parameter and dereferencing (*) to access or modify the original value. The address is commonly passed using &variable.\n\nMain difference: Value passes a copy; reference passes an alias; pointer passes an address that is accessed through a pointer.",
+        "marking_rubric": "2 marks each for the three methods and their differences.",
+        "important_keywords": "copy, reference, alias, address, pointer, &, *, original variable"
       }
     },
     {
-      "topic": "CSS Selectors",
-      "question_text": "What are CSS selectors? Explain element, ID, class, universal and group selectors with examples.",
+      "topic": "Dynamic Memory and References",
+      "question_text": "Explain reference variables and dynamic memory allocation in C++ with suitable examples.",
       "question_type": "long",
       "marks": 6,
       "answer_key": {
-        "model_answer": "CSS selectors select HTML elements that we want to style. The element selector selects elements by tag name, for example p. The ID selector selects a unique element and uses #, for example #para1. The class selector selects elements with a given class and uses a dot, for example .center. The universal selector uses * and selects all elements. The group selector applies the same styles to multiple selectors separated by commas, for example h1, h2, p { color: blue; }.",
-        "marking_rubric": "1 mark definition; 1 mark each for five selectors and examples.",
-        "important_keywords": "CSS selector, element, ID, #, class, dot, universal, *, group selector, comma"
+        "model_answer": "A reference variable is an alternative name (alias) for an existing variable. It is declared using &. Example: int a = 10; int &ref = a;. Here ref refers to a. If ref = 20; is executed, a also becomes 20.\n\nDynamic Memory Allocation (DMA) allows memory to be allocated and released during program execution.\n1. new allocates memory for a single variable: int *p = new int;\n2. delete releases memory allocated using new: delete p;\n3. new[] allocates memory for an array: int *arr = new int[5];\n4. delete[] releases memory allocated using new[]: delete[] arr;\n\nReferences provide another name for an existing variable, while DMA manages memory during run time.",
+        "marking_rubric": "2 marks reference variable and example; 3 marks DMA operators and examples; 1 mark distinction.",
+        "important_keywords": "reference, alias, &, DMA, run time, new, delete, new[], delete[]"
       }
     }
   ]

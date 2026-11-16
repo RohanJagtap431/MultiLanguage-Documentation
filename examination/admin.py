@@ -60,10 +60,14 @@ class ClassAccessAdmin(admin.ModelAdmin):
     form = ClassAccessForm
 
     list_display = (
-        "student",
+        "get_student_name",
         "academic_class",
         "assigned_at",
     )
+    
+    @admin.display(description="Student Name")
+    def get_student_name(self, obj):
+        return obj.student.name
 
     list_filter = ("academic_class",)
 
@@ -295,12 +299,16 @@ class ExamAdmin(admin.ModelAdmin):
 class GeneratedPaperAdmin(admin.ModelAdmin):
 
     list_display = (
-        "student",
+        "get_student_name",
         "exam",
         "started_at",
         "expires_at",
         "status",
     )
+
+    @admin.display(description="Student Name")
+    def get_student_name(self, obj):
+        return obj.student.name
 
     list_filter = (
         "status",
@@ -349,9 +357,9 @@ class ExamResultAdmin(admin.ModelAdmin):
         "approved_at",
     )
 
-    @admin.display(description="Student")
+    @admin.display(description="Student Name")
     def get_student(self, obj):
-        return obj.generated_paper.student
+        return obj.generated_paper.student.name
 
     @admin.display(description="Exam")
     def get_exam(self, obj):

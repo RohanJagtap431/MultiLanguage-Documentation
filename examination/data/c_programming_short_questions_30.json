@@ -1,279 +1,335 @@
 {
-  "subject": "Web Technology – Semester III (Unit I)",
+  "subject": "C++ Programming",
+  "unit": "Introduction to Object-Oriented Programming (OOP)",
   "questions": [
     {
-      "topic": "Introduction to Internet",
-      "question_text": "What is the Internet?",
+      "topic": "Introduction to OOP",
+      "question_text": "What is Object-Oriented Programming (OOP)?",
       "question_type": "short",
       "marks": 3,
       "answer_key": {
-        "model_answer": "The Internet is a global network that connects millions and billions of computers throughout the world. It uses the standard Internet protocol suite called TCP/IP to exchange data and information.",
-        "marking_rubric": "1 mark for global network; 1 mark for connecting computers worldwide; 1 mark for TCP/IP or data exchange.",
-        "important_keywords": "global network, computers, TCP/IP, data exchange"
+        "model_answer": "Object-Oriented Programming is a programming approach in which a program is organized around classes and objects rather than only functions and procedures. An object represents a real-world entity and contains data (attributes) and functions (methods) that operate on that data.",
+        "marking_rubric": "1 mark for the programming approach; 1 mark for classes and objects; 1 mark for data and methods.",
+        "important_keywords": "Object-Oriented Programming, classes, objects, attributes, methods"
       }
     },
     {
-      "topic": "Introduction to Internet",
-      "question_text": "Name any three popular services provided by the Internet.",
+      "topic": "Basic Concepts of OOP",
+      "question_text": "What is a class in C++?",
       "question_type": "short",
       "marks": 3,
       "answer_key": {
-        "model_answer": "Three popular Internet services are: 1. World Wide Web 2. Email 3. Social Media. Other services mentioned are online games and software updates.",
-        "marking_rubric": "1 mark for each correct service.",
-        "important_keywords": "World Wide Web, Email, Social Media, online games, software updates"
+        "model_answer": "A class is a blueprint or template for creating objects. It defines the data and functions that an object can have. For example, Student can be a class containing rollNo, name and display().",
+        "marking_rubric": "1 mark for blueprint/template; 1 mark for defining data and functions; 1 mark for a suitable example.",
+        "important_keywords": "class, blueprint, template, data members, member functions"
       }
     },
     {
-      "topic": "Web Browser",
-      "question_text": "What is a web browser?",
+      "topic": "Basic Concepts of OOP",
+      "question_text": "What is an object? Give an example.",
       "question_type": "short",
       "marks": 3,
       "answer_key": {
-        "model_answer": "A web browser is a software application used to access information on the World Wide Web. It fetches data from a web server and displays the web page on the user's screen.",
-        "marking_rubric": "1 mark software application; 1 mark access WWW; 1 mark fetches and displays webpage.",
-        "important_keywords": "software application, World Wide Web, web server, webpage"
+        "model_answer": "An object is an instance of a class. It represents a real-world entity and can access the members of its class. For example, if Student is a class, student1 is an object of that class.",
+        "marking_rubric": "1 mark for instance of class; 1 mark for representing an entity; 1 mark for example.",
+        "important_keywords": "object, instance, class, student1"
       }
     },
     {
-      "topic": "Web Browser",
-      "question_text": "Write any three functions of a web browser.",
+      "topic": "Basic Concepts of OOP",
+      "question_text": "Define encapsulation.",
       "question_type": "short",
       "marks": 3,
       "answer_key": {
-        "model_answer": "Three functions are: 1. Retrieves information from the World Wide Web. 2. Opens websites using URLs and helps users follow hyperlinks. 3. Stores web page data in internal cache and allows pages to be opened again.",
-        "marking_rubric": "1 mark for each correct function.",
-        "important_keywords": "retrieve information, URL, hyperlinks, internal cache"
+        "model_answer": "Encapsulation means combining data and the functions that operate on that data into a single unit, usually a class. It also helps control access to data using access specifiers such as private, public and protected.",
+        "marking_rubric": "1 mark for combining data and functions; 1 mark for single unit/class; 1 mark for access control.",
+        "important_keywords": "encapsulation, data, functions, class, access specifiers"
       }
     },
     {
-      "topic": "Web Browser",
-      "question_text": "Name any three web browsers mentioned in the notes.",
+      "topic": "Basic Concepts of OOP",
+      "question_text": "What is abstraction? Give one example.",
       "question_type": "short",
       "marks": 3,
       "answer_key": {
-        "model_answer": "Any three are: 1. Netscape Navigator 2. Internet Explorer 3. Firefox. Google Chrome and WorldWideWeb are also mentioned.",
-        "marking_rubric": "1 mark for each correct browser.",
-        "important_keywords": "Netscape Navigator, Internet Explorer, Firefox, Google Chrome"
+        "model_answer": "Abstraction means showing only the necessary details to the user while hiding unnecessary implementation details. For example, we use an ATM without knowing the internal implementation of the banking system.",
+        "marking_rubric": "1 mark for showing necessary details; 1 mark for hiding implementation details; 1 mark for example.",
+        "important_keywords": "abstraction, essential details, implementation details, ATM"
       }
     },
     {
-      "topic": "Web Server",
-      "question_text": "Define a web server and state its main use.",
+      "topic": "Basic Concepts of OOP",
+      "question_text": "Define inheritance and state one advantage.",
       "question_type": "short",
       "marks": 3,
       "answer_key": {
-        "model_answer": "A web server is a computer where web content is stored. Its main use is to host websites and provide web content when a client requests it.",
-        "marking_rubric": "1 mark definition; 1 mark stores web content; 1 mark hosts websites/responds to clients.",
-        "important_keywords": "computer, web content, host websites, client request"
+        "model_answer": "Inheritance allows one class to acquire properties and methods of another class. It promotes code reuse. For example, Car can inherit common properties and methods from Vehicle.",
+        "marking_rubric": "1 mark for definition; 1 mark for acquiring properties/methods; 1 mark for advantage or example.",
+        "important_keywords": "inheritance, base class, derived class, properties, code reuse"
       }
     },
     {
-      "topic": "Web Server",
-      "question_text": "State the two ways in which a web server responds to a client request.",
+      "topic": "Basic Concepts of OOP",
+      "question_text": "What is polymorphism? Give two examples.",
       "question_type": "short",
       "marks": 3,
       "answer_key": {
-        "model_answer": "A web server responds in two ways: 1. It sends the file associated with the requested URL to the client. 2. It generates a response by invoking a script and communicating with a database.",
-        "marking_rubric": "1.5 marks for each correct method.",
-        "important_keywords": "requested URL, sends file, script, database"
+        "model_answer": "Polymorphism means one interface or name can have multiple forms or behaviours. Examples include function overloading and method overriding.",
+        "marking_rubric": "1 mark for meaning; 1 mark for first example; 1 mark for second example.",
+        "important_keywords": "polymorphism, multiple forms, function overloading, method overriding"
       }
     },
     {
-      "topic": "URL",
-      "question_text": "What is a URL? Write its general syntax.",
+      "topic": "Features of OOP",
+      "question_text": "What is data hiding in OOP?",
       "question_type": "short",
       "marks": 3,
       "answer_key": {
-        "model_answer": "URL stands for Uniform Resource Locator. It is used to address a document or other data on the web. Syntax: scheme://prefix.domain:port/path/filename",
-        "marking_rubric": "1 mark full form; 1 mark purpose; 1 mark syntax.",
-        "important_keywords": "Uniform Resource Locator, address, web resource, scheme, domain, path"
+        "model_answer": "Data hiding restricts direct access to the internal data of an object. Access specifiers such as private, protected and public are used to control access to class members.",
+        "marking_rubric": "1 mark for restricting direct access; 1 mark for internal data; 1 mark for access specifiers.",
+        "important_keywords": "data hiding, private, protected, public, access control"
       }
     },
     {
-      "topic": "URL",
-      "question_text": "What is the function of the scheme, domain and port in a URL?",
+      "topic": "Features of OOP",
+      "question_text": "What is message passing in OOP?",
       "question_type": "short",
       "marks": 3,
       "answer_key": {
-        "model_answer": "Scheme defines the type of Internet service, such as HTTP or HTTPS. Domain specifies the Internet domain name. Port specifies the port number at the host; the default port for HTTP is 80.",
-        "marking_rubric": "1 mark for each component.",
-        "important_keywords": "scheme, HTTP, HTTPS, domain name, port, 80"
+        "model_answer": "Message passing is the way objects communicate with each other. Objects communicate by calling methods and passing information or arguments.",
+        "marking_rubric": "1 mark for object communication; 1 mark for calling methods; 1 mark for passing information.",
+        "important_keywords": "message passing, objects, methods, arguments, communication"
       }
     },
     {
-      "topic": "URI",
-      "question_text": "What is a URI? Give one example.",
+      "topic": "POP and OOP",
+      "question_text": "Write any three differences between POP and OOP.",
       "question_type": "short",
       "marks": 3,
       "answer_key": {
-        "model_answer": "URI stands for Uniform Resource Identifier. It is a string of characters used to identify a name or a resource. An ISBN of a book is an example of a URI.",
-        "marking_rubric": "1 mark full form; 1 mark definition; 1 mark example.",
-        "important_keywords": "Uniform Resource Identifier, string of characters, identify resource, ISBN"
-      }
-    },
-    {
-      "topic": "URI and URL",
-      "question_text": "State any three differences between URI and URL.",
-      "question_type": "short",
-      "marks": 3,
-      "answer_key": {
-        "model_answer": "URI identifies a resource by its name or location, while URL identifies the location or address of a resource on the web. URI includes URN and URL as subsets. Every URL is a URI, but every URI is not a URL.",
+        "model_answer": "1. POP divides a program into functions, while OOP divides it into classes and objects. 2. POP mainly focuses on functions, while OOP focuses on objects and data. 3. POP generally follows a top-down approach, while OOP generally follows a bottom-up approach.",
         "marking_rubric": "1 mark for each correct difference.",
-        "important_keywords": "identify resource, location, URN, URL, every URL is a URI"
+        "important_keywords": "POP, OOP, functions, classes, objects, top-down, bottom-up"
       }
     },
     {
-      "topic": "HTTP",
-      "question_text": "What is HTTP? State its main use.",
+      "topic": "Data Types",
+      "question_text": "What is a data type in C++?",
       "question_type": "short",
       "marks": 3,
       "answer_key": {
-        "model_answer": "HTTP stands for HyperText Transfer Protocol. It is a protocol used to access data on the World Wide Web. It can transfer plain text, hypertext, audio and video.",
-        "marking_rubric": "1 mark full form; 1 mark protocol/use; 1 mark types of data.",
-        "important_keywords": "HyperText Transfer Protocol, World Wide Web, plain text, hypertext, audio, video"
+        "model_answer": "A data type specifies the type of data that a variable can store. It also determines the memory required and the operations that can be performed on the data.",
+        "marking_rubric": "1 mark for type of data; 1 mark for variable storage; 1 mark for memory or operations.",
+        "important_keywords": "data type, variable, memory, operations"
       }
     },
     {
-      "topic": "HTTP",
-      "question_text": "Explain any three features of HTTP.",
+      "topic": "Data Types",
+      "question_text": "Name the four broad categories of C++ data types.",
       "question_type": "short",
       "marks": 3,
       "answer_key": {
-        "model_answer": "1. Connectionless: The connection exists only during the current request and response. 2. Media independent: Different types of data can be sent if both client and server can handle them. 3. Stateless: Client and server do not retain information between separate requests.",
-        "marking_rubric": "1 mark for each correctly explained feature.",
-        "important_keywords": "connectionless, media independent, stateless, request, response"
+        "model_answer": "The four broad categories are: 1. Basic or fundamental data types. 2. Derived data types. 3. User-defined data types. 4. Void data type.",
+        "marking_rubric": "Award 0.75 mark for each correct category.",
+        "important_keywords": "basic, derived, user-defined, void"
       }
     },
     {
-      "topic": "HTTP Transaction",
-      "question_text": "What are the two messages exchanged in an HTTP transaction?",
+      "topic": "Data Types",
+      "question_text": "Give any three examples of basic data types with their uses.",
       "question_type": "short",
       "marks": 3,
       "answer_key": {
-        "model_answer": "The two messages are: 1. Request message: sent by the client to the server to start a transaction. 2. Response message: sent by the server to the client as a reply.",
-        "marking_rubric": "1 mark for request; 1 mark for response; 1 mark for direction/purpose.",
-        "important_keywords": "request message, client, server, response message"
+        "model_answer": "1. int – stores integer numbers. 2. char – stores a single character. 3. float – stores decimal numbers. Other basic types include double and bool.",
+        "marking_rubric": "1 mark for each correct type and use.",
+        "important_keywords": "int, char, float, integer, character, decimal"
       }
     },
     {
-      "topic": "SMTP",
-      "question_text": "What is SMTP? State its main purpose.",
+      "topic": "Data Types",
+      "question_text": "What are derived data types? Give three examples.",
       "question_type": "short",
       "marks": 3,
       "answer_key": {
-        "model_answer": "SMTP stands for Simple Mail Transfer Protocol. It is used by software to transmit electronic mail over the Internet and provides rules for communication between mail servers.",
-        "marking_rubric": "1 mark full form; 1 mark email transfer; 1 mark communication rules.",
-        "important_keywords": "Simple Mail Transfer Protocol, electronic mail, Internet, mail servers"
+        "model_answer": "Derived data types are created from fundamental data types. Examples include array, pointer, function and reference.",
+        "marking_rubric": "1 mark for definition; 2 marks for any three correct examples.",
+        "important_keywords": "derived data types, fundamental types, array, pointer, function, reference"
       }
     },
     {
-      "topic": "SMTP Components",
-      "question_text": "Name the two main components of SMTP and state their functions.",
+      "topic": "Data Types",
+      "question_text": "What are user-defined data types? Give three examples.",
       "question_type": "short",
       "marks": 3,
       "answer_key": {
-        "model_answer": "The two components are: 1. User Agent (UA): prepares the message and creates the envelope. 2. Mail Transfer Agent (MTA): transfers the mail across the Internet.",
-        "marking_rubric": "1 mark for each component; 1 mark for functions.",
-        "important_keywords": "User Agent, UA, Mail Transfer Agent, MTA, message, envelope"
+        "model_answer": "User-defined data types are created by the programmer. Examples include class, struct, union and enum.",
+        "marking_rubric": "1 mark for definition; 2 marks for any three examples.",
+        "important_keywords": "user-defined, programmer, class, struct, union, enum"
       }
     },
     {
-      "topic": "SMTP Working",
-      "question_text": "What are the two parts of an email message?",
+      "topic": "Keywords",
+      "question_text": "What are keywords in C++? Give any four examples.",
       "question_type": "short",
       "marks": 3,
       "answer_key": {
-        "model_answer": "An email message has two parts: 1. Header: contains sender address, recipient address and subject information. 2. Body: contains the main content of the message.",
-        "marking_rubric": "1 mark for naming both parts; 1 mark header; 1 mark body.",
-        "important_keywords": "header, body, sender, recipient, subject, message content"
+        "model_answer": "Keywords are reserved words in C++ that have a predefined meaning to the compiler. They cannot normally be used as names of variables, functions or classes. Examples are int, if, class and return.",
+        "marking_rubric": "1 mark for reserved words; 1 mark for predefined meaning/restriction; 1 mark for examples.",
+        "important_keywords": "keywords, reserved words, compiler, int, if, class, return"
       }
     },
     {
-      "topic": "SMTP Working",
-      "question_text": "What is the use of an MX record in SMTP?",
+      "topic": "Variables",
+      "question_text": "What is a variable? Give an example.",
       "question_type": "short",
       "marks": 3,
       "answer_key": {
-        "model_answer": "During email delivery, the Mail Transfer Agent checks the MX record in the Domain Name System to find the target mail domain/server for the recipient's email address.",
-        "marking_rubric": "1 mark MTA; 1 mark MX record/DNS; 1 mark target mail server.",
-        "important_keywords": "MTA, MX record, DNS, target domain, mail server"
+        "model_answer": "A variable is a named memory location used to store data. Its value can change during program execution. Example: int age = 20; Here, age is a variable of type int.",
+        "marking_rubric": "1 mark for named memory location; 1 mark for storing/changeable data; 1 mark for example.",
+        "important_keywords": "variable, named memory location, data, int age"
       }
     },
     {
-      "topic": "FTP",
-      "question_text": "What is FTP? State any two uses.",
+      "topic": "Variables",
+      "question_text": "What is variable declaration? Write its syntax and one example.",
       "question_type": "short",
       "marks": 3,
       "answer_key": {
-        "model_answer": "FTP stands for File Transfer Protocol. It is a TCP/IP Internet protocol used to transfer files from one host to another. It is used to transfer web page files to a server and to download files from other servers.",
-        "marking_rubric": "1 mark full form; 1 mark definition; 1 mark any two uses.",
-        "important_keywords": "File Transfer Protocol, TCP/IP, transfer files, web page files, download"
+        "model_answer": "Variable declaration tells the compiler the name and data type of a variable. Syntax: data_type variable_name; Example: int age;",
+        "marking_rubric": "1 mark for meaning; 1 mark for syntax; 1 mark for example.",
+        "important_keywords": "variable declaration, data type, variable name, int age"
       }
     },
     {
-      "topic": "FTP",
-      "question_text": "Write any three advantages of FTP.",
+      "topic": "Variables",
+      "question_text": "What is variable initialization? Give one example.",
       "question_type": "short",
       "marks": 3,
       "answer_key": {
-        "model_answer": "Three advantages of FTP are: 1. Speed: it transfers files quickly. 2. Efficiency: it transfers files efficiently. 3. Back and forth movement: it allows files to be transferred in both directions. Login using username and password is also mentioned in the notes.",
-        "marking_rubric": "1 mark for each advantage.",
-        "important_keywords": "speed, efficient, back and forth movement, username, password"
+        "model_answer": "Initialization means assigning an initial value to a variable at the time of declaration. Example: int age = 20; Here, age is declared and initialized with the value 20.",
+        "marking_rubric": "1 mark for meaning; 1 mark for assigning initial value at declaration; 1 mark for example.",
+        "important_keywords": "initialization, initial value, declaration, int age = 20"
       }
     },
     {
-      "topic": "HTML",
-      "question_text": "What is HTML? State its main use.",
+      "topic": "Dynamic Initialization",
+      "question_text": "What is dynamic initialization of a variable?",
       "question_type": "short",
       "marks": 3,
       "answer_key": {
-        "model_answer": "HTML stands for HyperText Markup Language. It is a markup language used for creating web pages and web applications. HTML documents contain tags that describe the content of a web page.",
-        "marking_rubric": "1 mark full form; 1 mark definition; 1 mark use/tags.",
-        "important_keywords": "HyperText Markup Language, markup language, web pages, web applications, tags"
+        "model_answer": "Dynamic initialization means initializing a variable with a value that is determined at run time rather than being fixed directly in the source code. Example: int sum = a + b;",
+        "marking_rubric": "1 mark for initialization; 1 mark for run-time value; 1 mark for example.",
+        "important_keywords": "dynamic initialization, run time, calculated value, int sum"
       }
     },
     {
-      "topic": "HTML",
-      "question_text": "What is HyperText?",
+      "topic": "Reference Variable",
+      "question_text": "What is a reference variable? Give its syntax.",
       "question_type": "short",
       "marks": 3,
       "answer_key": {
-        "model_answer": "HyperText means text within text. It is text that contains a link. By clicking the link, a user can move to another web page or HTML document.",
-        "marking_rubric": "1 mark meaning; 1 mark contains link; 1 mark navigation to another page.",
-        "important_keywords": "text within text, link, click, web page, HTML document"
+        "model_answer": "A reference variable is an alternative name or alias for an existing variable. It is declared using the & symbol. Syntax: data_type &reference_name = variable_name;",
+        "marking_rubric": "1 mark for alias meaning; 1 mark for & symbol; 1 mark for correct syntax.",
+        "important_keywords": "reference variable, alias, ampersand (&), existing variable"
       }
     },
     {
-      "topic": "HTML Structure",
-      "question_text": "State the functions of the <head>, <title> and <body> tags.",
+      "topic": "Reference Variable",
+      "question_text": "What happens when a reference variable is modified?",
       "question_type": "short",
       "marks": 3,
       "answer_key": {
-        "model_answer": "<head> contains metadata or information about the document. <title> defines the page title displayed at the top of the browser window or tab. <body> contains the main content visible to the user.",
-        "marking_rubric": "1 mark for each tag.",
-        "important_keywords": "head, metadata, title, browser window, body, visible content"
+        "model_answer": "A reference variable is another name for an existing variable. Therefore, changing the reference also changes the original variable. For example, if ref refers to a, assigning ref = 20 changes a to 20.",
+        "marking_rubric": "1 mark for alias relationship; 1 mark for effect on original variable; 1 mark for example/explanation.",
+        "important_keywords": "reference, alias, original variable, value changes"
       }
     },
     {
-      "topic": "HTML Semantic Elements",
-      "question_text": "What is the purpose of the <article>, <nav> and <mark> tags?",
+      "topic": "Dynamic Memory Allocation",
+      "question_text": "What is Dynamic Memory Allocation (DMA)?",
       "question_type": "short",
       "marks": 3,
       "answer_key": {
-        "model_answer": "<article> represents independent content that can stand alone, such as a blog post. <nav> defines a set of navigation links. <mark> is used to highlight text.",
-        "marking_rubric": "1 mark for each tag.",
-        "important_keywords": "article, independent content, nav, navigation links, mark, highlight"
+        "model_answer": "Dynamic Memory Allocation is the process of allocating and releasing memory during program execution. In C++, memory can be allocated using new and released using delete.",
+        "marking_rubric": "1 mark for allocating memory; 1 mark for run-time allocation/release; 1 mark for new and delete.",
+        "important_keywords": "DMA, memory allocation, run time, new, delete"
       }
     },
     {
-      "topic": "CSS",
-      "question_text": "What is CSS? State any two benefits of CSS.",
+      "topic": "Dynamic Memory Allocation",
+      "question_text": "What is the use of the new and delete operators in C++?",
       "question_type": "short",
       "marks": 3,
       "answer_key": {
-        "model_answer": "CSS stands for Cascading Style Sheets. It describes the look and formatting of HTML documents. Benefits: 1. It saves time because one external CSS file can style multiple pages. 2. It provides more detailed styling attributes than plain HTML.",
-        "marking_rubric": "1 mark full form; 1 mark definition; 1 mark any two benefits.",
-        "important_keywords": "Cascading Style Sheets, formatting, saves time, external CSS, styling attributes"
+        "model_answer": "The new operator allocates memory dynamically during program execution. The delete operator releases memory that was allocated using new. They help manage dynamically allocated memory.",
+        "marking_rubric": "1 mark for new; 1 mark for delete; 1 mark for purpose.",
+        "important_keywords": "new, delete, allocate, release, dynamic memory"
+      }
+    },
+    {
+      "topic": "Dynamic Memory Allocation",
+      "question_text": "Differentiate between new and new[] operators.",
+      "question_type": "short",
+      "marks": 3,
+      "answer_key": {
+        "model_answer": "The new operator is used to allocate memory for a single object. The new[] operator is used to allocate memory for an array of objects or elements.",
+        "marking_rubric": "1.5 marks for each correct use.",
+        "important_keywords": "new, new[], single object, array allocation"
+      }
+    },
+    {
+      "topic": "Scope Resolution Operator",
+      "question_text": "What is the scope resolution operator in C++?",
+      "question_type": "short",
+      "marks": 3,
+      "answer_key": {
+        "model_answer": "The scope resolution operator is represented by ::. It is used to specify the scope to which a name belongs. It can be used to access a global variable, define a member function outside a class, or access namespace members.",
+        "marking_rubric": "1 mark for :: symbol; 1 mark for specifying scope; 1 mark for any correct use.",
+        "important_keywords": "scope resolution, ::, global variable, member function, namespace"
+      }
+    },
+    {
+      "topic": "Manipulators",
+      "question_text": "What are manipulators in C++? Give any two examples.",
+      "question_type": "short",
+      "marks": 3,
+      "answer_key": {
+        "model_answer": "Manipulators are used with input and output streams to control the formatting of data. Examples include endl, which moves output to the next line, and setw(), which sets the minimum width of the next output field.",
+        "marking_rubric": "1 mark for purpose; 1 mark for first example/use; 1 mark for second example/use.",
+        "important_keywords": "manipulators, stream, formatting, endl, setw"
+      }
+    },
+    {
+      "topic": "Manipulators",
+      "question_text": "What is the use of setprecision() and setfill() manipulators?",
+      "question_type": "short",
+      "marks": 3,
+      "answer_key": {
+        "model_answer": "setprecision() controls the precision of floating-point output. setfill() specifies the character used to fill unused field width, usually with setw(). Both are available through the iomanip header.",
+        "marking_rubric": "1 mark for setprecision; 1 mark for setfill; 1 mark for iomanip or correct explanation.",
+        "important_keywords": "setprecision(), setfill(), floating-point, field width, iomanip"
+      }
+    },
+    {
+      "topic": "Function Call",
+      "question_text": "What is a function call? Write its general syntax.",
+      "question_type": "short",
+      "marks": 3,
+      "answer_key": {
+        "model_answer": "A function call is a statement or expression used to execute a function. Control is transferred to the function, its statements are executed, and control returns to the calling point. Syntax: function_name(arguments);",
+        "marking_rubric": "1 mark for executing a function; 1 mark for control transfer and return; 1 mark for syntax.",
+        "important_keywords": "function call, execute, control transfer, arguments, syntax"
+      }
+    },
+    {
+      "topic": "Function Arguments",
+      "question_text": "What is a default argument in C++? Give an example.",
+      "question_type": "short",
+      "marks": 3,
+      "answer_key": {
+        "model_answer": "A default argument is a value assigned to a function parameter in advance. If the function call does not provide a value for that parameter, the default value is used. Example: void display(int x = 10);",
+        "marking_rubric": "1 mark for definition; 1 mark for when it is used; 1 mark for example.",
+        "important_keywords": "default argument, parameter, default value, function call"
       }
     }
   ]
