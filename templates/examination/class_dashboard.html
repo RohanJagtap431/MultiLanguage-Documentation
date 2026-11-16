@@ -32,8 +32,8 @@
     <section class="exam-options">
 
         <!-- QUESTION PAPERS -->
-        <a href="{% url 'examination:question_papers' %}"
-           class="exam-option-card">
+        <a href="{% url 'examination:question_papers' %}?class={{ assigned_class.id }}" class="exam-option-card">
+           
 
             <div class="option-icon">📄</div>
 
@@ -53,8 +53,8 @@
 
 
         <!-- MY RESULTS -->
-        <a href="{% url 'examination:my_results' %}"
-           class="exam-option-card">
+        <a href="{% url 'examination:my_results' %}?class={{ assigned_class.id }}"
+            class="exam-option-card">
 
             <div class="option-icon">📊</div>
 
@@ -74,8 +74,8 @@
 
 
         <!-- CLASS RANKING -->
-        <a href="{% url 'examination:class_ranking' %}"
-           class="exam-option-card">
+        <a href="{% url 'examination:class_ranking' %}?class={{ assigned_class.id }}"
+            class="exam-option-card">
 
             <div class="option-icon">🏆</div>
 

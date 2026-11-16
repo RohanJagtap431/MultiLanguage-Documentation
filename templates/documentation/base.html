@@ -118,23 +118,37 @@
                 </a>
 
 
+                
+
+                                
+                                
                 <!-- EXAMINATION SECTION -->
                 <div class="sidebar-section">
                     EXAMINATION
                 </div>
 
-                {% if examination_class %}
-                <a href="{% url 'examination:class_dashboard' %}"
-                class="nav-item {% if request.resolver_match.url_name == 'class_dashboard' %}active{% endif %}">
+                {% for academic_class in examination_classes %}
+
+                <a href="{% url 'examination:class_dashboard' %}?class={{ academic_class.id }}"
+                class="nav-item {% if selected_class and selected_class.id == academic_class.id %}active{% endif %}">
+
                     <span>🎓</span>
-                    {{ examination_class.name }}
+                    {{ academic_class.name }}
+
                 </a>
-                {% else %}
+
+                {% empty %}
+
                 <div class="nav-item">
                     <span>🎓</span>
                     No class assigned
                 </div>
-                {% endif %}
+
+                {% endfor %}
+
+
+
+
 
 
 

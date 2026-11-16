@@ -12,6 +12,7 @@
             <h1>{{ paper.exam.title }}</h1>
             <p>{{ paper.exam.subject.name }}</p>
             <p>Total Marks: {{ paper.exam.total_marks }}</p>
+            <p>Class: {{ paper.exam.subject.academic_class.name }}</p>
         </div>
 
         <div class="exam-timer">
@@ -22,6 +23,9 @@
 
     <form method="POST" id="exam-form">
         {% csrf_token %}
+
+        <input type="hidden" name="class"
+               value="{{ paper.exam.subject.academic_class.id }}">
 
         {% for question in questions %}
 
@@ -192,11 +196,16 @@
 
 <script>
 (function () {
+
     let remaining = {{ remaining_seconds }};
     const timer = document.getElementById("timer");
     const form = document.getElementById("exam-form");
 
+    let countdown = null;
+    let submitted = false;
+
     function updateTimer() {
+
         const minutes = Math.floor(remaining / 60);
         const seconds = remaining % 60;
 
@@ -205,9 +214,17 @@
             String(seconds).padStart(2, "0");
 
         if (remaining <= 0) {
-            clearInterval(countdown);
-            timer.textContent = "00:00";
-            form.requestSubmit();
+
+            if (countdown !== null) {
+                clearInterval(countdown);
+            }
+
+            if (!submitted) {
+                submitted = true;
+                timer.textContent = "00:00";
+                form.requestSubmit();
+            }
+
             return;
         }
 
@@ -216,7 +233,10 @@
 
     updateTimer();
 
-    const countdown = setInterval(updateTimer, 1000);
+    if (remaining > 0) {
+        countdown = setInterval(updateTimer, 1000);
+    }
+
 })();
 </script>
 

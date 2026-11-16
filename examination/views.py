@@ -17,7 +17,7 @@ from .models import (
     GeneratedPaper,
 )
 
-
+from django.urls import reverse
 import json
 from decimal import Decimal
 
@@ -41,51 +41,91 @@ PAPER_PATTERN = {
 }
 
 
+
+
 @login_required
 def class_dashboard(request):
-    assigned_class = None
-    subjects = []
 
-    if not request.user.is_superuser:
-        class_access = (
-            ClassAccess.objects
-            .select_related("academic_class")
-            .filter(
-                student=request.user,
-                academic_class__is_active=True
-            )
-            .first()
-        )
-
-        if class_access:
-            assigned_class = class_access.academic_class
-            subjects = (
-                assigned_class.subjects
-                .filter(is_active=True)
-                .order_by("name")
-            )
-
-    return render(
-        request,
-        "examination/class_dashboard.html",
-        {
-            "assigned_class": assigned_class,
-            "subjects": subjects,
-        }
-    )
-
-
-@login_required
-def question_papers(request):
-    class_access = (
+    # Get all classes assigned to this student
+    class_accesses = (
         ClassAccess.objects
         .select_related("academic_class")
         .filter(
             student=request.user,
             academic_class__is_active=True
         )
-        .first()
+        .order_by("academic_class__name")
     )
+
+    # Get selected class from URL
+    selected_class_id = request.GET.get("class")
+
+    assigned_class = None
+
+    if selected_class_id:
+        assigned_access = class_accesses.filter(
+            academic_class_id=selected_class_id
+        ).first()
+
+        if not assigned_access:
+            from django.http import Http404
+            raise Http404("Class not assigned.")
+
+        assigned_class = assigned_access.academic_class
+
+    else:
+        assigned_access = class_accesses.first()
+
+        if assigned_access:
+            assigned_class = assigned_access.academic_class
+
+    # Get subjects of selected class only
+    subjects = []
+
+    if assigned_class:
+        subjects = (
+            assigned_class.subjects
+            .filter(is_active=True)
+            .order_by("name")
+        )
+
+    return render(
+        request,
+        "examination/class_dashboard.html",
+        {
+            "assigned_class": assigned_class,
+            "selected_class": assigned_class,
+            "subjects": subjects,
+        }
+    )
+
+@login_required
+def question_papers(request):
+    # Get selected class ID
+    selected_class_id = (
+        request.GET.get("class")
+        or request.POST.get("class")
+    )
+
+    if not selected_class_id:
+        messages.error(request, "Please select your class.")
+        return redirect("examination:class_dashboard")
+
+    # Verify class access
+    class_access = get_object_or_404(
+        ClassAccess.objects.select_related("academic_class"),
+        student=request.user,
+        academic_class_id=selected_class_id,
+        academic_class__is_active=True
+    )
+
+    assigned_class = class_access.academic_class
+
+    # Get only selected class subjects
+    subjects = Subject.objects.filter(
+        academic_class=assigned_class,
+        is_active=True
+    ).order_by("name")
 
     if not class_access:
         messages.error(request, "Tumhala class assign kelela nahi.")
@@ -199,6 +239,7 @@ def question_papers(request):
         "examination/question_papers.html",
         {
             "assigned_class": assigned_class,
+            "selected_class": assigned_class,
             "subjects": subjects,
             "selected_subject": selected_subject,
             "selected_marks": selected_marks,
@@ -283,29 +324,47 @@ Marks must be between 0 and {question.marks}.
 
 
 
+
 @login_required
 def take_paper(request, paper_id):
 
     paper = get_object_or_404(
-        GeneratedPaper.objects.select_related("exam", "exam__subject"),
+        GeneratedPaper.objects.select_related(
+            "exam",
+            "exam__subject",
+            "exam__subject__academic_class"
+        ),
         id=paper_id,
         student=request.user
     )
 
+    # Verify student has access to this academic class
+    assigned_class = paper.exam.subject.academic_class
+
+    get_object_or_404(
+        ClassAccess,
+        student=request.user,
+        academic_class=assigned_class,
+        academic_class__is_active=True
+    )
+
     # Already submitted paper: show existing result
     if paper.status != "in_progress":
+
         result = ExamResult.objects.filter(
             generated_paper=paper
         ).first()
 
         if result:
             return redirect(
-                "examination:result_detail",
-                result_id=result.id
+                f"{reverse('examination:result_detail', kwargs={'result_id': result.id})}?class={assigned_class.id}"
             )
 
         messages.info(request, "This paper is already closed.")
-        return redirect("examination:question_papers")
+
+        return redirect(
+            f"{reverse('examination:question_papers')}?class={assigned_class.id}"
+        )
 
     now = timezone.now()
 
@@ -325,35 +384,58 @@ def take_paper(request, paper_id):
     ]
 
     if len(ordered_questions) != len(paper.selected_question_ids):
+
         messages.error(request, "Paper questions could not be loaded.")
-        return redirect("examination:question_papers")
+
+        return redirect(
+            f"{reverse('examination:question_papers')}?class={assigned_class.id}"
+        )
 
     if request.method == "POST":
 
         try:
             with transaction.atomic():
 
-                # Lock paper to prevent simultaneous duplicate submissions
+                # Lock paper to prevent duplicate submissions
                 paper = (
                     GeneratedPaper.objects
                     .select_for_update()
-                    .select_related("exam", "exam__subject")
-                    .get(id=paper_id, student=request.user)
+                    .select_related(
+                        "exam",
+                        "exam__subject",
+                        "exam__subject__academic_class"
+                    )
+                    .get(
+                        id=paper_id,
+                        student=request.user
+                    )
+                )
+
+                # Verify class access again
+                assigned_class = paper.exam.subject.academic_class
+
+                get_object_or_404(
+                    ClassAccess,
+                    student=request.user,
+                    academic_class=assigned_class,
+                    academic_class__is_active=True
                 )
 
                 # Check status again after acquiring lock
                 if paper.status != "in_progress":
+
                     result = ExamResult.objects.filter(
                         generated_paper=paper
                     ).first()
 
                     if result:
                         return redirect(
-                            "examination:result_detail",
-                            result_id=result.id
+                            f"{reverse('examination:result_detail', kwargs={'result_id': result.id})}?class={assigned_class.id}"
                         )
 
-                    return redirect("examination:question_papers")
+                    return redirect(
+                        f"{reverse('examination:question_papers')}?class={assigned_class.id}"
+                    )
 
                 total_score = Decimal("0.00")
 
@@ -366,6 +448,7 @@ def take_paper(request, paper_id):
                     if question.question_type == "mcq":
 
                         if answer:
+
                             correct = MCQOption.objects.filter(
                                 id=answer,
                                 question=question,
@@ -376,6 +459,7 @@ def take_paper(request, paper_id):
                                 total_score += Decimal("1.00")
 
                     else:
+
                         marks = evaluate_written_answer(
                             question,
                             answer
@@ -408,13 +492,13 @@ def take_paper(request, paper_id):
                     status="pending"
                 )
 
-            # Redirect only after transaction succeeds
+            # Redirect after transaction succeeds
             return redirect(
-                "examination:result_detail",
-                result_id=result.id
+                f"{reverse('examination:result_detail', kwargs={'result_id': result.id})}?class={assigned_class.id}"
             )
 
         except Exception as e:
+
             import traceback
 
             print("\n========== EXAM SUBMISSION ERROR ==========")
@@ -429,7 +513,9 @@ def take_paper(request, paper_id):
 
             remaining_seconds = max(
                 0,
-                int((paper.expires_at - timezone.now()).total_seconds())
+                int(
+                    (paper.expires_at - timezone.now()).total_seconds()
+                )
             )
 
             return render(
@@ -439,6 +525,8 @@ def take_paper(request, paper_id):
                     "paper": paper,
                     "questions": ordered_questions,
                     "remaining_seconds": remaining_seconds,
+                    "assigned_class": assigned_class,
+                    "selected_class": assigned_class,
                 }
             )
 
@@ -453,7 +541,10 @@ def take_paper(request, paper_id):
         )
 
         messages.warning(request, "Exam time is over.")
-        return redirect("examination:question_papers")
+
+        return redirect(
+            f"{reverse('examination:question_papers')}?class={assigned_class.id}"
+        )
 
     remaining_seconds = max(
         0,
@@ -467,6 +558,9 @@ def take_paper(request, paper_id):
             "paper": paper,
             "questions": ordered_questions,
             "remaining_seconds": remaining_seconds,
+            "assigned_class": assigned_class,
+            "selected_class": assigned_class,
+            
         }
     )
 
@@ -498,16 +592,39 @@ def result_detail(request, result_id):
             "result": result,
             "exam": exam,
             "percentage": round(percentage, 2),
+            "assigned_class": exam.subject.academic_class,
+            "selected_class": exam.subject.academic_class,
         }
     )
     
     
+
 @login_required
 def my_results(request):
 
+    # Get selected class ID
+    selected_class_id = request.GET.get("class")
+
+    if not selected_class_id:
+        return redirect("examination:class_dashboard")
+
+    # Verify student's class access
+    class_access = get_object_or_404(
+        ClassAccess.objects.select_related("academic_class"),
+        student=request.user,
+        academic_class_id=selected_class_id,
+        academic_class__is_active=True
+    )
+
+    assigned_class = class_access.academic_class
+
+    # Get results of selected class only
     results = (
         ExamResult.objects
-        .filter(generated_paper__student=request.user)
+        .filter(
+            generated_paper__student=request.user,
+            generated_paper__exam__subject__academic_class=assigned_class
+        )
         .select_related(
             "generated_paper",
             "generated_paper__exam",
@@ -534,6 +651,8 @@ def my_results(request):
         request,
         "examination/my_results.html",
         {
+            "assigned_class": assigned_class,
+            "selected_class": assigned_class,
             "results": results,
             "total_exams": total_exams,
             "approved_count": approved_count,
@@ -550,32 +669,33 @@ from django.db.models import Q
 from .models import ClassAccess, Subject, ExamResult
 
 
+
 @login_required
 def class_ranking(request):
 
-    # 1. Get student's assigned class
-    class_access = (
-        ClassAccess.objects
-        .select_related("academic_class")
-        .filter(
-            student=request.user,
-            academic_class__is_active=True
-        )
-        .first()
-    )
+    # 1. Get selected class ID
+    selected_class_id = request.GET.get("class")
 
-    if not class_access:
+    if not selected_class_id:
         return redirect("examination:class_dashboard")
+
+    # 2. Verify student class access
+    class_access = get_object_or_404(
+        ClassAccess.objects.select_related("academic_class"),
+        student=request.user,
+        academic_class_id=selected_class_id,
+        academic_class__is_active=True
+    )
 
     assigned_class = class_access.academic_class
 
-    # 2. Get active subjects
+    # 3. Get active subjects
     subjects = Subject.objects.filter(
         academic_class=assigned_class,
         is_active=True
     ).order_by("name")
 
-    # 3. Read ranking filter
+    # 4. Read ranking filter
     ranking_type = request.GET.get("type", "overall")
     subject_id = request.GET.get("subject", "")
 
@@ -589,18 +709,18 @@ def class_ranking(request):
     if ranking_type == "subject" and not selected_subject:
         ranking_type = "overall"
 
-    # 4. Get all students assigned to this class
+    # 5. Get students assigned to selected class
     student_ids = list(
         ClassAccess.objects.filter(
             academic_class=assigned_class
         ).values_list("student_id", flat=True)
     )
 
-    # 5. Get approved results only
+    # 6. Get approved results of selected class only
     all_results = (
         ExamResult.objects.filter(
             generated_paper__student_id__in=student_ids,
-            generated_paper__exam__subject__academic_class=assigned_class
+            generated_paper__exam__subject__academic_class=assigned_class,
         ).select_related(
             "generated_paper__student",
             "generated_paper__exam__subject"
@@ -612,7 +732,7 @@ def class_ranking(request):
             generated_paper__exam__subject=selected_subject
         )
 
-    # 6. Calculate each student's best percentage
+    # 7. Calculate each student's best percentage
     student_subject_best = {}
 
     for result in all_results:
@@ -637,7 +757,7 @@ def class_ranking(request):
         ):
             student_subject_best[key] = percentage
 
-    # 7. Prepare student ranking scores
+    # 8. Prepare student ranking scores
     student_scores = {}
 
     for (student_id, subject_id), percentage in student_subject_best.items():
@@ -671,7 +791,7 @@ def class_ranking(request):
             "percentage": round(final_percentage, 2)
         })
 
-    # 8. Sort highest percentage first
+    # 9. Sort highest percentage first
     ranking_data.sort(
         key=lambda item: (
             -item["percentage"],
@@ -679,7 +799,7 @@ def class_ranking(request):
         )
     )
 
-    # 9. Add rank with equal marks receiving equal rank
+    # 10. Add rank with equal marks receiving equal rank
     previous_percentage = None
     current_rank = 0
 
@@ -691,7 +811,7 @@ def class_ranking(request):
         item["rank"] = current_rank
         previous_percentage = item["percentage"]
 
-    # 10. Get student objects
+    # 11. Get student objects
     from django.contrib.auth import get_user_model
 
     User = get_user_model()
@@ -703,6 +823,7 @@ def class_ranking(request):
     students = User.objects.in_bulk(ranked_student_ids)
 
     for item in ranking_data:
+
         student = students.get(item["student_id"])
 
         item["student"] = student
@@ -714,11 +835,11 @@ def class_ranking(request):
                 or getattr(student, "full_name", "")
                 or getattr(student, "display_name", "")
                 or "Student"
-            ) if student else "Student"
+            )
         else:
             item["student_name"] = "Student"
 
-    # 11. Top 3 and Top 50
+    # 12. Top 3 and Top 50
     top_three = ranking_data[:3]
     top_fifty = ranking_data[:50]
 
@@ -737,4 +858,3 @@ def class_ranking(request):
         "examination/class_ranking.html",
         context
     )
-

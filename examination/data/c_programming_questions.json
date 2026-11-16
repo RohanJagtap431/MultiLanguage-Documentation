@@ -1,2027 +1,461 @@
 {
-  "subject": "C Programming Sem-I Unit-II",
+  "subject": "Web Technology – Semester III (Unit I)",
   "questions": [
     {
-      "topic": "Decision Making Statements",
-      "question_text": "In C programming, what is the main purpose of control statements?",
+      "topic": "Introduction to Internet",
+      "question_text": "What is the Internet?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "Store data permanently",
-          "is_correct": false
-        },
-        {
-          "option_text": "Create arrays only",
-          "is_correct": true
-        },
-        {
-          "option_text": "Control the flow or order of program execution",
-          "is_correct": false
-        },
-        {
-          "option_text": "Define functions",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "Control the flow or order of program execution",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "Control the flow or order of program execution"
-      }
-    },
-    {
-      "topic": "Decision Making Statements",
-      "question_text": "Normally, in which order are statements executed in a C program?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "From bottom to top",
-          "is_correct": false
-        },
-        {
-          "option_text": "Randomly",
-          "is_correct": false
-        },
-        {
-          "option_text": "From top to bottom",
-          "is_correct": true
-        },
-        {
-          "option_text": "Only inside loops",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "From top to bottom",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "From top to bottom"
-      }
-    },
-    {
-      "topic": "Decision Making Statements",
-      "question_text": "Which type of control statement is used to select a block of code based on a condition?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "Jump statements",
-          "is_correct": false
-        },
-        {
-          "option_text": "Decision-making statements",
-          "is_correct": true
-        },
-        {
-          "option_text": "Array statements",
-          "is_correct": false
-        },
-        {
-          "option_text": "String statements",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "Decision-making statements",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "Decision-making statements"
-      }
-    },
-    {
-      "topic": "Decision Making Statements",
-      "question_text": "Which type of control statement is used to execute a block repeatedly?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "Looping statements",
-          "is_correct": true
-        },
-        {
-          "option_text": "Decision-making statements",
-          "is_correct": false
-        },
-        {
-          "option_text": "Declaration statements",
-          "is_correct": false
-        },
-        {
-          "option_text": "Input statements",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "Looping statements",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "Looping statements"
-      }
-    },
-    {
-      "topic": "Decision Making Statements",
-      "question_text": "Which type of control statement transfers control from one part of a program to another?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "Looping statements",
-          "is_correct": false
-        },
-        {
-          "option_text": "Decision-making statements",
-          "is_correct": false
-        },
-        {
-          "option_text": "Jump statements",
-          "is_correct": true
-        },
-        {
-          "option_text": "Array statements",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "Jump statements",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "Jump statements"
-      }
-    },
-    {
-      "topic": "Decision Making Statements",
-      "question_text": "Which of the following is a conditional statement in C?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "while statement",
-          "is_correct": false
-        },
-        {
-          "option_text": "if statement",
-          "is_correct": true
-        },
-        {
-          "option_text": "continue statement",
-          "is_correct": false
-        },
-        {
-          "option_text": "goto statement",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "if statement",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "if statement"
-      }
-    },
-    {
-      "topic": "Decision Making Statements",
-      "question_text": "How many types of conditional statements are listed in the notes?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "Two",
-          "is_correct": false
-        },
-        {
-          "option_text": "Three",
-          "is_correct": false
-        },
-        {
-          "option_text": "Four",
-          "is_correct": false
-        },
-        {
-          "option_text": "Five",
-          "is_correct": true
-        }
-      ],
-      "answer_key": {
-        "model_answer": "Five",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "Five"
-      }
-    },
-    {
-      "topic": "Decision Making Statements",
-      "question_text": "Which statement executes a block when its condition is true?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "if statement",
-          "is_correct": true
-        },
-        {
-          "option_text": "switch statement",
-          "is_correct": false
-        },
-        {
-          "option_text": "goto statement",
-          "is_correct": false
-        },
-        {
-          "option_text": "continue statement",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "if statement",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "if statement"
-      }
-    },
-    {
-      "topic": "Decision Making Statements",
-      "question_text": "What happens when the condition of an if statement is false?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "The if block executes",
-          "is_correct": false
-        },
-        {
-          "option_text": "The program always stops",
-          "is_correct": false
-        },
-        {
-          "option_text": "The if block is not executed",
-          "is_correct": true
-        },
-        {
-          "option_text": "The loop repeats",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "The if block is not executed",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "The if block is not executed"
-      }
-    },
-    {
-      "topic": "Decision Making Statements",
-      "question_text": "Which statement provides two choices based on a condition?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "if statement",
-          "is_correct": false
-        },
-        {
-          "option_text": "if-else statement",
-          "is_correct": true
-        },
-        {
-          "option_text": "while statement",
-          "is_correct": false
-        },
-        {
-          "option_text": "for statement",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "if-else statement",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "if-else statement"
-      }
-    },
-    {
-      "topic": "Decision Making Statements",
-      "question_text": "In an if-else statement, which block executes when the condition is false?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "if block",
-          "is_correct": false
-        },
-        {
-          "option_text": "switch block",
-          "is_correct": false
-        },
-        {
-          "option_text": "else block",
-          "is_correct": true
-        },
-        {
-          "option_text": "default loop",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "else block",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "else block"
-      }
-    },
-    {
-      "topic": "Decision Making Statements",
-      "question_text": "Which construct is used when multiple conditions need to be checked?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "Nested if",
-          "is_correct": false
-        },
-        {
-          "option_text": "else-if ladder",
-          "is_correct": true
-        },
-        {
-          "option_text": "while loop",
-          "is_correct": false
-        },
-        {
-          "option_text": "break statement",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "else-if ladder",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "else-if ladder"
-      }
-    },
-    {
-      "topic": "Decision Making Statements",
-      "question_text": "In an else-if ladder, in which order are conditions checked?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "From bottom to top",
-          "is_correct": false
-        },
-        {
-          "option_text": "From top to bottom",
-          "is_correct": true
-        },
-        {
-          "option_text": "Randomly",
-          "is_correct": false
-        },
-        {
-          "option_text": "All at the same time",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "From top to bottom",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "From top to bottom"
-      }
-    },
-    {
-      "topic": "Decision Making Statements",
-      "question_text": "In an else-if ladder, what happens when a true condition is found?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "All blocks execute",
-          "is_correct": false
-        },
-        {
-          "option_text": "Its block is executed",
-          "is_correct": true
-        },
-        {
-          "option_text": "The program restarts",
-          "is_correct": false
-        },
-        {
-          "option_text": "The default block always executes",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "Its block is executed",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "Its block is executed"
-      }
-    },
-    {
-      "topic": "Decision Making Statements",
-      "question_text": "What is a nested if statement?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "An if statement placed inside another if statement",
-          "is_correct": true
-        },
-        {
-          "option_text": "An if statement inside an array",
-          "is_correct": false
-        },
-        {
-          "option_text": "A loop inside switch only",
-          "is_correct": false
-        },
-        {
-          "option_text": "A function without a condition",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "An if statement placed inside another if statement",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "An if statement placed inside another if statement"
-      }
-    },
-    {
-      "topic": "Decision Making Statements",
-      "question_text": "Which statement selects one block from multiple choices based on an expression value?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "if statement",
-          "is_correct": false
-        },
-        {
-          "option_text": "while statement",
-          "is_correct": false
-        },
-        {
-          "option_text": "switch statement",
-          "is_correct": true
-        },
-        {
-          "option_text": "continue statement",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "switch statement",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "switch statement"
-      }
-    },
-    {
-      "topic": "Decision Making Statements",
-      "question_text": "In a switch statement, which keyword introduces a choice value?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "option",
-          "is_correct": false
-        },
-        {
-          "option_text": "case",
-          "is_correct": true
-        },
-        {
-          "option_text": "select",
-          "is_correct": false
-        },
-        {
-          "option_text": "value",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "case",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "case"
-      }
-    },
-    {
-      "topic": "Decision Making Statements",
-      "question_text": "Which keyword is used for the fallback block in a switch statement?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "else",
-          "is_correct": false
-        },
-        {
-          "option_text": "otherwise",
-          "is_correct": false
-        },
-        {
-          "option_text": "default",
-          "is_correct": true
-        },
-        {
-          "option_text": "break",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "default",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "default"
-      }
-    },
-    {
-      "topic": "Decision Making Statements",
-      "question_text": "Which statement is commonly shown after a case block to stop execution from falling through?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "continue",
-          "is_correct": false
-        },
-        {
-          "option_text": "break",
-          "is_correct": true
-        },
-        {
-          "option_text": "goto",
-          "is_correct": false
-        },
-        {
-          "option_text": "return",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "break",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "break"
-      }
-    },
-    {
-      "topic": "Decision Making Statements",
-      "question_text": "In the notes, the switch expression is compared with what?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "Array indexes",
-          "is_correct": false
-        },
-        {
-          "option_text": "Case values",
-          "is_correct": true
-        },
-        {
-          "option_text": "String lengths",
-          "is_correct": false
-        },
-        {
-          "option_text": "Loop counters",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "Case values",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "Case values"
-      }
-    },
-    {
-      "topic": "Looping Statements",
-      "question_text": "What is the purpose of looping statements?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "Execute a block of statements repeatedly",
-          "is_correct": true
-        },
-        {
-          "option_text": "Declare a variable",
-          "is_correct": false
-        },
-        {
-          "option_text": "Compare two strings",
-          "is_correct": false
-        },
-        {
-          "option_text": "Create a function",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "Execute a block of statements repeatedly",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "Execute a block of statements repeatedly"
-      }
-    },
-    {
-      "topic": "Looping Statements",
-      "question_text": "Looping statements are also called what?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "Decision statements",
-          "is_correct": false
-        },
-        {
-          "option_text": "Iteration statements",
-          "is_correct": true
-        },
-        {
-          "option_text": "Jump labels",
-          "is_correct": false
-        },
-        {
-          "option_text": "Array statements",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "Iteration statements",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "Iteration statements"
-      }
-    },
-    {
-      "topic": "Looping Statements",
-      "question_text": "How many main types of loops are listed in the notes?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "One",
-          "is_correct": false
-        },
-        {
-          "option_text": "Two",
-          "is_correct": false
-        },
-        {
-          "option_text": "Three",
-          "is_correct": true
-        },
-        {
-          "option_text": "Four",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "Three",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "Three"
-      }
-    },
-    {
-      "topic": "Looping Statements",
-      "question_text": "Which of the following is a main looping statement in C?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "switch statement",
-          "is_correct": false
-        },
-        {
-          "option_text": "while loop",
-          "is_correct": true
-        },
-        {
-          "option_text": "break statement",
-          "is_correct": false
-        },
-        {
-          "option_text": "if-else statement",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "while loop",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "while loop"
-      }
-    },
-    {
-      "topic": "Looping Statements",
-      "question_text": "Which loop checks the condition before executing its statements?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "do-while loop",
-          "is_correct": false
-        },
-        {
-          "option_text": "while loop",
-          "is_correct": true
-        },
-        {
-          "option_text": "goto statement",
-          "is_correct": false
-        },
-        {
-          "option_text": "switch statement",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "while loop",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "while loop"
-      }
-    },
-    {
-      "topic": "Looping Statements",
-      "question_text": "When does a while loop execute its body?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "Only when condition is false",
-          "is_correct": false
-        },
-        {
-          "option_text": "While its condition is true",
-          "is_correct": true
-        },
-        {
-          "option_text": "Exactly once in all cases",
-          "is_correct": false
-        },
-        {
-          "option_text": "Only after a switch",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "While its condition is true",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "While its condition is true"
-      }
-    },
-    {
-      "topic": "Looping Statements",
-      "question_text": "Which loop checks its condition after executing the loop body?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "for loop",
-          "is_correct": false
-        },
-        {
-          "option_text": "while loop",
-          "is_correct": false
-        },
-        {
-          "option_text": "do-while loop",
-          "is_correct": true
-        },
-        {
-          "option_text": "nested if",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "do-while loop",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "do-while loop"
-      }
-    },
-    {
-      "topic": "Looping Statements",
-      "question_text": "Why does a do-while loop execute its statements at least once?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "It has no condition",
-          "is_correct": false
-        },
-        {
-          "option_text": "The condition is checked after the loop body",
-          "is_correct": true
-        },
-        {
-          "option_text": "It always has five iterations",
-          "is_correct": false
-        },
-        {
-          "option_text": "It uses a switch statement",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "The condition is checked after the loop body",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "The condition is checked after the loop body"
-      }
-    },
-    {
-      "topic": "Looping Statements",
-      "question_text": "Which keyword begins the body of a do-while loop?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "while",
-          "is_correct": false
-        },
-        {
-          "option_text": "for",
-          "is_correct": false
-        },
-        {
-          "option_text": "do",
-          "is_correct": true
-        },
-        {
-          "option_text": "repeat",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "do",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "do"
-      }
-    },
-    {
-      "topic": "Looping Statements",
-      "question_text": "Which loop is commonly used when the number of repetitions is known?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "while loop",
-          "is_correct": false
-        },
-        {
-          "option_text": "do-while loop",
-          "is_correct": false
-        },
-        {
-          "option_text": "for loop",
-          "is_correct": true
-        },
-        {
-          "option_text": "switch statement",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "for loop",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "for loop"
-      }
-    },
-    {
-      "topic": "Looping Statements",
-      "question_text": "Which parts appear in the for-loop header shown in the notes?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "Input, output, return",
-          "is_correct": false
-        },
-        {
-          "option_text": "Initialization, condition, increment/decrement",
-          "is_correct": true
-        },
-        {
-          "option_text": "Case, default, break",
-          "is_correct": false
-        },
-        {
-          "option_text": "Start, stop, print",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "Initialization, condition, increment/decrement",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "Initialization, condition, increment/decrement"
-      }
-    },
-    {
-      "topic": "Looping Statements",
-      "question_text": "Which loop uses three expressions in its header in the given syntax?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "while loop",
-          "is_correct": false
-        },
-        {
-          "option_text": "do-while loop",
-          "is_correct": false
-        },
-        {
-          "option_text": "for loop",
-          "is_correct": true
-        },
-        {
-          "option_text": "if statement",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "for loop",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "for loop"
-      }
-    },
-    {
-      "topic": "Looping Statements",
-      "question_text": "In the example `while (i <= 5)`, what is checked before each iteration?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "Whether i is equal to 0",
-          "is_correct": false
-        },
-        {
-          "option_text": "Whether i is less than or equal to 5",
-          "is_correct": true
-        },
-        {
-          "option_text": "Whether i is greater than 5",
-          "is_correct": false
-        },
-        {
-          "option_text": "Whether i is a string",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "Whether i is less than or equal to 5",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "Whether i is less than or equal to 5"
-      }
-    },
-    {
-      "topic": "Looping Statements",
-      "question_text": "In the example `for (int i = 1; i <= 5; i++)`, what does `i++` represent?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "Initialization",
-          "is_correct": false
-        },
-        {
-          "option_text": "Condition",
-          "is_correct": false
-        },
-        {
-          "option_text": "Increment",
-          "is_correct": true
-        },
-        {
-          "option_text": "Declaration of an array",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "Increment",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "Increment"
-      }
-    },
-    {
-      "topic": "Looping Statements",
-      "question_text": "Which loop syntax ends with a semicolon after the condition in the notes?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "for loop",
-          "is_correct": false
-        },
-        {
-          "option_text": "while loop",
-          "is_correct": false
-        },
-        {
-          "option_text": "do-while loop",
-          "is_correct": true
-        },
-        {
-          "option_text": "if-else",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "do-while loop",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "do-while loop"
-      }
-    },
-    {
-      "topic": "Loop Control Statements",
-      "question_text": "What is the purpose of loop control statements?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "Declare arrays",
-          "is_correct": false
-        },
-        {
-          "option_text": "Change the normal flow of a loop",
-          "is_correct": true
-        },
-        {
-          "option_text": "Join strings",
-          "is_correct": false
-        },
-        {
-          "option_text": "Define data types",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "Change the normal flow of a loop",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "Change the normal flow of a loop"
-      }
-    },
-    {
-      "topic": "Loop Control Statements",
-      "question_text": "Which of the following is listed as a loop control statement?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "printf",
-          "is_correct": false
-        },
-        {
-          "option_text": "break",
-          "is_correct": true
-        },
-        {
-          "option_text": "strlen",
-          "is_correct": false
-        },
-        {
-          "option_text": "switch",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "break",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "break"
-      }
-    },
-    {
-      "topic": "Loop Control Statements",
-      "question_text": "Which three loop control statements are listed in the notes?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "if, else, switch",
-          "is_correct": false
-        },
-        {
-          "option_text": "while, do, for",
-          "is_correct": false
-        },
-        {
-          "option_text": "break, continue, goto",
-          "is_correct": true
-        },
-        {
-          "option_text": "strlen, strcpy, strcat",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "break, continue, goto",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "break, continue, goto"
-      }
-    },
-    {
-      "topic": "Loop Control Statements",
-      "question_text": "What does the break statement do?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "Skips only the current output",
-          "is_correct": false
-        },
-        {
-          "option_text": "Immediately terminates a loop",
-          "is_correct": true
-        },
-        {
-          "option_text": "Repeats the current iteration",
-          "is_correct": false
-        },
-        {
-          "option_text": "Declares a label",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "Immediately terminates a loop",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "Immediately terminates a loop"
-      }
-    },
-    {
-      "topic": "Loop Control Statements",
-      "question_text": "After a break statement terminates a loop, where does control move?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "To the beginning of the loop",
-          "is_correct": false
-        },
-        {
-          "option_text": "To the statement following the loop",
-          "is_correct": true
-        },
-        {
-          "option_text": "To the first case in switch",
-          "is_correct": false
-        },
-        {
-          "option_text": "To the start of the program",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "To the statement following the loop",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "To the statement following the loop"
-      }
-    },
-    {
-      "topic": "Loop Control Statements",
-      "question_text": "What does continue do in a loop?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "Terminates the entire program",
-          "is_correct": false
-        },
-        {
-          "option_text": "Skips the remaining statements of the current iteration",
-          "is_correct": true
-        },
-        {
-          "option_text": "Exits the function",
-          "is_correct": false
-        },
-        {
-          "option_text": "Declares a new loop",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "Skips the remaining statements of the current iteration",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "Skips the remaining statements of the current iteration"
-      }
-    },
-    {
-      "topic": "Loop Control Statements",
-      "question_text": "After continue, what happens in the loop?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "The loop always terminates",
-          "is_correct": false
-        },
-        {
-          "option_text": "The next iteration starts",
-          "is_correct": true
-        },
-        {
-          "option_text": "The program closes",
-          "is_correct": false
-        },
-        {
-          "option_text": "The switch default executes",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "The next iteration starts",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "The next iteration starts"
-      }
-    },
-    {
-      "topic": "Loop Control Statements",
-      "question_text": "Which statement transfers control to a labeled statement within the same function?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "break",
-          "is_correct": false
-        },
-        {
-          "option_text": "continue",
-          "is_correct": false
-        },
-        {
-          "option_text": "goto",
+          "option_text": "A global network connecting computers worldwide",
           "is_correct": true
         },
-        {
-          "option_text": "case",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "goto",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "goto"
-      }
-    },
-    {
-      "topic": "Loop Control Statements",
-      "question_text": "The goto statement transfers control to which type of statement?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
         {
-          "option_text": "An array element",
+          "option_text": "A computer operating system",
           "is_correct": false
         },
         {
-          "option_text": "A labeled statement",
-          "is_correct": true
-        },
-        {
-          "option_text": "A string function",
+          "option_text": "A programming language",
           "is_correct": false
         },
         {
-          "option_text": "A default argument",
+          "option_text": "A single website",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "A labeled statement",
+        "model_answer": "A global network connecting computers worldwide",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "A labeled statement"
+        "important_keywords": "A global network connecting computers worldwide"
       }
     },
     {
-      "topic": "Loop Control Statements",
-      "question_text": "In the break example in the notes, what is printed before the loop terminates when i reaches 3?",
+      "topic": "Introduction to Internet",
+      "question_text": "Which protocol suite is commonly used for communication over the Internet?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "1 2",
+          "option_text": "TCP/IP",
           "is_correct": true
         },
         {
-          "option_text": "1 2 3",
+          "option_text": "HTML/CSS",
           "is_correct": false
         },
         {
-          "option_text": "3 4 5",
+          "option_text": "FTP/HTML",
           "is_correct": false
         },
         {
-          "option_text": "1 2 3 4 5",
+          "option_text": "USB",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "1 2",
+        "model_answer": "TCP/IP",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "1 2"
+        "important_keywords": "TCP/IP"
       }
     },
     {
-      "topic": "Loop Control Statements",
-      "question_text": "In the continue example, which value is skipped?",
+      "topic": "Introduction to Internet",
+      "question_text": "According to the notes, which organization developed the early Internet?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
-        {
-          "option_text": "1",
-          "is_correct": false
-        },
-        {
-          "option_text": "2",
-          "is_correct": false
-        },
         {
-          "option_text": "3",
+          "option_text": "DARPA",
           "is_correct": true
         },
-        {
-          "option_text": "5",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "3",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "3"
-      }
-    },
-    {
-      "topic": "Loop Control Statements",
-      "question_text": "In the continue example, what output is shown?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
         {
-          "option_text": "12345",
+          "option_text": "NASA",
           "is_correct": false
-        },
-        {
-          "option_text": "1245",
-          "is_correct": true
         },
         {
-          "option_text": "12",
+          "option_text": "WHO",
           "is_correct": false
         },
         {
-          "option_text": "345",
+          "option_text": "UNESCO",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "1245",
+        "model_answer": "DARPA",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "1245"
+        "important_keywords": "DARPA"
       }
     },
     {
-      "topic": "Loop Control Statements",
-      "question_text": "Which statement is used with a label such as `start:` in the notes?",
+      "topic": "Introduction to Internet",
+      "question_text": "In which year was the Internet first connected?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
-        {
-          "option_text": "break",
-          "is_correct": false
-        },
-        {
-          "option_text": "continue",
-          "is_correct": false
-        },
         {
-          "option_text": "goto",
+          "option_text": "1969",
           "is_correct": true
         },
-        {
-          "option_text": "switch",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "goto",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "goto"
-      }
-    },
-    {
-      "topic": "Infinite Loop",
-      "question_text": "What is an infinite loop?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
         {
-          "option_text": "A loop that runs exactly once",
+          "option_text": "1975",
           "is_correct": false
-        },
-        {
-          "option_text": "A loop that continues executing indefinitely",
-          "is_correct": true
         },
         {
-          "option_text": "A loop without a body",
+          "option_text": "1985",
           "is_correct": false
         },
         {
-          "option_text": "A loop that always prints five values",
+          "option_text": "1995",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "A loop that continues executing indefinitely",
+        "model_answer": "1969",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "A loop that continues executing indefinitely"
+        "important_keywords": "1969"
       }
     },
     {
-      "topic": "Infinite Loop",
-      "question_text": "Why can an infinite loop continue indefinitely?",
+      "topic": "Internet Services",
+      "question_text": "Which Internet service contains collections of web pages and documents?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "Its condition never becomes false",
+          "option_text": "World Wide Web",
           "is_correct": true
-        },
-        {
-          "option_text": "Its variable is always a string",
-          "is_correct": false
         },
-        {
-          "option_text": "It contains an array",
-          "is_correct": false
-        },
-        {
-          "option_text": "It has a default case",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "Its condition never becomes false",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "Its condition never becomes false"
-      }
-    },
-    {
-      "topic": "Infinite Loop",
-      "question_text": "Which value is used in the notes as the condition of an infinite while loop?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
         {
-          "option_text": "0",
+          "option_text": "FTP",
           "is_correct": false
-        },
-        {
-          "option_text": "1",
-          "is_correct": true
         },
         {
-          "option_text": "5",
+          "option_text": "SMTP",
           "is_correct": false
         },
         {
-          "option_text": "-1",
+          "option_text": "Bluetooth",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "1",
+        "model_answer": "World Wide Web",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "1"
+        "important_keywords": "World Wide Web"
       }
     },
     {
-      "topic": "Infinite Loop",
-      "question_text": "Which for-loop header is shown as an infinite loop?",
+      "topic": "Internet Services",
+      "question_text": "Which service is used to send and receive messages online?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
-        {
-          "option_text": "for (i=1; i<=5; i++)",
-          "is_correct": false
-        },
         {
-          "option_text": "for (;;)",
+          "option_text": "Email",
           "is_correct": true
-        },
-        {
-          "option_text": "for (i=0; i<0; i++)",
-          "is_correct": false
         },
-        {
-          "option_text": "for (i=1; i==0; i++)",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "for (;;)",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "for (;;)"
-      }
-    },
-    {
-      "topic": "Infinite Loop",
-      "question_text": "Which control statement is mentioned as one way to stop an infinite loop?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
         {
-          "option_text": "strlen",
+          "option_text": "Web browser",
           "is_correct": false
         },
         {
-          "option_text": "break",
-          "is_correct": true
-        },
-        {
-          "option_text": "strcpy",
+          "option_text": "CSS",
           "is_correct": false
         },
         {
-          "option_text": "case",
+          "option_text": "HTML",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "break",
+        "model_answer": "Email",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "break"
+        "important_keywords": "Email"
       }
     },
     {
-      "topic": "Infinite Loop",
-      "question_text": "In the incorrect-condition example, why does the while loop not finish?",
+      "topic": "Web Browser",
+      "question_text": "What is a web browser?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "The value of i is not updated inside the loop",
+          "option_text": "Software used to access information on the World Wide Web",
           "is_correct": true
         },
         {
-          "option_text": "The loop uses an array",
+          "option_text": "A computer used to host websites",
           "is_correct": false
         },
         {
-          "option_text": "The condition is checked after the body",
+          "option_text": "A protocol for sending email",
           "is_correct": false
         },
         {
-          "option_text": "The loop has a switch",
+          "option_text": "A database management system",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "The value of i is not updated inside the loop",
+        "model_answer": "Software used to access information on the World Wide Web",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "The value of i is not updated inside the loop"
+        "important_keywords": "Software used to access information on the World Wide Web"
       }
     },
     {
-      "topic": "Infinite Loop",
-      "question_text": "Which statement describes `while (1)` in the notes?",
+      "topic": "Web Browser",
+      "question_text": "What does a web browser do after a user requests a web page?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
-        {
-          "option_text": "A loop that runs once",
-          "is_correct": false
-        },
         {
-          "option_text": "An infinite while loop",
+          "option_text": "Fetches data from a web server and displays the page",
           "is_correct": true
-        },
-        {
-          "option_text": "A conditional statement",
-          "is_correct": false
         },
-        {
-          "option_text": "A string operation",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "An infinite while loop",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "An infinite while loop"
-      }
-    },
-    {
-      "topic": "Array Features",
-      "question_text": "What is an array?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
         {
-          "option_text": "A collection of different functions",
+          "option_text": "Compiles the HTML into an executable",
           "is_correct": false
-        },
-        {
-          "option_text": "A collection of elements of the same data type",
-          "is_correct": true
         },
         {
-          "option_text": "A single character",
+          "option_text": "Deletes the web page",
           "is_correct": false
         },
         {
-          "option_text": "A loop with an index",
+          "option_text": "Creates an IP address",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "A collection of elements of the same data type",
+        "model_answer": "Fetches data from a web server and displays the page",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "A collection of elements of the same data type"
+        "important_keywords": "Fetches data from a web server and displays the page"
       }
     },
     {
-      "topic": "Array Features",
-      "question_text": "Where are array elements stored?",
+      "topic": "Web Browser",
+      "question_text": "Which of the following is a web browser mentioned in the notes?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "In random files",
-          "is_correct": false
-        },
-        {
-          "option_text": "In contiguous memory locations",
+          "option_text": "Google Chrome",
           "is_correct": true
-        },
-        {
-          "option_text": "Only in separate functions",
-          "is_correct": false
         },
-        {
-          "option_text": "In string literals",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "In contiguous memory locations",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "In contiguous memory locations"
-      }
-    },
-    {
-      "topic": "Array Features",
-      "question_text": "How are array elements accessed?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
         {
-          "option_text": "Using a label",
+          "option_text": "MySQL",
           "is_correct": false
-        },
-        {
-          "option_text": "Using an index",
-          "is_correct": true
         },
         {
-          "option_text": "Using a case value",
+          "option_text": "Django",
           "is_correct": false
         },
         {
-          "option_text": "Using a loop name only",
+          "option_text": "Python",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "Using an index",
+        "model_answer": "Google Chrome",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "Using an index"
+        "important_keywords": "Google Chrome"
       }
     },
     {
-      "topic": "Array Features",
-      "question_text": "In C, array indexing starts from which value?",
+      "topic": "Web Browser",
+      "question_text": "What is the purpose of a browser cache?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
-        {
-          "option_text": "1",
-          "is_correct": false
-        },
         {
-          "option_text": "0",
+          "option_text": "To store data so a page can be opened again without downloading all data",
           "is_correct": true
         },
-        {
-          "option_text": "-1",
-          "is_correct": false
-        },
-        {
-          "option_text": "2",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "0",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "0"
-      }
-    },
-    {
-      "topic": "Array Features",
-      "question_text": "Which declaration is used as an example of an integer array of five elements?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
         {
-          "option_text": "char marks;",
+          "option_text": "To permanently delete browsing history",
           "is_correct": false
-        },
-        {
-          "option_text": "int marks[5];",
-          "is_correct": true
         },
         {
-          "option_text": "float marks();",
+          "option_text": "To create websites",
           "is_correct": false
         },
         {
-          "option_text": "marks int[5];",
+          "option_text": "To encrypt email messages",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "int marks[5];",
+        "model_answer": "To store data so a page can be opened again without downloading all data",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "int marks[5];"
+        "important_keywords": "To store data so a page can be opened again without downloading all data"
       }
     },
     {
-      "topic": "Array Features",
-      "question_text": "Which feature means all elements of an array must have the same data type?",
+      "topic": "Web Server",
+      "question_text": "What is a web server?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
-        {
-          "option_text": "Fixed size",
-          "is_correct": false
-        },
         {
-          "option_text": "Same data type",
+          "option_text": "A computer where web content is stored",
           "is_correct": true
-        },
-        {
-          "option_text": "Fast access",
-          "is_correct": false
         },
         {
-          "option_text": "Index-based access",
+          "option_text": "A device used only for printing",
           "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "Same data type",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "Same data type"
-      }
-    },
-    {
-      "topic": "Array Features",
-      "question_text": "What does fixed size mean for an array in the notes?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "It grows automatically every time",
-          "is_correct": false
         },
         {
-          "option_text": "Its size is normally specified when declared and cannot be changed for that array object",
-          "is_correct": true
-        },
-        {
-          "option_text": "It stores only one value",
+          "option_text": "A programming language",
           "is_correct": false
         },
         {
-          "option_text": "It has no index",
+          "option_text": "A type of browser cache",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "Its size is normally specified when declared and cannot be changed for that array object",
+        "model_answer": "A computer where web content is stored",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "Its size is normally specified when declared and cannot be changed for that array object"
+        "important_keywords": "A computer where web content is stored"
       }
     },
     {
-      "topic": "Array Features",
-      "question_text": "What is meant by contiguous memory allocation?",
+      "topic": "Web Server",
+      "question_text": "How can a web server respond to a client request?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "Elements are stored in consecutive memory locations",
+          "option_text": "By sending the requested file or generating a response using a script and database",
           "is_correct": true
-        },
-        {
-          "option_text": "Elements are stored in reverse order",
-          "is_correct": false
-        },
-        {
-          "option_text": "Each element has a different data type",
-          "is_correct": false
         },
-        {
-          "option_text": "The array has no memory",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "Array elements are stored in consecutive memory locations",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "Array elements are stored in consecutive memory locations"
-      }
-    },
-    {
-      "topic": "Array Features",
-      "question_text": "Which feature allows an element to be directly accessed by its index?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
         {
-          "option_text": "Fixed size",
+          "option_text": "Only by sending an email",
           "is_correct": false
-        },
-        {
-          "option_text": "Fast access",
-          "is_correct": true
         },
         {
-          "option_text": "Jump control",
+          "option_text": "Only by restarting the browser",
           "is_correct": false
         },
         {
-          "option_text": "String concatenation",
+          "option_text": "By changing the URL",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "Fast access",
+        "model_answer": "By sending the requested file or generating a response using a script and database",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "Fast access"
+        "important_keywords": "By sending the requested file or generating a response using a script and database"
       }
     },
     {
-      "topic": "Array Features",
-      "question_text": "Which of the following is a valid example of an array initialization from the notes?",
+      "topic": "URL",
+      "question_text": "What is the full form of URL?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "int marks = {80, 75};",
-          "is_correct": false
-        },
-        {
-          "option_text": "int marks[5] = {80, 75, 90, 85, 70};",
+          "option_text": "Uniform Resource Locator",
           "is_correct": true
-        },
-        {
-          "option_text": "array marks[5] = 80;",
-          "is_correct": false
         },
-        {
-          "option_text": "int[5] marks;",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "int marks[5] = {80, 75, 90, 85, 70};",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "int marks[5] = {80, 75, 90, 85, 70};"
-      }
-    },
-    {
-      "topic": "Types of Arrays",
-      "question_text": "How are arrays classified in the notes?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
         {
-          "option_text": "According to the variable name",
+          "option_text": "Universal Record Link",
           "is_correct": false
-        },
-        {
-          "option_text": "According to the number of dimensions",
-          "is_correct": true
         },
         {
-          "option_text": "According to the loop type",
+          "option_text": "Uniform Reading Language",
           "is_correct": false
         },
         {
-          "option_text": "According to the string length",
+          "option_text": "United Resource List",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "According to the number of dimensions",
+        "model_answer": "Uniform Resource Locator",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "According to the number of dimensions"
+        "important_keywords": "Uniform Resource Locator"
       }
     },
     {
-      "topic": "Types of Arrays",
-      "question_text": "How many indices are required to access an element in a one-dimensional array?",
+      "topic": "URL",
+      "question_text": "What is the main purpose of a URL?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "One",
+          "option_text": "To address or locate a resource on the web",
           "is_correct": true
-        },
-        {
-          "option_text": "Two",
-          "is_correct": false
         },
-        {
-          "option_text": "Three",
-          "is_correct": false
-        },
-        {
-          "option_text": "Four",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "One",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "One"
-      }
-    },
-    {
-      "topic": "Types of Arrays",
-      "question_text": "Which syntax is shown for declaring a one-dimensional array?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
         {
-          "option_text": "data_type array_name[rows][columns];",
+          "option_text": "To style a web page",
           "is_correct": false
-        },
-        {
-          "option_text": "data_type array_name[size];",
-          "is_correct": true
         },
         {
-          "option_text": "array_name data_type(size);",
+          "option_text": "To send email",
           "is_correct": false
         },
         {
-          "option_text": "data_type[size] array_name;",
+          "option_text": "To store passwords",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "data_type array_name[size];",
+        "model_answer": "To address or locate a resource on the web",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "data_type array_name[size];"
+        "important_keywords": "To address or locate a resource on the web"
       }
     },
     {
-      "topic": "Types of Arrays",
-      "question_text": "Which declaration is a one-dimensional array?",
+      "topic": "URL",
+      "question_text": "Which part of a URL specifies the type of Internet service?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "int a[5];",
+          "option_text": "Scheme",
           "is_correct": true
         },
         {
-          "option_text": "int a[2][3];",
+          "option_text": "Filename",
           "is_correct": false
         },
         {
-          "option_text": "int a[2][3][4];",
+          "option_text": "Path",
           "is_correct": false
         },
         {
-          "option_text": "int a;",
+          "option_text": "Port",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "int a[5];",
+        "model_answer": "Scheme",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "int a[5];"
+        "important_keywords": "Scheme"
       }
     },
     {
-      "topic": "Types of Arrays",
-      "question_text": "In `int marks[5] = {80, 75, 90, 85, 70};`, what is the value of marks[0]?",
+      "topic": "URL",
+      "question_text": "What is the default port for HTTP mentioned in the notes?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
-        {
-          "option_text": "75",
-          "is_correct": false
-        },
         {
           "option_text": "80",
           "is_correct": true
         },
         {
-          "option_text": "90",
+          "option_text": "21",
           "is_correct": false
         },
         {
-          "option_text": "70",
+          "option_text": "25",
+          "is_correct": false
+        },
+        {
+          "option_text": "443",
           "is_correct": false
         }
       ],
@@ -2032,873 +466,989 @@
       }
     },
     {
-      "topic": "Types of Arrays",
-      "question_text": "In the given marks array, what is the value of marks[4]?",
+      "topic": "URI",
+      "question_text": "What is the full form of URI?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
+        {
+          "option_text": "Uniform Resource Identifier",
+          "is_correct": true
+        },
+        {
+          "option_text": "Universal Resource Internet",
+          "is_correct": false
+        },
+        {
+          "option_text": "Uniform Routing Information",
+          "is_correct": false
+        },
+        {
+          "option_text": "Unified Resource Index",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "Uniform Resource Identifier",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "Uniform Resource Identifier"
+      }
+    },
+    {
+      "topic": "URI and URL",
+      "question_text": "Which statement about URI and URL is correct?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "Every URL is a URI, but not every URI is a URL",
+          "is_correct": true
+        },
+        {
+          "option_text": "Every URI is a URL",
+          "is_correct": false
+        },
+        {
+          "option_text": "URI and URL are unrelated",
+          "is_correct": false
+        },
+        {
+          "option_text": "A URL identifies only people",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "Every URL is a URI, but not every URI is a URL",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "Every URL is a URI, but not every URI is a URL"
+      }
+    },
+    {
+      "topic": "HTTP",
+      "question_text": "What is the full form of HTTP?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "HyperText Transfer Protocol",
+          "is_correct": true
+        },
+        {
+          "option_text": "High Text Transfer Program",
+          "is_correct": false
+        },
+        {
+          "option_text": "Hyperlink Transmission Process",
+          "is_correct": false
+        },
+        {
+          "option_text": "Host Transfer Text Protocol",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "HyperText Transfer Protocol",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "HyperText Transfer Protocol"
+      }
+    },
+    {
+      "topic": "HTTP",
+      "question_text": "What is HTTP used for?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "Accessing and transferring data on the World Wide Web",
+          "is_correct": true
+        },
+        {
+          "option_text": "Creating database tables",
+          "is_correct": false
+        },
+        {
+          "option_text": "Formatting text in HTML",
+          "is_correct": false
+        },
+        {
+          "option_text": "Sending SMS messages",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "Accessing and transferring data on the World Wide Web",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "Accessing and transferring data on the World Wide Web"
+      }
+    },
+    {
+      "topic": "HTTP Features",
+      "question_text": "Why is HTTP called stateless?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "The client and server do not retain information between separate requests by default",
+          "is_correct": true
+        },
+        {
+          "option_text": "It cannot transfer images",
+          "is_correct": false
+        },
+        {
+          "option_text": "It works without a server",
+          "is_correct": false
+        },
+        {
+          "option_text": "It stores every request permanently",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "The client and server do not retain information between separate requests by default",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "The client and server do not retain information between separate requests by default"
+      }
+    },
+    {
+      "topic": "HTTP Features",
+      "question_text": "What does media independent mean in HTTP?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "It can transfer different types of data when both sides know how to handle them",
+          "is_correct": true
+        },
+        {
+          "option_text": "It transfers only text",
+          "is_correct": false
+        },
+        {
+          "option_text": "It works only with audio",
+          "is_correct": false
+        },
+        {
+          "option_text": "It cannot transfer files",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "It can transfer different types of data when both sides know how to handle them",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "It can transfer different types of data when both sides know how to handle them"
+      }
+    },
+    {
+      "topic": "HTTP Transaction",
+      "question_text": "What does a client send to a server to begin an HTTP transaction?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "Request message",
+          "is_correct": true
+        },
+        {
+          "option_text": "CSS file",
+          "is_correct": false
+        },
+        {
+          "option_text": "Database table",
+          "is_correct": false
+        },
+        {
+          "option_text": "Email attachment",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "Request message",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "Request message"
+      }
+    },
+    {
+      "topic": "SMTP",
+      "question_text": "What is the full form of SMTP?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "Simple Mail Transfer Protocol",
+          "is_correct": true
+        },
+        {
+          "option_text": "Secure Message Text Program",
+          "is_correct": false
+        },
+        {
+          "option_text": "Standard Mail Transfer Process",
+          "is_correct": false
+        },
+        {
+          "option_text": "Simple Media Transfer Protocol",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "Simple Mail Transfer Protocol",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "Simple Mail Transfer Protocol"
+      }
+    },
+    {
+      "topic": "SMTP",
+      "question_text": "What is the main purpose of SMTP?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "Sending email messages",
+          "is_correct": true
+        },
+        {
+          "option_text": "Displaying web pages",
+          "is_correct": false
+        },
+        {
+          "option_text": "Transferring web page styles",
+          "is_correct": false
+        },
+        {
+          "option_text": "Creating hyperlinks",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "Sending email messages",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "Sending email messages"
+      }
+    },
+    {
+      "topic": "SMTP Components",
+      "question_text": "Which component prepares the email message and envelope?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "User Agent (UA)",
+          "is_correct": true
+        },
+        {
+          "option_text": "Mail Transfer Agent (MTA)",
+          "is_correct": false
+        },
+        {
+          "option_text": "Web server",
+          "is_correct": false
+        },
+        {
+          "option_text": "Browser cache",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "User Agent (UA)",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "User Agent (UA)"
+      }
+    },
+    {
+      "topic": "SMTP Components",
+      "question_text": "Which component transfers email across the Internet?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "Mail Transfer Agent (MTA)",
+          "is_correct": true
+        },
+        {
+          "option_text": "User Agent (UA)",
+          "is_correct": false
+        },
+        {
+          "option_text": "HTML parser",
+          "is_correct": false
+        },
+        {
+          "option_text": "CSS selector",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "Mail Transfer Agent (MTA)",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "Mail Transfer Agent (MTA)"
+      }
+    },
+    {
+      "topic": "SMTP Working",
+      "question_text": "Which TCP port is mentioned for SMTP submission in the notes?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "25",
+          "is_correct": true
+        },
         {
           "option_text": "80",
           "is_correct": false
         },
         {
-          "option_text": "75",
+          "option_text": "21",
           "is_correct": false
         },
         {
-          "option_text": "85",
+          "option_text": "110",
           "is_correct": false
-        },
-        {
-          "option_text": "70",
-          "is_correct": true
         }
       ],
       "answer_key": {
-        "model_answer": "70",
+        "model_answer": "25",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "70"
+        "important_keywords": "25"
       }
     },
     {
-      "topic": "Types of Arrays",
-      "question_text": "What is a two-dimensional array arranged as?",
+      "topic": "SMTP Working",
+      "question_text": "What are the two main parts of an email message mentioned in the notes?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "A single list only",
-          "is_correct": false
-        },
-        {
-          "option_text": "Rows and columns",
+          "option_text": "Header and body",
           "is_correct": true
         },
         {
-          "option_text": "Only characters",
+          "option_text": "URL and URI",
           "is_correct": false
         },
         {
-          "option_text": "A sequence of functions",
+          "option_text": "Request and response",
+          "is_correct": false
+        },
+        {
+          "option_text": "HTML and CSS",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "Rows and columns",
+        "model_answer": "Header and body",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "Rows and columns"
+        "important_keywords": "Header and body"
       }
     },
     {
-      "topic": "Types of Arrays",
-      "question_text": "How many indices are required to access an element in a two-dimensional array?",
+      "topic": "SMTP Working",
+      "question_text": "What does an MX record help an MTA find?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "One",
-          "is_correct": false
-        },
-        {
-          "option_text": "Two",
+          "option_text": "The target mail domain/server",
           "is_correct": true
         },
         {
-          "option_text": "Three",
+          "option_text": "The browser version",
           "is_correct": false
         },
         {
-          "option_text": "Four",
+          "option_text": "The HTML title",
+          "is_correct": false
+        },
+        {
+          "option_text": "The CSS file size",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "Two",
+        "model_answer": "The target mail domain/server",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "Two"
+        "important_keywords": "The target mail domain/server"
       }
     },
     {
-      "topic": "Types of Arrays",
-      "question_text": "Which syntax is shown for a two-dimensional array?",
+      "topic": "FTP",
+      "question_text": "What is the full form of FTP?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "data_type array_name[size];",
-          "is_correct": false
-        },
-        {
-          "option_text": "data_type array_name[rows][columns];",
+          "option_text": "File Transfer Protocol",
           "is_correct": true
         },
         {
-          "option_text": "data_type array_name[size1][size2][size3];",
+          "option_text": "Fast Text Program",
           "is_correct": false
         },
         {
-          "option_text": "array_type name;",
+          "option_text": "File Tracking Process",
+          "is_correct": false
+        },
+        {
+          "option_text": "Folder Transfer Program",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "data_type array_name[rows][columns];",
+        "model_answer": "File Transfer Protocol",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "data_type array_name[rows][columns];"
+        "important_keywords": "File Transfer Protocol"
       }
     },
     {
-      "topic": "Types of Arrays",
-      "question_text": "Which declaration is a two-dimensional array?",
+      "topic": "FTP",
+      "question_text": "What is FTP mainly used for?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "int a[5];",
-          "is_correct": false
-        },
-        {
-          "option_text": "int matrix[3][3];",
+          "option_text": "Transferring files from one host to another",
           "is_correct": true
         },
         {
-          "option_text": "int a[2][3][4];",
+          "option_text": "Styling web pages",
           "is_correct": false
         },
         {
-          "option_text": "int matrix;",
+          "option_text": "Sending instant messages",
+          "is_correct": false
+        },
+        {
+          "option_text": "Displaying HTML headings",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "int matrix[3][3];",
+        "model_answer": "Transferring files from one host to another",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "int matrix[3][3];"
+        "important_keywords": "Transferring files from one host to another"
       }
     },
     {
-      "topic": "Types of Arrays",
-      "question_text": "A two-dimensional array is commonly used to represent what?",
+      "topic": "FTP Advantages",
+      "question_text": "Which is an advantage of FTP listed in the notes?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "A single character",
-          "is_correct": false
-        },
-        {
-          "option_text": "A matrix or table",
+          "option_text": "Fast file transfer",
           "is_correct": true
         },
         {
-          "option_text": "A loop condition",
+          "option_text": "It always encrypts every transfer",
           "is_correct": false
         },
         {
-          "option_text": "A string length",
+          "option_text": "It works without authentication",
+          "is_correct": false
+        },
+        {
+          "option_text": "It cannot transfer large files",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "A matrix or table",
+        "model_answer": "Fast file transfer",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "A matrix or table"
+        "important_keywords": "Fast file transfer"
       }
     },
     {
-      "topic": "Types of Arrays",
-      "question_text": "In the matrix example, what is the value of matrix[1][2]?",
+      "topic": "HTML",
+      "question_text": "What is the full form of HTML?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "1",
-          "is_correct": false
-        },
-        {
-          "option_text": "3",
-          "is_correct": false
-        },
-        {
-          "option_text": "5",
-          "is_correct": false
-        },
-        {
-          "option_text": "6",
+          "option_text": "HyperText Markup Language",
           "is_correct": true
+        },
+        {
+          "option_text": "HighText Machine Language",
+          "is_correct": false
+        },
+        {
+          "option_text": "Hyper Transfer Markup Link",
+          "is_correct": false
+        },
+        {
+          "option_text": "Hyper Tool Multi Language",
+          "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "6",
+        "model_answer": "HyperText Markup Language",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "6"
+        "important_keywords": "HyperText Markup Language"
       }
     },
     {
-      "topic": "Types of Arrays",
-      "question_text": "What is a multidimensional array according to the notes?",
+      "topic": "HTML",
+      "question_text": "What is HTML used for?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "An array with one index",
-          "is_correct": false
-        },
-        {
-          "option_text": "An array having more than two dimensions",
+          "option_text": "Creating web pages and web applications",
           "is_correct": true
         },
         {
-          "option_text": "An array with different data types",
+          "option_text": "Managing computer hardware",
           "is_correct": false
         },
         {
-          "option_text": "An array without a size",
+          "option_text": "Sending email between servers",
+          "is_correct": false
+        },
+        {
+          "option_text": "Creating operating systems",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "An array having more than two dimensions",
+        "model_answer": "Creating web pages and web applications",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "An array having more than two dimensions"
+        "important_keywords": "Creating web pages and web applications"
       }
     },
     {
-      "topic": "Types of Arrays",
-      "question_text": "Which declaration is shown as an example of a three-dimensional array?",
+      "topic": "HTML Concepts",
+      "question_text": "What does HyperText mean?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "int a[5];",
-          "is_correct": false
-        },
-        {
-          "option_text": "int a[2][3];",
-          "is_correct": false
-        },
-        {
-          "option_text": "int a[2][3][4];",
+          "option_text": "Text containing links to other text or pages",
           "is_correct": true
         },
         {
-          "option_text": "int a;",
+          "option_text": "Text written only in bold",
+          "is_correct": false
+        },
+        {
+          "option_text": "Text without formatting",
+          "is_correct": false
+        },
+        {
+          "option_text": "Text stored in a database",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "int a[2][3][4];",
+        "model_answer": "Text containing links to other text or pages",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "int a[2][3][4];"
+        "important_keywords": "Text containing links to other text or pages"
       }
     },
     {
-      "topic": "Types of Arrays",
-      "question_text": "A multidimensional array can be used when data needs to be organized in how many dimensions?",
+      "topic": "HTML Concepts",
+      "question_text": "What is a markup language used for?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "Only one dimension",
-          "is_correct": false
-        },
-        {
-          "option_text": "Only two dimensions",
-          "is_correct": false
-        },
-        {
-          "option_text": "More than two dimensions",
+          "option_text": "Applying layout and formatting conventions to a text document",
           "is_correct": true
         },
         {
-          "option_text": "No dimensions",
+          "option_text": "Transferring files between computers",
+          "is_correct": false
+        },
+        {
+          "option_text": "Assigning IP addresses",
+          "is_correct": false
+        },
+        {
+          "option_text": "Managing email accounts",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "More than two dimensions",
+        "model_answer": "Applying layout and formatting conventions to a text document",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "More than two dimensions"
+        "important_keywords": "Applying layout and formatting conventions to a text document"
       }
     },
     {
-      "topic": "Predefined String Functions",
-      "question_text": "Which header file is mentioned for predefined string functions?",
+      "topic": "HTML Structure",
+      "question_text": "Which declaration tells the browser the document type or HTML version?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "stdio.h",
-          "is_correct": false
-        },
-        {
-          "option_text": "stdlib.h",
-          "is_correct": false
-        },
-        {
-          "option_text": "string.h",
+          "option_text": "<!DOCTYPE html>",
           "is_correct": true
         },
         {
-          "option_text": "math.h",
+          "option_text": "<body>",
+          "is_correct": false
+        },
+        {
+          "option_text": "<title>",
+          "is_correct": false
+        },
+        {
+          "option_text": "<p>",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "string.h",
+        "model_answer": "<!DOCTYPE html>",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "string.h"
+        "important_keywords": "<!DOCTYPE html>"
       }
     },
     {
-      "topic": "Predefined String Functions",
-      "question_text": "What is a string in C?",
+      "topic": "HTML Structure",
+      "question_text": "Which HTML element contains metadata about the document?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "A sequence of integers",
-          "is_correct": false
-        },
-        {
-          "option_text": "A sequence of characters terminated by the null character",
+          "option_text": "<head>",
           "is_correct": true
         },
         {
-          "option_text": "An array of floats",
+          "option_text": "<body>",
           "is_correct": false
         },
         {
-          "option_text": "A loop of characters",
+          "option_text": "<footer>",
+          "is_correct": false
+        },
+        {
+          "option_text": "<h1>",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "A sequence of characters terminated by the null character",
+        "model_answer": "<head>",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "A sequence of characters terminated by the null character"
+        "important_keywords": "<head>"
       }
     },
     {
-      "topic": "Predefined String Functions",
-      "question_text": "Which special character terminates a string in C?",
+      "topic": "HTML Structure",
+      "question_text": "Which element contains the visible main content of an HTML page?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "\\n",
-          "is_correct": false
-        },
-        {
-          "option_text": "\\t",
-          "is_correct": false
-        },
-        {
-          "option_text": "\\0",
+          "option_text": "<body>",
           "is_correct": true
         },
         {
-          "option_text": "\\b",
+          "option_text": "<head>",
+          "is_correct": false
+        },
+        {
+          "option_text": "<title>",
+          "is_correct": false
+        },
+        {
+          "option_text": "<meta>",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "\\0",
+        "model_answer": "<body>",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "\\0"
+        "important_keywords": "<body>"
       }
     },
     {
-      "topic": "Predefined String Functions",
-      "question_text": "Which function finds the length of a string?",
+      "topic": "HTML Tags",
+      "question_text": "Which tag defines the largest or first-level heading?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "strcpy()",
-          "is_correct": false
-        },
-        {
-          "option_text": "strlen()",
+          "option_text": "<h1>",
           "is_correct": true
         },
         {
-          "option_text": "strcat()",
+          "option_text": "<p>",
           "is_correct": false
         },
         {
-          "option_text": "strcmp()",
+          "option_text": "<a>",
+          "is_correct": false
+        },
+        {
+          "option_text": "<small>",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "strlen()",
+        "model_answer": "<h1>",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "strlen()"
+        "important_keywords": "<h1>"
       }
     },
     {
-      "topic": "Predefined String Functions",
-      "question_text": "Does strlen() include the null character in its returned length?",
+      "topic": "HTML Tags",
+      "question_text": "Which tag is used to define a paragraph?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "Yes",
-          "is_correct": false
-        },
-        {
-          "option_text": "No",
+          "option_text": "<p>",
           "is_correct": true
         },
         {
-          "option_text": "Only for empty strings",
+          "option_text": "<br>",
           "is_correct": false
         },
         {
-          "option_text": "Only for arrays",
+          "option_text": "<div>",
+          "is_correct": false
+        },
+        {
+          "option_text": "<span>",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "No",
+        "model_answer": "<p>",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "No"
+        "important_keywords": "<p>"
       }
     },
     {
-      "topic": "Predefined String Functions",
-      "question_text": "What does strlen(\"Hello\") return?",
+      "topic": "HTML Formatting",
+      "question_text": "Which HTML tag is a physical tag used to display text in bold?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "4",
-          "is_correct": false
-        },
-        {
-          "option_text": "5",
+          "option_text": "<b>",
           "is_correct": true
         },
         {
-          "option_text": "6",
+          "option_text": "<strong>",
           "is_correct": false
         },
         {
-          "option_text": "0",
+          "option_text": "<em>",
+          "is_correct": false
+        },
+        {
+          "option_text": "<i>",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "5",
+        "model_answer": "<b>",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "5"
+        "important_keywords": "<b>"
       }
     },
     {
-      "topic": "Predefined String Functions",
-      "question_text": "Which function copies one string into another?",
+      "topic": "HTML Formatting",
+      "question_text": "Which tag indicates that the enclosed text is important?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "strcat()",
-          "is_correct": false
-        },
-        {
-          "option_text": "strcpy()",
+          "option_text": "<strong>",
           "is_correct": true
         },
         {
-          "option_text": "strcmp()",
+          "option_text": "<b>",
           "is_correct": false
         },
         {
-          "option_text": "strstr()",
+          "option_text": "<u>",
+          "is_correct": false
+        },
+        {
+          "option_text": "<small>",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "strcpy()",
+        "model_answer": "<strong>",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "strcpy()"
+        "important_keywords": "<strong>"
       }
     },
     {
-      "topic": "Predefined String Functions",
-      "question_text": "In strcpy(destination, source), which string is copied?",
+      "topic": "HTML Links",
+      "question_text": "Which HTML tag defines a hyperlink?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "Destination is copied into source",
-          "is_correct": false
-        },
-        {
-          "option_text": "The source string is copied into the destination",
+          "option_text": "<a>",
           "is_correct": true
         },
         {
-          "option_text": "Both strings are compared",
+          "option_text": "<linktext>",
           "is_correct": false
         },
         {
-          "option_text": "The strings are joined",
+          "option_text": "<href>",
+          "is_correct": false
+        },
+        {
+          "option_text": "<url>",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "The source string is copied into the destination",
+        "model_answer": "<a>",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "The source string is copied into the destination"
+        "important_keywords": "<a>"
       }
     },
     {
-      "topic": "Predefined String Functions",
-      "question_text": "Which function joins two strings?",
+      "topic": "HTML Links",
+      "question_text": "Which attribute of the <a> element specifies the link destination?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "strlen()",
-          "is_correct": false
-        },
-        {
-          "option_text": "strchr()",
-          "is_correct": false
-        },
-        {
-          "option_text": "strcat()",
+          "option_text": "href",
           "is_correct": true
         },
         {
-          "option_text": "strcmp()",
+          "option_text": "src",
+          "is_correct": false
+        },
+        {
+          "option_text": "alt",
+          "is_correct": false
+        },
+        {
+          "option_text": "class",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "strcat()",
+        "model_answer": "href",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "strcat()"
+        "important_keywords": "href"
       }
     },
     {
-      "topic": "Predefined String Functions",
-      "question_text": "In strcat(destination, source), where is the source string appended?",
+      "topic": "HTML Elements",
+      "question_text": "Which tag is an inline container used to mark up part of text or a document?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "To the source string",
-          "is_correct": false
-        },
-        {
-          "option_text": "To the destination string",
+          "option_text": "<span>",
           "is_correct": true
         },
         {
-          "option_text": "To the header file",
+          "option_text": "<div>",
           "is_correct": false
         },
         {
-          "option_text": "To the null character only",
+          "option_text": "<table>",
+          "is_correct": false
+        },
+        {
+          "option_text": "<section>",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "To the destination string",
+        "model_answer": "<span>",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "To the destination string"
+        "important_keywords": "<span>"
       }
     },
     {
-      "topic": "Predefined String Functions",
-      "question_text": "Which function compares two strings?",
+      "topic": "HTML Elements",
+      "question_text": "What is the purpose of the <div> tag?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "strcpy()",
-          "is_correct": false
-        },
-        {
-          "option_text": "strcat()",
-          "is_correct": false
-        },
-        {
-          "option_text": "strcmp()",
+          "option_text": "To define a division or section in an HTML document",
           "is_correct": true
         },
         {
-          "option_text": "strlen()",
+          "option_text": "To create an email address",
+          "is_correct": false
+        },
+        {
+          "option_text": "To define a browser URL",
+          "is_correct": false
+        },
+        {
+          "option_text": "To create a numbered list only",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "strcmp()",
+        "model_answer": "To define a division or section in an HTML document",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "strcmp()"
+        "important_keywords": "To define a division or section in an HTML document"
       }
     },
     {
-      "topic": "Predefined String Functions",
-      "question_text": "What does strcmp() return when both strings are equal?",
+      "topic": "HTML Lists",
+      "question_text": "Which tag is used to create an ordered list?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "1",
-          "is_correct": false
-        },
-        {
-          "option_text": "0",
+          "option_text": "<ol>",
           "is_correct": true
         },
         {
-          "option_text": "A negative value",
+          "option_text": "<ul>",
           "is_correct": false
         },
         {
-          "option_text": "A positive value",
+          "option_text": "<li>",
+          "is_correct": false
+        },
+        {
+          "option_text": "<dl>",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "0",
+        "model_answer": "<ol>",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "0"
+        "important_keywords": "<ol>"
       }
     },
     {
-      "topic": "Predefined String Functions",
-      "question_text": "What does strcmp() return when the first string is less than the second?",
+      "topic": "CSS",
+      "question_text": "What is the main purpose of CSS?",
       "question_type": "mcq",
       "marks": 1,
       "options": [
         {
-          "option_text": "0",
-          "is_correct": false
-        },
-        {
-          "option_text": "A positive value",
-          "is_correct": false
-        },
-        {
-          "option_text": "A negative value",
+          "option_text": "To style and format the appearance of HTML elements",
           "is_correct": true
         },
         {
-          "option_text": "The string length",
+          "option_text": "To transfer email",
+          "is_correct": false
+        },
+        {
+          "option_text": "To store website files",
+          "is_correct": false
+        },
+        {
+          "option_text": "To identify Internet protocols",
           "is_correct": false
         }
       ],
       "answer_key": {
-        "model_answer": "A negative value",
+        "model_answer": "To style and format the appearance of HTML elements",
         "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "A negative value"
-      }
-    },
-    {
-      "topic": "Predefined String Functions",
-      "question_text": "What does strcmp() return when the first string is greater than the second?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "A positive value",
-          "is_correct": true
-        },
-        {
-          "option_text": "A negative value",
-          "is_correct": false
-        },
-        {
-          "option_text": "0",
-          "is_correct": false
-        },
-        {
-          "option_text": "The first character",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "A positive value",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "A positive value"
-      }
-    },
-    {
-      "topic": "Predefined String Functions",
-      "question_text": "Which function finds the first occurrence of a character in a string?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "strstr()",
-          "is_correct": false
-        },
-        {
-          "option_text": "strchr()",
-          "is_correct": true
-        },
-        {
-          "option_text": "strcpy()",
-          "is_correct": false
-        },
-        {
-          "option_text": "strcmp()",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "strchr()",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "strchr()"
-      }
-    },
-    {
-      "topic": "Predefined String Functions",
-      "question_text": "Which function searches for the first occurrence of a substring?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "strstr()",
-          "is_correct": true
-        },
-        {
-          "option_text": "strcat()",
-          "is_correct": false
-        },
-        {
-          "option_text": "strlen()",
-          "is_correct": false
-        },
-        {
-          "option_text": "strchr()",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "strstr()",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "strstr()"
-      }
-    },
-    {
-      "topic": "Predefined String Functions",
-      "question_text": "Which function is used in the example to search for character 'l' in \"Hello\"?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "strlen()",
-          "is_correct": false
-        },
-        {
-          "option_text": "strchr()",
-          "is_correct": true
-        },
-        {
-          "option_text": "strcpy()",
-          "is_correct": false
-        },
-        {
-          "option_text": "strcmp()",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "strchr()",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "strchr()"
-      }
-    },
-    {
-      "topic": "Predefined String Functions",
-      "question_text": "Which function is used in the example to search for substring \"C\"?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "strchr()",
-          "is_correct": false
-        },
-        {
-          "option_text": "strcat()",
-          "is_correct": false
-        },
-        {
-          "option_text": "strstr()",
-          "is_correct": true
-        },
-        {
-          "option_text": "strlen()",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "strstr()",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "strstr()"
-      }
-    },
-    {
-      "topic": "Predefined String Functions",
-      "question_text": "Which of these is NOT listed among the common predefined string functions in the notes?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "strlen()",
-          "is_correct": false
-        },
-        {
-          "option_text": "strcpy()",
-          "is_correct": false
-        },
-        {
-          "option_text": "strrev()",
-          "is_correct": true
-        },
-        {
-          "option_text": "strstr()",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "strrev()",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "strrev()"
-      }
-    },
-    {
-      "topic": "Predefined String Functions",
-      "question_text": "Which function's purpose is to concatenate (join) two strings?",
-      "question_type": "mcq",
-      "marks": 1,
-      "options": [
-        {
-          "option_text": "strcmp()",
-          "is_correct": false
-        },
-        {
-          "option_text": "strcat()",
-          "is_correct": true
-        },
-        {
-          "option_text": "strchr()",
-          "is_correct": false
-        },
-        {
-          "option_text": "strlen()",
-          "is_correct": false
-        }
-      ],
-      "answer_key": {
-        "model_answer": "strcat()",
-        "marking_rubric": "Award 1 mark for selecting the correct option.",
-        "important_keywords": "strcat()"
+        "important_keywords": "To style and format the appearance of HTML elements"
       }
     }
   ]

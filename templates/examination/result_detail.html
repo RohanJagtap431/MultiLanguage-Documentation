@@ -22,6 +22,10 @@
 
             <p>{{ exam.subject.name }}</p>
 
+            {% if assigned_class %}
+                <small>{{ assigned_class.name }}</small>
+            {% endif %}
+
         </div>
 
         <hr class="exam-result-divider">
@@ -74,6 +78,11 @@
             </p>
 
             <p>
+                <strong>Subject:</strong>
+                {{ exam.subject.name }}
+            </p>
+
+            <p>
                 <strong>Submitted At:</strong>
                 {{ result.submitted_at|date:"d M Y, h:i A" }}
             </p>
@@ -87,12 +96,12 @@
 
         <div class="exam-result-actions">
 
-            <a href="{% url 'examination:question_papers' %}"
+            <a href="{% url 'examination:question_papers' %}?class={{ assigned_class.id }}"
                class="exam-btn-primary">
                 Question Papers
             </a>
 
-            <a href="{% url 'examination:class_dashboard' %}"
+            <a href="{% url 'examination:class_dashboard' %}?class={{ assigned_class.id }}"
                class="exam-btn-secondary">
                 Back to Dashboard
             </a>

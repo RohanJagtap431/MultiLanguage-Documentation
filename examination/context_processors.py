@@ -1,20 +1,26 @@
 
 def examination_context(request):
-    assigned_class = None
+
+    assigned_classes = []
 
     if request.user.is_authenticated and not request.user.is_superuser:
         from .models import ClassAccess
 
-        access = (
+        accesses = (
             ClassAccess.objects
             .select_related("academic_class")
-            .filter(student=request.user)
-            .first()
+            .filter(
+                student=request.user,
+                academic_class__is_active=True
+            )
+            .order_by("academic_class__name")
         )
 
-        if access and access.academic_class.is_active:
-            assigned_class = access.academic_class
+        assigned_classes = [
+            access.academic_class
+            for access in accesses
+        ]
 
     return {
-        "examination_class": assigned_class
+        "examination_classes": assigned_classes
     }

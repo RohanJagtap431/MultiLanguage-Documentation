@@ -29,32 +29,42 @@
 
             <p>Select your subject and paper marks to start the examination.</p>
 
-            <form method="POST">
+            <form method="POST" id="questionPaperForm">
                 {% csrf_token %}
 
+                <input type="hidden" name="class" value="{{ assigned_class.id }}">
+
+                <!-- Select Subject -->
                 <div class="exam-form-group">
+
                     <label for="subject">Select Subject</label>
 
                     <select name="subject" id="subject" required>
+
                         <option value="">-- Select Subject --</option>
 
                         {% for subject in subjects %}
                             <option
                                 value="{{ subject.id }}"
-                                {% if selected_subject == subject.id|stringformat:"s" %}selected{% endif %}
+                                {% if selected_subject and selected_subject.id == subject.id %}selected{% endif %}
                             >
                                 {{ subject.name }}
                             </option>
                         {% endfor %}
+
                     </select>
+
                 </div>
 
+                <!-- Select Paper Marks -->
                 <div class="exam-form-group">
+
                     <label>Select Paper Marks</label>
 
                     <div class="exam-marks-options">
 
                         <label class="exam-mark-option">
+
                             <input
                                 type="radio"
                                 name="marks"
@@ -62,42 +72,57 @@
                                 {% if selected_marks == "20" %}checked{% endif %}
                                 required
                             >
+
                             <span>
                                 <strong>20 Marks</strong>
                                 <small>30 Minutes</small>
                             </span>
+
                         </label>
 
                         <label class="exam-mark-option">
+
                             <input
                                 type="radio"
                                 name="marks"
                                 value="30"
                                 {% if selected_marks == "30" %}checked{% endif %}
                             >
+
                             <span>
                                 <strong>30 Marks</strong>
                                 <small>45 Minutes</small>
                             </span>
+
                         </label>
 
                         <label class="exam-mark-option">
+
                             <input
                                 type="radio"
                                 name="marks"
                                 value="40"
                                 {% if selected_marks == "40" %}checked{% endif %}
                             >
+
                             <span>
                                 <strong>40 Marks</strong>
                                 <small>60 Minutes</small>
                             </span>
+
                         </label>
 
                     </div>
+
                 </div>
 
-                <button type="submit" class="start-exam-btn">
+                <!-- Start Paper Button -->
+                <button
+                    type="submit"
+                    class="start-exam-btn"
+                    id="startExamBtn"
+                    disabled
+                >
                     Start Paper
                 </button>
 
@@ -115,7 +140,9 @@
 
 </div>
 
+
 <style>
+
 .exam-dashboard {
     max-width: 900px;
     margin: 0 auto;
@@ -175,6 +202,7 @@
     border: 1px solid #cbd5e1;
     border-radius: 10px;
     cursor: pointer;
+    transition: 0.2s;
 }
 
 .exam-mark-option:has(input:checked) {
@@ -192,21 +220,38 @@
     color: #64748b;
 }
 
+/* Start Button */
+
 .start-exam-btn {
     width: 100%;
     padding: 14px;
     border: none;
     border-radius: 8px;
-    background: #2563eb;
+    background: #94a3b8;
     color: white;
     font-size: 16px;
     font-weight: 600;
-    cursor: pointer;
+    cursor: not-allowed;
+    transition: 0.2s;
 }
 
-.start-exam-btn:hover {
+.start-exam-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.start-exam-btn:not(:disabled) {
+    background: #2563eb;
+    cursor: pointer;
+    opacity: 1;
+}
+
+.start-exam-btn:not(:disabled):hover {
     background: #1d4ed8;
 }
+
+/* Messages */
 
 .exam-message {
     padding: 12px;
@@ -224,7 +269,10 @@
     color: #166534;
 }
 
+/* Responsive */
+
 @media (max-width: 600px) {
+
     .exam-form-card {
         padding: 18px;
     }
@@ -232,7 +280,62 @@
     .exam-marks-options {
         grid-template-columns: 1fr;
     }
+
 }
+
 </style>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const subject = document.getElementById("subject");
+
+    const marks = document.querySelectorAll(
+        'input[name="marks"]'
+    );
+
+    const button = document.getElementById("startExamBtn");
+
+    const form = document.getElementById("questionPaperForm");
+
+    function checkForm() {
+
+        const subjectSelected = subject.value !== "";
+
+        const marksSelected = Array.from(marks).some(
+            function (radio) {
+                return radio.checked;
+            }
+        );
+
+        button.disabled = !(subjectSelected && marksSelected);
+
+    }
+
+    subject.addEventListener("change", checkForm);
+
+    marks.forEach(function (radio) {
+
+        radio.addEventListener("change", checkForm);
+
+    });
+
+    form.addEventListener("submit", function (event) {
+
+        checkForm();
+
+        if (button.disabled) {
+            event.preventDefault();
+        }
+
+    });
+
+    checkForm();
+
+});
+
+</script>
 
 {% endblock %}

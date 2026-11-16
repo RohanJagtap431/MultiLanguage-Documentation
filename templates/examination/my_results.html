@@ -13,10 +13,12 @@
         <div>
             <span class="my-results-label">STUDENT PORTAL</span>
             <h1>My Examination Results</h1>
-            <p>Track your examination performance and academic progress.</p>
+            <p>
+                {{ assigned_class.name }} - Track your examination performance and academic progress.
+            </p>
         </div>
 
-        <a href="{% url 'examination:question_papers' %}"
+        <a href="{% url 'examination:question_papers' %}?class={{ assigned_class.id }}"
            class="results-exam-btn">
             + Attempt New Exam
         </a>
@@ -137,7 +139,7 @@
                         </td>
 
                         <td>
-                            <a href="{% url 'examination:result_detail' result.id %}"
+                            <a href="{% url 'examination:result_detail' result.id %}?class={{ assigned_class.id }}"
                                class="result-view-btn">
                                 View Result →
                             </a>
@@ -167,7 +169,7 @@
                 Start your first exam to see your results here.
             </p>
 
-            <a href="{% url 'examination:question_papers' %}"
+            <a href="{% url 'examination:question_papers' %}?class={{ assigned_class.id }}"
                class="results-exam-btn">
                 Explore Question Papers
             </a>

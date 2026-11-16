@@ -1,224 +1,224 @@
 {
-  "subject": "C Programming Sem-I Unit-II",
+  "subject": "Web Technology – Semester III (Unit I)",
   "questions": [
     {
-      "topic": "Decision Making Statements",
-      "question_text": "Explain the different types of conditional statements in C.",
+      "topic": "Introduction to Internet",
+      "question_text": "Define the Internet. Explain its development and popular services.",
       "question_type": "long",
       "marks": 6,
       "answer_key": {
-        "model_answer": "Conditional statements include: if executes a block when a condition is true; if-else provides two choices; else-if ladder checks multiple conditions from top to bottom; nested if places one if inside another; switch selects one block based on an expression value.",
-        "marking_rubric": "Award 1 mark for each of the five correctly explained types and 1 mark for a clear introduction.",
-        "important_keywords": "if, if-else, else-if ladder, nested if, switch"
+        "model_answer": "The Internet is a global network connecting millions and billions of computers throughout the world. Users communicate through the standard Internet protocol suite TCP/IP. It uses wireless, networking and electronic technologies to exchange information. According to the notes, DARPA developed the Internet and it was connected for the first time in 1969. Popular services include the World Wide Web, email, social media, online games and software updates.",
+        "marking_rubric": "1 mark definition; 2 marks TCP/IP and technologies; 1 mark DARPA and 1969; 2 marks any four services.",
+        "important_keywords": "global network, TCP/IP, DARPA, 1969, WWW, email, social media, online games, software updates"
       }
     },
     {
-      "topic": "Decision Making Statements",
-      "question_text": "Explain the if statement with its syntax and example.",
+      "topic": "Web Browser",
+      "question_text": "What is a web browser? Explain its functions and give examples.",
       "question_type": "long",
       "marks": 6,
       "answer_key": {
-        "model_answer": "The if statement executes a block when the condition is true. Syntax: if (condition) { statement; } Example: if (age >= 18) { printf(\"Adult\"); }",
-        "marking_rubric": "1 mark definition; 2 marks syntax; 2 marks example; 1 mark explanation of true condition.",
-        "important_keywords": "if, condition, true, syntax, example"
+        "model_answer": "A web browser is a software application used to access information on the World Wide Web. When a user requests information, the browser fetches data from a web server and displays the web page. Its functions include retrieving information, visiting websites using URLs, supporting plugins, following hyperlinks, storing data in internal cache and opening multiple web pages at the same time. Examples include WorldWideWeb, Netscape Navigator, Internet Explorer, Firefox and Google Chrome.",
+        "marking_rubric": "1 mark definition; 3 marks functions; 2 marks examples.",
+        "important_keywords": "web browser, retrieve information, URL, plugins, hyperlinks, cache, multiple webpages, Chrome, Firefox"
       }
     },
     {
-      "topic": "Decision Making Statements",
-      "question_text": "Explain the if-else statement with syntax and an example.",
+      "topic": "Web Server",
+      "question_text": "Define a web server. Explain how a web server works.",
       "question_type": "long",
       "marks": 6,
       "answer_key": {
-        "model_answer": "The if-else statement provides two choices. If the condition is true, the if block executes; otherwise, the else block executes. Example: if (n % 2 == 0) { printf(\"Even\"); } else { printf(\"Odd\"); }",
-        "marking_rubric": "1 mark definition; 2 marks structure; 2 marks example; 1 mark explaining both outcomes.",
-        "important_keywords": "if-else, two choices, true, false, if block, else block"
+        "model_answer": "A web server is a computer where web content is stored. It is mainly used to host websites, but web servers can also support gaming, storage, FTP and email. A web server responds to a client request in two ways: it sends the file associated with the requested URL, or it generates a response by invoking a script and communicating with a database.",
+        "marking_rubric": "2 marks definition and uses; 2 marks sending requested file; 2 marks script and database response.",
+        "important_keywords": "web server, web content, hosting, client request, URL, script, database"
       }
     },
     {
-      "topic": "Decision Making Statements",
-      "question_text": "Explain the else-if ladder with its working and syntax.",
+      "topic": "URL",
+      "question_text": "What is a URL? Explain its syntax and all its components with an example.",
       "question_type": "long",
       "marks": 6,
       "answer_key": {
-        "model_answer": "The else-if ladder checks multiple conditions from top to bottom. When a true condition is found, its block executes. Structure: if (condition1) { statement1; } else if (condition2) { statement2; } else if (condition3) { statement3; } else { statement4; }",
-        "marking_rubric": "2 marks purpose and working; 2 marks checking order; 2 marks correct structure.",
-        "important_keywords": "multiple conditions, top to bottom, if, else if, else"
+        "model_answer": "URL stands for Uniform Resource Locator. It is used to address a document or other data on the web. Its general syntax is scheme://prefix.domain:port/path/filename. Scheme defines the Internet service such as HTTP or HTTPS. Prefix defines a domain prefix. Domain is the Internet domain name. Port is the port number at the host; HTTP commonly uses port 80 by default. Path identifies a location on the server. Filename identifies the document or resource.",
+        "marking_rubric": "1 mark definition; 1 mark syntax; 4 marks explanation of components.",
+        "important_keywords": "Uniform Resource Locator, scheme, prefix, domain, port, path, filename, HTTP"
       }
     },
     {
-      "topic": "Decision Making Statements",
-      "question_text": "Explain the nested if statement with its syntax.",
+      "topic": "URI and URL",
+      "question_text": "Define URI. Differentiate between URI and URL.",
       "question_type": "long",
       "marks": 6,
       "answer_key": {
-        "model_answer": "When one if statement is placed inside another if statement, it is called a nested if. The inner if is written inside the outer if block. Structure: if (condition1) { if (condition2) { statement; } }",
-        "marking_rubric": "2 marks definition; 2 marks outer and inner if explanation; 2 marks structure.",
-        "important_keywords": "nested if, one if inside another, outer if, inner if"
+        "model_answer": "URI stands for Uniform Resource Identifier. It is a string of characters used to identify a name or a resource. A URI identifies and distinguishes a resource by its name or location. URL stands for Uniform Resource Locator and identifies the location or address of a resource on the web. URI includes URN and URL as subsets; every URL is a URI, but every URI is not a URL. An ISBN is an example of URI, while https://www.javatpoint.com is an example of URL.",
+        "marking_rubric": "1 mark URI definition; 2 marks URI purpose and subsets; 3 marks correct differences and examples.",
+        "important_keywords": "Uniform Resource Identifier, Uniform Resource Locator, identify, location, URN, every URL is URI, ISBN"
       }
     },
     {
-      "topic": "Decision Making Statements",
-      "question_text": "Explain the switch statement with syntax and example.",
+      "topic": "HTTP",
+      "question_text": "What is HTTP? Explain its features.",
       "question_type": "long",
       "marks": 6,
       "answer_key": {
-        "model_answer": "The switch statement selects one block from multiple choices based on an expression value. It uses case labels and may include default. Example: int choice = 2; switch (choice) { case 1: printf(\"One\"); break; case 2: printf(\"Two\"); break; default: printf(\"Invalid choice\"); }",
-        "marking_rubric": "1 mark definition; 2 marks structure; 2 marks example; 1 mark explaining case, break or default.",
-        "important_keywords": "switch, expression, case, break, default"
+        "model_answer": "HTTP stands for HyperText Transfer Protocol. It is used to access data on the World Wide Web. It can transfer plain text, hypertext, audio, video and other data. Its features are: connectionless, media independent and stateless. Connectionless means the connection exists only during the current request and response. Media independent means different data can be sent if both client and server can handle it. Stateless means the client and server do not retain information between separate requests.",
+        "marking_rubric": "1 mark full form and use; 3 marks features; 2 marks explanations.",
+        "important_keywords": "HyperText Transfer Protocol, connectionless, media independent, stateless, request, response, MIME"
       }
     },
     {
-      "topic": "Looping Statements",
-      "question_text": "Explain the while loop with syntax and example.",
+      "topic": "HTTP Transaction",
+      "question_text": "Explain the HTTP transaction between a client and a server.",
       "question_type": "long",
       "marks": 6,
       "answer_key": {
-        "model_answer": "The while loop checks the condition before executing statements. Example: int i = 1; while (i <= 5) { printf(\"%d \", i); i++; } Output: 1 2 3 4 5.",
-        "marking_rubric": "2 marks working; 2 marks syntax/example; 1 mark increment; 1 mark output.",
-        "important_keywords": "while loop, condition before body, i <= 5, i++, output"
+        "model_answer": "An HTTP transaction takes place between a client and a server. First, the client initiates the transaction by sending a request message to the server. The server receives and processes the request. After processing, the server sends a response message back to the client. Thus, the main steps are request message from client and response message from server.",
+        "marking_rubric": "1 mark introduction; 2 marks client request; 2 marks server processing and response; 1 mark sequence.",
+        "important_keywords": "HTTP transaction, client, server, request message, response message"
       }
     },
     {
-      "topic": "Looping Statements",
-      "question_text": "Explain the do-while loop with syntax and example.",
+      "topic": "SMTP",
+      "question_text": "What is SMTP? Explain its purpose and components.",
       "question_type": "long",
       "marks": 6,
       "answer_key": {
-        "model_answer": "The do-while loop executes statements first and checks the condition after the body. Therefore, it executes at least once. Example: int i = 1; do { printf(\"%d \", i); i++; } while (i <= 5); Output: 1 2 3 4 5.",
-        "marking_rubric": "2 marks working; 1 mark at-least-once property; 2 marks example; 1 mark output.",
-        "important_keywords": "do-while, body first, condition after body, at least once"
+        "model_answer": "SMTP stands for Simple Mail Transfer Protocol. It is a set of communication guidelines used by software to transmit electronic mail over the Internet. It allows messages to be sent to one or more recipients and supports message content such as text, voice, video and graphics. Its two main components are User Agent (UA) and Mail Transfer Agent (MTA). The UA prepares the message and creates the envelope. The MTA transfers the mail across the Internet.",
+        "marking_rubric": "1 mark full form; 2 marks purpose; 3 marks UA and MTA.",
+        "important_keywords": "Simple Mail Transfer Protocol, email, User Agent, UA, Mail Transfer Agent, MTA, envelope"
       }
     },
     {
-      "topic": "Looping Statements",
-      "question_text": "Explain the for loop with syntax and example.",
+      "topic": "SMTP Working",
+      "question_text": "Explain the working of SMTP in detail.",
       "question_type": "long",
       "marks": 6,
       "answer_key": {
-        "model_answer": "The for loop is commonly used when the number of repetitions is known. Syntax: for (initialization; condition; increment/decrement) { statements; } Example: for (int i = 1; i <= 5; i++) { printf(\"%d \", i); }",
-        "marking_rubric": "1 mark use; 2 marks syntax and parts; 2 marks example; 1 mark explanation.",
-        "important_keywords": "for loop, known repetitions, initialization, condition, increment/decrement"
+        "model_answer": "SMTP working includes five stages. 1. Composition of mail: the user writes an email using a Mail User Agent; the message contains a header and body. 2. Submission: the mail client submits the email to the SMTP server using TCP port 25, as stated in the notes. 3. Delivery: the Mail Transfer Agent checks the recipient domain and uses the MX record in DNS to find the target domain. 4. Receipt and processing: the incoming server or Mail Delivery Agent stores the email. 5. Access and retrieval: the user retrieves the stored email using a Mail User Agent with login and password.",
+        "marking_rubric": "1 mark composition; 1 mark submission; 2 marks delivery and MX record; 1 mark receipt; 1 mark retrieval.",
+        "important_keywords": "composition, header, body, TCP port 25, MTA, MX record, DNS, MDA, MUA"
       }
     },
     {
-      "topic": "Looping Statements",
-      "question_text": "Differentiate between while, do-while and for loops.",
+      "topic": "FTP",
+      "question_text": "What is FTP? Explain its advantages and disadvantages.",
       "question_type": "long",
       "marks": 6,
       "answer_key": {
-        "model_answer": "The while loop checks the condition before its body. The do-while loop checks after its body and executes at least once. The for loop has initialization, condition and increment/decrement in its header and is commonly used when repetitions are known.",
-        "marking_rubric": "2 marks for each loop's correct working and distinction.",
-        "important_keywords": "while, before body, do-while, after body, for, initialization, condition, increment"
+        "model_answer": "FTP stands for File Transfer Protocol. It is a standard Internet protocol provided by TCP/IP and is used to transfer files from one host to another. It is used to transfer web page files to servers and download files. Advantages include speed, efficiency, login-based access using username and password, and two-way file movement. Disadvantages include that not all providers encrypt transmissions, the notes mention a 2 GB file-size limit, simultaneous transfers to multiple receivers are not supported, passwords and contents may be sent in clear text, and it is not compatible with every system.",
+        "marking_rubric": "1 mark full form and definition; 2 marks uses; 1.5 marks advantages; 1.5 marks disadvantages.",
+        "important_keywords": "File Transfer Protocol, TCP/IP, speed, efficient, username, password, encryption, clear text, 2GB"
       }
     },
     {
-      "topic": "Loop Control Statements",
-      "question_text": "Explain the break statement with an example and output.",
+      "topic": "HTML",
+      "question_text": "What is HTML? Explain HyperText, Markup Language and Web Page.",
       "question_type": "long",
       "marks": 6,
       "answer_key": {
-        "model_answer": "The break statement immediately terminates a loop and control moves to the statement following it. Example: for (int i = 1; i <= 5; i++) { if (i == 3) break; printf(\"%d \", i); } Output: 1 2.",
-        "marking_rubric": "2 marks definition/effect; 2 marks example; 1 mark termination at i==3; 1 mark output.",
-        "important_keywords": "break, immediately terminate, statement following loop, output 1 2"
+        "model_answer": "HTML stands for HyperText Markup Language. It is used to create web pages and web applications. HyperText means text containing links that connect two or more web pages. A markup language applies layout and formatting conventions to a text document and can make text interactive by turning it into images, tables and links. A web page is a document commonly written in HTML and interpreted by a web browser. HTML can be used to create static web pages.",
+        "marking_rubric": "1 mark full form and definition; 2 marks HyperText; 2 marks markup language; 1 mark web page.",
+        "important_keywords": "HyperText Markup Language, links, markup, layout, formatting, web page, browser, static"
       }
     },
     {
-      "topic": "Loop Control Statements",
-      "question_text": "Explain the continue statement with an example and output.",
+      "topic": "HTML Document Structure",
+      "question_text": "Explain the basic structure of an HTML document with the function of each tag.",
       "question_type": "long",
       "marks": 6,
       "answer_key": {
-        "model_answer": "The continue statement skips the remaining statements of the current iteration and starts the next iteration. Example: for (int i = 1; i <= 5; i++) { if (i == 3) continue; printf(\"%d \", i); } Output: 1 2 4 5.",
-        "marking_rubric": "2 marks definition; 2 marks example; 1 mark skipped iteration; 1 mark output.",
-        "important_keywords": "continue, skips remaining statements, next iteration, output 1 2 4 5"
+        "model_answer": "A basic HTML document contains <!DOCTYPE>, <html>, <head>, <title> and <body> elements. <!DOCTYPE> defines the document type or HTML version. <html> informs the browser that the document is HTML and contains the other HTML elements. <head> contains metadata. <title> sets the page title shown in the browser window or tab. <body> contains the main visible content. <h1> defines a first-level heading and <p> defines a paragraph.",
+        "marking_rubric": "1 mark structure; 1 mark DOCTYPE; 1 mark html; 1 mark head/title; 1 mark body; 1 mark h1/p.",
+        "important_keywords": "DOCTYPE, html, head, metadata, title, body, h1, paragraph"
       }
     },
     {
-      "topic": "Loop Control Statements",
-      "question_text": "Explain the goto statement with an example.",
+      "topic": "HTML Features",
+      "question_text": "Explain the important features of HTML.",
       "question_type": "long",
       "marks": 6,
       "answer_key": {
-        "model_answer": "The goto statement transfers control to a labeled statement within the same function. Example: int i = 1; start: printf(\"%d \", i); i++; if (i <= 5) goto start; Output: 1 2 3 4 5.",
-        "marking_rubric": "2 marks definition; 2 marks label and transfer; 1 mark example; 1 mark output.",
-        "important_keywords": "goto, labeled statement, same function, start label"
+        "model_answer": "HTML is easy to understand and modify. It provides formatting tags for effective presentation. It offers a flexible way to design web pages with text. The anchor tag allows links between web pages and improves browsing. HTML is platform-independent and can be displayed on Windows, Linux and Macintosh. It also supports adding graphics, videos and sound to web pages. HTML is case-insensitive, so tags can be written in uppercase or lowercase.",
+        "marking_rubric": "1 mark introduction; 5 marks any five correctly explained features.",
+        "important_keywords": "easy, formatting tags, flexible, anchor tag, platform-independent, graphics, videos, sound, case-insensitive"
       }
     },
     {
-      "topic": "Loop Control Statements",
-      "question_text": "Explain the different loop control statements in C.",
+      "topic": "HTML Formatting Tags",
+      "question_text": "Explain HTML text formatting elements with suitable examples.",
       "question_type": "long",
       "marks": 6,
       "answer_key": {
-        "model_answer": "The notes describe break, continue and goto. break immediately terminates a loop. continue skips the remaining statements of the current iteration and starts the next iteration. goto transfers control to a labeled statement within the same function.",
-        "marking_rubric": "2 marks for each correctly explained statement.",
-        "important_keywords": "break, continue, goto, terminate, skip iteration, labeled statement"
+        "model_answer": "HTML formatting elements change the appearance or meaning of text. <b> displays bold text without adding logical importance. <strong> marks important text and is generally displayed in bold. <i> displays italic text, while <em> gives emphasis and is generally displayed in italic. <u> underlines text. <small> displays smaller text. <del> represents deleted content. <s> displays text with a line through it. Examples: <b>Bold</b>, <i>Italic</i>, <u>Underline</u>.",
+        "marking_rubric": "1 mark purpose; 4 marks explanation of tags; 1 mark examples.",
+        "important_keywords": "b, strong, i, em, u, small, del, s, formatting"
       }
     },
     {
-      "topic": "Infinite Loop",
-      "question_text": "What is an infinite loop? Explain its examples in C.",
+      "topic": "HTML Hyperlinks",
+      "question_text": "What are HTML hyperlinks? Explain the anchor tag and its href attribute with an example.",
       "question_type": "long",
       "marks": 6,
       "answer_key": {
-        "model_answer": "An infinite loop continues indefinitely because its condition never becomes false. Examples: while (1) { printf(\"Hello\\n\"); } and for (;;) { printf(\"Hello\\n\"); }. An incorrect condition can also cause one, such as int i=1; while (i<=5) { printf(\"%d \",i); } when i is not updated.",
-        "marking_rubric": "2 marks definition/reason; 1.5 marks each for two examples; 1 mark for incorrect-condition example.",
-        "important_keywords": "infinite loop, condition never false, while (1), for (;;), variable not updated"
+        "model_answer": "HTML links or hyperlinks connect one resource on the web to another. The resource may be a web page, image, program, video or audio clip. The <a> tag defines a hyperlink. Its syntax is <a href=\"url\">link text</a>. The href attribute is the most important attribute because it specifies the destination of the link. The link text is visible to the reader, and clicking it opens the specified URL. Example: <a href=\"https://www.w3schools.com/\">Visit W3Schools</a>.",
+        "marking_rubric": "1 mark definition; 2 marks uses; 2 marks anchor syntax and href; 1 mark example.",
+        "important_keywords": "hyperlink, anchor tag, a, href, destination, link text, URL"
       }
     },
     {
-      "topic": "Array Features",
-      "question_text": "Define an array and explain its important features.",
+      "topic": "HTML Lists",
+      "question_text": "Explain ordered and unordered lists in HTML with tags and types.",
       "question_type": "long",
       "marks": 6,
       "answer_key": {
-        "model_answer": "An array is a collection of elements of the same data type stored in contiguous memory locations and identified by a single name. Elements are accessed using an index starting from 0. Features include same data type, fixed size, contiguous memory, index-based access, fast access and storing multiple values.",
-        "marking_rubric": "2 marks definition; up to 4 marks for correctly explaining features.",
-        "important_keywords": "same data type, contiguous memory, single name, index starts at 0, fixed size, fast access"
+        "model_answer": "HTML lists organize information in ordered or unordered form. An ordered list uses the <ol> tag and displays items in a sequence. Its type values include 1, I, i, A and a. The start attribute sets the starting value, while reversed displays items in descending order. An unordered list uses the <ul> tag and displays bullet items without a particular order. Its marker types include disc, circle, square and none. The <li> tag defines each list item.",
+        "marking_rubric": "1 mark purpose; 2 marks ordered list and types; 2 marks unordered list and types; 1 mark li tag.",
+        "important_keywords": "ordered list, ol, unordered list, ul, li, type, start, reversed, disc, circle, square"
       }
     },
     {
-      "topic": "Types of Arrays",
-      "question_text": "Explain a one-dimensional array with syntax and example.",
+      "topic": "HTML Input Tag",
+      "question_text": "What is the HTML input tag? Explain text, password and submit input types with examples.",
       "question_type": "long",
       "marks": 6,
       "answer_key": {
-        "model_answer": "A one-dimensional array has elements arranged in a single sequence and requires one index. Syntax: data_type array_name[size]; Example: int marks[5] = {80, 75, 90, 85, 70};",
-        "marking_rubric": "2 marks definition/one index; 1 mark syntax; 2 marks example; 1 mark index access.",
-        "important_keywords": "one-dimensional, single sequence, one index, syntax, marks[5]"
+        "model_answer": "The HTML <input> tag represents a form input control. It allows users to enter data and communicate with a website or application. <input type=\"text\"> creates a single-line text field. <input type=\"password\"> creates a password field in which entered characters are masked. <input type=\"submit\"> creates a button that submits form data to a form-handler. Example: <input type=\"text\" name=\"username\">, <input type=\"password\" name=\"pwd\"> and <input type=\"submit\" value=\"Submit\">.",
+        "marking_rubric": "1 mark input tag definition; 1.5 marks text; 1.5 marks password; 1.5 marks submit; 0.5 mark examples.",
+        "important_keywords": "input tag, form control, text, password, masked, submit, form-handler"
       }
     },
     {
-      "topic": "Types of Arrays",
-      "question_text": "Explain a two-dimensional array with syntax and example.",
+      "topic": "CSS",
+      "question_text": "What is CSS? Explain its uses and advantages.",
       "question_type": "long",
       "marks": 6,
       "answer_key": {
-        "model_answer": "A two-dimensional array contains rows and columns and requires two indices. It is commonly used for a matrix or table. Syntax: data_type array_name[rows][columns]; Example: int matrix[2][3] = {{1,2,3},{4,5,6}}; matrix[1][2] is 6.",
-        "marking_rubric": "2 marks definition/two indices; 1 mark syntax; 2 marks example; 1 mark element access.",
-        "important_keywords": "two-dimensional, rows, columns, two indices, matrix, table"
+        "model_answer": "CSS stands for Cascading Style Sheets. It is a style sheet language used to describe the look and formatting of a document written in a markup language. It is generally used with HTML to change the style of web pages and user interfaces. CSS solves the problem of repeating presentation code on every page, saves time because an external CSS file can style many pages, and provides more detailed styling attributes than plain HTML.",
+        "marking_rubric": "1 mark full form; 1 mark definition; 2 marks uses; 2 marks advantages.",
+        "important_keywords": "Cascading Style Sheets, styling, HTML, presentation, saves time, external CSS, attributes"
       }
     },
     {
-      "topic": "Types of Arrays",
-      "question_text": "Explain a multidimensional array with syntax and example.",
+      "topic": "CSS Syntax and Types",
+      "question_text": "Explain CSS rule-set syntax and the three types of CSS.",
       "question_type": "long",
       "marks": 6,
       "answer_key": {
-        "model_answer": "An array having more than two dimensions is called a multidimensional array. It is used when data needs to be organized in more than two dimensions. Syntax: data_type array_name[size1][size2][size3]; Example: int a[2][3][4];",
-        "marking_rubric": "2 marks definition/use; 2 marks syntax; 2 marks example.",
-        "important_keywords": "multidimensional, more than two dimensions, syntax, int a[2][3][4]"
+        "model_answer": "A CSS rule-set contains a selector and a declaration block. The selector identifies the HTML element to style. The declaration block contains one or more declarations separated by semicolons. Each declaration has a property and a value separated by a colon. Syntax: selector { property: value; }. The three types are Inline CSS, Internal CSS and External CSS. Inline CSS is written in an element's style attribute. Internal CSS is written inside the <style> tag in the head section. External CSS is stored in a separate .css file and linked to the HTML document.",
+        "marking_rubric": "1 mark rule-set; 2 marks selector/declaration/property/value; 3 marks three CSS types.",
+        "important_keywords": "selector, declaration block, property, value, inline, internal, external, style, .css"
       }
     },
     {
-      "topic": "Predefined String Functions",
-      "question_text": "What is a string in C? Explain any four predefined string functions.",
+      "topic": "CSS Selectors",
+      "question_text": "What are CSS selectors? Explain element, ID, class, universal and group selectors with examples.",
       "question_type": "long",
       "marks": 6,
       "answer_key": {
-        "model_answer": "A string in C is a sequence of characters terminated by '\\0'. Functions in string.h include strlen() to find length excluding '\\0'; strcpy() to copy a string; strcat() to append one string to another; strcmp() to compare strings, returning 0 if equal, negative if first is less, positive if first is greater.",
-        "marking_rubric": "1 mark string definition; 1 mark null character/header; 1 mark for each of four functions.",
-        "important_keywords": "string, null character, string.h, strlen, strcpy, strcat, strcmp"
+        "model_answer": "CSS selectors select HTML elements that we want to style. The element selector selects elements by tag name, for example p. The ID selector selects a unique element and uses #, for example #para1. The class selector selects elements with a given class and uses a dot, for example .center. The universal selector uses * and selects all elements. The group selector applies the same styles to multiple selectors separated by commas, for example h1, h2, p { color: blue; }.",
+        "marking_rubric": "1 mark definition; 1 mark each for five selectors and examples.",
+        "important_keywords": "CSS selector, element, ID, #, class, dot, universal, *, group selector, comma"
       }
     }
   ]
