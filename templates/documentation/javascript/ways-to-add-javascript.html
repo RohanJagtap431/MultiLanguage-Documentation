@@ -578,8 +578,9 @@ button.addEventListener("click", function() {
 
         <div class="info-box">
             <strong>Django sathi lakshat thev:</strong>
-            {% load static %} mule Django static files cha
-            path generate karte. {% static 'js/home.js' %}
+            {% templatetag openblock %} load static {% templatetag closeblock %} mule Django static files cha
+
+            {% templatetag openblock %} static 'js/home.js' {% templatetag closeblock %}
             mule browser la JavaScript file cha URL milto.
         </div>
 
