@@ -1,4 +1,6 @@
+
 {
+    "id": "/",
     "name": "MultiLanguage Documentation",
     "short_name": "ML Docs",
     "description": "Learn programming, practice coding and test your knowledge.",
@@ -6,8 +8,8 @@
     "scope": "/",
     "display": "standalone",
     "orientation": "portrait",
-    "background_color": "#0f172a",
-    "theme_color": "#0f172a",
+    "background_color": "#080F24",
+    "theme_color": "#080F24",
     "icons": [
         {
             "src": "/static/pwa/icons/icon-192.png",
