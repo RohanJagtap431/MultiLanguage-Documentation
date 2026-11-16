@@ -10,6 +10,10 @@
     <title>Register | MultiLanguage Documentation</title>
 
     <link rel="stylesheet" href="{% static 'css/auth.css' %}">
+
+
+    <link rel="manifest" href="{% static 'pwa/manifest.json' %}">
+    <meta name="theme-color" content="#080F24">
 </head>
 <body>
 
@@ -80,6 +84,18 @@
         </footer>
 
     </main>
+
+    <script>
+    if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+            navigator.serviceWorker.register(
+                "{% static 'pwa/service-worker.js' %}"
+            ).catch(function(error) {
+                console.error("Service Worker Error:", error);
+            });
+        });
+    }
+    </script>
 
 </body>
 </html>
