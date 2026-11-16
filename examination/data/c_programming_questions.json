@@ -1,0 +1,2905 @@
+{
+  "subject": "C Programming Sem-I Unit-II",
+  "questions": [
+    {
+      "topic": "Decision Making Statements",
+      "question_text": "In C programming, what is the main purpose of control statements?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "Store data permanently",
+          "is_correct": false
+        },
+        {
+          "option_text": "Create arrays only",
+          "is_correct": true
+        },
+        {
+          "option_text": "Control the flow or order of program execution",
+          "is_correct": false
+        },
+        {
+          "option_text": "Define functions",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "Control the flow or order of program execution",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "Control the flow or order of program execution"
+      }
+    },
+    {
+      "topic": "Decision Making Statements",
+      "question_text": "Normally, in which order are statements executed in a C program?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "From bottom to top",
+          "is_correct": false
+        },
+        {
+          "option_text": "Randomly",
+          "is_correct": false
+        },
+        {
+          "option_text": "From top to bottom",
+          "is_correct": true
+        },
+        {
+          "option_text": "Only inside loops",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "From top to bottom",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "From top to bottom"
+      }
+    },
+    {
+      "topic": "Decision Making Statements",
+      "question_text": "Which type of control statement is used to select a block of code based on a condition?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "Jump statements",
+          "is_correct": false
+        },
+        {
+          "option_text": "Decision-making statements",
+          "is_correct": true
+        },
+        {
+          "option_text": "Array statements",
+          "is_correct": false
+        },
+        {
+          "option_text": "String statements",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "Decision-making statements",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "Decision-making statements"
+      }
+    },
+    {
+      "topic": "Decision Making Statements",
+      "question_text": "Which type of control statement is used to execute a block repeatedly?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "Looping statements",
+          "is_correct": true
+        },
+        {
+          "option_text": "Decision-making statements",
+          "is_correct": false
+        },
+        {
+          "option_text": "Declaration statements",
+          "is_correct": false
+        },
+        {
+          "option_text": "Input statements",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "Looping statements",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "Looping statements"
+      }
+    },
+    {
+      "topic": "Decision Making Statements",
+      "question_text": "Which type of control statement transfers control from one part of a program to another?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "Looping statements",
+          "is_correct": false
+        },
+        {
+          "option_text": "Decision-making statements",
+          "is_correct": false
+        },
+        {
+          "option_text": "Jump statements",
+          "is_correct": true
+        },
+        {
+          "option_text": "Array statements",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "Jump statements",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "Jump statements"
+      }
+    },
+    {
+      "topic": "Decision Making Statements",
+      "question_text": "Which of the following is a conditional statement in C?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "while statement",
+          "is_correct": false
+        },
+        {
+          "option_text": "if statement",
+          "is_correct": true
+        },
+        {
+          "option_text": "continue statement",
+          "is_correct": false
+        },
+        {
+          "option_text": "goto statement",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "if statement",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "if statement"
+      }
+    },
+    {
+      "topic": "Decision Making Statements",
+      "question_text": "How many types of conditional statements are listed in the notes?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "Two",
+          "is_correct": false
+        },
+        {
+          "option_text": "Three",
+          "is_correct": false
+        },
+        {
+          "option_text": "Four",
+          "is_correct": false
+        },
+        {
+          "option_text": "Five",
+          "is_correct": true
+        }
+      ],
+      "answer_key": {
+        "model_answer": "Five",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "Five"
+      }
+    },
+    {
+      "topic": "Decision Making Statements",
+      "question_text": "Which statement executes a block when its condition is true?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "if statement",
+          "is_correct": true
+        },
+        {
+          "option_text": "switch statement",
+          "is_correct": false
+        },
+        {
+          "option_text": "goto statement",
+          "is_correct": false
+        },
+        {
+          "option_text": "continue statement",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "if statement",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "if statement"
+      }
+    },
+    {
+      "topic": "Decision Making Statements",
+      "question_text": "What happens when the condition of an if statement is false?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "The if block executes",
+          "is_correct": false
+        },
+        {
+          "option_text": "The program always stops",
+          "is_correct": false
+        },
+        {
+          "option_text": "The if block is not executed",
+          "is_correct": true
+        },
+        {
+          "option_text": "The loop repeats",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "The if block is not executed",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "The if block is not executed"
+      }
+    },
+    {
+      "topic": "Decision Making Statements",
+      "question_text": "Which statement provides two choices based on a condition?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "if statement",
+          "is_correct": false
+        },
+        {
+          "option_text": "if-else statement",
+          "is_correct": true
+        },
+        {
+          "option_text": "while statement",
+          "is_correct": false
+        },
+        {
+          "option_text": "for statement",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "if-else statement",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "if-else statement"
+      }
+    },
+    {
+      "topic": "Decision Making Statements",
+      "question_text": "In an if-else statement, which block executes when the condition is false?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "if block",
+          "is_correct": false
+        },
+        {
+          "option_text": "switch block",
+          "is_correct": false
+        },
+        {
+          "option_text": "else block",
+          "is_correct": true
+        },
+        {
+          "option_text": "default loop",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "else block",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "else block"
+      }
+    },
+    {
+      "topic": "Decision Making Statements",
+      "question_text": "Which construct is used when multiple conditions need to be checked?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "Nested if",
+          "is_correct": false
+        },
+        {
+          "option_text": "else-if ladder",
+          "is_correct": true
+        },
+        {
+          "option_text": "while loop",
+          "is_correct": false
+        },
+        {
+          "option_text": "break statement",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "else-if ladder",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "else-if ladder"
+      }
+    },
+    {
+      "topic": "Decision Making Statements",
+      "question_text": "In an else-if ladder, in which order are conditions checked?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "From bottom to top",
+          "is_correct": false
+        },
+        {
+          "option_text": "From top to bottom",
+          "is_correct": true
+        },
+        {
+          "option_text": "Randomly",
+          "is_correct": false
+        },
+        {
+          "option_text": "All at the same time",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "From top to bottom",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "From top to bottom"
+      }
+    },
+    {
+      "topic": "Decision Making Statements",
+      "question_text": "In an else-if ladder, what happens when a true condition is found?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "All blocks execute",
+          "is_correct": false
+        },
+        {
+          "option_text": "Its block is executed",
+          "is_correct": true
+        },
+        {
+          "option_text": "The program restarts",
+          "is_correct": false
+        },
+        {
+          "option_text": "The default block always executes",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "Its block is executed",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "Its block is executed"
+      }
+    },
+    {
+      "topic": "Decision Making Statements",
+      "question_text": "What is a nested if statement?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "An if statement placed inside another if statement",
+          "is_correct": true
+        },
+        {
+          "option_text": "An if statement inside an array",
+          "is_correct": false
+        },
+        {
+          "option_text": "A loop inside switch only",
+          "is_correct": false
+        },
+        {
+          "option_text": "A function without a condition",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "An if statement placed inside another if statement",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "An if statement placed inside another if statement"
+      }
+    },
+    {
+      "topic": "Decision Making Statements",
+      "question_text": "Which statement selects one block from multiple choices based on an expression value?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "if statement",
+          "is_correct": false
+        },
+        {
+          "option_text": "while statement",
+          "is_correct": false
+        },
+        {
+          "option_text": "switch statement",
+          "is_correct": true
+        },
+        {
+          "option_text": "continue statement",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "switch statement",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "switch statement"
+      }
+    },
+    {
+      "topic": "Decision Making Statements",
+      "question_text": "In a switch statement, which keyword introduces a choice value?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "option",
+          "is_correct": false
+        },
+        {
+          "option_text": "case",
+          "is_correct": true
+        },
+        {
+          "option_text": "select",
+          "is_correct": false
+        },
+        {
+          "option_text": "value",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "case",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "case"
+      }
+    },
+    {
+      "topic": "Decision Making Statements",
+      "question_text": "Which keyword is used for the fallback block in a switch statement?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "else",
+          "is_correct": false
+        },
+        {
+          "option_text": "otherwise",
+          "is_correct": false
+        },
+        {
+          "option_text": "default",
+          "is_correct": true
+        },
+        {
+          "option_text": "break",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "default",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "default"
+      }
+    },
+    {
+      "topic": "Decision Making Statements",
+      "question_text": "Which statement is commonly shown after a case block to stop execution from falling through?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "continue",
+          "is_correct": false
+        },
+        {
+          "option_text": "break",
+          "is_correct": true
+        },
+        {
+          "option_text": "goto",
+          "is_correct": false
+        },
+        {
+          "option_text": "return",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "break",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "break"
+      }
+    },
+    {
+      "topic": "Decision Making Statements",
+      "question_text": "In the notes, the switch expression is compared with what?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "Array indexes",
+          "is_correct": false
+        },
+        {
+          "option_text": "Case values",
+          "is_correct": true
+        },
+        {
+          "option_text": "String lengths",
+          "is_correct": false
+        },
+        {
+          "option_text": "Loop counters",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "Case values",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "Case values"
+      }
+    },
+    {
+      "topic": "Looping Statements",
+      "question_text": "What is the purpose of looping statements?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "Execute a block of statements repeatedly",
+          "is_correct": true
+        },
+        {
+          "option_text": "Declare a variable",
+          "is_correct": false
+        },
+        {
+          "option_text": "Compare two strings",
+          "is_correct": false
+        },
+        {
+          "option_text": "Create a function",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "Execute a block of statements repeatedly",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "Execute a block of statements repeatedly"
+      }
+    },
+    {
+      "topic": "Looping Statements",
+      "question_text": "Looping statements are also called what?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "Decision statements",
+          "is_correct": false
+        },
+        {
+          "option_text": "Iteration statements",
+          "is_correct": true
+        },
+        {
+          "option_text": "Jump labels",
+          "is_correct": false
+        },
+        {
+          "option_text": "Array statements",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "Iteration statements",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "Iteration statements"
+      }
+    },
+    {
+      "topic": "Looping Statements",
+      "question_text": "How many main types of loops are listed in the notes?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "One",
+          "is_correct": false
+        },
+        {
+          "option_text": "Two",
+          "is_correct": false
+        },
+        {
+          "option_text": "Three",
+          "is_correct": true
+        },
+        {
+          "option_text": "Four",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "Three",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "Three"
+      }
+    },
+    {
+      "topic": "Looping Statements",
+      "question_text": "Which of the following is a main looping statement in C?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "switch statement",
+          "is_correct": false
+        },
+        {
+          "option_text": "while loop",
+          "is_correct": true
+        },
+        {
+          "option_text": "break statement",
+          "is_correct": false
+        },
+        {
+          "option_text": "if-else statement",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "while loop",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "while loop"
+      }
+    },
+    {
+      "topic": "Looping Statements",
+      "question_text": "Which loop checks the condition before executing its statements?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "do-while loop",
+          "is_correct": false
+        },
+        {
+          "option_text": "while loop",
+          "is_correct": true
+        },
+        {
+          "option_text": "goto statement",
+          "is_correct": false
+        },
+        {
+          "option_text": "switch statement",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "while loop",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "while loop"
+      }
+    },
+    {
+      "topic": "Looping Statements",
+      "question_text": "When does a while loop execute its body?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "Only when condition is false",
+          "is_correct": false
+        },
+        {
+          "option_text": "While its condition is true",
+          "is_correct": true
+        },
+        {
+          "option_text": "Exactly once in all cases",
+          "is_correct": false
+        },
+        {
+          "option_text": "Only after a switch",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "While its condition is true",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "While its condition is true"
+      }
+    },
+    {
+      "topic": "Looping Statements",
+      "question_text": "Which loop checks its condition after executing the loop body?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "for loop",
+          "is_correct": false
+        },
+        {
+          "option_text": "while loop",
+          "is_correct": false
+        },
+        {
+          "option_text": "do-while loop",
+          "is_correct": true
+        },
+        {
+          "option_text": "nested if",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "do-while loop",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "do-while loop"
+      }
+    },
+    {
+      "topic": "Looping Statements",
+      "question_text": "Why does a do-while loop execute its statements at least once?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "It has no condition",
+          "is_correct": false
+        },
+        {
+          "option_text": "The condition is checked after the loop body",
+          "is_correct": true
+        },
+        {
+          "option_text": "It always has five iterations",
+          "is_correct": false
+        },
+        {
+          "option_text": "It uses a switch statement",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "The condition is checked after the loop body",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "The condition is checked after the loop body"
+      }
+    },
+    {
+      "topic": "Looping Statements",
+      "question_text": "Which keyword begins the body of a do-while loop?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "while",
+          "is_correct": false
+        },
+        {
+          "option_text": "for",
+          "is_correct": false
+        },
+        {
+          "option_text": "do",
+          "is_correct": true
+        },
+        {
+          "option_text": "repeat",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "do",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "do"
+      }
+    },
+    {
+      "topic": "Looping Statements",
+      "question_text": "Which loop is commonly used when the number of repetitions is known?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "while loop",
+          "is_correct": false
+        },
+        {
+          "option_text": "do-while loop",
+          "is_correct": false
+        },
+        {
+          "option_text": "for loop",
+          "is_correct": true
+        },
+        {
+          "option_text": "switch statement",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "for loop",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "for loop"
+      }
+    },
+    {
+      "topic": "Looping Statements",
+      "question_text": "Which parts appear in the for-loop header shown in the notes?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "Input, output, return",
+          "is_correct": false
+        },
+        {
+          "option_text": "Initialization, condition, increment/decrement",
+          "is_correct": true
+        },
+        {
+          "option_text": "Case, default, break",
+          "is_correct": false
+        },
+        {
+          "option_text": "Start, stop, print",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "Initialization, condition, increment/decrement",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "Initialization, condition, increment/decrement"
+      }
+    },
+    {
+      "topic": "Looping Statements",
+      "question_text": "Which loop uses three expressions in its header in the given syntax?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "while loop",
+          "is_correct": false
+        },
+        {
+          "option_text": "do-while loop",
+          "is_correct": false
+        },
+        {
+          "option_text": "for loop",
+          "is_correct": true
+        },
+        {
+          "option_text": "if statement",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "for loop",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "for loop"
+      }
+    },
+    {
+      "topic": "Looping Statements",
+      "question_text": "In the example `while (i <= 5)`, what is checked before each iteration?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "Whether i is equal to 0",
+          "is_correct": false
+        },
+        {
+          "option_text": "Whether i is less than or equal to 5",
+          "is_correct": true
+        },
+        {
+          "option_text": "Whether i is greater than 5",
+          "is_correct": false
+        },
+        {
+          "option_text": "Whether i is a string",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "Whether i is less than or equal to 5",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "Whether i is less than or equal to 5"
+      }
+    },
+    {
+      "topic": "Looping Statements",
+      "question_text": "In the example `for (int i = 1; i <= 5; i++)`, what does `i++` represent?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "Initialization",
+          "is_correct": false
+        },
+        {
+          "option_text": "Condition",
+          "is_correct": false
+        },
+        {
+          "option_text": "Increment",
+          "is_correct": true
+        },
+        {
+          "option_text": "Declaration of an array",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "Increment",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "Increment"
+      }
+    },
+    {
+      "topic": "Looping Statements",
+      "question_text": "Which loop syntax ends with a semicolon after the condition in the notes?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "for loop",
+          "is_correct": false
+        },
+        {
+          "option_text": "while loop",
+          "is_correct": false
+        },
+        {
+          "option_text": "do-while loop",
+          "is_correct": true
+        },
+        {
+          "option_text": "if-else",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "do-while loop",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "do-while loop"
+      }
+    },
+    {
+      "topic": "Loop Control Statements",
+      "question_text": "What is the purpose of loop control statements?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "Declare arrays",
+          "is_correct": false
+        },
+        {
+          "option_text": "Change the normal flow of a loop",
+          "is_correct": true
+        },
+        {
+          "option_text": "Join strings",
+          "is_correct": false
+        },
+        {
+          "option_text": "Define data types",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "Change the normal flow of a loop",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "Change the normal flow of a loop"
+      }
+    },
+    {
+      "topic": "Loop Control Statements",
+      "question_text": "Which of the following is listed as a loop control statement?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "printf",
+          "is_correct": false
+        },
+        {
+          "option_text": "break",
+          "is_correct": true
+        },
+        {
+          "option_text": "strlen",
+          "is_correct": false
+        },
+        {
+          "option_text": "switch",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "break",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "break"
+      }
+    },
+    {
+      "topic": "Loop Control Statements",
+      "question_text": "Which three loop control statements are listed in the notes?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "if, else, switch",
+          "is_correct": false
+        },
+        {
+          "option_text": "while, do, for",
+          "is_correct": false
+        },
+        {
+          "option_text": "break, continue, goto",
+          "is_correct": true
+        },
+        {
+          "option_text": "strlen, strcpy, strcat",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "break, continue, goto",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "break, continue, goto"
+      }
+    },
+    {
+      "topic": "Loop Control Statements",
+      "question_text": "What does the break statement do?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "Skips only the current output",
+          "is_correct": false
+        },
+        {
+          "option_text": "Immediately terminates a loop",
+          "is_correct": true
+        },
+        {
+          "option_text": "Repeats the current iteration",
+          "is_correct": false
+        },
+        {
+          "option_text": "Declares a label",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "Immediately terminates a loop",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "Immediately terminates a loop"
+      }
+    },
+    {
+      "topic": "Loop Control Statements",
+      "question_text": "After a break statement terminates a loop, where does control move?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "To the beginning of the loop",
+          "is_correct": false
+        },
+        {
+          "option_text": "To the statement following the loop",
+          "is_correct": true
+        },
+        {
+          "option_text": "To the first case in switch",
+          "is_correct": false
+        },
+        {
+          "option_text": "To the start of the program",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "To the statement following the loop",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "To the statement following the loop"
+      }
+    },
+    {
+      "topic": "Loop Control Statements",
+      "question_text": "What does continue do in a loop?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "Terminates the entire program",
+          "is_correct": false
+        },
+        {
+          "option_text": "Skips the remaining statements of the current iteration",
+          "is_correct": true
+        },
+        {
+          "option_text": "Exits the function",
+          "is_correct": false
+        },
+        {
+          "option_text": "Declares a new loop",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "Skips the remaining statements of the current iteration",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "Skips the remaining statements of the current iteration"
+      }
+    },
+    {
+      "topic": "Loop Control Statements",
+      "question_text": "After continue, what happens in the loop?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "The loop always terminates",
+          "is_correct": false
+        },
+        {
+          "option_text": "The next iteration starts",
+          "is_correct": true
+        },
+        {
+          "option_text": "The program closes",
+          "is_correct": false
+        },
+        {
+          "option_text": "The switch default executes",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "The next iteration starts",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "The next iteration starts"
+      }
+    },
+    {
+      "topic": "Loop Control Statements",
+      "question_text": "Which statement transfers control to a labeled statement within the same function?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "break",
+          "is_correct": false
+        },
+        {
+          "option_text": "continue",
+          "is_correct": false
+        },
+        {
+          "option_text": "goto",
+          "is_correct": true
+        },
+        {
+          "option_text": "case",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "goto",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "goto"
+      }
+    },
+    {
+      "topic": "Loop Control Statements",
+      "question_text": "The goto statement transfers control to which type of statement?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "An array element",
+          "is_correct": false
+        },
+        {
+          "option_text": "A labeled statement",
+          "is_correct": true
+        },
+        {
+          "option_text": "A string function",
+          "is_correct": false
+        },
+        {
+          "option_text": "A default argument",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "A labeled statement",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "A labeled statement"
+      }
+    },
+    {
+      "topic": "Loop Control Statements",
+      "question_text": "In the break example in the notes, what is printed before the loop terminates when i reaches 3?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "1 2",
+          "is_correct": true
+        },
+        {
+          "option_text": "1 2 3",
+          "is_correct": false
+        },
+        {
+          "option_text": "3 4 5",
+          "is_correct": false
+        },
+        {
+          "option_text": "1 2 3 4 5",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "1 2",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "1 2"
+      }
+    },
+    {
+      "topic": "Loop Control Statements",
+      "question_text": "In the continue example, which value is skipped?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "1",
+          "is_correct": false
+        },
+        {
+          "option_text": "2",
+          "is_correct": false
+        },
+        {
+          "option_text": "3",
+          "is_correct": true
+        },
+        {
+          "option_text": "5",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "3",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "3"
+      }
+    },
+    {
+      "topic": "Loop Control Statements",
+      "question_text": "In the continue example, what output is shown?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "12345",
+          "is_correct": false
+        },
+        {
+          "option_text": "1245",
+          "is_correct": true
+        },
+        {
+          "option_text": "12",
+          "is_correct": false
+        },
+        {
+          "option_text": "345",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "1245",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "1245"
+      }
+    },
+    {
+      "topic": "Loop Control Statements",
+      "question_text": "Which statement is used with a label such as `start:` in the notes?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "break",
+          "is_correct": false
+        },
+        {
+          "option_text": "continue",
+          "is_correct": false
+        },
+        {
+          "option_text": "goto",
+          "is_correct": true
+        },
+        {
+          "option_text": "switch",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "goto",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "goto"
+      }
+    },
+    {
+      "topic": "Infinite Loop",
+      "question_text": "What is an infinite loop?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "A loop that runs exactly once",
+          "is_correct": false
+        },
+        {
+          "option_text": "A loop that continues executing indefinitely",
+          "is_correct": true
+        },
+        {
+          "option_text": "A loop without a body",
+          "is_correct": false
+        },
+        {
+          "option_text": "A loop that always prints five values",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "A loop that continues executing indefinitely",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "A loop that continues executing indefinitely"
+      }
+    },
+    {
+      "topic": "Infinite Loop",
+      "question_text": "Why can an infinite loop continue indefinitely?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "Its condition never becomes false",
+          "is_correct": true
+        },
+        {
+          "option_text": "Its variable is always a string",
+          "is_correct": false
+        },
+        {
+          "option_text": "It contains an array",
+          "is_correct": false
+        },
+        {
+          "option_text": "It has a default case",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "Its condition never becomes false",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "Its condition never becomes false"
+      }
+    },
+    {
+      "topic": "Infinite Loop",
+      "question_text": "Which value is used in the notes as the condition of an infinite while loop?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "0",
+          "is_correct": false
+        },
+        {
+          "option_text": "1",
+          "is_correct": true
+        },
+        {
+          "option_text": "5",
+          "is_correct": false
+        },
+        {
+          "option_text": "-1",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "1",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "1"
+      }
+    },
+    {
+      "topic": "Infinite Loop",
+      "question_text": "Which for-loop header is shown as an infinite loop?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "for (i=1; i<=5; i++)",
+          "is_correct": false
+        },
+        {
+          "option_text": "for (;;)",
+          "is_correct": true
+        },
+        {
+          "option_text": "for (i=0; i<0; i++)",
+          "is_correct": false
+        },
+        {
+          "option_text": "for (i=1; i==0; i++)",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "for (;;)",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "for (;;)"
+      }
+    },
+    {
+      "topic": "Infinite Loop",
+      "question_text": "Which control statement is mentioned as one way to stop an infinite loop?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "strlen",
+          "is_correct": false
+        },
+        {
+          "option_text": "break",
+          "is_correct": true
+        },
+        {
+          "option_text": "strcpy",
+          "is_correct": false
+        },
+        {
+          "option_text": "case",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "break",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "break"
+      }
+    },
+    {
+      "topic": "Infinite Loop",
+      "question_text": "In the incorrect-condition example, why does the while loop not finish?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "The value of i is not updated inside the loop",
+          "is_correct": true
+        },
+        {
+          "option_text": "The loop uses an array",
+          "is_correct": false
+        },
+        {
+          "option_text": "The condition is checked after the body",
+          "is_correct": false
+        },
+        {
+          "option_text": "The loop has a switch",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "The value of i is not updated inside the loop",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "The value of i is not updated inside the loop"
+      }
+    },
+    {
+      "topic": "Infinite Loop",
+      "question_text": "Which statement describes `while (1)` in the notes?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "A loop that runs once",
+          "is_correct": false
+        },
+        {
+          "option_text": "An infinite while loop",
+          "is_correct": true
+        },
+        {
+          "option_text": "A conditional statement",
+          "is_correct": false
+        },
+        {
+          "option_text": "A string operation",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "An infinite while loop",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "An infinite while loop"
+      }
+    },
+    {
+      "topic": "Array Features",
+      "question_text": "What is an array?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "A collection of different functions",
+          "is_correct": false
+        },
+        {
+          "option_text": "A collection of elements of the same data type",
+          "is_correct": true
+        },
+        {
+          "option_text": "A single character",
+          "is_correct": false
+        },
+        {
+          "option_text": "A loop with an index",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "A collection of elements of the same data type",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "A collection of elements of the same data type"
+      }
+    },
+    {
+      "topic": "Array Features",
+      "question_text": "Where are array elements stored?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "In random files",
+          "is_correct": false
+        },
+        {
+          "option_text": "In contiguous memory locations",
+          "is_correct": true
+        },
+        {
+          "option_text": "Only in separate functions",
+          "is_correct": false
+        },
+        {
+          "option_text": "In string literals",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "In contiguous memory locations",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "In contiguous memory locations"
+      }
+    },
+    {
+      "topic": "Array Features",
+      "question_text": "How are array elements accessed?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "Using a label",
+          "is_correct": false
+        },
+        {
+          "option_text": "Using an index",
+          "is_correct": true
+        },
+        {
+          "option_text": "Using a case value",
+          "is_correct": false
+        },
+        {
+          "option_text": "Using a loop name only",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "Using an index",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "Using an index"
+      }
+    },
+    {
+      "topic": "Array Features",
+      "question_text": "In C, array indexing starts from which value?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "1",
+          "is_correct": false
+        },
+        {
+          "option_text": "0",
+          "is_correct": true
+        },
+        {
+          "option_text": "-1",
+          "is_correct": false
+        },
+        {
+          "option_text": "2",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "0",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "0"
+      }
+    },
+    {
+      "topic": "Array Features",
+      "question_text": "Which declaration is used as an example of an integer array of five elements?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "char marks;",
+          "is_correct": false
+        },
+        {
+          "option_text": "int marks[5];",
+          "is_correct": true
+        },
+        {
+          "option_text": "float marks();",
+          "is_correct": false
+        },
+        {
+          "option_text": "marks int[5];",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "int marks[5];",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "int marks[5];"
+      }
+    },
+    {
+      "topic": "Array Features",
+      "question_text": "Which feature means all elements of an array must have the same data type?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "Fixed size",
+          "is_correct": false
+        },
+        {
+          "option_text": "Same data type",
+          "is_correct": true
+        },
+        {
+          "option_text": "Fast access",
+          "is_correct": false
+        },
+        {
+          "option_text": "Index-based access",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "Same data type",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "Same data type"
+      }
+    },
+    {
+      "topic": "Array Features",
+      "question_text": "What does fixed size mean for an array in the notes?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "It grows automatically every time",
+          "is_correct": false
+        },
+        {
+          "option_text": "Its size is normally specified when declared and cannot be changed for that array object",
+          "is_correct": true
+        },
+        {
+          "option_text": "It stores only one value",
+          "is_correct": false
+        },
+        {
+          "option_text": "It has no index",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "Its size is normally specified when declared and cannot be changed for that array object",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "Its size is normally specified when declared and cannot be changed for that array object"
+      }
+    },
+    {
+      "topic": "Array Features",
+      "question_text": "What is meant by contiguous memory allocation?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "Elements are stored in consecutive memory locations",
+          "is_correct": true
+        },
+        {
+          "option_text": "Elements are stored in reverse order",
+          "is_correct": false
+        },
+        {
+          "option_text": "Each element has a different data type",
+          "is_correct": false
+        },
+        {
+          "option_text": "The array has no memory",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "Array elements are stored in consecutive memory locations",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "Array elements are stored in consecutive memory locations"
+      }
+    },
+    {
+      "topic": "Array Features",
+      "question_text": "Which feature allows an element to be directly accessed by its index?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "Fixed size",
+          "is_correct": false
+        },
+        {
+          "option_text": "Fast access",
+          "is_correct": true
+        },
+        {
+          "option_text": "Jump control",
+          "is_correct": false
+        },
+        {
+          "option_text": "String concatenation",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "Fast access",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "Fast access"
+      }
+    },
+    {
+      "topic": "Array Features",
+      "question_text": "Which of the following is a valid example of an array initialization from the notes?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "int marks = {80, 75};",
+          "is_correct": false
+        },
+        {
+          "option_text": "int marks[5] = {80, 75, 90, 85, 70};",
+          "is_correct": true
+        },
+        {
+          "option_text": "array marks[5] = 80;",
+          "is_correct": false
+        },
+        {
+          "option_text": "int[5] marks;",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "int marks[5] = {80, 75, 90, 85, 70};",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "int marks[5] = {80, 75, 90, 85, 70};"
+      }
+    },
+    {
+      "topic": "Types of Arrays",
+      "question_text": "How are arrays classified in the notes?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "According to the variable name",
+          "is_correct": false
+        },
+        {
+          "option_text": "According to the number of dimensions",
+          "is_correct": true
+        },
+        {
+          "option_text": "According to the loop type",
+          "is_correct": false
+        },
+        {
+          "option_text": "According to the string length",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "According to the number of dimensions",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "According to the number of dimensions"
+      }
+    },
+    {
+      "topic": "Types of Arrays",
+      "question_text": "How many indices are required to access an element in a one-dimensional array?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "One",
+          "is_correct": true
+        },
+        {
+          "option_text": "Two",
+          "is_correct": false
+        },
+        {
+          "option_text": "Three",
+          "is_correct": false
+        },
+        {
+          "option_text": "Four",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "One",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "One"
+      }
+    },
+    {
+      "topic": "Types of Arrays",
+      "question_text": "Which syntax is shown for declaring a one-dimensional array?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "data_type array_name[rows][columns];",
+          "is_correct": false
+        },
+        {
+          "option_text": "data_type array_name[size];",
+          "is_correct": true
+        },
+        {
+          "option_text": "array_name data_type(size);",
+          "is_correct": false
+        },
+        {
+          "option_text": "data_type[size] array_name;",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "data_type array_name[size];",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "data_type array_name[size];"
+      }
+    },
+    {
+      "topic": "Types of Arrays",
+      "question_text": "Which declaration is a one-dimensional array?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "int a[5];",
+          "is_correct": true
+        },
+        {
+          "option_text": "int a[2][3];",
+          "is_correct": false
+        },
+        {
+          "option_text": "int a[2][3][4];",
+          "is_correct": false
+        },
+        {
+          "option_text": "int a;",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "int a[5];",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "int a[5];"
+      }
+    },
+    {
+      "topic": "Types of Arrays",
+      "question_text": "In `int marks[5] = {80, 75, 90, 85, 70};`, what is the value of marks[0]?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "75",
+          "is_correct": false
+        },
+        {
+          "option_text": "80",
+          "is_correct": true
+        },
+        {
+          "option_text": "90",
+          "is_correct": false
+        },
+        {
+          "option_text": "70",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "80",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "80"
+      }
+    },
+    {
+      "topic": "Types of Arrays",
+      "question_text": "In the given marks array, what is the value of marks[4]?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "80",
+          "is_correct": false
+        },
+        {
+          "option_text": "75",
+          "is_correct": false
+        },
+        {
+          "option_text": "85",
+          "is_correct": false
+        },
+        {
+          "option_text": "70",
+          "is_correct": true
+        }
+      ],
+      "answer_key": {
+        "model_answer": "70",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "70"
+      }
+    },
+    {
+      "topic": "Types of Arrays",
+      "question_text": "What is a two-dimensional array arranged as?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "A single list only",
+          "is_correct": false
+        },
+        {
+          "option_text": "Rows and columns",
+          "is_correct": true
+        },
+        {
+          "option_text": "Only characters",
+          "is_correct": false
+        },
+        {
+          "option_text": "A sequence of functions",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "Rows and columns",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "Rows and columns"
+      }
+    },
+    {
+      "topic": "Types of Arrays",
+      "question_text": "How many indices are required to access an element in a two-dimensional array?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "One",
+          "is_correct": false
+        },
+        {
+          "option_text": "Two",
+          "is_correct": true
+        },
+        {
+          "option_text": "Three",
+          "is_correct": false
+        },
+        {
+          "option_text": "Four",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "Two",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "Two"
+      }
+    },
+    {
+      "topic": "Types of Arrays",
+      "question_text": "Which syntax is shown for a two-dimensional array?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "data_type array_name[size];",
+          "is_correct": false
+        },
+        {
+          "option_text": "data_type array_name[rows][columns];",
+          "is_correct": true
+        },
+        {
+          "option_text": "data_type array_name[size1][size2][size3];",
+          "is_correct": false
+        },
+        {
+          "option_text": "array_type name;",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "data_type array_name[rows][columns];",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "data_type array_name[rows][columns];"
+      }
+    },
+    {
+      "topic": "Types of Arrays",
+      "question_text": "Which declaration is a two-dimensional array?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "int a[5];",
+          "is_correct": false
+        },
+        {
+          "option_text": "int matrix[3][3];",
+          "is_correct": true
+        },
+        {
+          "option_text": "int a[2][3][4];",
+          "is_correct": false
+        },
+        {
+          "option_text": "int matrix;",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "int matrix[3][3];",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "int matrix[3][3];"
+      }
+    },
+    {
+      "topic": "Types of Arrays",
+      "question_text": "A two-dimensional array is commonly used to represent what?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "A single character",
+          "is_correct": false
+        },
+        {
+          "option_text": "A matrix or table",
+          "is_correct": true
+        },
+        {
+          "option_text": "A loop condition",
+          "is_correct": false
+        },
+        {
+          "option_text": "A string length",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "A matrix or table",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "A matrix or table"
+      }
+    },
+    {
+      "topic": "Types of Arrays",
+      "question_text": "In the matrix example, what is the value of matrix[1][2]?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "1",
+          "is_correct": false
+        },
+        {
+          "option_text": "3",
+          "is_correct": false
+        },
+        {
+          "option_text": "5",
+          "is_correct": false
+        },
+        {
+          "option_text": "6",
+          "is_correct": true
+        }
+      ],
+      "answer_key": {
+        "model_answer": "6",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "6"
+      }
+    },
+    {
+      "topic": "Types of Arrays",
+      "question_text": "What is a multidimensional array according to the notes?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "An array with one index",
+          "is_correct": false
+        },
+        {
+          "option_text": "An array having more than two dimensions",
+          "is_correct": true
+        },
+        {
+          "option_text": "An array with different data types",
+          "is_correct": false
+        },
+        {
+          "option_text": "An array without a size",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "An array having more than two dimensions",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "An array having more than two dimensions"
+      }
+    },
+    {
+      "topic": "Types of Arrays",
+      "question_text": "Which declaration is shown as an example of a three-dimensional array?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "int a[5];",
+          "is_correct": false
+        },
+        {
+          "option_text": "int a[2][3];",
+          "is_correct": false
+        },
+        {
+          "option_text": "int a[2][3][4];",
+          "is_correct": true
+        },
+        {
+          "option_text": "int a;",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "int a[2][3][4];",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "int a[2][3][4];"
+      }
+    },
+    {
+      "topic": "Types of Arrays",
+      "question_text": "A multidimensional array can be used when data needs to be organized in how many dimensions?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "Only one dimension",
+          "is_correct": false
+        },
+        {
+          "option_text": "Only two dimensions",
+          "is_correct": false
+        },
+        {
+          "option_text": "More than two dimensions",
+          "is_correct": true
+        },
+        {
+          "option_text": "No dimensions",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "More than two dimensions",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "More than two dimensions"
+      }
+    },
+    {
+      "topic": "Predefined String Functions",
+      "question_text": "Which header file is mentioned for predefined string functions?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "stdio.h",
+          "is_correct": false
+        },
+        {
+          "option_text": "stdlib.h",
+          "is_correct": false
+        },
+        {
+          "option_text": "string.h",
+          "is_correct": true
+        },
+        {
+          "option_text": "math.h",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "string.h",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "string.h"
+      }
+    },
+    {
+      "topic": "Predefined String Functions",
+      "question_text": "What is a string in C?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "A sequence of integers",
+          "is_correct": false
+        },
+        {
+          "option_text": "A sequence of characters terminated by the null character",
+          "is_correct": true
+        },
+        {
+          "option_text": "An array of floats",
+          "is_correct": false
+        },
+        {
+          "option_text": "A loop of characters",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "A sequence of characters terminated by the null character",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "A sequence of characters terminated by the null character"
+      }
+    },
+    {
+      "topic": "Predefined String Functions",
+      "question_text": "Which special character terminates a string in C?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "\\n",
+          "is_correct": false
+        },
+        {
+          "option_text": "\\t",
+          "is_correct": false
+        },
+        {
+          "option_text": "\\0",
+          "is_correct": true
+        },
+        {
+          "option_text": "\\b",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "\\0",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "\\0"
+      }
+    },
+    {
+      "topic": "Predefined String Functions",
+      "question_text": "Which function finds the length of a string?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "strcpy()",
+          "is_correct": false
+        },
+        {
+          "option_text": "strlen()",
+          "is_correct": true
+        },
+        {
+          "option_text": "strcat()",
+          "is_correct": false
+        },
+        {
+          "option_text": "strcmp()",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "strlen()",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "strlen()"
+      }
+    },
+    {
+      "topic": "Predefined String Functions",
+      "question_text": "Does strlen() include the null character in its returned length?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "Yes",
+          "is_correct": false
+        },
+        {
+          "option_text": "No",
+          "is_correct": true
+        },
+        {
+          "option_text": "Only for empty strings",
+          "is_correct": false
+        },
+        {
+          "option_text": "Only for arrays",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "No",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "No"
+      }
+    },
+    {
+      "topic": "Predefined String Functions",
+      "question_text": "What does strlen(\"Hello\") return?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "4",
+          "is_correct": false
+        },
+        {
+          "option_text": "5",
+          "is_correct": true
+        },
+        {
+          "option_text": "6",
+          "is_correct": false
+        },
+        {
+          "option_text": "0",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "5",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "5"
+      }
+    },
+    {
+      "topic": "Predefined String Functions",
+      "question_text": "Which function copies one string into another?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "strcat()",
+          "is_correct": false
+        },
+        {
+          "option_text": "strcpy()",
+          "is_correct": true
+        },
+        {
+          "option_text": "strcmp()",
+          "is_correct": false
+        },
+        {
+          "option_text": "strstr()",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "strcpy()",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "strcpy()"
+      }
+    },
+    {
+      "topic": "Predefined String Functions",
+      "question_text": "In strcpy(destination, source), which string is copied?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "Destination is copied into source",
+          "is_correct": false
+        },
+        {
+          "option_text": "The source string is copied into the destination",
+          "is_correct": true
+        },
+        {
+          "option_text": "Both strings are compared",
+          "is_correct": false
+        },
+        {
+          "option_text": "The strings are joined",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "The source string is copied into the destination",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "The source string is copied into the destination"
+      }
+    },
+    {
+      "topic": "Predefined String Functions",
+      "question_text": "Which function joins two strings?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "strlen()",
+          "is_correct": false
+        },
+        {
+          "option_text": "strchr()",
+          "is_correct": false
+        },
+        {
+          "option_text": "strcat()",
+          "is_correct": true
+        },
+        {
+          "option_text": "strcmp()",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "strcat()",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "strcat()"
+      }
+    },
+    {
+      "topic": "Predefined String Functions",
+      "question_text": "In strcat(destination, source), where is the source string appended?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "To the source string",
+          "is_correct": false
+        },
+        {
+          "option_text": "To the destination string",
+          "is_correct": true
+        },
+        {
+          "option_text": "To the header file",
+          "is_correct": false
+        },
+        {
+          "option_text": "To the null character only",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "To the destination string",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "To the destination string"
+      }
+    },
+    {
+      "topic": "Predefined String Functions",
+      "question_text": "Which function compares two strings?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "strcpy()",
+          "is_correct": false
+        },
+        {
+          "option_text": "strcat()",
+          "is_correct": false
+        },
+        {
+          "option_text": "strcmp()",
+          "is_correct": true
+        },
+        {
+          "option_text": "strlen()",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "strcmp()",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "strcmp()"
+      }
+    },
+    {
+      "topic": "Predefined String Functions",
+      "question_text": "What does strcmp() return when both strings are equal?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "1",
+          "is_correct": false
+        },
+        {
+          "option_text": "0",
+          "is_correct": true
+        },
+        {
+          "option_text": "A negative value",
+          "is_correct": false
+        },
+        {
+          "option_text": "A positive value",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "0",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "0"
+      }
+    },
+    {
+      "topic": "Predefined String Functions",
+      "question_text": "What does strcmp() return when the first string is less than the second?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "0",
+          "is_correct": false
+        },
+        {
+          "option_text": "A positive value",
+          "is_correct": false
+        },
+        {
+          "option_text": "A negative value",
+          "is_correct": true
+        },
+        {
+          "option_text": "The string length",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "A negative value",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "A negative value"
+      }
+    },
+    {
+      "topic": "Predefined String Functions",
+      "question_text": "What does strcmp() return when the first string is greater than the second?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "A positive value",
+          "is_correct": true
+        },
+        {
+          "option_text": "A negative value",
+          "is_correct": false
+        },
+        {
+          "option_text": "0",
+          "is_correct": false
+        },
+        {
+          "option_text": "The first character",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "A positive value",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "A positive value"
+      }
+    },
+    {
+      "topic": "Predefined String Functions",
+      "question_text": "Which function finds the first occurrence of a character in a string?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "strstr()",
+          "is_correct": false
+        },
+        {
+          "option_text": "strchr()",
+          "is_correct": true
+        },
+        {
+          "option_text": "strcpy()",
+          "is_correct": false
+        },
+        {
+          "option_text": "strcmp()",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "strchr()",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "strchr()"
+      }
+    },
+    {
+      "topic": "Predefined String Functions",
+      "question_text": "Which function searches for the first occurrence of a substring?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "strstr()",
+          "is_correct": true
+        },
+        {
+          "option_text": "strcat()",
+          "is_correct": false
+        },
+        {
+          "option_text": "strlen()",
+          "is_correct": false
+        },
+        {
+          "option_text": "strchr()",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "strstr()",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "strstr()"
+      }
+    },
+    {
+      "topic": "Predefined String Functions",
+      "question_text": "Which function is used in the example to search for character 'l' in \"Hello\"?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "strlen()",
+          "is_correct": false
+        },
+        {
+          "option_text": "strchr()",
+          "is_correct": true
+        },
+        {
+          "option_text": "strcpy()",
+          "is_correct": false
+        },
+        {
+          "option_text": "strcmp()",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "strchr()",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "strchr()"
+      }
+    },
+    {
+      "topic": "Predefined String Functions",
+      "question_text": "Which function is used in the example to search for substring \"C\"?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "strchr()",
+          "is_correct": false
+        },
+        {
+          "option_text": "strcat()",
+          "is_correct": false
+        },
+        {
+          "option_text": "strstr()",
+          "is_correct": true
+        },
+        {
+          "option_text": "strlen()",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "strstr()",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "strstr()"
+      }
+    },
+    {
+      "topic": "Predefined String Functions",
+      "question_text": "Which of these is NOT listed among the common predefined string functions in the notes?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "strlen()",
+          "is_correct": false
+        },
+        {
+          "option_text": "strcpy()",
+          "is_correct": false
+        },
+        {
+          "option_text": "strrev()",
+          "is_correct": true
+        },
+        {
+          "option_text": "strstr()",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "strrev()",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "strrev()"
+      }
+    },
+    {
+      "topic": "Predefined String Functions",
+      "question_text": "Which function's purpose is to concatenate (join) two strings?",
+      "question_type": "mcq",
+      "marks": 1,
+      "options": [
+        {
+          "option_text": "strcmp()",
+          "is_correct": false
+        },
+        {
+          "option_text": "strcat()",
+          "is_correct": true
+        },
+        {
+          "option_text": "strchr()",
+          "is_correct": false
+        },
+        {
+          "option_text": "strlen()",
+          "is_correct": false
+        }
+      ],
+      "answer_key": {
+        "model_answer": "strcat()",
+        "marking_rubric": "Award 1 mark for selecting the correct option.",
+        "important_keywords": "strcat()"
+      }
+    }
+  ]
+}

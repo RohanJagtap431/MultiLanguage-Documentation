@@ -1,0 +1,183 @@
+
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/my_results.css' %}">
+
+<div class="my-results-container">
+
+    <!-- PAGE HEADER -->
+    <div class="my-results-header">
+        <div>
+            <span class="my-results-label">STUDENT PORTAL</span>
+            <h1>My Examination Results</h1>
+            <p>Track your examination performance and academic progress.</p>
+        </div>
+
+        <a href="{% url 'examination:question_papers' %}"
+           class="results-exam-btn">
+            + Attempt New Exam
+        </a>
+    </div>
+
+    <!-- SUMMARY CARDS -->
+    <div class="results-summary">
+
+        <div class="results-summary-card">
+            <div class="results-card-icon icon-blue">📚</div>
+            <div>
+                <p>Total Exams</p>
+                <h2>{{ total_exams }}</h2>
+            </div>
+        </div>
+
+        <div class="results-summary-card">
+            <div class="results-card-icon icon-green">✓</div>
+            <div>
+                <p>Approved</p>
+                <h2>{{ approved_count }}</h2>
+            </div>
+        </div>
+
+        <div class="results-summary-card">
+            <div class="results-card-icon icon-orange">◷</div>
+            <div>
+                <p>Pending Approval</p>
+                <h2>{{ pending_count }}</h2>
+            </div>
+        </div>
+
+        <div class="results-summary-card">
+            <div class="results-card-icon icon-red">✕</div>
+            <div>
+                <p>Rejected</p>
+                <h2>{{ rejected_count }}</h2>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- RESULTS TABLE -->
+    <div class="results-list-card">
+
+        <div class="results-list-header">
+            <div>
+                <h2>Examination History</h2>
+                <p>Your previous examination submissions</p>
+            </div>
+        </div>
+
+        {% if results %}
+
+        <div class="results-table-wrapper">
+
+            <table class="my-results-table">
+
+                <thead>
+                    <tr>
+                        <th>Exam Details</th>
+                        <th>Total Marks</th>
+                        <th>Obtained</th>
+                        <th>Percentage</th>
+                        <th>Status</th>
+                        <th>Submitted At</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    {% for result in results %}
+
+                    <tr>
+
+                        <td>
+                            <div class="result-exam-name">
+                                {{ result.generated_paper.exam.title }}
+                            </div>
+                            <div class="result-subject-name">
+                                {{ result.generated_paper.exam.subject.name }}
+                            </div>
+                        </td>
+
+                        <td>
+                            {{ result.generated_paper.exam.total_marks }}
+                        </td>
+
+                        <td class="result-marks">
+                            {{ result.marks_obtained }}
+                        </td>
+
+                        <td>
+                            {% widthratio result.marks_obtained result.generated_paper.exam.total_marks 100 %}%
+                        </td>
+
+                        <td>
+                            {% if result.status == "approved" %}
+                                <span class="result-status status-approved">
+                                    Approved
+                                </span>
+
+                            {% elif result.status == "rejected" %}
+                                <span class="result-status status-rejected">
+                                    Rejected
+                                </span>
+
+                            {% else %}
+                                <span class="result-status status-pending">
+                                    Pending
+                                </span>
+                            {% endif %}
+                        </td>
+
+                        <td>
+                            {{ result.submitted_at|date:"d M Y, h:i A" }}
+                        </td>
+
+                        <td>
+                            <a href="{% url 'examination:result_detail' result.id %}"
+                               class="result-view-btn">
+                                View Result →
+                            </a>
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        {% else %}
+
+        <!-- EMPTY STATE -->
+        <div class="results-empty-state">
+
+            <div class="empty-results-icon">📄</div>
+
+            <h3>No Examination Results Yet</h3>
+
+            <p>
+                You have not submitted any examination.
+                Start your first exam to see your results here.
+            </p>
+
+            <a href="{% url 'examination:question_papers' %}"
+               class="results-exam-btn">
+                Explore Question Papers
+            </a>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+{% endblock %}

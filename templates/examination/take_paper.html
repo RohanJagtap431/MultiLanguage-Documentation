@@ -1,0 +1,223 @@
+
+{% extends "documentation/base.html" %}
+
+{% block title %}Online Examination{% endblock %}
+
+{% block content %}
+
+<div class="exam-container">
+
+    <div class="exam-header">
+        <div>
+            <h1>{{ paper.exam.title }}</h1>
+            <p>{{ paper.exam.subject.name }}</p>
+            <p>Total Marks: {{ paper.exam.total_marks }}</p>
+        </div>
+
+        <div class="exam-timer">
+            <span>Time Remaining</span>
+            <h2 id="timer">00:00</h2>
+        </div>
+    </div>
+
+    <form method="POST" id="exam-form">
+        {% csrf_token %}
+
+        {% for question in questions %}
+
+            <div class="question-card">
+
+                <div class="question-heading">
+                    <strong>Question {{ forloop.counter }}</strong>
+                    <span>{{ question.marks }} Marks</span>
+                </div>
+
+                <p class="question-text">
+                    {{ question.question_text }}
+                </p>
+
+                {% if question.question_type == "mcq" %}
+
+                    <div class="mcq-options">
+
+                        {% for option in question.options.all %}
+
+                            <label class="mcq-option">
+                                <input
+                                    type="radio"
+                                    name="answer_{{ question.id }}"
+                                    value="{{ option.id }}"
+                                >
+                                {{ option.option_text }}
+                            </label>
+
+                        {% endfor %}
+
+                    </div>
+
+                {% else %}
+
+                    <textarea
+                        name="answer_{{ question.id }}"
+                        rows="5"
+                        placeholder="Write your answer here..."
+                    ></textarea>
+
+                {% endif %}
+
+            </div>
+
+        {% endfor %}
+
+        <button type="submit" class="submit-exam-btn">
+            Submit Examination
+        </button>
+
+    </form>
+
+</div>
+
+<style>
+.exam-container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.exam-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.exam-header p {
+    color: #64748b;
+    margin: 5px 0;
+}
+
+.exam-timer {
+    background: #eff6ff;
+    color: #1d4ed8;
+    padding: 15px 25px;
+    border-radius: 12px;
+    text-align: center;
+    min-width: 150px;
+}
+
+.exam-timer span {
+    font-size: 13px;
+}
+
+.exam-timer h2 {
+    margin: 5px 0 0;
+    font-size: 28px;
+}
+
+.question-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 22px;
+    margin-bottom: 18px;
+}
+
+.question-heading {
+    display: flex;
+    justify-content: space-between;
+    color: #2563eb;
+    margin-bottom: 15px;
+}
+
+.question-text {
+    font-size: 16px;
+    line-height: 1.7;
+    font-weight: 500;
+}
+
+.mcq-options {
+    display: grid;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.mcq-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.question-card textarea {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 15px;
+    padding: 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    resize: vertical;
+    font: inherit;
+}
+
+.submit-exam-btn {
+    width: 100%;
+    padding: 15px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+@media(max-width: 600px) {
+    .exam-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .exam-timer {
+        width: auto;
+    }
+
+    .question-card {
+        padding: 15px;
+    }
+}
+</style>
+
+<script>
+(function () {
+    let remaining = {{ remaining_seconds }};
+    const timer = document.getElementById("timer");
+    const form = document.getElementById("exam-form");
+
+    function updateTimer() {
+        const minutes = Math.floor(remaining / 60);
+        const seconds = remaining % 60;
+
+        timer.textContent =
+            String(minutes).padStart(2, "0") + ":" +
+            String(seconds).padStart(2, "0");
+
+        if (remaining <= 0) {
+            clearInterval(countdown);
+            timer.textContent = "00:00";
+            form.requestSubmit();
+            return;
+        }
+
+        remaining--;
+    }
+
+    updateTimer();
+
+    const countdown = setInterval(updateTimer, 1000);
+})();
+</script>
+
+{% endblock %}

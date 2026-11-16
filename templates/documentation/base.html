@@ -118,6 +118,26 @@
                 </a>
 
 
+                <!-- EXAMINATION SECTION -->
+                <div class="sidebar-section">
+                    EXAMINATION
+                </div>
+
+                {% if examination_class %}
+                <a href="{% url 'examination:class_dashboard' %}"
+                class="nav-item {% if request.resolver_match.url_name == 'class_dashboard' %}active{% endif %}">
+                    <span>🎓</span>
+                    {{ examination_class.name }}
+                </a>
+                {% else %}
+                <div class="nav-item">
+                    <span>🎓</span>
+                    No class assigned
+                </div>
+                {% endif %}
+
+
+
 
                 <!-- GAME SECTION -->
                 <div class="sidebar-section">

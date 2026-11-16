@@ -1,0 +1,335 @@
+{
+  "subject": "C Programming Sem-I Unit-II",
+  "questions": [
+    {
+      "topic": "Decision Making Statements",
+      "question_text": "What are control statements in C? State their main purpose.",
+      "question_type": "short",
+      "marks": 3,
+      "answer_key": {
+        "model_answer": "Control statements are used to control the flow or order of execution of a program. Normally, statements execute from top to bottom. They allow a program to make decisions, repeat statements, or change the normal flow of execution.",
+        "marking_rubric": "Award up to 3 marks: 1 mark for defining control statements; 1 mark for explaining control of execution order; 1 mark for mentioning decisions, repetition, or changing flow.",
+        "important_keywords": "control flow, order of execution, decisions, repetition"
+      }
+    },
+    {
+      "topic": "Decision Making Statements",
+      "question_text": "List the three main types of control statements in C.",
+      "question_type": "short",
+      "marks": 3,
+      "answer_key": {
+        "model_answer": "The three main types are: 1. Decision-making statements 2. Looping statements 3. Jump statements.",
+        "marking_rubric": "Award 1 mark for each correctly listed type.",
+        "important_keywords": "decision-making, looping, jump statements"
+      }
+    },
+    {
+      "topic": "Decision Making Statements",
+      "question_text": "What is an if statement? Write its syntax.",
+      "question_type": "short",
+      "marks": 3,
+      "answer_key": {
+        "model_answer": "The if statement executes a block of statements when the given condition is true. Syntax: if (condition) { statement; }",
+        "marking_rubric": "Award 1 mark for the purpose; 1 mark for condition being true; 1 mark for correct syntax.",
+        "important_keywords": "if statement, condition, true, syntax"
+      }
+    },
+    {
+      "topic": "Decision Making Statements",
+      "question_text": "Explain the working of an if-else statement.",
+      "question_type": "short",
+      "marks": 3,
+      "answer_key": {
+        "model_answer": "The if-else statement provides two choices. If the condition is true, the if block executes; otherwise, the else block executes.",
+        "marking_rubric": "Award 1 mark for two choices; 1 mark for true condition and if block; 1 mark for false condition and else block.",
+        "important_keywords": "two choices, true, if block, false, else block"
+      }
+    },
+    {
+      "topic": "Decision Making Statements",
+      "question_text": "What is an else-if ladder? When is it used?",
+      "question_type": "short",
+      "marks": 3,
+      "answer_key": {
+        "model_answer": "An else-if ladder is used when multiple conditions need to be checked. Conditions are checked from top to bottom. When a true condition is found, its block is executed.",
+        "marking_rubric": "Award 1 mark for definition/use; 1 mark for top-to-bottom checking; 1 mark for execution of the first true block.",
+        "important_keywords": "multiple conditions, top to bottom, true condition"
+      }
+    },
+    {
+      "topic": "Decision Making Statements",
+      "question_text": "Define nested if statement with its structure.",
+      "question_type": "short",
+      "marks": 3,
+      "answer_key": {
+        "model_answer": "When one if statement is placed inside another if statement, it is called a nested if statement. The inner if is written inside the outer if block.",
+        "marking_rubric": "Award 2 marks for correct definition; 1 mark for explaining the inner if is inside the outer if.",
+        "important_keywords": "if inside another if, outer if, inner if"
+      }
+    },
+    {
+      "topic": "Decision Making Statements",
+      "question_text": "What is a switch statement? Explain its use.",
+      "question_type": "short",
+      "marks": 3,
+      "answer_key": {
+        "model_answer": "The switch statement is used to select one block of statements from multiple choices based on the value of an expression. Each choice is represented using a case label, and default can provide the fallback block.",
+        "marking_rubric": "Award 1 mark for selecting one block; 1 mark for expression value and case; 1 mark for default/fallback.",
+        "important_keywords": "switch, expression, case, default"
+      }
+    },
+    {
+      "topic": "Looping Statements",
+      "question_text": "What are looping statements? Why are they also called iteration statements?",
+      "question_type": "short",
+      "marks": 3,
+      "answer_key": {
+        "model_answer": "Looping statements execute a block of statements repeatedly as long as a specified condition is satisfied. They are also called iteration statements because the statements are repeated.",
+        "marking_rubric": "Award 2 marks for definition and condition; 1 mark for explaining iteration/repetition.",
+        "important_keywords": "repeatedly, condition, iteration statements"
+      }
+    },
+    {
+      "topic": "Looping Statements",
+      "question_text": "Name the three main types of loops in C.",
+      "question_type": "short",
+      "marks": 3,
+      "answer_key": {
+        "model_answer": "The three main types of loops are: 1. while loop 2. do-while loop 3. for loop.",
+        "marking_rubric": "Award 1 mark for each correct loop name.",
+        "important_keywords": "while, do-while, for"
+      }
+    },
+    {
+      "topic": "Looping Statements",
+      "question_text": "Explain how a while loop works.",
+      "question_type": "short",
+      "marks": 3,
+      "answer_key": {
+        "model_answer": "The while loop checks the condition before executing the statements. If the condition is true, the loop body executes. This process continues while the condition remains true.",
+        "marking_rubric": "Award 1 mark for condition checked before body; 1 mark for execution when true; 1 mark for repetition while true.",
+        "important_keywords": "condition before body, true, repeated execution"
+      }
+    },
+    {
+      "topic": "Looping Statements",
+      "question_text": "Explain the do-while loop and state why it executes at least once.",
+      "question_type": "short",
+      "marks": 3,
+      "answer_key": {
+        "model_answer": "The do-while loop executes the statements first and checks the condition after the loop body. Therefore, its statements execute at least once.",
+        "marking_rubric": "Award 1 mark for executing body first; 1 mark for condition checked after body; 1 mark for at least one execution.",
+        "important_keywords": "do-while, body first, condition after, at least once"
+      }
+    },
+    {
+      "topic": "Looping Statements",
+      "question_text": "When is a for loop commonly used? Write its general syntax.",
+      "question_type": "short",
+      "marks": 3,
+      "answer_key": {
+        "model_answer": "The for loop is commonly used when the number of repetitions is known. Syntax: for (initialization; condition; increment/decrement) { statements; }",
+        "marking_rubric": "Award 1 mark for its use; 2 marks for correct syntax and its three parts.",
+        "important_keywords": "known repetitions, initialization, condition, increment/decrement"
+      }
+    },
+    {
+      "topic": "Looping Statements",
+      "question_text": "Differentiate between while loop and do-while loop.",
+      "question_type": "short",
+      "marks": 3,
+      "answer_key": {
+        "model_answer": "A while loop checks its condition before executing the loop body, so the body may not execute if the condition is false initially. A do-while loop checks the condition after executing the body, so the body executes at least once.",
+        "marking_rubric": "Award 1 mark for while condition position; 1 mark for do-while condition position; 1 mark for the difference in minimum execution.",
+        "important_keywords": "before body, after body, at least once"
+      }
+    },
+    {
+      "topic": "Loop Control Statements",
+      "question_text": "What are loop control statements? State their purpose.",
+      "question_type": "short",
+      "marks": 3,
+      "answer_key": {
+        "model_answer": "Loop control statements change the normal flow of execution of a loop. They allow a programmer to terminate a loop, skip an iteration, or transfer control to another part of the program.",
+        "marking_rubric": "Award 1 mark for definition; 2 marks for any two or three purposes.",
+        "important_keywords": "change normal flow, terminate, skip iteration, transfer control"
+      }
+    },
+    {
+      "topic": "Loop Control Statements",
+      "question_text": "Explain the break statement with its effect on loop execution.",
+      "question_type": "short",
+      "marks": 3,
+      "answer_key": {
+        "model_answer": "The break statement immediately terminates a loop. After termination, control moves to the statement following the loop.",
+        "marking_rubric": "Award 1 mark for immediate termination; 1 mark for stopping the loop; 1 mark for control moving to the statement after the loop.",
+        "important_keywords": "break, immediately terminate, statement following loop"
+      }
+    },
+    {
+      "topic": "Loop Control Statements",
+      "question_text": "Explain the continue statement.",
+      "question_type": "short",
+      "marks": 3,
+      "answer_key": {
+        "model_answer": "The continue statement skips the remaining statements of the current iteration and starts the next iteration of the loop.",
+        "marking_rubric": "Award 1 mark for skipping remaining statements; 1 mark for current iteration; 1 mark for starting next iteration.",
+        "important_keywords": "continue, skips remaining statements, current iteration, next iteration"
+      }
+    },
+    {
+      "topic": "Loop Control Statements",
+      "question_text": "What is a goto statement? Explain how it transfers control.",
+      "question_type": "short",
+      "marks": 3,
+      "answer_key": {
+        "model_answer": "The goto statement transfers control to a labeled statement within the same function. It can be used to create a jump in program execution.",
+        "marking_rubric": "Award 1 mark for definition; 1 mark for labeled statement; 1 mark for same function or jump in execution.",
+        "important_keywords": "goto, labeled statement, same function, jump"
+      }
+    },
+    {
+      "topic": "Loop Control Statements",
+      "question_text": "Differentiate between break and continue statements.",
+      "question_type": "short",
+      "marks": 3,
+      "answer_key": {
+        "model_answer": "The break statement immediately terminates the loop and transfers control to the statement after the loop. The continue statement skips the remaining statements of the current iteration and starts the next iteration.",
+        "marking_rubric": "Award 1.5 marks for each statement's correct effect.",
+        "important_keywords": "break terminates loop, continue skips iteration, next iteration"
+      }
+    },
+    {
+      "topic": "Infinite Loop",
+      "question_text": "What is an infinite loop? State why it occurs.",
+      "question_type": "short",
+      "marks": 3,
+      "answer_key": {
+        "model_answer": "An infinite loop is a loop that continues executing indefinitely because its condition never becomes false. It continues until stopped by an external action or a control statement such as break.",
+        "marking_rubric": "Award 1 mark for definition; 1 mark for condition never becoming false; 1 mark for how it can be stopped.",
+        "important_keywords": "indefinitely, condition never false, break, external action"
+      }
+    },
+    {
+      "topic": "Infinite Loop",
+      "question_text": "Write any two examples of infinite loops shown in the notes.",
+      "question_type": "short",
+      "marks": 3,
+      "answer_key": {
+        "model_answer": "Two examples are: while (1) { printf(\"Hello\\n\"); } and for (;;) { printf(\"Hello\\n\"); }",
+        "marking_rubric": "Award 1.5 marks for each correct example.",
+        "important_keywords": "while (1), for (;;), infinite loop"
+      }
+    },
+    {
+      "topic": "Array Features",
+      "question_text": "Define an array in C.",
+      "question_type": "short",
+      "marks": 3,
+      "answer_key": {
+        "model_answer": "An array is a collection of elements of the same data type stored in contiguous memory locations and identified by a single name. Each element is accessed using an index starting from 0.",
+        "marking_rubric": "Award 1 mark for collection of elements; 1 mark for same data type and contiguous memory; 1 mark for single name/index starting at 0.",
+        "important_keywords": "same data type, contiguous memory, single name, index"
+      }
+    },
+    {
+      "topic": "Array Features",
+      "question_text": "Explain any three features of an array.",
+      "question_type": "short",
+      "marks": 3,
+      "answer_key": {
+        "model_answer": "Three features are: 1. Same data type: all elements have the same data type. 2. Fixed size: size is normally specified when declared. 3. Index-based access: elements are accessed using an index, starting from 0 in C.",
+        "marking_rubric": "Award 1 mark for each correctly explained feature. Accept other features stated in the notes.",
+        "important_keywords": "same data type, fixed size, index-based access, index starts at 0"
+      }
+    },
+    {
+      "topic": "Array Features",
+      "question_text": "What is contiguous memory allocation in an array?",
+      "question_type": "short",
+      "marks": 3,
+      "answer_key": {
+        "model_answer": "Contiguous memory allocation means that array elements are stored in consecutive memory locations.",
+        "marking_rubric": "Award 2 marks for the meaning of consecutive memory locations; 1 mark for relating it to array elements.",
+        "important_keywords": "contiguous, consecutive memory locations, array elements"
+      }
+    },
+    {
+      "topic": "Types of Arrays",
+      "question_text": "What is a one-dimensional array? Give its syntax.",
+      "question_type": "short",
+      "marks": 3,
+      "answer_key": {
+        "model_answer": "A one-dimensional array has elements arranged in a single sequence or list. It requires one index to access an element. Syntax: data_type array_name[size];",
+        "marking_rubric": "Award 1 mark for single sequence/list; 1 mark for one index; 1 mark for correct syntax.",
+        "important_keywords": "single sequence, one index, data_type array_name[size]"
+      }
+    },
+    {
+      "topic": "Types of Arrays",
+      "question_text": "What is a two-dimensional array? Mention its common use.",
+      "question_type": "short",
+      "marks": 3,
+      "answer_key": {
+        "model_answer": "A two-dimensional array contains rows and columns and requires two indices to access an element. It is commonly used to represent a matrix or table.",
+        "marking_rubric": "Award 1 mark for rows and columns; 1 mark for two indices; 1 mark for matrix or table use.",
+        "important_keywords": "rows, columns, two indices, matrix, table"
+      }
+    },
+    {
+      "topic": "Types of Arrays",
+      "question_text": "Define a multidimensional array and give an example declaration.",
+      "question_type": "short",
+      "marks": 3,
+      "answer_key": {
+        "model_answer": "An array having more than two dimensions is called a multidimensional array. Example declaration: int a[2][3][4];",
+        "marking_rubric": "Award 2 marks for the definition; 1 mark for a valid example declaration from the notes.",
+        "important_keywords": "more than two dimensions, int a[2][3][4]"
+      }
+    },
+    {
+      "topic": "Predefined String Functions",
+      "question_text": "What is a string in C? Which header file provides common string functions?",
+      "question_type": "short",
+      "marks": 3,
+      "answer_key": {
+        "model_answer": "A string in C is a sequence of characters terminated by the null character '\\0'. Common predefined string functions are provided in the string.h header file.",
+        "marking_rubric": "Award 1 mark for sequence of characters; 1 mark for null character; 1 mark for string.h.",
+        "important_keywords": "sequence of characters, null character, \\0, string.h"
+      }
+    },
+    {
+      "topic": "Predefined String Functions",
+      "question_text": "Explain the purpose of strlen() and strcpy() functions.",
+      "question_type": "short",
+      "marks": 3,
+      "answer_key": {
+        "model_answer": "strlen() returns the number of characters in a string, excluding the null character. strcpy() copies one string into another string.",
+        "marking_rubric": "Award 1.5 marks for each function's correct purpose.",
+        "important_keywords": "strlen, length, excludes null character, strcpy, copies string"
+      }
+    },
+    {
+      "topic": "Predefined String Functions",
+      "question_text": "Explain the purpose of strcat() and strcmp() functions.",
+      "question_type": "short",
+      "marks": 3,
+      "answer_key": {
+        "model_answer": "strcat() joins two strings by appending the source string to the destination string. strcmp() compares two strings. It returns 0 if both strings are equal, a negative value if the first is less, and a positive value if the first is greater.",
+        "marking_rubric": "Award 1 mark for strcat; 2 marks for strcmp and its return values.",
+        "important_keywords": "strcat, joins, appends, strcmp, compares, zero, negative, positive"
+      }
+    },
+    {
+      "topic": "Predefined String Functions",
+      "question_text": "Explain the use of strchr() and strstr() functions.",
+      "question_type": "short",
+      "marks": 3,
+      "answer_key": {
+        "model_answer": "strchr() searches for the first occurrence of a specified character in a string. strstr() searches for the first occurrence of a substring within another string.",
+        "marking_rubric": "Award 1.5 marks for each function's correct purpose.",
+        "important_keywords": "strchr, character, first occurrence, strstr, substring"
+      }
+    }
+  ]
+}

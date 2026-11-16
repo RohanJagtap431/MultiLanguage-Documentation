@@ -1,0 +1,117 @@
+
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}Examination | MultiLanguage Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/examination.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="exam-dashboard">
+
+    {% if assigned_class %}
+
+    <section class="exam-header">
+        <span class="exam-eyebrow">STUDENT EXAMINATION PORTAL</span>
+
+        <h1>Examination</h1>
+
+        <p>
+            Welcome to your examination portal.
+            Select an option to continue.
+        </p>
+
+        <div class="exam-class-badge">
+            🎓 {{ assigned_class.name }}
+        </div>
+    </section>
+
+    <section class="exam-options">
+
+        <!-- QUESTION PAPERS -->
+        <a href="{% url 'examination:question_papers' %}"
+           class="exam-option-card">
+
+            <div class="option-icon">📄</div>
+
+            <h2>Question Papers</h2>
+
+            <p>
+                Select your subject, choose an available paper
+                and attempt your examination.
+            </p>
+
+            <div class="option-footer">
+                <span>Explore Papers</span>
+                <span>→</span>
+            </div>
+
+        </a>
+
+
+        <!-- MY RESULTS -->
+        <a href="{% url 'examination:my_results' %}"
+           class="exam-option-card">
+
+            <div class="option-icon">📊</div>
+
+            <h2>My Results</h2>
+
+            <p>
+                View your examination marks and
+                previously approved results.
+            </p>
+
+            <div class="option-footer">
+                <span>View Results</span>
+                <span>→</span>
+            </div>
+
+        </a>
+
+
+        <!-- CLASS RANKING -->
+        <a href="{% url 'examination:class_ranking' %}"
+           class="exam-option-card">
+
+            <div class="option-icon">🏆</div>
+
+            <h2>Class Ranking</h2>
+
+            <p>
+                Check your position and compare
+                your academic performance.
+            </p>
+
+            <div class="option-footer">
+                <span>View Ranking</span>
+                <span>→</span>
+            </div>
+
+        </a>
+
+    </section>
+
+    {% else %}
+
+    <section class="no-class-card">
+        <div>🎓</div>
+        <h2>No Class Assigned</h2>
+        <p>
+            Your examination access is not available yet.
+            Please contact your administrator.
+        </p>
+    </section>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/examination.js' %}"></script>
+{% endblock %}

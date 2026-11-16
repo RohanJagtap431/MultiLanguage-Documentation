@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     "accounts",
     "documentation",
     "bug_hunter",
+    "examination",
 ]
 
 
@@ -100,6 +101,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "examination.context_processors.examination_context",
             ],
         },
     },
@@ -257,3 +259,16 @@ if not DEBUG:
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTH_USER_MODEL = "accounts.CustomUser"
+
+
+# --------------------------------------------------
+# GROQ AI CONFIGURATION
+# --------------------------------------------------
+
+GROQ_API_KEY = os.getenv("GROQ_API_KEY", "").strip()
+
+GROQ_MODEL = os.getenv(
+    "GROQ_MODEL",
+    "llama-3.3-70b-versatile"
+)
+

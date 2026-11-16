@@ -1,0 +1,106 @@
+
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/examination.css' %}">
+
+<div class="exam-result-container">
+
+    <div class="exam-result-card">
+
+        <div class="exam-result-header">
+
+            <div class="exam-result-icon">
+                ✓
+            </div>
+
+            <h2>Exam Submitted Successfully!</h2>
+
+            <h5>{{ exam.title }}</h5>
+
+            <p>{{ exam.subject.name }}</p>
+
+        </div>
+
+        <hr class="exam-result-divider">
+
+        <div class="exam-result-stats">
+
+            <div class="exam-stat-box">
+                <h6>Total Marks</h6>
+                <h3>{{ exam.total_marks }}</h3>
+            </div>
+
+            <div class="exam-stat-box">
+                <h6>Marks Obtained</h6>
+                <h3>{{ result.marks_obtained }}</h3>
+            </div>
+
+            <div class="exam-stat-box">
+                <h6>Percentage</h6>
+                <h3>{{ percentage }}%</h3>
+            </div>
+
+            <div class="exam-stat-box">
+                <h6>Result Status</h6>
+
+                {% if result.status == "approved" %}
+                    <span class="exam-result-status exam-status-approved">
+                        Approved
+                    </span>
+
+                {% elif result.status == "rejected" %}
+                    <span class="exam-result-status exam-status-rejected">
+                        Rejected
+                    </span>
+
+                {% else %}
+                    <span class="exam-result-status exam-status-pending">
+                        Pending Approval
+                    </span>
+                {% endif %}
+
+            </div>
+
+        </div>
+
+        <div class="exam-result-info">
+
+            <p>
+                <strong>Exam:</strong>
+                {{ exam.title }}
+            </p>
+
+            <p>
+                <strong>Submitted At:</strong>
+                {{ result.submitted_at|date:"d M Y, h:i A" }}
+            </p>
+
+        </div>
+
+        <p class="exam-result-note">
+            Your marks are subject to admin approval.
+            Final result will be confirmed after verification.
+        </p>
+
+        <div class="exam-result-actions">
+
+            <a href="{% url 'examination:question_papers' %}"
+               class="exam-btn-primary">
+                Question Papers
+            </a>
+
+            <a href="{% url 'examination:class_dashboard' %}"
+               class="exam-btn-secondary">
+                Back to Dashboard
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

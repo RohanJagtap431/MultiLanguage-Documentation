@@ -1,0 +1,238 @@
+
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/class_ranking.css' %}">
+
+<div class="ranking-container">
+
+    <!-- HEADER -->
+    <div class="ranking-header">
+        <div>
+            <span class="ranking-label">STUDENT LEADERBOARD</span>
+            <h1>Class Ranking</h1>
+            <p>{{ assigned_class.name }} · All-time Academic Performance</p>
+        </div>
+
+        <div class="ranking-total">
+            <span>Total Ranked Students</span>
+            <strong>{{ total_ranked_students }}</strong>
+        </div>
+    </div>
+
+    <!-- FILTERS -->
+    <div class="ranking-filter-card">
+
+        <form method="GET" class="ranking-filter-form">
+
+            <div class="ranking-filter-field">
+                <label>Ranking Type</label>
+
+                <select name="type" id="ranking-type">
+                    <option value="overall"
+                        {% if ranking_type == "overall" %}selected{% endif %}>
+                        Class Overall
+                    </option>
+
+                    <option value="subject"
+                        {% if ranking_type == "subject" %}selected{% endif %}>
+                        Subject-wise
+                    </option>
+                </select>
+            </div>
+
+            <div class="ranking-filter-field">
+                <label>Select Subject</label>
+
+                <select name="subject" id="ranking-subject"
+                    {% if ranking_type != "subject" %}disabled{% endif %}>
+
+                    <option value="">Select Subject</option>
+
+                    {% for subject in subjects %}
+                    <option value="{{ subject.id }}"
+                        {% if selected_subject.id == subject.id %}selected{% endif %}>
+                        {{ subject.name }}
+                    </option>
+                    {% endfor %}
+
+                </select>
+            </div>
+
+            <button type="submit" class="ranking-filter-btn">
+                Apply Filter
+            </button>
+
+        </form>
+
+        {% if selected_subject %}
+        <div class="ranking-active-filter">
+            Showing ranking for: <strong>{{ selected_subject.name }}</strong>
+        </div>
+        {% endif %}
+
+    </div>
+
+    <!-- TOP 3 -->
+    <div class="ranking-section">
+
+        <div class="ranking-section-heading">
+            <div>
+                <h2>🏆 Top 3 Students</h2>
+                <p>Highest approved academic performance</p>
+            </div>
+        </div>
+
+        {% if top_three %}
+
+        <div class="ranking-podium">
+
+            {% for item in top_three %}
+
+            <div class="podium-card podium-rank-{{ item.rank }}">
+
+                <div class="podium-medal">
+                    {% if item.rank == 1 %}
+                        🥇
+                    {% elif item.rank == 2 %}
+                        🥈
+                    {% else %}
+                        🥉
+                    {% endif %}
+                </div>
+
+                <div class="podium-rank">
+                    #{{ item.rank }}
+                </div>
+
+                <h3>{{ item.student_name }}</h3>
+
+                <div class="podium-percentage">
+                    {{ item.percentage }}%
+                </div>
+
+                <p>Overall Performance</p>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        {% else %}
+
+        <div class="ranking-empty">
+            <h3>No Ranking Available</h3>
+            <p>Approved exam results are not available yet.</p>
+        </div>
+
+        {% endif %}
+
+    </div>
+
+    <!-- TOP 50 -->
+    <div class="ranking-section">
+
+        <div class="ranking-section-heading">
+            <div>
+                <h2>Top 50 Students</h2>
+                <p>Student performance leaderboard</p>
+            </div>
+
+            <span class="ranking-count">
+                {{ total_ranked_students }} Students
+            </span>
+        </div>
+
+        {% if top_fifty %}
+
+        <div class="ranking-table-wrapper">
+
+            <table class="ranking-table">
+
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Student Name</th>
+                        <th>Percentage</th>
+                        <th>Performance</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    {% for item in top_fifty %}
+
+                    <tr>
+
+                        <td>
+                            <span class="rank-number">
+                                #{{ item.rank }}
+                            </span>
+                        </td>
+
+                        <td>
+                            <div class="ranking-student-name">
+                                {{ item.student_name }}
+                            </div>
+                        </td>
+
+                        <td>
+                            <strong class="ranking-score">
+                                {{ item.percentage }}%
+                            </strong>
+                        </td>
+
+                        <td>
+                            <div class="ranking-progress">
+                                <div class="ranking-progress-fill"
+                                     style="width: {{ item.percentage }}%;">
+                                </div>
+                            </div>
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        {% else %}
+
+        <div class="ranking-empty">
+            No students available for ranking.
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const typeSelect = document.getElementById("ranking-type");
+    const subjectSelect = document.getElementById("ranking-subject");
+
+    function updateSubjectFilter() {
+        const isSubject = typeSelect.value === "subject";
+
+        subjectSelect.disabled = !isSubject;
+        subjectSelect.required = isSubject;
+    }
+
+    typeSelect.addEventListener("change", updateSubjectFilter);
+
+    updateSubjectFilter();
+
+});
+</script>
+
+{% endblock %}

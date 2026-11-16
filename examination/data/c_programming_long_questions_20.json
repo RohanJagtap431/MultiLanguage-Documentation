@@ -1,0 +1,225 @@
+{
+  "subject": "C Programming Sem-I Unit-II",
+  "questions": [
+    {
+      "topic": "Decision Making Statements",
+      "question_text": "Explain the different types of conditional statements in C.",
+      "question_type": "long",
+      "marks": 6,
+      "answer_key": {
+        "model_answer": "Conditional statements include: if executes a block when a condition is true; if-else provides two choices; else-if ladder checks multiple conditions from top to bottom; nested if places one if inside another; switch selects one block based on an expression value.",
+        "marking_rubric": "Award 1 mark for each of the five correctly explained types and 1 mark for a clear introduction.",
+        "important_keywords": "if, if-else, else-if ladder, nested if, switch"
+      }
+    },
+    {
+      "topic": "Decision Making Statements",
+      "question_text": "Explain the if statement with its syntax and example.",
+      "question_type": "long",
+      "marks": 6,
+      "answer_key": {
+        "model_answer": "The if statement executes a block when the condition is true. Syntax: if (condition) { statement; } Example: if (age >= 18) { printf(\"Adult\"); }",
+        "marking_rubric": "1 mark definition; 2 marks syntax; 2 marks example; 1 mark explanation of true condition.",
+        "important_keywords": "if, condition, true, syntax, example"
+      }
+    },
+    {
+      "topic": "Decision Making Statements",
+      "question_text": "Explain the if-else statement with syntax and an example.",
+      "question_type": "long",
+      "marks": 6,
+      "answer_key": {
+        "model_answer": "The if-else statement provides two choices. If the condition is true, the if block executes; otherwise, the else block executes. Example: if (n % 2 == 0) { printf(\"Even\"); } else { printf(\"Odd\"); }",
+        "marking_rubric": "1 mark definition; 2 marks structure; 2 marks example; 1 mark explaining both outcomes.",
+        "important_keywords": "if-else, two choices, true, false, if block, else block"
+      }
+    },
+    {
+      "topic": "Decision Making Statements",
+      "question_text": "Explain the else-if ladder with its working and syntax.",
+      "question_type": "long",
+      "marks": 6,
+      "answer_key": {
+        "model_answer": "The else-if ladder checks multiple conditions from top to bottom. When a true condition is found, its block executes. Structure: if (condition1) { statement1; } else if (condition2) { statement2; } else if (condition3) { statement3; } else { statement4; }",
+        "marking_rubric": "2 marks purpose and working; 2 marks checking order; 2 marks correct structure.",
+        "important_keywords": "multiple conditions, top to bottom, if, else if, else"
+      }
+    },
+    {
+      "topic": "Decision Making Statements",
+      "question_text": "Explain the nested if statement with its syntax.",
+      "question_type": "long",
+      "marks": 6,
+      "answer_key": {
+        "model_answer": "When one if statement is placed inside another if statement, it is called a nested if. The inner if is written inside the outer if block. Structure: if (condition1) { if (condition2) { statement; } }",
+        "marking_rubric": "2 marks definition; 2 marks outer and inner if explanation; 2 marks structure.",
+        "important_keywords": "nested if, one if inside another, outer if, inner if"
+      }
+    },
+    {
+      "topic": "Decision Making Statements",
+      "question_text": "Explain the switch statement with syntax and example.",
+      "question_type": "long",
+      "marks": 6,
+      "answer_key": {
+        "model_answer": "The switch statement selects one block from multiple choices based on an expression value. It uses case labels and may include default. Example: int choice = 2; switch (choice) { case 1: printf(\"One\"); break; case 2: printf(\"Two\"); break; default: printf(\"Invalid choice\"); }",
+        "marking_rubric": "1 mark definition; 2 marks structure; 2 marks example; 1 mark explaining case, break or default.",
+        "important_keywords": "switch, expression, case, break, default"
+      }
+    },
+    {
+      "topic": "Looping Statements",
+      "question_text": "Explain the while loop with syntax and example.",
+      "question_type": "long",
+      "marks": 6,
+      "answer_key": {
+        "model_answer": "The while loop checks the condition before executing statements. Example: int i = 1; while (i <= 5) { printf(\"%d \", i); i++; } Output: 1 2 3 4 5.",
+        "marking_rubric": "2 marks working; 2 marks syntax/example; 1 mark increment; 1 mark output.",
+        "important_keywords": "while loop, condition before body, i <= 5, i++, output"
+      }
+    },
+    {
+      "topic": "Looping Statements",
+      "question_text": "Explain the do-while loop with syntax and example.",
+      "question_type": "long",
+      "marks": 6,
+      "answer_key": {
+        "model_answer": "The do-while loop executes statements first and checks the condition after the body. Therefore, it executes at least once. Example: int i = 1; do { printf(\"%d \", i); i++; } while (i <= 5); Output: 1 2 3 4 5.",
+        "marking_rubric": "2 marks working; 1 mark at-least-once property; 2 marks example; 1 mark output.",
+        "important_keywords": "do-while, body first, condition after body, at least once"
+      }
+    },
+    {
+      "topic": "Looping Statements",
+      "question_text": "Explain the for loop with syntax and example.",
+      "question_type": "long",
+      "marks": 6,
+      "answer_key": {
+        "model_answer": "The for loop is commonly used when the number of repetitions is known. Syntax: for (initialization; condition; increment/decrement) { statements; } Example: for (int i = 1; i <= 5; i++) { printf(\"%d \", i); }",
+        "marking_rubric": "1 mark use; 2 marks syntax and parts; 2 marks example; 1 mark explanation.",
+        "important_keywords": "for loop, known repetitions, initialization, condition, increment/decrement"
+      }
+    },
+    {
+      "topic": "Looping Statements",
+      "question_text": "Differentiate between while, do-while and for loops.",
+      "question_type": "long",
+      "marks": 6,
+      "answer_key": {
+        "model_answer": "The while loop checks the condition before its body. The do-while loop checks after its body and executes at least once. The for loop has initialization, condition and increment/decrement in its header and is commonly used when repetitions are known.",
+        "marking_rubric": "2 marks for each loop's correct working and distinction.",
+        "important_keywords": "while, before body, do-while, after body, for, initialization, condition, increment"
+      }
+    },
+    {
+      "topic": "Loop Control Statements",
+      "question_text": "Explain the break statement with an example and output.",
+      "question_type": "long",
+      "marks": 6,
+      "answer_key": {
+        "model_answer": "The break statement immediately terminates a loop and control moves to the statement following it. Example: for (int i = 1; i <= 5; i++) { if (i == 3) break; printf(\"%d \", i); } Output: 1 2.",
+        "marking_rubric": "2 marks definition/effect; 2 marks example; 1 mark termination at i==3; 1 mark output.",
+        "important_keywords": "break, immediately terminate, statement following loop, output 1 2"
+      }
+    },
+    {
+      "topic": "Loop Control Statements",
+      "question_text": "Explain the continue statement with an example and output.",
+      "question_type": "long",
+      "marks": 6,
+      "answer_key": {
+        "model_answer": "The continue statement skips the remaining statements of the current iteration and starts the next iteration. Example: for (int i = 1; i <= 5; i++) { if (i == 3) continue; printf(\"%d \", i); } Output: 1 2 4 5.",
+        "marking_rubric": "2 marks definition; 2 marks example; 1 mark skipped iteration; 1 mark output.",
+        "important_keywords": "continue, skips remaining statements, next iteration, output 1 2 4 5"
+      }
+    },
+    {
+      "topic": "Loop Control Statements",
+      "question_text": "Explain the goto statement with an example.",
+      "question_type": "long",
+      "marks": 6,
+      "answer_key": {
+        "model_answer": "The goto statement transfers control to a labeled statement within the same function. Example: int i = 1; start: printf(\"%d \", i); i++; if (i <= 5) goto start; Output: 1 2 3 4 5.",
+        "marking_rubric": "2 marks definition; 2 marks label and transfer; 1 mark example; 1 mark output.",
+        "important_keywords": "goto, labeled statement, same function, start label"
+      }
+    },
+    {
+      "topic": "Loop Control Statements",
+      "question_text": "Explain the different loop control statements in C.",
+      "question_type": "long",
+      "marks": 6,
+      "answer_key": {
+        "model_answer": "The notes describe break, continue and goto. break immediately terminates a loop. continue skips the remaining statements of the current iteration and starts the next iteration. goto transfers control to a labeled statement within the same function.",
+        "marking_rubric": "2 marks for each correctly explained statement.",
+        "important_keywords": "break, continue, goto, terminate, skip iteration, labeled statement"
+      }
+    },
+    {
+      "topic": "Infinite Loop",
+      "question_text": "What is an infinite loop? Explain its examples in C.",
+      "question_type": "long",
+      "marks": 6,
+      "answer_key": {
+        "model_answer": "An infinite loop continues indefinitely because its condition never becomes false. Examples: while (1) { printf(\"Hello\\n\"); } and for (;;) { printf(\"Hello\\n\"); }. An incorrect condition can also cause one, such as int i=1; while (i<=5) { printf(\"%d \",i); } when i is not updated.",
+        "marking_rubric": "2 marks definition/reason; 1.5 marks each for two examples; 1 mark for incorrect-condition example.",
+        "important_keywords": "infinite loop, condition never false, while (1), for (;;), variable not updated"
+      }
+    },
+    {
+      "topic": "Array Features",
+      "question_text": "Define an array and explain its important features.",
+      "question_type": "long",
+      "marks": 6,
+      "answer_key": {
+        "model_answer": "An array is a collection of elements of the same data type stored in contiguous memory locations and identified by a single name. Elements are accessed using an index starting from 0. Features include same data type, fixed size, contiguous memory, index-based access, fast access and storing multiple values.",
+        "marking_rubric": "2 marks definition; up to 4 marks for correctly explaining features.",
+        "important_keywords": "same data type, contiguous memory, single name, index starts at 0, fixed size, fast access"
+      }
+    },
+    {
+      "topic": "Types of Arrays",
+      "question_text": "Explain a one-dimensional array with syntax and example.",
+      "question_type": "long",
+      "marks": 6,
+      "answer_key": {
+        "model_answer": "A one-dimensional array has elements arranged in a single sequence and requires one index. Syntax: data_type array_name[size]; Example: int marks[5] = {80, 75, 90, 85, 70};",
+        "marking_rubric": "2 marks definition/one index; 1 mark syntax; 2 marks example; 1 mark index access.",
+        "important_keywords": "one-dimensional, single sequence, one index, syntax, marks[5]"
+      }
+    },
+    {
+      "topic": "Types of Arrays",
+      "question_text": "Explain a two-dimensional array with syntax and example.",
+      "question_type": "long",
+      "marks": 6,
+      "answer_key": {
+        "model_answer": "A two-dimensional array contains rows and columns and requires two indices. It is commonly used for a matrix or table. Syntax: data_type array_name[rows][columns]; Example: int matrix[2][3] = {{1,2,3},{4,5,6}}; matrix[1][2] is 6.",
+        "marking_rubric": "2 marks definition/two indices; 1 mark syntax; 2 marks example; 1 mark element access.",
+        "important_keywords": "two-dimensional, rows, columns, two indices, matrix, table"
+      }
+    },
+    {
+      "topic": "Types of Arrays",
+      "question_text": "Explain a multidimensional array with syntax and example.",
+      "question_type": "long",
+      "marks": 6,
+      "answer_key": {
+        "model_answer": "An array having more than two dimensions is called a multidimensional array. It is used when data needs to be organized in more than two dimensions. Syntax: data_type array_name[size1][size2][size3]; Example: int a[2][3][4];",
+        "marking_rubric": "2 marks definition/use; 2 marks syntax; 2 marks example.",
+        "important_keywords": "multidimensional, more than two dimensions, syntax, int a[2][3][4]"
+      }
+    },
+    {
+      "topic": "Predefined String Functions",
+      "question_text": "What is a string in C? Explain any four predefined string functions.",
+      "question_type": "long",
+      "marks": 6,
+      "answer_key": {
+        "model_answer": "A string in C is a sequence of characters terminated by '\\0'. Functions in string.h include strlen() to find length excluding '\\0'; strcpy() to copy a string; strcat() to append one string to another; strcmp() to compare strings, returning 0 if equal, negative if first is less, positive if first is greater.",
+        "marking_rubric": "1 mark string definition; 1 mark null character/header; 1 mark for each of four functions.",
+        "important_keywords": "string, null character, string.h, strlen, strcpy, strcat, strcmp"
+      }
+    }
+  ]
+}

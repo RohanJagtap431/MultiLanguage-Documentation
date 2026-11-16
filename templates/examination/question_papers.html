@@ -1,0 +1,238 @@
+
+{% extends "documentation/base.html" %}
+
+{% block title %}Question Papers{% endblock %}
+
+{% block content %}
+
+<div class="exam-dashboard">
+
+    <h1>Question Papers</h1>
+
+    <p class="exam-subtitle">
+        {{ assigned_class.name }} - Select Your Examination
+    </p>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="exam-message {{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    {% if subjects %}
+
+        <div class="exam-option-card exam-form-card">
+
+            <h2>Generate Question Paper</h2>
+
+            <p>Select your subject and paper marks to start the examination.</p>
+
+            <form method="POST">
+                {% csrf_token %}
+
+                <div class="exam-form-group">
+                    <label for="subject">Select Subject</label>
+
+                    <select name="subject" id="subject" required>
+                        <option value="">-- Select Subject --</option>
+
+                        {% for subject in subjects %}
+                            <option
+                                value="{{ subject.id }}"
+                                {% if selected_subject == subject.id|stringformat:"s" %}selected{% endif %}
+                            >
+                                {{ subject.name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="exam-form-group">
+                    <label>Select Paper Marks</label>
+
+                    <div class="exam-marks-options">
+
+                        <label class="exam-mark-option">
+                            <input
+                                type="radio"
+                                name="marks"
+                                value="20"
+                                {% if selected_marks == "20" %}checked{% endif %}
+                                required
+                            >
+                            <span>
+                                <strong>20 Marks</strong>
+                                <small>30 Minutes</small>
+                            </span>
+                        </label>
+
+                        <label class="exam-mark-option">
+                            <input
+                                type="radio"
+                                name="marks"
+                                value="30"
+                                {% if selected_marks == "30" %}checked{% endif %}
+                            >
+                            <span>
+                                <strong>30 Marks</strong>
+                                <small>45 Minutes</small>
+                            </span>
+                        </label>
+
+                        <label class="exam-mark-option">
+                            <input
+                                type="radio"
+                                name="marks"
+                                value="40"
+                                {% if selected_marks == "40" %}checked{% endif %}
+                            >
+                            <span>
+                                <strong>40 Marks</strong>
+                                <small>60 Minutes</small>
+                            </span>
+                        </label>
+
+                    </div>
+                </div>
+
+                <button type="submit" class="start-exam-btn">
+                    Start Paper
+                </button>
+
+            </form>
+
+        </div>
+
+    {% else %}
+
+        <div class="exam-option-card">
+            <p>No subjects available for your class.</p>
+        </div>
+
+    {% endif %}
+
+</div>
+
+<style>
+.exam-dashboard {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.exam-subtitle {
+    color: #64748b;
+    margin-bottom: 25px;
+}
+
+.exam-form-card {
+    padding: 28px;
+    border-radius: 14px;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+}
+
+.exam-form-card h2 {
+    margin-bottom: 8px;
+}
+
+.exam-form-card > p {
+    color: #64748b;
+    margin-bottom: 25px;
+}
+
+.exam-form-group {
+    margin-bottom: 25px;
+}
+
+.exam-form-group > label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.exam-form-group select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 15px;
+    background: #fff;
+}
+
+.exam-marks-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.exam-mark-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.exam-mark-option:has(input:checked) {
+    border-color: #2563eb;
+    background: #eff6ff;
+}
+
+.exam-mark-option span {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.exam-mark-option small {
+    color: #64748b;
+}
+
+.start-exam-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.start-exam-btn:hover {
+    background: #1d4ed8;
+}
+
+.exam-message {
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+
+.exam-message.error {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.exam-message.success {
+    background: #dcfce7;
+    color: #166534;
+}
+
+@media (max-width: 600px) {
+    .exam-form-card {
+        padding: 18px;
+    }
+
+    .exam-marks-options {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+{% endblock %}
