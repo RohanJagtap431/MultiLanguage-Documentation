@@ -558,13 +558,24 @@ button.addEventListener("click", function() {
 
         <h3>HTML Template (home.html):</h3>
 
-        <pre class="code-block"><code>{% load static %}
+<pre class="code-block"><code>{% templatetag openblock %} load static {% templatetag closeblock %}
 
 &lt;h1 id="heading"&gt;Hello Django&lt;/h1&gt;
 
 &lt;button id="myButton"&gt;Click Me&lt;/button&gt;
 
-&lt;script src="{% static 'js/home.js' %}" defer&gt;&lt;/script&gt;</code></pre>
+&lt;script src="{% templatetag openblock %} static 'js/home.js' {% templatetag closeblock %}" defer&gt;&lt;/script&gt;
+</code></pre>
+
+<h3>JavaScript File (home.js):</h3>
+
+<pre class="code-block"><code>const button = document.getElementById("myButton");
+
+const heading = document.getElementById("heading");
+
+button.addEventListener("click", function() {
+    heading.innerText = "JavaScript with Django!";
+});</code></pre>
 
         <h3>JavaScript File (home.js):</h3>
 
@@ -626,7 +637,9 @@ button.addEventListener("click", function() {
             <strong>Mistake 4: Django madhye static tag visarne</strong>
             <p>
                 Django template madhye static file connect
-                karnyasathi {% load static %} ani static tag vapra.
+                karnyasathi
+                <code>{% templatetag openblock %} load static {% templatetag closeblock %}</code>
+                ani static tag vapra.
             </p>
         </div>
 
