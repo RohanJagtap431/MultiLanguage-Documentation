@@ -1,8 +1,10 @@
 # 🌐 MultiLanguage Documentation
 
-**A Multilingual Documentation & Developer Learning Platform**
+**A Multilingual Documentation, Developer Learning & Examination Platform**
 
-MultiLanguage Documentation is a Django-based web application designed to help students and developers learn programming through structured documentation, tutorials, and interactive coding challenges.
+MultiLanguage Documentation is a Django-based web application designed to help students and developers learn programming through structured documentation, interactive coding challenges, and an online examination system.
+
+The platform combines programming tutorials, debugging practice, performance tracking, student examinations, and ranking features in one place.
 
 ## 🔗 Project Links
 
@@ -14,19 +16,21 @@ MultiLanguage Documentation is a Django-based web application designed to help s
 
 ## 🚀 Overview
 
-The platform provides an organized learning environment where users can explore programming documentation, improve their coding knowledge, and practice debugging through interactive challenges.
+MultiLanguage Documentation provides an organized learning environment where students can explore programming documentation, practice debugging, participate in coding challenges, and attempt online examinations.
 
-It combines documentation, user authentication, coding challenges, performance tracking, and player rankings in one platform.
+The platform includes user authentication, documentation management, coding games, performance tracking, examination management, result evaluation, and student rankings.
 
 ## ✨ Features
 
 ### 📚 1. Documentation System
+
 - Structured programming documentation.
 - Organized learning resources and tutorials.
 - Multilingual learning experience.
 - Easy navigation between topics.
 
 ### 👤 2. User Authentication
+
 - User registration and login.
 - Custom user authentication system.
 - User-specific platform access.
@@ -38,13 +42,14 @@ An interactive coding challenge module designed to improve programming and debug
 - Bug Hunter Mode.
 - Mixed Challenge Mode.
 - Multiple programming languages.
-- Easy, Medium and Hard difficulty levels.
+- Easy, Medium, and Hard difficulty levels.
 - 10 questions per challenge.
 - 10-minute countdown timer.
 - Automatic score calculation.
 - Result and performance summary.
 
 ### 🏆 4. Leaderboard & Ranking
+
 - Global player leaderboard.
 - Player XP and ranking system.
 - Games played statistics.
@@ -53,11 +58,53 @@ An interactive coding challenge module designed to improve programming and debug
 - Recent game results.
 
 ### 📊 5. Performance Tracking
+
 - Total XP tracking.
 - Games played.
 - Correct answers.
 - Accuracy calculation.
 - Individual game results.
+
+### 📝 6. Online Examination System
+
+A student examination module for conducting subject-wise programming examinations.
+
+- Class and subject management.
+- Topic-wise question bank.
+- MCQ, short-answer, and long-answer questions.
+- Different examination formats: 20, 30, and 40 marks.
+- Configurable examination duration.
+- Random question paper generation.
+- Online examination submission.
+- Automatic MCQ evaluation.
+- Written answer evaluation with AI assistance.
+- Examination result management.
+- Admin result approval workflow.
+
+### 📄 7. My Examination Results
+
+Students can track their examination history through a dedicated results dashboard.
+
+- Total examinations attempted.
+- Approved results count.
+- Pending approval count.
+- Rejected results count.
+- Subject-wise examination details.
+- Obtained marks and percentage.
+- Examination submission date.
+- Detailed result view.
+
+### 🥇 8. Class Ranking System
+
+A ranking system to compare student examination performance.
+
+- Class overall ranking.
+- Subject-wise ranking.
+- Top 3 student podium.
+- Top 50 student leaderboard.
+- Percentage-based ranking.
+- Equal ranks for students with the same percentage.
+- Ranking based on available examination results.
 
 ---
 
@@ -67,11 +114,14 @@ An interactive coding challenge module designed to improve programming and debug
 |---|---|
 | Python | Backend programming |
 | Django | Web framework |
-| HTML5 | Structure |
+| Django ORM | Database operations |
+| PostgreSQL | Database |
+| SQLite | Local development database |
+| HTML5 | Frontend structure |
 | CSS3 | Styling and responsive UI |
 | JavaScript | Interactive functionality |
 | Django Templates | Dynamic frontend |
-| Database | Data storage through Django ORM |
+| Groq API | AI-assisted written answer evaluation |
 | Git & GitHub | Version control |
 | Render | Deployment |
 
@@ -81,8 +131,14 @@ An interactive coding challenge module designed to improve programming and debug
 MultiLanguage-Documentation/
 │
 ├── accounts/
+│   ├── models.py
+│   ├── views.py
+│   └── urls.py
 │
 ├── config/
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
 │
 ├── documentation/
 │
@@ -92,9 +148,16 @@ MultiLanguage-Documentation/
 │   ├── urls.py
 │   └── admin.py
 │
+├── examination/
+│   ├── models.py
+│   ├── views.py
+│   ├── urls.py
+│   └── admin.py
+│
 ├── templates/
 │
 ├── static/
+│   └── css/
 │
 ├── manage.py
 ├── requirements.txt
@@ -138,19 +201,36 @@ venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 6. Apply Database Migrations
+### 6. Configure Environment Variables
+
+Create a `.env` file in the project root and configure the required environment variables.
+
+Example:
+
+```env
+SECRET_KEY=your-django-secret-key
+DEBUG=True
+GROQ_API_KEY=your-groq-api-key
+GROQ_MODEL=openai/gpt-oss-120b
+```
+
+Configure your database connection if you are using PostgreSQL.
+
+**Important:** Never upload your actual `.env` file, database credentials, or API keys to GitHub.
+
+### 7. Apply Database Migrations
 
 ```bash
 python manage.py migrate
 ```
 
-### 7. Create Superuser
+### 8. Create Superuser
 
 ```bash
 python manage.py createsuperuser
 ```
 
-### 8. Start Development Server
+### 9. Start Development Server
 
 ```bash
 python manage.py runserver
@@ -168,7 +248,10 @@ http://127.0.0.1:8000/
 - Provide an interactive coding learning experience.
 - Improve debugging and problem-solving skills.
 - Track coding performance through XP and rankings.
-- Build a useful learning platform for developers.
+- Conduct online programming examinations.
+- Evaluate student examination performance.
+- Provide subject-wise and overall student rankings.
+- Build a useful learning platform for students and developers.
 
 ## 🔮 Future Enhancements
 
