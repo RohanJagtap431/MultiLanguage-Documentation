@@ -672,9 +672,10 @@ from .models import ClassAccess, Subject, ExamResult
 
 
 from decimal import Decimal
+
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 from .models import ClassAccess, Subject, ExamResult
 
@@ -682,29 +683,29 @@ from .models import ClassAccess, Subject, ExamResult
 @login_required
 def class_ranking(request):
 
-    # 1. Get student's assigned class
-    class_access = (
-        ClassAccess.objects
-        .select_related("academic_class")
-        .filter(
-            student=request.user,
-            academic_class__is_active=True
-        )
-        .first()
-    )
+    # 1. Get selected class ID
+    selected_class_id = request.GET.get("class")
 
-    if not class_access:
+    if not selected_class_id:
         return redirect("examination:class_dashboard")
+
+    # 2. Verify student class access
+    class_access = get_object_or_404(
+        ClassAccess.objects.select_related("academic_class"),
+        student=request.user,
+        academic_class_id=selected_class_id,
+        academic_class__is_active=True
+    )
 
     assigned_class = class_access.academic_class
 
-    # 2. Get active subjects
+    # 3. Get active subjects of selected class
     subjects = Subject.objects.filter(
         academic_class=assigned_class,
         is_active=True
     ).order_by("name")
 
-    # 3. Ranking filters
+    # 4. Read ranking filter
     ranking_type = request.GET.get("type", "overall")
     subject_id = request.GET.get("subject", "")
 
@@ -718,17 +719,16 @@ def class_ranking(request):
     if ranking_type == "subject" and not selected_subject:
         ranking_type = "overall"
 
-    # 4. Get all students in this class
+    # 5. Get students assigned to selected class only
     student_ids = list(
         ClassAccess.objects.filter(
             academic_class=assigned_class
         ).values_list("student_id", flat=True)
     )
 
-    
-    # 5. Get valid submitted results only
-    # Pending + Approved are included.
-    # Rejected + In Progress are excluded.
+    # 6. Get submitted results of selected class
+    # Pending + Approved included
+    # Rejected + In Progress excluded
 
     all_results = (
         ExamResult.objects.filter(
@@ -743,14 +743,13 @@ def class_ranking(request):
         )
     )
 
-
-    # 6. Subject-wise filter
+    # 7. Subject-wise filter
     if ranking_type == "subject":
         all_results = all_results.filter(
             generated_paper__exam__subject=selected_subject
         )
 
-    # 7. Calculate total marks for every student
+    # 8. Calculate total marks for every student
     student_totals = {}
 
     for result in all_results:
@@ -779,7 +778,7 @@ def class_ranking(request):
 
         student_totals[student_id]["tests_count"] += 1
 
-    # 8. Calculate final percentage
+    # 9. Calculate final percentage
     ranking_data = []
 
     for student_id, data in student_totals.items():
@@ -802,7 +801,7 @@ def class_ranking(request):
             "percentage": percentage
         })
 
-    # 9. Sort by highest percentage
+    # 10. Sort highest percentage first
     ranking_data.sort(
         key=lambda item: (
             -item["percentage"],
@@ -810,8 +809,9 @@ def class_ranking(request):
         )
     )
 
-    # 10. Assign ranks
-    # Equal percentages receive equal ranks.
+    # 11. Assign ranks
+    # Equal percentages receive equal ranks
+
     previous_percentage = None
     current_rank = 0
 
@@ -823,7 +823,7 @@ def class_ranking(request):
         item["rank"] = current_rank
         previous_percentage = item["percentage"]
 
-    # 11. Get student details
+    # 12. Get student objects
     User = get_user_model()
 
     ranked_student_ids = [
@@ -835,6 +835,7 @@ def class_ranking(request):
     for item in ranking_data:
 
         student = students.get(item["student_id"])
+
         item["student"] = student
 
         if student:
@@ -848,11 +849,11 @@ def class_ranking(request):
         else:
             item["student_name"] = "Student"
 
-    # 12. Top 3 and Top 50
+    # 13. Top 3 and Top 50
     top_three = ranking_data[:3]
     top_fifty = ranking_data[:50]
 
-    # 13. Template context
+    # 14. Template context
     context = {
         "assigned_class": assigned_class,
         "subjects": subjects,
