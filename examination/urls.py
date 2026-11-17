@@ -1,6 +1,7 @@
 
 from django.urls import path
 from . import views
+from . import mcq_views
 
 app_name = "examination"
 
@@ -24,4 +25,8 @@ urlpatterns = [
         views.result_detail,
         name="result_detail"
     ),
+    
+    path("mcq-test/", mcq_views.mcq_test, name="mcq_test"),
+    path("mcq-test/start/", mcq_views.mcq_test_start, name="mcq_test_start"),
+    path("mcq-test/take/", mcq_views.mcq_test_take, name="mcq_test_take"),
 ]

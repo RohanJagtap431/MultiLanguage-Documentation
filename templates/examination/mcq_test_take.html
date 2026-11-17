@@ -1,0 +1,79 @@
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}MCQ Test | MultiLanguage Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/mcq_test.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="mcq-page">
+
+    <div class="mcq-take-header">
+        <div>
+            <span class="mcq-eyebrow">{{ assigned_class.name }}</span>
+            <h1>{{ subject_name }} MCQ Test</h1>
+        </div>
+        <div class="mcq-timer" id="mcqTimer" data-remaining="{{ remaining_seconds }}">--:--</div>
+    </div>
+
+    <form method="post" action="{% url 'examination:mcq_test_take' %}" id="mcqForm">
+        {% csrf_token %}
+
+        {% for question in questions %}
+        <div class="mcq-question">
+            <p class="mcq-q-title">
+                <span>Q{{ forloop.counter }}.</span> {{ question.question_text }}
+            </p>
+
+            <div class="mcq-options">
+                {% for option in question.options.all %}
+                <label class="mcq-option">
+                    <input type="radio" name="q_{{ question.id }}" value="{{ option.id }}">
+                    <span>{{ option.option_text }}</span>
+                </label>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+
+        <div class="mcq-submit-row">
+            <button type="submit" class="mcq-start-btn">Submit Test</button>
+        </div>
+    </form>
+
+</div>
+
+<script>
+(function () {
+    var timerEl = document.getElementById("mcqTimer");
+    var form = document.getElementById("mcqForm");
+    var left = parseInt(timerEl.dataset.remaining, 10) || 0;
+    var submitted = false;
+
+    function fmt(s) {
+        var m = Math.floor(s / 60);
+        var r = s % 60;
+        return String(m).padStart(2, "0") + ":" + String(r).padStart(2, "0");
+    }
+
+    function tick() {
+        timerEl.textContent = fmt(left);
+
+        if (left <= 0) {
+            if (!submitted) {
+                submitted = true;
+                form.submit();
+            }
+            return;
+        }
+
+        left -= 1;
+        setTimeout(tick, 1000);
+    }
+
+    tick();
+})();
+</script>
+{% endblock %}

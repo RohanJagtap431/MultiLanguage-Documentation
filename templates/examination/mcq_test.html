@@ -1,0 +1,52 @@
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}MCQ Test | MultiLanguage Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/examination.css' %}">
+<link rel="stylesheet" href="{% static 'css/mcq_test.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="mcq-page">
+
+    <a class="mcq-back" href="{% url 'examination:class_dashboard' %}?class={{ assigned_class.id }}">← Back to Examination</a>
+
+    {% if messages %}
+    {% for message in messages %}
+    <div class="mcq-alert {{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+    {% endif %}
+
+    <section class="mcq-hero">
+        <span class="mcq-eyebrow">MCQ TEST</span>
+        <h1>{{ assigned_class.name }}</h1>
+        <p>
+            Subject nivda. Pratyek test madhe <strong>{{ test_questions }}</strong> MCQ prashna
+            ani <strong>{{ test_minutes }} minutes</strong> vel asel.
+        </p>
+    </section>
+
+    <form method="post" action="{% url 'examination:mcq_test_start' %}" class="mcq-form">
+        {% csrf_token %}
+        <input type="hidden" name="class" value="{{ assigned_class.id }}">
+
+        <div class="mcq-subject-grid">
+            {% for subject in subjects %}
+            <label class="mcq-subject-card">
+                <input type="radio" name="subject" value="{{ subject.id }}" required>
+                <span>{{ subject.name }}</span>
+            </label>
+            {% empty %}
+            <p class="mcq-empty">Ya class sathi subject available nahit.</p>
+            {% endfor %}
+        </div>
+
+        {% if subjects %}
+        <button type="submit" class="mcq-start-btn">Start Test</button>
+        {% endif %}
+    </form>
+
+</div>
+{% endblock %}

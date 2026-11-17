@@ -93,6 +93,26 @@
 
         </a>
 
+        <!-- MCQ TEST -->
+        <a href="{% url 'examination:mcq_test' %}?class={{ assigned_class.id }}"
+            class="exam-option-card">
+
+            <div class="option-icon">📝</div>
+
+            <h2>MCQ Test</h2>
+
+            <p>
+                Choose your subject and attempt a quick
+                multiple choice test. Get your score instantly.
+            </p>
+
+            <div class="option-footer">
+                <span>Start Test</span>
+                <span>→</span>
+            </div>
+
+        </a>
+
     </section>
 
     {% else %}

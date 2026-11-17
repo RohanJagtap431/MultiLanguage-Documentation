@@ -1,0 +1,39 @@
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}MCQ Result | MultiLanguage Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/mcq_test.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="mcq-page">
+
+    <section class="mcq-score-card">
+        <span class="mcq-eyebrow">{{ assigned_class.name }} · {{ subject_name }}</span>
+        <h1>{{ score }} / {{ total }}</h1>
+        <p>{{ percentage }}% barobar uttar</p>
+        <div class="mcq-score-actions">
+            <a class="mcq-start-btn" href="{% url 'examination:mcq_test' %}?class={{ assigned_class.id }}">Punha Test</a>
+            <a class="mcq-back-btn" href="{% url 'examination:class_dashboard' %}?class={{ assigned_class.id }}">Dashboard</a>
+        </div>
+    </section>
+
+    <h2 class="mcq-review-title">Uttar Tapasa</h2>
+
+    {% for r in results %}
+    <div class="mcq-review {% if r.is_right %}ok{% else %}bad{% endif %}">
+        <p class="mcq-q-title"><span>Q{{ forloop.counter }}.</span> {{ r.question.question_text }}</p>
+        <p>
+            <strong>Tumcha uttar:</strong>
+            {% if r.chosen %}{{ r.chosen.option_text }}{% else %}<em>Uttar nahi dile</em>{% endif %}
+        </p>
+        {% if not r.is_right %}
+        <p><strong>Barobar uttar:</strong> {{ r.correct.option_text }}</p>
+        {% endif %}
+    </div>
+    {% endfor %}
+
+</div>
+{% endblock %}
