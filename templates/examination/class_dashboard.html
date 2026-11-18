@@ -113,6 +113,26 @@
 
         </a>
 
+        <!-- 1 VS 1 DUEL -->
+        <a href="{% url 'examination:duel_home' %}?class={{ assigned_class.id }}"
+            class="exam-option-card">
+
+            <div class="option-icon">⚔️</div>
+
+            <h2>1 vs 1 Duel</h2>
+
+            <p>
+                Create a room and share the code with your friend.
+                Both of you get the same questions. Highest score wins.
+            </p>
+
+            <div class="option-footer">
+                <span>Create Room</span>
+                <span>→</span>
+            </div>
+
+        </a>
+
     </section>
 
     {% else %}

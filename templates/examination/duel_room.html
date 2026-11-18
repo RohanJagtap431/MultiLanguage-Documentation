@@ -1,0 +1,108 @@
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}Duel {{ room.code }} | MultiLanguage Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/duel.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="duel-page" data-state="{{ state }}" data-code="{{ room.code }}">
+
+        <a class="duel-back" href="{% url 'examination:duel_home' %}?class={{ room.subject.academic_class_id }}">← Back to Duel</a>
+
+    <header class="duel-header">
+        <span class="duel-eyebrow">{{ room.subject.name }} · ROOM {{ room.code }}</span>
+
+        <div class="duel-scoreboard">
+            <div class="duel-player {% if side == 'host' %}me{% endif %}">
+                <span>{{ room.host.name }}{% if side == 'host' %} (you){% endif %}</span>
+                <strong>{{ room.host_score|stringformat:"s" }}</strong>
+            </div>
+
+            <span class="duel-vs">VS</span>
+
+            <div class="duel-player {% if side == 'guest' %}me{% endif %}">
+                {% if room.guest %}
+                <span>{{ room.guest.name }}{% if side == 'guest' %} (you){% endif %}</span>
+                {% else %}
+                <span>Waiting...</span>
+                {% endif %}
+                <strong>{% if state == 'finished' %}{{ room.guest_score }}{% else %}-{% endif %}</strong>
+            </div>
+        </div>
+    </header>
+
+    {% if state == "waiting" %}
+    <section class="duel-card center">
+        <h2>Opponent chi wait</h2>
+        <p class="muted">Ha code mitrala dya:</p>
+        <div class="room-code">{{ room.code }}</div>
+        <p class="muted small">Dusra student join kartach test suru hoil.</p>
+    </section>
+
+    {% elif state == "playing" %}
+    <form method="post" action="{% url 'examination:duel_submit' room.code %}" class="duel-questions">
+        {% csrf_token %}
+        {% for q in questions %}
+        <div class="duel-q">
+            <p><span>Q{{ forloop.counter }}.</span> {{ q.question_text }}</p>
+            {% for opt in q.options.all %}
+            <label class="duel-opt">
+                <input type="radio" name="q_{{ q.id }}" value="{{ opt.id }}">
+                <span>{{ opt.option_text }}</span>
+            </label>
+            {% endfor %}
+        </div>
+        {% endfor %}
+        <button type="submit" class="duel-btn">Submit Answers</button>
+    </form>
+
+    {% elif state == "waiting_opponent" %}
+    <section class="duel-card center">
+        <h2>Submit jhala ✅</h2>
+        <p>Tumcha score: <strong>{{ my_score }} / {{ total }}</strong></p>
+        <p class="muted">Opponent ni submit kelyavar result dakhavla jail.</p>
+    </section>
+
+    {% else %}
+    <section class="duel-card center result">
+        {% if winner == "draw" %}
+        <h2>Barobari! 🤝</h2>
+        {% elif winner == side %}
+        <h2>Tumhi jinkla! 🏆</h2>
+        {% else %}
+        <h2>Ya veles harlat 😅</h2>
+        {% endif %}
+        <p>Tumcha score: <strong>{{ my_score }} / {{ total }}</strong></p>
+        <p>Opponent cha score: <strong>{{ opp_score }} / {{ total }}</strong></p>
+        <a class="duel-btn" href="{% url 'examination:duel_home' %}">Navin duel</a>
+    </section>
+    {% endif %}
+
+</div>
+
+<script>
+(function () {
+    var page = document.querySelector(".duel-page");
+    var state = page.dataset.state;
+    var code = page.dataset.code;
+
+    if (state === "finished") return;
+
+    var url = "{% url 'examination:duel_status' 'CODE' %}".replace("CODE", code);
+
+    setInterval(function () {
+        fetch(url, { headers: { "Accept": "application/json" } })
+            .then(function (r) { return r.json(); })
+            .then(function (d) {
+                if (d.state !== state) {
+                    window.location.reload();
+                }
+            })
+            .catch(function () {});
+    }, 2000);
+})();
+</script>
+{% endblock %}

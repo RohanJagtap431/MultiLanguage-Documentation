@@ -1,0 +1,89 @@
+{% extends "documentation/base.html" %}
+{% load static %}
+
+{% block title %}1 vs 1 Duel | MultiLanguage Documentation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/duel.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="duel-page">
+
+    <a class="duel-back" href="{% url 'examination:class_dashboard' %}?class={{ assigned_class.id }}">← Back to Examination</a>
+
+    <section class="duel-hero">
+        <span class="duel-eyebrow">1 VS 1 DUEL · {{ assigned_class.name }}</span>
+        <h1>Mitra la challenge kara</h1>
+        <p>Room tayar kara, code share kara. Dogana same {{ duel_questions }} prashna milatil.</p>
+    </section>
+
+    {% if messages %}
+    {% for message in messages %}
+    <div class="duel-alert">{{ message }}</div>
+    {% endfor %}
+    {% endif %}
+
+    <div class="duel-grid">
+
+        <form method="post" action="{% url 'examination:duel_create' %}" class="duel-card">
+            {% csrf_token %}
+            <input type="hidden" name="class" value="{{ assigned_class.id }}">
+
+            <h2>Room tayar kara</h2>
+
+            <label class="duel-label" for="subjectSelect">Subject nivda</label>
+            <select id="subjectSelect" name="subject" required class="duel-input">
+                {% for subject in subjects %}
+                <option value="{{ subject.id }}">{{ subject.name }}</option>
+                {% empty %}
+                <option value="">Ya class sathi subject uplabdha nahit</option>
+                {% endfor %}
+            </select>
+
+            <button type="submit" class="duel-btn" {% if not subjects %}disabled{% endif %}>
+                Create Room
+            </button>
+        </form>
+
+        <form method="post" action="{% url 'examination:duel_join' %}" class="duel-card">
+            {% csrf_token %}
+            <input type="hidden" name="class" value="{{ assigned_class.id }}">
+
+            <h2>Room join kara</h2>
+
+            <label class="duel-label" for="codeInput">Room code</label>
+            <input id="codeInput" type="text" name="code" maxlength="6" required
+                   class="duel-input code-input" placeholder="ABC123" autocomplete="off">
+
+            <button type="submit" class="duel-btn">Join Room</button>
+        </form>
+
+    </div>
+
+    {% if rooms %}
+    <section class="duel-card duel-list">
+        <h2>Tumche chalu rooms</h2>
+
+        {% for room in rooms %}
+        <div class="duel-room-row-wrap">
+            <a href="{% url 'examination:duel_room' room.code %}" class="duel-room-row">
+                <span>{{ room.subject.name }}</span>
+                <strong>{{ room.code }}</strong>
+                <em>{{ room.get_status_display }}</em>
+            </a>
+
+            {% if room.host_id == user.id and room.status == "waiting" and not room.guest_id %}
+            <form method="post" action="{% url 'examination:duel_delete' room.code %}"
+                  onsubmit="return confirm('Ha room delete karaych ka?');">
+                {% csrf_token %}
+                <button type="submit" class="duel-delete-btn">Delete</button>
+            </form>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </section>
+    {% endif %}
+
+</div>
+{% endblock %}

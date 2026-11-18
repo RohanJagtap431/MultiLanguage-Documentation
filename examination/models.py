@@ -399,3 +399,48 @@ class ExamResult(models.Model):
             (float(self.marks_obtained) / total) * 100,
             2
         )
+
+class DuelRoom(models.Model):
+    STATUS_CHOICES = [
+        ("waiting", "Waiting for opponent"),
+        ("active", "In progress"),
+        ("finished", "Finished"),
+    ]
+
+    code = models.CharField(max_length=6, unique=True)
+
+    host = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="duel_hosted",
+    )
+    guest = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="duel_joined",
+    )
+
+    subject = models.ForeignKey("Subject", on_delete=models.CASCADE)
+
+    # दोघांसाठी सारखेच प्रश्न (Question ids)
+    question_ids = models.JSONField(default=list)
+
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default="waiting")
+
+    host_score = models.PositiveIntegerField(default=0)
+    guest_score = models.PositiveIntegerField(default=0)
+    host_done = models.BooleanField(default=False)
+    guest_done = models.BooleanField(default=False)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Duel {self.code} ({self.status})"
+
+    def side(self, user):
+        return "host" if user.id == self.host_id else "guest"
+
+    def is_player(self, user):
+        return user.id in (self.host_id, self.guest_id)
