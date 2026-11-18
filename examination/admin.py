@@ -364,3 +364,21 @@ class ExamResultAdmin(admin.ModelAdmin):
     @admin.display(description="Exam")
     def get_exam(self, obj):
         return obj.generated_paper.exam
+
+
+from .models import DuelRoom
+
+
+@admin.register(DuelRoom)
+class DuelRoomAdmin(admin.ModelAdmin):
+    list_display = ("code", "subject", "host", "guest", "status", "host_score", "guest_score", "created_at")
+    list_filter = ("status", "subject__academic_class", "subject")
+    search_fields = ("code", "host__name", "guest__name")
+    readonly_fields = ("code", "question_ids", "created_at")
+    actions = ["delete_selected_rooms"]
+
+    @admin.action(description="Select केलेले duel rooms delete करा")
+    def delete_selected_rooms(self, request, queryset):
+        count = queryset.count()
+        queryset.delete()
+        self.message_user(request, f"{count} room(s) delete झाले.")
