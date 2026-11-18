@@ -4,7 +4,9 @@ from django.http import Http404
 import random
 
 
-
+from datetime import timedelta
+from django.utils import timezone
+from bug_hunter.models import GameSession, PlayerStats
 
 
 CHALLENGES = [
@@ -610,12 +612,54 @@ DAILY_GOALS = [
 ]
 
 
-@login_required(login_url="login")
+def _study_streak(user):
+    """Sagla sagla kiti divas Code Detective game khelle te moijto."""
+    days = {
+        timezone.localtime(s.completed_at).date()
+        for s in GameSession.objects.filter(
+            user=user, status="completed", completed_at__isnull=False
+        ).only("completed_at")
+    }
+
+    today = timezone.localdate()
+    day = today if today in days else today - timedelta(days=1)
+
+    streak = 0
+    while day in days:
+        streak += 1
+        day -= timedelta(days=1)
+
+    return streak
+
+
+def _greeting():
+    hour = timezone.localtime().hour
+    if hour < 12:
+        return "Good morning"
+    if hour < 17:
+        return "Good afternoon"
+    return "Good evening"
+
+
 def home(request):
     challenge = random.choice(CHALLENGES)
     thought = random.choice(THOUGHTS)
     tip = random.choice(LEARNING_TIPS)
     daily_goal = random.choice(DAILY_GOALS)
+
+    stats = None
+    if request.user.is_authenticated:
+        player = PlayerStats.objects.filter(user=request.user).first()
+        answered = player.questions_answered if player else 0
+        correct = player.correct_answers if player else 0
+
+        stats = {
+            "xp": player.total_xp if player else 0,
+            "games": player.games_played if player else 0,
+            "correct": correct,
+            "accuracy": round(correct / answered * 100) if answered else 0,
+            "streak": _study_streak(request.user),
+        }
 
     context = {
         "challenge": challenge,
@@ -625,10 +669,11 @@ def home(request):
         "challenge_count": len(CHALLENGES),
         "thought_count": len(THOUGHTS),
         "tip_count": len(LEARNING_TIPS),
+        "stats": stats,
+        "greeting": _greeting(),
     }
 
     return render(request, "documentation/home.html", context)
-
 
 def python_topic(request, topic):
     allowed_topics = {

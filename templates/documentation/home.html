@@ -1,737 +1,664 @@
 {% extends 'documentation/base.html' %}
 {% load static %}
 
-{% block title %}
-Developer Learning Hub | Rohan Jagtap
-{% endblock %}
+{% block title %}Developer Learning Hub | Rohan Jagtap{% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
 {% endblock %}
 
 {% block content %}
+<div class="dashboard" id="dashboard" data-theme="light">
 
-<div class="dashboard">
+    <div class="scroll-progress" id="scrollProgress"></div>
 
-    <!-- HERO SECTION -->
+    <!-- TOP BAR -->
+    <div class="dash-topbar">
+        <div class="greeting">
+            <span class="pulse-dot"></span>
+            {% if user.is_authenticated %}
+                {{ greeting }}, <strong>{{ user.name|default:"Developer" }}</strong>
+            {% else %}
+                Welcome, <strong>Developer</strong>
+            {% endif %}
+        </div>
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+            <span class="icon-sun">☀</span>
+            <span class="icon-moon">☾</span>
+        </button>
+    </div>
+
+    <!-- HERO -->
     <section class="hero reveal">
 
-        <div class="hero-glow"></div>
-        <div class="hero-orb orb-one"></div>
-        <div class="hero-orb orb-two"></div>
+        <div class="hero-orb orb-a"></div>
+        <div class="hero-orb orb-b"></div>
 
-        <div class="hero-content">
-
-            <div class="hero-kicker">
-                <span class="status-dot"></span>
+        <div class="hero-copy">
+            <span class="eyebrow">
+                <span class="pulse-dot"></span>
                 YOUR PERSONAL DEVELOPER LEARNING SPACE
-            </div>
+            </span>
 
             <h1>
                 Build Skills.
-                <span>Break Limits.</span>
+                <span class="grad-text">Break Limits.</span>
                 Become a Developer.
             </h1>
 
             <p>
                 Coding fakt shikaychi nahi, tar samjun ghyaychi,
-                problems solve karayche ani real-world projects
-                build karayche. Tumcha developer journey ithe suru hoto.
+                problems solve karayche ani real-world projects build karayche.
             </p>
 
             <div class="hero-actions">
-
-                <a href="#daily-challenge" class="primary-btn">
-                    Start Coding <span>↗</span>
+                <a href="#daily-challenge" class="btn btn-primary">
+                    Start Coding <span>→</span>
                 </a>
-
-                <a href="#learning-roadmap" class="secondary-btn">
-                    Explore Roadmap
-                </a>
-
-            </div>
-
-            <div class="hero-trust">
-
-                <div class="avatar-stack">
-                    <span>RJ</span>
-                    <span>Py</span>
-                    <span>DJ</span>
-                </div>
-
-                <p>
-                    Learn with purpose.
-                    <strong>Build with confidence.</strong>
-                </p>
-
-            </div>
-
-        </div>
-
-        <!-- PREMIUM LEARNING SHOWCASE -->
-        <div class="hero-visual hero-showcase">
-
-            <div class="showcase-orbit orbit-a"></div>
-            <div class="showcase-orbit orbit-b"></div>
-
-            <div class="floating-chip chip-top">
-                <span>✦</span>
-                Keep Learning
-            </div>
-
-            <div class="learning-glass-card">
-
-                <div class="glass-card-top">
-                    <span class="glass-icon">🚀</span>
-
-                    <div>
-                        <small>YOUR JOURNEY</small>
-                        <strong>Developer Mode</strong>
-                    </div>
-
-                    <span class="live-pill">● LIVE</span>
-                </div>
-
-                <div class="journey-progress">
-
-                    <div class="progress-heading">
-                        <span>Learning never stops</span>
-                        <strong>∞</strong>
-                    </div>
-
-                    <div class="progress-track">
-                        <span></span>
-                    </div>
-
-                </div>
-
-                <div class="learning-path">
-
-                    <div class="path-item path-active">
-                        <div class="path-icon">🐍</div>
-
-                        <div>
-                            <strong>Python</strong>
-                            <small>Build strong fundamentals</small>
-                        </div>
-
-                        <span class="path-check">✓</span>
-                    </div>
-
-                    <div class="path-item">
-                        <div class="path-icon">⚙️</div>
-
-                        <div>
-                            <strong>Django & DRF</strong>
-                            <small>Build powerful backend APIs</small>
-                        </div>
-
-                        <span class="path-number">02</span>
-                    </div>
-
-                    <div class="path-item">
-                        <div class="path-icon">🗄️</div>
-
-                        <div>
-                            <strong>Database & SQL</strong>
-                            <small>Manage application data</small>
-                        </div>
-
-                        <span class="path-number">03</span>
-                    </div>
-
-                    <div class="path-item">
-                        <div class="path-icon">🚀</div>
-
-                        <div>
-                            <strong>Real Projects</strong>
-                            <small>Turn ideas into products</small>
-                        </div>
-
-                        <span class="path-number">04</span>
-                    </div>
-
-                </div>
-
-                <div class="glass-card-footer">
-                    <span>✦</span>
-                    Every expert was once a beginner.
-                </div>
-
-            </div>
-
-            <div class="floating-chip chip-bottom">
-                <span class="chip-check">✓</span>
-                Progress starts today
-            </div>
-
-            <div class="floating-mini-card mini-card-one">
-                <span>💡</span>
-                <strong>Think</strong>
-            </div>
-
-            <div class="floating-mini-card mini-card-two">
-                <span>🎯</span>
-                <strong>Practice</strong>
-            </div>
-
-        </div>
-
-        <div class="hero-decoration decoration-one"></div>
-        <div class="hero-decoration decoration-two"></div>
-
-    </section>
-
-
-    <!-- QUICK STATS -->
-    <section class="stats-grid reveal">
-
-        <div class="stat-card">
-            <div class="stat-icon blue-icon">⌨</div>
-            <div>
-                <strong>{{ challenge_count }}+</strong>
-                <span>Coding Challenges</span>
+                <a href="#roadmap" class="btn btn-ghost">Explore Roadmap</a>
             </div>
         </div>
 
-        <div class="stat-card">
-            <div class="stat-icon purple-icon">✦</div>
-            <div>
-                <strong>{{ thought_count }}+</strong>
-                <span>Developer Thoughts</span>
-            </div>
-        </div>
-
-        <div class="stat-card">
-            <div class="stat-icon orange-icon">⚡</div>
-            <div>
-                <strong>{{ tip_count }}+</strong>
-                <span>Learning Tips</span>
-            </div>
-        </div>
-
-        <div class="stat-card">
-            <div class="stat-icon green-icon">◎</div>
-            <div>
-                <strong>01</strong>
-                <span>Step Towards Growth</span>
+        <div class="hero-code" aria-hidden="true">
+            <div class="code-window">
+                <div class="code-top">
+                    <span></span><span></span><span></span>
+                    <em>hello.py</em>
+                </div>
+                <pre class="code-body"><code id="typeTarget"></code><b class="caret"></b></pre>
+                <div class="code-output" id="typeOutput"></div>
             </div>
         </div>
 
     </section>
 
-
-    <!-- CREATOR SECTION -->
-    <section class="creator-section reveal">
-
-        <div class="creator-left">
-
-            <div class="creator-avatar">
-                <span>RJ</span>
-                <i></i>
+    <!-- STATS -->
+    <section class="stats reveal">
+        {% if stats %}
+            <div class="stat-card">
+                <span class="stat-label">Total XP</span>
+                <strong data-count="{{ stats.xp }}">0</strong>
             </div>
-
-            <div class="creator-identity">
-
-                <span class="section-eyebrow">
-                    THE PERSON BEHIND THIS PLATFORM
-                </span>
-
-                <h2>Rohan Jagtap</h2>
-
-                <p class="creator-role">
-                    Python & Django Backend Developer
-                </p>
-
-                <div class="creator-social">
-                    <span>Programming</span>
-                    <span>Backend Development</span>
-                    <span>Learning Resources</span>
-                </div>
-
+            <div class="stat-card">
+                <span class="stat-label">Games Played</span>
+                <strong data-count="{{ stats.games }}">0</strong>
             </div>
-
-        </div>
-
-
-        <div class="creator-right">
-
-            <span class="creator-quote-mark">“</span>
-
-            <p>
-                This platform is created to make programming
-                concepts easier to understand through simple
-                explanations, practical examples and structured
-                learning resources.
-            </p>
-
-            <div class="creator-signature">
-                <span>CREATED & CURATED BY</span>
-                <strong>Rohan Jagtap</strong>
+            <div class="stat-card">
+                <span class="stat-label">Accuracy</span>
+                <strong><span data-count="{{ stats.accuracy }}">0</span>%</strong>
             </div>
-
-        </div>
-
+            <div class="stat-card streak">
+                <span class="stat-label">Day Streak 🔥</span>
+                <strong data-count="{{ stats.streak }}">0</strong>
+            </div>
+        {% else %}
+            <div class="stat-card">
+                <span class="stat-label">Coding Challenges</span>
+                <strong><span data-count="{{ challenge_count }}">0</span>+</strong>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Developer Thoughts</span>
+                <strong><span data-count="{{ thought_count }}">0</span>+</strong>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Learning Tips</span>
+                <strong><span data-count="{{ tip_count }}">0</span>+</strong>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Roadmap Steps</span>
+                <strong><span data-count="6">0</span></strong>
+            </div>
+        {% endif %}
     </section>
 
+    <!-- THOUGHT / GOAL / FOCUS TIMER -->
+    <section class="feature-row reveal">
 
-    <!-- THOUGHT AND GOAL -->
-    <section class="feature-grid reveal">
-
-        <article class="thought-card">
-
-            <div class="feature-card-top">
-                <span class="section-eyebrow">✦ DEVELOPER THOUGHT</span>
-                <span class="random-label">RANDOM PICK</span>
+        <article class="card thought-card">
+            <div class="card-head">
+                <span class="card-kicker">DEVELOPER THOUGHT</span>
+                <span class="chip">RANDOM PICK</span>
             </div>
-
-            <div class="quote-symbol">“</div>
-
-            <h2>{{ thought.quote }}</h2>
-
-            <p>{{ thought.description }}</p>
-
-            <div class="thought-author">
-                <span></span>
-                {{ thought.author }}
-            </div>
-
-            <div class="thought-decoration">“</div>
-
+            <blockquote class="thought-quote">“{{ thought.quote }}”</blockquote>
+            <p class="muted">{{ thought.description }}</p>
+            <div class="thought-author">— {{ thought.author }}</div>
         </article>
 
-
-        <article class="goal-card">
-
-            <div class="feature-card-top">
-                <span class="section-eyebrow">TODAY'S FOCUS</span>
-                <span class="goal-symbol">◎</span>
+        <article class="card goal-card">
+            <div class="card-head">
+                <span class="card-kicker">TODAY'S FOCUS</span>
+                <span class="goal-icon">🎯</span>
             </div>
-
-            <div class="goal-illustration">🎯</div>
-
-            <span class="goal-small-title">
-                ONE GOAL. ONE STEP FORWARD.
-            </span>
-
             <h3>Today's Developer Goal</h3>
+            <p class="muted">{{ daily_goal }}</p>
+        </article>
 
-            <p>{{ daily_goal }}</p>
-
-            <div class="goal-bottom">
-                <span class="goal-line"></span>
-                <span>Make today productive.</span>
+        <article class="card pomo-card">
+            <div class="card-head">
+                <span class="card-kicker">FOCUS TIMER</span>
+                <span class="chip" id="pomoLabel">Focus</span>
             </div>
-
+            <div class="pomo-time" id="pomoTime">25:00</div>
+            <div class="pomo-controls">
+                <button type="button" class="btn btn-primary btn-sm" id="pomoStart">Start</button>
+                <button type="button" class="btn btn-ghost btn-sm" id="pomoReset">Reset</button>
+            </div>
+            <p class="muted small">25 minute focus, nantar 5 minute break.</p>
         </article>
 
     </section>
-
 
     <!-- CODING CHALLENGE -->
     <section class="section reveal" id="daily-challenge">
 
-        <div class="section-heading">
-
+        <div class="section-head">
             <div>
-                <span class="section-eyebrow">THINK. CODE. SOLVE.</span>
-
-                <h2>Today's Coding Challenge<span>.</span></h2>
-
-                <p>
-                    Tumchi logic test kara. Adhi swatah solve kara,
-                    mag hint cha use kara.
-                </p>
+                <span class="eyebrow-sm">THINK. CODE. SOLVE.</span>
+                <h2>Today's Coding Challenge</h2>
+                <p class="muted">Adhi swatah solve kara, mag hint ani solution pahaa.</p>
             </div>
-
-            <div class="challenge-live">
-                <span></span>
-                FRESH CHALLENGE
-            </div>
-
+            <button type="button" class="btn btn-ghost btn-sm" onclick="window.location.reload()">
+                ↻ New Challenge
+            </button>
         </div>
 
-
-        <article class="challenge-card">
+        <article class="challenge">
 
             <div class="challenge-main">
 
-                <div class="challenge-meta">
-
-                    <span class="category-tag">
-                        {{ challenge.category }}
-                    </span>
-
-                    <span class="difficulty-tag
-                        {% if challenge.level == 'Easy' %}easy
-                        {% elif challenge.level == 'Medium' %}medium
-                        {% else %}hard{% endif %}">
-                        {{ challenge.level }}
-                    </span>
-
+                <div class="tags">
+                    <span class="tag">{{ challenge.category }}</span>
+                    <span class="tag level-{{ challenge.level|lower }}">{{ challenge.level }}</span>
                 </div>
 
                 <h3>{{ challenge.title }}</h3>
+                <p class="muted">{{ challenge.description }}</p>
 
-                <p class="challenge-description">
-                    {{ challenge.description }}
-                </p>
-
-                <div class="challenge-code">
-
-                    <div class="challenge-code-top">
-                        <span>YOUR EDITOR</span>
-                        <span>CODE PREVIEW</span>
+                <div class="code-block">
+                    <div class="code-block-top">
+                        <span>STARTER CODE</span>
+                        <button type="button" class="copy-btn" id="copyCode">Copy</button>
                     </div>
-
-                    <pre><code>{{ challenge.starter_code }}</code></pre>
-
+                    <pre><code id="starterCode">{{ challenge.starter_code }}</code></pre>
                 </div>
 
-                <div class="hint-card">
-
-                    <div class="hint-icon">💡</div>
-
-                    <div>
-                        <strong>Need a Hint?</strong>
-                        <p>{{ challenge.hint }}</p>
-                    </div>
-
+                <div class="hint-actions">
+                    <button type="button" class="btn btn-ghost btn-sm" id="hintBtn">💡 Show hint</button>
+                    {% if challenge.solution %}
+                    <button type="button" class="btn btn-ghost btn-sm" id="solutionBtn">✔ Show solution</button>
+                    {% endif %}
                 </div>
+
+                <div class="hint-box" id="hintBox" hidden>{{ challenge.hint }}</div>
+
+                {% if challenge.solution %}
+                <div class="solution-box" id="solutionBox" hidden>
+                    <pre><code>{{ challenge.solution }}</code></pre>
+                </div>
+                {% endif %}
 
             </div>
 
-
             <aside class="challenge-side">
-
-                <div class="challenge-side-icon">⌘</div>
-
-                <span class="section-eyebrow">DEVELOPER MODE</span>
-
+                <div class="side-icon">⌘</div>
+                <span class="eyebrow-sm">DEVELOPER MODE</span>
                 <h4>Don't just read code. Understand it.</h4>
-
-                <p>
-                    Problem samjun ghya, swatah logic design kara
-                    ani code execute karun output verify kara.
-                </p>
-
-                <div class="challenge-steps">
-
-                    <div>
-                        <span>01</span>
-                        <p>Understand the problem</p>
-                    </div>
-
-                    <div>
-                        <span>02</span>
-                        <p>Write your own logic</p>
-                    </div>
-
-                    <div>
-                        <span>03</span>
-                        <p>Test and debug</p>
-                    </div>
-
-                </div>
-
-                <div class="challenge-side-note">
-                    <span>↻</span>
-                    Refresh for another challenge
-                </div>
-
+                <ol class="steps">
+                    <li><span>1</span> Understand the problem</li>
+                    <li><span>2</span> Write your own logic</li>
+                    <li><span>3</span> Test and debug</li>
+                </ol>
             </aside>
 
         </article>
 
     </section>
 
-
     <!-- LEARNING TIP -->
     <section class="tip-banner reveal">
-
         <div class="tip-icon">✧</div>
-
-        <div class="tip-content">
-
-            <span class="section-eyebrow">
-                RANDOM LEARNING TIP · {{ tip.category }}
-            </span>
-
+        <div>
+            <span class="eyebrow-sm">LEARNING TIP · {{ tip.category }}</span>
             <h3>{{ tip.title }}</h3>
-
-            <p>{{ tip.description }}</p>
-
+            <p class="muted">{{ tip.description }}</p>
         </div>
-
-        <div class="tip-decoration">TIP</div>
-
     </section>
-
 
     <!-- ROADMAP -->
-    <section class="section reveal" id="learning-roadmap">
+    <section class="section reveal" id="roadmap">
 
-        <div class="section-heading">
-
+        <div class="section-head">
             <div>
-                <span class="section-eyebrow">YOUR DEVELOPER JOURNEY</span>
-
-                <h2>From Beginner to Builder<span>.</span></h2>
-
-                <p>
-                    Strong fundamentals pasun real-world development paryant.
-                </p>
+                <span class="eyebrow-sm">YOUR DEVELOPER JOURNEY</span>
+                <h2>From Beginner to Builder</h2>
+                <p class="muted">Strong fundamentals pasun real-world development paryant.</p>
             </div>
-
         </div>
 
-
-        <div class="roadmap-grid">
-
-            <article class="roadmap-card">
-                <span class="roadmap-number">01</span>
-                <div class="roadmap-icon">📘</div>
-                <h3>Programming Basics</h3>
-                <p>Variables, loops, functions, conditions ani OOP.</p>
-                <span class="roadmap-label">FOUNDATION</span>
-            </article>
-
-            <article class="roadmap-card">
-                <span class="roadmap-number">02</span>
-                <div class="roadmap-icon">🧠</div>
-                <h3>Logic & DSA</h3>
-                <p>Arrays, strings, searching, sorting ani problem solving.</p>
-                <span class="roadmap-label">LOGIC BUILDING</span>
-            </article>
-
-            <article class="roadmap-card">
-                <span class="roadmap-number">03</span>
-                <div class="roadmap-icon">🗄️</div>
-                <h3>Database & SQL</h3>
-                <p>Tables, relationships, joins ani database queries.</p>
-                <span class="roadmap-label">DATA MANAGEMENT</span>
-            </article>
-
-            <article class="roadmap-card">
-                <span class="roadmap-number">04</span>
-                <div class="roadmap-icon">⚙️</div>
-                <h3>Django & DRF</h3>
-                <p>Models, views, authentication ani REST APIs.</p>
-                <span class="roadmap-label">BACKEND DEVELOPMENT</span>
-            </article>
-
-            <article class="roadmap-card">
-                <span class="roadmap-number">05</span>
-                <div class="roadmap-icon">🚀</div>
-                <h3>Real-World Projects</h3>
-                <p>Practical applications build kara ani testing kara.</p>
-                <span class="roadmap-label">IMPLEMENTATION</span>
-            </article>
-
-            <article class="roadmap-card">
-                <span class="roadmap-number">06</span>
-                <div class="roadmap-icon">🌐</div>
-                <h3>Deployment</h3>
-                <p>GitHub, environment variables ani live hosting.</p>
-                <span class="roadmap-label">CAREER READY</span>
-            </article>
-
+        <div class="timeline">
+            <div class="timeline-step">
+                <span class="step-num">01</span>
+                <div class="step-card">
+                    <span class="step-icon">📘</span>
+                    <h3>Programming Basics</h3>
+                    <p class="muted">Variables, loops, functions, conditions ani OOP.</p>
+                    <span class="chip">FOUNDATION</span>
+                </div>
+            </div>
+            <div class="timeline-step">
+                <span class="step-num">02</span>
+                <div class="step-card">
+                    <span class="step-icon">🧠</span>
+                    <h3>Logic &amp; DSA</h3>
+                    <p class="muted">Arrays, strings, searching, sorting ani problem solving.</p>
+                    <span class="chip">LOGIC</span>
+                </div>
+            </div>
+            <div class="timeline-step">
+                <span class="step-num">03</span>
+                <div class="step-card">
+                    <span class="step-icon">🗄️</span>
+                    <h3>Database &amp; SQL</h3>
+                    <p class="muted">Tables, relationships, joins ani queries.</p>
+                    <span class="chip">DATA</span>
+                </div>
+            </div>
+            <div class="timeline-step">
+                <span class="step-num">04</span>
+                <div class="step-card">
+                    <span class="step-icon">⚙️</span>
+                    <h3>Django &amp; DRF</h3>
+                    <p class="muted">Models, views, authentication ani REST APIs.</p>
+                    <span class="chip">BACKEND</span>
+                </div>
+            </div>
+            <div class="timeline-step">
+                <span class="step-num">05</span>
+                <div class="step-card">
+                    <span class="step-icon">🚀</span>
+                    <h3>Real-World Projects</h3>
+                    <p class="muted">Practical applications build kara ani testing kara.</p>
+                    <span class="chip">BUILD</span>
+                </div>
+            </div>
+            <div class="timeline-step">
+                <span class="step-num">06</span>
+                <div class="step-card">
+                    <span class="step-icon">🌐</span>
+                    <h3>Deployment</h3>
+                    <p class="muted">GitHub, environment variables ani live hosting.</p>
+                    <span class="chip">CAREER</span>
+                </div>
+            </div>
         </div>
 
     </section>
 
-
-    <!-- DAILY ROUTINE -->
+    <!-- DAILY ROUTINE (proportional bar) -->
     <section class="section reveal">
 
-        <div class="section-heading">
-
+        <div class="section-head">
             <div>
-                <span class="section-eyebrow">STAY CONSISTENT</span>
-                <h2>Your Daily Developer Routine<span>.</span></h2>
-                <p>Sample schedule. Tumchya velanusaar adjust kara.</p>
+                <span class="eyebrow-sm">STAY CONSISTENT</span>
+                <h2>Your Daily Routine</h2>
+                <p class="muted">Sample schedule. Tumchya velanusaar adjust kara. Total: 3 hours 30 minutes.</p>
             </div>
-
         </div>
 
+        <div class="routine-bar">
+            <div class="seg seg-1" style="flex:30" title="Revision · 30 min"></div>
+            <div class="seg seg-2" style="flex:60" title="Learning · 60 min"></div>
+            <div class="seg seg-3" style="flex:60" title="Practice · 60 min"></div>
+            <div class="seg seg-4" style="flex:30" title="Problem Solving · 30 min"></div>
+            <div class="seg seg-5" style="flex:30" title="Project Work · 30 min"></div>
+        </div>
 
-        <div class="routine-grid">
-
-            <article class="routine-card">
-                <span class="routine-time">30 MIN</span>
-                <div class="routine-icon">📖</div>
-                <h3>Revision</h3>
-                <p>Previous concepts revise kara.</p>
-            </article>
-
-            <article class="routine-card">
-                <span class="routine-time">60 MIN</span>
-                <div class="routine-icon">💡</div>
-                <h3>Learning</h3>
-                <p>Ek navin concept samjun ghya.</p>
-            </article>
-
-            <article class="routine-card">
-                <span class="routine-time">60 MIN</span>
-                <div class="routine-icon">⌨️</div>
-                <h3>Practice</h3>
-                <p>Code swatah lihun run kara.</p>
-            </article>
-
-            <article class="routine-card">
-                <span class="routine-time">30 MIN</span>
-                <div class="routine-icon">🧩</div>
-                <h3>Problem Solving</h3>
-                <p>Questions solve karanyacha sarav kara.</p>
-            </article>
-
-            <article class="routine-card">
-                <span class="routine-time">30 MIN</span>
-                <div class="routine-icon">🚀</div>
-                <h3>Project Work</h3>
-                <p>Project madhye ek feature complete kara.</p>
-            </article>
-
+        <div class="routine-list">
+            <div class="routine-item"><span class="dot d1"></span><strong>30 min</strong> Revision: previous concepts revise kara.</div>
+            <div class="routine-item"><span class="dot d2"></span><strong>60 min</strong> Learning: ek navin concept samjun ghya.</div>
+            <div class="routine-item"><span class="dot d3"></span><strong>60 min</strong> Practice: code swatah lihun run kara.</div>
+            <div class="routine-item"><span class="dot d4"></span><strong>30 min</strong> Problem Solving: questions solve kara.</div>
+            <div class="routine-item"><span class="dot d5"></span><strong>30 min</strong> Project Work: ek feature complete kara.</div>
         </div>
 
     </section>
 
-
-    <!-- DEVELOPER HABITS -->
+    <!-- HABIT TRACKER -->
     <section class="section reveal">
 
-        <div class="section-heading">
-
+        <div class="section-head">
             <div>
-                <span class="section-eyebrow">BEYOND WRITING CODE</span>
-                <h2>Habits of a Good Developer<span>.</span></h2>
-                <p>
-                    Technical skills sobat professional habits suddha develop kara.
-                </p>
+                <span class="eyebrow-sm">BEYOND WRITING CODE</span>
+                <h2>Habits of a Good Developer</h2>
+                <p class="muted">Aaj kiti habits pales te tick kara. Ti browser madhe save hotat.</p>
             </div>
-
+            <div class="habit-progress">
+                <span id="habitCount">0 / 6</span>
+                <div class="habit-bar"><span id="habitBar"></span></div>
+            </div>
         </div>
-
 
         <div class="habits-grid">
-
-            <article class="habit-card">
-                <span class="habit-number">01</span>
-                <div class="habit-icon">✍️</div>
-                <h3>Clean Code</h3>
-                <p>Readable code ani meaningful variable names vapra.</p>
-            </article>
-
-            <article class="habit-card">
-                <span class="habit-number">02</span>
-                <div class="habit-icon">🐙</div>
-                <h3>Git & GitHub</h3>
-                <p>Changes track kara ani projects properly maintain kara.</p>
-            </article>
-
-            <article class="habit-card">
-                <span class="habit-number">03</span>
-                <div class="habit-icon">📚</div>
-                <h3>Documentation</h3>
-                <p>Official documentation vachnyachi savay lava.</p>
-            </article>
-
-            <article class="habit-card">
-                <span class="habit-number">04</span>
-                <div class="habit-icon">🧪</div>
-                <h3>Testing</h3>
-                <p>Normal inputs sobat edge cases suddha test kara.</p>
-            </article>
-
-            <article class="habit-card">
-                <span class="habit-number">05</span>
-                <div class="habit-icon">🔍</div>
-                <h3>Debugging</h3>
-                <p>Error cha root cause shodha. Andazane changes karu naka.</p>
-            </article>
-
-            <article class="habit-card">
-                <span class="habit-number">06</span>
-                <div class="habit-icon">🏗️</div>
-                <h3>Complete Projects</h3>
-                <p>Projects complete kara, test kara ani deploy kara.</p>
-            </article>
-
+            <label class="habit-card">
+                <input type="checkbox" data-habit="0">
+                <span class="habit-check"></span>
+                <div>
+                    <h3>Clean Code</h3>
+                    <p class="muted">Readable code ani meaningful variable names vapra.</p>
+                </div>
+            </label>
+            <label class="habit-card">
+                <input type="checkbox" data-habit="1">
+                <span class="habit-check"></span>
+                <div>
+                    <h3>Git &amp; GitHub</h3>
+                    <p class="muted">Changes track kara ani projects maintain kara.</p>
+                </div>
+            </label>
+            <label class="habit-card">
+                <input type="checkbox" data-habit="2">
+                <span class="habit-check"></span>
+                <div>
+                    <h3>Documentation</h3>
+                    <p class="muted">Official documentation vachnyachi savay lava.</p>
+                </div>
+            </label>
+            <label class="habit-card">
+                <input type="checkbox" data-habit="3">
+                <span class="habit-check"></span>
+                <div>
+                    <h3>Testing</h3>
+                    <p class="muted">Normal inputs sobat edge cases suddha test kara.</p>
+                </div>
+            </label>
+            <label class="habit-card">
+                <input type="checkbox" data-habit="4">
+                <span class="habit-check"></span>
+                <div>
+                    <h3>Debugging</h3>
+                    <p class="muted">Error cha root cause shodha. Andazane changes karu naka.</p>
+                </div>
+            </label>
+            <label class="habit-card">
+                <input type="checkbox" data-habit="5">
+                <span class="habit-check"></span>
+                <div>
+                    <h3>Complete Projects</h3>
+                    <p class="muted">Projects complete kara, test kara ani deploy kara.</p>
+                </div>
+            </label>
         </div>
 
     </section>
 
-
-
-
+    <!-- CREATOR -->
+    <section class="creator reveal">
+        <div class="creator-avatar">RJ</div>
+        <div class="creator-text">
+            <span class="eyebrow-sm">THE PERSON BEHIND THIS PLATFORM</span>
+            <h2>Rohan Jagtap</h2>
+            <p class="muted role">Python &amp; Django Backend Developer</p>
+            <p class="muted">
+                This platform is created to make programming concepts easier to understand
+                through simple explanations, practical examples and structured learning resources.
+            </p>
+            <div class="tags">
+                <span class="tag">Programming</span>
+                <span class="tag">Backend Development</span>
+                <span class="tag">Learning Resources</span>
+            </div>
+        </div>
+    </section>
 
     <!-- FINAL CTA -->
     <section class="final-cta reveal">
-
-        <div class="cta-glow"></div>
-
-        <span class="section-eyebrow">
-            YOUR NEXT CHAPTER STARTS NOW
-        </span>
-
-        <h2>
-            Stop Waiting.
-            <span>Start Building.</span>
-        </h2>
-
-        <p>
-            Ek concept shika. Ek problem solve kara.
-            Ek project build kara. Tumcha progress tumchya
-            daily actions madhun tayar hoto.
-        </p>
-
+        <span class="eyebrow-sm">YOUR NEXT CHAPTER STARTS NOW</span>
+        <h2>Stop Waiting. <span class="grad-text">Start Building.</span></h2>
+        <p class="muted">Ek concept shika. Ek problem solve kara. Ek project build kara.</p>
         <div class="final-flow">
-            <span>LEARN</span>
-            <b>→</b>
-            <span>PRACTICE</span>
-            <b>→</b>
-            <span>BUILD</span>
-            <b>→</b>
-            <span>GROW</span>
+            <span>LEARN</span><b>→</b><span>PRACTICE</span><b>→</b><span>BUILD</span><b>→</b><span>GROW</span>
         </div>
-
     </section>
-
-
 
 </div>
 
-
-<!-- SCROLL REVEAL ANIMATION -->
 <script>
-document.addEventListener("DOMContentLoaded", function () {
+(function () {
+    var dash = document.getElementById("dashboard");
+    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    const items = document.querySelectorAll(".dashboard .reveal");
-
-    if (!("IntersectionObserver" in window)) {
-        items.forEach(item => item.classList.add("is-visible"));
-        return;
+    /* ---------- Theme toggle (saved in browser) ---------- */
+    function applyTheme(theme) {
+        dash.setAttribute("data-theme", theme);
     }
 
-    const observer = new IntersectionObserver((entries, obs) => {
+    try {
+        applyTheme(localStorage.getItem("dash-theme") || "light");
+    } catch (e) {
+        applyTheme("light");
+    }
 
-        entries.forEach(entry => {
-
-            if (entry.isIntersecting) {
-                entry.target.classList.add("is-visible");
-                obs.unobserve(entry.target);
-            }
-
-        });
-
-    }, {
-        threshold: 0.12,
-        rootMargin: "0px 0px -35px 0px"
+    document.getElementById("themeToggle").addEventListener("click", function () {
+        var next = dash.getAttribute("data-theme") === "dark" ? "light" : "dark";
+        applyTheme(next);
+        try { localStorage.setItem("dash-theme", next); } catch (e) {}
     });
 
-    items.forEach(item => observer.observe(item));
+    /* ---------- Scroll progress bar ---------- */
+    var bar = document.getElementById("scrollProgress");
+    window.addEventListener("scroll", function () {
+        var h = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.width = h > 0 ? (window.scrollY / h) * 100 + "%" : "0%";
+    }, { passive: true });
 
-});
+    /* ---------- Scroll reveal ---------- */
+    var revealItems = document.querySelectorAll(".dashboard .reveal");
+    if ("IntersectionObserver" in window && !reduceMotion) {
+        var io = new IntersectionObserver(function (entries, obs) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+        revealItems.forEach(function (el) { io.observe(el); });
+    } else {
+        revealItems.forEach(function (el) { el.classList.add("is-visible"); });
+    }
+
+    /* ---------- Animated counters ---------- */
+    function animateCount(el) {
+        var target = parseInt(el.dataset.count, 10) || 0;
+        if (reduceMotion || target === 0) { el.textContent = target; return; }
+        var start = null, duration = 1100;
+        function step(ts) {
+            if (!start) start = ts;
+            var p = Math.min((ts - start) / duration, 1);
+            el.textContent = Math.floor(p * target);
+            if (p < 1) requestAnimationFrame(step);
+            else el.textContent = target;
+        }
+        requestAnimationFrame(step);
+    }
+
+    var counters = document.querySelectorAll(".dashboard [data-count]");
+    if ("IntersectionObserver" in window) {
+        var cio = new IntersectionObserver(function (entries, obs) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    animateCount(entry.target);
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        counters.forEach(function (el) { cio.observe(el); });
+    } else {
+        counters.forEach(animateCount);
+    }
+
+    /* ---------- Typewriter code in hero ---------- */
+    var codeText = 'def greet(name):\n    return f"Hello, {name}!"\n\nprint(greet("Developer"))';
+    var outText = "Hello, Developer!";
+    var typeTarget = document.getElementById("typeTarget");
+    var typeOutput = document.getElementById("typeOutput");
+
+    function typeLoop() {
+        var i = 0;
+        typeTarget.textContent = "";
+        typeOutput.textContent = "";
+
+        function typeCode() {
+            typeTarget.textContent = codeText.slice(0, i);
+            i++;
+            if (i <= codeText.length) {
+                setTimeout(typeCode, 32);
+            } else {
+                setTimeout(showOutput, 400);
+            }
+        }
+
+        function showOutput() {
+            var j = 0;
+            (function typeOut() {
+                typeOutput.textContent = "> " + outText.slice(0, j);
+                j++;
+                if (j <= outText.length) {
+                    setTimeout(typeOut, 45);
+                } else {
+                    setTimeout(typeLoop, 3500);
+                }
+            })();
+        }
+
+        typeCode();
+    }
+
+    if (reduceMotion) {
+        typeTarget.textContent = codeText;
+        typeOutput.textContent = "> " + outText;
+    } else {
+        typeLoop();
+    }
+
+    /* ---------- Pomodoro timer ---------- */
+    var pomoTime = document.getElementById("pomoTime");
+    var pomoLabel = document.getElementById("pomoLabel");
+    var pomoStart = document.getElementById("pomoStart");
+    var pomoReset = document.getElementById("pomoReset");
+    var pomoTimer = null;
+    var pomoSecs = 25 * 60;
+    var onBreak = false;
+
+    function renderPomo() {
+        var m = String(Math.floor(pomoSecs / 60)).padStart(2, "0");
+        var s = String(pomoSecs % 60).padStart(2, "0");
+        pomoTime.textContent = m + ":" + s;
+    }
+
+    pomoStart.addEventListener("click", function () {
+        if (pomoTimer) {
+            clearInterval(pomoTimer);
+            pomoTimer = null;
+            pomoStart.textContent = "Start";
+            return;
+        }
+        pomoStart.textContent = "Pause";
+        pomoTimer = setInterval(function () {
+            pomoSecs -= 1;
+            renderPomo();
+            if (pomoSecs <= 0) {
+                clearInterval(pomoTimer);
+                pomoTimer = null;
+                onBreak = !onBreak;
+                pomoSecs = onBreak ? 5 * 60 : 25 * 60;
+                pomoLabel.textContent = onBreak ? "Break" : "Focus";
+                pomoStart.textContent = "Start";
+                renderPomo();
+            }
+        }, 1000);
+    });
+
+    pomoReset.addEventListener("click", function () {
+        clearInterval(pomoTimer);
+        pomoTimer = null;
+        onBreak = false;
+        pomoSecs = 25 * 60;
+        pomoLabel.textContent = "Focus";
+        pomoStart.textContent = "Start";
+        renderPomo();
+    });
+
+    /* ---------- Challenge: hint, solution, copy ---------- */
+    function toggleBox(btnId, boxId, showText, hideText) {
+        var btn = document.getElementById(btnId);
+        var box = document.getElementById(boxId);
+        if (!btn || !box) return;
+        btn.addEventListener("click", function () {
+            box.hidden = !box.hidden;
+            btn.textContent = box.hidden ? showText : hideText;
+        });
+    }
+
+    toggleBox("hintBtn", "hintBox", "💡 Show hint", "💡 Hide hint");
+    toggleBox("solutionBtn", "solutionBox", "✔ Show solution", "✖ Hide solution");
+
+    var copyBtn = document.getElementById("copyCode");
+    if (copyBtn) {
+        copyBtn.addEventListener("click", function () {
+            var text = document.getElementById("starterCode").textContent;
+            function done() {
+                copyBtn.textContent = "Copied!";
+                setTimeout(function () { copyBtn.textContent = "Copy"; }, 1500);
+            }
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(done);
+            } else {
+                var ta = document.createElement("textarea");
+                ta.value = text;
+                document.body.appendChild(ta);
+                ta.select();
+                document.execCommand("copy");
+                document.body.removeChild(ta);
+                done();
+            }
+        });
+    }
+
+    /* ---------- Habit tracker (saved per day) ---------- */
+    var habitKey = "dash-habits-" + new Date().toISOString().slice(0, 10);
+    var boxes = document.querySelectorAll("[data-habit]");
+    var habitCount = document.getElementById("habitCount");
+    var habitBar = document.getElementById("habitBar");
+
+    function loadHabits() {
+        try {
+            return JSON.parse(localStorage.getItem(habitKey)) || [];
+        } catch (e) {
+            return [];
+        }
+    }
+
+    function updateHabitProgress() {
+        var done = 0;
+        boxes.forEach(function (b) { if (b.checked) done++; });
+        habitCount.textContent = done + " / " + boxes.length;
+        habitBar.style.width = (done / boxes.length) * 100 + "%";
+    }
+
+    var saved = loadHabits();
+    boxes.forEach(function (b) {
+        b.checked = !!saved[b.dataset.habit];
+        b.addEventListener("change", function () {
+            var state = [];
+            boxes.forEach(function (x) { state[x.dataset.habit] = x.checked; });
+            try { localStorage.setItem(habitKey, JSON.stringify(state)); } catch (e) {}
+            updateHabitProgress();
+        });
+    });
+    updateHabitProgress();
+
+})();
 </script>
 
 {% endblock %}
